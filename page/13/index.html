@@ -1,0 +1,913 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 13 页 | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header page-header-inverse ">
+  <h1 class="title title-inverse ">life&#39;s a struggle.</h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      undefined
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-28 </div>
+			<div class="article-title"><a href="/2015/09/28/mysql-数据库备份恢复/" >mysql-数据库备份恢复</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="备份恢复指定表"><a href="#备份恢复指定表" class="headerlink" title="备份恢复指定表"></a>备份恢复指定表</h1><pre><code>mysqldump -uwallace -pwallace stock_app t_banner_100 &gt;stock_app.t_banner_100
+
+mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/09/28/mysql-数据库备份恢复/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-25 </div>
+			<div class="article-title"><a href="/2015/09/25/go-database/" >go-database</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>go</code>官方没有直接提供数据库驱动,而是定义了一些标准接口(<code>database/sql</code>)</p>
+</li>
+<li><p>第三方驱动通过包初始化函数<code>init()</code>调用<code>sql.Register(name string, driver driver.Driver)</code>完成注册</p>
+</li>
+</ul>
+<h2 id="重要类型"><a href="#重要类型" class="headerlink" title="重要类型"></a>重要类型</h2><h2 id="driver-Conn"><a href="#driver-Conn" class="headerlink" title="driver.Conn"></a><code>driver.Conn</code></h2><p>Conn是一个数据库连接的接口定义，他定义了一系列方法，这个Conn只能应用在一个goroutine里面，不能使用在多个goroutine里面</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Conn <span class="keyword">interface</span> &#123;</span><br><span class="line">    Prepare(query <span class="keyword">string</span>) (Stmt, error)</span><br><span class="line">    Close() error</span><br><span class="line">    Begin() (Tx, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Prepare函数返回与当前连接相关的执行Sql语句的准备状态，可以进行查询、删除等操作。</p>
+</li>
+<li><p>Close函数关闭当前的连接，执行释放连接拥有的资源等清理工作.</p>
+</li>
+<li><p>Begin函数返回一个代表事务处理的Tx，通过它你可以进行查询,更新等操作，或者对事务进行回滚、递交。</p>
+</li>
+</ul>
+<h2 id="driver-Stmt"><a href="#driver-Stmt" class="headerlink" title="driver.Stmt"></a><code>driver.Stmt</code></h2><p>Stmt是一种准备好的状态，和Conn相关联，而且只能应用于一个goroutine中，不能应用于多个goroutine</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Stmt <span class="keyword">interface</span> &#123;</span><br><span class="line">    Close() error</span><br><span class="line">    NumInput() <span class="keyword">int</span></span><br><span class="line">    Exec(args []Value) (Result, error)</span><br><span class="line">    Query(args []Value) (Rows, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Close函数关闭当前的链接状态，但是如果当前正在执行query，query还是有效返回rows数据</p>
+</li>
+<li><p>NumInput函数返回当前预留参数的个数，当返回&gt;=0时数据库驱动就会智能检查调用者的参数。当数据库驱动包不知道预留参数的时候，返回-1</p>
+</li>
+<li><p>Exec函数执行Prepare准备好的sql，传入参数执行update/insert等操作，返回Result数据</p>
+</li>
+<li><p>Query函数执行Prepare准备好的sql，传入需要的参数执行select操作，返回Rows结果集</p>
+</li>
+</ul>
+<h2 id="driver-Tx"><a href="#driver-Tx" class="headerlink" title="driver.Tx"></a><code>driver.Tx</code></h2><p>事务处理一般就两个过程，递交或者回滚</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Tx <span class="keyword">interface</span> &#123;</span><br><span class="line">    Commit() error</span><br><span class="line">    Rollback() error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="driver-Execer"><a href="#driver-Execer" class="headerlink" title="driver.Execer"></a><code>driver.Execer</code></h2><p>这是一个Conn可选择实现的接口</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Execer <span class="keyword">interface</span> &#123;</span><br><span class="line">    Exec(query <span class="keyword">string</span>, args []Value) (Result, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果这个接口没有定义，那么在调用DB.Exec,就会首先调用Prepare返回Stmt，然后执行Stmt的Exec，然后关闭Stmt。</p>
+<h2 id="driver-Result"><a href="#driver-Result" class="headerlink" title="driver.Result"></a><code>driver.Result</code></h2><p>这个是执行Update/Insert等操作返回的结果接口定义</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Result <span class="keyword">interface</span> &#123;</span><br><span class="line">    LastInsertId() (<span class="keyword">int64</span>, error)</span><br><span class="line">    RowsAffected() (<span class="keyword">int64</span>, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>LastInsertId函数返回由数据库执行插入操作得到的自增ID号。</p>
+</li>
+<li><p>RowsAffected函数返回query操作影响的数据条目数。</p>
+</li>
+</ul>
+<h2 id="driver-Rows"><a href="#driver-Rows" class="headerlink" title="driver.Rows"></a><code>driver.Rows</code></h2><p>Rows是执行查询返回的结果集接口定义</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Rows <span class="keyword">interface</span> &#123;</span><br><span class="line">    Columns() []<span class="keyword">string</span></span><br><span class="line">    Close() error</span><br><span class="line">    Next(dest []Value) error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Columns函数返回查询数据库表的字段信息，这个返回的slice和sql查询的字段一一对应，而不是返回整个表的所有字段。</p>
+</li>
+<li><p>Close函数用来关闭Rows迭代器。</p>
+</li>
+<li><p>Next函数用来返回下一条数据，把数据赋值给dest。dest里面的元素必须是driver.Value的值除了string，返回的数据里面所有的string都必须要转换成[]byte。如果最后没数据了，Next函数最后返回io.EOF。</p>
+</li>
+</ul>
+<h2 id="driver-RowsAffected"><a href="#driver-RowsAffected" class="headerlink" title="driver.RowsAffected"></a><code>driver.RowsAffected</code></h2><p>RowsAffected其实就是一个int64的别名，但是他实现了Result接口，用来底层实现Result的表示方式</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> RowsAffected <span class="keyword">int64</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (RowsAffected) LastInsertId() (<span class="keyword">int64</span>, error)</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (v RowsAffected) RowsAffected() (<span class="keyword">int64</span>, error)</span><br></pre></td></tr></table></figure>
+<h2 id="driver-Value"><a href="#driver-Value" class="headerlink" title="driver.Value"></a><code>driver.Value</code></h2><p>Value其实就是一个空接口，他可以容纳任何的数据</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Value <span class="keyword">interface</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>drive的Value是驱动必须能够操作的Value，Value要么是nil，要么是下面的任意一种</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int64</span></span><br><span class="line"><span class="keyword">float64</span></span><br><span class="line"><span class="keyword">bool</span></span><br><span class="line">[]<span class="keyword">byte</span></span><br><span class="line"><span class="keyword">string</span>   [*]除了Rows.Next返回的不能是<span class="keyword">string</span>.</span><br><span class="line">time.Time</span><br></pre></td></tr></table></figure>
+<h2 id="driver-ValueConverter"><a href="#driver-ValueConverter" class="headerlink" title="driver.ValueConverter"></a><code>driver.ValueConverter</code></h2><p>ValueConverter接口定义了如何把一个普通的值转化成driver.Value的接口</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ValueConverter <span class="keyword">interface</span> &#123;</span><br><span class="line">    ConvertValue(v <span class="keyword">interface</span>&#123;&#125;) (Value, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在开发的数据库驱动包里面实现这个接口的函数在很多地方会使用到，这个ValueConverter有很多好处：</p>
+<ul>
+<li>转化driver.value到数据库表相应的字段，例如int64的数据如何转化成数据库表uint16字段</li>
+<li>把数据库查询结果转化成driver.Value值</li>
+<li>在scan函数里面如何把driver.Value值转化成用户定义的值</li>
+</ul>
+<h2 id="driver-Valuer"><a href="#driver-Valuer" class="headerlink" title="driver.Valuer"></a><code>driver.Valuer</code></h2><p>Valuer接口定义了返回一个driver.Value的方式</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Valuer <span class="keyword">interface</span> &#123;</span><br><span class="line">    Value() (Value, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很多类型都实现了这个Value方法，用来自身与driver.Value的转化。</p>
+<h1 id="使用相关"><a href="#使用相关" class="headerlink" title="使用相关"></a>使用相关</h1><h2 id="sql-Stmt"><a href="#sql-Stmt" class="headerlink" title="sql.Stmt"></a><code>sql.Stmt</code></h2><p><code>sql.DB.Prepare</code>返回的语句操作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(s *Stmt) Exec(args ...<span class="keyword">interface</span>&#123;&#125;) (Result, error) <span class="comment">// 带参数执行prepare语句(insert, update...)</span></span><br><span class="line">(s *Stmt) Query(args ...<span class="keyword">interface</span>&#123;&#125;) (*Rows, error) <span class="comment">// 带参数执行select语句, 返回结果集</span></span><br><span class="line">(s *Stmt) QueryRow(args ...<span class="keyword">interface</span>&#123;&#125;) *Row <span class="comment">// 带参数执行select语句,通过scan获取单行结果!(函数糖)</span></span><br><span class="line">(s *Stmt) Close() error <span class="comment">// 释放资源</span></span><br></pre></td></tr></table></figure>
+<h2 id="sql-Row"><a href="#sql-Row" class="headerlink" title="sql.Row"></a><code>sql.Row</code></h2><p><code>QueryRow返回</code>,结合<code>scan</code>用来获取单行查询结果</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/05.1.md" target="_blank" rel="external">go web编程</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/25/go-database/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-24 </div>
+			<div class="article-title"><a href="/2015/09/24/app后台-升级经验/" >app后台-升级经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>使用<code>git-flow</code>开发</p>
+</li>
+<li><p>文档化<strong>升级步骤</strong></p>
+</li>
+<li><p>每个新版本开发时,用<strong>升级文档</strong>记录下,涉及到的数据库更新,配置文件更新,部署环境更新等操作</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/24/app后台-升级经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-24 </div>
+			<div class="article-title"><a href="/2015/09/24/go-error/" >go-error</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>error</code>是一个预定义的<code>interface</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> error <span class="keyword">interface</span> &#123;</span><br><span class="line">    Error() <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最常用的一个实现是<code>errors</code>中的<code>errorString</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">errors.New(<span class="string">"error message"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>fmt</code>包中,通过反射得知是<code>error</code>类型时,则调用<code>error() string</code>方法</p>
+</li>
+<li><p>在<code>fmt</code>包中,提供了<code>Errorf(format string, a ...interface{}) error</code>来方便错误信息输出</p>
+</li>
+<li><p>在精细化的情况下(调用者需要知道错误(该错误是重新定义的的,包含其他信息)的详细信息,不只是错误字符串),<br>这时可以通过<strong>类型断言</strong>来单独处理指定错误</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> err := dec.Decode(&amp;val); err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> serr, ok := err.(*json.SyntaxError); ok &#123;</span><br><span class="line">        line, col := findLine(f, serr.Offset)</span><br><span class="line">        <span class="keyword">return</span> fmt.Errorf(<span class="string">"%s:%d:%d: %v"</span>, f.Name(), line, col, err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">_, err := my.DB.Exec(sql)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> driverErr, ok := err.(*mysql.MySQLError); ok &#123; <span class="comment">// Now the error number is accessible directly</span></span><br><span class="line">            <span class="keyword">if</span> driverErr.Number == <span class="number">1062</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> errDuplicate</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &amp;json2.Error&#123;Code: <span class="number">100</span>, Message: <span class="string">"a"</span>&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.golang.org/error-handling-and-go" target="_blank" rel="external">http://blog.golang.org/error-handling-and-go</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/24/go-error/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-23 </div>
+			<div class="article-title"><a href="/2015/09/23/go-http中获取客户端IP/" >go-http中获取客户端IP</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.Request.RemoteAddr</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/27234861/correct-way-of-getting-clients-ip-addresses-from-http-request-golang" target="_blank" rel="external">http://stackoverflow.com/questions/27234861/correct-way-of-getting-clients-ip-addresses-from-http-request-golang</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/23/go-http中获取客户端IP/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-23 </div>
+			<div class="article-title"><a href="/2015/09/23/go-string操作/" >go-string操作</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>字符串分割</p>
+<pre><code>func SplitAfter(s, sep string) []string
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/23/go-string操作/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-23 </div>
+			<div class="article-title"><a href="/2015/09/23/app-认证/" >app开发-认证</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://ruby-china.org/topics/24571" target="_blank" rel="external">手机 App 如何保持会话</a></li>
+<li><a href="http://anjianshi.net/post/yan-jiu-bi-ji/auth_store" target="_blank" rel="external">登录信息存储的最佳实践</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/23/app-认证/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-23 </div>
+			<div class="article-title"><a href="/2015/09/23/go-int与string转换/" >go-int与string转换</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="int-gt-string"><a href="#int-gt-string" class="headerlink" title="int =&gt; string"></a>int =&gt; string</h1><p>第一种: strconv.Itoa(10)</p>
+<p>第二种: fmt.Sprintf(“%d”, 10)</p>
+<p>第三种: fmt.Sprint(10)</p>
+
+	
+	</div>
+  <a type="button" href="/2015/09/23/go-int与string转换/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-23 </div>
+			<div class="article-title"><a href="/2015/09/23/go-import/" >go-import</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="正则文法"><a href="#正则文法" class="headerlink" title="正则文法"></a>正则文法</h1><pre><code>ImportDecl       = &quot;import&quot; ( ImportSpec | &quot;(&quot; { ImportSpec &quot;;&quot; } &quot;)&quot; ) .
+ImportSpec       = [ &quot;.&quot; | PackageName ] ImportPath .
+ImportPath       = string_lit .
+</code></pre><h1 id="导入路径-ImportPath"><a href="#导入路径-ImportPath" class="headerlink" title="导入路径(ImportPath)"></a>导入路径(ImportPath)</h1><ul>
+<li>相对路径</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"./test"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>绝对路径(<code>gopath</code>)</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
+<h1 id="包名-PackageName"><a href="#包名-PackageName" class="headerlink" title="包名(PackageName)"></a>包名(PackageName)</h1><ul>
+<li><code>.</code></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> . <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
+<p>这样导入后,在使用的时候无须包名</p>
+<ul>
+<li><code>_</code></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="string">"github.com/go-sql-driver/mysql"</span></span><br></pre></td></tr></table></figure>
+<p>不直接使用该包内的导出标识符</p>
+<ul>
+<li><code>别名</code></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> f <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
+<p>通过别名访问(“f.Println”)</p>
+<ul>
+<li>默认形式</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://golang.org/ref/spec#Import_declarations" target="_blank" rel="external">https://golang.org/ref/spec#Import_declarations</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/23/go-import/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-22 </div>
+			<div class="article-title"><a href="/2015/09/22/产品部署/" >产品部署目录</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="部署目录结构"><a href="#部署目录结构" class="headerlink" title="部署目录结构"></a>部署目录结构</h1><p>部署目录 := 起始目录/项目名称/版本号/构建类型</p>
+<p>构建类型 := 开发 | 测试 | 生产</p>
+<p>开发 := debug</p>
+<p>测试 := test</p>
+<p>生产 := release</p>
+<h2 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;PROJECT_NAME&#125;</span>/<span class="variable">$&#123;PROJECT_VERSION&#125;</span>/<span class="variable">$&#123;CMAKE_BUILD_TYPE&#125;</span></span><br></pre></td></tr></table></figure>
+<p>cmake</p>
+
+	
+	</div>
+  <a type="button" href="/2015/09/22/产品部署/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+		
+    	<li class="prev"><a href="/page/12/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> 上一页</a></li>
+  		
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/page/14/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+        
+	
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+		
+			<li><a href="/categories/C/">C<span>10</span></a></li>
+		
+			<li><a href="/categories/C/">C++<span>17</span></a></li>
+		
+			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/categories/Crypto/">Crypto++<span>1</span></a></li>
+		
+			<li><a href="/categories/IO/">IO<span>1</span></a></li>
+		
+			<li><a href="/categories/MinGW/">MinGW<span>2</span></a></li>
+		
+			<li><a href="/categories/SVN/">SVN<span>1</span></a></li>
+		
+			<li><a href="/categories/USB/">USB<span>1</span></a></li>
+		
+			<li><a href="/categories/VC/">VC<span>4</span></a></li>
+		
+			<li><a href="/categories/VPN/">VPN<span>2</span></a></li>
+		
+			<li><a href="/categories/Visual-Studio/">Visual Studio<span>1</span></a></li>
+		
+			<li><a href="/categories/apache/">apache<span>4</span></a></li>
+		
+			<li><a href="/categories/arch/">arch<span>4</span></a></li>
+		
+			<li><a href="/categories/autohotkey/">autohotkey<span>2</span></a></li>
+		
+			<li><a href="/categories/awk/">awk<span>1</span></a></li>
+		
+			<li><a href="/categories/boost/">boost<span>2</span></a></li>
+		
+			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+		
+			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
+		
+			<li><a href="/categories/chrome/">chrome<span>2</span></a></li>
+		
+			<li><a href="/categories/clover/">clover<span>1</span></a></li>
+		
+			<li><a href="/categories/cmake/">cmake<span>8</span></a></li>
+		
+			<li><a href="/categories/cmkae/">cmkae<span>1</span></a></li>
+		
+			<li><a href="/categories/cppcheck/">cppcheck<span>1</span></a></li>
+		
+			<li><a href="/categories/cron/">cron<span>1</span></a></li>
+		
+			<li><a href="/categories/cscope/">cscope<span>2</span></a></li>
+		
+			<li><a href="/categories/ctags/">ctags<span>1</span></a></li>
+		
+			<li><a href="/categories/curl/">curl<span>1</span></a></li>
+		
+			<li><a href="/categories/database/">database<span>2</span></a></li>
+		
+			<li><a href="/categories/django/">django<span>2</span></a></li>
+		
+			<li><a href="/categories/doxygen/">doxygen<span>4</span></a></li>
+		
+			<li><a href="/categories/ejs/">ejs<span>1</span></a></li>
+		
+			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
+		
+			<li><a href="/categories/gcc/">gcc<span>2</span></a></li>
+		
+			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
+		
+			<li><a href="/categories/git/">git<span>5</span></a></li>
+		
+			<li><a href="/categories/grep/">grep<span>1</span></a></li>
+		
+			<li><a href="/categories/grub2/">grub2<span>1</span></a></li>
+		
+			<li><a href="/categories/gtest/">gtest<span>3</span></a></li>
+		
+			<li><a href="/categories/hexo/">hexo<span>3</span></a></li>
+		
+			<li><a href="/categories/iptables/">iptables<span>1</span></a></li>
+		
+			<li><a href="/categories/jsoncpp/">jsoncpp<span>2</span></a></li>
+		
+			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
+		
+			<li><a href="/categories/linux/">linux<span>18</span></a></li>
+		
+			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
+		
+			<li><a href="/categories/log4cpp/">log4cpp<span>1</span></a></li>
+		
+			<li><a href="/categories/make/">make<span>1</span></a></li>
+		
+			<li><a href="/categories/makefile/">makefile<span>2</span></a></li>
+		
+			<li><a href="/categories/markdown/">markdown<span>2</span></a></li>
+		
+			<li><a href="/categories/msysgit/">msysgit<span>1</span></a></li>
+		
+			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
+		
+			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+		
+			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
+		
+			<li><a href="/categories/node-js/">node.js<span>1</span></a></li>
+		
+			<li><a href="/categories/nodejs/">nodejs<span>1</span></a></li>
+		
+			<li><a href="/categories/objdump/">objdump<span>1</span></a></li>
+		
+			<li><a href="/categories/od/">od<span>1</span></a></li>
+		
+			<li><a href="/categories/openssl/">openssl<span>1</span></a></li>
+		
+			<li><a href="/categories/openwrt/">openwrt<span>3</span></a></li>
+		
+			<li><a href="/categories/pandoc/">pandoc<span>2</span></a></li>
+		
+			<li><a href="/categories/pdf/">pdf<span>1</span></a></li>
+		
+			<li><a href="/categories/ping/">ping<span>1</span></a></li>
+		
+			<li><a href="/categories/poweriso/">poweriso<span>1</span></a></li>
+		
+			<li><a href="/categories/programming/">programming<span>1</span></a></li>
+		
+			<li><a href="/categories/proxifier/">proxifier<span>1</span></a></li>
+		
+			<li><a href="/categories/python/">python<span>65</span></a></li>
+		
+			<li><a href="/categories/redis/">redis<span>4</span></a></li>
+		
+			<li><a href="/categories/rsync/">rsync<span>2</span></a></li>
+		
+			<li><a href="/categories/samba/">samba<span>3</span></a></li>
+		
+			<li><a href="/categories/socket/">socket<span>3</span></a></li>
+		
+			<li><a href="/categories/sql/">sql<span>2</span></a></li>
+		
+			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+		
+			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
+		
+			<li><a href="/categories/sudo/">sudo<span>1</span></a></li>
+		
+			<li><a href="/categories/svn/">svn<span>2</span></a></li>
+		
+			<li><a href="/categories/syslinux/">syslinux<span>3</span></a></li>
+		
+			<li><a href="/categories/tcpdump/">tcpdump<span>1</span></a></li>
+		
+			<li><a href="/categories/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/categories/tomcat/">tomcat<span>1</span></a></li>
+		
+			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+		
+			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+		
+			<li><a href="/categories/usb/">usb<span>2</span></a></li>
+		
+			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
+		
+			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+		
+			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
+		
+			<li><a href="/categories/web/">web<span>1</span></a></li>
+		
+			<li><a href="/categories/wget/">wget<span>1</span></a></li>
+		
+			<li><a href="/categories/widnows/">widnows<span>2</span></a></li>
+		
+			<li><a href="/categories/win-api/">win-api<span>1</span></a></li>
+		
+			<li><a href="/categories/windows/">windows<span>29</span></a></li>
+		
+			<li><a href="/categories/windowsj/">windowsj<span>1</span></a></li>
+		
+			<li><a href="/categories/wingetopt/">wingetopt<span>1</span></a></li>
+		
+			<li><a href="/categories/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/categories/wireshark/">wireshark<span>3</span></a></li>
+		
+			<li><a href="/categories/xshell/">xshell<span>1</span></a></li>
+		
+			<li><a href="/categories/yed/">yed<span>1</span></a></li>
+		
+			<li><a href="/categories/为什么/">为什么<span>1</span></a></li>
+		
+			<li><a href="/categories/交换机/">交换机<span>1</span></a></li>
+		
+			<li><a href="/categories/单元测试/">单元测试<span>2</span></a></li>
+		
+			<li><a href="/categories/博客/">博客<span>1</span></a></li>
+		
+			<li><a href="/categories/后台/">后台<span>1</span></a></li>
+		
+			<li><a href="/categories/字符编码/">字符编码<span>4</span></a></li>
+		
+			<li><a href="/categories/操作系统/">操作系统<span>1</span></a></li>
+		
+			<li><a href="/categories/数学/">数学<span>1</span></a></li>
+		
+			<li><a href="/categories/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/categories/理论/">理论<span>1</span></a></li>
+		
+			<li><a href="/categories/移动/">移动<span>1</span></a></li>
+		
+			<li><a href="/categories/系统/">系统<span>1</span></a></li>
+		
+			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+		
+			<li><a href="/categories/网站/">网站<span>1</span></a></li>
+		
+			<li><a href="/categories/网络/">网络<span>8</span></a></li>
+		
+			<li><a href="/categories/网络设备/">网络设备<span>2</span></a></li>
+		
+			<li><a href="/categories/计算机/">计算机<span>3</span></a></li>
+		
+			<li><a href="/categories/资料/">资料<span>1</span></a></li>
+		
+			<li><a href="/categories/路由器/">路由器<span>1</span></a></li>
+		
+			<li><a href="/categories/软件/">软件<span>1</span></a></li>
+		
+			<li><a href="/categories/软件工程/">软件工程<span>1</span></a></li>
+		
+			<li><a href="/categories/闪存/">闪存<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+		
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
+		
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
+		
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
+		
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+		
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+		
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+		
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+		
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+		
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
+		
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+		
+			<li><a href="/tags/命令/">命令<span>5</span></a></li>
+		
+			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+		
+			<li><a href="/tags/du/">du<span>1</span></a></li>
+		
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
+		
+			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+		
+			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+		
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
+		
+			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
+		
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>536</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/QianChenglong" title="My Github account." target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

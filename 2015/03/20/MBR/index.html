@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MBR | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="MBR"/>
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> MBR</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h1 id="MBR是什么"><a href="#MBR是什么" class="headerlink" title="MBR是什么"></a>MBR是什么</h1><p>主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，位于硬盘上的三维地址为（柱面，磁头，扇区）＝（0，0，1）。</p>
+<p>在BIOS完成<a href="http://zh.wikipedia.org/wiki/%E5%8A%A0%E7%94%B5%E8%87%AA%E6%A3%80" target="_blank" rel="external">加电自检</a>后，将该扇区内容加载到内存中执行。</p>
+<h1 id="MBR组成"><a href="#MBR组成" class="headerlink" title="MBR组成"></a>MBR组成</h1><p>| 开始地址   | 结束地址   | 作用                               | 字节数 |<br>|————+————+————————————+——–|<br>| 0x000(0)   | 0x1bd(445) | MBR，bootloader第一阶段代码        | 446    |<br>| 0x1be(446) | 0x1fd(509) | DPT，记录磁盘分区信息              | 64     |<br>| 0x1fe(510) | 0x1ff(511) | MAGIC(0x55,0xAA)，分区是否有效标志 | 2      |</p>
+<h2 id="DPT成员"><a href="#DPT成员" class="headerlink" title="DPT成员"></a>DPT成员</h2><ul>
+<li><p>用来记录分区相关信息</p>
+</li>
+<li><p>DPT表项占用16B，所以最多4个成员，意味着最多4个主分区！</p>
+</li>
+</ul>
+<p><strong>Note:</strong></p>
+<ul>
+<li>分区最小颗粒为<strong>1柱面</strong></li>
+</ul>
+<p>硬盘分区结构信息：</p>
+<p>| 偏移 | 长度(字节) | 意义                                                                                                   |<br>|——+————+——————————————————————————————————–|<br>| 00H  | 1          | 分区状态：00–&gt;非活动分区；80–&gt; 活动分区，其它数值没有意义                                            |<br>| 01H  | 1          | 分区起始磁头号(HEAD)，用到全部8位                                                                      |<br>| 02H  | 2          | 分区起始扇区号(SECTOR)，占据02H的位0－5； 该分区的起始磁柱号(CYLINDER)，占据 02H的位6－7和03H的全部8位 |<br>| 04H  | 1          | 文件系统标志位                                                                                         |<br>| 05H  | 1          | 分区结束磁头号(HEAD)，用到全部8位                                                                      |<br>| 06H  | 2          | 分区结束扇区号(SECTOR)，占据06H的位0－5； 该分区的终止磁柱号(CYLINDER)，占据 06H的位6－7和07H的全部8位 |<br>| 08H  | 4          | 分区起始逻辑扇区号,低位字节在前(小端模式)，如0x41394006，实际为0x06403941                              |<br>| 0CH  | 4          | 分区总的扇区数                                                                                         |</p>
+<p>实例分析：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">0000000: eb 63 90 8e d8 8e d0 bc 00 7c 89 e6 06 57 8e c0</span><br><span class="line">0000010: fb fc bf 00 06 b9 00 01 f3 a5 ea 1f 06 00 00 52</span><br><span class="line">0000020: 52 b4 41 bb aa 55 31 c9 30 f6 f9 cd 13 72 13 81</span><br><span class="line">0000030: fb 55 aa 75 0d d1 e9 73 09 66 c7 06 8d 06 b4 42</span><br><span class="line">0000040: eb 15 5a b4 08 cd 13 83 e1 3f 51 0f b6 c6 40 f7</span><br><span class="line">0000050: e1 52 50 66 31 c0 66 99 e8 66 00 80 01 00 00 00</span><br><span class="line">0000060: 00 00 00 00 ff fa 90 90 f6 c2 80 74 05 f6 c2 70</span><br><span class="line">0000070: 74 02 b2 80 ea 79 7c 00 00 31 c0 8e d8 8e d0 bc</span><br><span class="line">0000080: 00 20 fb a0 64 7c 3c ff 74 02 88 c2 52 bb 17 04</span><br><span class="line">0000090: 80 27 03 74 06 be 88 7d e8 17 01 be 05 7c b4 41</span><br><span class="line">00000a0: bb aa 55 cd 13 5a 52 72 3d 81 fb 55 aa 75 37 83</span><br><span class="line">00000b0: e1 01 74 32 31 c0 89 44 04 40 88 44 ff 89 44 02</span><br><span class="line">00000c0: c7 04 10 00 66 8b 1e 5c 7c 66 89 5c 08 66 8b 1e</span><br><span class="line">00000d0: 60 7c 66 89 5c 0c c7 44 06 00 70 b4 42 cd 13 72</span><br><span class="line">00000e0: 05 bb 00 70 eb 76 b4 08 cd 13 73 0d f6 c2 80 0f</span><br><span class="line">00000f0: 84 d0 00 be 93 7d e9 82 00 66 0f b6 c6 88 64 ff</span><br><span class="line">0000100: 40 66 89 44 04 0f b6 d1 c1 e2 02 88 e8 88 f4 40</span><br><span class="line">0000110: 89 44 08 0f b6 c2 c0 e8 02 66 89 04 66 a1 60 7c</span><br><span class="line">0000120: 66 09 c0 75 4e 66 a1 5c 7c 66 31 d2 66 f7 34 88</span><br><span class="line">0000130: d1 31 d2 66 f7 74 04 3b 44 08 7d 37 fe c1 88 c5</span><br><span class="line">0000140: 30 c0 c1 e8 02 08 c1 88 d0 5a 88 c6 bb 00 70 8e</span><br><span class="line">0000150: c3 31 db b8 01 02 cd 13 72 1e 8c c3 60 1e b9 00</span><br><span class="line">0000160: 01 8e db 31 f6 bf 00 80 8e c6 fc f3 a5 1f 61 ff</span><br><span class="line">0000170: 26 5a 7c be 8e 7d eb 03 be 9d 7d e8 34 00 be a2</span><br><span class="line">0000180: 7d e8 2e 00 cd 18 eb fe 47 52 55 42 20 00 47 65</span><br><span class="line">0000190: 6f 6d 00 48 61 72 64 20 44 69 73 6b 00 52 65 61</span><br><span class="line">00001a0: 64 00 20 45 72 72 6f 72 0d 0a 00 bb 01 00 b4 0e</span><br><span class="line">00001b0: cd 10 ac 3c 00 75 f4 c3 15 49 e4 03 00 00 80 01</span><br><span class="line">00001c0: 01 00 07 fe ff ff 3f 00 00 00 41 39 40 06 00 fe</span><br><span class="line">00001d0: ff ff 0f fe ff ff fe 3f 40 06 cc 08 f8 33 00 00</span><br><span class="line">00001e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00</span><br><span class="line">00001f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 55 aa</span><br></pre></td></tr></table></figure>
+<p>分区1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">                                                   00 01</span><br><span class="line">00001b0:                                           80 01</span><br><span class="line">         02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f</span><br><span class="line">00001c0: 01 00 07 fe ff ff 3f 00 00 00 41 39 40 06</span><br><span class="line"></span><br><span class="line">0x1be</span><br><span class="line">00H 1 80-&gt;活动分区</span><br><span class="line">01H 1 分区起始磁头号,1</span><br><span class="line">02H 2 分区起始扇区号，占用02H的低6位，1</span><br><span class="line">      分区起始柱面号，占用02H的高2位和03H的8位，0</span><br><span class="line">04H 1 文件系统标志位，NTFS(07H)</span><br><span class="line">05H 1 分区结束磁头号，ff(254)</span><br><span class="line">06H 2 分区结束扇区号，占用06H的低6位，63</span><br><span class="line">      分区结束柱面号，占用06H的高2位和07H的8位，113f(1477)</span><br><span class="line">08H 4 分区起始逻辑扇区号，0000003f(63)</span><br><span class="line">0cH 4 分区总扇区数，06403941(104872257)</span><br></pre></td></tr></table></figure>
+<h3 id="使用fdisk查看DPT"><a href="#使用fdisk查看DPT" class="headerlink" title="使用fdisk查看DPT"></a>使用<code>fdisk</code>查看DPT</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line">Disk /dev/sda: 500.1 GB, 500107862016 bytes</span><br><span class="line">255 heads, 63 sectors/track, 60801 cylinders, total 976773168 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk identifier: 0x03e44915</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *          63   104872319    52436128+   7  HPFS/NTFS/exFAT</span><br><span class="line">/dev/sda2       104873982   976767177   435946598    f  W95 Ext&apos;d (LBA)</span><br><span class="line">/dev/sda5       104873984   207273983    51200000    7  HPFS/NTFS/exFAT</span><br><span class="line">/dev/sda6       207276032   317071359    54897664   83  Linux</span><br><span class="line">/dev/sda7   *   317073408   317464575      195584   83  Linux</span><br><span class="line">/dev/sda8       317466624   321370111     1951744   82  Linux swap / Solaris</span><br><span class="line">/dev/sda9       321372160   341852159    10240000   83  Linux</span><br><span class="line">/dev/sda10  *   341854208   362334207    10240000   83  Linux</span><br><span class="line">/dev/sda11      362334271   419473214    28569472   83  Linux</span><br><span class="line">/dev/sda12      419473278   976767177   278646950    7  HPFS/NTFS/exFAT</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zh.wikipedia.org/wiki/%E5%8A%A0%E7%94%B5%E8%87%AA%E6%A3%80" target="_blank" rel="external">维基-加电自检</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/%E4%B8%BB%E5%BC%95%E5%AF%BC%E8%AE%B0%E5%BD%95" target="_blank" rel="external">维基-MBR</a></li>
+</ol>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/03/20/计算机启动过程/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/03/19/ubuntu下编译syslinux/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/03/20/MBR/" data-title="MBR" data-url="http://yoursite.com/2015/03/20/MBR/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-03-20 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/计算机/">计算机<span>3</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/计算机/">计算机<span>2</span></a></li> <li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'qianchenglong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

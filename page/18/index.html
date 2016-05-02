@@ -1,0 +1,937 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 18 页 | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header page-header-inverse ">
+  <h1 class="title title-inverse ">life&#39;s a struggle.</h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      undefined
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-05 </div>
+			<div class="article-title"><a href="/2015/08/05/lsof/" >lsof</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查看哪个进程打开了指定端口</p>
+<pre><code>lsof -i :8000
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/05/lsof/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-05 </div>
+			<div class="article-title"><a href="/2015/08/05/netstat/" >netstat</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>-t  查看tcp</p>
+</li>
+<li><p>-x  查看unix域套接字</p>
+</li>
+<li><p>-l  只查看listen端口</p>
+</li>
+<li><p>-n  端口数字显示，不解释其所代表服务，以便加快速度</p>
+</li>
+<li><p>-p  查看所属进程</p>
+</li>
+</ul>
+<h1 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h1><p>Recv-Q：表示收到的数据已经在本地接收缓冲，但是还有多少没有被进程取走<br>Send-Q：对方没有收到的数据或者说没有Ack的，还在发送缓冲区</p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
+<li><p>查看tcp监听端口</p>
+<pre><code>netstat -tln
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/05/netstat/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-05 </div>
+			<div class="article-title"><a href="/2015/08/05/mod_fcgid/" >mod_fcgid</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="通信机制"><a href="#通信机制" class="headerlink" title="通信机制"></a>通信机制</h1><p>unix域套接字</p>
+<pre><code>netstat -lxnp
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/08/05/mod_fcgid/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-05 </div>
+			<div class="article-title"><a href="/2015/08/05/linux-管道/" >linux-管道</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h1><ul>
+<li><p>只能在具有亲缘关系的进程间使用</p>
+</li>
+<li><p>历史上,都是半双工的</p>
+</li>
+</ul>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>对管道写,不大于PIPE_BUF(<code>/usr/include/linux/limits.h</code> =&gt; 4K)时,可以保证不会与其他进程的写操作穿插(原子写)</li>
+</ul>
+<h1 id="与普通文件差异"><a href="#与普通文件差异" class="headerlink" title="与普通文件差异"></a>与普通文件差异</h1><ul>
+<li><p>管道的缓冲区固定大小(4K),不会像文件一样无限增长</p>
+<ul>
+<li>当管道满时,调用write会被阻塞</li>
+<li>当管道空时,调用read也会被阻塞</li>
+</ul>
+</li>
+<li><p>管道读是一次性的,一旦被读,就被丢弃</p>
+</li>
+</ul>
+<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>在Linux中，管道的实现并没有使用专门的数据结构，而是借助了文件系统的file结构和VFS的索引节点inode。<br>通过将两个 file 结构指向同一个临时的 VFS 索引节点，而这个 VFS 索引节点又指向一个物理页面而实现的。</p>
+<p><img src="../img/管道_01.png" alt=""></p>
+<p>图中有两个 file 数据结构，但它们定义文件操作例程地址是不同的.<br>其中一个是向管道中写入数据的例程地址，而另一个是从管道中读出数据的例程地址。<br>这样，用户程序的系统调用仍然是通常的文件操作，而内核却利用这种抽象机制实现了管道这一特殊操作。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://oss.org.cn/kernel-book/ch07/7.1.1.htm" target="_blank" rel="external">http://oss.org.cn/kernel-book/ch07/7.1.1.htm</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/08/05/linux-管道/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-04 </div>
+			<div class="article-title"><a href="/2015/08/04/gdb/" >gdb</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h1><ul>
+<li><p>自定义初始化设置</p>
+<pre><code>~/.gdbinit
+</code></pre></li>
+<li><p>载入配置文件</p>
+<pre><code>source ~/.gdbinit
+</code></pre></li>
+</ul>
+<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><ul>
+<li><p>使用core调试</p>
+<pre><code>gdb -c &lt;core-file-name&gt; &lt;program&gt;
+</code></pre></li>
+<li><p>attach到指定进程</p>
+<pre><code>gdb -p &lt;pid&gt;
+gdb attach &lt;pid&gt;
+</code></pre></li>
+</ul>
+<h1 id="控制类"><a href="#控制类" class="headerlink" title="控制类"></a>控制类</h1><ul>
+<li><p>运行到指定行</p>
+<pre><code>until $line-number
+</code></pre></li>
+<li><p>向上栈</p>
+<pre><code>up &lt;num&gt;
+</code></pre></li>
+</ul>
+<h1 id="断点"><a href="#断点" class="headerlink" title="断点"></a>断点</h1><ul>
+<li><p>在指定文件指定行</p>
+<pre><code>break filename:linenum
+</code></pre></li>
+<li><p>删除断点</p>
+<pre><code>clear linenum
+</code></pre></li>
+</ul>
+<h1 id="查询类"><a href="#查询类" class="headerlink" title="查询类"></a>查询类</h1><ul>
+<li><p>打印调用栈</p>
+<pre><code>bt
+where
+</code></pre></li>
+<li><p>打印当前帧(查询当前执行语句位置)</p>
+<pre><code>frame
+</code></pre></li>
+<li><p>打印当前行</p>
+<pre><code>list *$pc
+</code></pre></li>
+<li><p>x(examine)</p>
+<pre><code>x /[nfu] ADDRESS(若ADDRESS是一个变量，则认为变量值为要查看的地址)
+n用来指定重复的次数，就是指定显示格式和size确定的一个单位多少次
+#n默认为1
+
+f用来指定显示的格式，同print一样
+    Format letters
+    o(octal), x(hex), d(decimal), u(unsigned decimal), t(binary),
+    f(float), a(address), i(instruction), c(char) and s(string)
+u(unit)，指定一个单位的长度
+    Size letters
+    b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
+
+x/3uh 0x54320
+    从0x54320开始，以(h)2B为单位，(u)无符号十进制输出，显示3uh个这样的单
+    位，总共显示2 × 3 = 6B的内存
+
+x /10s *argv    查看环境变量
+</code></pre></li>
+</ul>
+<h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><ul>
+<li><p>set args ARG-list</p>
+<p>设置程序的命令行参数，依次传给argv[1],…<br>#需要在文件载入之后，程序开始执行之前</p>
+</li>
+<li><p>set print pretty</p>
+<p>可爱的打印出结构体</p>
+</li>
+</ul>
+<h1 id="gdb打印STLhttps-sourceware-org-gdb-wiki-STLSupport"><a href="#gdb打印STLhttps-sourceware-org-gdb-wiki-STLSupport" class="headerlink" title="gdb打印STLhttps://sourceware.org/gdb/wiki/STLSupport"></a>gdb打印STL<a href="https://sourceware.org/gdb/wiki/STLSupport" target="_blank" rel="external">https://sourceware.org/gdb/wiki/STLSupport</a></h1>
+	
+	</div>
+  <a type="button" href="/2015/08/04/gdb/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-29 </div>
+			<div class="article-title"><a href="/2015/07/29/c++-文件读写/" >c++-文件读写</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="fstream"><a href="#fstream" class="headerlink" title="fstream"></a>fstream</h1><ul>
+<li><p>默认读写打开</p>
+<ul>
+<li>从文件开始读</li>
+<li>从文件末尾写</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/29/c++-文件读写/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-28 </div>
+			<div class="article-title"><a href="/2015/07/28/后台开发经验/" >后台开发经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>撤单回退资金,双重校验(传入的UID, 订单关联的UID)</p>
+</li>
+<li><p>增量拉取</p>
+<ul>
+<li><p>确定前端排序规则(排序键)</p>
+</li>
+<li><p>传入(排序键值, 拉取个数)</p>
+</li>
+</ul>
+</li>
+<li><p>错误处理</p>
+<ul>
+<li>请求参数严格校验(防止执行时导致内部错误)</li>
+<li>SQL错误结合接口意义,返回客户端错误提示</li>
+</ul>
+</li>
+<li><p>保持app原版本兼容时,相关数据表,追加版本号</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/28/后台开发经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-27 </div>
+			<div class="article-title"><a href="/2015/07/27/c-获取各种级别时间值/" >c-获取各种级别时间值</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>秒级别</p>
+<pre><code>time()
+</code></pre></li>
+<li><p>微秒</p>
+<pre><code>gettimeofday()
+</code></pre></li>
+</ul>
+<ul>
+<li><p>纳秒</p>
+<pre><code>clock_gettime()
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/27/c-获取各种级别时间值/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-24 </div>
+			<div class="article-title"><a href="/2015/07/24/python-日期加减操作/" >python-日期加减操作</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">datetime.date.today() + datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line">today = datetime.date.today() + datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line">period = int(today.strftime(<span class="string">"%Y%m%d"</span>))</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/1506901/cleanest-and-most-pythonic-way-to-get-tomorrows-date" target="_blank" rel="external">http://stackoverflow.com/questions/1506901/cleanest-and-most-pythonic-way-to-get-tomorrows-date</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/24/python-日期加减操作/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-24 </div>
+			<div class="article-title"><a href="/2015/07/24/git-常用命令/" >git-常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>–git-dir 指定<code>.git</code>目录</p>
+</li>
+<li><p>–work-dir 指定工作目录</p>
+</li>
+</ul>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
+<li><p>丢弃未缓存的修改</p>
+<pre><code>git checkout -- order.cpp
+</code></pre></li>
+<li><p>默认推送所有分支和tag</p>
+<pre><code>git push --all origin -u
+</code></pre></li>
+<li><p>迁出到指定目录</p>
+<pre><code>git --work-tree=../v0.03 checkout v0.03 .
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/24/git-常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+		
+    	<li class="prev"><a href="/page/17/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> 上一页</a></li>
+  		
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/page/19/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+        
+	
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+		
+			<li><a href="/categories/C/">C<span>10</span></a></li>
+		
+			<li><a href="/categories/C/">C++<span>17</span></a></li>
+		
+			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/categories/Crypto/">Crypto++<span>1</span></a></li>
+		
+			<li><a href="/categories/IO/">IO<span>1</span></a></li>
+		
+			<li><a href="/categories/MinGW/">MinGW<span>2</span></a></li>
+		
+			<li><a href="/categories/SVN/">SVN<span>1</span></a></li>
+		
+			<li><a href="/categories/USB/">USB<span>1</span></a></li>
+		
+			<li><a href="/categories/VC/">VC<span>4</span></a></li>
+		
+			<li><a href="/categories/VPN/">VPN<span>2</span></a></li>
+		
+			<li><a href="/categories/Visual-Studio/">Visual Studio<span>1</span></a></li>
+		
+			<li><a href="/categories/apache/">apache<span>4</span></a></li>
+		
+			<li><a href="/categories/arch/">arch<span>4</span></a></li>
+		
+			<li><a href="/categories/autohotkey/">autohotkey<span>2</span></a></li>
+		
+			<li><a href="/categories/awk/">awk<span>1</span></a></li>
+		
+			<li><a href="/categories/boost/">boost<span>2</span></a></li>
+		
+			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+		
+			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
+		
+			<li><a href="/categories/chrome/">chrome<span>2</span></a></li>
+		
+			<li><a href="/categories/clover/">clover<span>1</span></a></li>
+		
+			<li><a href="/categories/cmake/">cmake<span>8</span></a></li>
+		
+			<li><a href="/categories/cmkae/">cmkae<span>1</span></a></li>
+		
+			<li><a href="/categories/cppcheck/">cppcheck<span>1</span></a></li>
+		
+			<li><a href="/categories/cron/">cron<span>1</span></a></li>
+		
+			<li><a href="/categories/cscope/">cscope<span>2</span></a></li>
+		
+			<li><a href="/categories/ctags/">ctags<span>1</span></a></li>
+		
+			<li><a href="/categories/curl/">curl<span>1</span></a></li>
+		
+			<li><a href="/categories/database/">database<span>2</span></a></li>
+		
+			<li><a href="/categories/django/">django<span>2</span></a></li>
+		
+			<li><a href="/categories/doxygen/">doxygen<span>4</span></a></li>
+		
+			<li><a href="/categories/ejs/">ejs<span>1</span></a></li>
+		
+			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
+		
+			<li><a href="/categories/gcc/">gcc<span>2</span></a></li>
+		
+			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
+		
+			<li><a href="/categories/git/">git<span>5</span></a></li>
+		
+			<li><a href="/categories/grep/">grep<span>1</span></a></li>
+		
+			<li><a href="/categories/grub2/">grub2<span>1</span></a></li>
+		
+			<li><a href="/categories/gtest/">gtest<span>3</span></a></li>
+		
+			<li><a href="/categories/hexo/">hexo<span>3</span></a></li>
+		
+			<li><a href="/categories/iptables/">iptables<span>1</span></a></li>
+		
+			<li><a href="/categories/jsoncpp/">jsoncpp<span>2</span></a></li>
+		
+			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
+		
+			<li><a href="/categories/linux/">linux<span>18</span></a></li>
+		
+			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
+		
+			<li><a href="/categories/log4cpp/">log4cpp<span>1</span></a></li>
+		
+			<li><a href="/categories/make/">make<span>1</span></a></li>
+		
+			<li><a href="/categories/makefile/">makefile<span>2</span></a></li>
+		
+			<li><a href="/categories/markdown/">markdown<span>2</span></a></li>
+		
+			<li><a href="/categories/msysgit/">msysgit<span>1</span></a></li>
+		
+			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
+		
+			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+		
+			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
+		
+			<li><a href="/categories/node-js/">node.js<span>1</span></a></li>
+		
+			<li><a href="/categories/nodejs/">nodejs<span>1</span></a></li>
+		
+			<li><a href="/categories/objdump/">objdump<span>1</span></a></li>
+		
+			<li><a href="/categories/od/">od<span>1</span></a></li>
+		
+			<li><a href="/categories/openssl/">openssl<span>1</span></a></li>
+		
+			<li><a href="/categories/openwrt/">openwrt<span>3</span></a></li>
+		
+			<li><a href="/categories/pandoc/">pandoc<span>2</span></a></li>
+		
+			<li><a href="/categories/pdf/">pdf<span>1</span></a></li>
+		
+			<li><a href="/categories/ping/">ping<span>1</span></a></li>
+		
+			<li><a href="/categories/poweriso/">poweriso<span>1</span></a></li>
+		
+			<li><a href="/categories/programming/">programming<span>1</span></a></li>
+		
+			<li><a href="/categories/proxifier/">proxifier<span>1</span></a></li>
+		
+			<li><a href="/categories/python/">python<span>65</span></a></li>
+		
+			<li><a href="/categories/redis/">redis<span>4</span></a></li>
+		
+			<li><a href="/categories/rsync/">rsync<span>2</span></a></li>
+		
+			<li><a href="/categories/samba/">samba<span>3</span></a></li>
+		
+			<li><a href="/categories/socket/">socket<span>3</span></a></li>
+		
+			<li><a href="/categories/sql/">sql<span>2</span></a></li>
+		
+			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+		
+			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
+		
+			<li><a href="/categories/sudo/">sudo<span>1</span></a></li>
+		
+			<li><a href="/categories/svn/">svn<span>2</span></a></li>
+		
+			<li><a href="/categories/syslinux/">syslinux<span>3</span></a></li>
+		
+			<li><a href="/categories/tcpdump/">tcpdump<span>1</span></a></li>
+		
+			<li><a href="/categories/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/categories/tomcat/">tomcat<span>1</span></a></li>
+		
+			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+		
+			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+		
+			<li><a href="/categories/usb/">usb<span>2</span></a></li>
+		
+			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
+		
+			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+		
+			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
+		
+			<li><a href="/categories/web/">web<span>1</span></a></li>
+		
+			<li><a href="/categories/wget/">wget<span>1</span></a></li>
+		
+			<li><a href="/categories/widnows/">widnows<span>2</span></a></li>
+		
+			<li><a href="/categories/win-api/">win-api<span>1</span></a></li>
+		
+			<li><a href="/categories/windows/">windows<span>29</span></a></li>
+		
+			<li><a href="/categories/windowsj/">windowsj<span>1</span></a></li>
+		
+			<li><a href="/categories/wingetopt/">wingetopt<span>1</span></a></li>
+		
+			<li><a href="/categories/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/categories/wireshark/">wireshark<span>3</span></a></li>
+		
+			<li><a href="/categories/xshell/">xshell<span>1</span></a></li>
+		
+			<li><a href="/categories/yed/">yed<span>1</span></a></li>
+		
+			<li><a href="/categories/为什么/">为什么<span>1</span></a></li>
+		
+			<li><a href="/categories/交换机/">交换机<span>1</span></a></li>
+		
+			<li><a href="/categories/单元测试/">单元测试<span>2</span></a></li>
+		
+			<li><a href="/categories/博客/">博客<span>1</span></a></li>
+		
+			<li><a href="/categories/后台/">后台<span>1</span></a></li>
+		
+			<li><a href="/categories/字符编码/">字符编码<span>4</span></a></li>
+		
+			<li><a href="/categories/操作系统/">操作系统<span>1</span></a></li>
+		
+			<li><a href="/categories/数学/">数学<span>1</span></a></li>
+		
+			<li><a href="/categories/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/categories/理论/">理论<span>1</span></a></li>
+		
+			<li><a href="/categories/移动/">移动<span>1</span></a></li>
+		
+			<li><a href="/categories/系统/">系统<span>1</span></a></li>
+		
+			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+		
+			<li><a href="/categories/网站/">网站<span>1</span></a></li>
+		
+			<li><a href="/categories/网络/">网络<span>8</span></a></li>
+		
+			<li><a href="/categories/网络设备/">网络设备<span>2</span></a></li>
+		
+			<li><a href="/categories/计算机/">计算机<span>3</span></a></li>
+		
+			<li><a href="/categories/资料/">资料<span>1</span></a></li>
+		
+			<li><a href="/categories/路由器/">路由器<span>1</span></a></li>
+		
+			<li><a href="/categories/软件/">软件<span>1</span></a></li>
+		
+			<li><a href="/categories/软件工程/">软件工程<span>1</span></a></li>
+		
+			<li><a href="/categories/闪存/">闪存<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+		
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+		
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+		
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
+		
+			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+		
+			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
+		
+			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+		
+			<li><a href="/tags/API/">API<span>2</span></a></li>
+		
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
+		
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
+		
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
+		
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+		
+			<li><a href="/tags/django/">django<span>2</span></a></li>
+		
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+		
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+		
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+		
+			<li><a href="/tags/C/">C<span>14</span></a></li>
+		
+			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+		
+			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+		
+			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>536</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/QianChenglong" title="My Github account." target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

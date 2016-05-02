@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>go-database | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="go-database"/>
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> go-database</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>go</code>官方没有直接提供数据库驱动,而是定义了一些标准接口(<code>database/sql</code>)</p>
+</li>
+<li><p>第三方驱动通过包初始化函数<code>init()</code>调用<code>sql.Register(name string, driver driver.Driver)</code>完成注册</p>
+</li>
+</ul>
+<h2 id="重要类型"><a href="#重要类型" class="headerlink" title="重要类型"></a>重要类型</h2><h2 id="driver-Conn"><a href="#driver-Conn" class="headerlink" title="driver.Conn"></a><code>driver.Conn</code></h2><p>Conn是一个数据库连接的接口定义，他定义了一系列方法，这个Conn只能应用在一个goroutine里面，不能使用在多个goroutine里面</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Conn <span class="keyword">interface</span> &#123;</span><br><span class="line">    Prepare(query <span class="keyword">string</span>) (Stmt, error)</span><br><span class="line">    Close() error</span><br><span class="line">    Begin() (Tx, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Prepare函数返回与当前连接相关的执行Sql语句的准备状态，可以进行查询、删除等操作。</p>
+</li>
+<li><p>Close函数关闭当前的连接，执行释放连接拥有的资源等清理工作.</p>
+</li>
+<li><p>Begin函数返回一个代表事务处理的Tx，通过它你可以进行查询,更新等操作，或者对事务进行回滚、递交。</p>
+</li>
+</ul>
+<h2 id="driver-Stmt"><a href="#driver-Stmt" class="headerlink" title="driver.Stmt"></a><code>driver.Stmt</code></h2><p>Stmt是一种准备好的状态，和Conn相关联，而且只能应用于一个goroutine中，不能应用于多个goroutine</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Stmt <span class="keyword">interface</span> &#123;</span><br><span class="line">    Close() error</span><br><span class="line">    NumInput() <span class="keyword">int</span></span><br><span class="line">    Exec(args []Value) (Result, error)</span><br><span class="line">    Query(args []Value) (Rows, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Close函数关闭当前的链接状态，但是如果当前正在执行query，query还是有效返回rows数据</p>
+</li>
+<li><p>NumInput函数返回当前预留参数的个数，当返回&gt;=0时数据库驱动就会智能检查调用者的参数。当数据库驱动包不知道预留参数的时候，返回-1</p>
+</li>
+<li><p>Exec函数执行Prepare准备好的sql，传入参数执行update/insert等操作，返回Result数据</p>
+</li>
+<li><p>Query函数执行Prepare准备好的sql，传入需要的参数执行select操作，返回Rows结果集</p>
+</li>
+</ul>
+<h2 id="driver-Tx"><a href="#driver-Tx" class="headerlink" title="driver.Tx"></a><code>driver.Tx</code></h2><p>事务处理一般就两个过程，递交或者回滚</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Tx <span class="keyword">interface</span> &#123;</span><br><span class="line">    Commit() error</span><br><span class="line">    Rollback() error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="driver-Execer"><a href="#driver-Execer" class="headerlink" title="driver.Execer"></a><code>driver.Execer</code></h2><p>这是一个Conn可选择实现的接口</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Execer <span class="keyword">interface</span> &#123;</span><br><span class="line">    Exec(query <span class="keyword">string</span>, args []Value) (Result, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果这个接口没有定义，那么在调用DB.Exec,就会首先调用Prepare返回Stmt，然后执行Stmt的Exec，然后关闭Stmt。</p>
+<h2 id="driver-Result"><a href="#driver-Result" class="headerlink" title="driver.Result"></a><code>driver.Result</code></h2><p>这个是执行Update/Insert等操作返回的结果接口定义</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Result <span class="keyword">interface</span> &#123;</span><br><span class="line">    LastInsertId() (<span class="keyword">int64</span>, error)</span><br><span class="line">    RowsAffected() (<span class="keyword">int64</span>, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>LastInsertId函数返回由数据库执行插入操作得到的自增ID号。</p>
+</li>
+<li><p>RowsAffected函数返回query操作影响的数据条目数。</p>
+</li>
+</ul>
+<h2 id="driver-Rows"><a href="#driver-Rows" class="headerlink" title="driver.Rows"></a><code>driver.Rows</code></h2><p>Rows是执行查询返回的结果集接口定义</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Rows <span class="keyword">interface</span> &#123;</span><br><span class="line">    Columns() []<span class="keyword">string</span></span><br><span class="line">    Close() error</span><br><span class="line">    Next(dest []Value) error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Columns函数返回查询数据库表的字段信息，这个返回的slice和sql查询的字段一一对应，而不是返回整个表的所有字段。</p>
+</li>
+<li><p>Close函数用来关闭Rows迭代器。</p>
+</li>
+<li><p>Next函数用来返回下一条数据，把数据赋值给dest。dest里面的元素必须是driver.Value的值除了string，返回的数据里面所有的string都必须要转换成[]byte。如果最后没数据了，Next函数最后返回io.EOF。</p>
+</li>
+</ul>
+<h2 id="driver-RowsAffected"><a href="#driver-RowsAffected" class="headerlink" title="driver.RowsAffected"></a><code>driver.RowsAffected</code></h2><p>RowsAffected其实就是一个int64的别名，但是他实现了Result接口，用来底层实现Result的表示方式</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> RowsAffected <span class="keyword">int64</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (RowsAffected) LastInsertId() (<span class="keyword">int64</span>, error)</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (v RowsAffected) RowsAffected() (<span class="keyword">int64</span>, error)</span><br></pre></td></tr></table></figure>
+<h2 id="driver-Value"><a href="#driver-Value" class="headerlink" title="driver.Value"></a><code>driver.Value</code></h2><p>Value其实就是一个空接口，他可以容纳任何的数据</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Value <span class="keyword">interface</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>drive的Value是驱动必须能够操作的Value，Value要么是nil，要么是下面的任意一种</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int64</span></span><br><span class="line"><span class="keyword">float64</span></span><br><span class="line"><span class="keyword">bool</span></span><br><span class="line">[]<span class="keyword">byte</span></span><br><span class="line"><span class="keyword">string</span>   [*]除了Rows.Next返回的不能是<span class="keyword">string</span>.</span><br><span class="line">time.Time</span><br></pre></td></tr></table></figure>
+<h2 id="driver-ValueConverter"><a href="#driver-ValueConverter" class="headerlink" title="driver.ValueConverter"></a><code>driver.ValueConverter</code></h2><p>ValueConverter接口定义了如何把一个普通的值转化成driver.Value的接口</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ValueConverter <span class="keyword">interface</span> &#123;</span><br><span class="line">    ConvertValue(v <span class="keyword">interface</span>&#123;&#125;) (Value, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在开发的数据库驱动包里面实现这个接口的函数在很多地方会使用到，这个ValueConverter有很多好处：</p>
+<ul>
+<li>转化driver.value到数据库表相应的字段，例如int64的数据如何转化成数据库表uint16字段</li>
+<li>把数据库查询结果转化成driver.Value值</li>
+<li>在scan函数里面如何把driver.Value值转化成用户定义的值</li>
+</ul>
+<h2 id="driver-Valuer"><a href="#driver-Valuer" class="headerlink" title="driver.Valuer"></a><code>driver.Valuer</code></h2><p>Valuer接口定义了返回一个driver.Value的方式</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Valuer <span class="keyword">interface</span> &#123;</span><br><span class="line">    Value() (Value, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很多类型都实现了这个Value方法，用来自身与driver.Value的转化。</p>
+<h1 id="使用相关"><a href="#使用相关" class="headerlink" title="使用相关"></a>使用相关</h1><h2 id="sql-Stmt"><a href="#sql-Stmt" class="headerlink" title="sql.Stmt"></a><code>sql.Stmt</code></h2><p><code>sql.DB.Prepare</code>返回的语句操作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(s *Stmt) Exec(args ...<span class="keyword">interface</span>&#123;&#125;) (Result, error) <span class="comment">// 带参数执行prepare语句(insert, update...)</span></span><br><span class="line">(s *Stmt) Query(args ...<span class="keyword">interface</span>&#123;&#125;) (*Rows, error) <span class="comment">// 带参数执行select语句, 返回结果集</span></span><br><span class="line">(s *Stmt) QueryRow(args ...<span class="keyword">interface</span>&#123;&#125;) *Row <span class="comment">// 带参数执行select语句,通过scan获取单行结果!(函数糖)</span></span><br><span class="line">(s *Stmt) Close() error <span class="comment">// 释放资源</span></span><br></pre></td></tr></table></figure>
+<h2 id="sql-Row"><a href="#sql-Row" class="headerlink" title="sql.Row"></a><code>sql.Row</code></h2><p><code>QueryRow返回</code>,结合<code>scan</code>用来获取单行查询结果</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/05.1.md" target="_blank" rel="external">go web编程</a></li>
+</ol>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/09/28/mysql-数据库备份恢复/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/09/24/app后台-升级经验/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/09/25/go-database/" data-title="go-database" data-url="http://yoursite.com/2015/09/25/go-database/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-09-25 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/go/">go<span>38</span></a></li> <li><a href="/tags/database/">database<span>3</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'qianchenglong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

@@ -1,0 +1,416 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>markdown语法 | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="markdown语法"/>
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> markdown语法</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="文件名后缀"><a href="#文件名后缀" class="headerlink" title="文件名后缀"></a>文件名后缀</h2><p>采用*.md</p>
+<a id="more"></a>
+<h2 id="区块元素"><a href="#区块元素" class="headerlink" title="区块元素"></a>区块元素</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><ul>
+<li><p>Atx语法格式(<strong>采用这种</strong>)</p>
+<p>  用1~6个’#’来表示1～6阶标题</p>
+<pre><code># 一级标题
+## 二级标题
+</code></pre></li>
+<li><p>Setext语法格式</p>
+<p>  用’=’或’-‘在文字下部标注</p>
+<pre><code>大标题
+======
+小标题
+------
+</code></pre></li>
+</ul>
+<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h3><p>一个或多个连续的文本行组成，以空行(<strong>空白符组成的行</strong>)作为分界符</p>
+<p>理解：在markdown文件中，一个段落中的换行符和多个连续的空白符都无效，所以若是需<br>要强制换行(类似与在html文件中插入<code>&lt;br \&gt;</code>标签)，需要在该行尾输入2个以上的空格<br>。</p>
+<pre><code>    这是
+一个段落
+</code></pre><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><ul>
+<li><p>无序列表</p>
+<p>项目标记[-,<em>,+] + 空格(总共1个TAB)，所以最好的方式是，<em>*- 3个空格</em></em>(按下TAB键即可)</p>
+<pre><code>-    足球
+-    篮球
+或
+*    足球
+*    篮球
+或
++    足球
++    篮球
+</code></pre></li>
+<li><p>有序列表</p>
+<p>项目标记[-,<em>,+] + . + 空格(总共1个TAB)，所以最好的方式是，<em>*1. 2个空格</em></em>(按下TAB键即可)</p>
+<ul>
+<li><p>用一个数字加空格标记</p>
+<pre><code>1.  起床
+1.  刷牙
+1.  洗脸
+</code></pre></li>
+<li><p>数字的顺序没有作用，但最好从<code>1</code>开始，有些编译器支持start属性</p>
+</li>
+</ul>
+</li>
+<li><p>列表项目含有多个段落(<strong>记得段落间需要空行！</strong>)</p>
+<p>该段落比列表项目多缩进1次</p>
+<pre><code>-   吃饭
+
+    先拿筷子，在吃饭，
+    然后记得擦嘴！
+</code></pre></li>
+<li><p>列表项目含有块引用(<strong>同段落处理一样</strong>)</p>
+<pre><code>*   A list item with a blockquote:
+
+    &gt; This is a blockquote
+    &gt; inside a list item.
+</code></pre></li>
+<li><p>列表项目含有代码</p>
+<p>  代码比列表项目多缩进2次</p>
+<pre><code>-   吃饭
+
+    段落
+
+        getChopsticks();
+        eat();
+        cleanMouse();
+</code></pre></li>
+</ul>
+<h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><p>比段落多缩进1次，连续相同缩进的行构成代码区块</p>
+<pre><code>吃饭
+
+    getChopsticks();
+    eat();
+    cleanMouse();
+</code></pre><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>以’&gt;’加一个空白加文字组成</p>
+<ul>
+<li><p>只在整个段落的第一行最前面加上 &gt;</p>
+<pre><code>&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.
+</code></pre></li>
+<li><p>区块引用可以嵌套（例如：引用内的引用），只要根据层次加上不同数量的 &gt; ：</p>
+<pre><code>&gt; This is the first level of quoting.
+&gt;
+&gt; &gt; This is nested blockquote.
+&gt;
+&gt; Back to the first level.
+</code></pre></li>
+<li><p>引用的区块内也可以使用其他的 Markdown 语法，包括标题、列表、代码区块等：</p>
+<pre><code>&gt; ## 这是一个标题。
+&gt;
+&gt; 1.   这是第一行列表项。
+&gt; 2.   这是第二行列表项。
+&gt;
+&gt; 给出一些例子代码：
+&gt;
+&gt;     return shell_exec(&quot;echo $input | $markdown_script&quot;);
+</code></pre></li>
+</ul>
+<h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><p>3个以上的’_’或’=’或’*’</p>
+<pre><code>吃饭
+---
+学习
+</code></pre><h2 id="内联元素"><a href="#内联元素" class="headerlink" title="内联元素"></a>内联元素</h2><h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><ul>
+<li><p>行内式</p>
+<ul>
+<li><p>万维网资源：</p>
+<pre><code>[HOME](www.qianchenglong.com &quot;TITLE&quot;)
+</code></pre></li>
+<li><p>要链接到本机资源，可以使用相对路径：</p>
+<pre><code>[localfile](Markdown语法简记.mkd)
+</code></pre></li>
+</ul>
+</li>
+<li><p>参考式(<strong>多链接时，优先使用！</strong>)</p>
+<p>参考式链接[Baidu][Baidu_ID]</p>
+<pre><code>[Baidu_ID]: www.baidu.com &apos;TITLE&apos;
+</code></pre></li>
+</ul>
+<h3 id="自动链接"><a href="#自动链接" class="headerlink" title="自动链接"></a>自动链接</h3><p>用’&lt;’和’&gt;’包含起来(<strong>不需要描述链接时采用</strong>)</p>
+<pre><code>&lt;http://www.google.com&gt;
+&lt;qian_cheng_long@163.com&gt;
+</code></pre><h3 id="图片-地址指定同链接一样"><a href="#图片-地址指定同链接一样" class="headerlink" title="图片(地址指定同链接一样)"></a>图片(地址指定同链接一样)</h3><pre><code>![图片描述]( 图片地址 &quot;TITLE&quot; )
+</code></pre><h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><p>用’<em>‘(<em>*优先采用</em></em>)或’_’包含起来的文字，1个等于<code>&lt;em /&gt;</code>，2个等于<code>&lt;strong /&gt;</code></p>
+<pre><code>_吃饭_
+**学习**
+</code></pre><h3 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h3><p>用’`’包含起来</p>
+<pre><code>这是代码`puts(&quot;hello world&quot;)`
+</code></pre>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2014/12/19/ejs语法/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2014/12/19/wireshark-捕捉过滤器/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2014/12/19/markdown语法/" data-title="markdown语法" data-url="http://yoursite.com/2014/12/19/markdown语法/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2014-12-19 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/markdown/">markdown<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'qianchenglong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

@@ -1,0 +1,857 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 51 页 | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header page-header-inverse ">
+  <h1 class="title title-inverse ">life&#39;s a struggle.</h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      undefined
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/C-函数返回值与错误处理/" >C-函数返回值与错误处理</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>除了极少数函数调用不会出错(如<code>getpid()</code>，参考[APUE-8.2])，绝大多数函数都可能发生调用失败。在调用失败时，<br>就涉及到如何通知调用者，以便调用者进行相对应的错误处理。</p>
+<h1 id="错误处理策略"><a href="#错误处理策略" class="headerlink" title="错误处理策略"></a>错误处理策略</h1><ul>
+<li>作为调用者希望函数的返回结果就是我们期待的值，但这样报告错误又不方便</li>
+<li>若用函数返回值来判断函数的成功或失败，获取期待结果又不方便</li>
+</ul>
+<p>所以在C中，往往都采用了折衷的方式，<strong>通过使用一个与所有成功结果都不相同的值作为函数失败时的返回值</strong>，常见方式有：</p>
+<ul>
+<li><p>失败时返回值</p>
+<ul>
+<li>返回<code>NULL</code>指针，如<code>fopen</code></li>
+<li>返回<code>-1</code></li>
+<li>返回<code>非0</code></li>
+<li>某些专用宏，如<code>EOF</code>，<code>SOCKET_ERROR</code></li>
+</ul>
+</li>
+<li><p>成功时返回值</p>
+<ul>
+<li>返回非空指针</li>
+<li>返回<code>0</code></li>
+<li>某些专用宏，如<code>SOCKET_SUCCESS</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>UNIX环境高级编程.W.Richard Stevens / Stephen A.Rago.译者: 尤晋元 / 张亚英 / 戚正伟.ISBN: 9787115147318</li>
+<li>The Standard C Library Paperback. July 11, 1992. P.J. Plauger.ISBN-13: 978-0131315099</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/C-函数返回值与错误处理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/封装个人代码/" >封装个人代码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>积累平时的代码，方便日后的复用。</p>
+<h1 id="采用什么语言封装"><a href="#采用什么语言封装" class="headerlink" title="采用什么语言封装"></a>采用什么语言封装</h1><p>采用C++，原因如下：</p>
+<ul>
+<li><p>现阶段主要使用C++，虽然也使用部分C库或系统API</p>
+</li>
+<li><p>提供默认参数值，使接口美观、易用</p>
+</li>
+<li><p>提供名字空间，可以防止名字污染</p>
+</li>
+<li><p>提供多态，使接口美观、易用</p>
+</li>
+</ul>
+<h1 id="封装遇到的问题"><a href="#封装遇到的问题" class="headerlink" title="封装遇到的问题"></a>封装遇到的问题</h1><ul>
+<li><p>代码目录怎么组织？</p>
+</li>
+<li><p>函数调用出错怎么处理？</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/封装个人代码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/autohotkey获得粘贴板内容/" >autohotkey获得粘贴板内容</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">; 获取当前选中内容</span></span><br><span class="line">GetSelectText()</span><br><span class="line">&#123;</span><br><span class="line">    tmp = <span class="variable">%ClipBoard%</span> <span class="comment">; 保存原来内容</span></span><br><span class="line">    <span class="built_in">ClipBoard</span> = <span class="comment">; 清空粘贴板</span></span><br><span class="line">    Send, ^c <span class="comment">; 获取当前选中内容</span></span><br><span class="line">    Sleep, <span class="number">100</span> <span class="comment">; 确保操作成功</span></span><br><span class="line">    text = <span class="variable">%ClipBoard%</span></span><br><span class="line">    <span class="built_in">ClipBoard</span> = <span class="variable">%cmp%</span> <span class="comment">; 复原</span></span><br><span class="line">    <span class="keyword">return</span> text</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">msgbox <span class="variable">% GetSelectText()</span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/autohotkey获得粘贴板内容/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/软件设计原则资料/" >软件设计原则资料</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><a href="http://coolshell.cn/articles/4535.html" target="_blank" rel="external">一些软件设计的原则(酷壳)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/KISS_principle" target="_blank" rel="external">https://en.wikipedia.org/wiki/KISS_principle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank" rel="external">https://en.wikipedia.org/wiki/Don%27t_repeat_yourself</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/软件设计原则资料/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-06 </div>
+			<div class="article-title"><a href="/2015/01/06/虚拟网卡资料/" >虚拟网卡资料</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><a href="http://wushank.blog.51cto.com/3489095/1306849" target="_blank" rel="external">linux下TUN/TAP虚拟网卡的使用</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-tuntap/" target="_blank" rel="external">虚拟网卡 TUN/TAP 驱动程序设计原理</a></li>
+<li><a href="http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7" target="_blank" rel="external">http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/TUN%E4%B8%8ETAP" target="_blank" rel="external">wiki-TUN与TAP</a></li>
+<li><a href="http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has" target="_blank" rel="external">http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/06/虚拟网卡资料/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-06 </div>
+			<div class="article-title"><a href="/2015/01/06/位域与大小端/" >位域与大小端</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="小端"><a href="#小端" class="headerlink" title="小端"></a>小端</h1><p>先定义的位域占用字节低位</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> a:<span class="number">4</span>;</span><br><span class="line">    <span class="keyword">uint8_t</span> b:<span class="number">4</span>;</span><br><span class="line">&#125; Bit;</span><br></pre></td></tr></table></figure>
+<p>内存中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxxx xxxx</span><br><span class="line">b    a</span><br></pre></td></tr></table></figure>
+<p>测试：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> a:<span class="number">4</span>;    <span class="comment">/**&lt; 低4位 */</span></span><br><span class="line">    <span class="keyword">uint8_t</span> b:<span class="number">4</span>;    <span class="comment">/**&lt; 高4位 */</span></span><br><span class="line">&#125; Bit;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    Bit.a = <span class="number">0x0</span>;</span><br><span class="line">    Bit.b = <span class="number">0xf</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Bit:%#x\n"</span>, Bit);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"address:%x\n"</span>, (char*)&amp;Bit);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bit:0xf0</span><br><span class="line">address:4063f0</span><br></pre></td></tr></table></figure></p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/06/位域与大小端/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-05 </div>
+			<div class="article-title"><a href="/2015/01/05/本地透明代理的实现/" >本地透明代理的实现</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="转载自http-blog-csdn-net-someonea-article-details-5864946"><a href="#转载自http-blog-csdn-net-someonea-article-details-5864946" class="headerlink" title="转载自http://blog.csdn.net/someonea/article/details/5864946"></a>转载自<a href="http://blog.csdn.net/someonea/article/details/5864946" target="_blank" rel="external">http://blog.csdn.net/someonea/article/details/5864946</a></h2><p>Windows下实现本地透明代理可以通过一个过滤驱动和代理进程实现。<br> 过滤驱动Attach到“//Device//Tcp”和”//Device//Udp”,然后在Dispatch函数中修改<br> 连接的目的地址并保存原始目的地址和源地址。<br> 上层的代理进程在accept到连接时，向过滤驱动查询连接的原始目的地址，<br> 然后向原始目的地址发起连接。</p>
+<p> Linux下面使用netfilter(iptables)可以很容易的实现一个TCP透明代理，<br> 使用iptables的REDIRECT选项无需编写内核模块就可以把连接重定向到本地代理进程。<br> 然后代理进程accept到连接时通过SO_ORIGINAL_DST这个socket选项就可以得到原始目的地址，<br> 非常方便。<br> 不过这只是对TCP而言的，对应UDP而言，还是需要编写一个内核模块，自己做一些处理。<br> 对于UDP，可以用nf_register_hook注册一个Hook，然后保存socket目的地址。<br> 另外注册一个字符设备，在字符设备的IOCTL处理函数中把socket的原始目的地址发送给代理进程。<br> 这一点与Windows的过滤驱动很相似，过滤驱动一般也是注册一个控制设备，<br> 用户态程序通过控制设备与过滤驱动通信。</p>
+<p> Mac OS X中也有类似的机制（使用ipfw的fwd、divert选项），不过用的人较少。</p>
+<p> Mac OS X中可以注册Socket Filters手工过滤特定的连接。</p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/05/本地透明代理的实现/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-04 </div>
+			<div class="article-title"><a href="/2015/01/04/任播/" >任播</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>多台设备具有统一IP地址，但在任何给定时间，只有其中之一可以接收到传送端来的资讯。</p>
+<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><p>任播通常用于提供高可靠性和负载平衡</p>
+<h1 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h1><ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%BE%B9%E7%95%8C%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">边界网关协议</a></li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%A0%B9%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8B%99%E5%99%A8" target="_blank" rel="external">根域名服务器</a></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E4%BB%BB%E6%92%AD" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E4%BB%BB%E6%92%AD</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/04/任播/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-04 </div>
+			<div class="article-title"><a href="/2015/01/04/dns中递归查询与迭代查询的区别/" >dns中递归查询与迭代查询的区别</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>递归查询:</li>
+</ul>
+<p>一般客户机和服务器之间属递归查询，即当客户机向DNS服务器发出请求后,若DNS服务器本身不能解析,则会向另外的DNS服务器发出查询请求，得到结果后转交给客户机；</p>
+<ul>
+<li>迭代查询(反复查询):</li>
+</ul>
+<p>一般DNS服务器之间属迭代查询，如：若DNS2不能响应DNS1的请求，则它会将DNS3的IP给DNS2，以便其再向DNS3发出请求；</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zhidao.baidu.com/link?url=zZcn6vwAvt3f_391aq8kqR-rohsN-WYq5mDst_bUkzxYpEJZyuH-3ggW5BibrDPcrNpbWMqH8nMrACtahNhmZq" target="_blank" rel="external">http://zhidao.baidu.com/link?url=zZcn6vwAvt3f_391aq8kqR-rohsN-WYq5mDst_bUkzxYpEJZyuH-3ggW5BibrDPcrNpbWMqH8nMrACtahNhmZq</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/04/dns中递归查询与迭代查询的区别/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-04 </div>
+			<div class="article-title"><a href="/2015/01/04/修改文件默认打开方式/" >修改文件默认打开方式</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="系统命令方式（优先级低于用户设置，即存储于注册表中的）"><a href="#系统命令方式（优先级低于用户设置，即存储于注册表中的）" class="headerlink" title="系统命令方式（优先级低于用户设置，即存储于注册表中的）"></a>系统命令方式（优先级低于用户设置，即存储于注册表中的）</h1><ol>
+<li><p>assoc改变指定拓展名对应的文件类型</p>
+<pre><code>assoc .apk=AndroidPackage
+&lt;=&gt;
+reg add HKEY_CLASSES_ROOT\.apk /d &quot;AndroidPackage&quot; /f
+</code></pre></li>
+<li><p>ftype来指定文件执行命令，%1代表该文件，%*代表参数</p>
+<pre><code>ftype txtfile=&quot;e:\OS\Android\Exeperience\apk-install.bat&quot; %1 %*
+&lt;=&gt;
+reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\OS\Android\Exeperience\apk-install.bat\&quot; %%1 %%*&quot; /f
+</code></pre></li>
+</ol>
+<h1 id="修改用户设置"><a href="#修改用户设置" class="headerlink" title="修改用户设置"></a>修改用户设置</h1><pre><code>[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.txt\UserChoice]
+&quot;Rrogid&quot;=&quot;\&quot;C:\\Program Files (x86)\\Vim\\vim73\\gvim.exe\&quot; \&quot;%1\&quot; \&quot;%*\&quot;&quot;
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/01/04/修改文件默认打开方式/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+		
+    	<li class="prev"><a href="/page/50/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> 上一页</a></li>
+  		
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/page/52/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+        
+	
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+		
+			<li><a href="/categories/C/">C<span>10</span></a></li>
+		
+			<li><a href="/categories/C/">C++<span>17</span></a></li>
+		
+			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/categories/Crypto/">Crypto++<span>1</span></a></li>
+		
+			<li><a href="/categories/IO/">IO<span>1</span></a></li>
+		
+			<li><a href="/categories/MinGW/">MinGW<span>2</span></a></li>
+		
+			<li><a href="/categories/SVN/">SVN<span>1</span></a></li>
+		
+			<li><a href="/categories/USB/">USB<span>1</span></a></li>
+		
+			<li><a href="/categories/VC/">VC<span>4</span></a></li>
+		
+			<li><a href="/categories/VPN/">VPN<span>2</span></a></li>
+		
+			<li><a href="/categories/Visual-Studio/">Visual Studio<span>1</span></a></li>
+		
+			<li><a href="/categories/apache/">apache<span>4</span></a></li>
+		
+			<li><a href="/categories/arch/">arch<span>4</span></a></li>
+		
+			<li><a href="/categories/autohotkey/">autohotkey<span>2</span></a></li>
+		
+			<li><a href="/categories/awk/">awk<span>1</span></a></li>
+		
+			<li><a href="/categories/boost/">boost<span>2</span></a></li>
+		
+			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+		
+			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
+		
+			<li><a href="/categories/chrome/">chrome<span>2</span></a></li>
+		
+			<li><a href="/categories/clover/">clover<span>1</span></a></li>
+		
+			<li><a href="/categories/cmake/">cmake<span>8</span></a></li>
+		
+			<li><a href="/categories/cmkae/">cmkae<span>1</span></a></li>
+		
+			<li><a href="/categories/cppcheck/">cppcheck<span>1</span></a></li>
+		
+			<li><a href="/categories/cron/">cron<span>1</span></a></li>
+		
+			<li><a href="/categories/cscope/">cscope<span>2</span></a></li>
+		
+			<li><a href="/categories/ctags/">ctags<span>1</span></a></li>
+		
+			<li><a href="/categories/curl/">curl<span>1</span></a></li>
+		
+			<li><a href="/categories/database/">database<span>2</span></a></li>
+		
+			<li><a href="/categories/django/">django<span>2</span></a></li>
+		
+			<li><a href="/categories/doxygen/">doxygen<span>4</span></a></li>
+		
+			<li><a href="/categories/ejs/">ejs<span>1</span></a></li>
+		
+			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
+		
+			<li><a href="/categories/gcc/">gcc<span>2</span></a></li>
+		
+			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
+		
+			<li><a href="/categories/git/">git<span>5</span></a></li>
+		
+			<li><a href="/categories/grep/">grep<span>1</span></a></li>
+		
+			<li><a href="/categories/grub2/">grub2<span>1</span></a></li>
+		
+			<li><a href="/categories/gtest/">gtest<span>3</span></a></li>
+		
+			<li><a href="/categories/hexo/">hexo<span>3</span></a></li>
+		
+			<li><a href="/categories/iptables/">iptables<span>1</span></a></li>
+		
+			<li><a href="/categories/jsoncpp/">jsoncpp<span>2</span></a></li>
+		
+			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
+		
+			<li><a href="/categories/linux/">linux<span>18</span></a></li>
+		
+			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
+		
+			<li><a href="/categories/log4cpp/">log4cpp<span>1</span></a></li>
+		
+			<li><a href="/categories/make/">make<span>1</span></a></li>
+		
+			<li><a href="/categories/makefile/">makefile<span>2</span></a></li>
+		
+			<li><a href="/categories/markdown/">markdown<span>2</span></a></li>
+		
+			<li><a href="/categories/msysgit/">msysgit<span>1</span></a></li>
+		
+			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
+		
+			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+		
+			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
+		
+			<li><a href="/categories/node-js/">node.js<span>1</span></a></li>
+		
+			<li><a href="/categories/nodejs/">nodejs<span>1</span></a></li>
+		
+			<li><a href="/categories/objdump/">objdump<span>1</span></a></li>
+		
+			<li><a href="/categories/od/">od<span>1</span></a></li>
+		
+			<li><a href="/categories/openssl/">openssl<span>1</span></a></li>
+		
+			<li><a href="/categories/openwrt/">openwrt<span>3</span></a></li>
+		
+			<li><a href="/categories/pandoc/">pandoc<span>2</span></a></li>
+		
+			<li><a href="/categories/pdf/">pdf<span>1</span></a></li>
+		
+			<li><a href="/categories/ping/">ping<span>1</span></a></li>
+		
+			<li><a href="/categories/poweriso/">poweriso<span>1</span></a></li>
+		
+			<li><a href="/categories/programming/">programming<span>1</span></a></li>
+		
+			<li><a href="/categories/proxifier/">proxifier<span>1</span></a></li>
+		
+			<li><a href="/categories/python/">python<span>65</span></a></li>
+		
+			<li><a href="/categories/redis/">redis<span>4</span></a></li>
+		
+			<li><a href="/categories/rsync/">rsync<span>2</span></a></li>
+		
+			<li><a href="/categories/samba/">samba<span>3</span></a></li>
+		
+			<li><a href="/categories/socket/">socket<span>3</span></a></li>
+		
+			<li><a href="/categories/sql/">sql<span>2</span></a></li>
+		
+			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+		
+			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
+		
+			<li><a href="/categories/sudo/">sudo<span>1</span></a></li>
+		
+			<li><a href="/categories/svn/">svn<span>2</span></a></li>
+		
+			<li><a href="/categories/syslinux/">syslinux<span>3</span></a></li>
+		
+			<li><a href="/categories/tcpdump/">tcpdump<span>1</span></a></li>
+		
+			<li><a href="/categories/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/categories/tomcat/">tomcat<span>1</span></a></li>
+		
+			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+		
+			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+		
+			<li><a href="/categories/usb/">usb<span>2</span></a></li>
+		
+			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
+		
+			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+		
+			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
+		
+			<li><a href="/categories/web/">web<span>1</span></a></li>
+		
+			<li><a href="/categories/wget/">wget<span>1</span></a></li>
+		
+			<li><a href="/categories/widnows/">widnows<span>2</span></a></li>
+		
+			<li><a href="/categories/win-api/">win-api<span>1</span></a></li>
+		
+			<li><a href="/categories/windows/">windows<span>29</span></a></li>
+		
+			<li><a href="/categories/windowsj/">windowsj<span>1</span></a></li>
+		
+			<li><a href="/categories/wingetopt/">wingetopt<span>1</span></a></li>
+		
+			<li><a href="/categories/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/categories/wireshark/">wireshark<span>3</span></a></li>
+		
+			<li><a href="/categories/xshell/">xshell<span>1</span></a></li>
+		
+			<li><a href="/categories/yed/">yed<span>1</span></a></li>
+		
+			<li><a href="/categories/为什么/">为什么<span>1</span></a></li>
+		
+			<li><a href="/categories/交换机/">交换机<span>1</span></a></li>
+		
+			<li><a href="/categories/单元测试/">单元测试<span>2</span></a></li>
+		
+			<li><a href="/categories/博客/">博客<span>1</span></a></li>
+		
+			<li><a href="/categories/后台/">后台<span>1</span></a></li>
+		
+			<li><a href="/categories/字符编码/">字符编码<span>4</span></a></li>
+		
+			<li><a href="/categories/操作系统/">操作系统<span>1</span></a></li>
+		
+			<li><a href="/categories/数学/">数学<span>1</span></a></li>
+		
+			<li><a href="/categories/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/categories/理论/">理论<span>1</span></a></li>
+		
+			<li><a href="/categories/移动/">移动<span>1</span></a></li>
+		
+			<li><a href="/categories/系统/">系统<span>1</span></a></li>
+		
+			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+		
+			<li><a href="/categories/网站/">网站<span>1</span></a></li>
+		
+			<li><a href="/categories/网络/">网络<span>8</span></a></li>
+		
+			<li><a href="/categories/网络设备/">网络设备<span>2</span></a></li>
+		
+			<li><a href="/categories/计算机/">计算机<span>3</span></a></li>
+		
+			<li><a href="/categories/资料/">资料<span>1</span></a></li>
+		
+			<li><a href="/categories/路由器/">路由器<span>1</span></a></li>
+		
+			<li><a href="/categories/软件/">软件<span>1</span></a></li>
+		
+			<li><a href="/categories/软件工程/">软件工程<span>1</span></a></li>
+		
+			<li><a href="/categories/闪存/">闪存<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/go/">go<span>38</span></a></li>
+		
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+		
+			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
+		
+			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
+		
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
+		
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
+		
+			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+		
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
+		
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+		
+			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+		
+			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
+		
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+		
+			<li><a href="/tags/池/">池<span>1</span></a></li>
+		
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
+		
+			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
+		
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
+		
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+		
+			<li><a href="/tags/连接/">连接<span>1</span></a></li>
+		
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
+		
+			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>536</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/QianChenglong" title="My Github account." target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

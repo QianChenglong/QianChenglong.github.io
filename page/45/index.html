@@ -1,0 +1,895 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 45 页 | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header page-header-inverse ">
+  <h1 class="title title-inverse ">life&#39;s a struggle.</h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      undefined
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-29 </div>
+			<div class="article-title"><a href="/2015/01/29/nautilus-隐藏指定文件/" >nautilus-隐藏指定文件</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>添加要隐藏的文件到<code>.hidden</code></p>
+<pre><code>echo &apos;$RECYCLE.BIN&apos; &gt;&gt;.hidden
+</code></pre></li>
+<li><p><code>F5</code>刷新即可</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://askubuntu.com/questions/143315/how-to-hide-files-and-folders-in-nautilus" target="_blank" rel="external">http://askubuntu.com/questions/143315/how-to-hide-files-and-folders-in-nautilus</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/29/nautilus-隐藏指定文件/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-29 </div>
+			<div class="article-title"><a href="/2015/01/29/ubuntu-nautilus快捷键打开terminal/" >ubuntu-nautilus快捷键打开terminal</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>ubuntu-14.04</p>
+</li>
+<li><p>nautilus-3.10.1</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li><p>安装<code>nautilus-open-terminal</code></p>
+<pre><code>sudo apt-get install nautilus-open-terminal
+</code></pre></li>
+<li><p>退出nautilus</p>
+<pre><code>nautilus -q
+</code></pre></li>
+<li><p>编辑配置文件</p>
+<pre><code>gvim ~/.config/nautilus/accels
+</code></pre></li>
+<li><p>反注释掉该行，并添加映射</p>
+<p>(gtk_accel_path “<actions>/ExtensionsMenuGroup/NautilusOpenTerminal::open_terminal” “F4”)</actions></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/29/ubuntu-nautilus快捷键打开terminal/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-28 </div>
+			<div class="article-title"><a href="/2015/01/28/linux-查看域名对应IP/" >linux-查看域名对应IP</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="nslookup"><a href="#nslookup" class="headerlink" title="nslookup"></a>nslookup</h1><p>不使用<code>/etc/hosts</code>文件</p>
+<h1 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h1><h1 id="getent"><a href="#getent" class="headerlink" title="getent"></a>getent</h1><pre><code>getent ahosts www.baidu.com
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://superuser.com/questions/106901/added-entry-to-hosts-file-ubuntu-can-ping-ok-cannot-nslookup" target="_blank" rel="external">http://superuser.com/questions/106901/added-entry-to-hosts-file-ubuntu-can-ping-ok-cannot-nslookup</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/28/linux-查看域名对应IP/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-28 </div>
+			<div class="article-title"><a href="/2015/01/28/ubuntu-查看文件所属/" >ubuntu-查看文件所属</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>安装<code>apt-file</code></p>
+<pre><code>sudo apt-get install apt-file
+</code></pre></li>
+<li><p>更新数据库</p>
+<pre><code>sudo apt-file update
+</code></pre></li>
+<li><p>查询</p>
+<pre><code>apt-file search /usr/include/arpa/inet.h
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://superuser.com/questions/10997/find-what-package-a-file-belongs-to-in-ubuntu-debian" target="_blank" rel="external">http://superuser.com/questions/10997/find-what-package-a-file-belongs-to-in-ubuntu-debian</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/28/ubuntu-查看文件所属/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-28 </div>
+			<div class="article-title"><a href="/2015/01/28/linux-添加域名映射/" >linux-添加域名映射</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>sudo echo &quot;192.192.192.243 svn.meichuan.com&quot; &gt;&gt;/etc/hosts
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/01/28/linux-添加域名映射/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-28 </div>
+			<div class="article-title"><a href="/2015/01/28/tar/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><h3 id="功能字符"><a href="#功能字符" class="headerlink" title="功能字符"></a>功能字符</h3><p>必须指定1个，可以指定多个，多个可以连在一起，前面的’-‘不是必需的</p>
+<p>-A<br>    追加tar文件到一个archive</p>
+<p>-r<br>    追加files到archive</p>
+<p>-c<br>    创建新的archive</p>
+<p>-x<br>    解包并解压</p>
+<p>-t<br>    查看包内容</p>
+<p>###选项</p>
+<p>-a<br>    根据包名字后缀自动选择相应的压缩程序</p>
+<p>-f archive</p>
+<pre><code>指定包名字，打包就是目的包名字，解包就是要解包的包名字
+</code></pre><p>-C dir<br>    解包到指定目录</p>
+<p>-p<br>    保留文件权限，属性信息</p>
+<p>-P<br>    不拿掉绝对路径前面的’/‘</p>
+<h3 id="压缩选项"><a href="#压缩选项" class="headerlink" title="压缩选项"></a>压缩选项</h3><p>-z<br>    gzip</p>
+<p>-j<br>    bzip2</p>
+<p>-J<br>    xz</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ul>
+<li><p>解压，解包</p>
+<pre><code>tar xf *.tar.gz
+</code></pre></li>
+<li><p>将当前目录打包，压缩</p>
+<pre><code>tar vczf tar.tar.gz .
+</code></pre></li>
+<li><p>解开包中某一个文件</p>
+<ul>
+<li><p>先查看文件</p>
+<pre><code>tar tf tar.tar.gz | grep tar
+</code></pre></li>
+<li><p>再解压指定文件</p>
+<pre><code>tar vxzf tar.tar.gz .tar实例.swp
+</code></pre></li>
+</ul>
+</li>
+<li><p>给当前目录下，某个文件夹打包压缩</p>
+<pre><code>tar vczf src.tar.gz src
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/28/tar/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-27 </div>
+			<div class="article-title"><a href="/2015/01/27/python-遍历目录/" >python-遍历目录</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="os-walk"><a href="#os-walk" class="headerlink" title="os.walk"></a>os.walk</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(<span class="string">'.'</span>):</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">        <span class="keyword">print</span> file</span><br></pre></td></tr></table></figure>
+<h1 id="查找指定文件"><a href="#查找指定文件" class="headerlink" title="查找指定文件"></a>查找指定文件</h1><h2 id="glob-glob"><a href="#glob-glob" class="headerlink" title="glob.glob"></a>glob.glob</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> glob.glob(<span class="string">'*.txt'</span>):</span><br><span class="line">    print(file)</span><br></pre></td></tr></table></figure>
+<h2 id="fnmatch-fnmatch"><a href="#fnmatch-fnmatch" class="headerlink" title="fnmatch.fnmatch"></a>fnmatch.fnmatch</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fnmatch</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>):</span><br><span class="line">    <span class="keyword">if</span> fnmatch.fnmatch(file, <span class="string">'*.txt'</span>):</span><br><span class="line">        <span class="keyword">print</span> file</span><br></pre></td></tr></table></figure>
+<h2 id="re-match"><a href="#re-match" class="headerlink" title="re.match"></a>re.match</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> [f <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>) <span class="keyword">if</span> re.match(<span class="string">r'build-\(.*\)-.*'</span>, f)]:</span><br><span class="line">    print(<span class="string">'cleanning &#123;&#125; ...'</span>.format(d))</span><br><span class="line">    shutil.rmtree(d)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/2225564/get-a-filtered-list-of-files-in-a-directory" target="_blank" rel="external">http://stackoverflow.com/questions/2225564/get-a-filtered-list-of-files-in-a-directory</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/27/python-遍历目录/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-27 </div>
+			<div class="article-title"><a href="/2015/01/27/python-映射list/" >python-映射list</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="数学联系"><a href="#数学联系" class="headerlink" title="数学联系"></a>数学联系</h1><p>对某个集合进行映射（数学运算），生成一个新集合</p>
+<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>将一个序列映射为另一个序列，新序列的元素依赖于原序列的元素</p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><ul>
+<li>简单转换</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>li = [<span class="number">1</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">4</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[elem*<span class="number">2</span> <span class="keyword">for</span> elem <span class="keyword">in</span> li]      <span class="number">1</span></span><br><span class="line">[<span class="number">2</span>, <span class="number">18</span>, <span class="number">16</span>, <span class="number">8</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>li                           <span class="number">2</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">4</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>li = [elem*<span class="number">2</span> <span class="keyword">for</span> elem <span class="keyword">in</span> li] <span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>li</span><br><span class="line">[<span class="number">2</span>, <span class="number">18</span>, <span class="number">16</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>buildConnectionString</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>params = &#123;<span class="string">"server"</span>:<span class="string">"mpilgrim"</span>, <span class="string">"database"</span>:<span class="string">"master"</span>, <span class="string">"uid"</span>:<span class="string">"sa"</span>, <span class="string">"pwd"</span>:<span class="string">"secret"</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>params.items()</span><br><span class="line">[(<span class="string">'server'</span>, <span class="string">'mpilgrim'</span>), (<span class="string">'uid'</span>, <span class="string">'sa'</span>), (<span class="string">'database'</span>, <span class="string">'master'</span>), (<span class="string">'pwd'</span>, <span class="string">'secret'</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[k <span class="keyword">for</span> k, v <span class="keyword">in</span> params.items()]                <span class="number">1</span></span><br><span class="line">[<span class="string">'server'</span>, <span class="string">'uid'</span>, <span class="string">'database'</span>, <span class="string">'pwd'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[v <span class="keyword">for</span> k, v <span class="keyword">in</span> params.items()]                <span class="number">2</span></span><br><span class="line">[<span class="string">'mpilgrim'</span>, <span class="string">'sa'</span>, <span class="string">'master'</span>, <span class="string">'secret'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">"%s=%s"</span> % (k, v) <span class="keyword">for</span> k, v <span class="keyword">in</span> params.items()] <span class="number">3</span></span><br><span class="line">[<span class="string">'server=mpilgrim'</span>, <span class="string">'uid=sa'</span>, <span class="string">'database=master'</span>, <span class="string">'pwd=secret'</span>]</span><br></pre></td></tr></table></figure>
+<h1 id="过滤列表推导"><a href="#过滤列表推导" class="headerlink" title="过滤列表推导"></a>过滤列表推导</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>special_squares = [ x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>) <span class="keyword">if</span> x**<span class="number">2</span> &gt; <span class="number">5</span> <span class="keyword">and</span> x**<span class="number">2</span> &lt; <span class="number">50</span> ]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> special_squares</span><br><span class="line">[<span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h2><ul>
+<li><p><code>range(10)</code></p>
+</li>
+<li><p><code>for x in range(10)</code></p>
+</li>
+<li><p><code>if ...</code></p>
+</li>
+<li><p><code>x**2</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.u.arizona.edu/~erdmann/mse350/topics/list_comprehensions.html" target="_blank" rel="external">http://www.u.arizona.edu/~erdmann/mse350/topics/list_comprehensions.html</a></li>
+<li><a href="http://woodpecker.org.cn/diveintopython/native_data_types/mapping_lists.html" target="_blank" rel="external">http://woodpecker.org.cn/diveintopython/native_data_types/mapping_lists.html</a></li>
+<li><a href="https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions" target="_blank" rel="external">https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/27/python-映射list/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-26 </div>
+			<div class="article-title"><a href="/2015/01/26/vim-xptemplate片段编写/" >vim-xptemplate片段编写</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>调用vim函数</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~<span class="built_in">expand</span>(<span class="string">"%:r"</span>)^</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>可视模式下wrap</p>
+<pre><code>XPT code wrap=cursor &quot; <figure class="highlight plain"><figcaption><span>code ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```~language^</span><br><span class="line">~cursor^</span><br></pre></td></tr></table></figure>
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/26/vim-xptemplate片段编写/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-26 </div>
+			<div class="article-title"><a href="/2015/01/26/vim-代码片段插件比较/" >vim-代码片段插件比较</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="xptemplate"><a href="#xptemplate" class="headerlink" title="xptemplate"></a><a href="https://github.com/drmingdrmer/xptemplate" target="_blank" rel="external">xptemplate</a></h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>支持菜单弹出显示</p>
+<p>当有多个片段时，弹出popup菜单显示</p>
+</li>
+<li><p>支持前缀唯一匹配</p>
+</li>
+</ul>
+<h1 id="UltiSnips"><a href="#UltiSnips" class="headerlink" title="UltiSnips"></a><a href="https://github.com/SirVer/ultisnips" target="_blank" rel="external">UltiSnips</a></h1><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li><p>不支持菜单弹出显示</p>
+</li>
+<li><p>不支持前缀唯一匹配</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/26/vim-代码片段插件比较/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+		
+    	<li class="prev"><a href="/page/44/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> 上一页</a></li>
+  		
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/page/46/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+        
+	
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+		
+			<li><a href="/categories/C/">C<span>10</span></a></li>
+		
+			<li><a href="/categories/C/">C++<span>17</span></a></li>
+		
+			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/categories/Crypto/">Crypto++<span>1</span></a></li>
+		
+			<li><a href="/categories/IO/">IO<span>1</span></a></li>
+		
+			<li><a href="/categories/MinGW/">MinGW<span>2</span></a></li>
+		
+			<li><a href="/categories/SVN/">SVN<span>1</span></a></li>
+		
+			<li><a href="/categories/USB/">USB<span>1</span></a></li>
+		
+			<li><a href="/categories/VC/">VC<span>4</span></a></li>
+		
+			<li><a href="/categories/VPN/">VPN<span>2</span></a></li>
+		
+			<li><a href="/categories/Visual-Studio/">Visual Studio<span>1</span></a></li>
+		
+			<li><a href="/categories/apache/">apache<span>4</span></a></li>
+		
+			<li><a href="/categories/arch/">arch<span>4</span></a></li>
+		
+			<li><a href="/categories/autohotkey/">autohotkey<span>2</span></a></li>
+		
+			<li><a href="/categories/awk/">awk<span>1</span></a></li>
+		
+			<li><a href="/categories/boost/">boost<span>2</span></a></li>
+		
+			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+		
+			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
+		
+			<li><a href="/categories/chrome/">chrome<span>2</span></a></li>
+		
+			<li><a href="/categories/clover/">clover<span>1</span></a></li>
+		
+			<li><a href="/categories/cmake/">cmake<span>8</span></a></li>
+		
+			<li><a href="/categories/cmkae/">cmkae<span>1</span></a></li>
+		
+			<li><a href="/categories/cppcheck/">cppcheck<span>1</span></a></li>
+		
+			<li><a href="/categories/cron/">cron<span>1</span></a></li>
+		
+			<li><a href="/categories/cscope/">cscope<span>2</span></a></li>
+		
+			<li><a href="/categories/ctags/">ctags<span>1</span></a></li>
+		
+			<li><a href="/categories/curl/">curl<span>1</span></a></li>
+		
+			<li><a href="/categories/database/">database<span>2</span></a></li>
+		
+			<li><a href="/categories/django/">django<span>2</span></a></li>
+		
+			<li><a href="/categories/doxygen/">doxygen<span>4</span></a></li>
+		
+			<li><a href="/categories/ejs/">ejs<span>1</span></a></li>
+		
+			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
+		
+			<li><a href="/categories/gcc/">gcc<span>2</span></a></li>
+		
+			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
+		
+			<li><a href="/categories/git/">git<span>5</span></a></li>
+		
+			<li><a href="/categories/grep/">grep<span>1</span></a></li>
+		
+			<li><a href="/categories/grub2/">grub2<span>1</span></a></li>
+		
+			<li><a href="/categories/gtest/">gtest<span>3</span></a></li>
+		
+			<li><a href="/categories/hexo/">hexo<span>3</span></a></li>
+		
+			<li><a href="/categories/iptables/">iptables<span>1</span></a></li>
+		
+			<li><a href="/categories/jsoncpp/">jsoncpp<span>2</span></a></li>
+		
+			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
+		
+			<li><a href="/categories/linux/">linux<span>18</span></a></li>
+		
+			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
+		
+			<li><a href="/categories/log4cpp/">log4cpp<span>1</span></a></li>
+		
+			<li><a href="/categories/make/">make<span>1</span></a></li>
+		
+			<li><a href="/categories/makefile/">makefile<span>2</span></a></li>
+		
+			<li><a href="/categories/markdown/">markdown<span>2</span></a></li>
+		
+			<li><a href="/categories/msysgit/">msysgit<span>1</span></a></li>
+		
+			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
+		
+			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+		
+			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
+		
+			<li><a href="/categories/node-js/">node.js<span>1</span></a></li>
+		
+			<li><a href="/categories/nodejs/">nodejs<span>1</span></a></li>
+		
+			<li><a href="/categories/objdump/">objdump<span>1</span></a></li>
+		
+			<li><a href="/categories/od/">od<span>1</span></a></li>
+		
+			<li><a href="/categories/openssl/">openssl<span>1</span></a></li>
+		
+			<li><a href="/categories/openwrt/">openwrt<span>3</span></a></li>
+		
+			<li><a href="/categories/pandoc/">pandoc<span>2</span></a></li>
+		
+			<li><a href="/categories/pdf/">pdf<span>1</span></a></li>
+		
+			<li><a href="/categories/ping/">ping<span>1</span></a></li>
+		
+			<li><a href="/categories/poweriso/">poweriso<span>1</span></a></li>
+		
+			<li><a href="/categories/programming/">programming<span>1</span></a></li>
+		
+			<li><a href="/categories/proxifier/">proxifier<span>1</span></a></li>
+		
+			<li><a href="/categories/python/">python<span>65</span></a></li>
+		
+			<li><a href="/categories/redis/">redis<span>4</span></a></li>
+		
+			<li><a href="/categories/rsync/">rsync<span>2</span></a></li>
+		
+			<li><a href="/categories/samba/">samba<span>3</span></a></li>
+		
+			<li><a href="/categories/socket/">socket<span>3</span></a></li>
+		
+			<li><a href="/categories/sql/">sql<span>2</span></a></li>
+		
+			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+		
+			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
+		
+			<li><a href="/categories/sudo/">sudo<span>1</span></a></li>
+		
+			<li><a href="/categories/svn/">svn<span>2</span></a></li>
+		
+			<li><a href="/categories/syslinux/">syslinux<span>3</span></a></li>
+		
+			<li><a href="/categories/tcpdump/">tcpdump<span>1</span></a></li>
+		
+			<li><a href="/categories/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/categories/tomcat/">tomcat<span>1</span></a></li>
+		
+			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+		
+			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+		
+			<li><a href="/categories/usb/">usb<span>2</span></a></li>
+		
+			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
+		
+			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+		
+			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
+		
+			<li><a href="/categories/web/">web<span>1</span></a></li>
+		
+			<li><a href="/categories/wget/">wget<span>1</span></a></li>
+		
+			<li><a href="/categories/widnows/">widnows<span>2</span></a></li>
+		
+			<li><a href="/categories/win-api/">win-api<span>1</span></a></li>
+		
+			<li><a href="/categories/windows/">windows<span>29</span></a></li>
+		
+			<li><a href="/categories/windowsj/">windowsj<span>1</span></a></li>
+		
+			<li><a href="/categories/wingetopt/">wingetopt<span>1</span></a></li>
+		
+			<li><a href="/categories/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/categories/wireshark/">wireshark<span>3</span></a></li>
+		
+			<li><a href="/categories/xshell/">xshell<span>1</span></a></li>
+		
+			<li><a href="/categories/yed/">yed<span>1</span></a></li>
+		
+			<li><a href="/categories/为什么/">为什么<span>1</span></a></li>
+		
+			<li><a href="/categories/交换机/">交换机<span>1</span></a></li>
+		
+			<li><a href="/categories/单元测试/">单元测试<span>2</span></a></li>
+		
+			<li><a href="/categories/博客/">博客<span>1</span></a></li>
+		
+			<li><a href="/categories/后台/">后台<span>1</span></a></li>
+		
+			<li><a href="/categories/字符编码/">字符编码<span>4</span></a></li>
+		
+			<li><a href="/categories/操作系统/">操作系统<span>1</span></a></li>
+		
+			<li><a href="/categories/数学/">数学<span>1</span></a></li>
+		
+			<li><a href="/categories/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/categories/理论/">理论<span>1</span></a></li>
+		
+			<li><a href="/categories/移动/">移动<span>1</span></a></li>
+		
+			<li><a href="/categories/系统/">系统<span>1</span></a></li>
+		
+			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+		
+			<li><a href="/categories/网站/">网站<span>1</span></a></li>
+		
+			<li><a href="/categories/网络/">网络<span>8</span></a></li>
+		
+			<li><a href="/categories/网络设备/">网络设备<span>2</span></a></li>
+		
+			<li><a href="/categories/计算机/">计算机<span>3</span></a></li>
+		
+			<li><a href="/categories/资料/">资料<span>1</span></a></li>
+		
+			<li><a href="/categories/路由器/">路由器<span>1</span></a></li>
+		
+			<li><a href="/categories/软件/">软件<span>1</span></a></li>
+		
+			<li><a href="/categories/软件工程/">软件工程<span>1</span></a></li>
+		
+			<li><a href="/categories/闪存/">闪存<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+		
+			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
+		
+			<li><a href="/tags/资源/">资源<span>2</span></a></li>
+		
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+		
+			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+		
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
+		
+			<li><a href="/tags/all/">all<span>1</span></a></li>
+		
+			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
+		
+			<li><a href="/tags/link/">link<span>2</span></a></li>
+		
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+		
+			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
+		
+			<li><a href="/tags/database/">database<span>3</span></a></li>
+		
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+		
+			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+		
+			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
+		
+			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
+		
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+		
+			<li><a href="/tags/select/">select<span>1</span></a></li>
+		
+			<li><a href="/tags/理论/">理论<span>1</span></a></li>
+		
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>536</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/QianChenglong" title="My Github account." target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

@@ -1,0 +1,1213 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 41 页 | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header page-header-inverse ">
+  <h1 class="title title-inverse ">life&#39;s a struggle.</h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      undefined
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-10 </div>
+			<div class="article-title"><a href="/2015/02/10/samba-常用操作/" >samba-常用操作</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>测试配置文件语法</p>
+<pre><code>testparm
+</code></pre></li>
+<li><p>本地连接测试</p>
+<pre><code>smbclient -L //127.0.0.1
+</code></pre></li>
+<li><p>观察连接状态</p>
+<pre><code>smbstatus
+</code></pre></li>
+<li><p>挂载共享目录</p>
+<pre><code>mount -t cifs //127.0.0.1/read /mnt
+</code></pre></li>
+<li><p>查看用户</p>
+<pre><code>pdbedit -L
+</code></pre></li>
+<li><p>添加一个用户</p>
+<pre><code>pdbedit -a -u USERNAME
+</code></pre></li>
+<li><p>删除用户</p>
+<pre><code>pdbedit -x -u USERNAME
+</code></pre></li>
+<li><p>修改samba用户登录密码</p>
+<pre><code>smbpasswd USERNAME
+</code></pre></li>
+<li><p>重启samba</p>
+<ul>
+<li><p>system-v4</p>
+<pre><code>service smbd restart
+</code></pre></li>
+<li><p>systemd</p>
+<pre><code>systemctl restart smb
+</code></pre></li>
+</ul>
+</li>
+<li><p>查看samba版本</p>
+<pre><code>smbstatus
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/10/samba-常用操作/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-10 </div>
+			<div class="article-title"><a href="/2015/02/10/samba-服务器搭建/" >samba搭建</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>CentOS-7.0.1</p>
+</li>
+<li><p>Samba version 4.1.12</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li><p>安装samba</p>
+<pre><code>yum install samba
+</code></pre></li>
+<li><p>修改配置文件</p>
+<pre><code>cp /etc/samba/smb.conf /etc/samba/smb.conf~
+vi /etc/samba/smb.conf
+
+[global]
+workgroup = WORKGROUP
+netbios name = xianji-server
+server string = Samba Server Version %v
+security = user
+map to guest = Bad Password
+guest account = guest
+unix extensions  = no
+load printers = no
+log file = /var/log/samba/%m.log
+max log size = 50
+encrypt passwords = true
+passdb backend = tdbsam
+unix password sync = yes
+passwd program = /usr/bin/passwd %u
+passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
+pam password change = yes
+
+[root]
+path = /
+browseable = no
+writable = yes
+wide links = yes
+guest ok = no
+
+[share]
+path = /data/share
+guest ok = yes
+read only = no
+</code></pre></li>
+<li><p>添加samba用户(需要当前已存在用户名)</p>
+<pre><code>pdbedit -a USERNAME
+</code></pre><p>输入2次密码</p>
+</li>
+<li><p>关闭SELinux</p>
+<pre><code>setenfore 0
+</code></pre></li>
+<li><p>防火墙放行(445/tcp)</p>
+<pre><code>firewall-cmd --permanent --add-port=445/tcp
+firewall-cmd --reload
+</code></pre></li>
+<li><p>重启samba服务</p>
+<pre><code>systemctl restart smb
+systemctl restart nmb
+</code></pre></li>
+</ul>
+<h1 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h1><h2 id="以用户的所有权限控制-security-user"><a href="#以用户的所有权限控制-security-user" class="headerlink" title="以用户的所有权限控制(security = user)"></a>以用户的所有权限控制(<code>security = user</code>)</h2><p>根据目录、文件的权限来控制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 添加用户</span><br><span class="line">useradd &lt;username&gt;</span><br><span class="line">pdbedit -a -u &lt;username&gt;(输入相应密码)</span><br><span class="line"></span><br><span class="line"># 修改用户名</span><br><span class="line">smbpasswd &lt;usernmae&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://wiki.archlinux.org/index.php/Samba_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Samba_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/10/samba-服务器搭建/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/源IP选择/" >源IP选择</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blogs.technet.com/b/networking/archive/2009/04/25/source-ip-address-selection-on-a-multi-homed-windows-computer.aspx" target="_blank" rel="external">http://blogs.technet.com/b/networking/archive/2009/04/25/source-ip-address-selection-on-a-multi-homed-windows-computer.aspx</a></li>
+<li><a href="https://support.microsoft.com/kb/969029" target="_blank" rel="external">https://support.microsoft.com/kb/969029</a></li>
+<li><a href="http://linux-ip.net/html/routing-saddr-selection.html" target="_blank" rel="external">http://linux-ip.net/html/routing-saddr-selection.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/源IP选择/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/ping常见错误分析/" >ping常见错误分析</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="局域网内，目标不存在或未应答"><a href="#局域网内，目标不存在或未应答" class="headerlink" title="局域网内，目标不存在或未应答"></a>局域网内，目标不存在或未应答</h1><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>该数据包未发送，因为在tcp/ip在填充目的MAC，执行ARP请求时，没有得到应答，无法确定目的MAC。</p>
+<h2 id="表象"><a href="#表象" class="headerlink" title="表象"></a>表象</h2><ul>
+<li><p>windows</p>
+<pre><code>无法访问目标主机
+</code></pre></li>
+<li><p>linux</p>
+<pre><code>Destination Host Unreachable
+</code></pre></li>
+</ul>
+<h1 id="非局域网，目标不存在或未应答"><a href="#非局域网，目标不存在或未应答" class="headerlink" title="非局域网，目标不存在或未应答"></a>非局域网，目标不存在或未应答</h1><h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><pre><code>该数据包已发送，由下一跳路由负责转发，而对应的机器不存在或未应答
+</code></pre><h2 id="表象-1"><a href="#表象-1" class="headerlink" title="表象"></a>表象</h2><ul>
+<li><p>windows</p>
+<pre><code>请求超时
+</code></pre></li>
+<li><p>linux</p>
+<pre><code>-   无输出
+</code></pre></li>
+</ul>
+<h1 id="域名解析失败"><a href="#域名解析失败" class="headerlink" title="域名解析失败"></a>域名解析失败</h1><h2 id="表象-2"><a href="#表象-2" class="headerlink" title="表象"></a>表象</h2><ul>
+<li><p>windows</p>
+<pre><code>Ping 请求找不到主机 a。请检查该名称，然后重试。
+</code></pre></li>
+<li><p>linux</p>
+<pre><code>Ping 请求找不到主机 a。请检查该名称，然后重试。
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/ping常见错误分析/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/openwrt-目录组织/" >openwrt-目录组织</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>build_dir/  用于存放所有解压后的源码，并在当中编译</p>
+<ul>
+<li><p>host/   宿主环境下的编译工具源码</p>
+</li>
+<li><p>toolchain-*   交叉C编译器，C标准库，内核，二进制工具等组件源码</p>
+</li>
+<li><p>target-*    目标系统的软件包源码</p>
+</li>
+</ul>
+</li>
+<li><p>staging_dir/    用于存放安装已编译，为了进一步编译软件包，或产生固件镜像</p>
+<ul>
+<li><p>host/   最小化的Linux</p>
+</li>
+<li><p>toolchain-* 最小化的LInux，带有交叉C编译器，用于去编译剩余的固件部分</p>
+</li>
+<li><p>target…/root-ramips/  最终的固件</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/26030670/openwrt-buildroot-build-dir-and-staging-dir" target="_blank" rel="external">http://stackoverflow.com/questions/26030670/openwrt-buildroot-build-dir-and-staging-dir</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/openwrt-目录组织/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/linux-常用命令/" >linux-常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h1><ul>
+<li><p>修改时区</p>
+<pre><code>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</code></pre></li>
+<li><p>查看或设置用户限制</p>
+<pre><code>ulimit -a
+</code></pre></li>
+<li><p>查看系统配置参数</p>
+<pre><code>getconf -a
+</code></pre></li>
+</ul>
+<h1 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h1><ul>
+<li><p>查看磁盘使用情况</p>
+<pre><code>df
+</code></pre></li>
+<li><p>查看分区类型</p>
+<pre><code>df -T
+</code></pre></li>
+<li><p>查看分区UUID，label等</p>
+<pre><code>blkid
+</code></pre></li>
+<li><p>检查并自动修复磁盘错误</p>
+<pre><code>fsck -a /dev/sda1
+</code></pre></li>
+<li><p>重新读取fstab</p>
+<pre><code>mount -a
+</code></pre></li>
+</ul>
+<h1 id="压缩包"><a href="#压缩包" class="headerlink" title="压缩包"></a>压缩包</h1><ul>
+<li><p>解压tar包</p>
+<pre><code>tar xvf XXX.tar
+</code></pre></li>
+<li><p>解压tar.gz</p>
+<pre><code>tar xvzf XXX.tar.gz
+</code></pre></li>
+</ul>
+<h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><ul>
+<li><p>重命名文件、目录</p>
+<pre><code>mv SRC DST
+</code></pre></li>
+<li><p>查看目录使用情况</p>
+<pre><code>du
+</code></pre></li>
+<li><p>实时查看文件</p>
+<pre><code>tail -f filename
+</code></pre></li>
+<li><p>复制，若父目录不存在则创建</p>
+<pre><code>cp src/a.txt /data/ ==&gt; /data/src/a.txt
+</code></pre></li>
+</ul>
+<h1 id="账号"><a href="#账号" class="headerlink" title="账号"></a>账号</h1><ul>
+<li><p>添加用户</p>
+<pre><code>useradd -m &lt;username&gt;
+</code></pre></li>
+<li><p>设置密码</p>
+<pre><code>passwd &lt;username&gt;
+</code></pre></li>
+<li><p>查看用户基本信息</p>
+<pre><code>id USERNAME
+</code></pre></li>
+<li><p>查看用户所属组</p>
+<pre><code>groups USERNAME
+lid &lt;username&gt;
+</code></pre></li>
+<li><p>查看组成员</p>
+<pre><code>lid -g &lt;group-name&gt;
+</code></pre></li>
+<li><p>用户添加附加组</p>
+<pre><code>usermod -a -G GROUPNAME USERNAME
+</code></pre></li>
+<li><p>查看动态库加载</p>
+<pre><code>ldd ./dbgateway_svc 
+</code></pre></li>
+</ul>
+<h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><ul>
+<li><p>批量删除进程</p>
+<pre><code>pkill &lt;pattern&gt;
+</code></pre></li>
+<li><p>根据端口杀进程</p>
+<pre><code>fuser -k 12000/tcp
+</code></pre></li>
+<li><p>查看进程树</p>
+<pre><code>pstree -apls PID
+</code></pre></li>
+<li><p>查看进程打开的文件</p>
+<pre><code>lsof -p 18661
+</code></pre></li>
+</ul>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li><p>选择默认编辑器</p>
+<pre><code>select-editor
+</code></pre></li>
+<li><p>查看glibc版本</p>
+<pre><code>ldd --version
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/linux-常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/virtualbox-拓展磁盘空间/" >virtualbox-拓展磁盘空间</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>宿主    win7-64</p>
+</li>
+<li><p>虚拟机  ubuntu-14.04</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>进入<code>virtualbox</code>目录</p>
+</li>
+<li><p>调整大小</p>
+<pre><code>VBoxManage.exe modifyhd E:\Soft\VirtualBox\VMs\Ubuntu-14.04\Ubuntu-14.04.vdi --resize 20480
+</code></pre></li>
+<li><p>重新调整分区大小</p>
+<ul>
+<li><p>使用<code>GParted Live CD</code></p>
+</li>
+<li><p>使用<code>ubuntu Live CD</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://forums.virtualbox.org/viewtopic.php?f=35&amp;t=50661" target="_blank" rel="external">https://forums.virtualbox.org/viewtopic.php?f=35&amp;t=50661</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/virtualbox-拓展磁盘空间/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-07 </div>
+			<div class="article-title"><a href="/2015/02/07/ubuntu-编译openwrt/" >ubuntu-编译openwrt</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>ubuntu-14.04</li>
+</ul>
+<h1 id="搭建编译环境"><a href="#搭建编译环境" class="headerlink" title="搭建编译环境"></a>搭建编译环境</h1><ul>
+<li><p>安装依赖工具</p>
+<pre><code>sudo apt-get install gawk flex zlib1g-dev libncurses5-dev subversion git findutils build-essential binutils 
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/07/ubuntu-编译openwrt/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/wireshark-显示过滤器/" >wireshark-显示过滤器</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>根据帧序号</p>
+<pre><code>frame.number &gt;= 6
+</code></pre></li>
+<li><p>根据http内容类型</p>
+<pre><code>http.content_type == “application/x-www-form-urlencoded”
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/wireshark-显示过滤器/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/windows-路由表/" >windows-路由表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="路由表介绍"><a href="#路由表介绍" class="headerlink" title="路由表介绍"></a>路由表介绍</h1><h2 id="路由表项的种类"><a href="#路由表项的种类" class="headerlink" title="路由表项的种类"></a>路由表项的种类</h2><ul>
+<li><p>网络路由：一个在网络中有特定网络ID的路由（路径）</p>
+</li>
+<li><p>主机路由：一个有特定网络地址（网络ID和主机ID）的路由。主机路由允许智能化的路由选择。主机路由通常用于创建用于控制和优化特定网络通信的定制路由。</p>
+</li>
+<li><p>默认路由：一个当别的路由在路由表中未被找到的时候使用的路由。如果一个路由器或终端系统（如装有Microsoft Windows和Linux的个人电脑），找不到到达目的地的路由时就会使用默认路由。</p>
+</li>
+</ul>
+<h2 id="路由表项的构成"><a href="#路由表项的构成" class="headerlink" title="路由表项的构成"></a>路由表项的构成</h2><ul>
+<li><p>网络ID(主键)  由IP加子网掩码构成</p>
+</li>
+<li><p>代价    用来路径决策</p>
+</li>
+<li><p>下一跳  下一跳地址或网关地址</p>
+</li>
+</ul>
+<h1 id="实例路由说明"><a href="#实例路由说明" class="headerlink" title="实例路由说明"></a>实例路由说明</h1><ul>
+<li><p><code>0.0.0.0          0.0.0.0      192.168.1.1    192.168.1.110    276</code></p>
+<p>这是一条“默认路径”。表示，当该主机发送数据包时，如果在路由表内找不到其他可以用来发送此数据包的路径时，该数据包会通过这条“默认路径”来发送，也就是说“接口” 192.168.1.110 这个IP发出，然后送给网关 192.168.1.1 。</p>
+</li>
+<li><p>127.0.0.0        255.0.0.0            在链路上         127.0.0.1    306</p>
+<p>这是“环回网络路径”(loopback network route)。当该主机发送的数据包给 IP 地址的形式如 127.x.y.z 这种地址时，这个数据包会从接口 127.0.0.1 这个 IP 地址送给目标，而无需经过路由器。从 “在链路上” 也提示了这一点。IP 地址 127.x.y.z 是计算机内部使用的 IP 地址，通过该地址计算机将数据包发送给自己，一般情况下我们常使用 127.0.0.1 。</p>
+</li>
+<li><p><code>192.168.1.0    255.255.255.0            在链路上     192.168.1.110    276</code></p>
+<p>这是“直接连接的网络路径”(directly-attached network route)。所谓直接连接的网络就是指该主机所在的网路，这里为 192.168.1.10 ，此路径表示当该主机往此网络里的主机发送数据包时，数据包会从接口 192.168.1.110 这个 IP 发出，由“网关”处的标识“在链路上”知道，该数据包将直接发送给目标，而不需要通过路由器来转发。</p>
+</li>
+<li><p><code>192.168.1.110  255.255.255.255            在链路上     192.168.1.110    276</code></p>
+<p>这条路径是“主机路径”(host route)。当该主机要把数据包发送到 192.168.1.110（发给自己）时，该数据包会从 192.168.1.110 上发出，然后发给自己，也不需要通过路由器来转发.</p>
+</li>
+<li><p><code>192.168.1.255  255.255.255.255            在链路上     192.168.1.110    276</code></p>
+<p>该路径是“子网广播路径”(subnet broadcast route)。它表示的是，当该主机要发送数据包到 192.168.1.255 这个广播地址时（也就是要广播给 192.168.1.0 这个子网内的所有计算机），该数据包会通过 192.168.1.110 这个地址发出。同样，通过在“链路上”的提示知道，该数据包也不需要通过路由器。</p>
+</li>
+<li><p><code>224.0.0.0        240.0.0.0            在链路上     192.168.1.110    276</code></p>
+<p>该条路径是“多播路径”(multicast route)。表示该主机发送多播数据包时，该数据包会通过 192.168.1.110 这个 IP 发出，同样从“在链路上”知道数据包直接发送给目标，而不需要经过路由器。</p>
+</li>
+<li><p><code>255.255.255.255  255.255.255.255            在链路上     192.168.1.110    276</code></p>
+<p>该路径是“有限广播路径”( limited broadcast route )。它表示当该主机要发送广播数据包到 255.255.255.255 （有限广播地址）时，该数据包会通过 192.168.1.110 发出，同样道理该数据包也不需要通过路由器。<br>当主机不知道本机所处的网络时（如主机启动时），此时只能采用有限广播方式，比如无盘工作站启动时，希望从 DHCP 服务器那里获得一个 IP 时，就会用该方式。</p>
+</li>
+</ul>
+<h1 id="路由表操作"><a href="#路由表操作" class="headerlink" title="路由表操作"></a>路由表操作</h1><h2 id="命令形式"><a href="#命令形式" class="headerlink" title="命令形式"></a>命令形式</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route [-f] [-p] [command [destination] [mask netmask] [gateway] [metric metric] [<span class="keyword">if</span> interface]</span><br></pre></td></tr></table></figure>
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><ul>
+<li><p>-f</p>
+<ul>
+<li><p>清除所有不是主路由(子网掩码为255.255.255.255的路由)、环回网络路由(目标为127.0.0.0，子网掩码为255.255.255.0的路由)<br>或多播路由(目标为224.0.0.0，子网掩码为240.0.0.0的路由)的条目的路由表。</p>
+</li>
+<li><p>如果它与命令之一(例如Add、Change或Delete)结合使用，表会在运行命令之前清除。</p>
+</li>
+</ul>
+</li>
+<li><p>-p</p>
+<ul>
+<li><p>与Add命令共同使用时，指定路由被添加到注册表并在启动TCP/IP协议的时候初始化IP路由表</p>
+</li>
+<li><p>默认情况下，启动TCP/IP协议时不会保存添加的路由</p>
+</li>
+<li><p>与Print命令一起使用时，则显示永久路由列表</p>
+</li>
+<li><p>所有其他的命令都忽略此参数</p>
+</li>
+<li><p>永久路由存储在注册表中的位置是<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Tcpip\Parameters\PersistentRoutes</code></p>
+</li>
+</ul>
+</li>
+<li><p>command</p>
+<ul>
+<li><p>print</p>
+</li>
+<li><p>add</p>
+</li>
+<li><p>delete</p>
+</li>
+<li><p>change</p>
+</li>
+</ul>
+</li>
+<li><p>destination</p>
+<p>指定路由的网络目标地址。</p>
+<ul>
+<li><p>可以是网络号(主机位为0的IP)</p>
+</li>
+<li><p>对于具体主机是其IP地址</p>
+</li>
+<li><p>对于默认路由是0.0.0.0</p>
+</li>
+</ul>
+</li>
+<li><p>mask netmask</p>
+<p>指定与网络目标地址相关联的网掩码(又称子网掩码)。</p>
+<p>子网掩码对于IP网络地址可以是一适当的子网掩码</p>
+<pre><code>-   对于主机路由是255.255.255.255
+
+-   对于默认路由是0.0.0.0
+
+-   如果忽略，则使用子网掩码255.255.255.255
+</code></pre><p><strong>注意：</strong></p>
+<ul>
+<li>定义路由时由于目标地址和子网掩码之间的关系，目标地址不能比它对应的子网掩码更为详细。换句话说，如果子网掩码的一位是0，则目标地址中的对应位就不能设置为1。</li>
+</ul>
+</li>
+<li><p>gateway</p>
+<p>网关，又叫做下一跳路由器</p>
+<ul>
+<li><p>网关与主机位于同一个局域网内，可以直达的！</p>
+</li>
+<li><p>当目标网络与主机不在同一局域网，则需要网关转发</p>
+</li>
+<li><p>目标网络与主机所属同一个局域网，则显示为<strong>在链路上</strong>，说明无需路由器转发，可直达</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>interface</p>
+<p>当多网卡时，指示哪个接口(可以是环回接口，LAN，VPN拨号接口等)可以到达<code>gateway</code></p>
+<p>如：</p>
+<pre><code>网络目标        网络掩码          网关       接口   跃点数
+  0.0.0.0          0.0.0.0    100.100.103.1    100.100.103.3    200
+</code></pre><p>网关<code>100.100.103.1</code>通过<code>100.100.103.3</code>可以到达</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">===========================================================================</span><br><span class="line">接口列表</span><br><span class="line"> 11...74 d4 35 46 3c 8e ......Realtek PCIe GBE Family Controller</span><br><span class="line"> 15...00 ff e7 a5 e8 50 ......TAP-Windows Adapter V9</span><br><span class="line"> 16...08 00 27 00 94 09 ......VirtualBox Host-Only Ethernet Adapter</span><br><span class="line"> 22...00 50 56 c0 00 01 ......VMware Virtual Ethernet Adapter for VMnet1</span><br><span class="line"> 23...00 50 56 c0 00 08 ......VMware Virtual Ethernet Adapter for VMnet8</span><br><span class="line">  1...........................Software Loopback Interface 1</span><br><span class="line">===========================================================================</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>metric</p>
+<p>跃点数，用来描述路由质量，当存在多条路由时，择优依据</p>
+</li>
+</ul>
+<h2 id="command"><a href="#command" class="headerlink" title="command"></a>command</h2><ul>
+<li><p>route print</p>
+<pre><code>E:\Test&gt;route print
+===========================================================================
+接口列表
+接口号  MAC                   描述
+ 34...........................NYDUS_VPN
+ 15...00 ff e7 a5 e8 50 ......TAP-Windows Adapter V9
+ 12...00 0f 13 76 05 b2 ......Realtek RTL8188CU Wireless LAN 802.11n USB 2.0 Net
+work Adapter
+ 16...08 00 27 00 94 09 ......VirtualBox Host-Only Ethernet Adapter
+ 23...00 50 56 c0 00 01 ......VMware Virtual Ethernet Adapter for VMnet1
+ 24...00 50 56 c0 00 08 ......VMware Virtual Ethernet Adapter for VMnet8
+  1...........................Software Loopback Interface 1
+===========================================================================
+</code></pre></li>
+<li><p>清空路由表项</p>
+<pre><code>route -f
+</code></pre></li>
+<li><p>添加路由表项</p>
+<pre><code>route -p add 192.192.0.0 mask 255.255.0.0 100.100.102.1 if 11
+</code></pre></li>
+<li><p>删除路由表项</p>
+<pre><code>route delete 192.192.0.0
+</code></pre></li>
+<li><p>查找路由表项</p>
+<pre><code>route print|findstr 192.192
+</code></pre></li>
+</ul>
+<h1 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h1><ul>
+<li><p>为什么存在<code>100.100.103.3  255.255.255.255            在链路上     100.100.103.3    356</code>?</p>
+<p>为什么不是通过<code>127.0.0.1</code>而是<code>100.100.103.3</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zh.wikipedia.org/wiki/%E8%B7%AF%E7%94%B1%E8%A1%A8" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E8%B7%AF%E7%94%B1%E8%A1%A8</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Routing_table" target="_blank" rel="external">http://en.wikipedia.org/wiki/Routing_table</a></li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/cc787509(v=ws.10).aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/cc787509(v=ws.10).aspx</a></li>
+<li><a href="http://www.groad.net/bbs/thread-8080-1-1.html" target="_blank" rel="external">http://www.groad.net/bbs/thread-8080-1-1.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/windows-路由表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+		
+    	<li class="prev"><a href="/page/40/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> 上一页</a></li>
+  		
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/page/42/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+        
+	
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+		
+			<li><a href="/categories/C/">C<span>10</span></a></li>
+		
+			<li><a href="/categories/C/">C++<span>17</span></a></li>
+		
+			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/categories/Crypto/">Crypto++<span>1</span></a></li>
+		
+			<li><a href="/categories/IO/">IO<span>1</span></a></li>
+		
+			<li><a href="/categories/MinGW/">MinGW<span>2</span></a></li>
+		
+			<li><a href="/categories/SVN/">SVN<span>1</span></a></li>
+		
+			<li><a href="/categories/USB/">USB<span>1</span></a></li>
+		
+			<li><a href="/categories/VC/">VC<span>4</span></a></li>
+		
+			<li><a href="/categories/VPN/">VPN<span>2</span></a></li>
+		
+			<li><a href="/categories/Visual-Studio/">Visual Studio<span>1</span></a></li>
+		
+			<li><a href="/categories/apache/">apache<span>4</span></a></li>
+		
+			<li><a href="/categories/arch/">arch<span>4</span></a></li>
+		
+			<li><a href="/categories/autohotkey/">autohotkey<span>2</span></a></li>
+		
+			<li><a href="/categories/awk/">awk<span>1</span></a></li>
+		
+			<li><a href="/categories/boost/">boost<span>2</span></a></li>
+		
+			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+		
+			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
+		
+			<li><a href="/categories/chrome/">chrome<span>2</span></a></li>
+		
+			<li><a href="/categories/clover/">clover<span>1</span></a></li>
+		
+			<li><a href="/categories/cmake/">cmake<span>8</span></a></li>
+		
+			<li><a href="/categories/cmkae/">cmkae<span>1</span></a></li>
+		
+			<li><a href="/categories/cppcheck/">cppcheck<span>1</span></a></li>
+		
+			<li><a href="/categories/cron/">cron<span>1</span></a></li>
+		
+			<li><a href="/categories/cscope/">cscope<span>2</span></a></li>
+		
+			<li><a href="/categories/ctags/">ctags<span>1</span></a></li>
+		
+			<li><a href="/categories/curl/">curl<span>1</span></a></li>
+		
+			<li><a href="/categories/database/">database<span>2</span></a></li>
+		
+			<li><a href="/categories/django/">django<span>2</span></a></li>
+		
+			<li><a href="/categories/doxygen/">doxygen<span>4</span></a></li>
+		
+			<li><a href="/categories/ejs/">ejs<span>1</span></a></li>
+		
+			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
+		
+			<li><a href="/categories/gcc/">gcc<span>2</span></a></li>
+		
+			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
+		
+			<li><a href="/categories/git/">git<span>5</span></a></li>
+		
+			<li><a href="/categories/grep/">grep<span>1</span></a></li>
+		
+			<li><a href="/categories/grub2/">grub2<span>1</span></a></li>
+		
+			<li><a href="/categories/gtest/">gtest<span>3</span></a></li>
+		
+			<li><a href="/categories/hexo/">hexo<span>3</span></a></li>
+		
+			<li><a href="/categories/iptables/">iptables<span>1</span></a></li>
+		
+			<li><a href="/categories/jsoncpp/">jsoncpp<span>2</span></a></li>
+		
+			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
+		
+			<li><a href="/categories/linux/">linux<span>18</span></a></li>
+		
+			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
+		
+			<li><a href="/categories/log4cpp/">log4cpp<span>1</span></a></li>
+		
+			<li><a href="/categories/make/">make<span>1</span></a></li>
+		
+			<li><a href="/categories/makefile/">makefile<span>2</span></a></li>
+		
+			<li><a href="/categories/markdown/">markdown<span>2</span></a></li>
+		
+			<li><a href="/categories/msysgit/">msysgit<span>1</span></a></li>
+		
+			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
+		
+			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+		
+			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
+		
+			<li><a href="/categories/node-js/">node.js<span>1</span></a></li>
+		
+			<li><a href="/categories/nodejs/">nodejs<span>1</span></a></li>
+		
+			<li><a href="/categories/objdump/">objdump<span>1</span></a></li>
+		
+			<li><a href="/categories/od/">od<span>1</span></a></li>
+		
+			<li><a href="/categories/openssl/">openssl<span>1</span></a></li>
+		
+			<li><a href="/categories/openwrt/">openwrt<span>3</span></a></li>
+		
+			<li><a href="/categories/pandoc/">pandoc<span>2</span></a></li>
+		
+			<li><a href="/categories/pdf/">pdf<span>1</span></a></li>
+		
+			<li><a href="/categories/ping/">ping<span>1</span></a></li>
+		
+			<li><a href="/categories/poweriso/">poweriso<span>1</span></a></li>
+		
+			<li><a href="/categories/programming/">programming<span>1</span></a></li>
+		
+			<li><a href="/categories/proxifier/">proxifier<span>1</span></a></li>
+		
+			<li><a href="/categories/python/">python<span>65</span></a></li>
+		
+			<li><a href="/categories/redis/">redis<span>4</span></a></li>
+		
+			<li><a href="/categories/rsync/">rsync<span>2</span></a></li>
+		
+			<li><a href="/categories/samba/">samba<span>3</span></a></li>
+		
+			<li><a href="/categories/socket/">socket<span>3</span></a></li>
+		
+			<li><a href="/categories/sql/">sql<span>2</span></a></li>
+		
+			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+		
+			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
+		
+			<li><a href="/categories/sudo/">sudo<span>1</span></a></li>
+		
+			<li><a href="/categories/svn/">svn<span>2</span></a></li>
+		
+			<li><a href="/categories/syslinux/">syslinux<span>3</span></a></li>
+		
+			<li><a href="/categories/tcpdump/">tcpdump<span>1</span></a></li>
+		
+			<li><a href="/categories/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/categories/tomcat/">tomcat<span>1</span></a></li>
+		
+			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+		
+			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+		
+			<li><a href="/categories/usb/">usb<span>2</span></a></li>
+		
+			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
+		
+			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+		
+			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
+		
+			<li><a href="/categories/web/">web<span>1</span></a></li>
+		
+			<li><a href="/categories/wget/">wget<span>1</span></a></li>
+		
+			<li><a href="/categories/widnows/">widnows<span>2</span></a></li>
+		
+			<li><a href="/categories/win-api/">win-api<span>1</span></a></li>
+		
+			<li><a href="/categories/windows/">windows<span>29</span></a></li>
+		
+			<li><a href="/categories/windowsj/">windowsj<span>1</span></a></li>
+		
+			<li><a href="/categories/wingetopt/">wingetopt<span>1</span></a></li>
+		
+			<li><a href="/categories/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/categories/wireshark/">wireshark<span>3</span></a></li>
+		
+			<li><a href="/categories/xshell/">xshell<span>1</span></a></li>
+		
+			<li><a href="/categories/yed/">yed<span>1</span></a></li>
+		
+			<li><a href="/categories/为什么/">为什么<span>1</span></a></li>
+		
+			<li><a href="/categories/交换机/">交换机<span>1</span></a></li>
+		
+			<li><a href="/categories/单元测试/">单元测试<span>2</span></a></li>
+		
+			<li><a href="/categories/博客/">博客<span>1</span></a></li>
+		
+			<li><a href="/categories/后台/">后台<span>1</span></a></li>
+		
+			<li><a href="/categories/字符编码/">字符编码<span>4</span></a></li>
+		
+			<li><a href="/categories/操作系统/">操作系统<span>1</span></a></li>
+		
+			<li><a href="/categories/数学/">数学<span>1</span></a></li>
+		
+			<li><a href="/categories/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/categories/理论/">理论<span>1</span></a></li>
+		
+			<li><a href="/categories/移动/">移动<span>1</span></a></li>
+		
+			<li><a href="/categories/系统/">系统<span>1</span></a></li>
+		
+			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+		
+			<li><a href="/categories/网站/">网站<span>1</span></a></li>
+		
+			<li><a href="/categories/网络/">网络<span>8</span></a></li>
+		
+			<li><a href="/categories/网络设备/">网络设备<span>2</span></a></li>
+		
+			<li><a href="/categories/计算机/">计算机<span>3</span></a></li>
+		
+			<li><a href="/categories/资料/">资料<span>1</span></a></li>
+		
+			<li><a href="/categories/路由器/">路由器<span>1</span></a></li>
+		
+			<li><a href="/categories/软件/">软件<span>1</span></a></li>
+		
+			<li><a href="/categories/软件工程/">软件工程<span>1</span></a></li>
+		
+			<li><a href="/categories/闪存/">闪存<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+		
+			<li><a href="/tags/编译/">编译<span>10</span></a></li>
+		
+			<li><a href="/tags/global/">global<span>1</span></a></li>
+		
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+		
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+		
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+		
+			<li><a href="/tags/search/">search<span>1</span></a></li>
+		
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+		
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
+		
+			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+		
+			<li><a href="/tags/api/">api<span>1</span></a></li>
+		
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
+		
+			<li><a href="/tags/str/">str<span>1</span></a></li>
+		
+			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+		
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
+		
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+		
+			<li><a href="/tags/head/">head<span>1</span></a></li>
+		
+			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+		
+			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>536</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/QianChenglong" title="My Github account." target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

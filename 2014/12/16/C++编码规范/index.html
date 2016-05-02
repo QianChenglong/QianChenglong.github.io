@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++编码规范 | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="C++编码规范"/>
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> C++编码规范</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h1 id="目录组织"><a href="#目录组织" class="headerlink" title="目录组织"></a>目录组织</h1><ul>
+<li><p>[3rdparty] 第三方包</p>
+</li>
+<li><p>[bin] 动态库或可执行文件生成目录</p>
+</li>
+<li><p>[cmake] cmake辅助</p>
+</li>
+<li><p>[doc] 文档</p>
+</li>
+<li><p>[include] 对外接口声明</p>
+<ul>
+<li><p>[库名称]</p>
+<ul>
+<li>[include]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>[lib] 静态库生成目录</p>
+</li>
+<li><p>[src] 内部声明(<em>.h)，实现文件(</em>.c, *.cpp)</p>
+</li>
+<li><p>[test] 测试</p>
+</li>
+</ul>
+<p>参考：</p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/2360734/whats-a-good-directory-structure-for-larger-c-projects-using-makefile?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/2360734/whats-a-good-directory-structure-for-larger-c-projects-using-makefile?lq=1</a></li>
+<li><a href="http://stackoverflow.com/questions/13967296/why-place-headers-in-a-separate-directory?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/13967296/why-place-headers-in-a-separate-directory?lq=1</a></li>
+<li><a href="http://stackoverflow.com/questions/1383174/source-file-organisation?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/1383174/source-file-organisation?lq=1</a></li>
+<li><a href="http://stackoverflow.com/questions/1398445/directory-structure-for-a-c-library" target="_blank" rel="external">http://stackoverflow.com/questions/1398445/directory-structure-for-a-c-library</a></li>
+</ol>
+<h1 id="文件空行"><a href="#文件空行" class="headerlink" title="文件空行"></a>文件空行</h1><ul>
+<li><p><code>#pragma once</code>后空2行</p>
+</li>
+<li><p><code>#include</code>模块间空1行</p>
+</li>
+<li><p><code>#include</code>后空2行</p>
+</li>
+<li><p>函数定义间空1行</p>
+</li>
+</ul>
+<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><ul>
+<li><p>使用<code>#pragma once</code></p>
+</li>
+<li><p>凡是能使用前向声明的，尽量使用，减少外部依赖！</p>
+</li>
+</ul>
+<h2 id="头文件包含顺序"><a href="#头文件包含顺序" class="headerlink" title="头文件包含顺序"></a>头文件包含顺序</h2><p>各部分最好按字母序排列</p>
+<ul>
+<li><p>实现文件对应的头文件</p>
+<p>可以尽早发现该模块头文件中缺少的必须的头文件，使模块完全独立，不依赖于其他模块导入的头文件，减少了编译时间！</p>
+</li>
+<li><p>本模块下其他的头文件</p>
+</li>
+<li><p>C++库</p>
+</li>
+<li>C库</li>
+<li><p>系统库</p>
+<p>确保该实现不依赖其他模块导入的头文件！</p>
+</li>
+<li><p>第三方库(根据使用广泛度，不同库换行)</p>
+</li>
+<li><p>本项目的其他模块头文件</p>
+</li>
+</ul>
+<p><strong>Note:</strong></p>
+<ul>
+<li>若一些头文件依赖特定宏，则宏定义于头文件前</li>
+<li>若头文件之间存在顺序问题，则可以不遵循</li>
+</ul>
+<p><strong>参考</strong>:</p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/614302/c-header-order" target="_blank" rel="external">http://stackoverflow.com/questions/614302/c-header-order</a></li>
+<li><a href="http://stackoverflow.com/questions/2762568/c-c-include-file-order-best-practices" target="_blank" rel="external">http://stackoverflow.com/questions/2762568/c-c-include-file-order-best-practices</a></li>
+</ol>
+<hr>
+<h1 id="命名约定"><a href="#命名约定" class="headerlink" title="命名约定"></a>命名约定</h1><h2 id="文件命名"><a href="#文件命名" class="headerlink" title="文件命名"></a>文件命名</h2><ul>
+<li>若是类文件，则与类名保持一致</li>
+<li>若是C函数，则采用下划线分隔，因为本身C中就是用下划线分隔，不一致的话，在源码中如果涉及到该文件名，则可能需要转换规则<br>如单元测试中，对<code>inet-helper.h</code>进行测试，则测试套件名需要转换。</li>
+</ul>
+<h2 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h2><h3 id="普通变量"><a href="#普通变量" class="headerlink" title="普通变量"></a>普通变量</h3><p>下划线分隔</p>
+<h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><p>下划线分割，添加后缀’_’</p>
+<h2 id="常量命名"><a href="#常量命名" class="headerlink" title="常量命名"></a>常量命名</h2><p>前缀<code>k</code>，骆驼命名，如<code>kDaysInWeek</code></p>
+<h2 id="函数命名"><a href="#函数命名" class="headerlink" title="函数命名"></a>函数命名</h2><h3 id="普通函数"><a href="#普通函数" class="headerlink" title="普通函数"></a>普通函数</h3><p>函数名以小写骆驼命名，如<code>isEmpty()</code></p>
+<h3 id="存取函数"><a href="#存取函数" class="headerlink" title="存取函数"></a>存取函数</h3><p>下划线分隔，如<code>get_num()</code></p>
+<h2 id="宏命名"><a href="#宏命名" class="headerlink" title="宏命名"></a>宏命名</h2><p>大写，下划线分隔</p>
+<hr>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><h2 id="类组织"><a href="#类组织" class="headerlink" title="类组织"></a>类组织</h2><ul>
+<li><p><code>public</code>，成员函数</p>
+</li>
+<li><p><code>public</code>，静态函数</p>
+</li>
+<li><p><code>private</code>，宏定义</p>
+</li>
+<li><p><code>private</code>，类型定义</p>
+</li>
+<li><p><code>private</code>，内部成员函数</p>
+</li>
+<li><p><code>private</code>，静态数据成员定义</p>
+</li>
+<li><p><code>private</code>，数据成员定义</p>
+</li>
+</ul>
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://google-styleguide.googlecode.com/svn/trunk/cppguide.html" target="_blank" rel="external">http://google-styleguide.googlecode.com/svn/trunk/cppguide.html</a></li>
+<li><a href="http://www.c-xx.com/ccc/ccc.php" target="_blank" rel="external">http://www.c-xx.com/ccc/ccc.php</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Underscore" target="_blank" rel="external">https://en.wikipedia.org/wiki/Underscore</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Naming_convention_(programming)" target="_blank" rel="external">https://en.wikipedia.org/wiki/Naming_convention_(programming)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hyphen" target="_blank" rel="external">https://en.wikipedia.org/wiki/Hyphen</a></li>
+</ol>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2014/12/18/SVN-工作副本怎样跟踪版本库/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2014/12/15/VC可变宏参数/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2014/12/16/C++编码规范/" data-title="C++编码规范" data-url="http://yoursite.com/2014/12/16/C++编码规范/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2014-12-16 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/C/">C++<span>17</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/C/">C++<span>19</span></a></li> <li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'qianchenglong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

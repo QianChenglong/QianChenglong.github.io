@@ -1,0 +1,1050 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 23 页 | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header page-header-inverse ">
+  <h1 class="title title-inverse ">life&#39;s a struggle.</h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      undefined
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-24 </div>
+			<div class="article-title"><a href="/2015/06/24/arch-VirtualBox共享文件夹配置/" >VirtualBox共享文件夹配置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>ArchLinux</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>安装模块</p>
+<pre><code>pacman -S virtualbox-guest-modules
+</code></pre></li>
+<li><p>手动载入模块</p>
+<pre><code>modprobe -a vboxsf
+</code></pre><p>若提示<code>Module not found</code>，则执行：</p>
+<pre><code>depmod $(uname -r)
+</code></pre></li>
+<li><p>开机自动载入模块</p>
+<pre><code>echo vboxsf &gt;/etc/modules-load.d/virtualbox.conf
+</code></pre></li>
+<li><p>创建挂载点</p>
+<pre><code>mkdir /data
+</code></pre></li>
+<li><p>在虚拟机控制中，加入共享文件夹</p>
+<pre><code>E_DRIVE
+</code></pre></li>
+<li><p>挂载</p>
+<ul>
+<li><p>手动挂载</p>
+<pre><code>mount -t vboxsf E_DRIVE /data
+</code></pre></li>
+<li><p>自动挂载</p>
+<pre><code>/etc/fstab
+
+E_DRIVE /data vboxsf
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ul>
+<li><p>挂载失败</p>
+<p>错误提示：</p>
+<pre><code>[cpp] view plaincopy
+mount: wrong fs type, bad option, bad superblock on E_DRIVE,
+       missing codepage or helper program, or other error
+       (for several filesystems (e.g. nfs, cifs) you might
+       need a /sbin/mount.&lt;type&gt; helper program)
+       In some cases useful info is found in syslog - try
+       dmesg | tail or so
+</code></pre><p>解决过程：</p>
+<ol>
+<li><p>dmesg | tail</p>
+<p>   sf_read_super_aux err=-22</p>
+</li>
+<li><p>查看vboxsf链接</p>
+<pre><code>vincent@vincent-VirtualBox:/mnt$ ls -al /sbin/mount.vboxsf
+lrwxrwxrwx 1 root root 40 Jun 19 09:38 /sbin/mount.vboxsf -&gt; /usr/lib/VBoxGuestAdditions/mount.vboxsf
+</code></pre></li>
+<li><p>发现链接不对，重新链接</p>
+<pre><code>ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions/mount.vboxsf /sbin/mount.vboxsf
+</code></pre></li>
+</ol>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://wiki.archlinux.org/index.php/VirtualBox#Installation_steps_for_Arch_Linux_guests" target="_blank" rel="external">https://wiki.archlinux.org/index.php/VirtualBox#Installation_steps_for_Arch_Linux_guests</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/24/arch-VirtualBox共享文件夹配置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-24 </div>
+			<div class="article-title"><a href="/2015/06/24/django-manage常用命令/" >django-manage常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查看某个命令帮助</p>
+<pre><code>./manage.py help command
+</code></pre></li>
+<li><p>生成migrate操作</p>
+<pre><code>python manage.py makemigrations
+</code></pre></li>
+<li><p>执行migrate操作</p>
+<pre><code>./manage.py migrate
+</code></pre></li>
+<li><p>生成多个数据库(1次migrate执行一个数据库)</p>
+<pre><code>./manage.py migrate
+./manage.py migrate --database=stock_app
+</code></pre></li>
+<li><p>创建用户</p>
+<pre><code>./manage.py createsuperuser
+</code></pre></li>
+<li><p>修改用户密码</p>
+<pre><code>./manager.py changepasswd USERNAME
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/24/django-manage常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-24 </div>
+			<div class="article-title"><a href="/2015/06/24/django-中文化/" >djanggo-中文化</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>修改<code>settings.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">'zh-CN'</span></span><br><span class="line"></span><br><span class="line">TIME_ZONE = <span class="string">'Asia/Shanghai'</span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/06/24/django-中文化/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-24 </div>
+			<div class="article-title"><a href="/2015/06/24/arch-安装纪录/" >arch-安装纪录</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="建立网络连接"><a href="#建立网络连接" class="headerlink" title="建立网络连接"></a>建立网络连接</h1><h2 id="有线"><a href="#有线" class="headerlink" title="有线"></a>有线</h2><h3 id="默认开启了dhcpcd服务"><a href="#默认开启了dhcpcd服务" class="headerlink" title="默认开启了dhcpcd服务"></a>默认开启了dhcpcd服务</h3><ol>
+<li><p>检查网络状态</p>
+<pre><code>ping jd.com
+</code></pre></li>
+</ol>
+<h3 id="若DHCP失败静态分配IP"><a href="#若DHCP失败静态分配IP" class="headerlink" title="若DHCP失败静态分配IP"></a>若DHCP失败静态分配IP</h3><ol>
+<li><p>查看以太网接口名</p>
+<pre><code>ip link
+</code></pre></li>
+<li><p>启动网络接口</p>
+<pre><code>ip link set &lt;interface-name&gt; up
+</code></pre></li>
+<li><p>添加IP</p>
+<pre><code>ip addr add &lt;ip-address&gt;/&lt;mask-bits&gt; dev &lt;interface-name&gt;
+</code></pre></li>
+<li><p>添加网关</p>
+<pre><code>ip route add default via &lt;gateway-ip&gt;
+</code></pre></li>
+<li><p>配置DNS</p>
+<pre><code>vim /etc/resolv.conf
+
+nameserver 8.8.8.8
+</code></pre></li>
+</ol>
+<h2 id="WIFI"><a href="#WIFI" class="headerlink" title="WIFI"></a>WIFI</h2><ol>
+<li><p>查看网卡接口</p>
+<pre><code>iwconfig
+</code></pre></li>
+<li><p>启动网卡接口</p>
+<pre><code>ip link set &lt;interface-name&gt; up
+</code></pre></li>
+<li><p>连接网络</p>
+<pre><code>wifi-menu &lt;interface-name&gt;
+</code></pre></li>
+</ol>
+<h1 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h1><ul>
+<li><p>硬盘分区</p>
+<pre><code>cfdisk /dev/sda
+</code></pre></li>
+<li><p>格式化分区</p>
+<pre><code>mkfs.ext4 /dev/sdaX
+</code></pre></li>
+<li><p>挂载分区</p>
+<pre><code>mount /dev/sdaX /mnt
+</code></pre></li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
+<li><p>修改软件源</p>
+<pre><code>vi  /etc/pacman.d/mirrorlist
+
+Server = http://mirrors.163.com/archlinux/$repo/os/$arch
+</code></pre></li>
+<li><p>安装基本系统</p>
+<pre><code>pacstrap /mnt base base-devel
+</code></pre></li>
+<li><p>生成fstab</p>
+<pre><code>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre></li>
+</ul>
+<h1 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h1><p>chroot到新系统</p>
+<pre><code>arch-chroot /mnt
+</code></pre><h2 id="locale"><a href="#locale" class="headerlink" title="locale"></a>locale</h2><ol>
+<li><p>启用locale</p>
+<pre><code>vi /etc/locale.gen
+
+en_US.UTF-8 UTF-8
+zh_CN.GB18030 GB18030
+zh_CN.GBK GBK
+zh.CN.UTF-8 UTF-8
+zh_CN GB2312
+</code></pre></li>
+<li><p>生成本地语言</p>
+<pre><code>locale-gen
+</code></pre></li>
+<li><p>[设置系统默认语言]</p>
+<p>   vi /etc/locale.conf</p>
+<p>   LANG=zh_CN.UTF-8<br>   LC_TIME=en_GB.UTF-8</p>
+</li>
+</ol>
+<h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><ol>
+<li><p>设置时区</p>
+<pre><code>echo Asia/Shanghai &gt;/etc/timezone
+</code></pre></li>
+<li><p>链接时区</p>
+<pre><code>ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</code></pre></li>
+<li><p>系统时间保存到bios</p>
+<pre><code>hwclock --systohc --localtime
+</code></pre></li>
+</ol>
+<h2 id="主机名"><a href="#主机名" class="headerlink" title="主机名"></a>主机名</h2><pre><code>echo Arch &gt;/etc/hostname
+</code></pre><h2 id="创建初始ramdisk环境"><a href="#创建初始ramdisk环境" class="headerlink" title="创建初始ramdisk环境"></a>创建初始ramdisk环境</h2><pre><code>mkinitcpio -p linux
+</code></pre><h2 id="设置Root密码并创建一般用户"><a href="#设置Root密码并创建一般用户" class="headerlink" title="设置Root密码并创建一般用户"></a>设置Root密码并创建一般用户</h2><pre><code>passwd
+useradd -m  -s /bin/bash qian
+passwd qian
+</code></pre><h2 id="启动加载器"><a href="#启动加载器" class="headerlink" title="启动加载器"></a>启动加载器</h2><ul>
+<li><p>grub[优先]</p>
+<pre><code>pacman -S　grub-biso os-prober
+grub-install --target=i386-pc --recheck /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre></li>
+<li><p>syslinux</p>
+<ol>
+<li><p>安装</p>
+<pre><code>pacman -S syslinux
+syslinux-install_update -ima
+</code></pre></li>
+<li><p>配置</p>
+<pre><code>vi /boot/syslinux/syslinux.cfg
+</code></pre></li>
+</ol>
+</li>
+</ul>
+<h2 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h2><ul>
+<li><p>配置无线</p>
+<p>pacman -S wierless_tools wpa_supplicant wpa_actiond dialog</p>
+</li>
+<li><p>配置有线</p>
+<ul>
+<li><p>dhcp</p>
+<ul>
+<li><p>通过dhcpcd服务</p>
+<pre><code>systemctl enable dhcpcd@interface_name.service
+</code></pre></li>
+<li><p>通过netctl</p>
+<pre><code>cd /etc/netctl
+cp examples/ethernet-dhcp my_network
+vi my_network(修改接口名称)
+netctl enbale my_network
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="安装图形界面"><a href="#安装图形界面" class="headerlink" title="安装图形界面"></a>安装图形界面</h2><ul>
+<li><p>安装Xorg和gnome</p>
+<pre><code>pacman -S　xorg gnome
+</code></pre></li>
+<li><p>开机自动启动GUI</p>
+<pre><code>systemctl enable gdm.service
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/24/arch-安装纪录/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-24 </div>
+			<div class="article-title"><a href="/2015/06/24/windows-安装常见错误/" >windows-安装常见错误</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="win7"><a href="#win7" class="headerlink" title="win7"></a>win7</h1><ul>
+<li><p>win7 安装 找不到任何设备驱动程序</p>
+<pre><code>不要使用USB3.0安装
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/24/windows-安装常见错误/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-24 </div>
+			<div class="article-title"><a href="/2015/06/24/树形数据存储/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>一般比较普遍的就是四种方法：（具体见 SQL Anti-patterns这本书）<br>Adjacency List：每一条记录存parent_id<br>Path Enumerations：每一条记录存整个tree path经过的node枚举<br>Nested Sets：每一条记录存 nleft 和 nright<br>Closure Table：维护一个表，所有的tree path作为记录进行保存。</p>
+<p>各种方法的常用操作代价见下图</p>
+<p>推荐一本书 SQL Anti-patterns，<br>见：<a href="http://www.ppurl.com/2010/06/sql-antipatterns-avoiding-the-pitfalls-of-database-programming.html" target="_blank" rel="external">http://www.ppurl.com/2010/06/sql-antipatterns-avoiding-the-pitfalls-of-database-programming.html</a><br>其中对于树形结构在关系型数据库中的存储做了分析。</p>
+
+	
+	</div>
+  <a type="button" href="/2015/06/24/树形数据存储/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-18 </div>
+			<div class="article-title"><a href="/2015/06/18/tomcat部署war包/" >tomcat部署war包</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>ubuntu-14.04</p>
+</li>
+<li><p>tomcat7</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>复制war包到<code>/var/lib/tomcat/webapps</code></p>
+</li>
+<li><p>修改配置文件</p>
+<pre><code>&lt;Host name=&quot;localhost&quot;  appBase=&quot;webapps&quot;
+            unpackWARs=&quot;true&quot; autoDeploy=&quot;true&quot;&gt;
+        +++ &lt;Context docBase=&quot;/var/lib/tomcat7/webapps/chaojizhun.war&quot; path=&quot;/chaojizhun&quot; reloadable=&quot;true&quot;/&gt;
+&lt;/Host&gt;
+</code></pre></li>
+<li><p>重启tomcat</p>
+<pre><code>/etc/init.d/tomcat7 restart
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/18/tomcat部署war包/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-18 </div>
+			<div class="article-title"><a href="/2015/06/18/rsync/" >rsync</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>远程同步</p>
+<h1 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h1><ul>
+<li><p>使用密码文件认证</p>
+<pre><code>rsync -avzP --password-file=/cygdrive/E/Soft/rsync/bin/cwRsync_5.4.1_x86_Free/rsyncd.scrt  /cygdrive/E/Work/project/gupiaoxianji/xianji-server/data wallace@%SERVER%::dbdata
+</code></pre></li>
+<li><p>–exclude={.ccache,build}</p>
+<p>排除多个目录</p>
+</li>
+<li><p>–chown=www-data:www-data</p>
+<p>修改文件所有者</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/18/rsync/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-18 </div>
+			<div class="article-title"><a href="/2015/06/18/find/" >find</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>查找文件，非常强大！</p>
+<h1 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h1><ul>
+<li><p>-mtime</p>
+<ul>
+<li>n 在n天之前<strong>一天内</strong>的文件</li>
+<li>+n 在n天之前,<strong>不包含从现在到n天</strong>这段时间</li>
+<li>-n n天内</li>
+</ul>
+<p><img src="../img/find_01.png" alt=""></p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>查找/下最近1天修改过文件</p>
+<pre><code>find / -mtime 0
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/18/find/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-18 </div>
+			<div class="article-title"><a href="/2015/06/18/column/" >column</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>将记录表格化输出</p>
+<h1 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h1><ul>
+<li><p>-s</p>
+<p>指定分隔字符【集】，如’,;’</p>
+</li>
+<li><p>-t</p>
+<p>表格化打印</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>查看最近1天内修改过的文件，表格化打印</p>
+<pre><code>find . -mtime -1|xargs stat -c&quot;%n,%.19y&quot;|column -s, -t
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/18/column/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+		
+    	<li class="prev"><a href="/page/22/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> 上一页</a></li>
+  		
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/page/24/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+        
+	
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+		
+			<li><a href="/categories/C/">C<span>10</span></a></li>
+		
+			<li><a href="/categories/C/">C++<span>17</span></a></li>
+		
+			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/categories/Crypto/">Crypto++<span>1</span></a></li>
+		
+			<li><a href="/categories/IO/">IO<span>1</span></a></li>
+		
+			<li><a href="/categories/MinGW/">MinGW<span>2</span></a></li>
+		
+			<li><a href="/categories/SVN/">SVN<span>1</span></a></li>
+		
+			<li><a href="/categories/USB/">USB<span>1</span></a></li>
+		
+			<li><a href="/categories/VC/">VC<span>4</span></a></li>
+		
+			<li><a href="/categories/VPN/">VPN<span>2</span></a></li>
+		
+			<li><a href="/categories/Visual-Studio/">Visual Studio<span>1</span></a></li>
+		
+			<li><a href="/categories/apache/">apache<span>4</span></a></li>
+		
+			<li><a href="/categories/arch/">arch<span>4</span></a></li>
+		
+			<li><a href="/categories/autohotkey/">autohotkey<span>2</span></a></li>
+		
+			<li><a href="/categories/awk/">awk<span>1</span></a></li>
+		
+			<li><a href="/categories/boost/">boost<span>2</span></a></li>
+		
+			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+		
+			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
+		
+			<li><a href="/categories/chrome/">chrome<span>2</span></a></li>
+		
+			<li><a href="/categories/clover/">clover<span>1</span></a></li>
+		
+			<li><a href="/categories/cmake/">cmake<span>8</span></a></li>
+		
+			<li><a href="/categories/cmkae/">cmkae<span>1</span></a></li>
+		
+			<li><a href="/categories/cppcheck/">cppcheck<span>1</span></a></li>
+		
+			<li><a href="/categories/cron/">cron<span>1</span></a></li>
+		
+			<li><a href="/categories/cscope/">cscope<span>2</span></a></li>
+		
+			<li><a href="/categories/ctags/">ctags<span>1</span></a></li>
+		
+			<li><a href="/categories/curl/">curl<span>1</span></a></li>
+		
+			<li><a href="/categories/database/">database<span>2</span></a></li>
+		
+			<li><a href="/categories/django/">django<span>2</span></a></li>
+		
+			<li><a href="/categories/doxygen/">doxygen<span>4</span></a></li>
+		
+			<li><a href="/categories/ejs/">ejs<span>1</span></a></li>
+		
+			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
+		
+			<li><a href="/categories/gcc/">gcc<span>2</span></a></li>
+		
+			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
+		
+			<li><a href="/categories/git/">git<span>5</span></a></li>
+		
+			<li><a href="/categories/grep/">grep<span>1</span></a></li>
+		
+			<li><a href="/categories/grub2/">grub2<span>1</span></a></li>
+		
+			<li><a href="/categories/gtest/">gtest<span>3</span></a></li>
+		
+			<li><a href="/categories/hexo/">hexo<span>3</span></a></li>
+		
+			<li><a href="/categories/iptables/">iptables<span>1</span></a></li>
+		
+			<li><a href="/categories/jsoncpp/">jsoncpp<span>2</span></a></li>
+		
+			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
+		
+			<li><a href="/categories/linux/">linux<span>18</span></a></li>
+		
+			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
+		
+			<li><a href="/categories/log4cpp/">log4cpp<span>1</span></a></li>
+		
+			<li><a href="/categories/make/">make<span>1</span></a></li>
+		
+			<li><a href="/categories/makefile/">makefile<span>2</span></a></li>
+		
+			<li><a href="/categories/markdown/">markdown<span>2</span></a></li>
+		
+			<li><a href="/categories/msysgit/">msysgit<span>1</span></a></li>
+		
+			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
+		
+			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+		
+			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
+		
+			<li><a href="/categories/node-js/">node.js<span>1</span></a></li>
+		
+			<li><a href="/categories/nodejs/">nodejs<span>1</span></a></li>
+		
+			<li><a href="/categories/objdump/">objdump<span>1</span></a></li>
+		
+			<li><a href="/categories/od/">od<span>1</span></a></li>
+		
+			<li><a href="/categories/openssl/">openssl<span>1</span></a></li>
+		
+			<li><a href="/categories/openwrt/">openwrt<span>3</span></a></li>
+		
+			<li><a href="/categories/pandoc/">pandoc<span>2</span></a></li>
+		
+			<li><a href="/categories/pdf/">pdf<span>1</span></a></li>
+		
+			<li><a href="/categories/ping/">ping<span>1</span></a></li>
+		
+			<li><a href="/categories/poweriso/">poweriso<span>1</span></a></li>
+		
+			<li><a href="/categories/programming/">programming<span>1</span></a></li>
+		
+			<li><a href="/categories/proxifier/">proxifier<span>1</span></a></li>
+		
+			<li><a href="/categories/python/">python<span>65</span></a></li>
+		
+			<li><a href="/categories/redis/">redis<span>4</span></a></li>
+		
+			<li><a href="/categories/rsync/">rsync<span>2</span></a></li>
+		
+			<li><a href="/categories/samba/">samba<span>3</span></a></li>
+		
+			<li><a href="/categories/socket/">socket<span>3</span></a></li>
+		
+			<li><a href="/categories/sql/">sql<span>2</span></a></li>
+		
+			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+		
+			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
+		
+			<li><a href="/categories/sudo/">sudo<span>1</span></a></li>
+		
+			<li><a href="/categories/svn/">svn<span>2</span></a></li>
+		
+			<li><a href="/categories/syslinux/">syslinux<span>3</span></a></li>
+		
+			<li><a href="/categories/tcpdump/">tcpdump<span>1</span></a></li>
+		
+			<li><a href="/categories/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/categories/tomcat/">tomcat<span>1</span></a></li>
+		
+			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+		
+			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+		
+			<li><a href="/categories/usb/">usb<span>2</span></a></li>
+		
+			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
+		
+			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+		
+			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
+		
+			<li><a href="/categories/web/">web<span>1</span></a></li>
+		
+			<li><a href="/categories/wget/">wget<span>1</span></a></li>
+		
+			<li><a href="/categories/widnows/">widnows<span>2</span></a></li>
+		
+			<li><a href="/categories/win-api/">win-api<span>1</span></a></li>
+		
+			<li><a href="/categories/windows/">windows<span>29</span></a></li>
+		
+			<li><a href="/categories/windowsj/">windowsj<span>1</span></a></li>
+		
+			<li><a href="/categories/wingetopt/">wingetopt<span>1</span></a></li>
+		
+			<li><a href="/categories/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/categories/wireshark/">wireshark<span>3</span></a></li>
+		
+			<li><a href="/categories/xshell/">xshell<span>1</span></a></li>
+		
+			<li><a href="/categories/yed/">yed<span>1</span></a></li>
+		
+			<li><a href="/categories/为什么/">为什么<span>1</span></a></li>
+		
+			<li><a href="/categories/交换机/">交换机<span>1</span></a></li>
+		
+			<li><a href="/categories/单元测试/">单元测试<span>2</span></a></li>
+		
+			<li><a href="/categories/博客/">博客<span>1</span></a></li>
+		
+			<li><a href="/categories/后台/">后台<span>1</span></a></li>
+		
+			<li><a href="/categories/字符编码/">字符编码<span>4</span></a></li>
+		
+			<li><a href="/categories/操作系统/">操作系统<span>1</span></a></li>
+		
+			<li><a href="/categories/数学/">数学<span>1</span></a></li>
+		
+			<li><a href="/categories/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/categories/理论/">理论<span>1</span></a></li>
+		
+			<li><a href="/categories/移动/">移动<span>1</span></a></li>
+		
+			<li><a href="/categories/系统/">系统<span>1</span></a></li>
+		
+			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+		
+			<li><a href="/categories/网站/">网站<span>1</span></a></li>
+		
+			<li><a href="/categories/网络/">网络<span>8</span></a></li>
+		
+			<li><a href="/categories/网络设备/">网络设备<span>2</span></a></li>
+		
+			<li><a href="/categories/计算机/">计算机<span>3</span></a></li>
+		
+			<li><a href="/categories/资料/">资料<span>1</span></a></li>
+		
+			<li><a href="/categories/路由器/">路由器<span>1</span></a></li>
+		
+			<li><a href="/categories/软件/">软件<span>1</span></a></li>
+		
+			<li><a href="/categories/软件工程/">软件工程<span>1</span></a></li>
+		
+			<li><a href="/categories/闪存/">闪存<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
+		
+			<li><a href="/tags/c/">c<span>8</span></a></li>
+		
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+		
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+		
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+		
+			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+		
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+		
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
+		
+			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+		
+			<li><a href="/tags/mysql/">mysql<span>32</span></a></li>
+		
+			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
+		
+			<li><a href="/tags/static/">static<span>1</span></a></li>
+		
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+		
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+		
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+		
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+		
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
+		
+			<li><a href="/tags/C-11/">C++11<span>2</span></a></li>
+		
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>536</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/QianChenglong" title="My Github account." target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

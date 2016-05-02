@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>linux-socket寻址 | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="linux-socket寻址"/>
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> linux-socket寻址</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>ubuntu-14.04</p>
+</li>
+<li><p>glic-2.19</p>
+</li>
+<li><p>工作目录：<code>/usr/include</code></p>
+</li>
+</ul>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="struct-sockaddr"><a href="#struct-sockaddr" class="headerlink" title="struct sockaddr"></a><code>struct sockaddr</code></h2><p><code>socket</code>API接口，无关具体地址族，协议。</p>
+<h3 id="定义位置"><a href="#定义位置" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>x86_64-linux-gnu/sys/socket.h</code> =&gt; <code>x86_64-linux-gnu/bits/socket.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Structure describing a generic socket address.  */</span></span><br><span class="line"><span class="keyword">struct</span> sockaddr</span><br><span class="line">  &#123;</span><br><span class="line">    __SOCKADDR_COMMON (sa_);    <span class="comment">/* Common data: address family and length.  */</span></span><br><span class="line">    <span class="keyword">char</span> sa_data[<span class="number">14</span>];       <span class="comment">/* Address data.  */</span></span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<ul>
+<li><code>=&gt;</code>表示包含</li>
+</ul>
+<h2 id="strcut-sockaddr-in"><a href="#strcut-sockaddr-in" class="headerlink" title="strcut sockaddr_in"></a><code>strcut sockaddr_in</code></h2><p>具体类型数据结构，用来操作地址族，IP，端口。</p>
+<h3 id="定义位置-1"><a href="#定义位置-1" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>netinet/in.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Structure describing an Internet socket address.  */</span></span><br><span class="line"><span class="keyword">struct</span> sockaddr_in</span><br><span class="line">  &#123;</span><br><span class="line">    __SOCKADDR_COMMON (sin_);</span><br><span class="line">    <span class="keyword">in_port_t</span> sin_port;         <span class="comment">/* Port number.  */</span></span><br><span class="line">    <span class="keyword">struct</span> in_addr sin_addr;        <span class="comment">/* Internet address.  */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Pad to size of `struct sockaddr'.  */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> sin_zero[<span class="keyword">sizeof</span> (<span class="keyword">struct</span> sockaddr) -</span><br><span class="line">               __SOCKADDR_COMMON_SIZE -</span><br><span class="line">               <span class="keyword">sizeof</span> (<span class="keyword">in_port_t</span>) -</span><br><span class="line">               <span class="keyword">sizeof</span> (<span class="keyword">struct</span> in_addr)];</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="struct-in-addr"><a href="#struct-in-addr" class="headerlink" title="struct in_addr"></a><code>struct in_addr</code></h2><p>定义IP</p>
+<h3 id="定义位置-2"><a href="#定义位置-2" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>netinet/in.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Internet address.  */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">uint32_t</span> <span class="keyword">in_addr_t</span>;</span><br><span class="line"><span class="keyword">struct</span> in_addr</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">in_addr_t</span> s_addr;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h1><p><code>in_addr</code> =&gt; <code>sockaddr_in</code> =&gt; <code>sockaddr</code></p>
+<p><strong>Note</strong>:</p>
+<ul>
+<li><code>=&gt;</code>表示构成</li>
+</ul>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="socket地址结构传递方向"><a href="#socket地址结构传递方向" class="headerlink" title="socket地址结构传递方向"></a>socket地址结构传递方向</h2><ul>
+<li><p>从进程到内核</p>
+<p>需要传入参数(套接字地址大小，告诉内核需要复制多少字节)</p>
+<ul>
+<li>bind</li>
+<li>connect</li>
+<li>sendto</li>
+<li>sendmsg</li>
+</ul>
+</li>
+<li><p>从内核到进程</p>
+<p>需要传入传出参数(套接字地址大小，告诉内核需要复制多少字节，以及反馈进程，返回的地址结构大小)</p>
+<ul>
+<li>accept</li>
+<li>recvfrom</li>
+<li>recvmsg</li>
+<li>getpeername</li>
+<li>getsockname</li>
+</ul>
+</li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/02/03/grep简记/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/02/03/gcc获取include路径列表/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/02/03/linux-socket寻址/" data-title="linux-socket寻址" data-url="http://yoursite.com/2015/02/03/linux-socket寻址/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-02-03 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/linux/">linux<span>18</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/linux/">linux<span>34</span></a></li> <li><a href="/tags/socket/">socket<span>6</span></a></li> <li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li> <li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li> <li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'qianchenglong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

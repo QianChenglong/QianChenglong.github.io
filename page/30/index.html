@@ -1,0 +1,936 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 30 页 | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header page-header-inverse ">
+  <h1 class="title title-inverse ">life&#39;s a struggle.</h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      undefined
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-09 </div>
+			<div class="article-title"><a href="/2015/04/09/python-argparse/" >python-argparse</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>示例：</p>
+<pre><code>ls -l test
+</code></pre><ul>
+<li><p>位置参数(Positional Arguments)</p>
+<p>位置参数的作用取决于它的位置和程序(如<code>cp SRC DST</code>)</p>
+<p>在示例中，<code>test</code>为位置参数</p>
+</li>
+<li><p>可选参数(Optional Arguments)，又叫作选项(option)，开关(switch)</p>
+<p>一般都使用<code>-</code>和<code>--</code>来标识</p>
+<p>在示例中，<code>l</code>为可选参数</p>
+</li>
+</ul>
+<h1 id="使用可选参数"><a href="#使用可选参数" class="headerlink" title="使用可选参数"></a>使用<code>可选参数</code></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(<span class="string">"--verbosity"</span>, help=<span class="string">"increase output verbosity"</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"><span class="keyword">if</span> args.verbosity:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"verbosity turned on"</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/2/howto/argparse.html" target="_blank" rel="external">https://docs.python.org/2/howto/argparse.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/09/python-argparse/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-09 </div>
+			<div class="article-title"><a href="/2015/04/09/arch下安装pandoc/" >arch下安装pandoc</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>添加仓库</p>
+<pre><code>gvim /etc/pacman.conf
+
+[haskell-core]
+Server = http://repo-hs.archlinuxcn.org/$arch
+</code></pre></li>
+<li><p>添加认证</p>
+<pre><code>pacman-key -r 4209170B
+pacman-key --lsign-key 4209170B
+</code></pre></li>
+<li><p>更新仓库</p>
+<pre><code>pacman -Syy
+</code></pre></li>
+<li><p>安装pandoc</p>
+<pre><code>pacman -S haskell-pandoc
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/09/arch下安装pandoc/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-09 </div>
+			<div class="article-title"><a href="/2015/04/09/pandoc-将markdown输出pdf/" >pandoc-将markdown输出pdf</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>win7</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
+<li><p><a href="https://github.com/jgm/pandoc/releases" target="_blank" rel="external">pandoc</a></p>
+</li>
+<li><p><a href="http://miktex.org/" target="_blank" rel="external">MiKTex</a></p>
+<p><a href="https://www.ctan.org/tex-archive/systems/win32/miktex/setup" target="_blank" rel="external">下载</a></p>
+</li>
+<li><p>将<code>pandoc.exe</code>所在目录(<code>C:\Users\USERNAME\AppData\Local\Pandoc</code>)添加到<code>PATH</code></p>
+</li>
+<li><p>查看当前系统字体</p>
+<pre><code>fc-list &gt; C:\fonts.txt
+</code></pre></li>
+<li><p>运行<code>miktex-update_admin.exe</code>更新</p>
+</li>
+<li><p>生成</p>
+<pre><code>pandoc 简历.md -o 1.pdf --latex-engine=xelatex -V mainfont=SimSun
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://johnmacfarlane.net/pandoc/faqs.html" target="_blank" rel="external">http://johnmacfarlane.net/pandoc/faqs.html</a></li>
+<li><a href="http://zhouyichu.com/misc/Pandoc.html" target="_blank" rel="external">神器Pandoc的安装与使用</a></li>
+<li><a href="http://sourceforge.net/p/miktex/bugs/2328/" target="_blank" rel="external">http://sourceforge.net/p/miktex/bugs/2328/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/09/pandoc-将markdown输出pdf/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-08 </div>
+			<div class="article-title"><a href="/2015/04/08/markdown-分隔代码段/" >markdown-分隔代码段</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>因为markdown本身语法，两个代码段之间若不存在任何非空白字符，则视为同一代码段，<br>所以为了分隔代码段，而又不影响实际内容，可以插入html注释。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">code block 1</span><br><span class="line"></span><br><span class="line">&lt;!-- --&gt;</span><br><span class="line"></span><br><span class="line">code block 2</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://meta.stackexchange.com/questions/152358/separating-consecutive-code-blocks" target="_blank" rel="external">http://meta.stackexchange.com/questions/152358/separating-consecutive-code-blocks</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/08/markdown-分隔代码段/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-07 </div>
+			<div class="article-title"><a href="/2015/04/07/python-单元测试组织和命名惯例/" >python-单元测试组织和命名惯例</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 名称        | 作用                                         |<br>|————-+———————————————-|<br>| tests       | 目录，位于项目根目录下，用于存放单元测试文件 |<br>| test_XXX.py | 文件，用于测试某个模块的测试源码             |<br>| XXXTestCase | 类名，测试用例名                             |<br>| test_XXX    | 测试方法名                                   |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/04/07/python-单元测试组织和命名惯例/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-03 </div>
+			<div class="article-title"><a href="/2015/04/03/ctags/" >ctags</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>–list-kinds=python</p>
+<p>查看某种语言选项</p>
+</li>
+<li><p>-R</p>
+<p>递归处理</p>
+</li>
+<li><p>–format=level</p>
+<p> 指定tag的输出格式，默认为2，level=2时，ex_cmd会追加<code>;&quot;</code>(通过注释与老vi保持兼容)</p>
+</li>
+<li><p>−−fields=[+|−]flags</p>
+<p>用来控制<code>extension_fileds</code>中要包含的内容</p>
+</li>
+</ul>
+<h1 id="tag记录格式"><a href="#tag记录格式" class="headerlink" title="tag记录格式()"></a>tag记录格式(<http: ctags.sourceforge.net="" ctags.html#tag="" file="" format="">)</http:></h1><p><code>tag_name&lt;TAB&gt;file_name&lt;TAB&gt;ex_cmd;&quot;&lt;TAB&gt;extension_fields</code></p>
+<ul>
+<li><p><code>tag_name</code> 用来检索的key</p>
+</li>
+<li><p><code>file_name</code> tag所在的文件名</p>
+</li>
+<li><p><code>ex_cmd</code> vim用来定位的命令</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/03/ctags/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-03 </div>
+			<div class="article-title"><a href="/2015/04/03/python-访问父类方法/" >python-访问父类方法</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<h1 id="使用super"><a href="#使用super" class="headerlink" title="使用super"></a>使用<code>super</code></h1><p>要求父类必须派生自<code>object</code>!</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(B, self).__init__()</span><br></pre></td></tr></table></figure>
+<h1 id="使用类名访问"><a href="#使用类名访问" class="headerlink" title="使用类名访问"></a>使用类名访问</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        A.__init__(self)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/753640/inheritance-and-overriding-init-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/753640/inheritance-and-overriding-init-in-python</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/03/python-访问父类方法/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-03 </div>
+			<div class="article-title"><a href="/2015/04/03/交换机端口模式/" >交换机端口模式</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="access"><a href="#access" class="headerlink" title="access"></a>access</h1><ul>
+<li><p>收</p>
+<p>判断是否有VLAN信息</p>
+<ul>
+<li><p>如果没有则打上端口的PVID，并进行交换转发，</p>
+</li>
+<li><p>如果有则直接丢弃（缺省）</p>
+</li>
+</ul>
+</li>
+<li><p>发</p>
+<p>将报文的VLAN信息剥离，直接发送出去</p>
+</li>
+</ul>
+<h1 id="Trunk"><a href="#Trunk" class="headerlink" title="Trunk"></a>Trunk</h1><ul>
+<li><p>收</p>
+<p>收到一个报文，判断是否有VLAN信息</p>
+<ul>
+<li><p>如果没有则打上端口的PVID，并进行交换转发，</p>
+</li>
+<li><p>如果有判断该trunk端口是否允许该 VLAN的数据进入</p>
+<ul>
+<li><p>如果可以则转发</p>
+</li>
+<li><p>否则丢弃</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>发</p>
+<p>比较端口的PVID和将要发送报文的VLAN信息</p>
+<ul>
+<li><p>如果两者相等则剥离VLAN信息，再发送</p>
+</li>
+<li><p>如果不相等则直接发送</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Hybrid"><a href="#Hybrid" class="headerlink" title="Hybrid"></a>Hybrid</h1><ul>
+<li><p>收</p>
+<p>收到一个报文判断是否有VLAN信息</p>
+<ul>
+<li><p>如果没有则打上端口的PVID，并进行交换转发，</p>
+</li>
+<li><p>如果有则判断该hybrid端口是否允许该VLAN的数据进入</p>
+<ul>
+<li><p>如果可以则转发</p>
+</li>
+<li><p>否则丢弃</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>发</p>
+<p>判断该VLAN在本端口的属性（disp interface 即可看到该端口对哪些VLAN是untag， 哪些VLAN是tag）</p>
+<ul>
+<li><p>如果是untag则剥离VLAN信息，再发送</p>
+</li>
+<li><p>如果是tag则直接发送</p>
+</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/03/交换机端口模式/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-03 </div>
+			<div class="article-title"><a href="/2015/04/03/python-获取父类名称/" >python-获取父类名称</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="通过-bases-属性"><a href="#通过-bases-属性" class="headerlink" title="通过__bases__属性"></a>通过<code>__bases__</code>属性</h1><pre><code>str.__bases__
+</code></pre><h1 id="通过inspect模块"><a href="#通过inspect模块" class="headerlink" title="通过inspect模块"></a>通过<code>inspect</code>模块</h1><pre><code>inspect.getmro(str)
+</code></pre><p><strong>注：</strong></p>
+<ul>
+<li>mro:method resolution order</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/2611892/get-python-class-parents" target="_blank" rel="external">http://stackoverflow.com/questions/2611892/get-python-class-parents</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/03/python-获取父类名称/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-02 </div>
+			<div class="article-title"><a href="/2015/04/02/python-简单http服务/" >python-简单http服务</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li><p>进入web根目录</p>
+</li>
+<li><p>运行</p>
+<pre><code>python -m SimpleHTTPServer
+</code></pre></li>
+<li><p>访问</p>
+<pre><code>http://localhost:8000
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://coolshell.cn/articles/1480.html" target="_blank" rel="external">http://coolshell.cn/articles/1480.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/02/python-简单http服务/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+		
+    	<li class="prev"><a href="/page/29/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> 上一页</a></li>
+  		
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/page/31/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+        
+	
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+		
+			<li><a href="/categories/C/">C<span>10</span></a></li>
+		
+			<li><a href="/categories/C/">C++<span>17</span></a></li>
+		
+			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/categories/Crypto/">Crypto++<span>1</span></a></li>
+		
+			<li><a href="/categories/IO/">IO<span>1</span></a></li>
+		
+			<li><a href="/categories/MinGW/">MinGW<span>2</span></a></li>
+		
+			<li><a href="/categories/SVN/">SVN<span>1</span></a></li>
+		
+			<li><a href="/categories/USB/">USB<span>1</span></a></li>
+		
+			<li><a href="/categories/VC/">VC<span>4</span></a></li>
+		
+			<li><a href="/categories/VPN/">VPN<span>2</span></a></li>
+		
+			<li><a href="/categories/Visual-Studio/">Visual Studio<span>1</span></a></li>
+		
+			<li><a href="/categories/apache/">apache<span>4</span></a></li>
+		
+			<li><a href="/categories/arch/">arch<span>4</span></a></li>
+		
+			<li><a href="/categories/autohotkey/">autohotkey<span>2</span></a></li>
+		
+			<li><a href="/categories/awk/">awk<span>1</span></a></li>
+		
+			<li><a href="/categories/boost/">boost<span>2</span></a></li>
+		
+			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+		
+			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
+		
+			<li><a href="/categories/chrome/">chrome<span>2</span></a></li>
+		
+			<li><a href="/categories/clover/">clover<span>1</span></a></li>
+		
+			<li><a href="/categories/cmake/">cmake<span>8</span></a></li>
+		
+			<li><a href="/categories/cmkae/">cmkae<span>1</span></a></li>
+		
+			<li><a href="/categories/cppcheck/">cppcheck<span>1</span></a></li>
+		
+			<li><a href="/categories/cron/">cron<span>1</span></a></li>
+		
+			<li><a href="/categories/cscope/">cscope<span>2</span></a></li>
+		
+			<li><a href="/categories/ctags/">ctags<span>1</span></a></li>
+		
+			<li><a href="/categories/curl/">curl<span>1</span></a></li>
+		
+			<li><a href="/categories/database/">database<span>2</span></a></li>
+		
+			<li><a href="/categories/django/">django<span>2</span></a></li>
+		
+			<li><a href="/categories/doxygen/">doxygen<span>4</span></a></li>
+		
+			<li><a href="/categories/ejs/">ejs<span>1</span></a></li>
+		
+			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
+		
+			<li><a href="/categories/gcc/">gcc<span>2</span></a></li>
+		
+			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
+		
+			<li><a href="/categories/git/">git<span>5</span></a></li>
+		
+			<li><a href="/categories/grep/">grep<span>1</span></a></li>
+		
+			<li><a href="/categories/grub2/">grub2<span>1</span></a></li>
+		
+			<li><a href="/categories/gtest/">gtest<span>3</span></a></li>
+		
+			<li><a href="/categories/hexo/">hexo<span>3</span></a></li>
+		
+			<li><a href="/categories/iptables/">iptables<span>1</span></a></li>
+		
+			<li><a href="/categories/jsoncpp/">jsoncpp<span>2</span></a></li>
+		
+			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
+		
+			<li><a href="/categories/linux/">linux<span>18</span></a></li>
+		
+			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
+		
+			<li><a href="/categories/log4cpp/">log4cpp<span>1</span></a></li>
+		
+			<li><a href="/categories/make/">make<span>1</span></a></li>
+		
+			<li><a href="/categories/makefile/">makefile<span>2</span></a></li>
+		
+			<li><a href="/categories/markdown/">markdown<span>2</span></a></li>
+		
+			<li><a href="/categories/msysgit/">msysgit<span>1</span></a></li>
+		
+			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
+		
+			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+		
+			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
+		
+			<li><a href="/categories/node-js/">node.js<span>1</span></a></li>
+		
+			<li><a href="/categories/nodejs/">nodejs<span>1</span></a></li>
+		
+			<li><a href="/categories/objdump/">objdump<span>1</span></a></li>
+		
+			<li><a href="/categories/od/">od<span>1</span></a></li>
+		
+			<li><a href="/categories/openssl/">openssl<span>1</span></a></li>
+		
+			<li><a href="/categories/openwrt/">openwrt<span>3</span></a></li>
+		
+			<li><a href="/categories/pandoc/">pandoc<span>2</span></a></li>
+		
+			<li><a href="/categories/pdf/">pdf<span>1</span></a></li>
+		
+			<li><a href="/categories/ping/">ping<span>1</span></a></li>
+		
+			<li><a href="/categories/poweriso/">poweriso<span>1</span></a></li>
+		
+			<li><a href="/categories/programming/">programming<span>1</span></a></li>
+		
+			<li><a href="/categories/proxifier/">proxifier<span>1</span></a></li>
+		
+			<li><a href="/categories/python/">python<span>65</span></a></li>
+		
+			<li><a href="/categories/redis/">redis<span>4</span></a></li>
+		
+			<li><a href="/categories/rsync/">rsync<span>2</span></a></li>
+		
+			<li><a href="/categories/samba/">samba<span>3</span></a></li>
+		
+			<li><a href="/categories/socket/">socket<span>3</span></a></li>
+		
+			<li><a href="/categories/sql/">sql<span>2</span></a></li>
+		
+			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+		
+			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
+		
+			<li><a href="/categories/sudo/">sudo<span>1</span></a></li>
+		
+			<li><a href="/categories/svn/">svn<span>2</span></a></li>
+		
+			<li><a href="/categories/syslinux/">syslinux<span>3</span></a></li>
+		
+			<li><a href="/categories/tcpdump/">tcpdump<span>1</span></a></li>
+		
+			<li><a href="/categories/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/categories/tomcat/">tomcat<span>1</span></a></li>
+		
+			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+		
+			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+		
+			<li><a href="/categories/usb/">usb<span>2</span></a></li>
+		
+			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
+		
+			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+		
+			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
+		
+			<li><a href="/categories/web/">web<span>1</span></a></li>
+		
+			<li><a href="/categories/wget/">wget<span>1</span></a></li>
+		
+			<li><a href="/categories/widnows/">widnows<span>2</span></a></li>
+		
+			<li><a href="/categories/win-api/">win-api<span>1</span></a></li>
+		
+			<li><a href="/categories/windows/">windows<span>29</span></a></li>
+		
+			<li><a href="/categories/windowsj/">windowsj<span>1</span></a></li>
+		
+			<li><a href="/categories/wingetopt/">wingetopt<span>1</span></a></li>
+		
+			<li><a href="/categories/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/categories/wireshark/">wireshark<span>3</span></a></li>
+		
+			<li><a href="/categories/xshell/">xshell<span>1</span></a></li>
+		
+			<li><a href="/categories/yed/">yed<span>1</span></a></li>
+		
+			<li><a href="/categories/为什么/">为什么<span>1</span></a></li>
+		
+			<li><a href="/categories/交换机/">交换机<span>1</span></a></li>
+		
+			<li><a href="/categories/单元测试/">单元测试<span>2</span></a></li>
+		
+			<li><a href="/categories/博客/">博客<span>1</span></a></li>
+		
+			<li><a href="/categories/后台/">后台<span>1</span></a></li>
+		
+			<li><a href="/categories/字符编码/">字符编码<span>4</span></a></li>
+		
+			<li><a href="/categories/操作系统/">操作系统<span>1</span></a></li>
+		
+			<li><a href="/categories/数学/">数学<span>1</span></a></li>
+		
+			<li><a href="/categories/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/categories/理论/">理论<span>1</span></a></li>
+		
+			<li><a href="/categories/移动/">移动<span>1</span></a></li>
+		
+			<li><a href="/categories/系统/">系统<span>1</span></a></li>
+		
+			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+		
+			<li><a href="/categories/网站/">网站<span>1</span></a></li>
+		
+			<li><a href="/categories/网络/">网络<span>8</span></a></li>
+		
+			<li><a href="/categories/网络设备/">网络设备<span>2</span></a></li>
+		
+			<li><a href="/categories/计算机/">计算机<span>3</span></a></li>
+		
+			<li><a href="/categories/资料/">资料<span>1</span></a></li>
+		
+			<li><a href="/categories/路由器/">路由器<span>1</span></a></li>
+		
+			<li><a href="/categories/软件/">软件<span>1</span></a></li>
+		
+			<li><a href="/categories/软件工程/">软件工程<span>1</span></a></li>
+		
+			<li><a href="/categories/闪存/">闪存<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+		
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
+		
+			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
+		
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+		
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+		
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
+		
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
+		
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+		
+			<li><a href="/tags/T/">__T<span>1</span></a></li>
+		
+			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+		
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+		
+			<li><a href="/tags/function/">function<span>1</span></a></li>
+		
+			<li><a href="/tags/类型转换/">类型转换<span>1</span></a></li>
+		
+			<li><a href="/tags/install/">install<span>2</span></a></li>
+		
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+		
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
+		
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
+		
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+		
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+		
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>536</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
+      </li>
+    
+      <li>
+        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/QianChenglong" title="My Github account." target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

@@ -111,6 +111,35 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-08-17 </div>
+			<div class="article-title"><a href="/2015/08/17/虚假唤醒/" >虚假唤醒</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>在使用条件变量时,有可能<code>pthread_cond_wait</code>返回时,条件并不满足</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><ul>
+<li>在多核CPU上无法完全实现条件操作语义</li>
+</ul>
+<h1 id="如何避免"><a href="#如何避免" class="headerlink" title="如何避免"></a>如何避免</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pthread_mutex_lock(&amp;lock);</span><br><span class="line"><span class="keyword">while</span> (condition_is_false) &#123;</span><br><span class="line">    pthread_cond_wait(&amp;cond, &amp;lock);</span><br><span class="line">&#125;</span><br><span class="line">pthread_mutex_unlock(&amp;lock);</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.fenesky.com/blog/2014/06/22/cond-spurious-wakeup.html" target="_blank" rel="external">http://www.fenesky.com/blog/2014/06/22/cond-spurious-wakeup.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/08/17/虚假唤醒/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-08-15 </div>
 			<div class="article-title"><a href="/2015/08/15/pthread-主线程等待线程组结束/" >pthread-主线程等待线程组结束</a></div>						
 		</h3>
@@ -363,38 +392,6 @@
 	
 	</div>
   <a type="button" href="/2015/08/05/vim-找出高亮定义位置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-05 </div>
-			<div class="article-title"><a href="/2015/08/05/mod_fcgid配置/" >apache-fastcgi配置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>可执行</p>
-<pre><code>Options +ExecCGI
-</code></pre></li>
-<li><p>该目录下所有文件作为fastcgi程序执行</p>
-<pre><code>SetHandler fcgid-script
-</code></pre></li>
-<li><p>指定文件拓展名作为fastcgi程序执行</p>
-<pre><code>AddHandler fastcgi-script fcg fcgi fpl
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/08/05/mod_fcgid配置/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -691,45 +688,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
 		
-			<li><a href="/tags/T/">_T<span>1</span></a></li>
+			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
 		
-			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
+			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
 		
-			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/tags/类/">类<span>1</span></a></li>
+		
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+		
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+		
+			<li><a href="/tags/update/">update<span>1</span></a></li>
+		
+			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
+		
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+		
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+		
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+		
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+		
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+		
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
 		
 			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
 		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
+			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
 		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
-		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
-		
-			<li><a href="/tags/安装/">安装<span>3</span></a></li>
-		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
-		
-			<li><a href="/tags/read/">read<span>1</span></a></li>
-		
-			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
-		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
-		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
-		
-			<li><a href="/tags/密码/">密码<span>1</span></a></li>
-		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
-		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
-		
-			<li><a href="/tags/macro/">macro<span>3</span></a></li>
+			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>534</span></a></li>
@@ -745,6 +742,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+      </li>
+    
+      <li>
         <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
       </li>
     
@@ -758,10 +759,6 @@
     
       <li>
         <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
       </li>
     
   </ul>
@@ -826,9 +823,10 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "http://localhost:4000/" + "/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
+
 
 </body>
    </html>

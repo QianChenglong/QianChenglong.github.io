@@ -125,7 +125,7 @@
 		<li class="listing-item">
 		<span class="date_class"> 2015-06-16 </span> &raquo;
 		
-		   <span class="title"><a href="/2015/06/16/C++-智能指针之boost.shared_ptr/" >C++-智能指针之boost.scroped_ptr</a></span>
+		   <span class="title"><a href="/2015/06/16/C++-智能指针之auto_ptr/" >C++-智能指针之auto_ptr</a></span>
 		
 		</li>			
 		
@@ -134,7 +134,7 @@
 		<li class="listing-item">
 		<span class="date_class"> 2015-06-16 </span> &raquo;
 		
-		   <span class="title"><a href="/2015/06/16/C++-智能指针之auto_ptr/" >C++-智能指针之auto_ptr</a></span>
+		   <span class="title"><a href="/2015/06/16/C++-智能指针之boost.shared_ptr/" >C++-智能指针之boost.scroped_ptr</a></span>
 		
 		</li>			
 		
@@ -407,45 +407,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
 		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
 		
-			<li><a href="/tags/json/">json<span>4</span></a></li>
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
 		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
-			<li><a href="/tags/USB/">USB<span>1</span></a></li>
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
 		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>2</span></a></li>
+			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
 		
-			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
+			<li><a href="/tags/mysql/">mysql<span>33</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/类型转换/">类型转换<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>1</span></a></li>
 		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
 		
-			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
 		
-			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
 		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
-			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
+			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/使用/">使用<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>534</span></a></li>
@@ -461,6 +461,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+      </li>
+    
+      <li>
         <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
       </li>
     
@@ -474,10 +478,6 @@
     
       <li>
         <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
       </li>
     
   </ul>
@@ -541,9 +541,10 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "http://localhost:4000/" + "/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
+
 
 </body>
    </html>

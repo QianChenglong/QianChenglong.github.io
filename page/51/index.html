@@ -112,6 +112,66 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/编译安装google-C-test-framework/" >编译安装google-C++-test-framework</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>VS2010</li>
+<li>cmake-3.1.0</li>
+<li>gtest-1.7.0</li>
+</ul>
+<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><ul>
+<li><p>下载<a href="https://code.google.com/p/googletest/" target="_blank" rel="external">官网</a>，解压</p>
+</li>
+<li><p>新建<code>build</code>目录，并进入</p>
+</li>
+<li><p>生成<code>Makefile</code></p>
+<ul>
+<li><p>静态库(默认C++运行库为静态链接)</p>
+<pre><code>cmake -G &quot;NMake Makefiles&quot; ..
+</code></pre></li>
+<li><p>静态库，C++运行库采用动态链接</p>
+<pre><code>cmake -G &quot;NMake Makefiles&quot; -Dgtest_force_shared_crt=ON ..
+</code></pre></li>
+<li><p>动态库(默认C++运行库为动态链接)</p>
+<pre><code>cmake -G &quot;NMake Makefiles&quot;  -DBUILD_SHARED_LIBS=ON ..
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<p>注：</p>
+<pre><code>-   编译示例，`-Dgtest_build_samples=ON`
+</code></pre><ul>
+<li><p>编译</p>
+<pre><code>nmake
+</code></pre></li>
+</ul>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li>gtest本身的C++运行时库需要和项目保持一致，不然会出现类似<code>msvcprtd.lib(MSVCP100D.dll) : error LNK2005: already defined in gtestd.lib(gtest.obj)</code>！</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stanlearnswindows.blogspot.jp/2010/06/msvcprtdlibmsvcp100ddll-error-lnk2005.html" target="_blank" rel="external">http://stanlearnswindows.blogspot.jp/2010/06/msvcprtdlibmsvcp100ddll-error-lnk2005.html</a></li>
+<li><a href="http://www.cnblogs.com/ShaneZhang/p/3480502.html" target="_blank" rel="external">http://www.cnblogs.com/ShaneZhang/p/3480502.html</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/abx4dbyh(v=vs.100).aspx" target="_blank" rel="external">http://msdn.microsoft.com/zh-cn/library/abx4dbyh(v=vs.100).aspx</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/编译安装google-C-test-framework/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
 			<div class="article-title"><a href="/2015/01/07/C-函数返回值与错误处理/" >C-函数返回值与错误处理</a></div>						
 		</h3>
 	
@@ -383,41 +443,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/04/dns中递归查询与迭代查询的区别/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-04 </div>
-			<div class="article-title"><a href="/2015/01/04/修改文件默认打开方式/" >修改文件默认打开方式</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="系统命令方式（优先级低于用户设置，即存储于注册表中的）"><a href="#系统命令方式（优先级低于用户设置，即存储于注册表中的）" class="headerlink" title="系统命令方式（优先级低于用户设置，即存储于注册表中的）"></a>系统命令方式（优先级低于用户设置，即存储于注册表中的）</h1><ol>
-<li><p>assoc改变指定拓展名对应的文件类型</p>
-<pre><code>assoc .apk=AndroidPackage
-&lt;=&gt;
-reg add HKEY_CLASSES_ROOT\.apk /d &quot;AndroidPackage&quot; /f
-</code></pre></li>
-<li><p>ftype来指定文件执行命令，%1代表该文件，%*代表参数</p>
-<pre><code>ftype txtfile=&quot;e:\OS\Android\Exeperience\apk-install.bat&quot; %1 %*
-&lt;=&gt;
-reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\OS\Android\Exeperience\apk-install.bat\&quot; %%1 %%*&quot; /f
-</code></pre></li>
-</ol>
-<h1 id="修改用户设置"><a href="#修改用户设置" class="headerlink" title="修改用户设置"></a>修改用户设置</h1><pre><code>[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.txt\UserChoice]
-&quot;Rrogid&quot;=&quot;\&quot;C:\\Program Files (x86)\\Vim\\vim73\\gvim.exe\&quot; \&quot;%1\&quot; \&quot;%*\&quot;&quot;
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/01/04/修改文件默认打开方式/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -714,45 +739,45 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/类/">类<span>1</span></a></li>
+		
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+		
+			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
+		
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
 		
 			<li><a href="/tags/使用/">使用<span>1</span></a></li>
 		
-			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+			<li><a href="/tags/array/">array<span>1</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+			<li><a href="/tags/rsa/">rsa<span>1</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
 		
-			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
 		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
+			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
 		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
-		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
-		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
 		
 			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/limit/">limit<span>2</span></a></li>
 		
-			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
 		
-			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
-		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>534</span></a></li>
@@ -768,6 +793,10 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+      </li>
+    
+      <li>
         <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
       </li>
     
@@ -781,10 +810,6 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
     
       <li>
         <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
       </li>
     
   </ul>
@@ -849,9 +874,10 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "http://localhost:4000/" + "/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
+
 
 </body>
    </html>

@@ -111,6 +111,35 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-02-21 </div>
+			<div class="article-title"><a href="/2016/02/21/linux-查看mtu/" >linux-查看mtu</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>cat /sys/class/net/enp0s3/mtu</p>
+</li>
+<li><p>netstat -i</p>
+</li>
+<li><p>ip address show</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/02/21/linux-查看mtu/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-02-18 </div>
 			<div class="article-title"><a href="/2016/02/18/链表/" >链表</a></div>						
 		</h3>
@@ -441,31 +470,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-17 </div>
-			<div class="article-title"><a href="/2015/11/17/nginx-CORS/" >nginx-CORS</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">     if ($request_method = &apos;OPTIONS&apos;) &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        #</span><br><span class="line">        # Om nom nom cookies</span><br><span class="line">        #</span><br><span class="line">        add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;;</span><br><span class="line">        #</span><br><span class="line">        # Custom headers and headers various browsers *should* be OK with but aren&apos;t</span><br><span class="line">        #</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&apos;;</span><br><span class="line">        #</span><br><span class="line">        # Tell client that this pre-flight info is valid for 20 days</span><br><span class="line">        #</span><br><span class="line">        add_header &apos;Access-Control-Max-Age&apos; 1728000;</span><br><span class="line">        add_header &apos;Content-Type&apos; &apos;text/plain charset=UTF-8&apos;;</span><br><span class="line">        add_header &apos;Content-Length&apos; 0;</span><br><span class="line">        return 204;</span><br><span class="line">     &#125;</span><br><span class="line">     if ($request_method = &apos;POST&apos;) &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&apos;;</span><br><span class="line">     &#125;</span><br><span class="line">     if ($request_method = &apos;GET&apos;) &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&apos;;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://enable-cors.org/server_nginx.html" target="_blank" rel="external">http://enable-cors.org/server_nginx.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/17/nginx-CORS/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -759,45 +763,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
+		
+			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
+		
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+		
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
+		
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+		
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+		
+			<li><a href="/tags/mysql/">mysql<span>33</span></a></li>
+		
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+		
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+		
+			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
+		
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+		
+			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+		
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+		
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
+		
+			<li><a href="/tags/library/">library<span>2</span></a></li>
+		
+			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+		
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+		
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
 		
 			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
-		
-			<li><a href="/tags/线程/">线程<span>3</span></a></li>
-		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
-		
-			<li><a href="/tags/理解/">理解<span>1</span></a></li>
-		
-			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
-		
-			<li><a href="/tags/literal/">literal<span>1</span></a></li>
-		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
-		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
-		
-			<li><a href="/tags/T/">__T<span>1</span></a></li>
-		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
-		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
-		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
-		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
-		
-			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
-		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
-		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
-		
-			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
-		
-			<li><a href="/tags/exit/">exit<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>534</span></a></li>
@@ -813,6 +817,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+      </li>
+    
+      <li>
         <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
       </li>
     
@@ -826,10 +834,6 @@
     
       <li>
         <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
       </li>
     
   </ul>
@@ -894,9 +898,10 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "http://localhost:4000/" + "/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
+
 
 </body>
    </html>

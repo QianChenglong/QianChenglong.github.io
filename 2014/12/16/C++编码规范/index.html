@@ -159,6 +159,9 @@
 <li><p>使用<code>#pragma once</code></p>
 </li>
 <li><p>凡是能使用前向声明的，尽量使用，减少外部依赖！</p>
+<ul>
+<li>若该文件是作为外部引用入口，则需确保使用者不用再include其他文件，除非故意划分子模块使用！</li>
+</ul>
 </li>
 </ul>
 <h2 id="头文件包含顺序"><a href="#头文件包含顺序" class="headerlink" title="头文件包含顺序"></a>头文件包含顺序</h2><p>各部分最好按字母序排列</p>
@@ -279,7 +282,7 @@
   <h2 class="title">留言</h2>
 
   
-  	 <div class="ds-thread" data-thread-key="2014/12/16/C++编码规范/" data-title="C++编码规范" data-url="http://yoursite.com/2014/12/16/C++编码规范/"></div>  
+  	 <div class="ds-thread" data-thread-key="2014/12/16/C++编码规范/" data-title="C++编码规范" data-url="https://qianchenglong.github.io/2014/12/16/C++编码规范/"></div>  
   
 </section>
 
@@ -389,9 +392,10 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "http://localhost:4000/" + "/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
+
 
 </body>
    </html>

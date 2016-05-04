@@ -111,6 +111,33 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-30 </div>
+			<div class="article-title"><a href="/2015/09/30/sql/" >sql</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><ul>
+<li><p>当需要部分更新时,不要使用多表关联更新</p>
+<p>因为可能部分关联失败,导致需要更新的数据没有更新</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> product a, <span class="keyword">order</span> b <span class="keyword">set</span> ... <span class="keyword">where</span> a.product_id = b.product_id</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/30/sql/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-28 </div>
 			<div class="article-title"><a href="/2015/09/28/mysql-数据库备份恢复/" >mysql-数据库备份恢复</a></div>						
 		</h3>
@@ -449,34 +476,6 @@ ImportPath       = string_lit .
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-22 </div>
-			<div class="article-title"><a href="/2015/09/22/产品部署/" >产品部署目录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="部署目录结构"><a href="#部署目录结构" class="headerlink" title="部署目录结构"></a>部署目录结构</h1><p>部署目录 := 起始目录/项目名称/版本号/构建类型</p>
-<p>构建类型 := 开发 | 测试 | 生产</p>
-<p>开发 := debug</p>
-<p>测试 := test</p>
-<p>生产 := release</p>
-<h2 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;PROJECT_NAME&#125;</span>/<span class="variable">$&#123;PROJECT_VERSION&#125;</span>/<span class="variable">$&#123;CMAKE_BUILD_TYPE&#125;</span></span><br></pre></td></tr></table></figure>
-<p>cmake</p>
-
-	
-	</div>
-  <a type="button" href="/2015/09/22/产品部署/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -770,45 +769,45 @@ ImportPath       = string_lit .
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/git/">git<span>6</span></a></li>
 		
-			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
+			<li><a href="/tags/理论/">理论<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
 		
-			<li><a href="/tags/时间/">时间<span>2</span></a></li>
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/redis/">redis<span>6</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/TF/">TF<span>1</span></a></li>
 		
-			<li><a href="/tags/du/">du<span>1</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/宏/">宏<span>4</span></a></li>
+			<li><a href="/tags/alias/">alias<span>1</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>2</span></a></li>
+			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql/">mysql<span>32</span></a></li>
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/打包/">打包<span>1</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
 		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
+			<li><a href="/tags/池/">池<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>534</span></a></li>
@@ -824,6 +823,10 @@ ImportPath       = string_lit .
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+      </li>
+    
+      <li>
         <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
       </li>
     
@@ -837,10 +840,6 @@ ImportPath       = string_lit .
     
       <li>
         <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
       </li>
     
   </ul>
@@ -905,9 +904,10 @@ ImportPath       = string_lit .
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "http://localhost:4000/" + "/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
+
 
 </body>
    </html>

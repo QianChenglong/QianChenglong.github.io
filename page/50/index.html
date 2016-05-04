@@ -112,6 +112,37 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-15 </div>
+			<div class="article-title"><a href="/2015/01/15/vim-查看最后设定/" >vim-查看最后设定</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="查看某个选项最后设置位置"><a href="#查看某个选项最后设置位置" class="headerlink" title="查看某个选项最后设置位置"></a>查看某个选项最后设置位置</h1><ul>
+<li><p>查看文件类型</p>
+<pre><code>:verbose set filetype
+</code></pre></li>
+</ul>
+<h1 id="查看某个映射最后定义位置"><a href="#查看某个映射最后定义位置" class="headerlink" title="查看某个映射最后定义位置"></a>查看某个映射最后定义位置</h1><ul>
+<li><p>查看vmap</p>
+<pre><code>:verbose vmap l&lt;CR&gt;
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/15/vim-查看最后设定/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-15 </div>
 			<div class="article-title"><a href="/2015/01/15/windows-in-out-in-C/" >windows-__in-__out-in-C</a></div>						
 		</h3>
 	
@@ -366,66 +397,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/08/C运行库链接问题/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-07 </div>
-			<div class="article-title"><a href="/2015/01/07/编译安装google-C-test-framework/" >编译安装google-C++-test-framework</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li>VS2010</li>
-<li>cmake-3.1.0</li>
-<li>gtest-1.7.0</li>
-</ul>
-<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><ul>
-<li><p>下载<a href="https://code.google.com/p/googletest/" target="_blank" rel="external">官网</a>，解压</p>
-</li>
-<li><p>新建<code>build</code>目录，并进入</p>
-</li>
-<li><p>生成<code>Makefile</code></p>
-<ul>
-<li><p>静态库(默认C++运行库为静态链接)</p>
-<pre><code>cmake -G &quot;NMake Makefiles&quot; ..
-</code></pre></li>
-<li><p>静态库，C++运行库采用动态链接</p>
-<pre><code>cmake -G &quot;NMake Makefiles&quot; -Dgtest_force_shared_crt=ON ..
-</code></pre></li>
-<li><p>动态库(默认C++运行库为动态链接)</p>
-<pre><code>cmake -G &quot;NMake Makefiles&quot;  -DBUILD_SHARED_LIBS=ON ..
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<p>注：</p>
-<pre><code>-   编译示例，`-Dgtest_build_samples=ON`
-</code></pre><ul>
-<li><p>编译</p>
-<pre><code>nmake
-</code></pre></li>
-</ul>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
-<li>gtest本身的C++运行时库需要和项目保持一致，不然会出现类似<code>msvcprtd.lib(MSVCP100D.dll) : error LNK2005: already defined in gtestd.lib(gtest.obj)</code>！</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stanlearnswindows.blogspot.jp/2010/06/msvcprtdlibmsvcp100ddll-error-lnk2005.html" target="_blank" rel="external">http://stanlearnswindows.blogspot.jp/2010/06/msvcprtdlibmsvcp100ddll-error-lnk2005.html</a></li>
-<li><a href="http://www.cnblogs.com/ShaneZhang/p/3480502.html" target="_blank" rel="external">http://www.cnblogs.com/ShaneZhang/p/3480502.html</a></li>
-<li><a href="http://msdn.microsoft.com/zh-cn/library/abx4dbyh(v=vs.100).aspx" target="_blank" rel="external">http://msdn.microsoft.com/zh-cn/library/abx4dbyh(v=vs.100).aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/07/编译安装google-C-test-framework/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -722,45 +693,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
+			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
 		
-			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+			<li><a href="/tags/文件/">文件<span>7</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
 		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
 		
-			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
-		
-			<li><a href="/tags/undo/">undo<span>1</span></a></li>
-		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
-		
-			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
-		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
 			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
+			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+		
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
+		
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+		
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
+		
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+		
+			<li><a href="/tags/error/">error<span>3</span></a></li>
+		
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
+		
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
+		
 			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
+			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
-		
-			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
-		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
-		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
-		
-			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
-		
-			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>534</span></a></li>
@@ -776,6 +747,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+      </li>
+    
+      <li>
         <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
       </li>
     
@@ -789,10 +764,6 @@
     
       <li>
         <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/25/net/" ><i class="fa fa-file-o"></i>net</a>
       </li>
     
   </ul>
@@ -857,9 +828,10 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "http://localhost:4000/" + "/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
+
 
 </body>
    </html>

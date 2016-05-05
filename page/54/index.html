@@ -111,6 +111,52 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-18 </div>
+			<div class="article-title"><a href="/2014/12/18/SVN-工作副本怎样跟踪版本库/" >SVN-工作副本怎样跟踪版本库</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>对于工作副本的每一个文件，Subversion 在管理目录 .svn/ 记录两项关键的信息:</p>
+<ul>
+<li><p>工作文件的基准版本(叫做文件的工作版本)</p>
+</li>
+<li><p>一个本地副本最后更新的时间戳。</p>
+</li>
+</ul>
+<p>给定这些信息，通过与版本库通讯，Subversion 可以告诉我们工作文件是处与如下四种状态的那一种:</p>
+<ul>
+<li><p>未修改且是当前的</p>
+<p>文件在工作目录里没有修改，在工作版本之后没有修改提交到版本库。svn commit 操作不做任何事情，svn update 不做任何事情。</p>
+</li>
+<li><p>本地已修改且是当前的</p>
+<p>工作副本已经修改，从基准版本之后没有修改提交到版本库。本地修改没有提交，因此 commit 会成功的提交，update 不做任何事情。</p>
+</li>
+<li><p>本地未修改且过时</p>
+<p>这个文件在工作副本没有修改，但在版本库中已经修改了。这个文件应当更新到最新公共版本。commit 不做任何事情，update 将会更新工作副本到最新的版本。</p>
+</li>
+<li><p>本地已修改且过时</p>
+<p>这个文件在工作副本和版本库中都被修改了。提交 该文件将会因为 过时 而失败。该文件应该先更新; 更新 命令将会尝试合并公共更改和本机更改。如果 Subversion 不能顺利的自动完成合并，则需要用户解决冲突。</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://tortoisesvn.net/docs/nightly/TortoiseSVN_zh_CN/tsvn-basics-svn.html" target="_blank" rel="external">http://tortoisesvn.net/docs/nightly/TortoiseSVN_zh_CN/tsvn-basics-svn.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/18/SVN-工作副本怎样跟踪版本库/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-16 </div>
 			<div class="article-title"><a href="/2014/12/16/C++编码规范/" >C++编码规范</a></div>						
 		</h3>
@@ -467,38 +513,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-11 </div>
-			<div class="article-title"><a href="/2014/12/11/C++第三方库/" >C++第三方库</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="http://sourceforge.net/projects/log4cpp" target="_blank" rel="external">log4cpp</a></p>
-</li>
-<li><p><a href="https://github.com/open-source-parsers/jsoncpp" target="_blank" rel="external">jsoncpp</a></p>
-</li>
-<li><p><a href="http://www.boost.org" target="_blank" rel="external">boost</a></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://coolshell.info/c/c++/2014/12/13/c-open-project.html" target="_blank" rel="external">http://coolshell.info/c/c++/2014/12/13/c-open-project.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/11/C++第三方库/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -551,7 +565,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>17</span></a></li>
+			<li><a href="/categories/C/">C++<span>18</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -792,48 +806,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
 		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
 		
-			<li><a href="/tags/链表/">链表<span>1</span></a></li>
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
-			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
-			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
+			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/库/">库<span>2</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
 		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+			<li><a href="/tags/安装/">安装<span>3</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>6</span></a></li>
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
 		
-			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
+			<li><a href="/tags/linux/">linux<span>34</span></a></li>
 		
-			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>1</span></a></li>
 		
-			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+			<li><a href="/tags/文件/">文件<span>7</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/命令/">命令<span>5</span></a></li>
+			<li><a href="/tags/资源/">资源<span>2</span></a></li>
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>534</span></a></li>
+		   <li><a href="/tags">...<span>537</span></a></li>
 		 
 		</ul>
 	</div>
@@ -844,6 +858,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+      </li>
     
       <li>
         <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
@@ -859,10 +877,6 @@
     
       <li>
         <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
       </li>
     
   </ul>

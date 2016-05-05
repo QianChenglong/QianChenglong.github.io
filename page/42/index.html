@@ -112,6 +112,35 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/wireshark-显示过滤器/" >wireshark-显示过滤器</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>根据帧序号</p>
+<pre><code>frame.number &gt;= 6
+</code></pre></li>
+<li><p>根据http内容类型</p>
+<pre><code>http.content_type == “application/x-www-form-urlencoded”
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/wireshark-显示过滤器/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
 			<div class="article-title"><a href="/2015/02/06/windows-路由表/" >windows-路由表</a></div>						
 		</h3>
 	
@@ -525,89 +554,6 @@ work Adapter
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-05 </div>
-			<div class="article-title"><a href="/2015/02/05/gcc选项简记/" >gcc选项简记</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>-D name=definition</p>
-<p>指定预处理宏定义，相当于#define name definition</p>
-</li>
-<li><p>-std=XXX</p>
-<ul>
-<li>c99</li>
-<li>c++11</li>
-</ul>
-</li>
-<li><p>-M</p>
-<p>输出依赖关系，隐含-E，也就是不编译，只是查看依赖关系，依赖关系包含系统头文件</p>
-</li>
-<li><p>-MM</p>
-<p>输出依赖关系，只是用户的，不包含库文件</p>
-</li>
-<li><p>-MF file</p>
-<p>依赖关系的结果输出到指定文件中，必须指定-M或-MM</p>
-</li>
-<li><p>-MD</p>
-<p>相当于-MM -MF <em>.d ，<br>输出依赖关系，不隐含-E，也就是同时生成依赖文件(</em>.d)，还编译,依赖关系中包含<br>系统头文件</p>
-</li>
-<li><p>-MMD</p>
-<p>相当于-MD，生成的*.d中不包含系统头文件</p>
-</li>
-<li><p>-MT file</p>
-<p>使用file中的依赖关系编译，也就是配合-MMD或-MD或-MF来使用，使用他们生成的依赖<br>关系自动编译</p>
-</li>
-<li><p>-MP</p>
-<p>连头文件也输出对应的依赖关系，可能为伪目标，防止删除了头文件，而没有更新<br>makefile导致编译错误</p>
-</li>
-<li><p>-Ldir</p>
-<p>添加dir到目录列表，目录列表用来搜索链接库</p>
-</li>
-<li><p>-llibrary</p>
-<p>指定链接库，优先寻找共享库(liblibrary.so,liblibrary.a)，该选项最好放到最后，<br>防止后面需要链接的，详见gcc(1)</p>
-</li>
-<li><p>-static</p>
-<p>指定链接静态库</p>
-</li>
-<li><p>-fPIC</p>
-<p>生成位置无关代码(position independent code)</p>
-</li>
-<li><p>-shared</p>
-<p>生成共享库，需要-fPIC</p>
-</li>
-<li><p>-Idir</p>
-<p>添加目录到搜索头文件列表，添加的优先搜索</p>
-</li>
-<li><p>-Wl,</p>
-<p>向链接器传递选项，’,’隔开选项</p>
-</li>
-<li><p>-Wa,</p>
-<p>向汇编器传递选项，’,’隔开选项</p>
-</li>
-<li><p>-Wp,</p>
-<p>向预处理器传递选项，’,’隔开选项</p>
-</li>
-<li><p>-O</p>
-<p>不开启优化</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/05/gcc选项简记/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -660,7 +606,7 @@ work Adapter
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>17</span></a></li>
+			<li><a href="/categories/C/">C++<span>18</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -901,48 +847,48 @@ work Adapter
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
 		
-			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>1</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/池/">池<span>1</span></a></li>
 		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
 		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
-			<li><a href="/tags/delete/">delete<span>2</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+			<li><a href="/tags/exit/">exit<span>1</span></a></li>
 		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
-			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
-			<li><a href="/tags/static/">static<span>1</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
+			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
 		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+			<li><a href="/tags/size/">size<span>1</span></a></li>
 		
-			<li><a href="/tags/python/">python<span>69</span></a></li>
+			<li><a href="/tags/if/">if<span>1</span></a></li>
 		
-			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>534</span></a></li>
+		   <li><a href="/tags">...<span>537</span></a></li>
 		 
 		</ul>
 	</div>
@@ -953,6 +899,10 @@ work Adapter
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+      </li>
     
       <li>
         <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
@@ -968,10 +918,6 @@ work Adapter
     
       <li>
         <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
       </li>
     
   </ul>

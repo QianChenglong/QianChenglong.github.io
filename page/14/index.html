@@ -111,6 +111,60 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-23 </div>
+			<div class="article-title"><a href="/2015/09/23/go-import/" >go-import</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="正则文法"><a href="#正则文法" class="headerlink" title="正则文法"></a>正则文法</h1><pre><code>ImportDecl       = &quot;import&quot; ( ImportSpec | &quot;(&quot; { ImportSpec &quot;;&quot; } &quot;)&quot; ) .
+ImportSpec       = [ &quot;.&quot; | PackageName ] ImportPath .
+ImportPath       = string_lit .
+</code></pre><h1 id="导入路径-ImportPath"><a href="#导入路径-ImportPath" class="headerlink" title="导入路径(ImportPath)"></a>导入路径(ImportPath)</h1><ul>
+<li>相对路径</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"./test"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>绝对路径(<code>gopath</code>)</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
+<h1 id="包名-PackageName"><a href="#包名-PackageName" class="headerlink" title="包名(PackageName)"></a>包名(PackageName)</h1><ul>
+<li><code>.</code></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> . <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
+<p>这样导入后,在使用的时候无须包名</p>
+<ul>
+<li><code>_</code></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="string">"github.com/go-sql-driver/mysql"</span></span><br></pre></td></tr></table></figure>
+<p>不直接使用该包内的导出标识符</p>
+<ul>
+<li><code>别名</code></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> f <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
+<p>通过别名访问(“f.Println”)</p>
+<ul>
+<li>默认形式</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://golang.org/ref/spec#Import_declarations" target="_blank" rel="external">https://golang.org/ref/spec#Import_declarations</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/23/go-import/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-22 </div>
 			<div class="article-title"><a href="/2015/09/22/产品部署/" >产品部署目录</a></div>						
 		</h3>
@@ -369,44 +423,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-17 </div>
-			<div class="article-title"><a href="/2015/09/17/mock-server/" >mock-server</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="http://editor.swagger.io/" target="_blank" rel="external">swagger</a></p>
-<p>多语言</p>
-</li>
-<li><p><a href="http://www.mock-server.com/" target="_blank" rel="external">MockServer</a></p>
-</li>
-<li><p><a href="https://github.com/typicode/json-server/" target="_blank" rel="external">https://github.com/typicode/json-server/</a></p>
-</li>
-<li><p><a href="https://github.com/Jayin/json-file-server" target="_blank" rel="external">https://github.com/Jayin/json-file-server</a></p>
-</li>
-<li><p><a href="https://github.com/tomashanacek/mock-server" target="_blank" rel="external">https://github.com/tomashanacek/mock-server</a></p>
-<p>python</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.infoq.com/cn/articles/auto-test-mock-server/" target="_blank" rel="external">自动化测试基础设施（一）——为功能测试构建通用mock server系统</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/17/mock-server/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -459,7 +475,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>17</span></a></li>
+			<li><a href="/categories/C/">C++<span>18</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -700,48 +716,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/库/">库<span>2</span></a></li>
+			<li><a href="/tags/网站/">网站<span>2</span></a></li>
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
 		
-			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
 		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
+			<li><a href="/tags/suse/">suse<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
 		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+			<li><a href="/tags/api/">api<span>1</span></a></li>
 		
-			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+			<li><a href="/tags/打包/">打包<span>1</span></a></li>
 		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
 		
-			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
+			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
 		
-			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>2</span></a></li>
+			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
 		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>534</span></a></li>
+		   <li><a href="/tags">...<span>537</span></a></li>
 		 
 		</ul>
 	</div>
@@ -752,6 +768,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+      </li>
     
       <li>
         <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
@@ -767,10 +787,6 @@
     
       <li>
         <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
       </li>
     
   </ul>

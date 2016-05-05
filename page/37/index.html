@@ -112,6 +112,46 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-07 </div>
+			<div class="article-title"><a href="/2015/03/07/sshd添加公钥/" >sshd添加公钥</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>centos7</p>
+</li>
+<li><p>OpenSSH_6.4p1, OpenSSL 1.0.1e-fips 11 Feb 2013</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li><p>编辑配置文件<code>/etc/ssh/sshd_config</code></p>
+<p>反注释掉<code>AuthorizedKeysFile      .ssh/authorized_keys</code></p>
+<pre><code>AuthorizedKeysFile      .ssh/authorized_keys
+</code></pre></li>
+<li><p>编辑登录用户配置文件(<code>~/.ssh/authorized_keys</code>)</p>
+<p>添加公钥</p>
+</li>
+<li><p>设置权限</p>
+<p>chmod 700 ~/.ssh<br>chmod 600 ~/.ssh/authorized_keys</p>
+</li>
+</ul>
+<h1 id="重启sshd"><a href="#重启sshd" class="headerlink" title="重启sshd"></a>重启sshd</h1><pre><code>systemctl restart sshd
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/03/07/sshd添加公钥/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-07 </div>
 			<div class="article-title"><a href="/2015/03/07/centos-部署shadowsocks/" >centos-部署shadowsocks</a></div>						
 		</h3>
 	
@@ -542,27 +582,6 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-02 </div>
-			<div class="article-title"><a href="/2015/03/02/windows-snprintf/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		
-	
-	</div>
-  <a type="button" href="/2015/03/02/windows-snprintf/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -615,7 +634,7 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>17</span></a></li>
+			<li><a href="/categories/C/">C++<span>18</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -856,48 +875,48 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+			<li><a href="/tags/rune/">rune<span>1</span></a></li>
 		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
 		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
-		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
-		
-			<li><a href="/tags/C/">C<span>14</span></a></li>
-		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
-		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
 		
 			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
 		
-			<li><a href="/tags/串口/">串口<span>2</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
 		
-			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
+		
+			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
+		
+			<li><a href="/tags/import/">import<span>3</span></a></li>
+		
+			<li><a href="/tags/api/">api<span>1</span></a></li>
+		
+			<li><a href="/tags/池/">池<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>534</span></a></li>
+		   <li><a href="/tags">...<span>537</span></a></li>
 		 
 		</ul>
 	</div>
@@ -908,6 +927,10 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+      </li>
     
       <li>
         <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
@@ -923,10 +946,6 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
     
       <li>
         <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
       </li>
     
   </ul>

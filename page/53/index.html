@@ -112,6 +112,32 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-24 </div>
+			<div class="article-title"><a href="/2014/12/24/python-切换工作目录/" >python-切换工作目录</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">os.chdir(path)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/1810743/how-to-set-the-current-working-directory-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/1810743/how-to-set-the-current-working-directory-in-python</a></li>
+<li><a href="https://docs.python.org/2/library/os.html#os.chdir" target="_blank" rel="external">https://docs.python.org/2/library/os.html#os.chdir</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/24/python-切换工作目录/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-24 </div>
 			<div class="article-title"><a href="/2014/12/24/python-复制文件/" >python-复制文件</a></div>						
 		</h3>
 	
@@ -436,52 +462,6 @@ qualifiers := type dir proto
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-18 </div>
-			<div class="article-title"><a href="/2014/12/18/SVN-工作副本怎样跟踪版本库/" >SVN-工作副本怎样跟踪版本库</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>对于工作副本的每一个文件，Subversion 在管理目录 .svn/ 记录两项关键的信息:</p>
-<ul>
-<li><p>工作文件的基准版本(叫做文件的工作版本)</p>
-</li>
-<li><p>一个本地副本最后更新的时间戳。</p>
-</li>
-</ul>
-<p>给定这些信息，通过与版本库通讯，Subversion 可以告诉我们工作文件是处与如下四种状态的那一种:</p>
-<ul>
-<li><p>未修改且是当前的</p>
-<p>文件在工作目录里没有修改，在工作版本之后没有修改提交到版本库。svn commit 操作不做任何事情，svn update 不做任何事情。</p>
-</li>
-<li><p>本地已修改且是当前的</p>
-<p>工作副本已经修改，从基准版本之后没有修改提交到版本库。本地修改没有提交，因此 commit 会成功的提交，update 不做任何事情。</p>
-</li>
-<li><p>本地未修改且过时</p>
-<p>这个文件在工作副本没有修改，但在版本库中已经修改了。这个文件应当更新到最新公共版本。commit 不做任何事情，update 将会更新工作副本到最新的版本。</p>
-</li>
-<li><p>本地已修改且过时</p>
-<p>这个文件在工作副本和版本库中都被修改了。提交 该文件将会因为 过时 而失败。该文件应该先更新; 更新 命令将会尝试合并公共更改和本机更改。如果 Subversion 不能顺利的自动完成合并，则需要用户解决冲突。</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://tortoisesvn.net/docs/nightly/TortoiseSVN_zh_CN/tsvn-basics-svn.html" target="_blank" rel="external">http://tortoisesvn.net/docs/nightly/TortoiseSVN_zh_CN/tsvn-basics-svn.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/18/SVN-工作副本怎样跟踪版本库/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -534,7 +514,7 @@ qualifiers := type dir proto
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>17</span></a></li>
+			<li><a href="/categories/C/">C++<span>18</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -775,48 +755,48 @@ qualifiers := type dir proto
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/python/">python<span>69</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/宏/">宏<span>4</span></a></li>
 		
-			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
 		
-			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
+			<li><a href="/tags/debug/">debug<span>2</span></a></li>
 		
-			<li><a href="/tags/find/">find<span>3</span></a></li>
+			<li><a href="/tags/10014/">10014<span>1</span></a></li>
 		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
-			<li><a href="/tags/warning/">warning<span>2</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/安装/">安装<span>3</span></a></li>
 		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
+			<li><a href="/tags/固件/">固件<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
-			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
-			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+			<li><a href="/tags/byte/">byte<span>1</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
 		
-			<li><a href="/tags/事务/">事务<span>1</span></a></li>
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/log/">log<span>1</span></a></li>
+			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/mysql/">mysql<span>33</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>534</span></a></li>
+		   <li><a href="/tags">...<span>537</span></a></li>
 		 
 		</ul>
 	</div>
@@ -827,6 +807,10 @@ qualifiers := type dir proto
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+      </li>
     
       <li>
         <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
@@ -842,10 +826,6 @@ qualifiers := type dir proto
     
       <li>
         <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/26/daemon/" ><i class="fa fa-file-o"></i>daemon</a>
       </li>
     
   </ul>

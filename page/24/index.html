@@ -112,6 +112,39 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-06-18 </div>
+			<div class="article-title"><a href="/2015/06/18/rsync/" >rsync</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>远程同步</p>
+<h1 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h1><ul>
+<li><p>使用密码文件认证</p>
+<pre><code>rsync -avzP --password-file=/cygdrive/E/Soft/rsync/bin/cwRsync_5.4.1_x86_Free/rsyncd.scrt  /cygdrive/E/Work/project/gupiaoxianji/xianji-server/data wallace@%SERVER%::dbdata
+</code></pre></li>
+<li><p>–exclude={.ccache,build}</p>
+<p>排除多个目录</p>
+</li>
+<li><p>–chown=www-data:www-data</p>
+<p>修改文件所有者</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/18/rsync/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-18 </div>
 			<div class="article-title"><a href="/2015/06/18/find/" >find</a></div>						
 		</h3>
 	
@@ -489,48 +522,6 @@ auto_ptr&lt;int&gt;ap(p);
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-16 </div>
-			<div class="article-title"><a href="/2015/06/16/C++-智能指针之boost.shared_ptr/" >C++-智能指针之boost.scroped_ptr</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li><p>提供一种强大的垃圾回收机制</p>
-</li>
-<li><p>copyable，可存放到容器中，可多次引用</p>
-</li>
-<li><p>当引用计数为0时，自动析构</p>
-</li>
-</ul>
-<h1 id="使用误区"><a href="#使用误区" class="headerlink" title="使用误区"></a>使用误区</h1><ul>
-<li><p>不能使用同一个对象指针来构造</p>
-<pre><code>A *a = new A(1);
-
-boost::shared_ptr&lt;A&gt; p1(a);
-boost::shared_ptr&lt;A&gt; p2(a);
-// 应该这样
-// boost::shared_ptr&lt;A&gt; p1(new A(1));
-// boost::shared_ptr&lt;A&gt; p2(p1);
-</code></pre></li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>非常强大，多多使用！</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/shared_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(new <span class="keyword">int</span>(id))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">delete</span> id_;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    A *a = new A(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p1(a);</span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p2(p1);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *(p1-&gt;id_) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/06/16/C++-智能指针之boost.shared_ptr/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -681,7 +672,7 @@ boost::shared_ptr&lt;A&gt; p2(a);
 		
 			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+			<li><a href="/categories/mysql/">mysql<span>13</span></a></li>
 		
 			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
 		
@@ -824,48 +815,48 @@ boost::shared_ptr&lt;A&gt; p2(a);
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
 		
-			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
+			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
 		
-			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/app/">app<span>4</span></a></li>
 		
-			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
+			<li><a href="/tags/vim/">vim<span>22</span></a></li>
 		
-			<li><a href="/tags/od/">od<span>1</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>1</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
 		
-			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
 		
-			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
+			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
+			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
 		
-			<li><a href="/tags/事务/">事务<span>1</span></a></li>
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
 		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
-			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>537</span></a></li>
+		   <li><a href="/tags">...<span>539</span></a></li>
 		 
 		</ul>
 	</div>
@@ -876,6 +867,10 @@ boost::shared_ptr&lt;A&gt; p2(a);
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/06/mysql-int(11)/" ><i class="fa fa-file-o"></i>mysql-int(11)</a>
+      </li>
     
       <li>
         <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
@@ -891,10 +886,6 @@ boost::shared_ptr&lt;A&gt; p2(a);
     
       <li>
         <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
       </li>
     
   </ul>

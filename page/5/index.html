@@ -111,6 +111,27 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-18 </div>
+			<div class="article-title"><a href="/2016/03/18/ssh/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		
+	
+	</div>
+  <a type="button" href="/2016/03/18/ssh/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-15 </div>
 			<div class="article-title"><a href="/2016/03/15/epoll/" >epoll</a></div>						
 		</h3>
@@ -396,41 +417,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-08 </div>
-			<div class="article-title"><a href="/2016/03/08/proactor/" >proactor</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>与Reactor模型相对应，Proactor最大的特点是使用异步I/O。所有的I/O操作都交由系统提供的异步I/O接口去执行。Proactor多路复用器等待异步I/O完成，并调用相应的用户处理函数。为了对比Reactor模型，以一个read操作为例：</p>
-<p>在Reactor中：</p>
-<ul>
-<li>将要读的文件描述符注册到多路复用器中。</li>
-<li>多路复用器等待上述描述符的可读事件以及其它所有已经注册过的事件。</li>
-<li>描述符变成可读之后，多路复用器返回，并调用用户提供的处理函数，开始读文件操作。</li>
-</ul>
-<p>在Proactor中：</p>
-<ul>
-<li>用户函数启动一个异步读文件的操作。同时将这个操作注册到多路复用器上。多路复用器并不关心文件是否可读而是关心这个异步读操作是否完成。</li>
-<li>异步读文件是操作系统完成，用户程序不需要关心。多路复用器等待直到有完成通知到来。</li>
-<li>当操作系统完成了读文件操作——将读到的数据复制到了用户先前提供的缓冲区之后，通知多路复用器读操作已完成。</li>
-<li>多路复用器再调用相应的处理程序，处理数据。</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/03/08/proactor/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -581,7 +567,7 @@
 		
 			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+			<li><a href="/categories/mysql/">mysql<span>13</span></a></li>
 		
 			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
 		
@@ -724,48 +710,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>6</span></a></li>
 		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
-			<li><a href="/tags/USB/">USB<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
 		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
-		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
-		
-			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
-		
-			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
-		
-			<li><a href="/tags/go/">go<span>38</span></a></li>
-		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
-		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
-		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
-		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
-		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
-		
-			<li><a href="/tags/samba/">samba<span>3</span></a></li>
-		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
-		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/模块/">模块<span>2</span></a></li>
 		
 			<li><a href="/tags/调试/">调试<span>2</span></a></li>
 		
-			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
+		
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+		
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+		
+			<li><a href="/tags/macro/">macro<span>3</span></a></li>
+		
+			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+		
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
+		
+			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+		
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
+		
+			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+		
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+		
+			<li><a href="/tags/散列/">散列<span>1</span></a></li>
+		
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
+		
+			<li><a href="/tags/byte/">byte<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>537</span></a></li>
+		   <li><a href="/tags">...<span>539</span></a></li>
 		 
 		</ul>
 	</div>
@@ -776,6 +762,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/06/mysql-int(11)/" ><i class="fa fa-file-o"></i>mysql-int(11)</a>
+      </li>
     
       <li>
         <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
@@ -791,10 +781,6 @@
     
       <li>
         <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
       </li>
     
   </ul>

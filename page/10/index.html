@@ -112,6 +112,50 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-11-02 </div>
+			<div class="article-title"><a href="/2015/11/02/mysql-中文编码/" >mysql-中文编码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li>存储使用<code>UTF-8</code>(中文占用3B,英文占用1B)</li>
+</ul>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>char(n)</code>或<code>vchar(n)</code>中<code>n</code>指的是字符容量,具体占用字节空间取决于编码集</p>
+</li>
+<li><p>字符</p>
+<ul>
+<li><p>一个汉字即一个字符</p>
+</li>
+<li><p>一个英文字母即一个字符</p>
+</li>
+</ul>
+</li>
+<li><p><code>char_length</code>   获取字符串的字符数目</p>
+</li>
+<li><p><code>length</code>    获取字节数(所占空间大小)</p>
+</li>
+</ul>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like 'character%';</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">| Variable_name            | Value                      |</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">| character_set_client     | utf8                       |</span><br><span class="line">| character_set_connection | utf8                       |</span><br><span class="line">| character_set_database   | utf8                       |</span><br><span class="line">| character_set_filesystem | binary                     |</span><br><span class="line">| character_set_results    | utf8                       |</span><br><span class="line">| character_set_server     | utf8                       |</span><br><span class="line">| character_set_system     | utf8                       |</span><br><span class="line">| character_sets_dir       | /usr/share/mysql/charsets/ |</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">mysql&gt; select char_length('a');</span><br><span class="line">+------------------+</span><br><span class="line">| char_length('a') |</span><br><span class="line">+------------------+</span><br><span class="line">|                1 |</span><br><span class="line">+------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select length('a');</span><br><span class="line">+-------------+</span><br><span class="line">| length('a') |</span><br><span class="line">+-------------+</span><br><span class="line">|           1 |</span><br><span class="line">+-------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select char_length('汉');</span><br><span class="line">+--------------------+</span><br><span class="line">| char_length('汉')  |</span><br><span class="line">+--------------------+</span><br><span class="line">|                  1 |</span><br><span class="line">+--------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select length('汉');</span><br><span class="line">+---------------+</span><br><span class="line">| length('汉')  |</span><br><span class="line">+---------------+</span><br><span class="line">|             3 |</span><br><span class="line">+---------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://dev.mysql.com/doc/refman/5.0/en/string-functions.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/string-functions.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/02/mysql-中文编码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-02 </div>
 			<div class="article-title"><a href="/2015/11/02/mysql-忽略客户端编码设定/" >mysql-忽略客户端编码设定</a></div>						
 		</h3>
 	
@@ -426,32 +470,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-22 </div>
-			<div class="article-title"><a href="/2015/10/22/go-struct/" >go-struct</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p>结构体指针用来实现类似C++的方法,通过指针才可以修改数据</p>
-<pre><code>func (data *Data)
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/22/go-struct/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -602,7 +620,7 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 		
 			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+			<li><a href="/categories/mysql/">mysql<span>13</span></a></li>
 		
 			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
 		
@@ -745,48 +763,48 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/size/">size<span>1</span></a></li>
 		
-			<li><a href="/tags/T/">__T<span>1</span></a></li>
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
 		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
+			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
 		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
+			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
 		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
 		
-			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+			<li><a href="/tags/散列/">散列<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/curl/">curl<span>2</span></a></li>
 		
-			<li><a href="/tags/选项/">选项<span>3</span></a></li>
+			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
 		
-			<li><a href="/tags/arch/">arch<span>6</span></a></li>
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
 		
-			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+			<li><a href="/tags/宏/">宏<span>4</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
+			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
 		
-			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
-			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>537</span></a></li>
+		   <li><a href="/tags">...<span>539</span></a></li>
 		 
 		</ul>
 	</div>
@@ -797,6 +815,10 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/06/mysql-int(11)/" ><i class="fa fa-file-o"></i>mysql-int(11)</a>
+      </li>
     
       <li>
         <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
@@ -812,10 +834,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
     
       <li>
         <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
       </li>
     
   </ul>

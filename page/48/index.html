@@ -112,6 +112,31 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-21 </div>
+			<div class="article-title"><a href="/2015/01/21/chrome-查看资源加载顺序/" >chrome-查看资源加载顺序</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><code>F12</code>打开控制台</li>
+</ul>
+<p><img src="/img/chrome-查看资源加载顺序-01.png" alt=""></p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/21/chrome-查看资源加载顺序/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-21 </div>
 			<div class="article-title"><a href="/2015/01/21/python-sleep/" >python-sleep</a></div>						
 		</h3>
 	
@@ -346,32 +371,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-20 </div>
-			<div class="article-title"><a href="/2015/01/20/jsoncpp-使用/" >jsoncpp-使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;json/json.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h1 id="生成json数据对象"><a href="#生成json数据对象" class="headerlink" title="生成json数据对象"></a>生成json数据对象</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Json::Value send_data;</span><br><span class="line"></span><br><span class="line">send_data[<span class="string">"msgType"</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// json对象</span></span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"ipAddress"</span>] = <span class="string">"192.168.1.1"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// json数组</span></span><br><span class="line">send_data[<span class="string">"name"</span>].append(<span class="string">"li"</span>);</span><br><span class="line">send_data[<span class="string">"name"</span>].append(<span class="string">"zhang"</span>);</span><br></pre></td></tr></table></figure>
-<h1 id="json对象转为字符串"><a href="#json对象转为字符串" class="headerlink" title="json对象转为字符串"></a>json对象转为字符串</h1><h2 id="转为格式化过的字符串"><a href="#转为格式化过的字符串" class="headerlink" title="转为格式化过的字符串"></a>转为格式化过的字符串</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> str = send_data.toStyledString();</span><br></pre></td></tr></table></figure>
-<h2 id="转为非格式化字符串"><a href="#转为非格式化字符串" class="headerlink" title="转为非格式化字符串"></a>转为非格式化字符串</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Json::FastWriter fast_writer;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> str = fast_writer.write(send_data);</span><br></pre></td></tr></table></figure>
-<h1 id="读取json数据"><a href="#读取json数据" class="headerlink" title="读取json数据"></a>读取json数据</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Json::Value send_data;</span><br><span class="line">send_data[<span class="string">"msgType"</span>] = <span class="number">1</span>;</span><br><span class="line">send_data[<span class="string">"msgCode"</span>] = <span class="number">10000</span>;</span><br><span class="line">send_data[<span class="string">"errCode"</span>] = <span class="number">0</span>;</span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"ipAddress"</span>] = <span class="string">"192.168.1.1"</span>;</span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"macAddress"</span>] = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">send_data[<span class="string">"msgType"</span>].asInt();</span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"ipAddress"</span>].asString();</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/01/20/jsoncpp-使用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -522,7 +521,7 @@
 		
 			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+			<li><a href="/categories/mysql/">mysql<span>13</span></a></li>
 		
 			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
 		
@@ -665,48 +664,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
 		
-			<li><a href="/tags/bind/">bind<span>2</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
+			<li><a href="/tags/启动/">启动<span>1</span></a></li>
 		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/redis/">redis<span>6</span></a></li>
+			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
 		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
 		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
 		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
 		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
+			<li><a href="/tags/import/">import<span>3</span></a></li>
 		
-			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
+			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
 		
-			<li><a href="/tags/��С��/">��С��<span>1</span></a></li>
+			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
 		
-			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>537</span></a></li>
+		   <li><a href="/tags">...<span>539</span></a></li>
 		 
 		</ul>
 	</div>
@@ -717,6 +716,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/06/mysql-int(11)/" ><i class="fa fa-file-o"></i>mysql-int(11)</a>
+      </li>
     
       <li>
         <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
@@ -732,10 +735,6 @@
     
       <li>
         <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
       </li>
     
   </ul>

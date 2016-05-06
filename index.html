@@ -111,6 +111,40 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-05-06 </div>
+			<div class="article-title"><a href="/2016/05/06/mysql-int(11)/" >mysql-int(11)</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><ul>
+<li><p>若不指定显示宽度，则默认为该类型的最大位数(int=&gt;11,bigint=&gt;24)</p>
+</li>
+<li><p>当列定义指定<code>zerofill</code>时，<code>select</code>查询输出会填充相应个数的0</p>
+</li>
+<li><p>若该列没有指定<code>zerofill</code>，则毫无作用！</p>
+</li>
+</ul>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>-</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">create table t(num int(5) zerofill);</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; desc t;</span><br><span class="line">+-------+--------------------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type                     | Null | Key | Default | Extra |</span><br><span class="line">+-------+--------------------------+------+-----+---------+-------+</span><br><span class="line">| num   | int(5) unsigned zerofill | YES  |     | NULL    |       |</span><br><span class="line">+-------+--------------------------+------+-----+---------+-------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; insert into t values(1);</span><br><span class="line">Query OK, 1 row affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; select * from t;</span><br><span class="line">+-------+</span><br><span class="line">| num   |</span><br><span class="line">+-------+</span><br><span class="line">| 00001 |</span><br><span class="line">+-------+</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/5634104/what-is-the-size-of-column-of-int11-in-mysql-in-bytes" target="_blank" rel="external">http://stackoverflow.com/questions/5634104/what-is-the-size-of-column-of-int11-in-mysql-in-bytes</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/05/06/mysql-int(11)/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-05-04 </div>
 			<div class="article-title"><a href="/2016/05/04/C++-智能指针/" >C++-智能指针</a></div>						
 		</h3>
@@ -385,31 +419,6 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-22 </div>
-			<div class="article-title"><a href="/2016/04/22/windows-md5/" >windows-md5</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>certutil -hashfile SLES-11-SP2-DVD-x86_64-GM-DVD1.iso MD5</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://superuser.com/questions/245775/is-there-a-built-in-checksum-utility-on-windows-7" target="_blank" rel="external">http://superuser.com/questions/245775/is-there-a-built-in-checksum-utility-on-windows-7</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/22/windows-md5/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -560,7 +569,7 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 		
 			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+			<li><a href="/categories/mysql/">mysql<span>13</span></a></li>
 		
 			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
 		
@@ -703,48 +712,48 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
 		
-			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/if/">if<span>1</span></a></li>
 		
-			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
 		
-			<li><a href="/tags/sal/">sal<span>1</span></a></li>
+			<li><a href="/tags/function/">function<span>1</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/��С��/">��С��<span>1</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
-		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
-		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
-		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
-		
-			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
 			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
 		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/大小端/">大小端<span>1</span></a></li>
+			<li><a href="/tags/command/">command<span>8</span></a></li>
 		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
-			<li><a href="/tags/boost/">boost<span>4</span></a></li>
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
 		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
+			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
 		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+		
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+		
+			<li><a href="/tags/python/">python<span>69</span></a></li>
+		
+			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+		
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>537</span></a></li>
+		   <li><a href="/tags">...<span>539</span></a></li>
 		 
 		</ul>
 	</div>
@@ -755,6 +764,10 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/06/mysql-int(11)/" ><i class="fa fa-file-o"></i>mysql-int(11)</a>
+      </li>
     
       <li>
         <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
@@ -770,10 +783,6 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
     
       <li>
         <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
       </li>
     
   </ul>

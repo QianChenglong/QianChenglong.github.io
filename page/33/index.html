@@ -112,6 +112,33 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-30 </div>
+			<div class="article-title"><a href="/2015/03/30/编程书籍/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>The Art of Readable Code(编写可读性代码的艺术)</p>
+</li>
+<li><p>Clean Code(代码整洁之道)</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/30/编程书籍/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-30 </div>
 			<div class="article-title"><a href="/2015/03/30/error code VS exception/" >error code VS exception</a></div>						
 		</h3>
 	
@@ -396,43 +423,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-26 </div>
-			<div class="article-title"><a href="/2015/03/26/使用宏控制dll导入或导出/" >使用宏控制dll导入或导出</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> XXX_HAS_DLL</span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">ifdef</span> XXX_BUILD_DLL</span></span><br><span class="line"><span class="meta">#       <span class="meta-keyword">if</span> defined(_MSC_VER) || defined(__BORLANDC__) || defined(__MINGW32__)</span></span><br><span class="line"><span class="meta">#           <span class="meta-keyword">define</span> LOG4CPP_EXPORT __declspec(dllexport)</span></span><br><span class="line"><span class="meta">#               <span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#           <span class="meta-keyword">define</span> LOG4CPP_EXPORT</span></span><br><span class="line"><span class="meta">#               <span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#       <span class="meta-keyword">if</span> defined(_MSC_VER) || defined(__BORLANDC__) || defined(__MINGW32__)</span></span><br><span class="line"><span class="meta">#           <span class="meta-keyword">define</span> LOG4CPP_EXPORT __declspec(dllimport)</span></span><br><span class="line"><span class="meta">#               <span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#           <span class="meta-keyword">define</span> LOG4CPP_EXPORT</span></span><br><span class="line"><span class="meta">#               <span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">define</span> XXX_EXPORT</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-<p><strong>说明：</strong></p>
-<ul>
-<li><p>XXX为库名称</p>
-</li>
-<li><p>XXX_HAS_DLL 编译器是否支持<code>__declspec(dllexport)</code></p>
-</li>
-<li><p>XXX_BUILD_DLL 动态库内部使用，还是供外部引用</p>
-</li>
-<li><p>XXX_EXPORT 用来说明某个变量，函数，类是否为导出或导入</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>log4cpp/include/Export.hh</li>
-<li><a href="https://gcc.gnu.org/wiki/Visibilit" target="_blank" rel="external">https://gcc.gnu.org/wiki/Visibilit</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/26/使用宏控制dll导入或导出/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -583,7 +573,7 @@
 		
 			<li><a href="/categories/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/categories/mysql/">mysql<span>12</span></a></li>
+			<li><a href="/categories/mysql/">mysql<span>13</span></a></li>
 		
 			<li><a href="/categories/nautilus/">nautilus<span>1</span></a></li>
 		
@@ -726,48 +716,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
 		
-			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+			<li><a href="/tags/script/">script<span>1</span></a></li>
+		
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
 			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/string/">string<span>7</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/ip/">ip<span>2</span></a></li>
 		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
-			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
 		
-			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
 		
-			<li><a href="/tags/socket/">socket<span>6</span></a></li>
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
 		
-			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+			<li><a href="/tags/size/">size<span>1</span></a></li>
 		
-			<li><a href="/tags/选项/">选项<span>3</span></a></li>
+			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+			<li><a href="/tags/C/">C++<span>20</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
-			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
+			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
-		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>537</span></a></li>
+		   <li><a href="/tags">...<span>539</span></a></li>
 		 
 		</ul>
 	</div>
@@ -778,6 +768,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/06/mysql-int(11)/" ><i class="fa fa-file-o"></i>mysql-int(11)</a>
+      </li>
     
       <li>
         <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
@@ -793,10 +787,6 @@
     
       <li>
         <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/28/C++-静态数据成员/" ><i class="fa fa-file-o"></i>C++-静态数据成员</a>
       </li>
     
   </ul>

@@ -112,6 +112,35 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-15 </div>
+			<div class="article-title"><a href="/2015/01/15/npm-命令简记/" >npm-命令简记</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>安装包</p>
+<pre><code>npm install &lt;package-name&gt;
+</code></pre></li>
+<li><p>从文件夹安装</p>
+<pre><code>npm install .
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/15/npm-命令简记/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-15 </div>
 			<div class="article-title"><a href="/2015/01/15/awk-学习笔记/" >awk-学习笔记</a></div>						
 		</h3>
 	
@@ -355,44 +384,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-08 </div>
-			<div class="article-title"><a href="/2015/01/08/makefile-PHONY作用/" >makefile-.PHONY作用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>先看makefile核心规则</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">target: prerequisites</span><br><span class="line">    command</span><br></pre></td></tr></table></figure>
-<p>make解析执行makefile判断过程：</p>
-<ul>
-<li>若<code>target</code>不存在，则根据<code>prerequisites</code>，执行<code>commond</code></li>
-<li>若<code>target</code>已存在，则比较<code>target</code>和<code>prerequisites</code>修改时间<ul>
-<li><strong>若<code>prerequisites</code>不存在，则不执行<code>commond</code>!</strong></li>
-<li>若<code>prerequisites</code>比<code>target</code>新，则执行<code>commond</code>(说明在生成<code>target</code>后，对依赖文件进行了修改)</li>
-<li>若<code>prerequisites</code>没有<code>target</code>新，则不执行<code>commond</code></li>
-</ul>
-</li>
-</ul>
-<h1 id="为什么需要伪目标"><a href="#为什么需要伪目标" class="headerlink" title="为什么需要伪目标"></a>为什么需要伪目标</h1><ul>
-<li>假设当前目录下已有<code>clean</code>文件，则根据make解析过程，不会执行后续<code>commond</code></li>
-</ul>
-<h1 id="什么是伪目标-PHONY"><a href="#什么是伪目标-PHONY" class="headerlink" title="什么是伪目标(.PHONY)"></a>什么是伪目标(<code>.PHONY</code>)</h1><p>伪目标相对于目标而言，其不会生成实体<strong>文件</strong></p>
-<h1 id="伪目标的作用"><a href="#伪目标的作用" class="headerlink" title="伪目标的作用"></a>伪目标的作用</h1><p>显式告诉make不要跟实体文件进行关联判断，以便执行相应的命令</p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/08/makefile-PHONY作用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -445,7 +436,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>18</span></a></li>
+			<li><a href="/categories/C/">C++<span>19</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -686,48 +677,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/warning/">warning<span>2</span></a></li>
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
 		
-			<li><a href="/tags/domain/">domain<span>3</span></a></li>
+			<li><a href="/tags/API/">API<span>2</span></a></li>
 		
-			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
 		
-			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
 		
-			<li><a href="/tags/read/">read<span>1</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/database/">database<span>3</span></a></li>
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/socket/">socket<span>6</span></a></li>
 		
-			<li><a href="/tags/C/">C++<span>20</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
 		
-			<li><a href="/tags/nging/">nging<span>1</span></a></li>
+			<li><a href="/tags/scp/">scp<span>1</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
 		
-			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>539</span></a></li>
+		   <li><a href="/tags">...<span>540</span></a></li>
 		 
 		</ul>
 	</div>
@@ -740,7 +731,11 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/06/mysql-int(11)/" ><i class="fa fa-file-o"></i>mysql-int(11)</a>
+        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
       </li>
     
       <li>
@@ -753,10 +748,6 @@
     
       <li>
         <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
       </li>
     
   </ul>

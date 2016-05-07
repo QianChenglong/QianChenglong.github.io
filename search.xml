@@ -4,20 +4,64 @@
   
     
     <entry>
-      <title><![CDATA[mysql-int(11)]]></title>
-      <url>https://qianchenglong.github.io/2016/05/06/mysql-int(11)/</url>
+      <title><![CDATA[C++11-using]]></title>
+      <url>https://qianchenglong.github.io/2016/05/07/C++11-using/</url>
+      <content type="html"><![CDATA[<h1 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h1><ol>
+<li>相比<code>typedef</code>可读性更强</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> PrintFunc = <span class="keyword">void</span>(*)(std::string);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Print</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> s)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    PrintFunc f = Print;</span><br><span class="line"></span><br><span class="line">    f(<span class="string">"Hello world"</span>);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>可以支持<code>template</code></li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">using</span> deleted_unique_ptr = <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;T, <span class="built_in">std</span>::function&lt;<span class="keyword">void</span>(T *)&gt;&gt;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    deleted_unique_ptr&lt;FILE&gt; file(fopen(<span class="string">"test"</span>, <span class="string">"w"</span>),</span><br><span class="line">    [](FILE * f) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        fclose(f);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">fputs</span>(<span class="string">"Hello world"</span>, file.get());</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/10747810/what-is-the-difference-between-typedef-and-using-in-c11" target="_blank" rel="external">http://stackoverflow.com/questions/10747810/what-is-the-difference-between-typedef-and-using-in-c11</a></li>
+<li><a href="http://stackoverflow.com/questions/19053351/how-do-i-use-a-custom-deleter-with-a-stdunique-ptr-member" target="_blank" rel="external">http://stackoverflow.com/questions/19053351/how-do-i-use-a-custom-deleter-with-a-stdunique-ptr-member</a></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[mysql-int(n)]]></title>
+      <url>https://qianchenglong.github.io/2016/05/06/mysql-int(n)/</url>
       <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><ul>
-<li><p>若不指定显示宽度，则默认为该类型的最大位数(int=&gt;11,bigint=&gt;24)</p>
+<li><p>若不指定显示宽度，则默认为该类型的最大位数(int=&gt;11)</p>
 </li>
-<li><p>当列定义指定<code>zerofill</code>时，<code>select</code>查询输出会填充相应个数的0</p>
+<li><p>作用相同于<code>printf</code>宽度控制，当数值位数小于指定值时，默认填充空格，大于指定值时，也不会截断！</p>
 </li>
-<li><p>若该列没有指定<code>zerofill</code>，则毫无作用！</p>
+<li><p>该显示宽度是可通过结果集(Result Set)中的元数据(Metadata)获取，<strong>具体采不采用取决于应用程序</strong>!</p>
+</li>
+<li><p>宽度和<code>zerofill</code>对数据存储(存储形式，占用空间)没有任何影响</p>
+</li>
+<li><p>当列定义指定<code>zerofill</code>时，若该值小于指定宽度，<code>select</code>查询输出会填充相应个数的0</p>
 </li>
 </ul>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>-</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><ul>
+<li>指定宽度和<code>zerofill</code></li>
+</ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">create table t(num int(5) zerofill);</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; desc t;</span><br><span class="line">+-------+--------------------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type                     | Null | Key | Default | Extra |</span><br><span class="line">+-------+--------------------------+------+-----+---------+-------+</span><br><span class="line">| num   | int(5) unsigned zerofill | YES  |     | NULL    |       |</span><br><span class="line">+-------+--------------------------+------+-----+---------+-------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; insert into t values(1);</span><br><span class="line">Query OK, 1 row affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; select * from t;</span><br><span class="line">+-------+</span><br><span class="line">| num   |</span><br><span class="line">+-------+</span><br><span class="line">| 00001 |</span><br><span class="line">+-------+</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不指定<code>zerofill</code></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [test]&gt; create table t1(num int(5));</span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; insert into t1 values(1);</span><br><span class="line">Query OK, 1 row affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; select * from t1;</span><br><span class="line">+------+</span><br><span class="line">| num  |</span><br><span class="line">+------+</span><br><span class="line">|    1 |</span><br><span class="line">+------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不指定宽度，指定<code>zerofill</code></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [test]&gt; create table t2(num int zerofill);</span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; insert into t2 values(1);</span><br><span class="line">Query OK, 1 row affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; select * from t2;</span><br><span class="line">+------------+</span><br><span class="line">| num        |</span><br><span class="line">+------------+</span><br><span class="line">| 0000000001 |</span><br><span class="line">+------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<h1 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h1><ul>
+<li><p>对于int来说，取值范围-2^(32-1) to 0 to 2^(32-1)-1 =  -2147483648 to 0 to 2147483647，最大显示宽度为11</p>
+</li>
+<li><p>对于unsigned int，0~4294967295，最大显示宽度为10</p>
+</li>
+<li><p>当指定<code>zerofill</code>时，mysql会自动追加<code>unsigned</code>属性，！</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">-------+---------------------------+------+-----+---------+-------+</span></span><br><span class="line">| Field | Type                      | Null | Key | Default | Extra |</span><br><span class="line">+<span class="comment">-------+---------------------------+------+-----+---------+-------+</span></span><br><span class="line">| num   | int(10) unsigned zerofill | YES  |     | NULL    |       |</span><br><span class="line">+<span class="comment">-------+---------------------------+------+-----+---------+-------+</span></span><br></pre></td></tr></table></figure>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/numeric-type-attributes.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/numeric-type-attributes.html</a></li>
 <li><a href="http://stackoverflow.com/questions/5634104/what-is-the-size-of-column-of-int11-in-mysql-in-bytes" target="_blank" rel="external">http://stackoverflow.com/questions/5634104/what-is-the-size-of-column-of-int11-in-mysql-in-bytes</a></li>
+<li><a href="http://stackoverflow.com/questions/5256469/what-is-the-benefit-of-zerofill-in-mysql" target="_blank" rel="external">http://stackoverflow.com/questions/5256469/what-is-the-benefit-of-zerofill-in-mysql</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/integer-types.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/integer-types.html</a></li>
 </ol>
 ]]></content>
     </entry>
@@ -4730,6 +4774,20 @@ auto_ptr&lt;int&gt;ap(p);
     
     <entry>
       <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
+      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.scroped_ptr/</url>
+      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li>提供一种垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
+</ul>
+<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
+<li>noncopyable，意味着不能存放到容器，或多次引用</li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>当不需要传递所有权时，可使用</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/scoped_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(id)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::scoped_ptr&lt;A&gt; i(new A(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i-&gt;id_ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
       <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.shared_ptr/</url>
       <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
 <li><p>提供一种强大的垃圾回收机制</p>
@@ -4752,20 +4810,6 @@ boost::shared_ptr&lt;A&gt; p2(a);
 </ul>
 <h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>非常强大，多多使用！</p>
 <h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/shared_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(new <span class="keyword">int</span>(id))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">delete</span> id_;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    A *a = new A(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p1(a);</span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p2(p1);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *(p1-&gt;id_) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
-      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.scroped_ptr/</url>
-      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li>提供一种垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
-</ul>
-<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
-<li>noncopyable，意味着不能存放到容器，或多次引用</li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>当不需要传递所有权时，可使用</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/scoped_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(id)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::scoped_ptr&lt;A&gt; i(new A(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i-&gt;id_ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -12113,19 +12157,6 @@ by.decode(&apos;utf-8&apos;)
     </entry>
     
     <entry>
-      <title><![CDATA[替换clover图标]]></title>
-      <url>https://qianchenglong.github.io/2014/12/01/%E6%9B%BF%E6%8D%A2clover%E5%9B%BE%E6%A0%87/</url>
-      <content type="html"><![CDATA[<ul>
-<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
-</li>
-<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
-<p><img src="/img/替换clover图标_0.png" alt=""></p>
-</li>
-</ul>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[快速查看python帮助]]></title>
       <url>https://qianchenglong.github.io/2014/12/01/%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8Bpython%E5%B8%AE%E5%8A%A9/</url>
       <content type="html"><![CDATA[<h2 id="第一种：命令行使用"><a href="#第一种：命令行使用" class="headerlink" title="第一种：命令行使用"></a>第一种：命令行使用</h2><pre><code>python -m pydoc CONTENT
@@ -12158,6 +12189,19 @@ os.system(cmd)
 </li>
 </ul>
 <p>修改环境变量<code>PATHEXT</code>追加<code>.py</code>，这样直接使用<code>pydoc CONTENT</code>即可，不用每次都输入’.py’！</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[替换clover图标]]></title>
+      <url>https://qianchenglong.github.io/2014/12/01/%E6%9B%BF%E6%8D%A2clover%E5%9B%BE%E6%A0%87/</url>
+      <content type="html"><![CDATA[<ul>
+<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
+</li>
+<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
+<p><img src="/img/替换clover图标_0.png" alt=""></p>
+</li>
+</ul>
 ]]></content>
     </entry>
     

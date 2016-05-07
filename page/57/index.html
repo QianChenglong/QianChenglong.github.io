@@ -112,6 +112,39 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-08 </div>
+			<div class="article-title"><a href="/2014/12/08/python-str类型和unicode类型/" >python-str类型和unicode类型</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>str object和unicode object是两种不同的类型</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>字符组成的序列</p>
+<p>而字符是经过编码的，常见的编码如ASCII，GB2312，UTF-8等等</p>
+<h3 id="词法"><a href="#词法" class="headerlink" title="词法"></a>词法</h3><p>引号括起来的字符序列</p>
+<h2 id="unicode字符串"><a href="#unicode字符串" class="headerlink" title="unicode字符串"></a>unicode字符串</h2><p>unicode码元序列</p>
+<p>在python里，16-bit的unicode，对应的是ucs2编码。32-bit对应的是ucs4编码</p>
+<p>通过<code>sys.maxunicode</code>可以查看当前Python的unicode编码</p>
+<h3 id="词法-1"><a href="#词法-1" class="headerlink" title="词法"></a>词法</h3><p>引号括起来的字符序列，前面加<code>u</code>，如<code>u&#39;Hello world&#39;</code></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange" target="_blank" rel="external">https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange</a></li>
+<li><a href="http://blog.csdn.net/ktb2007/article/details/3876429" target="_blank" rel="external">http://blog.csdn.net/ktb2007/article/details/3876429</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/08/python-str类型和unicode类型/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-08 </div>
 			<div class="article-title"><a href="/2014/12/08/字符编码中的相关概念/" >字符编码中的相关概念</a></div>						
 		</h3>
 	
@@ -473,32 +506,6 @@ by.decode(&apos;utf-8&apos;)
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-05 </div>
-			<div class="article-title"><a href="/2014/12/05/python-字符串和字典转换/" >python-字符串和字典转换</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="字典-gt-字符串"><a href="#字典-gt-字符串" class="headerlink" title="字典 =&gt; 字符串"></a>字典 =&gt; 字符串</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'one'</span>:<span class="number">1</span>, <span class="string">'two'</span>:<span class="number">2</span>, <span class="string">'three'</span>: &#123;<span class="string">'three.1'</span>: <span class="number">3.1</span>, <span class="string">'three.2'</span>: <span class="number">3.2</span> &#125;&#125;</span><br><span class="line">str1 = str(dict1)</span><br><span class="line">print(str1)</span><br></pre></td></tr></table></figure>
-<h2 id="字符串-gt-字典"><a href="#字符串-gt-字典" class="headerlink" title="字符串 =&gt; 字典"></a>字符串 =&gt; 字典</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'one'</span>:<span class="number">1</span>, <span class="string">'two'</span>:<span class="number">2</span>, <span class="string">'three'</span>: &#123;<span class="string">'three.1'</span>: <span class="number">3.1</span>, <span class="string">'three.2'</span>: <span class="number">3.2</span> &#125;&#125;</span><br><span class="line">str1 = str(dict1)</span><br><span class="line"></span><br><span class="line">dict2 = eval(str1)</span><br><span class="line">print(dict2)</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="http://stackoverflow.com/questions/4547274/convert-a-python-dict-to-a-string-and-back" target="_blank" rel="external">http://stackoverflow.com/questions/4547274/convert-a-python-dict-to-a-string-and-back</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/05/python-字符串和字典转换/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -551,7 +558,7 @@ by.decode(&apos;utf-8&apos;)
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>18</span></a></li>
+			<li><a href="/categories/C/">C++<span>19</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -792,48 +799,48 @@ by.decode(&apos;utf-8&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+			<li><a href="/tags/事务/">事务<span>1</span></a></li>
 		
-			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
 		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>6</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/mysql/">mysql<span>34</span></a></li>
 		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/选项/">选项<span>3</span></a></li>
+			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
 		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
+			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
 		
-			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
 		
-			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/hex/">hex<span>1</span></a></li>
 		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
 		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/T/">__T<span>1</span></a></li>
 		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+			<li><a href="/tags/install/">install<span>2</span></a></li>
 		
-			<li><a href="/tags/string/">string<span>7</span></a></li>
+			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>539</span></a></li>
+		   <li><a href="/tags">...<span>540</span></a></li>
 		 
 		</ul>
 	</div>
@@ -846,7 +853,11 @@ by.decode(&apos;utf-8&apos;)
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/06/mysql-int(11)/" ><i class="fa fa-file-o"></i>mysql-int(11)</a>
+        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
       </li>
     
       <li>
@@ -859,10 +870,6 @@ by.decode(&apos;utf-8&apos;)
     
       <li>
         <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
       </li>
     
   </ul>

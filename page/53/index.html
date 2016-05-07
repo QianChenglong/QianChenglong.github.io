@@ -112,6 +112,43 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-24 </div>
+			<div class="article-title"><a href="/2014/12/24/python-格式字符串/" >python-格式字符串</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>因python不提供隐式类型转换，不支持类似<code>string + int</code>等操作，所以字符串的连接<br>需要使用其他的方法。</p>
+<h1 id="2-6之后推荐使用string-format"><a href="#2-6之后推荐使用string-format" class="headerlink" title="2.6之后推荐使用string.format()"></a>2.6之后推荐使用<code>string.format()</code></h1><h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><ul>
+<li><code>string</code>连接其他类型</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var = <span class="keyword">False</span></span><br><span class="line"><span class="string">'True Or &#123;&#125;!'</span>.format(var)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>命名参数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">madlib = <span class="string">" I &#123;verb&#125; the &#123;object&#125; off the &#123;place&#125; "</span>.format(verb=<span class="string">"took"</span>, object=<span class="string">"cheese"</span>, place=<span class="string">"table"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="不推荐使用"><a href="#不推荐使用" class="headerlink" title="不推荐使用%"></a>不推荐使用<code>%</code></h1><p>原因，参见<a href="https://www.python.org/dev/peps/pep-3101/" target="_blank" rel="external">PEP-3101</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://www.python.org/dev/peps/pep-3101/" target="_blank" rel="external">https://www.python.org/dev/peps/pep-3101/</a></li>
+<li><a href="https://docs.python.org/2.7/library/string.html#formatspec" target="_blank" rel="external">https://docs.python.org/2.7/library/string.html#formatspec</a></li>
+<li><a href="http://youngsterxyf.github.io/2013/01/26/python-string-format/" target="_blank" rel="external">http://youngsterxyf.github.io/2013/01/26/python-string-format/</a></li>
+<li><a href="http://www.pythonclub.org/python-basic/print" target="_blank" rel="external">http://www.pythonclub.org/python-basic/print</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/24/python-格式字符串/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-24 </div>
 			<div class="article-title"><a href="/2014/12/24/python-获取相对路径/" >python-获取相对路径</a></div>						
 		</h3>
 	
@@ -418,27 +455,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-19 </div>
-			<div class="article-title"><a href="/2014/12/19/markdown语法/" >markdown语法</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="文件名后缀"><a href="#文件名后缀" class="headerlink" title="文件名后缀"></a>文件名后缀</h2><p>采用*.md</p>
-	
-	</div>
-  <a type="button" href="/2014/12/19/markdown语法/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -491,7 +507,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>18</span></a></li>
+			<li><a href="/categories/C/">C++<span>19</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -732,48 +748,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+			<li><a href="/tags/linux/">linux<span>34</span></a></li>
 		
-			<li><a href="/tags/grep/">grep<span>1</span></a></li>
+			<li><a href="/tags/TF/">TF<span>1</span></a></li>
 		
-			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
-		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
-		
-			<li><a href="/tags/nging/">nging<span>1</span></a></li>
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
 		
 			<li><a href="/tags/任播/">任播<span>1</span></a></li>
 		
-			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
 		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
 		
-			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
-			<li><a href="/tags/python/">python<span>69</span></a></li>
+			<li><a href="/tags/app/">app<span>4</span></a></li>
 		
-			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
+			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
 		
-			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>2</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/C/">C++<span>20</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
+		
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+		
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>539</span></a></li>
+		   <li><a href="/tags">...<span>540</span></a></li>
 		 
 		</ul>
 	</div>
@@ -786,7 +802,11 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/06/mysql-int(11)/" ><i class="fa fa-file-o"></i>mysql-int(11)</a>
+        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
       </li>
     
       <li>
@@ -799,10 +819,6 @@
     
       <li>
         <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
       </li>
     
   </ul>

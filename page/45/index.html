@@ -112,6 +112,33 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-29 </div>
+			<div class="article-title"><a href="/2015/01/29/sudo unable to resolve host ubuntu/" >sudo unable to resolve host ubuntu</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>通过更改<code>/etc/hostname</code>，修改了主机名，而<code>/etc/hosts</code>中没有更改</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>修改<code>/etc/hosts</code></p>
+<pre><code>127.0.0.1   当前主机名
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://ubuntuguide.net/fix-ubuntu-sudo-errorunable-to-resolve-host" target="_blank" rel="external">http://ubuntuguide.net/fix-ubuntu-sudo-errorunable-to-resolve-host</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/29/sudo unable to resolve host ubuntu/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-29 </div>
 			<div class="article-title"><a href="/2015/01/29/ubuntu-软件列表/" >ubuntu-软件列表</a></div>						
 		</h3>
 	
@@ -407,34 +434,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-27 </div>
-			<div class="article-title"><a href="/2015/01/27/python-遍历目录/" >python-遍历目录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="os-walk"><a href="#os-walk" class="headerlink" title="os.walk"></a>os.walk</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(<span class="string">'.'</span>):</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">        <span class="keyword">print</span> file</span><br></pre></td></tr></table></figure>
-<h1 id="查找指定文件"><a href="#查找指定文件" class="headerlink" title="查找指定文件"></a>查找指定文件</h1><h2 id="glob-glob"><a href="#glob-glob" class="headerlink" title="glob.glob"></a>glob.glob</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> glob.glob(<span class="string">'*.txt'</span>):</span><br><span class="line">    print(file)</span><br></pre></td></tr></table></figure>
-<h2 id="fnmatch-fnmatch"><a href="#fnmatch-fnmatch" class="headerlink" title="fnmatch.fnmatch"></a>fnmatch.fnmatch</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fnmatch</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>):</span><br><span class="line">    <span class="keyword">if</span> fnmatch.fnmatch(file, <span class="string">'*.txt'</span>):</span><br><span class="line">        <span class="keyword">print</span> file</span><br></pre></td></tr></table></figure>
-<h2 id="re-match"><a href="#re-match" class="headerlink" title="re.match"></a>re.match</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> [f <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>) <span class="keyword">if</span> re.match(<span class="string">r'build-\(.*\)-.*'</span>, f)]:</span><br><span class="line">    print(<span class="string">'cleanning &#123;&#125; ...'</span>.format(d))</span><br><span class="line">    shutil.rmtree(d)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/2225564/get-a-filtered-list-of-files-in-a-directory" target="_blank" rel="external">http://stackoverflow.com/questions/2225564/get-a-filtered-list-of-files-in-a-directory</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/27/python-遍历目录/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -487,7 +486,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>18</span></a></li>
+			<li><a href="/categories/C/">C++<span>19</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -728,48 +727,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
 		
-			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
 		
-			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+			<li><a href="/tags/static/">static<span>1</span></a></li>
 		
-			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/array/">array<span>1</span></a></li>
 		
-			<li><a href="/tags/事务/">事务<span>1</span></a></li>
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
 		
-			<li><a href="/tags/部署/">部署<span>1</span></a></li>
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/链表/">链表<span>1</span></a></li>
 		
-			<li><a href="/tags/启动/">启动<span>1</span></a></li>
+			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
 		
-			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
+			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
 		
-			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>539</span></a></li>
+		   <li><a href="/tags">...<span>540</span></a></li>
 		 
 		</ul>
 	</div>
@@ -782,7 +781,11 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/06/mysql-int(11)/" ><i class="fa fa-file-o"></i>mysql-int(11)</a>
+        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
       </li>
     
       <li>
@@ -795,10 +798,6 @@
     
       <li>
         <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
       </li>
     
   </ul>

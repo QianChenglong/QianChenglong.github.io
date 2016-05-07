@@ -111,6 +111,109 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-10 </div>
+			<div class="article-title"><a href="/2015/06/10/mysql-主从数据库配置/" >mysql-主从数据库配置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>ubuntu-14.04</p>
+</li>
+<li><p>mysql-5.5</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li><p>修改主数据库配置</p>
+<pre><code>vi /etc/my.cnf.d/server.cnf
+
+[mysqld]
+server-id=1
+binlog-do-db=&lt;database-name&gt;
+relay-log=/var/lib/mysql/mysql-relay-bin
+relay-log-index=/var/lib/mysql/mysql-relay-bin.index
+log-error=/var/lib/mysql/mysql.err
+master-info-file=/var/lib/mysql/mysql-master.info
+relay-log-info-file=/var/lib/mysql/mysql-relay-log.info
+log-bin=/var/lib/mysql/mysql-bin
+</code></pre></li>
+<li><p>重启mysql</p>
+<pre><code>systemctl restart mariadb
+</code></pre></li>
+<li><p>给从库复制权限</p>
+<pre><code>grant replication slave on *.* to &apos;slave&apos;@&apos;%&apos; identified by &apos;slave&apos;;
+</code></pre></li>
+<li><p>锁表，以便备份</p>
+<pre><code>FLUSH TABLES WITH READ LOCK;
+</code></pre></li>
+<li><p>记录下当前主库日志状态，以便从库同步</p>
+<pre><code>SHOW MASTER STATUS;
+</code></pre></li>
+<li><p>导出要同步的数据库</p>
+<pre><code>mysqldump -uroot -p --master-data &lt;database-name&gt;;
+</code></pre></li>
+<li><p>解锁表</p>
+<pre><code>UNLOCK TABLES;
+</code></pre></li>
+</ul>
+<h2 id="从服务器配置"><a href="#从服务器配置" class="headerlink" title="从服务器配置"></a>从服务器配置</h2><ul>
+<li><p>修改配置</p>
+<pre><code>vi /etc/my.cnf.d/server.cnf
+
+[mysqld]
+server-id=2
+replicate-do-db=test2
+relay-log=/var/lib/mysql/mysql-relay-bin
+relay-log-index=/var/lib/mysql/mysql-relay-bin.index
+log-error=/var/lib/mysql/mysql.err
+master-info-file=/var/lib/mysql/mysql-master.info
+relay-log-info-file=/var/lib/mysql/mysql-relay-log.info
+log-bin=/var/lib/mysql/mysql-bin
+</code></pre></li>
+<li><p>修改权限控制</p>
+<pre><code>vi /etc/apparmor.d/usr.sbin.mysqld
+</code></pre></li>
+<li><p>连接master</p>
+<pre><code>mysql -uroot -p
+stop slave;
+CHANGE MASTER TO MASTER_HOST=&apos;172.18.1.192&apos;, MASTER_USER=&apos;slave&apos;, MASTER_PASSWORD=&apos;slave&apos;, MASTER_LOG_FILE=&apos;mysql-bin.000001&apos;, MASTER_LOG_POS=822;
+start slave;
+show slave status\G
+</code></pre></li>
+</ul>
+<h1 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h1><ul>
+<li><p><code>mysql Last_IO_Errno: 1045</code></p>
+<p>账号密码认证方面错误。</p>
+<p>可以现在master上尝试登陆，看是否成功。</p>
+</li>
+</ul>
+<h1 id="其他常用命令"><a href="#其他常用命令" class="headerlink" title="其他常用命令"></a>其他常用命令</h1><ul>
+<li><p>重新设置slave</p>
+<pre><code>RESET SLAVE;
+</code></pre></li>
+<li><p>查看进程状态</p>
+<pre><code>SHOW PROCESSLIST \G;
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://dev.mysql.com/doc/refman/5.1/en/replication-howto.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.1/en/replication-howto.html</a></li>
+<li><a href="https://lesca.me/archives/mysql-master-slave-replication-on-centos-7.html" target="_blank" rel="external">https://lesca.me/archives/mysql-master-slave-replication-on-centos-7.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/10/mysql-主从数据库配置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-09 </div>
 			<div class="article-title"><a href="/2015/06/09/输出重定向/" >输出重定向</a></div>						
 		</h3>
@@ -508,38 +611,6 @@ realm = /var/svn/test # 认证空间名，版本库所在目录
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-06 </div>
-			<div class="article-title"><a href="/2015/06/06/poweriso制作U盘启动/" >poweriso制作U盘启动</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>使用poweriso打开镜像文件</p>
-</li>
-<li><p>【工具】 =&gt; 【制作可启动U盘】</p>
-<p><img src="/img/poweriso制作U盘启动_01.png" alt=""></p>
-</li>
-<li><p>U盘使用完毕后，重新写入一个较小的ISO文件</p>
-</li>
-<li><p>使用win磁盘管理工具(diskmgmt.msc)，重新格式化即可</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/06/06/poweriso制作U盘启动/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -592,7 +663,7 @@ realm = /var/svn/test # 认证空间名，版本库所在目录
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>18</span></a></li>
+			<li><a href="/categories/C/">C++<span>19</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -833,48 +904,48 @@ realm = /var/svn/test # 认证空间名，版本库所在目录
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
 		
-			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
 		
-			<li><a href="/tags/网站/">网站<span>2</span></a></li>
-		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
-		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
-		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
-		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
-		
-			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
-		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
-		
-			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
-		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
-		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
 		
 			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/macro/">macro<span>3</span></a></li>
+			<li><a href="/tags/TF/">TF<span>1</span></a></li>
 		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+		
+			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+		
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+		
+			<li><a href="/tags/date/">date<span>1</span></a></li>
+		
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+		
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+		
+			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+		
+			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
+		
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+		
+			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>539</span></a></li>
+		   <li><a href="/tags">...<span>540</span></a></li>
 		 
 		</ul>
 	</div>
@@ -887,7 +958,11 @@ realm = /var/svn/test # 认证空间名，版本库所在目录
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/06/mysql-int(11)/" ><i class="fa fa-file-o"></i>mysql-int(11)</a>
+        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
       </li>
     
       <li>
@@ -900,10 +975,6 @@ realm = /var/svn/test # 认证空间名，版本库所在目录
     
       <li>
         <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
       </li>
     
   </ul>

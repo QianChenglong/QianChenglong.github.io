@@ -111,6 +111,50 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-11-10 </div>
+			<div class="article-title"><a href="/2015/11/10/go-interface/" >go-interface</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p><code>interface</code>是一组<code>method</code>的集合(而不是<code>function</code>, 因为<code>function</code>没有<code>reciver</code>)</p>
+</li>
+<li><p>若某个类型实现了<code>interface</code>内所有<code>method</code>,则该类型对象与该<code>interface</code>对象转换</p>
+</li>
+<li><p><code>interface</code>是一种语义上的抽象,该对象提供了某种<strong>语义抽象</strong>功能,而该功能的具体实现不同</p>
+<p>如<code>coder(编码器)</code>,存在编码,解码功能,但具体可能有<code>json</code>,<code>xml</code>等多种方式实现</p>
+</li>
+<li><p>赋值给<code>interface</code></p>
+<ul>
+<li><p>若为值,则该类型<code>method</code>的<code>reciver</code>也必须是值类型</p>
+</li>
+<li><p>若为指针值,则该类型<code>method</code>的<code>reciver</code>也必须是指针类型</p>
+</li>
+</ul>
+<p>因为<code>method</code>的<code>reciver</code>是否为指针,代表的语义功能可能完全不一样</p>
+<p><code>reciver</code>为指针类型,意味着在该<code>method</code>中,很可能会改变该对象自身(具体由实现决定)</p>
+<p>若一个<code>method</code>要求的是指针类型,而在给<code>interface</code>赋值时,只是传值的话,是无法改变该对象的!</p>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/02.6.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/02.6.md</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/10/go-interface/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-11-09 </div>
 			<div class="article-title"><a href="/2015/11/09/go-test/" >go-test</a></div>						
 		</h3>
@@ -424,30 +468,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-02 </div>
-			<div class="article-title"><a href="/2015/11/02/go-dsn/" >go-dsn</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://github.com/go-sql-driver/mysql#dsn-data-source-name" target="_blank" rel="external">https://github.com/go-sql-driver/mysql#dsn-data-source-name</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/02/go-dsn/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -500,7 +520,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>18</span></a></li>
+			<li><a href="/categories/C/">C++<span>19</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -741,48 +761,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/库/">库<span>2</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
+			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
 		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
 		
-			<li><a href="/tags/date/">date<span>1</span></a></li>
+			<li><a href="/tags/http/">http<span>11</span></a></li>
 		
-			<li><a href="/tags/vim/">vim<span>22</span></a></li>
+			<li><a href="/tags/curl/">curl<span>2</span></a></li>
 		
-			<li><a href="/tags/command/">command<span>8</span></a></li>
+			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
 		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>2</span></a></li>
+			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/API/">API<span>2</span></a></li>
 		
-			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+			<li><a href="/tags/c99/">c99<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/array/">array<span>1</span></a></li>
 		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
+			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
 		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
 		
-			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
+			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
 		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>539</span></a></li>
+		   <li><a href="/tags">...<span>540</span></a></li>
 		 
 		</ul>
 	</div>
@@ -795,7 +815,11 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/06/mysql-int(11)/" ><i class="fa fa-file-o"></i>mysql-int(11)</a>
+        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
       </li>
     
       <li>
@@ -808,10 +832,6 @@
     
       <li>
         <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/28/C++-内存区域/" ><i class="fa fa-file-o"></i>C++-内存区域</a>
       </li>
     
   </ul>

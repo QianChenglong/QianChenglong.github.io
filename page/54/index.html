@@ -111,6 +111,227 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-23 </div>
+			<div class="article-title"><a href="/2014/12/23/打开方式无法添加新程序/" >打开方式无法添加新程序</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>修改了文件名，注册表没有同步</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>删除对应注册表项</p>
+<pre><code>HKEY_CURRENT_USER\Software\Classes\Applications\&lt;Application-name&gt;
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2014/12/23/打开方式无法添加新程序/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-23 </div>
+			<div class="article-title"><a href="/2014/12/23/python-强制重新导入模块/" >python-强制重新导入模块</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reload(MODULE_NAME)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/684171/how-to-re-import-an-updated-package-while-in-python-interpreter" target="_blank" rel="external">http://stackoverflow.com/questions/684171/how-to-re-import-an-updated-package-while-in-python-interpreter</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/23/python-强制重新导入模块/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-23 </div>
+			<div class="article-title"><a href="/2014/12/23/python-获取__main__模块文件名/" >python-获取__main__模块文件名</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="情景"><a href="#情景" class="headerlink" title="情景"></a>情景</h1><p><code>__main__</code>模块中<code>import A</code>，而<code>A</code>模块中需要引用<code>__main__</code>的文件名</p>
+<h1 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> __main__</span><br><span class="line"><span class="keyword">print</span> __main__.__file__</span><br></pre></td></tr></table></figure>
+<p>缺陷：</p>
+<p>当使用<code>py2exe</code>时，无法使用</p>
+<h1 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">print</span> sys.argv[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p>缺陷：</p>
+<p>当使用<code>python</code>解释器<code>-c</code>传参启动时，无效</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python</a></li>
+<li><a href="http://www.acnenomor.com/4440072p1/how-to-get-filename-of-the-main-module-in-python" target="_blank" rel="external">http://www.acnenomor.com/4440072p1/how-to-get-filename-of-the-main-module-in-python</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/23/python-获取__main__模块文件名/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-23 </div>
+			<div class="article-title"><a href="/2014/12/23/python-获取文件名组成/" >python-获取文件名组成</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="获取基本文件名"><a href="#获取基本文件名" class="headerlink" title="获取基本文件名"></a>获取基本文件名</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">filename=<span class="string">"/tmp/test.txt"</span></span><br><span class="line">os.path.basename(filename)</span><br></pre></td></tr></table></figure>
+<h1 id="获取基本文件名-不包括拓展名"><a href="#获取基本文件名-不包括拓展名" class="headerlink" title="获取基本文件名(不包括拓展名)"></a>获取基本文件名(不包括拓展名)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">filename=<span class="string">"/tmp/test.txt"</span></span><br><span class="line">os.path.splitext(os.path.basename(filename))[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<h1 id="获取文件拓展名"><a href="#获取文件拓展名" class="headerlink" title="获取文件拓展名"></a>获取文件拓展名</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">filename=<span class="string">"/tmp/test.txt"</span></span><br><span class="line">os.path.splitext(os.path.basename(filename))[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h1 id="获取父目录"><a href="#获取父目录" class="headerlink" title="获取父目录"></a>获取父目录</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">filename=<span class="string">"/tmp/test.txt"</span></span><br><span class="line">os.path.dirname(filename)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/678236/how-to-get-the-filename-without-the-extension-from-a-path-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/678236/how-to-get-the-filename-without-the-extension-from-a-path-in-python</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/23/python-获取文件名组成/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-22 </div>
+			<div class="article-title"><a href="/2014/12/22/优秀网站列表/" >优秀网站列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="代码搜索"><a href="#代码搜索" class="headerlink" title="代码搜索"></a>代码搜索</h1><ul>
+<li><p><a href="http://www.krugle.com/" target="_blank" rel="external">krugle</a></p>
+</li>
+<li><p><a href="http://www.codase.com/" target="_blank" rel="external">codase</a></p>
+</li>
+<li><p><a href="http://code.openhub.net/" target="_blank" rel="external">Black Duck Open Hub Code Search</a></p>
+</li>
+<li><p><a href="https://github.com/search" target="_blank" rel="external">git</a></p>
+</li>
+<li><p><a href="http://symbolhound.com/" target="_blank" rel="external">SymbolHound</a></p>
+<p>不会忽略特殊符号</p>
+</li>
+<li><p><a href="https://www.haskell.org/hoogle/" target="_blank" rel="external">Hoogle</a></p>
+<p>Haskell的专用函数搜索引擎</p>
+</li>
+<li><p><a href="http://rseek.org/" target="_blank" rel="external">RSeek</a></p>
+<p>R语言专用搜索</p>
+</li>
+<li><p><a href="http://www.findjar.com/index.x" target="_blank" rel="external">findjar.com</a></p>
+<p>JAR搜索引擎</p>
+</li>
+<li><p><a href="http://research.microsoft.com/en-us/default.aspx" target="_blank" rel="external">Microsoft Research</a></p>
+<p>微软内部搜索</p>
+</li>
+<li><p><a href=""></a></p>
+</li>
+</ul>
+<h1 id="网盘搜索"><a href="#网盘搜索" class="headerlink" title="网盘搜索"></a>网盘搜索</h1><ul>
+<li><a href="http://so.baiduyun.me/" target="_blank" rel="external">http://so.baiduyun.me/</a></li>
+</ul>
+<h1 id="代码片段保存"><a href="#代码片段保存" class="headerlink" title="代码片段保存"></a>代码片段保存</h1><ul>
+<li><a href="http://codepad.org/" target="_blank" rel="external">codepad</a></li>
+</ul>
+<h1 id="持续集成"><a href="#持续集成" class="headerlink" title="持续集成"></a>持续集成</h1><ul>
+<li><a href="https://travis-ci.org" target="_blank" rel="external">Travis CI</a></li>
+</ul>
+<h1 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h1><ul>
+<li><p><a href="http://www.downxia.com/" target="_blank" rel="external">当下</a></p>
+</li>
+<li><p><a href="http://www.portablesoft.org/" target="_blank" rel="external">精品绿色便携软件</a></p>
+</li>
+<li><p><a href="http://portableapptrash.blogspot.com/" target="_blank" rel="external">PortableAppZ</a></p>
+</li>
+<li><p><a href="http://portableapps.com/" target="_blank" rel="external">portableapps</a></p>
+</li>
+<li><p><a href="http://www.portableappc.com/" target="_blank" rel="external">portableappc</a></p>
+</li>
+<li><p><a href="http://www.itopdog.cn/" target="_blank" rel="external">软件盒子</a></p>
+</li>
+<li><p><a href="http://www.iplaysoft.com/" target="_blank" rel="external">异次元的软件世界</a></p>
+</li>
+</ul>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><ul>
+<li><a href="http://www.tldp.org/" target="_blank" rel="external">Linux文档项目</a></li>
+</ul>
+<h1 id="娱乐网站"><a href="#娱乐网站" class="headerlink" title="娱乐网站"></a>娱乐网站</h1><h1 id="APP下载"><a href="#APP下载" class="headerlink" title="APP下载"></a>APP下载</h1><ul>
+<li><a href="http://www.appsapk.com/" target="_blank" rel="external">appsAPK</a></li>
+</ul>
+<h1 id="视频下载"><a href="#视频下载" class="headerlink" title="视频下载"></a>视频下载</h1><ul>
+<li><p><a href="http://en.savefrom.net/" target="_blank" rel="external">savefrom.net</a></p>
+<p>youtube等网站视频下载</p>
+</li>
+</ul>
+<h1 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h1><ul>
+<li><a href="http://en.cppreference.com/w/" target="_blank" rel="external">http://en.cppreference.com/w/</a></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/22/优秀网站列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-19 </div>
+			<div class="article-title"><a href="/2014/12/19/ejs语法/" >ejs语法</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><p><code>&lt;% javascript %&gt;</code></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.embeddedjs.com/" target="_blank" rel="external">http://www.embeddedjs.com/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/19/ejs语法/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-19 </div>
 			<div class="article-title"><a href="/2014/12/19/markdown语法/" >markdown语法</a></div>						
 		</h3>
@@ -359,161 +580,6 @@ qualifiers := type dir proto
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-15 </div>
-			<div class="article-title"><a href="/2014/12/15/VC可变宏参数/" >VC可变宏参数</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MACRO(s, ...) printf(s, ##__VA_ARGS__)</span></span><br></pre></td></tr></table></figure>
-<p><strong>注：</strong></p>
-<ul>
-<li><code>##</code>防止没有参数</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://msdn.microsoft.com/en-us/library/ms177415.aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/ms177415.aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/15/VC可变宏参数/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-15 </div>
-			<div class="article-title"><a href="/2014/12/15/win-api判断目录是否存在/" >win-api判断目录是否存在</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PathIsDirectory(<span class="string">"log"</span>) == FALSE</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb773621(v=vs.85).aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/windows/desktop/bb773621(v=vs.85).aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/15/win-api判断目录是否存在/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-12 </div>
-			<div class="article-title"><a href="/2014/12/12/windows获取文件名组成/" >windows获取文件名组成</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> _splitpath(</span><br><span class="line">   <span class="keyword">const</span> <span class="keyword">char</span> *path,</span><br><span class="line">   <span class="keyword">char</span> *drive,</span><br><span class="line">   <span class="keyword">char</span> *dir,</span><br><span class="line">   <span class="keyword">char</span> *fname,</span><br><span class="line">   <span class="keyword">char</span> *ext </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://msdn.microsoft.com/en-us/library/e737s6tf.aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/e737s6tf.aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/12/windows获取文件名组成/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-12 </div>
-			<div class="article-title"><a href="/2014/12/12/windows获取程序名/" >windows获取程序名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>GetModuleFileName(0, fullname, sizeof(fullname))
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/124886/how-to-get-the-application-executable-name-in-windows-c-win32-or-c-cli" target="_blank" rel="external">http://stackoverflow.com/questions/124886/how-to-get-the-application-executable-name-in-windows-c-win32-or-c-cli</a></li>
-<li><a href="http://msdn.microsoft.com/en-us/library/ms683197%28VS.85%29.aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/ms683197%28VS.85%29.aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/12/windows获取程序名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-12 </div>
-			<div class="article-title"><a href="/2014/12/12/windows获取网络接口相关信息/" >windows获取网络接口相关信息</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="通过访问注册表"><a href="#通过访问注册表" class="headerlink" title="通过访问注册表"></a>通过访问注册表</h1><pre><code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Tcpip\Parameters\Interfaces\{2A7DEE95-B437-444C-BB09-85E4EAD5E61C}
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cnblogs.com/kkindof/archive/2012/06/08/2542337.html" target="_blank" rel="external">http://www.cnblogs.com/kkindof/archive/2012/06/08/2542337.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/12/windows获取网络接口相关信息/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-12 </div>
-			<div class="article-title"><a href="/2014/12/12/windows获取网卡UUID/" >windows获取网卡UUID</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="使用系统命令"><a href="#使用系统命令" class="headerlink" title="使用系统命令"></a>使用系统命令</h1><pre><code>getmac
-</code></pre><p><img src="/img/windows获取网卡UUID_01.png" alt=""></p>
-<h1 id="通过注册表"><a href="#通过注册表" class="headerlink" title="通过注册表"></a>通过注册表</h1><pre><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkCards
-</code></pre><p><img src="/img/windows获取网卡UUID_02.png" alt=""></p>
-
-	
-	</div>
-  <a type="button" href="/2014/12/12/windows获取网卡UUID/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -566,7 +632,7 @@ qualifiers := type dir proto
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -776,6 +842,8 @@ qualifiers := type dir proto
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -807,48 +875,48 @@ qualifiers := type dir proto
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
 		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+			<li><a href="/tags/base64/">base64<span>1</span></a></li>
 		
-			<li><a href="/tags/启动/">启动<span>1</span></a></li>
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/散列/">散列<span>1</span></a></li>
+			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
 		
-			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
+			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
 		
-			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+			<li><a href="/tags/API/">API<span>2</span></a></li>
 		
-			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+			<li><a href="/tags/len/">len()<span>1</span></a></li>
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/安装/">安装<span>3</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
 		
-			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
-			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
 		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
 		
-			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
 		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/编程/">编程<span>5</span></a></li>
+			<li><a href="/tags/json/">json<span>4</span></a></li>
 		
-			<li><a href="/tags/poll/">poll<span>1</span></a></li>
+			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
 		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -861,23 +929,23 @@ qualifiers := type dir proto
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

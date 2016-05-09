@@ -111,6 +111,257 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-07-14 </div>
+			<div class="article-title"><a href="/2015/07/14/数字签名/" >数字签名</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p>| 名词           | 解释             |<br>|—————-+——————|<br>| 受信任的发送方 | 拥有密钥的发送方 |</p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><ul>
+<li>发送方</li>
+</ul>
+<p>原文 =&gt; HASH =&gt; 加密(RSA) =&gt; 签名</p>
+<ul>
+<li>接收方</li>
+</ul>
+<p>除sign外的数据 =&gt; HASH ==? 发送过来的sign =&gt; 解密(RSA)</p>
+<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><ul>
+<li><p>保证数据是从指定源发送的</p>
+<p>因为受信任的发送方才有密钥，只有该密钥加密的数据才能正确地被接收方解密</p>
+</li>
+<li><p>防止数据在途中被第三方修改，保证了数据的完整性</p>
+<p>因为签名是基于全文HASH后得到的，任何修改原文操作，在没有密钥的情况下，无法重新签名，<br>也就意味着该数据无效！</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/14/数字签名/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-13 </div>
+			<div class="article-title"><a href="/2015/07/13/cmake-常用变量/" >cmake-常用变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><code>CMAKE_INSTALL_RPATH_USE_LINK_PATH</code></p>
+<pre><code>使用`make install`安装时，不去除RPATH
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/13/cmake-常用变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-11 </div>
+			<div class="article-title"><a href="/2015/07/11/编译apache/" >编译apache</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h1><ul>
+<li><p>pcre</p>
+</li>
+<li><p>apr</p>
+</li>
+<li><p>apr-util</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="编译安装pcre"><a href="#编译安装pcre" class="headerlink" title="编译安装pcre"></a>编译安装pcre</h2><pre><code>wget http://sourceforge.net/projects/pcre/files/pcre/8.37/pcre-8.37.tar.bz2
+tar xvf pcre-8.37.tar.bz2
+cd pcre-8.37
+./configure --prefix=/opt/pcre-8.37
+make
+make install
+</code></pre><h2 id="编译安装apache"><a href="#编译安装apache" class="headerlink" title="编译安装apache"></a>编译安装apache</h2><pre><code>wget http://mirrors.hust.edu.cn/apache//httpd/httpd-2.4.12.tar.bz2
+wget http://apache.fayea.com//apr/apr-1.5.2.tar.bz2
+wget http://apache.fayea.com//apr/apr-util-1.5.4.tar.bz2
+tar xvf httpd-2.4.12.tar.bz2
+tar xvf apr-1.5.2.tar.bz2 -C httpd-2.4.12/srclib
+tar xvf apr-util-1.5.4.tar.bz2 -C httpd-2.4.12/srclib
+mv httpd-2.4.12/srclib/apr-1.5.2 httpd-2.4.12/srclib/apr
+mv httpd-2.4.12/srclib/apr-util-1.5.4 httpd-2.4.12/srclib/apr-util
+cd httpd-2.4.12
+./configure --prefix=/opt/httpd-2.4.12 --with-pcre=/opt/pcre-8.37
+make
+make install
+</code></pre><p>参考：</p>
+<ol>
+<li><a href="http://httpd.apache.org/docs/2.4/install.html" target="_blank" rel="external">http://httpd.apache.org/docs/2.4/install.html</a></li>
+</ol>
+<h2 id="编译安装mod-fcgid-官网"><a href="#编译安装mod-fcgid-官网" class="headerlink" title="编译安装mod_fcgid(官网)"></a>编译安装mod_fcgid(<a href="http://httpd.apache.org/download.cgi#mod_fcgid" target="_blank" rel="external">官网</a>)</h2><pre><code>wget http://mirrors.cnnic.cn/apache/httpd/mod_fcgid/mod_fcgid-2.3.9.tar.bz2
+tar xvf mod_fcgid-2.3.9.tar.bz2
+cd mod_fcgid-2.3.9
+APXS=/opt/httpd-2.4.12/bin/apxs ./configure.apxs
+make
+make install
+</code></pre><p>参考：</p>
+<ol>
+<li>README-FCGID</li>
+</ol>
+<h2 id="编译安装mod-wsgi-官网"><a href="#编译安装mod-wsgi-官网" class="headerlink" title="编译安装mod_wsgi(官网)"></a>编译安装mod_wsgi(<a href="https://code.google.com/p/modwsgi/" target="_blank" rel="external">官网</a>)</h2><pre><code>git clone https://github.com/GrahamDumpleton/mod_wsgi.git
+cd mod_wsgi/
+./configure --with-apxs=/opt/httpd-2.4.12/bin/apxs --with-python=/usr/bin/python3
+make
+make install
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/07/11/编译apache/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-09 </div>
+			<div class="article-title"><a href="/2015/07/09/thinkpad-安装系统/" >thinkpad-安装系统</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>开机按<code>Enter</code> =&gt; <code>F1</code>进入BIOS</p>
+</li>
+<li><p>【starup】=&gt; <code>legacy ONLY</code></p>
+</li>
+<li><p>【security】 =&gt; <code>disabled</code></p>
+</li>
+<li><p>保存退出</p>
+</li>
+<li><p>开机<code>F12</code>选择对应启动</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/09/thinkpad-安装系统/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-09 </div>
+			<div class="article-title"><a href="/2015/07/09/truncate和delete区别/" >truncate和delete区别</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>truncate属于DDL，delete输入DML</p>
+</li>
+<li><p>truncate不可回滚，delete可回滚</p>
+</li>
+<li><p>delete可接where子句</p>
+</li>
+<li><p>truncate执行更快</p>
+</li>
+<li><p>truncate回收表空间，占用系统日志资源更少</p>
+</li>
+<li><p>truncate不触发delete触发器</p>
+</li>
+<li><p>truncate不能被授权</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/09/truncate和delete区别/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-09 </div>
+			<div class="article-title"><a href="/2015/07/09/sql-语句分类/" >sql-语句分类</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="数据查询语言-Data-Query-Language-DQL"><a href="#数据查询语言-Data-Query-Language-DQL" class="headerlink" title="数据查询语言(Data Query Language, DQL)"></a>数据查询语言(Data Query Language, DQL)</h1><p>查询数据</p>
+<ul>
+<li><code>select</code></li>
+</ul>
+<h1 id="数据操纵语言-Data-Manipulation-Language-DML"><a href="#数据操纵语言-Data-Manipulation-Language-DML" class="headerlink" title="数据操纵语言(Data Manipulation Language, DML)"></a>数据操纵语言(Data Manipulation Language, DML)</h1><p>对数据的修改操作</p>
+<ul>
+<li><code>insert</code></li>
+<li><code>update</code></li>
+<li><code>delete</code></li>
+</ul>
+<h1 id="数据定义语言-Data-Definition-Language-DDl"><a href="#数据定义语言-Data-Definition-Language-DDl" class="headerlink" title="数据定义语言(Data Definition Language, DDl)"></a>数据定义语言(Data Definition Language, DDl)</h1><p>定义，修改，删除数据库实体(表，视图，触发器等)</p>
+<ul>
+<li><code>create</code></li>
+<li><code>alter</code></li>
+<li><code>drop</code></li>
+<li><code>truncate</code></li>
+</ul>
+<h1 id="数据控制语言-Data-Control-Language-DCL"><a href="#数据控制语言-Data-Control-Language-DCL" class="headerlink" title="数据控制语言(Data Control Language, DCL)"></a>数据控制语言(Data Control Language, DCL)</h1><p>用来授予或回收访问数据库的某种特权，并控制数据库操纵事务发生的时间及效果，对数据库实行监视等</p>
+<ul>
+<li><p><code>grant</code></p>
+</li>
+<li><p><code>deny</code></p>
+</li>
+<li><p><code>revoke</code></p>
+</li>
+<li><p><code>rollback</code></p>
+</li>
+<li><p><code>commit</code></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/09/sql-语句分类/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-07-09 </div>
 			<div class="article-title"><a href="/2015/07/09/mysql-事务/" >mysql-事务</a></div>						
 		</h3>
@@ -235,166 +486,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-08 </div>
-			<div class="article-title"><a href="/2015/07/08/windows-运行指定python版本/" >windows-运行指定python版本</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>python2</p>
-<pre><code>py -2 *.py
-</code></pre></li>
-<li><p>python3</p>
-<pre><code>py -3 *.py
-</code></pre><p>py –help</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/3809314/how-to-install-both-python-2-x-and-python-3-x-in-windows-7" target="_blank" rel="external">http://stackoverflow.com/questions/3809314/how-to-install-both-python-2-x-and-python-3-x-in-windows-7</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/08/windows-运行指定python版本/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-08 </div>
-			<div class="article-title"><a href="/2015/07/08/vim-后台执行外部程序/" >vim-后台执行外部程序</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>call system(&apos;cmd&apos;)
-</code></pre><p>a</p>
-
-	
-	</div>
-  <a type="button" href="/2015/07/08/vim-后台执行外部程序/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-08 </div>
-			<div class="article-title"><a href="/2015/07/08/Crypto++使用/" >Crypto++使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><pre><code>g++ *.c -lcryptopp -lpthread
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/07/08/Crypto++使用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-07 </div>
-			<div class="article-title"><a href="/2015/07/07/注册表运行vbs/" >注册表运行vbs</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>wscript.exe E:\OS\Windows\bin\mklink.vbs &quot;%1&quot;
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/07/07/注册表运行vbs/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-01 </div>
-			<div class="article-title"><a href="/2015/07/01/mysql-常用命令行参数/" >mysql-常用命令行参数</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>–skip-column-names</p>
-<p>结果列不输出列名</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/01/mysql-常用命令行参数/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-01 </div>
-			<div class="article-title"><a href="/2015/07/01/jsoncpp/" >jsoncpp</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="主要的类"><a href="#主要的类" class="headerlink" title="主要的类"></a>主要的类</h1><p>| 类名         | 作用                                                                                                                                           |<br>|————–+————————————————————————————————————————————————|<br>| Json::Value  | 可以表示里所有的类型                                                                                                                           |<br>| Json::Reader | 将json文件流或字符串解析到Json::Value, 主要函数有Parse                                                                                         |<br>| Json::Writer | 与Json::Reader相反，将Json::Value转化成字符串流，注意它的两个子类：Json::FastWriter和Json::StyleWriter，分别输出不带格式的json和带格式的json。 |</p>
-<h1 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h1><ul>
-<li><p>判断json中是否有指定成员</p>
-<pre><code>bool isMember(&quot;id&quot;)
-</code></pre></li>
-<li><p>取指定值，若不存在，则使用默认值</p>
-<pre><code>Value get(ArrayIndex index, const Value &amp;defaultValue)
-</code></pre><h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1></li>
-<li><p>下标访问时，若该元素不存在，则返回值为<code>json::Value::nullValue</code></p>
-</li>
-<li><p><code>json::Value::nullValue</code>转换为空字符串<code>&quot;&quot;</code>(<code>\X00</code>)</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/01/jsoncpp/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -447,7 +538,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -657,6 +748,8 @@
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -688,48 +781,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
-		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
-		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
-		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
-		
-			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
-		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
-		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
-		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
-		
-			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
-		
-			<li><a href="/tags/C-11/">C++11<span>4</span></a></li>
-		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
-		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
-		
-			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
-		
 			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
 		
-			<li><a href="/tags/包/">包<span>2</span></a></li>
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/api/">api<span>1</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
 			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+		
+			<li><a href="/tags/编译/">编译<span>10</span></a></li>
+		
+			<li><a href="/tags/push/">push<span>2</span></a></li>
+		
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
+		
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+		
+			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+		
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
+		
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+		
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+		
+			<li><a href="/tags/app/">app<span>4</span></a></li>
+		
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+		
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -742,23 +835,23 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

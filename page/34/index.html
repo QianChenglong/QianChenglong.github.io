@@ -111,6 +111,219 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-30 </div>
+			<div class="article-title"><a href="/2015/03/30/hexo-google站长工具验证/" >hexo-google站长工具验证</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="HTML标记方法"><a href="#HTML标记方法" class="headerlink" title="HTML标记方法"></a><code>HTML标记</code>方法</h1><ul>
+<li>选择备用方法</li>
+</ul>
+<p><img src="/img/hexo-google站长工具验证-01.png" alt=""></p>
+<ul>
+<li>将代码复制到对应主题的<code>head.ejs</code></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/30/hexo-google站长工具验证/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-27 </div>
+			<div class="article-title"><a href="/2015/03/27/网络设备登录信息列表/" >网络设备登录信息列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 设备名               | IP            | 账号  | 密码  |<br>|———————-+—————+——-+——-|<br>| H3C Switch S2610-PWR | 192.168.0.234 | admin | admin |<br>| TL AC1000            | 192.168.1.253 | admin | admin |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/03/27/网络设备登录信息列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-27 </div>
+			<div class="article-title"><a href="/2015/03/27/TP-LINK-AC1000配置/" >TP-LINK-AC1000配置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="登录AC"><a href="#登录AC" class="headerlink" title="登录AC"></a>登录AC</h1><ul>
+<li><p>AC默认IP(192.168.1.253:24)</p>
+</li>
+<li><p>PC设置静态同网段IP(网关不用设置，因为属于同网段，无需网关转发)</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/27/TP-LINK-AC1000配置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-27 </div>
+			<div class="article-title"><a href="/2015/03/27/vim-格式化json/" >vim-格式化json</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>使用python模块</p>
+<pre><code>:%!python -m json.tool
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/27/vim-格式化json/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-26 </div>
+			<div class="article-title"><a href="/2015/03/26/C-函数操作结果返回方式/" >C-函数操作结果返回方式</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="通过返回值"><a href="#通过返回值" class="headerlink" title="通过返回值"></a>通过返回值</h1><h2 id="直接值传递"><a href="#直接值传递" class="headerlink" title="直接值传递"></a>直接值传递</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>简单，快捷，不存在内存溢出</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li><p>不能返回错误代码</p>
+</li>
+<li><p>无法返回非内置数据类型</p>
+</li>
+</ul>
+<h3 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h3><ul>
+<li><p>返回简单的内置类型数据</p>
+</li>
+<li><p>出错少或错误不是很严重</p>
+</li>
+</ul>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code>size_t strlen(const char * str);
+</code></pre><h2 id="内部分配static类型数据，返回指针"><a href="#内部分配static类型数据，返回指针" class="headerlink" title="内部分配static类型数据，返回指针"></a>内部分配static类型数据，返回指针</h2><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><p>可返回非内置数据类型</p>
+</li>
+<li><p>调用方便，调用者无需手动分配内存</p>
+</li>
+</ul>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li><p>不可重入</p>
+</li>
+<li><p>非线程安全</p>
+</li>
+</ul>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><pre><code>char *inet_ntoa(struct in_addr);
+</code></pre><h1 id="通过参数"><a href="#通过参数" class="headerlink" title="通过参数"></a>通过参数</h1><h2 id="调用者分配内存，需要传入缓冲区大小"><a href="#调用者分配内存，需要传入缓冲区大小" class="headerlink" title="调用者分配内存，需要传入缓冲区大小"></a>调用者分配内存，需要传入缓冲区大小</h2><h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><p>可返回非内置数据类型</p>
+</li>
+<li><p>可重入</p>
+</li>
+<li><p>线程安全</p>
+</li>
+<li><p>正确操作下，内存不会溢出(通过缓冲区大小参数)</p>
+</li>
+</ul>
+<h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>调用麻烦，需要手动分配内存</li>
+</ul>
+<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><pre><code>char* fgets(char *str, int num, FILE * stream);
+</code></pre><h2 id="调用者分配，不传入缓冲区大小-自己不采用，只是存在此种接口"><a href="#调用者分配，不传入缓冲区大小-自己不采用，只是存在此种接口" class="headerlink" title="调用者分配，不传入缓冲区大小(自己不采用，只是存在此种接口)"></a>调用者分配，不传入缓冲区大小(自己不采用，只是存在此种接口)</h2><h3 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><p>可返回非内置数据类型</p>
+</li>
+<li><p>可重入</p>
+</li>
+<li><p>线程安全</p>
+</li>
+</ul>
+<h3 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>存在缓冲区越界风险！</li>
+</ul>
+<h3 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h3><pre><code>char * gets ( char * str );
+</code></pre><h2 id="二次调用确定所需空间"><a href="#二次调用确定所需空间" class="headerlink" title="二次调用确定所需空间"></a>二次调用确定所需空间</h2><h3 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>可以返回调用者不能确定的内存空间的数据</li>
+</ul>
+<h3 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>二次调用，使用麻烦</li>
+</ul>
+<h3 id="实例-4"><a href="#实例-4" class="headerlink" title="实例"></a>实例</h3><pre><code>DWORD GetAdaptersInfo(_Out_    PIP_ADAPTER_INFO pAdapterInfo, _Inout_  PULONG pOutBufLen);
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/windows/desktop/aa365917(v=vs.85" target="_blank" rel="external">GetAdaptersInfo</a>.aspx)</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/26/C-函数操作结果返回方式/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-26 </div>
+			<div class="article-title"><a href="/2015/03/26/extern C/" >extern &quot;C&quot;</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>当使用C++编译器对C++源码编译时，对C函数采用”C”语言方式编译和连接(函数导出名不变)</p>
+<h1 id="为什么需要extern-quot-C-quot"><a href="#为什么需要extern-quot-C-quot" class="headerlink" title="为什么需要extern &quot;C&quot;"></a>为什么需要<code>extern &quot;C&quot;</code></h1><p>因为C++支持函数重载，所以对函数名存在修饰操作。</p>
+<p>若一个函数为普通全局函数，制作为dll，其他C程序进行调用，当编译该程序采用C编译器，无法找到该符号，因为C编译器与C++编译器对函数名的修饰规则不一致！</p>
+<p>所以为了使C编译器能够使用这些函数，需要使用<code>extern &quot;C&quot;</code>声明。</p>
+<h1 id="惯用法"><a href="#惯用法" class="headerlink" title="惯用法"></a>惯用法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta"># <span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/03/26/extern C/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-26 </div>
 			<div class="article-title"><a href="/2015/03/26/采用doxygen的项目列表/" >采用doxygen的项目列表</a></div>						
 		</h3>
@@ -253,295 +466,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-24 </div>
-			<div class="article-title"><a href="/2015/03/24/windows-获取当前进程文件名/" >windows-获取当前进程文件名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a><a href="https://github.com/QianChenglong/lily-windows/tree/master/%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%BF%9B%E7%A8%8B%E6%96%87%E4%BB%B6%E5%90%8D" target="_blank" rel="external">源码地址</a></h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms683197(v=vs.85).aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/windows/desktop/ms683197(v=vs.85).aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/24/windows-获取当前进程文件名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-23 </div>
-			<div class="article-title"><a href="/2015/03/23/syslinux-memdisk/" >syslinux-memdisk</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>启动一些软盘镜像，硬盘镜像，ISO镜像。</p>
-<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>memdisk作为<code>kernel</code>，而那些镜像文件作为初始化文件系统(initrd)</p>
-<p>镜像文件(zip或gzip格式)作为<code>INITRD</code>命令的参数传递</p>
-<ul>
-<li><p>命令行方式</p>
-<p>memdisk initrd=hdt.img</p>
-</li>
-<li><p>配置文件方式</p>
-<pre><code># Boot Hardware Detection Tool from floppy image
-LABEL hdt_floppy
-LINUX memdisk
-INITRD hdt.img
-
-# Boot Hardware Detection Tool from iso image (with &apos;iso&apos; parameter)
-LABEL hdt_iso
-LINUX memdisk
-INITRD hdt.iso
-APPEND iso
-
-# Boot DOS from floppy image (with &apos;raw&apos; parameter)
-LABEL dos_floppy_with_raw
-LINUX memdisk
-INITRD dosboot.img
-APPEND raw
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/23/syslinux-memdisk/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-20 </div>
-			<div class="article-title"><a href="/2015/03/20/syslinux/" >syslinux</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="syslinux安装"><a href="#syslinux安装" class="headerlink" title="syslinux安装"></a>syslinux安装</h1><ul>
-<li><p>安装时，会将<code>ldlinux.c32</code>,<code>ldlinux.sys</code>拷贝到安装目录，默认为<code>boot/syslinux/</code>，<br>可以使用<code>--directory  -d  Directory for installation target</code>指定</p>
-<p>syslinux安装的分区上的PBR会根据安装目录查找<code>ldlinux.c32</code>，并将该目录作为根目录</p>
-</li>
-</ul>
-<h1 id="syslinux引导过程"><a href="#syslinux引导过程" class="headerlink" title="syslinux引导过程"></a>syslinux引导过程</h1><ul>
-<li><p>MBR加载活动分区PBR</p>
-</li>
-<li><p>PBR根据安装时指定的安装目录，查找<code>ldlinux.c32</code>，若找不到，则到根目录查找</p>
-</li>
-<li><p>查找读取<code>syslinux.cfg</code></p>
-</li>
-<li><p>进入菜单交互</p>
-</li>
-</ul>
-<h1 id="syslinux文件说明"><a href="#syslinux文件说明" class="headerlink" title="syslinux文件说明"></a>syslinux文件说明</h1><p>| 文件名       | 功能                        | 依赖                     |<br>|————–+—————————–+————————–|<br>| ldlinux.c32  | 查找、解析syslinux.cfg      |                          |<br>| libutil.c32  | 功能库                      |                          |<br>| libcom32.c32 | 核心功能库                  |                          |<br>| vesamenu.c32 | 菜单功能                    | libutil.c32,libcom32.c32 |<br>| splash.jpg   | 图片背景                    |                          |<br>| syslinux.cfg | 启动配置文件                |                          |<br>| chain.c32    | 链式加载                    |                          |<br>| memdisk      | <code>memdisk</code>命令，虚拟内存磁盘 |                          |<br>| hdt.c32      | 硬件检测工具                | libmenu.c32,libgpl.c32   |<br>| linux.c32    | <code>linux</code>命令                 |                          |</p>
-<h1 id="note"><a href="#note" class="headerlink" title="note"></a>note</h1><ul>
-<li><p>启动ISO镜像</p>
-<p>因为image都是通过虚拟设备(虚拟软盘，虚拟光驱)，由BIOS 13号中断来访问的，<br>所以当操作系统加载完设备驱动时，它将自己去访问设备，不再通过BIOS去访问，<br>这时虚拟设备将失效，报错<code>INT 13h access: Not all images will complete the boot process!</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.syslinux.org/wiki/index.php/Syslinux_5_Changelog" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/Syslinux_5_Changelog</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/Library_modules" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/Library_modules</a></li>
-<li><a href="http://linux.die.net/man/1/syslinux" target="_blank" rel="external">http://linux.die.net/man/1/syslinux</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/SYSLINUX" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/SYSLINUX</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/Boot_an_Iso_image" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/Boot_an_Iso_image</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK#INT_13h_access:_Not_all_images_will_complete_the_boot_process.21" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK#INT_13h_access:_Not_all_images_will_complete_the_boot_process.21</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/20/syslinux/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-20 </div>
-			<div class="article-title"><a href="/2015/03/20/活动分区/" >活动分区</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>活动分区，是MBR主分区中的一种，目的是为了标识哪个分区是启动分区。</p>
-<p>在boot loader stage 1阶段，将检查DPT中是否有唯一活动分区，若存在，则载入执行该分区的VBR。</p>
-<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul>
-<li><p>每个磁盘只能有一个活动分区</p>
-</li>
-<li><p>只能将主分区设置为活动分区，不能将逻辑分区设为活动分区</p>
-</li>
-</ul>
-<h1 id="设置，取消活动分区"><a href="#设置，取消活动分区" class="headerlink" title="设置，取消活动分区"></a>设置，取消活动分区</h1><ul>
-<li><p>使用<code>diskmgmt.msc</code></p>
-</li>
-<li><p>diskpart</p>
-<ul>
-<li><p>cmd中运行<code>diskpart</code></p>
-</li>
-<li><p>列出当前磁盘</p>
-<pre><code>list disk
-</code></pre></li>
-<li><p>选择要操作的磁盘</p>
-<pre><code>select disk X
-</code></pre></li>
-<li><p>列出分区</p>
-<pre><code>list partition
-</code></pre></li>
-<li><p>选择要操作的分区</p>
-<pre><code>select partition X
-</code></pre></li>
-<li><p>标记为活动分区</p>
-<pre><code>active
-</code></pre></li>
-<li><p>标记为非活动分区</p>
-<pre><code>inactive
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="http://zh.wikipedia.org/wiki/%E6%B4%BB%E5%8A%A8%E5%88%86%E5%8C%BA" target="_blank" rel="external">维基-活动分区</a></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/20/活动分区/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-20 </div>
-			<div class="article-title"><a href="/2015/03/20/计算机启动过程/" >计算机启动过程</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>开机或重启(CPU执行第一条指令，跳转到FFFF:0000H)</p>
-<p>Bochs模拟：</p>
-<p><img src="../img/计算机启动过程_01.png" alt=""></p>
-<p>Intel跳转指令：</p>
-<p><img src="../img/计算机启动过程_02.png" alt=""></p>
-</li>
-<li><p>BIOS加电自检 (Power On Self Test)</p>
-</li>
-<li><p>BIOS自检完毕后，执行int 19(自举服务)，按照CMOS中存储的设备启动顺序，将介质中的MBR扇区载入到0000:7C00处，</p>
-<p>检查其哨兵（0000:7DFE字）是否为(0x55AA)</p>
-<ul>
-<li><p>若是，则跳转到MBR载入位置(0000:7C00);</p>
-</li>
-<li><p>若不是则载入下一个启动介质的MBR，重复操作，</p>
-</li>
-<li><p>若没有找到合法MBR，则报错<code>Invalid partition table</code>、<code>operating system not found</code>、<code>Missing operating system</code>等类似错误，停机</p>
-</li>
-</ul>
-</li>
-<li><p>MBR首先将自己复制到0000:0600 处，然后继续执行</p>
-<p><img src="../img/计算机启动过程_03.png" alt=""></p>
-</li>
-<li><p>在主分区表中搜索标志为活动的分区 . 如果发现没有活动分区或有不止一个活动分区 , 则转停止</p>
-</li>
-<li><p>将活动分区的第一个扇区(叫做分区启动记录，Volume Boot Record, VBR)读入内存地址0000:7C00处</p>
-</li>
-<li><p>检查(WORD)0000:7DFE是否等于0xAA55, 若不等于则显示<code>Missing Operating System</code>，然后停止</p>
-</li>
-<li><p>跳转到0000 :7C00处继续执行bootloader stage 2，加载相应操作系统的启动程序</p>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-linuxboot/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-linuxboot/</a></li>
-<li><a href="http://zh.wikipedia.org/wiki/%E4%B8%BB%E5%BC%95%E5%AF%BC%E8%AE%B0%E5%BD%95" target="_blank" rel="external">维基-主引导记录</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Master_boot_record" target="_blank" rel="external">wiki-Master_boot_record</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Boot_sector" target="_blank" rel="external">http://en.wikipedia.org/wiki/Boot_sector</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/20/计算机启动过程/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-20 </div>
-			<div class="article-title"><a href="/2015/03/20/MBR/" >MBR</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="MBR是什么"><a href="#MBR是什么" class="headerlink" title="MBR是什么"></a>MBR是什么</h1><p>主引导记录（Master Boot Record，缩写：MBR），又叫做主引导扇区，位于硬盘上的三维地址为（柱面，磁头，扇区）＝（0，0，1）。</p>
-<p>在BIOS完成<a href="http://zh.wikipedia.org/wiki/%E5%8A%A0%E7%94%B5%E8%87%AA%E6%A3%80" target="_blank" rel="external">加电自检</a>后，将该扇区内容加载到内存中执行。</p>
-<h1 id="MBR组成"><a href="#MBR组成" class="headerlink" title="MBR组成"></a>MBR组成</h1><p>| 开始地址   | 结束地址   | 作用                               | 字节数 |<br>|————+————+————————————+——–|<br>| 0x000(0)   | 0x1bd(445) | MBR，bootloader第一阶段代码        | 446    |<br>| 0x1be(446) | 0x1fd(509) | DPT，记录磁盘分区信息              | 64     |<br>| 0x1fe(510) | 0x1ff(511) | MAGIC(0x55,0xAA)，分区是否有效标志 | 2      |</p>
-<h2 id="DPT成员"><a href="#DPT成员" class="headerlink" title="DPT成员"></a>DPT成员</h2><ul>
-<li><p>用来记录分区相关信息</p>
-</li>
-<li><p>DPT表项占用16B，所以最多4个成员，意味着最多4个主分区！</p>
-</li>
-</ul>
-<p><strong>Note:</strong></p>
-<ul>
-<li>分区最小颗粒为<strong>1柱面</strong></li>
-</ul>
-<p>硬盘分区结构信息：</p>
-<p>| 偏移 | 长度(字节) | 意义                                                                                                   |<br>|——+————+——————————————————————————————————–|<br>| 00H  | 1          | 分区状态：00–&gt;非活动分区；80–&gt; 活动分区，其它数值没有意义                                            |<br>| 01H  | 1          | 分区起始磁头号(HEAD)，用到全部8位                                                                      |<br>| 02H  | 2          | 分区起始扇区号(SECTOR)，占据02H的位0－5； 该分区的起始磁柱号(CYLINDER)，占据 02H的位6－7和03H的全部8位 |<br>| 04H  | 1          | 文件系统标志位                                                                                         |<br>| 05H  | 1          | 分区结束磁头号(HEAD)，用到全部8位                                                                      |<br>| 06H  | 2          | 分区结束扇区号(SECTOR)，占据06H的位0－5； 该分区的终止磁柱号(CYLINDER)，占据 06H的位6－7和07H的全部8位 |<br>| 08H  | 4          | 分区起始逻辑扇区号,低位字节在前(小端模式)，如0x41394006，实际为0x06403941                              |<br>| 0CH  | 4          | 分区总的扇区数                                                                                         |</p>
-<p>实例分析：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">0000000: eb 63 90 8e d8 8e d0 bc 00 7c 89 e6 06 57 8e c0</span><br><span class="line">0000010: fb fc bf 00 06 b9 00 01 f3 a5 ea 1f 06 00 00 52</span><br><span class="line">0000020: 52 b4 41 bb aa 55 31 c9 30 f6 f9 cd 13 72 13 81</span><br><span class="line">0000030: fb 55 aa 75 0d d1 e9 73 09 66 c7 06 8d 06 b4 42</span><br><span class="line">0000040: eb 15 5a b4 08 cd 13 83 e1 3f 51 0f b6 c6 40 f7</span><br><span class="line">0000050: e1 52 50 66 31 c0 66 99 e8 66 00 80 01 00 00 00</span><br><span class="line">0000060: 00 00 00 00 ff fa 90 90 f6 c2 80 74 05 f6 c2 70</span><br><span class="line">0000070: 74 02 b2 80 ea 79 7c 00 00 31 c0 8e d8 8e d0 bc</span><br><span class="line">0000080: 00 20 fb a0 64 7c 3c ff 74 02 88 c2 52 bb 17 04</span><br><span class="line">0000090: 80 27 03 74 06 be 88 7d e8 17 01 be 05 7c b4 41</span><br><span class="line">00000a0: bb aa 55 cd 13 5a 52 72 3d 81 fb 55 aa 75 37 83</span><br><span class="line">00000b0: e1 01 74 32 31 c0 89 44 04 40 88 44 ff 89 44 02</span><br><span class="line">00000c0: c7 04 10 00 66 8b 1e 5c 7c 66 89 5c 08 66 8b 1e</span><br><span class="line">00000d0: 60 7c 66 89 5c 0c c7 44 06 00 70 b4 42 cd 13 72</span><br><span class="line">00000e0: 05 bb 00 70 eb 76 b4 08 cd 13 73 0d f6 c2 80 0f</span><br><span class="line">00000f0: 84 d0 00 be 93 7d e9 82 00 66 0f b6 c6 88 64 ff</span><br><span class="line">0000100: 40 66 89 44 04 0f b6 d1 c1 e2 02 88 e8 88 f4 40</span><br><span class="line">0000110: 89 44 08 0f b6 c2 c0 e8 02 66 89 04 66 a1 60 7c</span><br><span class="line">0000120: 66 09 c0 75 4e 66 a1 5c 7c 66 31 d2 66 f7 34 88</span><br><span class="line">0000130: d1 31 d2 66 f7 74 04 3b 44 08 7d 37 fe c1 88 c5</span><br><span class="line">0000140: 30 c0 c1 e8 02 08 c1 88 d0 5a 88 c6 bb 00 70 8e</span><br><span class="line">0000150: c3 31 db b8 01 02 cd 13 72 1e 8c c3 60 1e b9 00</span><br><span class="line">0000160: 01 8e db 31 f6 bf 00 80 8e c6 fc f3 a5 1f 61 ff</span><br><span class="line">0000170: 26 5a 7c be 8e 7d eb 03 be 9d 7d e8 34 00 be a2</span><br><span class="line">0000180: 7d e8 2e 00 cd 18 eb fe 47 52 55 42 20 00 47 65</span><br><span class="line">0000190: 6f 6d 00 48 61 72 64 20 44 69 73 6b 00 52 65 61</span><br><span class="line">00001a0: 64 00 20 45 72 72 6f 72 0d 0a 00 bb 01 00 b4 0e</span><br><span class="line">00001b0: cd 10 ac 3c 00 75 f4 c3 15 49 e4 03 00 00 80 01</span><br><span class="line">00001c0: 01 00 07 fe ff ff 3f 00 00 00 41 39 40 06 00 fe</span><br><span class="line">00001d0: ff ff 0f fe ff ff fe 3f 40 06 cc 08 f8 33 00 00</span><br><span class="line">00001e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00</span><br><span class="line">00001f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 55 aa</span><br></pre></td></tr></table></figure>
-<p>分区1：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">                                                   00 01</span><br><span class="line">00001b0:                                           80 01</span><br><span class="line">         02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f</span><br><span class="line">00001c0: 01 00 07 fe ff ff 3f 00 00 00 41 39 40 06</span><br><span class="line"></span><br><span class="line">0x1be</span><br><span class="line">00H 1 80-&gt;活动分区</span><br><span class="line">01H 1 分区起始磁头号,1</span><br><span class="line">02H 2 分区起始扇区号，占用02H的低6位，1</span><br><span class="line">      分区起始柱面号，占用02H的高2位和03H的8位，0</span><br><span class="line">04H 1 文件系统标志位，NTFS(07H)</span><br><span class="line">05H 1 分区结束磁头号，ff(254)</span><br><span class="line">06H 2 分区结束扇区号，占用06H的低6位，63</span><br><span class="line">      分区结束柱面号，占用06H的高2位和07H的8位，113f(1477)</span><br><span class="line">08H 4 分区起始逻辑扇区号，0000003f(63)</span><br><span class="line">0cH 4 分区总扇区数，06403941(104872257)</span><br></pre></td></tr></table></figure>
-<h3 id="使用fdisk查看DPT"><a href="#使用fdisk查看DPT" class="headerlink" title="使用fdisk查看DPT"></a>使用<code>fdisk</code>查看DPT</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line">Disk /dev/sda: 500.1 GB, 500107862016 bytes</span><br><span class="line">255 heads, 63 sectors/track, 60801 cylinders, total 976773168 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk identifier: 0x03e44915</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *          63   104872319    52436128+   7  HPFS/NTFS/exFAT</span><br><span class="line">/dev/sda2       104873982   976767177   435946598    f  W95 Ext&apos;d (LBA)</span><br><span class="line">/dev/sda5       104873984   207273983    51200000    7  HPFS/NTFS/exFAT</span><br><span class="line">/dev/sda6       207276032   317071359    54897664   83  Linux</span><br><span class="line">/dev/sda7   *   317073408   317464575      195584   83  Linux</span><br><span class="line">/dev/sda8       317466624   321370111     1951744   82  Linux swap / Solaris</span><br><span class="line">/dev/sda9       321372160   341852159    10240000   83  Linux</span><br><span class="line">/dev/sda10  *   341854208   362334207    10240000   83  Linux</span><br><span class="line">/dev/sda11      362334271   419473214    28569472   83  Linux</span><br><span class="line">/dev/sda12      419473278   976767177   278646950    7  HPFS/NTFS/exFAT</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://zh.wikipedia.org/wiki/%E5%8A%A0%E7%94%B5%E8%87%AA%E6%A3%80" target="_blank" rel="external">维基-加电自检</a></li>
-<li><a href="http://zh.wikipedia.org/wiki/%E4%B8%BB%E5%BC%95%E5%AF%BC%E8%AE%B0%E5%BD%95" target="_blank" rel="external">维基-MBR</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/20/MBR/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -594,7 +518,7 @@ APPEND raw
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -804,6 +728,8 @@ APPEND raw
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -835,48 +761,48 @@ APPEND raw
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
+			<li><a href="/tags/str/">str<span>1</span></a></li>
 		
-			<li><a href="/tags/using/">using<span>1</span></a></li>
+			<li><a href="/tags/链表/">链表<span>1</span></a></li>
 		
-			<li><a href="/tags/主键/">主键<span>1</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
-			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
 		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
+			<li><a href="/tags/网站/">网站<span>2</span></a></li>
 		
-			<li><a href="/tags/script/">script<span>1</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
-			<li><a href="/tags/线程/">线程<span>3</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
 		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
+			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
 		
-			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
-			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/command/">command<span>8</span></a></li>
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
 		
-			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
+			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
 		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
 		
-			<li><a href="/tags/time/">time<span>2</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/程序/">程序<span>1</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -889,23 +815,23 @@ APPEND raw
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

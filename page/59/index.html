@@ -111,6 +111,190 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-04 </div>
+			<div class="article-title"><a href="/2014/12/04/python调试手段/" >python调试手段</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="发生异常时，自动打开IPython"><a href="#发生异常时，自动打开IPython" class="headerlink" title="发生异常时，自动打开IPython"></a>发生异常时，自动打开<code>IPython</code></h2><ul>
+<li><code>crash_on_ipy.py</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExceptionHook</span>:</span></span><br><span class="line">    instance = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.instance <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">from</span> IPython.core <span class="keyword">import</span> ultratb</span><br><span class="line">            self.instance = ultratb.FormattedTB(mode=<span class="string">'Plain'</span>,</span><br><span class="line">                                                color_scheme=<span class="string">'Linux'</span>, call_pdb=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> self.instance(*args, **kwargs)</span><br><span class="line"></span><br><span class="line">sys.excepthook = ExceptionHook()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将<code>crash_on_ipy.py</code>放到项目中，在需要使用该功能的地方<code>import crash_on_ipy</code></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="http://www.zhihu.com/question/21572891" target="_blank" rel="external">http://www.zhihu.com/question/21572891</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/04/python调试手段/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-04 </div>
+			<div class="article-title"><a href="/2014/12/04/windows.h和winsock2.h冲突/" >windows.h和winsock2.h冲突</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在包含<code>WinSock2.h</code>之前包含了<code>Windows.h</code></li>
+<li>而<code>Windows.h</code>包含了<code>WinSock.h</code></li>
+<li>而<code>WinSock.h</code>和<code>WinSock2.h</code>不兼容！</li>
+</ul>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ul>
+<li>第一种(<strong>优先使用</strong>)</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二种</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WIN32_LEAN_AND_MEAN</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2014/12/04/windows.h和winsock2.h冲突/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-03 </div>
+			<div class="article-title"><a href="/2014/12/03/python文件删除/" >python文件删除</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
+<li><p><code>os.remove()</code></p>
+</li>
+<li><p><code>shutil.re</code></p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://docs.python.org/2/library/os.html#os.remove" target="_blank" rel="external">https://docs.python.org/2/library/os.html#os.remove</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/03/python文件删除/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-03 </div>
+			<div class="article-title"><a href="/2014/12/03/python文件重命名/" >python文件重命名</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
+<li><p><code>shutil.move()</code></p>
+</li>
+<li><p><code>os.rename()</code></p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://docs.python.org/2/library/shutil.html#shutil.move" target="_blank" rel="external">https://docs.python.org/2/library/shutil.html#shutil.move</a></li>
+<li><a href="https://docs.python.org/2/library/os.html#os.rename" target="_blank" rel="external">https://docs.python.org/2/library/os.html#os.rename</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/03/python文件重命名/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-03 </div>
+			<div class="article-title"><a href="/2014/12/03/python-cgi读取表单数据/" >python-cgi读取表单数据</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">form = cgi.FieldStorage()</span><br><span class="line"><span class="keyword">if</span> <span class="string">"name"</span> <span class="keyword">not</span> <span class="keyword">in</span> form <span class="keyword">or</span> <span class="string">"addr"</span> <span class="keyword">not</span> <span class="keyword">in</span> form:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"&lt;H1&gt;Error&lt;/H1&gt;"</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Please fill in the name and addr fields."</span></span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"&lt;p&gt;name:"</span>, form[<span class="string">"name"</span>].value</span><br><span class="line"><span class="keyword">print</span> <span class="string">"&lt;p&gt;addr:"</span>, form[<span class="string">"addr"</span>].value</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://docs.python.org/2/library/cgi.html" target="_blank" rel="external">https://docs.python.org/2/library/cgi.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/03/python-cgi读取表单数据/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-03 </div>
+			<div class="article-title"><a href="/2014/12/03/python操作x-www-form-urlencoded数据/" >python解析x-www-form-urlencoded数据</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
+<li><code>urlencoded</code>转<code>string</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">query_string = <span class="string">'access_token=CB4C8F99D9B3E4AD376E7CF179CFA470&amp;expires_in=7776000&amp;refresh_token=4CCB49CAD66A9506F0621CE8E427F492'</span></span><br><span class="line">data = urlparse.parse_qs(query_string)</span><br><span class="line">access_token = data[<span class="string">'access_token'</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>dict</code>转<code>urlencoded</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;<span class="string">'criterias[]'</span>: [<span class="string">'member'</span>, <span class="string">'issue'</span>]&#125;</span><br><span class="line">urllib.urlencode(params, <span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://docs.python.org/2/library/urlparse.html" target="_blank" rel="external">https://docs.python.org/2/library/urlparse.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/03/python操作x-www-form-urlencoded数据/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-02 </div>
 			<div class="article-title"><a href="/2014/12/02/ssh常用操作/" >ssh常用操作</a></div>						
 		</h3>
@@ -222,264 +406,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/快速查看python帮助/" >快速查看python帮助</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="第一种：命令行使用"><a href="#第一种：命令行使用" class="headerlink" title="第一种：命令行使用"></a>第一种：命令行使用</h2><pre><code>python -m pydoc CONTENT
-</code></pre><h2 id="第二种：使用python自包装"><a href="#第二种：使用python自包装" class="headerlink" title="第二种：使用python自包装"></a>第二种：使用<code>python</code>自包装</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>可以在任意路径下执行<code>pydoc CONTENT</code></p>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ul>
-<li><p>建立脚本文件<code>pydoc.py</code></p>
-<pre><code>#!/usr/bin/env python
-# encoding: utf-8
-
-import os
-import sys
-
-if len(sys.argv) != 2:
-    print(&quot;usage:pydoc.py OBJECT&quot;)
-    exit(1)
-
-cmd = &apos;python -m pydoc &apos; + sys.argv[1]
-# print(cmd)
-os.system(cmd)
-</code></pre></li>
-<li><p>复制到<code>PATH</code>目录下</p>
-<p><strong>建议自建目录</strong>(Win:X:/XXX/bin，Linux：/XXX/bin)，添加该目录到<code>PATH</code></p>
-<p>优点：</p>
-<ol>
-<li>容易管理</li>
-<li>重装系统或系统损坏，不丢失，下次复用方便</li>
-</ol>
-</li>
-<li><p>【Windows建议】</p>
-</li>
-</ul>
-<p>修改环境变量<code>PATHEXT</code>追加<code>.py</code>，这样直接使用<code>pydoc CONTENT</code>即可，不用每次都输入’.py’！</p>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/快速查看python帮助/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/替换clover图标/" >替换clover图标</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
-</li>
-<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
-<p><img src="/img/替换clover图标_0.png" alt=""></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/替换clover图标/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/windows下git生成SSH公钥/" >windows下git生成SSH公钥</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
-<li><p><code>cd %HOMEPATH%</code></p>
-</li>
-<li><p><code>mkdir .ssh</code></p>
-</li>
-<li><p><code>ssh-keygen -t rsa -C &quot;qian_cheng_long@163.com&quot;</code></p>
-<ul>
-<li>输入生成文件名(<code>.ssh/rd_rsa</code>)</li>
-<li>2次输入密码(空密码可以方便连接)</li>
-</ul>
-</li>
-<li><p>添加到<code>ssh-agent</code></p>
-<pre><code>ssh-agent -s
-ssh-add ~/.ssh/id_rsa
-</code></pre></li>
-<li><p>复制到粘贴板</p>
-<pre><code>clip &lt; ~/.ssh/id_rsa.pub
-</code></pre></li>
-<li><p>将<code>.ssh/rd_rsa.pub</code>内容添加到<a href="https://github.com/settings/ssh" target="_blank" rel="external">github</a></p>
-</li>
-<li><p>测试是否添加成功</p>
-<pre><code>ssh -vT git@github.com
-</code></pre></li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">https://help.github.com/articles/generating-ssh-keys/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/windows下git生成SSH公钥/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/MinGW编译wxWidget/" >MinGW编译wxWidget</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>WXWIN：源代码根目录</li>
-</ul>
-<ol>
-<li><p>解压源码</p>
-</li>
-<li><p>进入到<code>%WXWIN%\build\msw</code></p>
-</li>
-<li><p>清理项目</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release clean
-</code></pre></li>
-<li><p>编译</p>
-</li>
-</ol>
-<ul>
-<li><p>动态库，发行版</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release
-</code></pre></li>
-<li><p>动态库，调试版</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=debug
-</code></pre></li>
-<li><p>静态库，发行版</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=release
-</code></pre></li>
-<li><p>静态库，调试版</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=debug
-</code></pre><p>  <strong>注</strong>:</p>
-<ol>
-<li><p>可以添加-j N(N指当前CPU核心数)，加快编译速度</p>
-</li>
-<li><p>每种版本可以根据需要编译</p>
-</li>
-<li><p>动态库对应的目录(%WXWIN%\lib\gcc_dll)，静态库对应的目录(%WXWIN%\lib\gcc_lib)</p>
-</li>
-<li><p>Debug版的库名称会有<code>d</code>后缀，UNICODE版的库名称会有<code>u</code>后缀</p>
-</li>
-</ol>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/MinGW编译wxWidget/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/hexo博客添加图片/" >hexo博客添加图片</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>markdown中，插入图片的语法为：</p>
-<pre><code>![图片名称](链接地址)
-</code></pre><ul>
-<li><p>使用本地路径：在hexo/source目录下新建一个img文件夹，将图片放入该文件夹下，插入图片时链接即为/img/图片名称。</p>
-</li>
-<li><p>使用微博图床，地址<a href="http://weibotuchuang.sinaapp.com/，将图片拖入区域中，会生成图片的URL，这就是链接地址。" target="_blank" rel="external">http://weibotuchuang.sinaapp.com/，将图片拖入区域中，会生成图片的URL，这就是链接地址。</a></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/hexo博客添加图片/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-11-11 </div>
-			<div class="article-title"><a href="/2014/11/11/log4cpp编译安装/" >log4cpp编译安装</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="http://sourceforge.net/projects/log4cpp/files/" target="_blank" rel="external">官网</a></p>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
-<li>解压</li>
-<li>找到对应工程配置文件(vs2010:msvc10)</li>
-<li>打开msvc10.sln</li>
-<li>生成log4cppLIB(静态库版本)，debug版和release版</li>
-<li>新建目标目录如<code>log4cpp-1.1.1</code></li>
-<li>将<code>include</code>目录复制到目标目录下</li>
-<li>将生成的lib(<code>log4cppD.lib</code>,<code>log4cppLIB.lib</code>)放到目标目录的子目录<code>lib</code></li>
-</ul>
-<p>最终目录结构：</p>
-<pre><code>└─log4cpp-1.1.1
-    ├─include
-    │  └─log4cpp
-    │
-    └─lib
-</code></pre><h2 id="配置解决方案属性"><a href="#配置解决方案属性" class="headerlink" title="配置解决方案属性"></a>配置解决方案属性</h2><ul>
-<li>【VC++目录】，添加<code>include</code>目录和<code>lib</code>目录</li>
-<li>Debug版，添加【附加依赖项】，<code>log4cppD.lib</code></li>
-<li>Release版，添加【附加依赖项】，<code>log4cppLIB.lib</code></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/11/11/log4cpp编译安装/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -532,7 +458,7 @@ ssh-add ~/.ssh/id_rsa
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -742,6 +668,8 @@ ssh-add ~/.ssh/id_rsa
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -773,48 +701,48 @@ ssh-add ~/.ssh/id_rsa
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/TF/">TF<span>1</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
 		
-			<li><a href="/tags/cron/">cron<span>2</span></a></li>
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/c/">c<span>8</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
+			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
 		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
 		
-			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/连接/">连接<span>1</span></a></li>
 		
-			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
 		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/宏/">宏<span>4</span></a></li>
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/empty/">empty<span>1</span></a></li>
 		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
 		
-			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
 		
-			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+			<li><a href="/tags/column/">column<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -827,23 +755,23 @@ ssh-add ~/.ssh/id_rsa
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

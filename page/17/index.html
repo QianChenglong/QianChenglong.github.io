@@ -111,6 +111,219 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-02 </div>
+			<div class="article-title"><a href="/2015/09/02/go-使用gdb调试/" >go-使用gdb调试</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>编译</p>
+<pre><code>go build -gcflags &quot;-N -l&quot; test.go
+</code></pre></li>
+<li><p>调试</p>
+<pre><code>gdb test
+</code></pre></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://golang.org/doc/gdb" target="_blank" rel="external">http://golang.org/doc/gdb</a></li>
+<li><a href="http://blog.kenshinx.me/blog/go-gdb/" target="_blank" rel="external">mac下用gdb调试Go程序</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/02/go-使用gdb调试/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-01 </div>
+			<div class="article-title"><a href="/2015/09/01/ps/" >linux-ps</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li><p>破折号开头的为UNIX风格</p>
+</li>
+<li><p>不带破折号开头的为BSD风格</p>
+</li>
+<li><p>gnu long option，双破折号开头</p>
+</li>
+</ul>
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-e</p>
+<p>同<code>-A</code>完全一样，选择所有进程</p>
+</li>
+<li><p>-f</p>
+<p>输出所有信息</p>
+</li>
+<li><p>-j</p>
+<p>jobs格式，输出<code>PGID   SID  C STIME</code></p>
+</li>
+</ul>
+<p><strong>OUTPUT MODIFIERS</strong></p>
+<ul>
+<li><p>–forest</p>
+<p>进程树</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>查看当前用户进程</p>
+<pre><code>ps -f
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/01/ps/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-01 </div>
+			<div class="article-title"><a href="/2015/09/01/linux-环境变量/" >linux-环境变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="相关配置文件加载顺序"><a href="#相关配置文件加载顺序" class="headerlink" title="相关配置文件加载顺序"></a>相关配置文件加载顺序</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/enviroment =&gt; /etc/profile =&gt; /etc/bash.bashrc =&gt; /etc/profile =&gt; /etc/profile.d/*.sh</span><br><span class="line">=&gt; ~/.profile(~/.bash_profile, ~/.bash_login) =&gt; ~/.bashrc =&gt; ~/.bash_aliases =&gt; /etc/bash_completion</span><br></pre></td></tr></table></figure>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li><p>/etc/enviroment</p>
+<p>在系统一些核心组件加载完成后最先调用,系统级别的公共环境变量</p>
+</li>
+</ul>
+<ul>
+<li><p>/etc/profile</p>
+<p>在login shell时读取, 相当于是应用级的公共环境变量</p>
+</li>
+<li><p>~/.profile</p>
+<p>在shell被打开时, 次于/etc/profile执行, 相当于是应用级的用户环境变量</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/01/linux-环境变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-26 </div>
+			<div class="article-title"><a href="/2015/08/26/gcc-调试编译/" >gcc-调试编译</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>打印编译详细过程</p>
+<p>-v</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/26/gcc-调试编译/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-26 </div>
+			<div class="article-title"><a href="/2015/08/26/gcc-链接库顺序/" >gcc-链接库顺序</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>在gcc编译时,链接库的指定顺序会影响编译行为!</p>
+<p>gcc手册说明:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-l library</span><br><span class="line">       Search the library named library when linking.  (The second alternative with the library as a separate argument is only for POSIX compliance and is not</span><br><span class="line">       recommended.)</span><br><span class="line"></span><br><span class="line">       It makes a difference where in the command you write this option; the linker searches and processes libraries and object files in the order they are</span><br><span class="line">       specified.  Thus, foo.o -lz bar.o searches library z after file foo.o but before bar.o.  If bar.o refers to functions in z, those functions may not be</span><br><span class="line">       loaded.</span><br><span class="line"></span><br><span class="line">       The linker searches a standard list of directories for the library, which is actually a file named liblibrary.a.  The linker then uses this file as if</span><br><span class="line">       it had been specified precisely by name.</span><br><span class="line"></span><br><span class="line">       The directories searched include several standard system directories plus any that you specify with -L.</span><br><span class="line"></span><br><span class="line">       Normally the files found this way are library files---archive files whose members are object files.  The linker handles an archive file by scanning</span><br><span class="line">       through it for members which define symbols that have so far been referenced but not defined.  But if the file that is found is an ordinary object file,</span><br><span class="line">       it is linked in the usual fashion.  The only difference between using an -l option and specifying a file name is that -l surrounds library with lib and</span><br><span class="line">       .a and searches several directories.</span><br></pre></td></tr></table></figure>
+<p>理解:</p>
+<p>假设C依赖库A,B,库B依赖于库A,则链接的时候要写为:</p>
+<p>   gcc -o C -lB -lA</p>
+<p>若写成:</p>
+<p>   gcc -o C -lA -lB</p>
+<h1 id="链接时-符号寻找过程"><a href="#链接时-符号寻找过程" class="headerlink" title="链接时,符号寻找过程"></a>链接时,符号寻找过程</h1><ol>
+<li><p>根据库路径列表,依次找到需要链接的库</p>
+<ul>
+<li>若一个库在该路径列表中存在多个,则使用第一个找到的</li>
+</ul>
+</li>
+<li><p>从左向右,依次找寻符号定义</p>
+<ul>
+<li><code>gcc -o C -lB -lA</code>,符号搜寻过程是C=&gt;B, B=&gt;A</li>
+</ul>
+</li>
+</ol>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论!"></a>结论!</h1><p>在项目开发过层中尽量让lib是垂直关系,避免循环依赖,越是底层的库,越是往后面写</p>
+<pre><code>g++ ...  obj($?) -l(上层逻辑lib) -l(中间封装lib) -l(基础lib) -l(系统lib) -o $@
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.cnblogs.com/OCaml/archive/2012/06/18/2554086.html" target="_blank" rel="external">折腾gcc/g++链接时.o文件及库的顺序问题</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/08/26/gcc-链接库顺序/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-26 </div>
+			<div class="article-title"><a href="/2015/08/26/mysql-C开发/" >mysql-C开发</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="编译器参数"><a href="#编译器参数" class="headerlink" title="编译器参数"></a>编译器参数</h1><pre><code>mysql_config --cflags --libs
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/08/26/mysql-C开发/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-08-26 </div>
 			<div class="article-title"><a href="/2015/08/26/arch-修改键盘映射/" >arch-修改键盘映射</a></div>						
 		</h3>
@@ -240,179 +453,6 @@ KEYMAP=us
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-15 </div>
-			<div class="article-title"><a href="/2015/08/15/pthread-主线程等待线程组结束/" >pthread-主线程等待线程组结束</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; THREAD_NUM; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (pthread_create(&amp;tid[i], NULL, counter, (void *)&amp;i) != <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"pthread_create error"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; THREAD_NUM; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (pthread_join(tid[i], NULL) != <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"pthread_join error"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/11624545/how-to-make-main-thread-wait-for-all-child-threads-finish" target="_blank" rel="external">http://stackoverflow.com/questions/11624545/how-to-make-main-thread-wait-for-all-child-threads-finish</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/08/15/pthread-主线程等待线程组结束/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-15 </div>
-			<div class="article-title"><a href="/2015/08/15/多线程同步/" >多线程同步</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h1><ol>
-<li><p>子线程升序打印线程编号(主线程传进去的)</p>
-</li>
-<li><p>子线程升序打印全局变量</p>
-</li>
-</ol>
-<h1 id="未同步前"><a href="#未同步前" class="headerlink" title="未同步前"></a>未同步前</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> THREAD_NUM 10   <span class="comment">// 线程个数</span></span></span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;  <span class="comment">// 共享资源</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">counter</span><span class="params">(<span class="keyword">void</span> *arg)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num = *(int *)(arg);</span><br><span class="line"></span><br><span class="line">    sleep(<span class="number">1</span>);   <span class="comment">// 处理其他无需同步的操作</span></span><br><span class="line">    count++;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"线程编号: "</span> &lt;&lt; num &lt;&lt; <span class="string">":"</span> &lt;&lt; count &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return (void*)<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">pthread_t</span> tid[THREAD_NUM];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; THREAD_NUM; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (pthread_create(&amp;tid[i], NULL, counter, (void *)&amp;i) != <span class="number">0</span>) &#123;</span><br><span class="line">            perror(<span class="string">"pthread_create error"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sleep(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="../img/多线程同步-01.png" alt=""></p>
-<h2 id="原因及解决"><a href="#原因及解决" class="headerlink" title="原因及解决"></a>原因及解决</h2><ul>
-<li><p>创建子线程后,线程调度顺序不可预测(可能主线程先运行,也可能子线程先运行)</p>
-<p>解决: 同步主线程和子线程的运行顺序,使子线程运行后,主线程在运行</p>
-</li>
-<li><p>子线程对共享资源操作未同步</p>
-<p>解决: 对共享资源采取同步手段(互斥锁)</p>
-</li>
-</ul>
-<h1 id="同步后"><a href="#同步后" class="headerlink" title="同步后"></a>同步后</h1><h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2>
-	
-	</div>
-  <a type="button" href="/2015/08/15/多线程同步/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-15 </div>
-			<div class="article-title"><a href="/2015/08/15/systemd-coredump/" >systemd-coredump</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查看core文件</p>
-<pre><code>coredumpctl list
-</code></pre></li>
-<li><p>导出core文件</p>
-<pre><code>coredumpctl -o core dump PID
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/08/15/systemd-coredump/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-15 </div>
-			<div class="article-title"><a href="/2015/08/15/使用coredump调试/" >使用coredump调试</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>打开coredump生成功能</p>
-<pre><code>ulimit -c unlimited
-</code></pre></li>
-<li><p>查看core文件位置</p>
-<pre><code>cat /proc/sys/kernel/core_pattern
-</code></pre></li>
-<li><p>使用gdb调试</p>
-<pre><code>gdb -c core文件 程序
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/08/15/使用coredump调试/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-14 </div>
-			<div class="article-title"><a href="/2015/08/14/pthread/" >pthread</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>线程共享进程所有资源(文本段,数据段,堆,文件描述符等)</p>
-</li>
-<li><p>线程句柄<code>pthread_t</code>是一个结构,跟具体实现相关,不能直接拿来比较,需要使用<code>pthread_equal</code></p>
-</li>
-</ul>
-<h1 id="重要API"><a href="#重要API" class="headerlink" title="重要API"></a>重要API</h1><p>| 名称           | 功能                                                                               |<br>|—————-+————————————————————————————|<br>| pthread_create | 创建线程                                                                           |<br>| pthread_self   | 获取线程ID                                                                         |<br>| pthread_join   | 阻塞等待指定线程退出,获取其退出状态                                                |<br>| pthread_exit   | 线程主动退出                                                                       |<br>| pthread_cancel | 请求取消同一线程中的其他线程                                                       |<br>| pthread_detach | 使该进程处于分离状态(线程一旦终止,资源立马回收,不可调用pthread_join获取其退出状态) |</p>
-
-	
-	</div>
-  <a type="button" href="/2015/08/14/pthread/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-11 </div>
-			<div class="article-title"><a href="/2015/08/11/virtualbox-在win下服务启动/" >virtualbox-在win下服务启动</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>&quot;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&quot; startvm &quot;Arch-2015-06-19&quot; --type headless
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/08/11/virtualbox-在win下服务启动/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -465,7 +505,7 @@ KEYMAP=us
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -675,6 +715,8 @@ KEYMAP=us
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -706,48 +748,48 @@ KEYMAP=us
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
 		
-			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+			<li><a href="/tags/cron/">cron<span>2</span></a></li>
 		
-			<li><a href="/tags/rune/">rune<span>1</span></a></li>
+			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
 		
-			<li><a href="/tags/理解/">理解<span>1</span></a></li>
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
+			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
-			<li><a href="/tags/散列/">散列<span>1</span></a></li>
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
 		
-			<li><a href="/tags/串口/">串口<span>2</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
 		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
 		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/dns/">dns<span>1</span></a></li>
 		
-			<li><a href="/tags/vps/">vps<span>1</span></a></li>
+			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -760,23 +802,23 @@ KEYMAP=us
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

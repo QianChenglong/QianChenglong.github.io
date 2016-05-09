@@ -111,6 +111,185 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-21 </div>
+			<div class="article-title"><a href="/2015/10/21/mysql-查询技巧/" >mysql-查询技巧</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>关联查询时,使用<code>INNER JOIN &lt;table&gt; USING (&lt;column&gt;)</code></p>
+<ul>
+<li><code>select</code>结果列,去除了关联列,避免了使用<code>a.column</code></li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/21/mysql-查询技巧/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-20 </div>
+			<div class="article-title"><a href="/2015/10/20/go-windows下科学上网/" >go-windows下科学上网</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="通过设置环境变量代理"><a href="#通过设置环境变量代理" class="headerlink" title="通过设置环境变量代理"></a>通过设置环境变量代理</h1><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> HTTP_PROXY=http://<span class="number">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">1080</span></span><br><span class="line"><span class="built_in">set</span> HTTPS_PROXY=http://<span class="number">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">1080</span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/10/20/go-windows下科学上网/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-20 </div>
+			<div class="article-title"><a href="/2015/10/20/mysql-datetime/" >mysql-datetime</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p>mysql中有<code>DATE, TIME, DATETIME, TIMESTAMP, YEAR</code>5种时间类型</p>
+</li>
+<li><p>时间类型的零值<code>0000-00-00 00:00:00</code></p>
+</li>
+<li><p>mysql输出时间值时,默认为标准格式<code>2006-01-02 15:04:05</code></p>
+</li>
+<li><p>mysql读入时间值时(赋值, 比较等操作),会尝试转换各种值如<code>整数20151020</code>, <code>&quot;2015-10-20&quot;</code>等(<a href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-literals.html" target="_blank" rel="external">详见</a>)</p>
+</li>
+</ol>
+<h1 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h1><ol>
+<li><p>格式化时间值</p>
+<pre><code>select date_format(&apos;2015-10-20 16:00:04&apos;, &quot;%Y%m&quot;);
+</code></pre></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-literals.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.5/en/date-and-time-literals.html</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.5/en/storage-requirements.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.5/en/storage-requirements.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/20/mysql-datetime/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/http-content-encoding/" >http-content-encoding</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>用来说明内容编码</li>
+</ul>
+<h1 id="常见值"><a href="#常见值" class="headerlink" title="常见值"></a>常见值</h1><ul>
+<li><p>gzip(用于文本压缩传输)</p>
+</li>
+<li><p>MIME</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/10/19/http-content-encoding/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/http/" >http</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>http是请求-应答协议,只能客户端主动发起请求,服务端只负责应答</p>
+</li>
+<li><p>http请求包:状态行,头部,内容</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/10/19/http/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/http-chunked/" >http-chunked</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>在不指定<code>Content-Length</code>的情况下,来传输数据,常用来配合<code>gzip</code>使用,边压缩边传输</p>
+</li>
+<li><p>用一系列分块来传输。每个分块包含十六进制的长度值和数据，长度值独占一行，长度不包括它结尾的 CRLF（\r\n），<br>也不包括分块数据结尾的 CRLF。最后一个分块长度值必须为 0，对应的分块数据没有内容，表示实体结束</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%88%86%E5%9D%97%E4%BC%A0%E8%BE%93%E7%BC%96%E7%A0%81" target="_blank" rel="external">wiki-chunked</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/19/http-chunked/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-19 </div>
 			<div class="article-title"><a href="/2015/10/19/mysql-prepare-update部分更新/" >mysql-prepare-update部分更新</a></div>						
 		</h3>
@@ -279,228 +458,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-15 </div>
-			<div class="article-title"><a href="/2015/10/15/date/" >date</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>20060102150405(<code>golang style</code>)</p>
-<pre><code>date  +&quot;%Y%m%d%H%M%S&quot;
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/10/15/date/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-14 </div>
-			<div class="article-title"><a href="/2015/10/14/go-windows环境搭建/" >go-windows环境搭建</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p><a href="https://golang.org/dl/" target="_blank" rel="external">官网</a></p>
-</li>
-<li><p>解压到<code>E:\Soft\go\bin\go1.5.1.windows-amd64</code></p>
-</li>
-<li><p>设置环境变量</p>
-<pre><code>GOROOT=E:\Soft\go\bin\go1.4.2.windows-amd64\go
-GOPATH=E:\Soft\go\gopath
-PATH+=%GOROOT%\bin
-PATH+=%GOPATH%\bin
-</code></pre></li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/doc/install?download=go1.5.1.windows-amd64.zip" target="_blank" rel="external">https://golang.org/doc/install?download=go1.5.1.windows-amd64.zip</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/14/go-windows环境搭建/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-14 </div>
-			<div class="article-title"><a href="/2015/10/14/vim-go/" >vim-go</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="https://github.com/fatih/vim-go" target="_blank" rel="external">vim-go</a></p>
-<p>集成了众多go插件</p>
-</li>
-<li><p><a href="https://github.com/golang/lint" target="_blank" rel="external">lint</a></p>
-<p>代码质量检查</p>
-</li>
-<li><p><a href="https://github.com/jstemmer/gotags" target="_blank" rel="external">gotags</a></p>
-<p>生成tag文件</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/10/14/vim-go/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-13 </div>
-			<div class="article-title"><a href="/2015/10/13/go-gorilla-rpc/" >go-gorilla-rpc</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h1><ol>
-<li>外部接口</li>
-</ol>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s := rpc.NewServer() <span class="comment">// 定义一个rpc server</span></span><br><span class="line"></span><br><span class="line">s.RegisterCodec(json2.NewCustomCodec(&amp;rpc.CompressionSelector&#123;&#125;), <span class="string">"application/json"</span>)</span><br><span class="line"><span class="comment">// 定义一个codec(用来响应请求)</span></span><br><span class="line"><span class="comment">// 为rpc注册(当收到的http,`Content-Type`为`application/json`时,调用该codec响应处理)</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://github.com/gorilla/rpc" target="_blank" rel="external">https://github.com/gorilla/rpc</a></li>
-<li><a href="http://www.gorillatoolkit.org/pkg/rpc" target="_blank" rel="external">http://www.gorillatoolkit.org/pkg/rpc</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/13/go-gorilla-rpc/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-13 </div>
-			<div class="article-title"><a href="/2015/10/13/go-json/" >go-json</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>编码解码是相对于<code>json</code>字符串(<code>utf-8</code>编码的slice)来讲的</p>
-<ul>
-<li><p>编码=&gt;将<code>go</code>数据类型值转换为<code>json</code>字符串</p>
-</li>
-<li><p>解码=&gt;将<code>json</code>字符串转换为<code>go</code>中数据类型值</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h1><ul>
-<li><p><code>Marshal(v interface{}) ([]byte, error)</code></p>
-<p>编码</p>
-</li>
-<li><p><code>Unmarshal(data []byte, v interface{}) error</code></p>
-<p>解码</p>
-</li>
-<li><p><code>NewDecoder(r io.Reader) *Decoder</code> <code>(dec *Decoder) Decode(v interface{}) error</code></p>
-<p>从实现了<code>io.Reader</code>接口中的对象读取<code>json</code>字符串来解码</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.2.md" target="_blank" rel="external">build-web-application-with-golang 7.2 JSON处理</a></li>
-<li><a href="https://golang.org/pkg/encoding/json/" target="_blank" rel="external">https://golang.org/pkg/encoding/json/</a></li>
-<li><a href="https://godoc.org/github.com/bitly/go-simplejson" target="_blank" rel="external">https://godoc.org/github.com/bitly/go-simplejson</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/13/go-json/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-10 </div>
-			<div class="article-title"><a href="/2015/10/10/mysql-alias/" >mysql-alias</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>对目标列使用,</p>
-<ul>
-<li>输出列名可读性更强</li>
-</ul>
-</li>
-<li><p>对表名使用</p>
-<ul>
-<li><p>简写表名</p>
-</li>
-<li><p>同名表关联</p>
-</li>
-</ul>
-</li>
-<li><p>在select的目标输出列中(<code>select_expr</code>)</p>
-<ul>
-<li><p>别名可以在<code>GROUP BY</code>,<code>ORDER BY</code>,<code>HAVING</code>中使用</p>
-</li>
-<li><p>标准SQl不允许在<code>WHERE</code>中使用</p>
-<p>因为<code>WHERE</code>是执行的,而<code>SELECT</code>目标列是基于<code>WHERE</code>结果的,<br>所以<code>WHERE</code>中不能使用还没产生的别名!</p>
-</li>
-</ul>
-</li>
-<li><p><code>AS</code>可以省略</p>
-<pre><code>select id userid from user;
-select a.id from user a;
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.0/en/problems-with-alias.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/problems-with-alias.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/10/mysql-alias/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -553,7 +510,7 @@ select a.id from user a;
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -763,6 +720,8 @@ select a.id from user a;
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -794,48 +753,48 @@ select a.id from user a;
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
+			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
 		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
+			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
 		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
 		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/mysql/">mysql<span>34</span></a></li>
 		
-			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
+			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
 		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
-		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
 			<li><a href="/tags/warning/">warning<span>2</span></a></li>
 		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
+			<li><a href="/tags/C/">C++<span>26</span></a></li>
 		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
 		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+			<li><a href="/tags/net/">net<span>2</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/static/">static<span>1</span></a></li>
 		
-			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
 		
-			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
+			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+		
+			<li><a href="/tags/package/">package<span>4</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -848,23 +807,23 @@ select a.id from user a;
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

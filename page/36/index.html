@@ -111,6 +111,212 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-18 </div>
+			<div class="article-title"><a href="/2015/03/18/redis-学习资源/" >redis-学习资源</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>Redis设计与实现–黄健宏</p>
+<ul>
+<li><p><a href="http://weibo.com/huangz1990" target="_blank" rel="external">新浪微博</a></p>
+</li>
+<li><p><a href="http://redisbook.com/" target="_blank" rel="external">在线阅读</a></p>
+</li>
+<li><p><a href="https://github.com/huangz1990/redis-3.0-annotated" target="_blank" rel="external">redis-3.0带注释源码</a></p>
+</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/18/redis-学习资源/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-18 </div>
+			<div class="article-title"><a href="/2015/03/18/windows双击安装apk/" >windows双击安装apk</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p><a href="https://github.com/QianChenglong/apk-instll" target="_blank" rel="external">https://github.com/QianChenglong/apk-instll</a></p>
+
+	
+	</div>
+  <a type="button" href="/2015/03/18/windows双击安装apk/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-17 </div>
+			<div class="article-title"><a href="/2015/03/17/vim-学习资源/" >vim-学习资源</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><a href="http://learnvimscriptthehardway.stevelosh.com/" target="_blank" rel="external">http://learnvimscriptthehardway.stevelosh.com/</a></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/17/vim-学习资源/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-17 </div>
+			<div class="article-title"><a href="/2015/03/17/vim-执行外部程序/" >vim-执行外部程序</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h1><h2 id="版本1"><a href="#版本1" class="headerlink" title="版本1"></a>版本1</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">exe</span> <span class="string">'!cmd'</span></span><br></pre></td></tr></table></figure>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>达到初步要求</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li><p>vim被阻塞</p>
+</li>
+<li><p>当文件名包含非ASCII字符，且vim内部编码(utf-8)与shell编码(gbk)不一致时，报错：找不到该文件</p>
+</li>
+<li><p>不支持参数化，不能方便复用</p>
+</li>
+<li><p>不支持传入参数</p>
+</li>
+</ul>
+<h2 id="版本2"><a href="#版本2" class="headerlink" title="版本2"></a>版本2</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">exe</span> <span class="built_in">printf</span>(<span class="string">'!"%s"'</span>, filename)</span><br></pre></td></tr></table></figure>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>参数化</li>
+</ul>
+<h2 id="版本3"><a href="#版本3" class="headerlink" title="版本3"></a>版本3</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">exe</span> <span class="built_in">iconv</span>(<span class="built_in">printf</span>(<span class="string">'%s "%s" "%s"'</span>,</span><br><span class="line">            \ <span class="variable">g:cmd_runner</span>,</span><br><span class="line">            \ <span class="variable">b:interpreter</span>,</span><br><span class="line">            \ <span class="variable">b:exec_filename</span>,)</span><br><span class="line">            \ <span class="string">'utf-8'</span>, <span class="string">'chinese'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>支持中文</li>
+</ul>
+<h2 id="版本4"><a href="#版本4" class="headerlink" title="版本4"></a>版本4</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">exe</span> <span class="string">'!start cmd'</span></span><br></pre></td></tr></table></figure>
+<h3 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>非阻塞执行</li>
+</ul>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>执行控制台一闪而过，无法看见程序输出</li>
+</ul>
+<h2 id="版本5"><a href="#版本5" class="headerlink" title="版本5"></a>版本5</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exe iconv(printf(&apos;%s &quot;%s&quot; &quot;%s&quot;&apos;,</span><br><span class="line">            \ g:cmd_runner,</span><br><span class="line">            \ b:interpreter,</span><br><span class="line">            \ b:exec_filename,)</span><br><span class="line">            \ &apos;utf-8&apos;, &apos;chinese&apos;)</span><br></pre></td></tr></table></figure>
+<h3 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>控制台显示</li>
+</ul>
+<h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>显示了命令字符串</li>
+</ul>
+<h2 id="版本6"><a href="#版本6" class="headerlink" title="版本6"></a>版本6</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">exe</span> <span class="built_in">iconv</span>(<span class="built_in">printf</span>(<span class="string">'%s "%s" "%s" %s'</span>,</span><br><span class="line">            \ <span class="variable">g:cmd_runner</span>,</span><br><span class="line">            \ <span class="variable">b:interpreter</span>,</span><br><span class="line">            \ <span class="variable">b:exec_filename</span>,</span><br><span class="line">            \ <span class="variable">b:args</span>),</span><br><span class="line">            \ <span class="string">'utf-8'</span>, <span class="string">'chinese'</span>)</span><br></pre></td></tr></table></figure>
+<p>#说明</p>
+<h2 id="前置代码"><a href="#前置代码" class="headerlink" title="前置代码"></a>前置代码</h2><ul>
+<li><code>.vimrc</code></li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fun! IsWin()</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">has</span>(<span class="string">"win32"</span>) || <span class="built_in">has</span>(<span class="string">"win64"</span>)</span><br><span class="line"><span class="keyword">endf</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> IsWin()</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">g:cmd_runner</span> = <span class="string">'!start E:/OS/Windows/bin/cb_console_runner.exe'</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">g:cmd_runner</span> = <span class="string">'!gnome-terminal -x bash -c'</span></span><br><span class="line"><span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>ftplugin/python.vim</code></li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">b:python_version</span> = <span class="string">'27-32'</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">b:args</span> = <span class="string">''</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">b:exec_filename</span> = <span class="built_in">expand</span>(<span class="string">"%:p"</span>)</span><br><span class="line"><span class="keyword">if</span> IsWin()</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">b:interpreter</span> = <span class="built_in">printf</span>(<span class="string">'c:/python%s/python.exe'</span>, <span class="variable">b:python_version</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">b:interpreter</span> = <span class="string">'python2 -B'</span></span><br><span class="line"><span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/03/17/vim-执行外部程序/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-17 </div>
+			<div class="article-title"><a href="/2015/03/17/doxygen-配置使用/" >doxygen-配置使用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h1><ul>
+<li>graphviz(dot)</li>
+</ul>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="使用向导工具-推荐"><a href="#使用向导工具-推荐" class="headerlink" title="使用向导工具(推荐)"></a>使用向导工具(推荐)</h2><pre><code>doxywizard
+</code></pre><h2 id="手动修改配置文件"><a href="#手动修改配置文件" class="headerlink" title="手动修改配置文件"></a>手动修改配置文件</h2><ul>
+<li><p>生成配置文件模板</p>
+<pre><code>doxygen -g
+</code></pre></li>
+<li><p>修改配置文件<code>Doxyfile</code></p>
+</li>
+<li><p>生成doxygen</p>
+<p>doxygen</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/17/doxygen-配置使用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-17 </div>
+			<div class="article-title"><a href="/2015/03/17/各种闪存卡/" >各种闪存卡</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="SD"><a href="#SD" class="headerlink" title="SD"></a>SD</h1><p>数码相机</p>
+<p><img src="/img/各种闪存卡_01.png" alt=""></p>
+<h1 id="TF-TransFlash-MicroSD"><a href="#TF-TransFlash-MicroSD" class="headerlink" title="TF(TransFlash, MicroSD)"></a>TF(TransFlash, MicroSD)</h1><p>手机</p>
+<p><img src="/img/各种闪存卡_02.png" alt=""></p>
+
+	
+	</div>
+  <a type="button" href="/2015/03/17/各种闪存卡/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-17 </div>
 			<div class="article-title"><a href="/2015/03/17/USB各种接口/" >USB各种接口</a></div>						
 		</h3>
@@ -217,279 +423,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-11 </div>
-			<div class="article-title"><a href="/2015/03/11/VC-常见错误/" >VC-常见错误</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="lily-lib-WinSock-cpp-obj-error-LNK2038-检测到“-ITERATOR-DEBUG-LEVEL”的不匹配项-值“0”不匹配值“2”-dhcpcd-obj-中"><a href="#lily-lib-WinSock-cpp-obj-error-LNK2038-检测到“-ITERATOR-DEBUG-LEVEL”的不匹配项-值“0”不匹配值“2”-dhcpcd-obj-中" class="headerlink" title="lily.lib(WinSock.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(dhcpcd.obj 中)"></a><code>lily.lib(WinSock.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(dhcpcd.obj 中)</code></h1><ul>
-<li><p>原因：</p>
-<p><code>debug</code>版程序链接了<code>release</code>版库</p>
-<ul>
-<li>在<code>cmake</code>中，<code>TAGET_LINK_LIBRARIES</code>中，没有单独链接相应版本的库。</li>
-</ul>
-</li>
-<li><p>解决：</p>
-<p>重新设置对应的库名称</p>
-<ul>
-<li><p>cmake</p>
-<p>LIST(APPEND LIBS debug lilyd optimized lily)<br>TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${LIBS})</p>
-</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/11/VC-常见错误/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-11 </div>
-			<div class="article-title"><a href="/2015/03/11/proxifier-使用/" >proxifier-使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h1><ul>
-<li><p>打开代理服务器配置页面</p>
-<p><img src="/img/proxifier-使用_01.png" alt=""></p>
-</li>
-<li><p>配置代理服务器参数</p>
-<p><img src="/img/proxifier-使用_02.png" alt=""></p>
-</li>
-<li><p>打开规则编辑页面</p>
-<p><img src="/img/proxifier-使用_03.png" alt=""></p>
-</li>
-<li><p>添加规则</p>
-<p><img src="/img/proxifier-使用_04.png" alt=""></p>
-<p><strong>注：</strong></p>
-<ul>
-<li><p>需要将代理客户端程序放行(<code>Direct</code>)，避免回环</p>
-</li>
-<li><p><code>Default</code>设置为<code>Proxy</code>时，为全局代理</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://awy.me/2014/06/yong-shadowsocks-he-proxifier-zi-you-fang-wen-hu-lian-wang/" target="_blank" rel="external">http://awy.me/2014/06/yong-shadowsocks-he-proxifier-zi-you-fang-wen-hu-lian-wang/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/11/proxifier-使用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-10 </div>
-			<div class="article-title"><a href="/2015/03/10/cscope/" >cscope</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-b 只建立索引，不进入交互查询(默认进入交互查询模式)</p>
-</li>
-<li><p>-f reffile 指定输出文件名</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/10/cscope/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-09 </div>
-			<div class="article-title"><a href="/2015/03/09/doxygen使用流程简记/" >doxygen使用流程简记</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>生成配置文件模板</p>
-<pre><code>doxygen -g
-</code></pre></li>
-<li><p>修改配置文件<code>Doxyfile</code></p>
-</li>
-<li><p>生成doxygen</p>
-<p>doxygen</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/09/doxygen使用流程简记/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-09 </div>
-			<div class="article-title"><a href="/2015/03/09/doxygen常用修改选项/" >Doxygen常用修改选项</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>PROJECT_NAME</li>
-</ul>
-<p>项目名称</p>
-<ul>
-<li>PROJECT_NUMBER</li>
-</ul>
-<p>项目版本号</p>
-<ul>
-<li>OUTPUT_DIRECGTORY</li>
-</ul>
-<p>输出目录</p>
-<ul>
-<li>INPUT</li>
-</ul>
-<p>输入文件或目录，空格分隔</p>
-<ul>
-<li>RECURSIVE</li>
-</ul>
-<p>递归处理目录</p>
-<ul>
-<li><p>HAVE_DOT</p>
-</li>
-<li><p>CALL_GRAPH</p>
-</li>
-</ul>
-<p>调用图</p>
-
-	
-	</div>
-  <a type="button" href="/2015/03/09/doxygen常用修改选项/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-09 </div>
-			<div class="article-title"><a href="/2015/03/09/iptables/" >iptables-命令简记</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>多张表(filter, nat, mangle等)，最重要的是<code>filter</code>(<code>INPUT</code>, <code>FORWARD</code>, <code>OUTPUT</code>)用来制定本机规则</li>
-</ul>
-<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-n IP数字显示，避免DNS查询，加快查看速度</p>
-</li>
-<li><p>–line-numbers 显示规则编号</p>
-</li>
-<li><p>-L 列出规则</p>
-</li>
-<li><p>-D 删除规则</p>
-</li>
-<li><p>-A 追加到链尾</p>
-</li>
-<li><p>-I 加到链头</p>
-</li>
-</ul>
-<h1 id="查看类"><a href="#查看类" class="headerlink" title="查看类"></a>查看类</h1><ul>
-<li><p>查看规则(默认操作filter表)</p>
-<pre><code>iptables -L
-
-iptables-save -t filter
-</code></pre></li>
-</ul>
-<h1 id="删除类"><a href="#删除类" class="headerlink" title="删除类"></a>删除类</h1><ul>
-<li><p>删除指定链规则</p>
-<pre><code>iptables -D FORWARD 1(删除FORWARD链中的第一条规则)
-</code></pre></li>
-<li><p>清除所有已定义的规则</p>
-<pre><code>iptables -F
-</code></pre></li>
-<li><p>清除自定义规则</p>
-<pre><code>iptables -X
-</code></pre></li>
-<li><p>将所有的chain计数和流量统计归零</p>
-<pre><code>iptables -Z
-</code></pre></li>
-</ul>
-<h1 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h1><ul>
-<li><p>INPUT链，默认政策：DROP</p>
-<pre><code>iptables -P INPUT DROP
-</code></pre></li>
-<li><p>INPUT链，接口：本地环回(lo), ACCEPT</p>
-<pre><code>iptalbes -A INPUT -i lo -j ACCEPT
-</code></pre></li>
-<li><p>INPUT链，接口：以太网口(eth0)，源IP：192.168.1.67, ACCEPT</p>
-<pre><code>iptables -A INPUT -i eth0 -s 192.168.1.67 -j ACCEPT
-</code></pre></li>
-<li><p>INPUT链，接口：以太网口(eth0)，源IP段：192.168.1.0/24, ACCEPT</p>
-<pre><code>iptables -A INPUT -i eth0 -s 192.168.1.0/24 -j ACCEPT
-</code></pre></li>
-<li><p>INPUT链，源IP段：192.168.1.0/24, TCP, 目的端口:80, ACCEPT</p>
-<pre><code>iptables -A INPUT -s 192.168.1.0/24 -p tcp -dport 80 -j ACCEPT
-</code></pre></li>
-</ul>
-<h1 id="保存规则"><a href="#保存规则" class="headerlink" title="保存规则"></a>保存规则</h1><pre><code>iptables-save
-</code></pre><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>添加多个端口</p>
-<pre><code>iptables -A INPUT -p tcp --match multiport --dports 80,22,53 -j ACCEPT
-</code></pre></li>
-<li><p>添加端口区间</p>
-<pre><code>iptables -I INPUT -i eth1 -p tcp -m tcp --dport 6000:8000 -j ACCEPT
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/09/iptables/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -542,7 +475,7 @@ iptables-save -t filter
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -752,6 +685,8 @@ iptables-save -t filter
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -783,48 +718,48 @@ iptables-save -t filter
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>6</span></a></li>
 		
-			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
 		
-			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
 		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
 		
-			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+			<li><a href="/tags/http/">http<span>11</span></a></li>
 		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
+			<li><a href="/tags/domain/">domain<span>3</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>2</span></a></li>
+			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
 		
-			<li><a href="/tags/command/">command<span>8</span></a></li>
+			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/database/">database<span>3</span></a></li>
 		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
 		
-			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
 		
-			<li><a href="/tags/T/">_T<span>1</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
-			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -837,23 +772,23 @@ iptables-save -t filter
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

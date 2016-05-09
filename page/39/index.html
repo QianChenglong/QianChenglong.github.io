@@ -111,6 +111,223 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-02 </div>
+			<div class="article-title"><a href="/2015/03/02/windows-UNICODE和_UNICODE作用/" >windows-UNICODE和_UNICODE作用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="共性"><a href="#共性" class="headerlink" title="共性"></a>共性</h1><p>这两个宏都是为了控制API是使用UNICODE版还是ANSI版。</p>
+<ul>
+<li><p>若定义了，则相关的API为<code>*W</code>版本(UNICODE版)，如<code>GetWindowTextW</code></p>
+</li>
+<li><p>若未定义，则相关的API为<code>*A</code>版本(ANSI版)，如<code>GetWindowTextA</code></p>
+</li>
+</ul>
+<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ul>
+<li><p><code>UNICODE</code>宏影响windows API</p>
+</li>
+<li><p><code>_UNICODE</code>宏影响C运行库以及MFC，作用与<code>UNICODE</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blogs.msdn.com/b/oldnewthing/archive/2004/02/12/71851.aspx" target="_blank" rel="external">http://blogs.msdn.com/b/oldnewthing/archive/2004/02/12/71851.aspx</a></li>
+<li><a href="http://www.cnblogs.com/ini_always/archive/2011/05/20/2050517.html" target="_blank" rel="external">http://www.cnblogs.com/ini_always/archive/2011/05/20/2050517.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/02/windows-UNICODE和_UNICODE作用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-02 </div>
+			<div class="article-title"><a href="/2015/03/02/windows-WSA是什么意思/" >windows-WSA是什么意思</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<blockquote>
+<p>Windows Sockets API</p>
+</blockquote>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.acronymfinder.com/Windows-Sockets-API-(aka-Winsock-Application)-(WSA).html" target="_blank" rel="external">http://www.acronymfinder.com/Windows-Sockets-API-(aka-Winsock-Application)-(WSA).html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/02/windows-WSA是什么意思/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-28 </div>
+			<div class="article-title"><a href="/2015/02/28/C-locale作用/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		
+	
+	</div>
+  <a type="button" href="/2015/02/28/C-locale作用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-28 </div>
+			<div class="article-title"><a href="/2015/02/28/mbtowc/" >mbtowc</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>用来解决ANSI编码和wchar相关字符编码问题</p>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>因为ANSI并不是一种固定的编码方式，其取决于当前LOCALE。</p>
+<p>所以<code>mbtowc</code>根据<code>LC_CTYPE</code>来决定<strong>源</strong>的编码方式，将其转换为<code>wchar</code>。</p>
+<p>程序默认启动<code>LC_ALL</code>为<code>C</code>。</p>
+<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><ul>
+<li><p>标准IO</p>
+<p>当使用wchar提供的宽字节版的IO操作函数时，内部需要使用mbtowc族函数进行编码转换</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.cplusplus.com/reference/cstdlib/mbtowc/" target="_blank" rel="external">http://www.cplusplus.com/reference/cstdlib/mbtowc/</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_4723adba0100hnb4.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4723adba0100hnb4.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/28/mbtowc/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-28 </div>
+			<div class="article-title"><a href="/2015/02/28/wprintf和printf问题/" >wprintf和printf问题</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>两个函数若不经过处理，混合使用将导致另一方的输出无法显示。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>因为每个标准IO流都具有一个<strong>面向</strong>属性(面向单字节，面向宽字节)，不能混合！</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/8681623/printf-and-wprintf-in-single-c-code" target="_blank" rel="external">http://stackoverflow.com/questions/8681623/printf-and-wprintf-in-single-c-code</a></li>
+<li><a href="http://www.gnu.org/savannah-checkouts/gnu/libc/manual/html_node/Streams-and-I18N.html" target="_blank" rel="external">http://www.gnu.org/savannah-checkouts/gnu/libc/manual/html_node/Streams-and-I18N.html</a></li>
+<li><a href="http://pubs.opengroup.org/onlinepubs/009696699/functions/xsh_chap02_05.html" target="_blank" rel="external">http://pubs.opengroup.org/onlinepubs/009696699/functions/xsh_chap02_05.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/28/wprintf和printf问题/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-28 </div>
+			<div class="article-title"><a href="/2015/02/28/编译器与字符编码/" >编译器与字符编码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h1><h2 id="源码字符集-the-source-character-set"><a href="#源码字符集-the-source-character-set" class="headerlink" title="源码字符集(the source character set)"></a>源码字符集(the source character set)</h2><p>源码文件是使用何种编码保存的</p>
+<h2 id="执行字符集-the-execution-character-set"><a href="#执行字符集-the-execution-character-set" class="headerlink" title="执行字符集(the execution character set)"></a>执行字符集(the execution character set)</h2><p>可执行程序内保存的是何种编码(程序执行时内存中字符串编码)</p>
+<h1 id="问题产生的背景"><a href="#问题产生的背景" class="headerlink" title="问题产生的背景"></a>问题产生的背景</h1><p>C或C++中没有对源码字符集，执行字符集做规定，导致不同的编译器标准不统一</p>
+<ul>
+<li><p>GCC</p>
+<ul>
+<li><p>源码字符集和执行字符集默认都为UTF-8</p>
+</li>
+<li><p>且都可以手动指定(-finput-charset, -fexec-charset)</p>
+</li>
+</ul>
+</li>
+<li><p>MSVC</p>
+<ul>
+<li><p>源码字符集，有BOM么，有则按BOM解释，无则使用本地Locale字符集(随系统设置而变</p>
+</li>
+<li><p>执行字符集，使用本地Locale字符集(随系统设置而变)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="wchar"><a href="#wchar" class="headerlink" title="wchar"></a>wchar</h1><p><code>wchar</code>采用unicode编码，具体编码方案与OS相关</p>
+<ul>
+<li>linux</li>
+</ul>
+<p>采用UTF-32LE存储</p>
+<ul>
+<li>windows</li>
+</ul>
+<p>采用UTF-16LE存储</p>
+<h2 id="与编译器相关"><a href="#与编译器相关" class="headerlink" title="与编译器相关"></a>与编译器相关</h2><ul>
+<li><p>对单字节字符串(<code>char*</code>)，编译器什么也不做，原样复制</p>
+</li>
+<li><p>对宽字节字符串(<code>wchar_t*</code>)，编译器需要转换</p>
+<ul>
+<li><p>GCC</p>
+<p>根据源文件编码，将其转换为内部编码(UTF-32LE)</p>
+</li>
+<li><p>MSVC</p>
+<p>源文件需为UTF-8或ANSI编码，将其转换为内部编码(UTF-16LE)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.csdn.net/dbzhang800/article/details/7540905" target="_blank" rel="external">http://blog.csdn.net/dbzhang800/article/details/7540905</a></li>
+<li><a href="http://jeffreyloo.blog.163.com/blog/static/121761670201061721939955/" target="_blank" rel="external">C/C++ 编译后的二进制程序中字符串的保存方式</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/28/编译器与字符编码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-28 </div>
 			<div class="article-title"><a href="/2015/02/28/Latin-1/" >Latin-1</a></div>						
 		</h3>
@@ -224,221 +441,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-27 </div>
-			<div class="article-title"><a href="/2015/02/27/vim-unicode-BOM设置/" >vim-unicode-BOM设置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查询当前文件是否带有BOM标记</p>
-<pre><code>:set bomb?
-</code></pre></li>
-<li><p>添加BOM</p>
-<pre><code>:set bomb
-</code></pre></li>
-<li><p>去除BOM</p>
-<pre><code>:set nobomb
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cnblogs.com/ini_always/archive/2011/12/24/2300621.html" target="_blank" rel="external">http://www.cnblogs.com/ini_always/archive/2011/12/24/2300621.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/27/vim-unicode-BOM设置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-27 </div>
-			<div class="article-title"><a href="/2015/02/27/od/" >od</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-t TYPE</p>
-<p>指定输出格式，<br>TYPE由进制和多少字节组合决定，如x1，则以十六进制，每次输出1字节</p>
-<ul>
-<li>a named character</li>
-<li>c ASCII character or backslash escape</li>
-<li>d signed decimal</li>
-<li>f floating point</li>
-<li>o octal</li>
-<li>u unsigned decimal</li>
-<li>x hexadecimal</li>
-<li>C char</li>
-<li>S short</li>
-<li>I int</li>
-<li>L long</li>
-<li>For floating point (f):</li>
-<li>F float</li>
-<li>D double</li>
-<li>L long double</li>
-</ul>
-</li>
-<li><p>-w BYTES</p>
-<p>指定一行的宽度</p>
-</li>
-<li><p>-A, –address-radix=radix</p>
-<p>指定文件偏移量显示的基数(d,o,x)</p>
-</li>
-<li><p>-j, –skip-bytes=BYTE</p>
-<p>从BYTE（文件偏移量）开始显示</p>
-</li>
-<li><p>-c</p>
-<p>把元素的内容按照ASCII码解释成对应的字符</p>
-</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>十六进制，按字节输出，并输出对应的ASCII字符</p>
-<pre><code>od -t x1 -c foo
-</code></pre></li>
-<li><p>同时按几种方式输出</p>
-<pre><code>od -tx1 -tc foo
-</code></pre></li>
-<li><p>跳过指定字节</p>
-<pre><code>od -Ax -tx1 -tc -j 0x065c main |less
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/27/od/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-27 </div>
-			<div class="article-title"><a href="/2015/02/27/socket常用宏/" >socket常用宏</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 宏名            | 值         | winsock2               | linux                     |<br>|—————–+————+————————+—————————|<br>| AF_INET         | 2          | winsock2.h =&gt; ws2def.h | socket.h =&gt; bits/socket.h |<br>| INADDR_LOOPBACK | 0x7f000001 | winsock2.h =&gt; ws2def.h | netinet/in.h              |<br>| SOCKET_ERROR    | -1         | winsock2.h             | 无                        |</p>
-
-	
-	</div>
-  <a type="button" href="/2015/02/27/socket常用宏/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-13 </div>
-			<div class="article-title"><a href="/2015/02/13/python-list转string/" >python-list转string</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string = <span class="string">' '</span>.join(list)</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/02/13/python-list转string/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-13 </div>
-			<div class="article-title"><a href="/2015/02/13/cscope-使用/" >cscope-使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="配合find使用"><a href="#配合find使用" class="headerlink" title="配合find使用"></a>配合find使用</h1><ul>
-<li><p>生成文件列表</p>
-<pre><code>find src lib -type f -name &quot;*.[ch]&quot; -fprint cscope.files
-</code></pre></li>
-<li><p>生成数据库</p>
-<pre><code>cscope -bqf .cscope.out
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/13/cscope-使用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-13 </div>
-			<div class="article-title"><a href="/2015/02/13/windows-常用命令/" >windows-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查看文件属性</p>
-<pre><code>attrib
-</code></pre></li>
-<li><p>计划任务</p>
-<pre><code>taskschd.msc
-</code></pre></li>
-<li><p>设备管理器</p>
-<pre><code>devmgmt.msc
-</code></pre></li>
-<li><p>查看系统信息</p>
-<pre><code>msinfo32
-</code></pre></li>
-<li><p>查看dll导出符号表</p>
-<pre><code>dumpbin /exports filename
-</code></pre></li>
-<li><p>导出注册表项</p>
-<pre><code>regedit /e test.reg HKEY_CURRENT_USER\Environment
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/13/windows-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -491,7 +493,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -701,6 +703,8 @@
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -732,48 +736,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/产品/">产品<span>1</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
+			<li><a href="/tags/len/">len()<span>1</span></a></li>
 		
-			<li><a href="/tags/static/">static<span>1</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
-			<li><a href="/tags/pip/">pip<span>2</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
+			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
 		
 			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
 		
-			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
 		
-			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
+			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
 		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
+			<li><a href="/tags/安装/">安装<span>3</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+			<li><a href="/tags/command/">command<span>8</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
 		
-			<li><a href="/tags/gdb/">gdb<span>3</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -786,23 +790,23 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

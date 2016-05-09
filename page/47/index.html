@@ -111,6 +111,172 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-26 </div>
+			<div class="article-title"><a href="/2015/01/26/python-ImportError-No-module-named-curses/" >python-ImportError-No-module-named-_curses</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>python中的<code>curses</code>不支持windows</p>
+<p>参考：</p>
+<ol>
+<li><a href="https://docs.python.org/2/library/curses.html" target="_blank" rel="external">https://docs.python.org/2/library/curses.html</a></li>
+</ol>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>安装拓展包，参见{ iLink title:python-install-curses-on-windows %}</p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/26/python-ImportError-No-module-named-curses/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-26 </div>
+			<div class="article-title"><a href="/2015/01/26/python-install-curses-on-windows/" >python-install-curses-on-windows</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h1><ul>
+<li><p>python2.7-32bit</p>
+</li>
+<li><p>win7</p>
+</li>
+</ul>
+<h1 id="Step"><a href="#Step" class="headerlink" title="Step"></a>Step</h1><ul>
+<li><p><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#curses" target="_blank" rel="external">Download corresponding package</a></p>
+<p>In my environment, I downloaded <code>curses-2.2-cp27-none-win32.whl</code>.</p>
+</li>
+<li><p><code>cd</code> to download directory and Install it</p>
+<pre><code>pip install curses-2.2-cp27-none-win32.whl
+</code></pre></li>
+</ul>
+<h1 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h1><ul>
+<li><a href="http://stackoverflow.com/users/812183/anthony-sottile" target="_blank" rel="external">Anthony Sottile</a></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/26/python-install-curses-on-windows/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-26 </div>
+			<div class="article-title"><a href="/2015/01/26/cmake-Disable Warning Manually-specified variables were not used by the project/" >cmake-Disable Warning Manually-specified variables were not used by the project</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>添加命令行参数<code>--no-warn-unused-cli</code></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/14757506/cmake-toolchain-file-was-not-used-by-the-project" target="_blank" rel="external">http://stackoverflow.com/questions/14757506/cmake-toolchain-file-was-not-used-by-the-project</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/26/cmake-Disable Warning Manually-specified variables were not used by the project/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-24 </div>
+			<div class="article-title"><a href="/2015/01/24/git-push-warning/" >git-push-warning</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="warning-push-default-is-unset"><a href="#warning-push-default-is-unset" class="headerlink" title="warning: push.default is unset;"></a>warning: push.default is unset;</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">warning: push.default is unset; its implicit value is changing in</span><br><span class="line">Git 2.0 from &apos;matching&apos; to &apos;simple&apos;. To squelch this message</span><br><span class="line">and maintain the current behavior after the default changes, use:</span><br><span class="line"></span><br><span class="line">  git config --global push.default matching</span><br><span class="line"></span><br><span class="line">To squelch this message and adopt the new behavior now, use:</span><br><span class="line"></span><br><span class="line">  git config --global push.default simple</span><br><span class="line"></span><br><span class="line">When push.default is set to &apos;matching&apos;, git will push local branches</span><br><span class="line">to the remote branches that already exist with the same name.</span><br><span class="line"></span><br><span class="line">In Git 2.0, Git will default to the more conservative &apos;simple&apos;</span><br><span class="line">behavior, which only pushes the current branch to the corresponding</span><br><span class="line">remote branch that &apos;git pull&apos; uses to update the current branch.</span><br></pre></td></tr></table></figure>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ul>
+<li><p>默认只推送当前分支</p>
+<pre><code>git config --global push.default simple
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/24/git-push-warning/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-24 </div>
+			<div class="article-title"><a href="/2015/01/24/vim-script编码规范/" >vim-script编码规范</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://google-styleguide.googlecode.com/svn/trunk/vimscriptguide.xml" target="_blank" rel="external">http://google-styleguide.googlecode.com/svn/trunk/vimscriptguide.xml</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/24/vim-script编码规范/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-24 </div>
+			<div class="article-title"><a href="/2015/01/24/python-module和package/" >python-module和package</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>A module is a single file (or files) that are imported under one import and used. e.g.</p>
+<pre><code>import my_module
+</code></pre><p>A package is a collection of modules in directories that give a package hierarchy.</p>
+<pre><code>from my_package.timing.danger.internets import function_of_love
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/01/24/python-module和package/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-24 </div>
 			<div class="article-title"><a href="/2015/01/24/python-编码规范/" >python-编码规范</a></div>						
 		</h3>
@@ -257,200 +423,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-23 </div>
-			<div class="article-title"><a href="/2015/01/23/vim-syntastic检查器列表/" >vim-syntastic检查器列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><ul>
-<li><p>autopep8</p>
-<p>自动修复代码为<code>pep8</code>规范</p>
-</li>
-<li><p>flake8</p>
-<p>代码规范检查</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/23/vim-syntastic检查器列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-23 </div>
-			<div class="article-title"><a href="/2015/01/23/c++-内存管理/" >C++-内存管理</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>多使用RAII(资源获取即初始化)</p>
-</li>
-<li><p>析构函数LOG打印，确认被调用</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/23/c++-内存管理/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-23 </div>
-			<div class="article-title"><a href="/2015/01/23/win下编译boost/" >win下编译boost</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li>VS2010</li>
-<li>boost-1.57.0</li>
-</ul>
-<h1 id="编译Boost"><a href="#编译Boost" class="headerlink" title="编译Boost"></a>编译Boost</h1><ol>
-<li><p><a href="http://www.boost.org/" target="_blank" rel="external">官网</a>下载源码</p>
-</li>
-<li><p>解压文件</p>
-</li>
-<li><p>进入根目录</p>
-</li>
-<li><p>运行配置工具生成文件</p>
-<ul>
-<li><p>Windows:bootstap.bat</p>
-</li>
-<li><p>Linux:bootstrap.sh</p>
-</li>
-</ul>
-</li>
-<li><p>编译，安装</p>
-<ul>
-<li><p>VS2005</p>
-<pre><code>bjam --toolset=msvc-8.0 --prefix=D:\Boost_XXX --build-type=complete install
-</code></pre></li>
-<li><p>VS2008</p>
-<pre><code>bjam --toolset=msvc-9.0 --prefix=D:\Boost_XXX --build-type=complete install
-</code></pre></li>
-<li><p>VS2010</p>
-<pre><code>bjam --toolset=msvc-10.0 --prefix=D:\Boost_XXX --build-type=complete install
-</code></pre></li>
-<li><p>VS2012</p>
-<pre><code>bjam --toolset=msvc-11.0 --prefix=D:\Boost_XXX --build-type=complete install
-</code></pre></li>
-</ul>
-</li>
-</ol>
-<p><strong>Note:</strong></p>
-<ul>
-<li><p>清除</p>
-<pre><code>bjam.exe --clean
-</code></pre></li>
-</ul>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ol>
-<li><p>配置IDE</p>
-<p><img src="/img/win下编译boost-01.png" alt="头文件"><br><img src="/img/win下编译boost-02.png" alt="库文件"></p>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/23/win下编译boost/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-22 </div>
-			<div class="article-title"><a href="/2015/01/22/gtest-输出xml/" >gtest-输出xml</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>test.exe  --gtest_output=&quot;xml:report.xml&quot;
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/01/22/gtest-输出xml/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-22 </div>
-			<div class="article-title"><a href="/2015/01/22/gtest-xml彩色显示/" >gtest-xml彩色显示</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p><a href="https://github.com/QianChenglong/gtest-xml-patch" target="_blank" rel="external">https://github.com/QianChenglong/gtest-xml-patch</a></p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/22/gtest-xml彩色显示/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-22 </div>
-			<div class="article-title"><a href="/2015/01/22/chrome-xml加载本地文件/" >chrome-xml加载本地文件</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>chrome为了安全，默认不允许加载本地文件</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>添加启动参数<code>--allow-file-access-from-files</code></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/3828898/can-chrome-be-made-to-perform-an-xsl-transform-on-a-local-file" target="_blank" rel="external">http://stackoverflow.com/questions/3828898/can-chrome-be-made-to-perform-an-xsl-transform-on-a-local-file</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/22/chrome-xml加载本地文件/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -503,7 +475,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -713,6 +685,8 @@
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -744,48 +718,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/c99/">c99<span>1</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
 		
-			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
-		
-			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
-		
-			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
-		
-			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
-		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
-		
-			<li><a href="/tags/sal/">sal<span>1</span></a></li>
-		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
-		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
-		
-			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
-		
-			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
-		
-			<li><a href="/tags/aes/">aes<span>1</span></a></li>
-		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
-		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
 		
 			<li><a href="/tags/limit/">limit<span>2</span></a></li>
 		
-			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
 		
-			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+		
+			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+		
+			<li><a href="/tags/json/">json<span>4</span></a></li>
+		
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+		
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+		
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+		
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+		
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+		
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+		
+			<li><a href="/tags/str/">str<span>1</span></a></li>
+		
+			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
+		
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+		
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -798,23 +772,23 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

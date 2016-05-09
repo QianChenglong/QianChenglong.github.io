@@ -111,6 +111,219 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-29 </div>
+			<div class="article-title"><a href="/2015/01/29/nautilus-隐藏指定文件/" >nautilus-隐藏指定文件</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>添加要隐藏的文件到<code>.hidden</code></p>
+<pre><code>echo &apos;$RECYCLE.BIN&apos; &gt;&gt;.hidden
+</code></pre></li>
+<li><p><code>F5</code>刷新即可</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://askubuntu.com/questions/143315/how-to-hide-files-and-folders-in-nautilus" target="_blank" rel="external">http://askubuntu.com/questions/143315/how-to-hide-files-and-folders-in-nautilus</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/29/nautilus-隐藏指定文件/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-29 </div>
+			<div class="article-title"><a href="/2015/01/29/ubuntu-nautilus快捷键打开terminal/" >ubuntu-nautilus快捷键打开terminal</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>ubuntu-14.04</p>
+</li>
+<li><p>nautilus-3.10.1</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li><p>安装<code>nautilus-open-terminal</code></p>
+<pre><code>sudo apt-get install nautilus-open-terminal
+</code></pre></li>
+<li><p>退出nautilus</p>
+<pre><code>nautilus -q
+</code></pre></li>
+<li><p>编辑配置文件</p>
+<pre><code>gvim ~/.config/nautilus/accels
+</code></pre></li>
+<li><p>反注释掉该行，并添加映射</p>
+<p>(gtk_accel_path “<actions>/ExtensionsMenuGroup/NautilusOpenTerminal::open_terminal” “F4”)</actions></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/29/ubuntu-nautilus快捷键打开terminal/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-28 </div>
+			<div class="article-title"><a href="/2015/01/28/linux-查看域名对应IP/" >linux-查看域名对应IP</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="nslookup"><a href="#nslookup" class="headerlink" title="nslookup"></a>nslookup</h1><p>不使用<code>/etc/hosts</code>文件</p>
+<h1 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h1><h1 id="getent"><a href="#getent" class="headerlink" title="getent"></a>getent</h1><pre><code>getent ahosts www.baidu.com
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://superuser.com/questions/106901/added-entry-to-hosts-file-ubuntu-can-ping-ok-cannot-nslookup" target="_blank" rel="external">http://superuser.com/questions/106901/added-entry-to-hosts-file-ubuntu-can-ping-ok-cannot-nslookup</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/28/linux-查看域名对应IP/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-28 </div>
+			<div class="article-title"><a href="/2015/01/28/ubuntu-查看文件所属/" >ubuntu-查看文件所属</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>安装<code>apt-file</code></p>
+<pre><code>sudo apt-get install apt-file
+</code></pre></li>
+<li><p>更新数据库</p>
+<pre><code>sudo apt-file update
+</code></pre></li>
+<li><p>查询</p>
+<pre><code>apt-file search /usr/include/arpa/inet.h
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://superuser.com/questions/10997/find-what-package-a-file-belongs-to-in-ubuntu-debian" target="_blank" rel="external">http://superuser.com/questions/10997/find-what-package-a-file-belongs-to-in-ubuntu-debian</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/28/ubuntu-查看文件所属/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-28 </div>
+			<div class="article-title"><a href="/2015/01/28/linux-添加域名映射/" >linux-添加域名映射</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>sudo echo &quot;192.192.192.243 svn.meichuan.com&quot; &gt;&gt;/etc/hosts
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/01/28/linux-添加域名映射/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-28 </div>
+			<div class="article-title"><a href="/2015/01/28/tar/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><h3 id="功能字符"><a href="#功能字符" class="headerlink" title="功能字符"></a>功能字符</h3><p>必须指定1个，可以指定多个，多个可以连在一起，前面的’-‘不是必需的</p>
+<p>-A<br>    追加tar文件到一个archive</p>
+<p>-r<br>    追加files到archive</p>
+<p>-c<br>    创建新的archive</p>
+<p>-x<br>    解包并解压</p>
+<p>-t<br>    查看包内容</p>
+<p>###选项</p>
+<p>-a<br>    根据包名字后缀自动选择相应的压缩程序</p>
+<p>-f archive</p>
+<pre><code>指定包名字，打包就是目的包名字，解包就是要解包的包名字
+</code></pre><p>-C dir<br>    解包到指定目录</p>
+<p>-p<br>    保留文件权限，属性信息</p>
+<p>-P<br>    不拿掉绝对路径前面的’/‘</p>
+<h3 id="压缩选项"><a href="#压缩选项" class="headerlink" title="压缩选项"></a>压缩选项</h3><p>-z<br>    gzip</p>
+<p>-j<br>    bzip2</p>
+<p>-J<br>    xz</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ul>
+<li><p>解压，解包</p>
+<pre><code>tar xf *.tar.gz
+</code></pre></li>
+<li><p>将当前目录打包，压缩</p>
+<pre><code>tar vczf tar.tar.gz .
+</code></pre></li>
+<li><p>解开包中某一个文件</p>
+<ul>
+<li><p>先查看文件</p>
+<pre><code>tar tf tar.tar.gz | grep tar
+</code></pre></li>
+<li><p>再解压指定文件</p>
+<pre><code>tar vxzf tar.tar.gz .tar实例.swp
+</code></pre></li>
+</ul>
+</li>
+<li><p>给当前目录下，某个文件夹打包压缩</p>
+<pre><code>tar vczf src.tar.gz src
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/28/tar/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-27 </div>
 			<div class="article-title"><a href="/2015/01/27/python-遍历目录/" >python-遍历目录</a></div>						
 		</h3>
@@ -246,172 +459,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-26 </div>
-			<div class="article-title"><a href="/2015/01/26/python-ImportError-No-module-named-curses/" >python-ImportError-No-module-named-_curses</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>python中的<code>curses</code>不支持windows</p>
-<p>参考：</p>
-<ol>
-<li><a href="https://docs.python.org/2/library/curses.html" target="_blank" rel="external">https://docs.python.org/2/library/curses.html</a></li>
-</ol>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>安装拓展包，参见{ iLink title:python-install-curses-on-windows %}</p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/26/python-ImportError-No-module-named-curses/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-26 </div>
-			<div class="article-title"><a href="/2015/01/26/python-install-curses-on-windows/" >python-install-curses-on-windows</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h1><ul>
-<li><p>python2.7-32bit</p>
-</li>
-<li><p>win7</p>
-</li>
-</ul>
-<h1 id="Step"><a href="#Step" class="headerlink" title="Step"></a>Step</h1><ul>
-<li><p><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#curses" target="_blank" rel="external">Download corresponding package</a></p>
-<p>In my environment, I downloaded <code>curses-2.2-cp27-none-win32.whl</code>.</p>
-</li>
-<li><p><code>cd</code> to download directory and Install it</p>
-<pre><code>pip install curses-2.2-cp27-none-win32.whl
-</code></pre></li>
-</ul>
-<h1 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h1><ul>
-<li><a href="http://stackoverflow.com/users/812183/anthony-sottile" target="_blank" rel="external">Anthony Sottile</a></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/26/python-install-curses-on-windows/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-26 </div>
-			<div class="article-title"><a href="/2015/01/26/cmake-Disable Warning Manually-specified variables were not used by the project/" >cmake-Disable Warning Manually-specified variables were not used by the project</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>添加命令行参数<code>--no-warn-unused-cli</code></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/14757506/cmake-toolchain-file-was-not-used-by-the-project" target="_blank" rel="external">http://stackoverflow.com/questions/14757506/cmake-toolchain-file-was-not-used-by-the-project</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/26/cmake-Disable Warning Manually-specified variables were not used by the project/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-24 </div>
-			<div class="article-title"><a href="/2015/01/24/git-push-warning/" >git-push-warning</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="warning-push-default-is-unset"><a href="#warning-push-default-is-unset" class="headerlink" title="warning: push.default is unset;"></a>warning: push.default is unset;</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">warning: push.default is unset; its implicit value is changing in</span><br><span class="line">Git 2.0 from &apos;matching&apos; to &apos;simple&apos;. To squelch this message</span><br><span class="line">and maintain the current behavior after the default changes, use:</span><br><span class="line"></span><br><span class="line">  git config --global push.default matching</span><br><span class="line"></span><br><span class="line">To squelch this message and adopt the new behavior now, use:</span><br><span class="line"></span><br><span class="line">  git config --global push.default simple</span><br><span class="line"></span><br><span class="line">When push.default is set to &apos;matching&apos;, git will push local branches</span><br><span class="line">to the remote branches that already exist with the same name.</span><br><span class="line"></span><br><span class="line">In Git 2.0, Git will default to the more conservative &apos;simple&apos;</span><br><span class="line">behavior, which only pushes the current branch to the corresponding</span><br><span class="line">remote branch that &apos;git pull&apos; uses to update the current branch.</span><br></pre></td></tr></table></figure>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ul>
-<li><p>默认只推送当前分支</p>
-<pre><code>git config --global push.default simple
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/24/git-push-warning/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-24 </div>
-			<div class="article-title"><a href="/2015/01/24/vim-script编码规范/" >vim-script编码规范</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://google-styleguide.googlecode.com/svn/trunk/vimscriptguide.xml" target="_blank" rel="external">http://google-styleguide.googlecode.com/svn/trunk/vimscriptguide.xml</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/24/vim-script编码规范/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-24 </div>
-			<div class="article-title"><a href="/2015/01/24/python-module和package/" >python-module和package</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>A module is a single file (or files) that are imported under one import and used. e.g.</p>
-<pre><code>import my_module
-</code></pre><p>A package is a collection of modules in directories that give a package hierarchy.</p>
-<pre><code>from my_package.timing.danger.internets import function_of_love
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/01/24/python-module和package/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -464,7 +511,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -674,6 +721,8 @@
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -705,48 +754,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/include/">include<span>2</span></a></li>
 		
-			<li><a href="/tags/c/">c++<span>8</span></a></li>
+			<li><a href="/tags/库/">库<span>2</span></a></li>
 		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
+			<li><a href="/tags/apche/">apche<span>1</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/base64/">base64<span>1</span></a></li>
 		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
-			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+			<li><a href="/tags/alias/">alias<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
 		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
 		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
-			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
+			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/bash/">bash<span>1</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
 		
-			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -759,23 +808,23 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

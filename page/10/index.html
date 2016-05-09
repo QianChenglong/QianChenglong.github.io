@@ -111,6 +111,229 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-11-06 </div>
+			<div class="article-title"><a href="/2015/11/06/go-slice/" >go-slice</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>#　要点</p>
+<ol>
+<li><p><code>slice</code>是一个数组的封装</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> slice <span class="keyword">struct</span> &#123;</span><br><span class="line">    array unsafe.Pointer</span><br><span class="line">    <span class="built_in">len</span>   <span class="keyword">int</span></span><br><span class="line">    <span class="built_in">cap</span>   <span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>fmt.Printf(&quot;%T&quot;)</code>打印显示为<code>[]type</code>,跟数组类似,但不包括长度</p>
+</li>
+<li><p>作为传入参数时</p>
+<ul>
+<li><p>若只是改变<code>slice</code>中元素的值,不需要穿引用</p>
+</li>
+<li><p>若改变了<code>slice</code>长度或容量,则需要穿指针或返回新<code>slice</code></p>
+</li>
+</ul>
+</li>
+<li><p>用数组初始化<code>slice</code>时,<code>slice</code>容量等于数组的长度减去切割时的索引</p>
+</li>
+</ol>
+<pre><code><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array [<span class="number">10</span>]<span class="keyword">int</span></span><br><span class="line">slice := array[<span class="number">1</span>:<span class="number">5</span>] <span class="comment">// cap = 10 - 1 = 9, len = 5 - 1 = 4(array[1, 2, 3, 4])</span></span><br><span class="line">fmt.Printf(<span class="string">"%T %v\n"</span>, array, array)</span><br><span class="line">fmt.Printf(<span class="string">"%T %v %v %v\n"</span>, slice, slice, <span class="built_in">len</span>(slice), <span class="built_in">cap</span>(slice))</span><br><span class="line"></span><br><span class="line">[<span class="number">10</span>]<span class="keyword">int</span> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line">[]<span class="keyword">int</span> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>] <span class="number">4</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.golang.org/slices" target="_blank" rel="external">http://blog.golang.org/slices</a></li>
+<li><a href="https://blog.go-zh.org/go-slices-usage-and-internals" target="_blank" rel="external">https://blog.go-zh.org/go-slices-usage-and-internals</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/06/go-slice/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-03 </div>
+			<div class="article-title"><a href="/2015/11/03/mysql-多列排序/" >mysql-多列排序</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">order</span> <span class="keyword">by</span> A <span class="keyword">DESC</span>, B AESC</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/11/03/mysql-多列排序/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-02 </div>
+			<div class="article-title"><a href="/2015/11/02/go-string/" >go-string</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>a string is in effect a read-only slice of bytes</p>
+</li>
+<li><p><code>string</code>可以存储任意的<code>bytes</code></p>
+</li>
+<li><p>字符串字面值是<code>utf-8</code>编码的,所以赋给<code>string</code>时,<code>string</code>存储的也是<code>utf-8</code>编码序列</p>
+</li>
+<li><p><code>使用range</code>得到的是字符(<code>rune</code>)序列</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _, b := <span class="keyword">range</span> str &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%T,%v\n"</span>, b, b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>for</code>迭代,来访问<code>utf-8</code>字节(<code>byte</code>)</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(str); i++ &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%v:%T, %v\n"</span>, i, str[i], str[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>rune</code>的意思的<code>code point</code>(unicode码元), 底层类型为<code>int32</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://blog.golang.org/strings" target="_blank" rel="external">https://blog.golang.org/strings</a></li>
+<li><a href="http://golanghome.com/post/207" target="_blank" rel="external">http://golanghome.com/post/207</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/02/go-string/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-02 </div>
+			<div class="article-title"><a href="/2015/11/02/大小端/" >大小端</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>字节序是一个处理器架构特性。</p>
+<p>对于多字节数据，存在一个数据的字节安排问题(大小端)。</p>
+<p>大小端取决与CPU架构，X86:小端，KEIL-C51:大端</p>
+<h1 id="记忆方式"><a href="#记忆方式" class="headerlink" title="记忆方式"></a>记忆方式</h1><ul>
+<li>大端 &lt;=&gt; 字符串顺序</li>
+</ul>
+<h1 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h1><p>例：0x11223344(4B)在内存中存放时</p>
+<h2 id="大端："><a href="#大端：" class="headerlink" title="大端："></a>大端：</h2><p>数据的高位字节放在内存低地址，也就是说数据由高位字节向低位字节在内存中存放，<br>类似于字符串的存放，按照从左向右的顺序存放.</p>
+<pre><code>内存：0  1  2  3
+      11 22 33 44
+</code></pre><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>直接在内存中观察方便</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li><p>不符合逻辑</p>
+</li>
+<li><p>不利于编码，解码</p>
+</li>
+</ol>
+<h2 id="小端："><a href="#小端：" class="headerlink" title="小端："></a>小端：</h2><p>数据的高位字节放在内存高地址，也就是数据从低位字节向高位字节在内存中存放</p>
+<pre><code>内存：0  1  2  3
+      44 33 22 11
+</code></pre><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>这种存放方式比较符合逻辑</li>
+<li>利于读入时的解码(转换成对应数据类型的值)，如int i = 0x11223344，按ANSI<br>存放在文件中，再次读入时，需要根据ASCII码把对应的值转换成int型，容易处理，因为先<br>读入的是低位字节</li>
+</ol>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>直接在内存中观察时，不方便</li>
+</ol>
+<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><ol>
+<li>以上数字都是十六进制形式；</li>
+<li>假设变量地址为0</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/02/大小端/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-02 </div>
+			<div class="article-title"><a href="/2015/11/02/编码-utf-8/" >编码-utf-8</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="规律"><a href="#规律" class="headerlink" title="规律"></a>规律</h1><ul>
+<li><p>对于UTF-8编码中的任意字节B，如果B的第一位为0，则B为ASCII码，并且B独立的表示一个字符；</p>
+</li>
+<li><p>如果B的第一位为1，第二位为0，则B为一个非ASCII字符（该字符由多个字节表示）中的一个字节，并且不是字符的第一个字节编码；</p>
+</li>
+<li><p>如果B的前两位为1，第三位为0，则B为一个非ASCII字符（该字符由多个字节表示）中的第一个字节，并且该字符由两个字节表示；</p>
+</li>
+<li><p>如果B的前三位为1，第四位为0，则B为一个非ASCII字符（该字符由多个字节表示）中的第一个字节，并且该字符由三个字节表示；</p>
+</li>
+<li><p>如果B的前四位为1，第五位为0，则B为一个非ASCII字符（该字符由多个字节表示）中的第一个字节，并且该字符由四个字节表示；</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://zh.wikipedia.org/wiki/UTF-8" target="_blank" rel="external">https://zh.wikipedia.org/wiki/UTF-8</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/02/编码-utf-8/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-02 </div>
+			<div class="article-title"><a href="/2015/11/02/mysql-系统变量/" >mysql-系统变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查询系统变量</p>
+<pre><code>select @@character_set_server;
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/11/02/mysql-系统变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-11-02 </div>
 			<div class="article-title"><a href="/2015/11/02/go-dsn/" >go-dsn</a></div>						
 		</h3>
@@ -273,194 +496,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-29 </div>
-			<div class="article-title"><a href="/2015/10/29/nginx-add-header/" >nginx-add-header</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add_header Cache-Control &quot;no-cache&quot;;</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/10/29/nginx-add-header/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-29 </div>
-			<div class="article-title"><a href="/2015/10/29/后台-域名/" >后台-域名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h1><ul>
-<li>基础域名 <code>base.com</code></li>
-</ul>
-<h1 id="域名配置相关"><a href="#域名配置相关" class="headerlink" title="域名配置相关"></a>域名配置相关</h1><p><img src="../img/后台-域名-002.png" alt=""></p>
-<h1 id="官网-配置www"><a href="#官网-配置www" class="headerlink" title="官网(配置www)"></a>官网(配置www)</h1><p>[www].基础域名</p>
-<h1 id="后台接口"><a href="#后台接口" class="headerlink" title="后台接口"></a>后台接口</h1><p>[用途].[项目简称].api.[基础域名]</p>
-<p>用途:</p>
-<pre><code>-   开发 `dev` `dev.app.api.base.com`
--   测试 `test` `test.app.api.base.com`
--   生产 为空 `app.api.base.com`
-</code></pre><p>实例:</p>
-<p><img src="../img/后台-域名-01.png" alt=""></p>
-
-	
-	</div>
-  <a type="button" href="/2015/10/29/后台-域名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-29 </div>
-			<div class="article-title"><a href="/2015/10/29/scp/" >scp</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><pre><code>scp [参数] [原路径] [目标路径]
-</code></pre><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>拷贝远程文件到本地</p>
-<pre><code>scp wallace@192.168.1.1:/opt/a .
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/10/29/scp/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-28 </div>
-			<div class="article-title"><a href="/2015/10/28/go-pointer/" >go-pointer</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>在访问<code>filed</code>时,<code>pointer to struct</code>会自动解引用</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> person <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line">p := &amp;person&#123;<span class="string">"a"</span>&#125;</span><br><span class="line">p.name <span class="comment">// &lt;=&gt; (*p).name</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在调用<code>method</code>时,<code>struct</code>(<code>reciver</code>)会自动转换(取地址,解引用)</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Dog <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (d Dog) Bite(target <span class="keyword">string</span>) &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%v bite %v\n"</span>, d.name, target)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (d *Dog) Drink(target <span class="keyword">string</span>) &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%v drink %v\n"</span>, d.name, target)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> main() &#123;</span><br><span class="line">    a := Dog&#123;<span class="string">"a"</span>&#125;</span><br><span class="line">    b := &amp;Dog&#123;<span class="string">"b"</span>&#125;</span><br><span class="line">    a.Bite(<span class="string">"b"</span>)</span><br><span class="line">    b.Bite(<span class="string">"a"</span>) <span class="comment">// &lt;=&gt; (*b).Bite("a")</span></span><br><span class="line"></span><br><span class="line">    a.Drink(<span class="string">"water"</span>) <span class="comment">// &lt;=&gt; (&amp;a).Drink("water")</span></span><br><span class="line">    b.Drink(<span class="string">"beer"</span>)  <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>function</code>参数不会转换</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/20849751/rule-for-go-pointers-references-dereferencing" target="_blank" rel="external">http://stackoverflow.com/questions/20849751/rule-for-go-pointers-references-dereferencing</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/28/go-pointer/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-28 </div>
-			<div class="article-title"><a href="/2015/10/28/go-make/" >go-make</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>专为用来创建<code>slice</code>,<code>map</code>,<code>channel</code>这3中类型</p>
-<ul>
-<li>因为这3中类型依赖于底层数据结构存储,所以必须初始化!</li>
-</ul>
-</li>
-<li><p>返回<code>T</code>类型,而不是<code>*T</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/doc/effective_go.html#allocation_make" target="_blank" rel="external">https://golang.org/doc/effective_go.html#allocation_make</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/28/go-make/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-28 </div>
-			<div class="article-title"><a href="/2015/10/28/go-内存分配/" >go-内存分配</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p>在go中,变量定义时,存储到stack还是heap上,由编译器确定</p>
-<ul>
-<li>若该变量在离开该作用域,仍被其他引用访问到(通过指针),则存储到heap</li>
-</ul>
-</li>
-</ol>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> f() *<span class="keyword">string</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"Hello world"</span></span><br><span class="line">    <span class="keyword">return</span> &amp;s</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">func</span> main() &#123;</span><br><span class="line">    r := f()</span><br><span class="line">    fmt.Printf(<span class="string">"%T %v %v\n"</span>, r, r, *r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>与C/C++不同,在go中,可以返回函数内定义的变量地址(因为存储到heap中)</li>
-</ol>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ol>
-<li>在go中,不用关心变量存储位置</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/doc/faq#stack_or_heap" target="_blank" rel="external">https://golang.org/doc/faq#stack_or_heap</a></li>
-<li><a href="http://stackoverflow.com/questions/10866195/stack-vs-heap-allocation-of-structs-in-go-and-how-they-relate-to-garbage-collec?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/10866195/stack-vs-heap-allocation-of-structs-in-go-and-how-they-relate-to-garbage-collec?rq=1</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/28/go-内存分配/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -513,7 +548,7 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -723,6 +758,8 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -754,48 +791,48 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
 		
-			<li><a href="/tags/django/">django<span>2</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/进程/">进程<span>1</span></a></li>
 		
-			<li><a href="/tags/du/">du<span>1</span></a></li>
+			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
 		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
 		
-			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/app/">app<span>4</span></a></li>
 		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+			<li><a href="/tags/domain/">domain<span>3</span></a></li>
 		
-			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -808,23 +845,23 @@ pre-up iptables-restore &lt; /etc/iptables.rule
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

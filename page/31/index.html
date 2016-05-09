@@ -111,6 +111,220 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-04-09 </div>
+			<div class="article-title"><a href="/2015/04/09/python-argparse/" >python-argparse</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>示例：</p>
+<pre><code>ls -l test
+</code></pre><ul>
+<li><p>位置参数(Positional Arguments)</p>
+<p>位置参数的作用取决于它的位置和程序(如<code>cp SRC DST</code>)</p>
+<p>在示例中，<code>test</code>为位置参数</p>
+</li>
+<li><p>可选参数(Optional Arguments)，又叫作选项(option)，开关(switch)</p>
+<p>一般都使用<code>-</code>和<code>--</code>来标识</p>
+<p>在示例中，<code>l</code>为可选参数</p>
+</li>
+</ul>
+<h1 id="使用可选参数"><a href="#使用可选参数" class="headerlink" title="使用可选参数"></a>使用<code>可选参数</code></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(<span class="string">"--verbosity"</span>, help=<span class="string">"increase output verbosity"</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"><span class="keyword">if</span> args.verbosity:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"verbosity turned on"</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/2/howto/argparse.html" target="_blank" rel="external">https://docs.python.org/2/howto/argparse.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/09/python-argparse/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-09 </div>
+			<div class="article-title"><a href="/2015/04/09/arch下安装pandoc/" >arch下安装pandoc</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>添加仓库</p>
+<pre><code>gvim /etc/pacman.conf
+
+[haskell-core]
+Server = http://repo-hs.archlinuxcn.org/$arch
+</code></pre></li>
+<li><p>添加认证</p>
+<pre><code>pacman-key -r 4209170B
+pacman-key --lsign-key 4209170B
+</code></pre></li>
+<li><p>更新仓库</p>
+<pre><code>pacman -Syy
+</code></pre></li>
+<li><p>安装pandoc</p>
+<pre><code>pacman -S haskell-pandoc
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/09/arch下安装pandoc/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-09 </div>
+			<div class="article-title"><a href="/2015/04/09/pandoc-将markdown输出pdf/" >pandoc-将markdown输出pdf</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>win7</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
+<li><p><a href="https://github.com/jgm/pandoc/releases" target="_blank" rel="external">pandoc</a></p>
+</li>
+<li><p><a href="http://miktex.org/" target="_blank" rel="external">MiKTex</a></p>
+<p><a href="https://www.ctan.org/tex-archive/systems/win32/miktex/setup" target="_blank" rel="external">下载</a></p>
+</li>
+<li><p>将<code>pandoc.exe</code>所在目录(<code>C:\Users\USERNAME\AppData\Local\Pandoc</code>)添加到<code>PATH</code></p>
+</li>
+<li><p>查看当前系统字体</p>
+<pre><code>fc-list &gt; C:\fonts.txt
+</code></pre></li>
+<li><p>运行<code>miktex-update_admin.exe</code>更新</p>
+</li>
+<li><p>生成</p>
+<pre><code>pandoc 简历.md -o 1.pdf --latex-engine=xelatex -V mainfont=SimSun
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://johnmacfarlane.net/pandoc/faqs.html" target="_blank" rel="external">http://johnmacfarlane.net/pandoc/faqs.html</a></li>
+<li><a href="http://zhouyichu.com/misc/Pandoc.html" target="_blank" rel="external">神器Pandoc的安装与使用</a></li>
+<li><a href="http://sourceforge.net/p/miktex/bugs/2328/" target="_blank" rel="external">http://sourceforge.net/p/miktex/bugs/2328/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/09/pandoc-将markdown输出pdf/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-08 </div>
+			<div class="article-title"><a href="/2015/04/08/markdown-分隔代码段/" >markdown-分隔代码段</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>因为markdown本身语法，两个代码段之间若不存在任何非空白字符，则视为同一代码段，<br>所以为了分隔代码段，而又不影响实际内容，可以插入html注释。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">code block 1</span><br><span class="line"></span><br><span class="line">&lt;!-- --&gt;</span><br><span class="line"></span><br><span class="line">code block 2</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://meta.stackexchange.com/questions/152358/separating-consecutive-code-blocks" target="_blank" rel="external">http://meta.stackexchange.com/questions/152358/separating-consecutive-code-blocks</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/08/markdown-分隔代码段/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-07 </div>
+			<div class="article-title"><a href="/2015/04/07/python-单元测试组织和命名惯例/" >python-单元测试组织和命名惯例</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 名称        | 作用                                         |<br>|————-+———————————————-|<br>| tests       | 目录，位于项目根目录下，用于存放单元测试文件 |<br>| test_XXX.py | 文件，用于测试某个模块的测试源码             |<br>| XXXTestCase | 类名，测试用例名                             |<br>| test_XXX    | 测试方法名                                   |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/04/07/python-单元测试组织和命名惯例/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-03 </div>
+			<div class="article-title"><a href="/2015/04/03/ctags/" >ctags</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>–list-kinds=python</p>
+<p>查看某种语言选项</p>
+</li>
+<li><p>-R</p>
+<p>递归处理</p>
+</li>
+<li><p>–format=level</p>
+<p> 指定tag的输出格式，默认为2，level=2时，ex_cmd会追加<code>;&quot;</code>(通过注释与老vi保持兼容)</p>
+</li>
+<li><p>−−fields=[+|−]flags</p>
+<p>用来控制<code>extension_fileds</code>中要包含的内容</p>
+</li>
+</ul>
+<h1 id="tag记录格式"><a href="#tag记录格式" class="headerlink" title="tag记录格式()"></a>tag记录格式(<http: ctags.sourceforge.net="" ctags.html#tag="" file="" format="">)</http:></h1><p><code>tag_name&lt;TAB&gt;file_name&lt;TAB&gt;ex_cmd;&quot;&lt;TAB&gt;extension_fields</code></p>
+<ul>
+<li><p><code>tag_name</code> 用来检索的key</p>
+</li>
+<li><p><code>file_name</code> tag所在的文件名</p>
+</li>
+<li><p><code>ex_cmd</code> vim用来定位的命令</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/03/ctags/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-04-03 </div>
 			<div class="article-title"><a href="/2015/04/03/python-访问父类方法/" >python-访问父类方法</a></div>						
 		</h3>
@@ -286,206 +500,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-02 </div>
-			<div class="article-title"><a href="/2015/04/02/python-运行模块/" >python-运行模块</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="使用python选项方式"><a href="#使用python选项方式" class="headerlink" title="使用python选项方式"></a>使用<code>python</code>选项方式</h1><pre><code>python -m SimpleHTTPServer
-</code></pre><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
-<li>python会按照模块搜索路径列表去搜索执行</li>
-</ul>
-<h1 id="直接运行"><a href="#直接运行" class="headerlink" title="直接运行"></a>直接运行</h1><ul>
-<li><p>需要指定模块路径名</p>
-<p>“C:\Python27-32\Lib\SimpleHTTPServer.py”</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/04/02/python-运行模块/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-02 </div>
-			<div class="article-title"><a href="/2015/04/02/python-pydoc/" >python-pydoc</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
-<li>不但可以查看系统本身的文档，还可以查看拓展包，当前目录下的源码文档</li>
-</ul>
-<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><h2 id="交互式命令行"><a href="#交互式命令行" class="headerlink" title="交互式命令行"></a>交互式命令行</h2><p>在进入命令行之前，自动导入<code>help()</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pydoc <span class="keyword">import</span> help</span><br></pre></td></tr></table></figure>
-<h2 id="使用http服务器方式"><a href="#使用http服务器方式" class="headerlink" title="使用http服务器方式"></a>使用http服务器方式</h2><p>默认包含当前路径源码文档</p>
-<pre><code>pydoc.py -p 8000
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/04/02/python-pydoc/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-02 </div>
-			<div class="article-title"><a href="/2015/04/02/python-为什么是len()而不是方法或属性/" >python-为什么是len()而不是方法或属性</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://lucumr.pocoo.org/2011/7/9/python-and-pola/" target="_blank" rel="external">Python and the Principle of Least Astonishment</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/02/python-为什么是len()而不是方法或属性/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-02 </div>
-			<div class="article-title"><a href="/2015/04/02/python-类/" >python-类</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul>
-<li><p>python中的类是C++和Modula-3的混合体</p>
-</li>
-<li><p>C++角度，所有成员使用<code>public</code>，所有方法都是<code>virtual</code></p>
-</li>
-<li><p>和Modula-3一样，python没有隐式关联对象与数据和方法</p>
-<p>所有方法在定义时，显示声明第一个参数<code>self</code></p>
-<p>在调用时，self隐式赋值</p>
-</li>
-<li><p>同stmalltalk一样，类本身也是对象，此机制提高了导入和重命名语义</p>
-</li>
-<li><p>同C++和Modula-3不一样的是，内置类型可以被拓展</p>
-</li>
-<li><p>允许多重继承</p>
-</li>
-<li><p>子类可以重写父类的任何方法</p>
-</li>
-<li><p>子类可以调用父类中的同名方法</p>
-</li>
-<li><p>子类<code>__init__</code>如果需要，必须显式调用父类<code>__init__</code>方法</p>
-</li>
-<li><p>类可以被动态创建，且可以在创建之后被修改</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/04/02/python-类/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-02 </div>
-			<div class="article-title"><a href="/2015/04/02/python-内建变量/" >python-内建变量</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><code>__name__</code> 模块名，主模块为<code>__main__</code></p>
-</li>
-<li><p><code>__doc__</code> 文档字符串</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/04/02/python-内建变量/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-02 </div>
-			<div class="article-title"><a href="/2015/04/02/AdBlock Plus规则语法/" >AdBlock Plus规则语法</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>规则</p>
-<pre><code>正则表达式
-</code></pre></li>
-<li><p>定义例外规则</p>
-<pre><code>@@|规则
-</code></pre></li>
-</ul>
-<h1 id="元素隐藏"><a href="#元素隐藏" class="headerlink" title="元素隐藏"></a>元素隐藏</h1><p>不支持通配符，可在前面加上域名以达到只在某域名下工作</p>
-<ul>
-<li><p>根据标签类名</p>
-<pre><code>##div.textad
-</code></pre></li>
-<li><p>根据标签ID</p>
-<pre><code>##div#sponsorad
-</code></pre></li>
-<li><p>根据标签名</p>
-<pre><code>##textad
-</code></pre></li>
-</ul>
-<h1 id="属性选择符"><a href="#属性选择符" class="headerlink" title="属性选择符"></a>属性选择符</h1><p>通过标签的属性来选择标签以屏蔽，例如<code>##table[width=&quot;80%&quot;]</code></p>
-<p>可使用正则来匹配属性名</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://adblockplus.org/zh_CN/filters" target="_blank" rel="external">https://adblockplus.org/zh_CN/filters</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/02/AdBlock Plus规则语法/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -538,7 +552,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -748,6 +762,8 @@
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -779,48 +795,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
 		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
+			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
 		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
 		
-			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/编译/">编译<span>10</span></a></li>
+			<li><a href="/tags/命令/">命令<span>5</span></a></li>
 		
-			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
 		
-			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
-			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+			<li><a href="/tags/软件/">软件<span>3</span></a></li>
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/struct/">struct<span>1</span></a></li>
 		
-			<li><a href="/tags/C-11/">C++11<span>4</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
 		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
+			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
 		
-			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
 		
-			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
 		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
+			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -833,23 +849,23 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

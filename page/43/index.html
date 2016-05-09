@@ -111,6 +111,182 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/路由器DHCP差异/" >路由器DHCP差异</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="Netcore-NW710"><a href="#Netcore-NW710" class="headerlink" title="Netcore-NW710"></a>Netcore-NW710</h1><ul>
+<li>DHCP不能设置DNS服务器，默认DNS为自身</li>
+</ul>
+<h1 id="TP-LINK-WR941N"><a href="#TP-LINK-WR941N" class="headerlink" title="TP-LINK-WR941N"></a>TP-LINK-WR941N</h1><ul>
+<li>DHCP可以设置DNS服务器，在应答discovery时，回应相应设置的IP</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/路由器DHCP差异/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/libnet_init/" >libnet_init</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">libnet_t</span>* libnet_init(<span class="keyword">int</span> injection_type, <span class="keyword">char</span>*  device, <span class="keyword">char</span>*  err_buf)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>device</p>
+<ul>
+<li><p>windows</p>
+<ul>
+<li>winpcap设备名，类似<code>\Device\NPF_{2A7DEE95-B437-444C-BB09-85E4EAD5E61C}</code></li>
+<li>前缀一致<code>\Device\NPF_</code>，后面的UUID可以通过<code>getmac /v</code>查看</li>
+</ul>
+</li>
+</ul>
+<p><em>参考:</em></p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/17400903/libnet-device-network-interface-command-line-argument" target="_blank" rel="external">http://stackoverflow.com/questions/17400903/libnet-device-network-interface-command-line-argument</a></li>
+</ol>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/libnet_init/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/优秀app列表/" >优秀app列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><a href="http://www.appsapk.com/network-info/" target="_blank" rel="external">Network Info II</a></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/优秀app列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-05 </div>
+			<div class="article-title"><a href="/2015/02/05/ioctl/" >ioctl</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ul>
+<li><p><code>SIOCGIFCONF</code>不能获取IPv6地址</p>
+<p>参考:</p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/20743709/get-ipv6-addresses-in-linux-using-ioctl" target="_blank" rel="external">http://stackoverflow.com/questions/20743709/get-ipv6-addresses-in-linux-using-ioctl</a></li>
+<li><a href="http://man7.org/linux/man-pages/man7/netdevice.7.html#NOTES" target="_blank" rel="external">http://man7.org/linux/man-pages/man7/netdevice.7.html#NOTES</a></li>
+</ol>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/05/ioctl/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-05 </div>
+			<div class="article-title"><a href="/2015/02/05/getaddrinfo/" >getaddrinfo</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getaddrinfo</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *node, <span class="keyword">const</span> <span class="keyword">char</span> *service,</span><br><span class="line">                       <span class="keyword">const</span> <span class="keyword">struct</span> addrinfo *hints,</span><br><span class="line">                       <span class="keyword">struct</span> addrinfo **res)</span></span>;</span><br></pre></td></tr></table></figure>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li>转换主机名到IP地址(IPv4，IPv6)</li>
+<li>转换服务到端口</li>
+<li>不要用来查询本机IP，其只返回<code>127.0.0.1</code></li>
+</ul>
+<h1 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h1><ul>
+<li>使用<code>hints</code>来控制输出参数</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/freeaddrinfo.html" target="_blank" rel="external">http://pubs.opengroup.org/onlinepubs/9699919799/functions/freeaddrinfo.html</a></li>
+<li><a href="http://man7.org/linux/man-pages/man3/getaddrinfo.3.html" target="_blank" rel="external">http://man7.org/linux/man-pages/man3/getaddrinfo.3.html</a></li>
+<li><a href="http://beej-zhtw.netdpi.net/05-system-call-or-bust/5-1-getaddrinfo-start" target="_blank" rel="external">http://beej-zhtw.netdpi.net/05-system-call-or-bust/5-1-getaddrinfo-start</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/05/getaddrinfo/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-05 </div>
+			<div class="article-title"><a href="/2015/02/05/跟踪应用程序执行的系统调用/" >跟踪应用程序执行的系统调用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>strace program
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/02/05/跟踪应用程序执行的系统调用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-05 </div>
 			<div class="article-title"><a href="/2015/02/05/检查linux是否支持netlink/" >检查linux是否支持netlink</a></div>						
 		</h3>
@@ -288,226 +464,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-04 </div>
-			<div class="article-title"><a href="/2015/02/04/BSD-tcp-ip头文件组织/" >BSD-tcp-ip头文件组织</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 头文件           | 作用                                             |<br>|——————+————————————————–|<br>| <code>&lt;sys/socket.h&gt;</code> | 核心socket API和数据结构                         |<br>| <code>&lt;netinet/in.h&gt;</code> | IPv4，IPv6等相关协议族地址结构定义，常用端口定义 |<br>| <code>&lt;arpa/inet.h&gt;</code>  | IP地址操作                                       |<br>| <code>&lt;netdb.h&gt;</code>      | 网络数据库查询，如主机名，服务等                 |</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://en.wikipedia.org/wiki/Berkeley_sockets#Header_files" target="_blank" rel="external">http://en.wikipedia.org/wiki/Berkeley_sockets#Header_files</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/04/BSD-tcp-ip头文件组织/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/grep简记/" >grep简记</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>递归目录查询</p>
-<pre><code>grep __SOCKADDR_COMMON -d recurse .
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/03/grep简记/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/linux-socket寻址/" >linux-socket寻址</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li><p>ubuntu-14.04</p>
-</li>
-<li><p>glic-2.19</p>
-</li>
-<li><p>工作目录：<code>/usr/include</code></p>
-</li>
-</ul>
-<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="struct-sockaddr"><a href="#struct-sockaddr" class="headerlink" title="struct sockaddr"></a><code>struct sockaddr</code></h2><p><code>socket</code>API接口，无关具体地址族，协议。</p>
-<h3 id="定义位置"><a href="#定义位置" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>x86_64-linux-gnu/sys/socket.h</code> =&gt; <code>x86_64-linux-gnu/bits/socket.h</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Structure describing a generic socket address.  */</span></span><br><span class="line"><span class="keyword">struct</span> sockaddr</span><br><span class="line">  &#123;</span><br><span class="line">    __SOCKADDR_COMMON (sa_);    <span class="comment">/* Common data: address family and length.  */</span></span><br><span class="line">    <span class="keyword">char</span> sa_data[<span class="number">14</span>];       <span class="comment">/* Address data.  */</span></span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>Note:</strong></p>
-<ul>
-<li><code>=&gt;</code>表示包含</li>
-</ul>
-<h2 id="strcut-sockaddr-in"><a href="#strcut-sockaddr-in" class="headerlink" title="strcut sockaddr_in"></a><code>strcut sockaddr_in</code></h2><p>具体类型数据结构，用来操作地址族，IP，端口。</p>
-<h3 id="定义位置-1"><a href="#定义位置-1" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>netinet/in.h</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Structure describing an Internet socket address.  */</span></span><br><span class="line"><span class="keyword">struct</span> sockaddr_in</span><br><span class="line">  &#123;</span><br><span class="line">    __SOCKADDR_COMMON (sin_);</span><br><span class="line">    <span class="keyword">in_port_t</span> sin_port;         <span class="comment">/* Port number.  */</span></span><br><span class="line">    <span class="keyword">struct</span> in_addr sin_addr;        <span class="comment">/* Internet address.  */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Pad to size of `struct sockaddr'.  */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> sin_zero[<span class="keyword">sizeof</span> (<span class="keyword">struct</span> sockaddr) -</span><br><span class="line">               __SOCKADDR_COMMON_SIZE -</span><br><span class="line">               <span class="keyword">sizeof</span> (<span class="keyword">in_port_t</span>) -</span><br><span class="line">               <span class="keyword">sizeof</span> (<span class="keyword">struct</span> in_addr)];</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="struct-in-addr"><a href="#struct-in-addr" class="headerlink" title="struct in_addr"></a><code>struct in_addr</code></h2><p>定义IP</p>
-<h3 id="定义位置-2"><a href="#定义位置-2" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>netinet/in.h</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Internet address.  */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">uint32_t</span> <span class="keyword">in_addr_t</span>;</span><br><span class="line"><span class="keyword">struct</span> in_addr</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">in_addr_t</span> s_addr;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h1><p><code>in_addr</code> =&gt; <code>sockaddr_in</code> =&gt; <code>sockaddr</code></p>
-<p><strong>Note</strong>:</p>
-<ul>
-<li><code>=&gt;</code>表示构成</li>
-</ul>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="socket地址结构传递方向"><a href="#socket地址结构传递方向" class="headerlink" title="socket地址结构传递方向"></a>socket地址结构传递方向</h2><ul>
-<li><p>从进程到内核</p>
-<p>需要传入参数(套接字地址大小，告诉内核需要复制多少字节)</p>
-<ul>
-<li>bind</li>
-<li>connect</li>
-<li>sendto</li>
-<li>sendmsg</li>
-</ul>
-</li>
-<li><p>从内核到进程</p>
-<p>需要传入传出参数(套接字地址大小，告诉内核需要复制多少字节，以及反馈进程，返回的地址结构大小)</p>
-<ul>
-<li>accept</li>
-<li>recvfrom</li>
-<li>recvmsg</li>
-<li>getpeername</li>
-<li>getsockname</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/03/linux-socket寻址/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/gcc获取include路径列表/" >gcc获取include路径列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><pre><code>echo | gcc -v -x c -E -
-</code></pre><h1 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h1><pre><code>echo | g++ -v -x c++ -E -
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/02/03/gcc获取include路径列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/ubuntu-包管理/" >ubuntu-包管理</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h1><ul>
-<li><p>只下载不安装(二进制包)</p>
-<pre><code>apt-get download PACKAGE
-</code></pre></li>
-<li><p>下载源代码</p>
-<pre><code>apt-get source PACKAGE
-</code></pre></li>
-</ul>
-<h1 id="apt-cache"><a href="#apt-cache" class="headerlink" title="apt-cache"></a>apt-cache</h1><ul>
-<li><p>查询包依赖(该包依赖哪些包)</p>
-<pre><code>apt-cache depends PACKAGE
-</code></pre></li>
-<li><p>查询反向依赖(哪些包依赖该包)</p>
-<pre><code>apt-cache rdepends PACKAGE
-</code></pre></li>
-<li><p>查询包信息(基本信息，依赖信息)</p>
-<pre><code>apt-cache showpkg PACKAGE
-apt-cache show PACKAGE
-</code></pre></li>
-<li><p>查看包版本</p>
-<pre><code>apt-cache policy PACKAGE
-</code></pre></li>
-<li><p>搜索包</p>
-<pre><code>apt-cache search PATTERN
-</code></pre></li>
-</ul>
-<h1 id="apt-file-需要安装"><a href="#apt-file-需要安装" class="headerlink" title="apt-file(需要安装)"></a>apt-file(需要安装)</h1><ul>
-<li><p>列出包文件列表</p>
-<pre><code>apt-file list PACKAGE
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/03/ubuntu-包管理/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/USB串口线是什么/" >USB串口线是什么</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="正式名称"><a href="#正式名称" class="headerlink" title="正式名称"></a>正式名称</h1><p>RS232-USB接口转换器</p>
-<p><img src="/img/USB串口线是什么-01.jpg" alt=""></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.baike.com/wiki/PL2303" target="_blank" rel="external">http://www.baike.com/wiki/PL2303</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/03/USB串口线是什么/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -560,7 +516,7 @@ apt-cache show PACKAGE
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -770,6 +726,8 @@ apt-cache show PACKAGE
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -801,48 +759,48 @@ apt-cache show PACKAGE
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/registry/">registry<span>1</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
 		
-			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/vim/">vim<span>22</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>38</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/if/">if<span>1</span></a></li>
+			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
 		
-			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+			<li><a href="/tags/empty/">empty<span>1</span></a></li>
 		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/同步/">同步<span>2</span></a></li>
 		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/read/">read<span>1</span></a></li>
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
-			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
 		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -855,23 +813,23 @@ apt-cache show PACKAGE
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

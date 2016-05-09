@@ -111,6 +111,196 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/C-函数返回值与错误处理/" >C-函数返回值与错误处理</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>除了极少数函数调用不会出错(如<code>getpid()</code>，参考[APUE-8.2])，绝大多数函数都可能发生调用失败。在调用失败时，<br>就涉及到如何通知调用者，以便调用者进行相对应的错误处理。</p>
+<h1 id="错误处理策略"><a href="#错误处理策略" class="headerlink" title="错误处理策略"></a>错误处理策略</h1><ul>
+<li>作为调用者希望函数的返回结果就是我们期待的值，但这样报告错误又不方便</li>
+<li>若用函数返回值来判断函数的成功或失败，获取期待结果又不方便</li>
+</ul>
+<p>所以在C中，往往都采用了折衷的方式，<strong>通过使用一个与所有成功结果都不相同的值作为函数失败时的返回值</strong>，常见方式有：</p>
+<ul>
+<li><p>失败时返回值</p>
+<ul>
+<li>返回<code>NULL</code>指针，如<code>fopen</code></li>
+<li>返回<code>-1</code></li>
+<li>返回<code>非0</code></li>
+<li>某些专用宏，如<code>EOF</code>，<code>SOCKET_ERROR</code></li>
+</ul>
+</li>
+<li><p>成功时返回值</p>
+<ul>
+<li>返回非空指针</li>
+<li>返回<code>0</code></li>
+<li>某些专用宏，如<code>SOCKET_SUCCESS</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>UNIX环境高级编程.W.Richard Stevens / Stephen A.Rago.译者: 尤晋元 / 张亚英 / 戚正伟.ISBN: 9787115147318</li>
+<li>The Standard C Library Paperback. July 11, 1992. P.J. Plauger.ISBN-13: 978-0131315099</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/C-函数返回值与错误处理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/封装个人代码/" >封装个人代码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>积累平时的代码，方便日后的复用。</p>
+<h1 id="采用什么语言封装"><a href="#采用什么语言封装" class="headerlink" title="采用什么语言封装"></a>采用什么语言封装</h1><p>采用C++，原因如下：</p>
+<ul>
+<li><p>现阶段主要使用C++，虽然也使用部分C库或系统API</p>
+</li>
+<li><p>提供默认参数值，使接口美观、易用</p>
+</li>
+<li><p>提供名字空间，可以防止名字污染</p>
+</li>
+<li><p>提供多态，使接口美观、易用</p>
+</li>
+</ul>
+<h1 id="封装遇到的问题"><a href="#封装遇到的问题" class="headerlink" title="封装遇到的问题"></a>封装遇到的问题</h1><ul>
+<li><p>代码目录怎么组织？</p>
+</li>
+<li><p>函数调用出错怎么处理？</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/封装个人代码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/autohotkey获得粘贴板内容/" >autohotkey获得粘贴板内容</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">; 获取当前选中内容</span></span><br><span class="line">GetSelectText()</span><br><span class="line">&#123;</span><br><span class="line">    tmp = <span class="variable">%ClipBoard%</span> <span class="comment">; 保存原来内容</span></span><br><span class="line">    <span class="built_in">ClipBoard</span> = <span class="comment">; 清空粘贴板</span></span><br><span class="line">    Send, ^c <span class="comment">; 获取当前选中内容</span></span><br><span class="line">    Sleep, <span class="number">100</span> <span class="comment">; 确保操作成功</span></span><br><span class="line">    text = <span class="variable">%ClipBoard%</span></span><br><span class="line">    <span class="built_in">ClipBoard</span> = <span class="variable">%cmp%</span> <span class="comment">; 复原</span></span><br><span class="line">    <span class="keyword">return</span> text</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">msgbox <span class="variable">% GetSelectText()</span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/autohotkey获得粘贴板内容/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/软件设计原则资料/" >软件设计原则资料</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><a href="http://coolshell.cn/articles/4535.html" target="_blank" rel="external">一些软件设计的原则(酷壳)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/KISS_principle" target="_blank" rel="external">https://en.wikipedia.org/wiki/KISS_principle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank" rel="external">https://en.wikipedia.org/wiki/Don%27t_repeat_yourself</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/软件设计原则资料/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-06 </div>
+			<div class="article-title"><a href="/2015/01/06/虚拟网卡资料/" >虚拟网卡资料</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><a href="http://wushank.blog.51cto.com/3489095/1306849" target="_blank" rel="external">linux下TUN/TAP虚拟网卡的使用</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-tuntap/" target="_blank" rel="external">虚拟网卡 TUN/TAP 驱动程序设计原理</a></li>
+<li><a href="http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7" target="_blank" rel="external">http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/TUN%E4%B8%8ETAP" target="_blank" rel="external">wiki-TUN与TAP</a></li>
+<li><a href="http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has" target="_blank" rel="external">http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/06/虚拟网卡资料/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-06 </div>
+			<div class="article-title"><a href="/2015/01/06/位域与大小端/" >位域与大小端</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="小端"><a href="#小端" class="headerlink" title="小端"></a>小端</h1><p>先定义的位域占用字节低位</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> a:<span class="number">4</span>;</span><br><span class="line">    <span class="keyword">uint8_t</span> b:<span class="number">4</span>;</span><br><span class="line">&#125; Bit;</span><br></pre></td></tr></table></figure>
+<p>内存中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxxx xxxx</span><br><span class="line">b    a</span><br></pre></td></tr></table></figure>
+<p>测试：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> a:<span class="number">4</span>;    <span class="comment">/**&lt; 低4位 */</span></span><br><span class="line">    <span class="keyword">uint8_t</span> b:<span class="number">4</span>;    <span class="comment">/**&lt; 高4位 */</span></span><br><span class="line">&#125; Bit;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    Bit.a = <span class="number">0x0</span>;</span><br><span class="line">    Bit.b = <span class="number">0xf</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Bit:%#x\n"</span>, Bit);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"address:%x\n"</span>, (char*)&amp;Bit);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bit:0xf0</span><br><span class="line">address:4063f0</span><br></pre></td></tr></table></figure></p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/06/位域与大小端/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-05 </div>
 			<div class="article-title"><a href="/2015/01/05/本地透明代理的实现/" >本地透明代理的实现</a></div>						
 		</h3>
@@ -231,206 +421,6 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-31 </div>
-			<div class="article-title"><a href="/2014/12/31/GetTickCount/" >GetTickCount</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="精度"><a href="#精度" class="headerlink" title="精度"></a>精度</h2><p>这个函数并非实时发送，而是由系统每18ms发送一次，因此其最小精度为18ms。当需要有小于18ms的精度计算时，应使用StopWatch方法进行。</p>
-<ul>
-<li>连续触发200次，实测下来，最小间隔在15ms。</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/31/GetTickCount/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-26 </div>
-			<div class="article-title"><a href="/2014/12/26/tuple/" >tuple</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="形式定义"><a href="#形式定义" class="headerlink" title="形式定义"></a>形式定义</h1><p>元组是<strong>个数有限</strong>的对象的<strong>序列</strong>。元组由三部分组成：边界符、分隔符和元素。通常采用的边界符是小括号”(  )”，分隔符是逗号”,”。</p>
-<p>特性：</p>
-<ul>
-<li><p>个数有限</p>
-</li>
-<li><p>有序</p>
-</li>
-<li><p>用来表示一组相关联数据</p>
-</li>
-</ul>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
-<li><p>在数学中，<strong>元组</strong>被用来描述对象的属性，例如，有向图被定义成一个二元组（V, E），这里V是节点的集合，E是V × V的子集，表示边。</p>
-</li>
-<li><p>在计算机科学中，<strong>元组</strong>被用来描述一组相关联的数据，常通过位置关系来隐式说明值得意义。</p>
-</li>
-</ul>
-<h1 id="python中的tuple"><a href="#python中的tuple" class="headerlink" title="python中的tuple"></a>python中的tuple</h1><p>python中的tuple元素类型不要求一致，即意味着可以各种嵌套使用。如<code>([1, 2], {&#39;a&#39;: 1}, (1, 2))</code></p>
-<h1 id="与list对比"><a href="#与list对比" class="headerlink" title="与list对比"></a>与list对比</h1><h2 id="存储对象"><a href="#存储对象" class="headerlink" title="存储对象"></a>存储对象</h2><ul>
-<li><p>tuple存储的元素是异构的(heterogeneous)，有点类似C中的结构体，是用来表达对象的组成</p>
-</li>
-<li><p>list，存储的元素是同构的(homogeneous )，是一种序列的存储方式(链式存储)，是用来做数据的容器</p>
-</li>
-</ul>
-<h2 id="可变性"><a href="#可变性" class="headerlink" title="可变性"></a>可变性</h2><ul>
-<li><p>tuple是不可变的</p>
-</li>
-<li><p>list是可变的</p>
-</li>
-</ul>
-<h2 id="提供的操作"><a href="#提供的操作" class="headerlink" title="提供的操作"></a>提供的操作</h2><ul>
-<li><p>tuple无增删改</p>
-</li>
-<li><p>list提供增删改</p>
-</li>
-</ul>
-<h1 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h1><p>逻辑清晰，代码安全，健壮性更好！</p>
-<h1 id="何时使用"><a href="#何时使用" class="headerlink" title="何时使用"></a>何时使用</h1><p>根据数据本质特征</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://en.wikipedia.org/wiki/Tuple" target="_blank" rel="external">http://en.wikipedia.org/wiki/Tuple</a></li>
-<li><a href="http://zh.wikipedia.org/wiki/%E5%A4%9A%E5%85%83%E7%BB%84" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E5%A4%9A%E5%85%83%E7%BB%84</a></li>
-<li><a href="http://en.wikipedia.org/wiki/List_(abstract_data_type)" target="_blank" rel="external">http://en.wikipedia.org/wiki/List_(abstract_data_type)</a></li>
-<li><a href="http://stackoverflow.com/questions/626759/whats-the-difference-between-list-and-tuples" target="_blank" rel="external">http://stackoverflow.com/questions/626759/whats-the-difference-between-list-and-tuples</a></li>
-<li><a href="http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each" target="_blank" rel="external">http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each</a></li>
-<li><a href="http://news.e-scribe.com/397" target="_blank" rel="external">Understanding tuples vs. lists in Python</a></li>
-<li><a href="https://docs.python.org/dev/library/collections.html#collections.namedtuple" target="_blank" rel="external">https://docs.python.org/dev/library/collections.html#collections.namedtuple</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/26/tuple/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-26 </div>
-			<div class="article-title"><a href="/2014/12/26/python命令行选项/" >python命令行选项</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>-B</p>
-<p>不生成<code>__pycache__</code>文件夹</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/26/python命令行选项/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-26 </div>
-			<div class="article-title"><a href="/2014/12/26/python-安装setuptools/" >python-安装setuptools</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p><a href="https://pypi.python.org/pypi/setuptools" target="_blank" rel="external">官网链接</a></p>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
-<li><p>下载<a href="https://bootstrap.pypa.io/ez_setup.py" target="_blank" rel="external">ez_setup.py</a></p>
-</li>
-<li><p>使用目标<code>python</code>运行<code>ez_setup.py</code></p>
-<pre><code>python ez_setup.py
-</code></pre></li>
-<li><p>添加<code>C:\Python27\Scripts</code>到环境变量<code>PATH</code>中</p>
-</li>
-</ul>
-<p>注：</p>
-<ol>
-<li>win下安装可能出现错误：<code>UnicodeDecodeError &#39;ascii&#39; codec can&#39;t decode byte</code>，<a href="/res/setuptools-error.pdf">请参考这里解决</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/26/python-安装setuptools/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-26 </div>
-			<div class="article-title"><a href="/2014/12/26/python-使用py2exe打包/" >python-使用py2exe打包</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="没有带上自己的包"><a href="#没有带上自己的包" class="headerlink" title="没有带上自己的包"></a>没有带上自己的包</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(PACKAGE_DIR)</span><br><span class="line"></span><br><span class="line">options = &#123;<span class="string">'py2exe'</span>: &#123;</span><br><span class="line">    <span class="string">'packages'</span>: [<span class="string">'PACKAGE_NAME'</span>]</span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2014/12/26/python-使用py2exe打包/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-25 </div>
-			<div class="article-title"><a href="/2014/12/25/python-subprocess隐藏命令行/" >python-subprocess隐藏命令行</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line">startupinfo = subprocess.STARTUPINFO()</span><br><span class="line">startupinfo.dwFlags = subprocess.CREATE_NEW_CONSOLE | subprocess.STARTF_USESHOWWINDOW</span><br><span class="line">startupinfo.wShowWindow = subprocess.SW_HIDE</span><br><span class="line">subprocess.Popen([<span class="string">"ping"</span>, <span class="string">"-c 1"</span>, ip], stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startupinfo)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://code.activestate.com/recipes/578300-python-subprocess-hide-console-on-windows/" target="_blank" rel="external">http://code.activestate.com/recipes/578300-python-subprocess-hide-console-on-windows/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/25/python-subprocess隐藏命令行/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -483,7 +473,7 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -693,6 +683,8 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -724,48 +716,48 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
-		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
-		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
-		
-			<li><a href="/tags/json/">json<span>4</span></a></li>
-		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
-		
-			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
-		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
-		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
-		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
-		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
-		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
-		
-			<li><a href="/tags/warning/">warning<span>2</span></a></li>
-		
-			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
-		
-			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
 			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
+			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
-			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql/">mysql<span>34</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
-			<li><a href="/tags/gcc/">gcc<span>4</span></a></li>
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+		
+			<li><a href="/tags/django/">django<span>2</span></a></li>
+		
+			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+		
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+		
+			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+		
+			<li><a href="/tags/select/">select<span>1</span></a></li>
+		
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+		
+			<li><a href="/tags/C/">C<span>14</span></a></li>
+		
+			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+		
+			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+		
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+		
+			<li><a href="/tags/包/">包<span>2</span></a></li>
+		
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
+		
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -778,23 +770,23 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

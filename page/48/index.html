@@ -111,6 +111,200 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-23 </div>
+			<div class="article-title"><a href="/2015/01/23/vim-syntastic检查器列表/" >vim-syntastic检查器列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><ul>
+<li><p>autopep8</p>
+<p>自动修复代码为<code>pep8</code>规范</p>
+</li>
+<li><p>flake8</p>
+<p>代码规范检查</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/23/vim-syntastic检查器列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-23 </div>
+			<div class="article-title"><a href="/2015/01/23/c++-内存管理/" >C++-内存管理</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>多使用RAII(资源获取即初始化)</p>
+</li>
+<li><p>析构函数LOG打印，确认被调用</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/23/c++-内存管理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-23 </div>
+			<div class="article-title"><a href="/2015/01/23/win下编译boost/" >win下编译boost</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>VS2010</li>
+<li>boost-1.57.0</li>
+</ul>
+<h1 id="编译Boost"><a href="#编译Boost" class="headerlink" title="编译Boost"></a>编译Boost</h1><ol>
+<li><p><a href="http://www.boost.org/" target="_blank" rel="external">官网</a>下载源码</p>
+</li>
+<li><p>解压文件</p>
+</li>
+<li><p>进入根目录</p>
+</li>
+<li><p>运行配置工具生成文件</p>
+<ul>
+<li><p>Windows:bootstap.bat</p>
+</li>
+<li><p>Linux:bootstrap.sh</p>
+</li>
+</ul>
+</li>
+<li><p>编译，安装</p>
+<ul>
+<li><p>VS2005</p>
+<pre><code>bjam --toolset=msvc-8.0 --prefix=D:\Boost_XXX --build-type=complete install
+</code></pre></li>
+<li><p>VS2008</p>
+<pre><code>bjam --toolset=msvc-9.0 --prefix=D:\Boost_XXX --build-type=complete install
+</code></pre></li>
+<li><p>VS2010</p>
+<pre><code>bjam --toolset=msvc-10.0 --prefix=D:\Boost_XXX --build-type=complete install
+</code></pre></li>
+<li><p>VS2012</p>
+<pre><code>bjam --toolset=msvc-11.0 --prefix=D:\Boost_XXX --build-type=complete install
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<p><strong>Note:</strong></p>
+<ul>
+<li><p>清除</p>
+<pre><code>bjam.exe --clean
+</code></pre></li>
+</ul>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ol>
+<li><p>配置IDE</p>
+<p><img src="/img/win下编译boost-01.png" alt="头文件"><br><img src="/img/win下编译boost-02.png" alt="库文件"></p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/23/win下编译boost/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-22 </div>
+			<div class="article-title"><a href="/2015/01/22/gtest-输出xml/" >gtest-输出xml</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>test.exe  --gtest_output=&quot;xml:report.xml&quot;
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/01/22/gtest-输出xml/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-22 </div>
+			<div class="article-title"><a href="/2015/01/22/gtest-xml彩色显示/" >gtest-xml彩色显示</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p><a href="https://github.com/QianChenglong/gtest-xml-patch" target="_blank" rel="external">https://github.com/QianChenglong/gtest-xml-patch</a></p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/22/gtest-xml彩色显示/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-22 </div>
+			<div class="article-title"><a href="/2015/01/22/chrome-xml加载本地文件/" >chrome-xml加载本地文件</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>chrome为了安全，默认不允许加载本地文件</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>添加启动参数<code>--allow-file-access-from-files</code></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/3828898/can-chrome-be-made-to-perform-an-xsl-transform-on-a-local-file" target="_blank" rel="external">http://stackoverflow.com/questions/3828898/can-chrome-be-made-to-perform-an-xsl-transform-on-a-local-file</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/22/chrome-xml加载本地文件/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-22 </div>
 			<div class="article-title"><a href="/2015/01/22/git-创建一个仓库/" >git-创建一个仓库</a></div>						
 		</h3>
@@ -231,160 +425,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-21 </div>
-			<div class="article-title"><a href="/2015/01/21/VC-warning-C4819/" >VC-warning-C4819</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><ul>
-<li>源文件采用<code>utf-8</code>编码，而VC默认识别成<code>cp936</code>编码。</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/21/VC-warning-C4819/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-21 </div>
-			<div class="article-title"><a href="/2015/01/21/cmake-定义全局变量/" >cmake-定义全局变量</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(UTEST_LIBRARIES <span class="variable">$&#123;ARGN&#125;</span> CACHE INTERNAL <span class="string">"UTEST_LIBRARIES"</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/10031953/how-to-set-the-global-variable-in-a-function-for-cmake" target="_blank" rel="external">http://stackoverflow.com/questions/10031953/how-to-set-the-global-variable-in-a-function-for-cmake</a></li>
-<li><a href="http://www.cmake.org/cmake/help/v3.0/command/set.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/set.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/21/cmake-定义全局变量/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-21 </div>
-			<div class="article-title"><a href="/2015/01/21/提高程序健壮性的几种办法/" >提高程序健壮性的几种办法</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="局部变量初始化"><a href="#局部变量初始化" class="headerlink" title="局部变量初始化"></a>局部变量初始化</h1><p>防止造成野指针，字符串越界，数组越界，非法访问等。</p>
-<h1 id="检查函数传入参数"><a href="#检查函数传入参数" class="headerlink" title="检查函数传入参数"></a>检查函数传入参数</h1><p>将错误的，不合法的输入阻止在最开始处</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
-<li>C中常用<code>assert</code>进行处理</li>
-</ul>
-<h1 id="检查函数的返回值，以便对函数出错进行处理"><a href="#检查函数的返回值，以便对函数出错进行处理" class="headerlink" title="检查函数的返回值，以便对函数出错进行处理"></a>检查函数的返回值，以便对函数出错进行处理</h1><h1 id="释放指针后，指针置NULL"><a href="#释放指针后，指针置NULL" class="headerlink" title="释放指针后，指针置NULL"></a>释放指针后，指针置NULL</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.codeproject.com/Articles/216077/Making-Your-Cplusplus-Code-Robust" target="_blank" rel="external">http://www.codeproject.com/Articles/216077/Making-Your-Cplusplus-Code-Robust</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/21/提高程序健壮性的几种办法/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-21 </div>
-			<div class="article-title"><a href="/2015/01/21/编程经典语句/" >编程经典语句</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>异常处理不是bug fix</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/21/编程经典语句/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-20 </div>
-			<div class="article-title"><a href="/2015/01/20/cmake-if/" >cmake-if</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h1><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="variable">$&#123;name&#125;</span> <span class="keyword">STREQUAL</span> <span class="string">"."</span>)</span><br><span class="line">    <span class="keyword">include_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">    <span class="keyword">link_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/lib)</span><br><span class="line">    <span class="keyword">return</span>()</span><br><span class="line"><span class="keyword">endif</span>()</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cmake.org/cmake/help/v3.0/command/if.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/if.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/20/cmake-if/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-20 </div>
-			<div class="article-title"><a href="/2015/01/20/cmake-函数中遍历ARGN/" >cmake-函数中遍历ARGN</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>(use_library)</span><br><span class="line">    <span class="keyword">foreach</span>(name <span class="variable">$&#123;ARGN&#125;</span>)</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$&#123;name&#125;</span> <span class="keyword">STREQUAL</span> <span class="string">"."</span>)</span><br><span class="line">            <span class="keyword">include_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">            <span class="keyword">link_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/lib)</span><br><span class="line">        <span class="keyword">else</span>()</span><br><span class="line">            <span class="keyword">message</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="number">3</span>rdparty/<span class="variable">$&#123;name&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">            <span class="keyword">include_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="number">3</span>rdparty/<span class="variable">$&#123;name&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">            <span class="keyword">link_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="number">3</span>rdparty/<span class="variable">$&#123;name&#125;</span>/lib)</span><br><span class="line">        <span class="keyword">endif</span>()</span><br><span class="line">    <span class="keyword">endforeach</span>()</span><br><span class="line"><span class="keyword">endfunction</span>()</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cmake.org/cmake/help/v3.0/command/foreach.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/foreach.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/20/cmake-函数中遍历ARGN/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -437,7 +477,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -647,6 +687,8 @@
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -678,48 +720,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+			<li><a href="/tags/exception/">exception<span>1</span></a></li>
 		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
 		
-			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
 		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
-			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/app/">app<span>4</span></a></li>
 		
-			<li><a href="/tags/博客/">博客<span>1</span></a></li>
+			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
 		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
 		
-			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
 		
-			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
+			<li><a href="/tags/mysql/">mysql<span>34</span></a></li>
 		
-			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -732,23 +774,23 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>��С�� | 心若天府</title>
+  <title>大小端 | 心若天府</title>
   <meta name="author" content="钱成龙">
   
   <meta name="description" content="笔记，经验总结，资料">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="��С��"/>
+  <meta property="og:title" content="大小端"/>
   <meta property="og:site_name" content="心若天府"/>
 
   
@@ -93,7 +93,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> ��С��</h1>
+			<h1 class="title title-inverse "> 大小端</h1>
 		</div>		
 	
 
@@ -113,38 +113,38 @@
 	<div class="mypage">		
 	  		
 
-	  <h1 id="����"><a href="#����" class="headerlink" title="����"></a>����</h1><p>�ֽ�����һ���������ܹ����ԡ�</p>
-<p>���ڶ��ֽ����ݣ�����һ�����ݵ��ֽڰ�������(��С��)��</p>
-<p>��С��ȡ����CPU�ܹ���X86:С�ˣ�KEIL-C51:����</p>
-<h1 id="���䷽ʽ"><a href="#���䷽ʽ" class="headerlink" title="���䷽ʽ"></a>���䷽ʽ</h1><ul>
-<li>���� &lt;=&gt; �ַ���˳��</li>
+	  <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>字节序是一个处理器架构特性。</p>
+<p>对于多字节数据，存在一个数据的字节安排问题(大小端)。</p>
+<p>大小端取决与CPU架构，X86:小端，KEIL-C51:大端</p>
+<h1 id="记忆方式"><a href="#记忆方式" class="headerlink" title="记忆方式"></a>记忆方式</h1><ul>
+<li>大端 &lt;=&gt; 字符串顺序</li>
 </ul>
-<h1 id="ʵ������"><a href="#ʵ������" class="headerlink" title="ʵ������"></a>ʵ������</h1><p>����0x11223344(4B)���ڴ��д���ʱ</p>
-<h2 id="���ˣ�"><a href="#���ˣ�" class="headerlink" title="���ˣ�"></a>���ˣ�</h2><p>���ݵĸ�λ�ֽڷ����ڴ��͵�ַ��Ҳ����˵�����ɸ�λ�ֽ�����λ�ֽ����ڴ��д��ţ�<br>�������ַ����Ĵ��ţ����մ������ҵ�˳������.</p>
-<pre><code>�ڴ棺0  1  2  3
+<h1 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h1><p>例：0x11223344(4B)在内存中存放时</p>
+<h2 id="大端："><a href="#大端：" class="headerlink" title="大端："></a>大端：</h2><p>数据的高位字节放在内存低地址，也就是说数据由高位字节向低位字节在内存中存放，<br>类似于字符串的存放，按照从左向右的顺序存放.</p>
+<pre><code>内存：0  1  2  3
       11 22 33 44
-</code></pre><h3 id="�w�"><a href="#�w�" class="headerlink" title="�ŵ�"></a>�ŵ�</h3><ol>
-<li>ֱ�����ڴ��й۲췽��</li>
+</code></pre><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>直接在内存中观察方便</li>
 </ol>
-<h3 id="o��"><a href="#o��" class="headerlink" title="ȱ��"></a>ȱ��</h3><ol>
-<li><p>�������߼�</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li><p>不符合逻辑</p>
 </li>
-<li><p>�����ڱ��룬����</p>
+<li><p>不利于编码，解码</p>
 </li>
 </ol>
-<h2 id="С�ˣ�"><a href="#С�ˣ�" class="headerlink" title="С�ˣ�"></a>С�ˣ�</h2><p>���ݵĸ�λ�ֽڷ����ڴ��ߵ�ַ��Ҳ�������ݴӵ�λ�ֽ�����λ�ֽ����ڴ��д���</p>
-<pre><code>�ڴ棺0  1  2  3
+<h2 id="小端："><a href="#小端：" class="headerlink" title="小端："></a>小端：</h2><p>数据的高位字节放在内存高地址，也就是数据从低位字节向高位字节在内存中存放</p>
+<pre><code>内存：0  1  2  3
       44 33 22 11
-</code></pre><h3 id="�w�-1"><a href="#�w�-1" class="headerlink" title="�ŵ�"></a>�ŵ�</h3><ol>
-<li>���ִ��ŷ�ʽ�ȽϷ����߼�</li>
-<li>���ڶ���ʱ�Ľ���(ת���ɶ�Ӧ�������͵�ֵ)����int i = 0x11223344����ANSI<br>�������ļ��У��ٴζ���ʱ����Ҫ����ASCII���Ѷ�Ӧ��ֵת����int�ͣ����״�������Ϊ��<br>�������ǵ�λ�ֽ�</li>
+</code></pre><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>这种存放方式比较符合逻辑</li>
+<li>利于读入时的解码(转换成对应数据类型的值)，如int i = 0x11223344，按ANSI<br>存放在文件中，再次读入时，需要根据ASCII码把对应的值转换成int型，容易处理，因为先<br>读入的是低位字节</li>
 </ol>
-<h3 id="o��-1"><a href="#o��-1" class="headerlink" title="ȱ��"></a>ȱ��</h3><ol>
-<li>ֱ�����ڴ��й۲�ʱ��������</li>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>直接在内存中观察时，不方便</li>
 </ol>
-<h2 id="ע"><a href="#ע" class="headerlink" title="ע"></a>ע</h2><ol>
-<li>�������ֶ���ʮ��������ʽ��</li>
-<li>����������ַΪ0</li>
+<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><ol>
+<li>以上数字都是十六进制形式；</li>
+<li>假设变量地址为0</li>
 </ol>
 	  
 	</div>
@@ -200,7 +200,7 @@
   <h2 class="title">留言</h2>
 
   
-  	 <div class="ds-thread" data-thread-key="2015/11/02/大小端/" data-title="��С��" data-url="https://qianchenglong.github.io/2015/11/02/大小端/"></div>  
+  	 <div class="ds-thread" data-thread-key="2015/11/02/大小端/" data-title="大小端" data-url="https://qianchenglong.github.io/2015/11/02/大小端/"></div>  
   
 </section>
 
@@ -227,7 +227,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/��С��/">��С��<span>1</span></a></li>
+  <li><a href="/tags/大小端/">大小端<span>2</span></a></li>
     </ul>
 	</div>
 		

@@ -111,6 +111,205 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-07 </div>
+			<div class="article-title"><a href="/2015/03/07/python-开发工具列表/" >python-开发工具列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="http://www.py2exe.org/" target="_blank" rel="external">py2exe</a></p>
+<p>将python脚本编译为windows可执行程序</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/07/python-开发工具列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-06 </div>
+			<div class="article-title"><a href="/2015/03/06/ubuntu-设置时区/" >ubuntu-设置时区</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>sudo dpkg-reconfigure tzdata
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.christopherirish.com/2012/03/21/how-to-set-the-timezone-on-ubuntu-server/" target="_blank" rel="external">http://www.christopherirish.com/2012/03/21/how-to-set-the-timezone-on-ubuntu-server/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/06/ubuntu-设置时区/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-06 </div>
+			<div class="article-title"><a href="/2015/03/06/ubuntu-部署shadowsocks/" >ubuntu-部署shadowsocks</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
+<li><p>安装pip</p>
+<pre><code>apt-get install python-gevent python-pip
+</code></pre></li>
+<li><p>安装shadowsocks</p>
+<pre><code>pip install shadowsocks
+</code></pre></li>
+<li><p>创建<code>/etc/shadowsocks/config.json</code></p>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">“server”:“my_server_ip”,</span><br><span class="line"></span><br><span class="line">“server_port”:8388,</span><br><span class="line"></span><br><span class="line">“local_port”:1080,</span><br><span class="line"></span><br><span class="line">“password”:“password”,</span><br><span class="line"></span><br><span class="line">“timeout”:600,</span><br><span class="line"></span><br><span class="line">“method”:“table”</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>启动server</p>
+<ul>
+<li><p>前端运行</p>
+<p>/usr/local/bin/ssserver -c /etc/shadowsocks.json</p>
+</li>
+<li><p>daemon</p>
+<p>/usr/local/bin/ssserver -c /etc/shadowsocks.json -d start</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><p><a href="https://github.com/clowwindy/shadowsocks/wiki/Ports-and-Clients" target="_blank" rel="external">下载地址</a></p>
+<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://felixqu.com/2014/06/23/setup-shadowsocks-on-ubuntu/" target="_blank" rel="external">http://felixqu.com/2014/06/23/setup-shadowsocks-on-ubuntu/</a></li>
+<li><a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/06/ubuntu-部署shadowsocks/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-06 </div>
+			<div class="article-title"><a href="/2015/03/06/VPN常见错误代码/" >VPN常见错误代码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>809</p>
+<ul>
+<li>无法完成密钥交换(ISAKMP, udp port 500)，发送request，无response</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/06/VPN常见错误代码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-06 </div>
+			<div class="article-title"><a href="/2015/03/06/tcpdump/" >tcpdump</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="命令说明"><a href="#命令说明" class="headerlink" title="命令说明"></a>命令说明</h1><pre><code>tcpdump [option] &lt;expression&gt;
+</code></pre><h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-n</p>
+<p>不将IP转换为域名</p>
+</li>
+<li><p>-nn</p>
+<p>协议，IP，端口都保持数字形式，不转换为对应名字</p>
+</li>
+<li><p>-i interface</p>
+<p>指定接口</p>
+</li>
+<li><p>-A 使用ASCII解释数据包</p>
+</li>
+<li><p>-w file</p>
+<p>packet存储到文件(pcap格式)，可用wireshark来分析</p>
+</li>
+</ul>
+<h1 id="常用例子"><a href="#常用例子" class="headerlink" title="常用例子"></a>常用例子</h1><ul>
+<li><p>DNS</p>
+<pre><code>tcpdump port 53
+</code></pre></li>
+<li><p>ISAKMP</p>
+<pre><code>tcpdump port 500
+</code></pre></li>
+<li><p>HTTP</p>
+<pre><code>tcpdump -A tcp port 80
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/06/tcpdump/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-05 </div>
+			<div class="article-title"><a href="/2015/03/05/windows-执行reg文件不要提问/" >windows-执行reg文件不要提问</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p><code>regedit /s *.reg</code></p>
+
+	
+	</div>
+  <a type="button" href="/2015/03/05/windows-执行reg文件不要提问/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-05 </div>
 			<div class="article-title"><a href="/2015/03/05/windows安装方式/" >windows安装方式</a></div>						
 		</h3>
@@ -335,223 +534,6 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-02 </div>
-			<div class="article-title"><a href="/2015/03/02/windows-UNICODE和_UNICODE作用/" >windows-UNICODE和_UNICODE作用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="共性"><a href="#共性" class="headerlink" title="共性"></a>共性</h1><p>这两个宏都是为了控制API是使用UNICODE版还是ANSI版。</p>
-<ul>
-<li><p>若定义了，则相关的API为<code>*W</code>版本(UNICODE版)，如<code>GetWindowTextW</code></p>
-</li>
-<li><p>若未定义，则相关的API为<code>*A</code>版本(ANSI版)，如<code>GetWindowTextA</code></p>
-</li>
-</ul>
-<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ul>
-<li><p><code>UNICODE</code>宏影响windows API</p>
-</li>
-<li><p><code>_UNICODE</code>宏影响C运行库以及MFC，作用与<code>UNICODE</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blogs.msdn.com/b/oldnewthing/archive/2004/02/12/71851.aspx" target="_blank" rel="external">http://blogs.msdn.com/b/oldnewthing/archive/2004/02/12/71851.aspx</a></li>
-<li><a href="http://www.cnblogs.com/ini_always/archive/2011/05/20/2050517.html" target="_blank" rel="external">http://www.cnblogs.com/ini_always/archive/2011/05/20/2050517.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/02/windows-UNICODE和_UNICODE作用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-02 </div>
-			<div class="article-title"><a href="/2015/03/02/windows-WSA是什么意思/" >windows-WSA是什么意思</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<blockquote>
-<p>Windows Sockets API</p>
-</blockquote>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.acronymfinder.com/Windows-Sockets-API-(aka-Winsock-Application)-(WSA).html" target="_blank" rel="external">http://www.acronymfinder.com/Windows-Sockets-API-(aka-Winsock-Application)-(WSA).html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/02/windows-WSA是什么意思/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-28 </div>
-			<div class="article-title"><a href="/2015/02/28/C-locale作用/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		
-	
-	</div>
-  <a type="button" href="/2015/02/28/C-locale作用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-28 </div>
-			<div class="article-title"><a href="/2015/02/28/mbtowc/" >mbtowc</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>用来解决ANSI编码和wchar相关字符编码问题</p>
-<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>因为ANSI并不是一种固定的编码方式，其取决于当前LOCALE。</p>
-<p>所以<code>mbtowc</code>根据<code>LC_CTYPE</code>来决定<strong>源</strong>的编码方式，将其转换为<code>wchar</code>。</p>
-<p>程序默认启动<code>LC_ALL</code>为<code>C</code>。</p>
-<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><ul>
-<li><p>标准IO</p>
-<p>当使用wchar提供的宽字节版的IO操作函数时，内部需要使用mbtowc族函数进行编码转换</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cplusplus.com/reference/cstdlib/mbtowc/" target="_blank" rel="external">http://www.cplusplus.com/reference/cstdlib/mbtowc/</a></li>
-<li><a href="http://blog.sina.com.cn/s/blog_4723adba0100hnb4.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4723adba0100hnb4.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/28/mbtowc/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-28 </div>
-			<div class="article-title"><a href="/2015/02/28/wprintf和printf问题/" >wprintf和printf问题</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>两个函数若不经过处理，混合使用将导致另一方的输出无法显示。</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>因为每个标准IO流都具有一个<strong>面向</strong>属性(面向单字节，面向宽字节)，不能混合！</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/8681623/printf-and-wprintf-in-single-c-code" target="_blank" rel="external">http://stackoverflow.com/questions/8681623/printf-and-wprintf-in-single-c-code</a></li>
-<li><a href="http://www.gnu.org/savannah-checkouts/gnu/libc/manual/html_node/Streams-and-I18N.html" target="_blank" rel="external">http://www.gnu.org/savannah-checkouts/gnu/libc/manual/html_node/Streams-and-I18N.html</a></li>
-<li><a href="http://pubs.opengroup.org/onlinepubs/009696699/functions/xsh_chap02_05.html" target="_blank" rel="external">http://pubs.opengroup.org/onlinepubs/009696699/functions/xsh_chap02_05.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/28/wprintf和printf问题/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-28 </div>
-			<div class="article-title"><a href="/2015/02/28/编译器与字符编码/" >编译器与字符编码</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h1><h2 id="源码字符集-the-source-character-set"><a href="#源码字符集-the-source-character-set" class="headerlink" title="源码字符集(the source character set)"></a>源码字符集(the source character set)</h2><p>源码文件是使用何种编码保存的</p>
-<h2 id="执行字符集-the-execution-character-set"><a href="#执行字符集-the-execution-character-set" class="headerlink" title="执行字符集(the execution character set)"></a>执行字符集(the execution character set)</h2><p>可执行程序内保存的是何种编码(程序执行时内存中字符串编码)</p>
-<h1 id="问题产生的背景"><a href="#问题产生的背景" class="headerlink" title="问题产生的背景"></a>问题产生的背景</h1><p>C或C++中没有对源码字符集，执行字符集做规定，导致不同的编译器标准不统一</p>
-<ul>
-<li><p>GCC</p>
-<ul>
-<li><p>源码字符集和执行字符集默认都为UTF-8</p>
-</li>
-<li><p>且都可以手动指定(-finput-charset, -fexec-charset)</p>
-</li>
-</ul>
-</li>
-<li><p>MSVC</p>
-<ul>
-<li><p>源码字符集，有BOM么，有则按BOM解释，无则使用本地Locale字符集(随系统设置而变</p>
-</li>
-<li><p>执行字符集，使用本地Locale字符集(随系统设置而变)</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="wchar"><a href="#wchar" class="headerlink" title="wchar"></a>wchar</h1><p><code>wchar</code>采用unicode编码，具体编码方案与OS相关</p>
-<ul>
-<li>linux</li>
-</ul>
-<p>采用UTF-32LE存储</p>
-<ul>
-<li>windows</li>
-</ul>
-<p>采用UTF-16LE存储</p>
-<h2 id="与编译器相关"><a href="#与编译器相关" class="headerlink" title="与编译器相关"></a>与编译器相关</h2><ul>
-<li><p>对单字节字符串(<code>char*</code>)，编译器什么也不做，原样复制</p>
-</li>
-<li><p>对宽字节字符串(<code>wchar_t*</code>)，编译器需要转换</p>
-<ul>
-<li><p>GCC</p>
-<p>根据源文件编码，将其转换为内部编码(UTF-32LE)</p>
-</li>
-<li><p>MSVC</p>
-<p>源文件需为UTF-8或ANSI编码，将其转换为内部编码(UTF-16LE)</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blog.csdn.net/dbzhang800/article/details/7540905" target="_blank" rel="external">http://blog.csdn.net/dbzhang800/article/details/7540905</a></li>
-<li><a href="http://jeffreyloo.blog.163.com/blog/static/121761670201061721939955/" target="_blank" rel="external">C/C++ 编译后的二进制程序中字符串的保存方式</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/28/编译器与字符编码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -604,7 +586,7 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -814,6 +796,8 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -845,48 +829,48 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
-			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
 		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
+			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
 		
-			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/链表/">链表<span>1</span></a></li>
 		
-			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/date/">date<span>1</span></a></li>
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
 		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
 		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
 		
-			<li><a href="/tags/string/">string<span>7</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
-			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/语句/">语句<span>1</span></a></li>
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
 			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -899,23 +883,23 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

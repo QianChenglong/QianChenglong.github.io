@@ -111,6 +111,264 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/快速查看python帮助/" >快速查看python帮助</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="第一种：命令行使用"><a href="#第一种：命令行使用" class="headerlink" title="第一种：命令行使用"></a>第一种：命令行使用</h2><pre><code>python -m pydoc CONTENT
+</code></pre><h2 id="第二种：使用python自包装"><a href="#第二种：使用python自包装" class="headerlink" title="第二种：使用python自包装"></a>第二种：使用<code>python</code>自包装</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>可以在任意路径下执行<code>pydoc CONTENT</code></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ul>
+<li><p>建立脚本文件<code>pydoc.py</code></p>
+<pre><code>#!/usr/bin/env python
+# encoding: utf-8
+
+import os
+import sys
+
+if len(sys.argv) != 2:
+    print(&quot;usage:pydoc.py OBJECT&quot;)
+    exit(1)
+
+cmd = &apos;python -m pydoc &apos; + sys.argv[1]
+# print(cmd)
+os.system(cmd)
+</code></pre></li>
+<li><p>复制到<code>PATH</code>目录下</p>
+<p><strong>建议自建目录</strong>(Win:X:/XXX/bin，Linux：/XXX/bin)，添加该目录到<code>PATH</code></p>
+<p>优点：</p>
+<ol>
+<li>容易管理</li>
+<li>重装系统或系统损坏，不丢失，下次复用方便</li>
+</ol>
+</li>
+<li><p>【Windows建议】</p>
+</li>
+</ul>
+<p>修改环境变量<code>PATHEXT</code>追加<code>.py</code>，这样直接使用<code>pydoc CONTENT</code>即可，不用每次都输入’.py’！</p>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/快速查看python帮助/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/替换clover图标/" >替换clover图标</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
+</li>
+<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
+<p><img src="/img/替换clover图标_0.png" alt=""></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/替换clover图标/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/windows下git生成SSH公钥/" >windows下git生成SSH公钥</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li><p><code>cd %HOMEPATH%</code></p>
+</li>
+<li><p><code>mkdir .ssh</code></p>
+</li>
+<li><p><code>ssh-keygen -t rsa -C &quot;qian_cheng_long@163.com&quot;</code></p>
+<ul>
+<li>输入生成文件名(<code>.ssh/rd_rsa</code>)</li>
+<li>2次输入密码(空密码可以方便连接)</li>
+</ul>
+</li>
+<li><p>添加到<code>ssh-agent</code></p>
+<pre><code>ssh-agent -s
+ssh-add ~/.ssh/id_rsa
+</code></pre></li>
+<li><p>复制到粘贴板</p>
+<pre><code>clip &lt; ~/.ssh/id_rsa.pub
+</code></pre></li>
+<li><p>将<code>.ssh/rd_rsa.pub</code>内容添加到<a href="https://github.com/settings/ssh" target="_blank" rel="external">github</a></p>
+</li>
+<li><p>测试是否添加成功</p>
+<pre><code>ssh -vT git@github.com
+</code></pre></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">https://help.github.com/articles/generating-ssh-keys/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/windows下git生成SSH公钥/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/MinGW编译wxWidget/" >MinGW编译wxWidget</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>WXWIN：源代码根目录</li>
+</ul>
+<ol>
+<li><p>解压源码</p>
+</li>
+<li><p>进入到<code>%WXWIN%\build\msw</code></p>
+</li>
+<li><p>清理项目</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release clean
+</code></pre></li>
+<li><p>编译</p>
+</li>
+</ol>
+<ul>
+<li><p>动态库，发行版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release
+</code></pre></li>
+<li><p>动态库，调试版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=debug
+</code></pre></li>
+<li><p>静态库，发行版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=release
+</code></pre></li>
+<li><p>静态库，调试版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=debug
+</code></pre><p>  <strong>注</strong>:</p>
+<ol>
+<li><p>可以添加-j N(N指当前CPU核心数)，加快编译速度</p>
+</li>
+<li><p>每种版本可以根据需要编译</p>
+</li>
+<li><p>动态库对应的目录(%WXWIN%\lib\gcc_dll)，静态库对应的目录(%WXWIN%\lib\gcc_lib)</p>
+</li>
+<li><p>Debug版的库名称会有<code>d</code>后缀，UNICODE版的库名称会有<code>u</code>后缀</p>
+</li>
+</ol>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/MinGW编译wxWidget/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/hexo博客添加图片/" >hexo博客添加图片</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>markdown中，插入图片的语法为：</p>
+<pre><code>![图片名称](链接地址)
+</code></pre><ul>
+<li><p>使用本地路径：在hexo/source目录下新建一个img文件夹，将图片放入该文件夹下，插入图片时链接即为/img/图片名称。</p>
+</li>
+<li><p>使用微博图床，地址<a href="http://weibotuchuang.sinaapp.com/，将图片拖入区域中，会生成图片的URL，这就是链接地址。" target="_blank" rel="external">http://weibotuchuang.sinaapp.com/，将图片拖入区域中，会生成图片的URL，这就是链接地址。</a></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/hexo博客添加图片/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-11-11 </div>
+			<div class="article-title"><a href="/2014/11/11/log4cpp编译安装/" >log4cpp编译安装</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="http://sourceforge.net/projects/log4cpp/files/" target="_blank" rel="external">官网</a></p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
+<li>解压</li>
+<li>找到对应工程配置文件(vs2010:msvc10)</li>
+<li>打开msvc10.sln</li>
+<li>生成log4cppLIB(静态库版本)，debug版和release版</li>
+<li>新建目标目录如<code>log4cpp-1.1.1</code></li>
+<li>将<code>include</code>目录复制到目标目录下</li>
+<li>将生成的lib(<code>log4cppD.lib</code>,<code>log4cppLIB.lib</code>)放到目标目录的子目录<code>lib</code></li>
+</ul>
+<p>最终目录结构：</p>
+<pre><code>└─log4cpp-1.1.1
+    ├─include
+    │  └─log4cpp
+    │
+    └─lib
+</code></pre><h2 id="配置解决方案属性"><a href="#配置解决方案属性" class="headerlink" title="配置解决方案属性"></a>配置解决方案属性</h2><ul>
+<li>【VC++目录】，添加<code>include</code>目录和<code>lib</code>目录</li>
+<li>Debug版，添加【附加依赖项】，<code>log4cppD.lib</code></li>
+<li>Release版，添加【附加依赖项】，<code>log4cppLIB.lib</code></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/11/11/log4cpp编译安装/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-09-19 </div>
 			<div class="article-title"><a href="/2014/09/19/hexo搭建个人博客/" >hexo搭建个人博客</a></div>						
 		</h3>
@@ -229,7 +487,7 @@ hexo d
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>19</span></a></li>
+			<li><a href="/categories/C/">C++<span>24</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -439,6 +697,8 @@ hexo d
 		
 			<li><a href="/categories/移动/">移动<span>1</span></a></li>
 		
+			<li><a href="/categories/程序设计/">程序设计<span>1</span></a></li>
+		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
 			<li><a href="/categories/编程/">编程<span>7</span></a></li>
@@ -470,48 +730,48 @@ hexo d
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
+			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
 		
-			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
+			<li><a href="/tags/简记/">简记<span>2</span></a></li>
 		
-			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
 		
-			<li><a href="/tags/链表/">链表<span>1</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/strace/">strace<span>1</span></a></li>
+			<li><a href="/tags/命令/">命令<span>5</span></a></li>
 		
-			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
-		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
-		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
-		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
 		
 			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/文件/">文件<span>7</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/主键/">主键<span>1</span></a></li>
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/awk/">awk<span>1</span></a></li>
 		
-			<li><a href="/tags/ip/">ip<span>2</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+		
+			<li><a href="/tags/c/">c<span>8</span></a></li>
+		
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+		
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>540</span></a></li>
+		   <li><a href="/tags">...<span>545</span></a></li>
 		 
 		</ul>
 	</div>
@@ -524,23 +784,23 @@ hexo d
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/07/C++11-using/" ><i class="fa fa-file-o"></i>C++11-using</a>
+        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
       <li>
-        <a href="/2016/05/06/mysql-int(n)/" ><i class="fa fa-file-o"></i>mysql-int(n)</a>
+        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
       <li>
-        <a href="/2016/05/04/C++-智能指针/" ><i class="fa fa-file-o"></i>C++-智能指针</a>
+        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
       <li>
-        <a href="/2016/05/02/mysql-NULL/" ><i class="fa fa-file-o"></i>mysql-NULL</a>
+        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
       </li>
     
       <li>
-        <a href="/2016/04/28/设计模式-单例模式/" ><i class="fa fa-file-o"></i>设计模式-单例模式</a>
+        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

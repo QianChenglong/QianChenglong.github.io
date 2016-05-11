@@ -112,7 +112,7 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-10 </div>
-			<div class="article-title"><a href="/2014/12/10/win下编译libcurl/" >win下编译libcurl</a></div>						
+			<div class="article-title"><a href="/2014/12/10/win下编译openssl/" >win下编译openssl</a></div>						
 		</h3>
 	
 
@@ -121,37 +121,29 @@
   <div class="row">
 	
 	
-		<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
-<li>VS2010</li>
-<li><a href="https://www.openssl.org/source/" target="_blank" rel="external">openssl-1.0.1j</a></li>
-<li>curl-7.39.0</li>
+		<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
+<li>perl</li>
+<li>VC++</li>
 </ul>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
-<li><p>下载<a href="http://curl.haxx.se/" target="_blank" rel="external">官网</a>，解压</p>
-</li>
-<li><p>将<strong>编译好的</strong><code>openssl</code>({ iLink title:win下编译openssl %})拷贝到<code>../deps</code></p>
-<p><img src="/img/win下编译libcurl_01.png" alt=""></p>
-</li>
-<li><p>进入<code>winbuild</code>目录</p>
-</li>
-<li><p>编译(具体参考<code>winbuild/BUILD.WINDOWS.txt</code>)</p>
-<ul>
-<li><p>release</p>
-<p>nmake /f Makefile.vc mode=dll VC=10 WITH_SSL=dll ENABLE_IDN=no</p>
-</li>
-<li><p>debug</p>
-<p>nmake /f Makefile.vc mode=dll VC=10 WITH_SSL=dll ENABLE_IDN=no DEBUG=yes</p>
-</li>
-</ul>
-</li>
-<li><p>输出目录为<code>builds</code></p>
-<p><img src="/img/win下编译libcurl_02.png" alt=""></p>
-</li>
+<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
+<li><p>生成<code>Makefile</code></p>
+<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
+ms\do_ms
+</code></pre></li>
+<li><p>编译</p>
+<pre><code>nmake -f ms\ntdll.mak
+</code></pre></li>
+<li><p>测试</p>
+<pre><code>nmake -f ms\ntdll.mak test
+</code></pre></li>
+<li><p>安装</p>
+<pre><code>nmake -f ms\ntdll.mak install
+</code></pre></li>
 </ul>
 
 	
 	</div>
-  <a type="button" href="/2014/12/10/win下编译libcurl/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2014/12/10/win下编译openssl/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -870,45 +862,45 @@ by.decode(&apos;utf-8&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/sal/">sal<span>1</span></a></li>
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+		
+			<li><a href="/tags/编程/">编程<span>5</span></a></li>
+		
+			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+		
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+		
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+		
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+		
+			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+		
+			<li><a href="/tags/nging/">nging<span>1</span></a></li>
+		
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+		
+			<li><a href="/tags/app/">app<span>4</span></a></li>
+		
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+		
+			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
+		
+			<li><a href="/tags/cron/">cron<span>2</span></a></li>
+		
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
 			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
-		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
-		
-			<li><a href="/tags/debug/">debug<span>2</span></a></li>
-		
-			<li><a href="/tags/库/">库<span>2</span></a></li>
-		
-			<li><a href="/tags/command/">command<span>8</span></a></li>
-		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
-		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/任播/">任播<span>1</span></a></li>
 		
 			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
 		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
+			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/tags/string/">string<span>7</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
-		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
-		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
-		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
-		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
-		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
-		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
-		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+			<li><a href="/tags/function/">function<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>545</span></a></li>

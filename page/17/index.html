@@ -111,6 +111,55 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-06 </div>
+			<div class="article-title"><a href="/2015/09/06/python3-base64/" >python3-base64</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line"></span><br><span class="line">base64.b64encode(b&apos;Hello world&apos;)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/3/library/base64.html#module-base64" target="_blank" rel="external">https://docs.python.org/3/library/base64.html#module-base64</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/06/python3-base64/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-02 </div>
+			<div class="article-title"><a href="/2015/09/02/rpc框架/" >rpc框架</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><a href="https://thrift.apache.org/" target="_blank" rel="external">thrift</a></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/02/rpc框架/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-02 </div>
 			<div class="article-title"><a href="/2015/09/02/go-使用gdb调试/" >go-使用gdb调试</a></div>						
 		</h3>
@@ -400,59 +449,6 @@ KEYMAP=us
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-17 </div>
-			<div class="article-title"><a href="/2015/08/17/条件变量/" >条件变量</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="为什么需要条件变量"><a href="#为什么需要条件变量" class="headerlink" title="为什么需要条件变量"></a>为什么需要条件变量</h1><ul>
-<li><code>mutex</code>只能保证互斥地操作共享资源,不能及时通知其他线程某一条件已经满足</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/08/17/条件变量/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-17 </div>
-			<div class="article-title"><a href="/2015/08/17/虚假唤醒/" >虚假唤醒</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>在使用条件变量时,有可能<code>pthread_cond_wait</code>返回时,条件并不满足</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><ul>
-<li>在多核CPU上无法完全实现条件操作语义</li>
-</ul>
-<h1 id="如何避免"><a href="#如何避免" class="headerlink" title="如何避免"></a>如何避免</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pthread_mutex_lock(&amp;lock);</span><br><span class="line"><span class="keyword">while</span> (condition_is_false) &#123;</span><br><span class="line">    pthread_cond_wait(&amp;cond, &amp;lock);</span><br><span class="line">&#125;</span><br><span class="line">pthread_mutex_unlock(&amp;lock);</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.fenesky.com/blog/2014/06/22/cond-spurious-wakeup.html" target="_blank" rel="external">http://www.fenesky.com/blog/2014/06/22/cond-spurious-wakeup.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/08/17/虚假唤醒/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -567,11 +563,13 @@ KEYMAP=us
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>2</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
 			<li><a href="/categories/git/">git<span>5</span></a></li>
+		
+			<li><a href="/categories/glibc/">glibc<span>1</span></a></li>
 		
 			<li><a href="/categories/grep/">grep<span>1</span></a></li>
 		
@@ -587,7 +585,7 @@ KEYMAP=us
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>18</span></a></li>
+			<li><a href="/categories/linux/">linux<span>19</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -748,48 +746,48 @@ KEYMAP=us
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
 		
-			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
+			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
 		
-			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
+			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
 		
-			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
+			<li><a href="/tags/od/">od<span>1</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/alias/">alias<span>1</span></a></li>
 		
-			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
+			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
 		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
+			<li><a href="/tags/git/">git<span>6</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
-		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
-		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
 		
 			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
-			<li><a href="/tags/dll/">dll<span>1</span></a></li>
+			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
 		
-			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/理论/">理论<span>1</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+		
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+		
+			<li><a href="/tags/函数/">函数<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>545</span></a></li>
+		   <li><a href="/tags">...<span>548</span></a></li>
 		 
 		</ul>
 	</div>
@@ -802,6 +800,14 @@ KEYMAP=us
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
@@ -811,14 +817,6 @@ KEYMAP=us
     
       <li>
         <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

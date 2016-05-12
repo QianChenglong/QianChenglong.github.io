@@ -112,6 +112,142 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-08 </div>
+			<div class="article-title"><a href="/2014/12/08/python-编码/" >python-编码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="unicode内部编码实现"><a href="#unicode内部编码实现" class="headerlink" title="unicode内部编码实现"></a>unicode内部编码实现</h1><ul>
+<li><p>python2 UCS2(编译默认，–enable-unicode=ucs2)</p>
+<pre><code>&gt;&gt;&gt; sys.maxunicode
+65535
+</code></pre></li>
+<li><p>python3 UCS4(编译默认，–enable-unicode=ucs4)</p>
+<pre><code>&gt;&gt;&gt; sys.maxunicode
+1114111
+</code></pre></li>
+</ul>
+<h1 id="相关数据类型"><a href="#相关数据类型" class="headerlink" title="相关数据类型"></a>相关数据类型</h1><h2 id="字节序列-bytes"><a href="#字节序列-bytes" class="headerlink" title="字节序列(bytes)"></a>字节序列(bytes)</h2><p>一串由0到255之间的数字组成的序列叫做bytes对象</p>
+<ul>
+<li><p>用来存储经过某种编码方式(如<code>UTF-8</code>)的<code>unicode</code>字符串</p>
+</li>
+<li><p>转换为字符串时,需要知道该<code>bytes</code>的编码</p>
+</li>
+</ul>
+<h2 id="字符串-string"><a href="#字符串-string" class="headerlink" title="字符串(string)"></a>字符串(string)</h2><ul>
+<li><p>字符是一种抽象</p>
+</li>
+<li><p>一个不可变(immutable)的Unicode编码的字符序列叫做string</p>
+</li>
+<li><p>存储对应的UNICODE编码值</p>
+</li>
+</ul>
+<h1 id="python源文件编码方式"><a href="#python源文件编码方式" class="headerlink" title="python源文件编码方式"></a>python源文件编码方式</h1><ul>
+<li><p>python2 默认编码为ASCII，若为其他编码，需要在文件头注释说明(<code>coding: XXX</code>)</p>
+</li>
+<li><p>python3 默认UTF-8</p>
+</li>
+</ul>
+<h1 id="编码转换-str-lt-gt-bytes"><a href="#编码转换-str-lt-gt-bytes" class="headerlink" title="编码转换(str &lt;=&gt; bytes)"></a>编码转换(str &lt;=&gt; bytes)</h1><h2 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h2><ul>
+<li><p>string =&gt; bytes</p>
+<pre><code>a_string = &apos;深入 Python&apos;
+by = a_string.encode(&apos;utf-8&apos;)
+len(by)
+by = a_string.encode(&apos;gb18030&apos;)
+len(by)
+</code></pre></li>
+<li><p>bytes =&gt; string</p>
+<pre><code>a_string = &apos;深入 Python&apos;
+by = a_string.encode(&apos;utf-8&apos;)
+by.decode(&apos;utf-8&apos;)
+</code></pre></li>
+</ul>
+<p>参考：</p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/1446347/how-to-find-out-if-python-is-compiled-with-ucs-2-or-ucs-4" target="_blank" rel="external">http://stackoverflow.com/questions/1446347/how-to-find-out-if-python-is-compiled-with-ucs-2-or-ucs-4</a></li>
+</ol>
+<h2 id="获取系统编码参数"><a href="#获取系统编码参数" class="headerlink" title="获取系统编码参数"></a>获取系统编码参数</h2><p>系统的缺省编码(一般就是ascii)：sys.getdefaultencoding()</p>
+<p>系统当前的编码：locale.getdefaultlocale()</p>
+<p>系统代码中临时被更改的编码（通过locale.setlocale(locale.LC_ALL,“zh_CN.UTF-8″)）：locale.getlocale()</p>
+<p>文件系统的编码：sys.getfilesystemencoding()</p>
+<p>终端的输入编码：sys.stdin.encoding</p>
+<p>终端的输出编码：sys.stdout.encoding</p>
+<h2 id="文件编码与字符串编码"><a href="#文件编码与字符串编码" class="headerlink" title="文件编码与字符串编码"></a>文件编码与字符串编码</h2><p>字符床常量编码取决于文件编码</p>
+<ul>
+<li><p>默认编码为ASCII</p>
+</li>
+<li><p>文件头显式指定编码，需要文件本身编码与该声明编码一致</p>
+<pre><code># Coding: utf-8
+</code></pre></li>
+</ul>
+<p>定义<code>UNICODE</code>字符串，在字符床常量前加<code>u</code></p>
+<h2 id="判断字符串编码"><a href="#判断字符串编码" class="headerlink" title="判断字符串编码"></a>判断字符串编码</h2><ul>
+<li><p><code>type(str)</code></p>
+</li>
+<li><p><code>isinstance()</code></p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> <span class="string">'default encoding: '</span> , sys.getdefaultencoding()</span><br><span class="line"><span class="keyword">print</span> <span class="string">'stdout encoding: '</span> , sys.stdout.encoding</span><br><span class="line">s=<span class="string">'中文'</span></span><br><span class="line"><span class="keyword">if</span> isinstance(s, str):</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'s is a string object'</span></span><br><span class="line"><span class="keyword">elif</span> isinstance(s, unicode):</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'s is a unicode object'</span></span><br></pre></td></tr></table></figure>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="SyntaxError-Non-ASCII-character-39-xe4-39-in-file-XXX"><a href="#SyntaxError-Non-ASCII-character-39-xe4-39-in-file-XXX" class="headerlink" title="SyntaxError: Non-ASCII character &#39;\xe4&#39; in file XXX"></a><code>SyntaxError: Non-ASCII character &#39;\xe4&#39; in file XXX</code></h3><ul>
+<li>原因</li>
+</ul>
+<p>文件编码不是<code>ASCII</code>编码，但文件开头未指定文件编码</p>
+<ul>
+<li>解决</li>
+</ul>
+<p>在文件开头指定文件本身编码即可.(文件最好采用<code>utf-8</code>编码)</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="http://woodpecker.org.cn/diveintopython3/strings.html" target="_blank" rel="external">http://woodpecker.org.cn/diveintopython3/strings.html</a></li>
+<li><a href="https://docs.python.org/2/howto/unicode.html" target="_blank" rel="external">https://docs.python.org/2/howto/unicode.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/08/python-编码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-08 </div>
+			<div class="article-title"><a href="/2014/12/08/python-cgi常见错误/" >python-cgi常见错误</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="500-Internal-Server-Error"><a href="#500-Internal-Server-Error" class="headerlink" title="500 Internal Server Error"></a>500 Internal Server Error</h2><h3 id="CGI不能执行"><a href="#CGI不能执行" class="headerlink" title="CGI不能执行"></a>CGI不能执行</h3><ul>
+<li><p>语法有问题</p>
+</li>
+<li><p>依赖未解决</p>
+</li>
+</ul>
+<h3 id="输出不正确"><a href="#输出不正确" class="headerlink" title="输出不正确"></a>输出不正确</h3><ul>
+<li><p>输出内容不符合CGI规范</p>
+<p>常见问题是，输出头不合法</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/08/python-cgi常见错误/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-08 </div>
 			<div class="article-title"><a href="/2014/12/08/判断PC在交换机或路由器中的端口/" >判断PC在交换机或路由器中的端口</a></div>						
 		</h3>
 	
@@ -333,208 +469,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-04 </div>
-			<div class="article-title"><a href="/2014/12/04/优秀软件列表/" >优秀软件列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="文件工具"><a href="#文件工具" class="headerlink" title="文件工具"></a>文件工具</h1><ul>
-<li><p><a href="http://www.scootersoftware.com/" target="_blank" rel="external">BeyondCompare</a></p>
-<p>文件差异比较工具</p>
-</li>
-</ul>
-<h1 id="桌面工具"><a href="#桌面工具" class="headerlink" title="桌面工具"></a>桌面工具</h1><ul>
-<li><p><a href="https://github.com/chenall/ALMRun/" target="_blank" rel="external">ALMrun</a></p>
-<p>快速启动工具</p>
-</li>
-<li><p><a href="http://cn.ejie.me/" target="_blank" rel="external">Clover</a></p>
-<p>Clover是Windows Explorer资源管理器的一个扩展，为其增加类似谷歌Chrome浏览器的多标签页功能。</p>
-</li>
-<li><p><a href="http://dexpot.de/" target="_blank" rel="external">dexport</a></p>
-<p>Windows虚拟桌面</p>
-</li>
-<li><p><a href="https://www.dropbox.com" target="_blank" rel="external">dropbox</a></p>
-<p>网盘</p>
-</li>
-<li><p><a href="http://nionsoftware.com/dbpahk/" target="_blank" rel="external">DropboxPortableAHK</a></p>
-<p>制作dropbox绿色版</p>
-</li>
-<li><p><a href="https://www.mythicsoft.com/filelocatorpro" target="_blank" rel="external">EveryThing</a></p>
-<p>文件搜索工具，根据文件名等信息</p>
-</li>
-<li><p><a href="http://www.stardock.com/products/fences/" target="_blank" rel="external">fences</a></p>
-<p>Windows桌面图标管理</p>
-</li>
-<li><p><a href="http://www.telerik.com/fiddler" target="_blank" rel="external">fiddler</a></p>
-<p>web调试代理</p>
-</li>
-<li><p><a href="https://www.mythicsoft.com/filelocatorpro" target="_blank" rel="external">FileLocator</a></p>
-<p>文件全文搜索</p>
-</li>
-</ul>
-<ul>
-<li><p><a href="https://justgetflux.com/" target="_blank" rel="external">f.lux</a></p>
-<p>随时间调节显示器色温</p>
-</li>
-<li><p><a href="">keytweak</a></p>
-<p>快捷键修改工具</p>
-</li>
-<li><p><a href="http://rainmeter.net/" target="_blank" rel="external">rainmeter</a></p>
-<p>桌面自定义工具</p>
-</li>
-<li><p><a href="https://www.virtualbox.org/" target="_blank" rel="external">VirtualBox</a></p>
-<p>开源免费虚拟机</p>
-</li>
-<li><p><a href="http://potplayer.daum.net/?lang=zh_CN" target="_blank" rel="external">PotPlayer</a></p>
-<p>PotPlayer是 KMPlayer作者新作品，全格式、硬件加速，口碑俱佳</p>
-</li>
-</ul>
-<h1 id="系统工具"><a href="#系统工具" class="headerlink" title="系统工具"></a>系统工具</h1><ul>
-<li><p><a href="http://svchostviewer.codeplex.com/" target="_blank" rel="external">svchost viewer</a></p>
-<p>svchost进程查看</p>
-</li>
-<li><p><a href="http://sourceforge.net/projects/ophcrack/" target="_blank" rel="external">ophcrack</a></p>
-<p>windows密码破解</p>
-</li>
-<li><p>grub4dos</p>
-<p>多系统引导工具</p>
-<ul>
-<li><p><a href="http://grub4dos.chenall.net/" target="_blank" rel="external">二进制下载</a></p>
-</li>
-<li><p><a href="http://grub4dos.chenall.net/" target="_blank" rel="external">git</a></p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="nirsoft"><a href="#nirsoft" class="headerlink" title="nirsoft"></a>nirsoft</h1><ul>
-<li><p><a href="http://www.nirsoft.net/utils/cports.html" target="_blank" rel="external">cports</a></p>
-<p>查看tcp/udp端口监听情况</p>
-</li>
-<li><p><a href="http://www.nirsoft.net/utils/network_interfaces.html" target="_blank" rel="external">NetworkInterfacesView </a></p>
-<p>查看网卡信息</p>
-</li>
-<li><p><a href="http://www.nirsoft.net/utils/what_run_in_startup.html" target="_blank" rel="external">whatinstartup</a></p>
-<p>开机启动管理</p>
-</li>
-<li><p><a href="http://www.nirsoft.net/utils/file_types_manager.html" target="_blank" rel="external">FileTypesMan</a></p>
-<p>文件类型管理</p>
-</li>
-</ul>
-<h1 id="网络类"><a href="#网络类" class="headerlink" title="网络类"></a>网络类</h1><ul>
-<li><p><a href="https://code.google.com/p/sokit/" target="_blank" rel="external">sokit</a></p>
-<p>网络测试工具，可以用来接收，发送或者转发TCP/UDP数据包，使用C++语言，QT基础库开发（QT SDK v4.7）。在32位windows及linux系统下编译通过。</p>
-</li>
-<li><p><a href="https://www.wireshark.org/" target="_blank" rel="external">wireshark</a></p>
-<p>抓包工具</p>
-</li>
-<li><p><a href="http://tftpd32.jounin.net/" target="_blank" rel="external">tftpd32</a></p>
-<p>tftp客户端，服务器, DHCP服务器</p>
-</li>
-<li><p><a href="http://winscp.net/eng/index.php" target="_blank" rel="external">scp</a>[windows]</p>
-<p>scp, sftp, ftp客户端</p>
-</li>
-<li><p><a href="https://www.proxifier.com/" target="_blank" rel="external">proxifier</a></p>
-<p>windows全局代理工具</p>
-</li>
-<li><p><a href="">webzip</a></p>
-<p>整站下载工具</p>
-</li>
-</ul>
-<h1 id="远程控制"><a href="#远程控制" class="headerlink" title="远程控制"></a>远程控制</h1><ul>
-<li><p><a href="https://www.teamviewer.com" target="_blank" rel="external">teamviewer</a></p>
-<p>穿透内网和防火墙的远程控制!</p>
-</li>
-</ul>
-<h1 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h1><ul>
-<li><p><a href="http://johnmacfarlane.net/pandoc/" target="_blank" rel="external">pandoc</a></p>
-<p>markdown编译器</p>
-</li>
-</ul>
-<h1 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h1><ul>
-<li><p><a href="http://staruml.io/" target="_blank" rel="external">StarUML</a></p>
-<p>uml工具</p>
-</li>
-<li><p><a href="http://www.graphviz.org/" target="_blank" rel="external">GraphViz</a></p>
-<p>用于绘制DOT语言脚本描述的图形</p>
-</li>
-</ul>
-<h1 id="开发类"><a href="#开发类" class="headerlink" title="开发类"></a>开发类</h1><ul>
-<li><p><a href="http://clang.llvm.org/" target="_blank" rel="external">clang</a></p>
-<p>C/C++编译器</p>
-</li>
-<li><p><a href="http://www.windbg.org/" target="_blank" rel="external">windbg</a></p>
-<p>windows调试工具</p>
-</li>
-<li><p><a href="https://code.google.com/p/gtest-gbar/" target="_blank" rel="external">gtest-gbar</a></p>
-<p>google C++测试框架UI工具</p>
-</li>
-<li><p><a href="http://www.valgrind.org/" target="_blank" rel="external">valgrind</a></p>
-<p>内存泄漏检测</p>
-</li>
-<li><p><a href="http://tortoisesvn.net/downloads.zh.html" target="_blank" rel="external">tortoiseSVN</a></p>
-<p>windows下SVN GUI工具</p>
-</li>
-<li><p><a href="http://www.dependencywalker.com/" target="_blank" rel="external">Dependency Walker</a></p>
-<p>dll依赖查询</p>
-</li>
-<li><p><a href="http://include-what-you-use.org/" target="_blank" rel="external">include-what-you-use</a></p>
-<p>自动修正c/c++头文件</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/04/优秀软件列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-04 </div>
-			<div class="article-title"><a href="/2014/12/04/python-json操作/" >python-json操作</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="解码-decoding-："><a href="#解码-decoding-：" class="headerlink" title="解码(decoding)："></a>解码(decoding)：</h2><p>把Json格式字符串解码转换成Python对象</p>
-<ul>
-<li>从字符串中</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="string">'&#123;"id": 1, "name": "Tom"&#125;'</span></span><br><span class="line">json_data = json.loads(data)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>从文件流</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="string">'&#123;"id": 1, "name": "Tom"&#125;'</span></span><br><span class="line">json_data = json.load(data)</span><br></pre></td></tr></table></figure>
-<h2 id="编码-encoding-："><a href="#编码-encoding-：" class="headerlink" title="编码(encoding)："></a>编码(encoding)：</h2><p>把一个Python对象编码转换成Json字符串</p>
-<ul>
-<li>转为<code>python</code>字符串</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">json.dumps([<span class="string">'foo'</span>, &#123;<span class="string">'bar'</span>: (<span class="string">'baz'</span>, <span class="keyword">None</span>, <span class="number">1.0</span>, <span class="number">2</span>)&#125;])</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://docs.python.org/2/library/json.html" target="_blank" rel="external">https://docs.python.org/2/library/json.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/04/python-json操作/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -649,11 +583,13 @@
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>2</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
 			<li><a href="/categories/git/">git<span>5</span></a></li>
+		
+			<li><a href="/categories/glibc/">glibc<span>1</span></a></li>
 		
 			<li><a href="/categories/grep/">grep<span>1</span></a></li>
 		
@@ -669,7 +605,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>18</span></a></li>
+			<li><a href="/categories/linux/">linux<span>19</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -830,48 +766,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
 		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
 		
-			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
-		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
 			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
-			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
 		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
 		
-			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
 		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/cron/">cron<span>2</span></a></li>
+			<li><a href="/tags/vim/">vim<span>22</span></a></li>
 		
-			<li><a href="/tags/macro/">macro<span>3</span></a></li>
+			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
-			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
+		
+			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>545</span></a></li>
+		   <li><a href="/tags">...<span>548</span></a></li>
 		 
 		</ul>
 	</div>
@@ -884,6 +820,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
@@ -893,14 +837,6 @@
     
       <li>
         <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

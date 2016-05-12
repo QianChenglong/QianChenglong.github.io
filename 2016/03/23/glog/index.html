@@ -116,10 +116,17 @@
 	  <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
 <li><p>默认输出到<code>/tmp/&lt;program name&gt;.&lt;hostname&gt;.&lt;user name&gt;.log.&lt;severity level&gt;.&lt;date&gt;.&lt;time&gt;.&lt;pid&gt;</code></p>
 </li>
+<li><p>FATAL和CHECK失败，会打印堆栈(默认打印到stderr)，然后exit(1)</p>
+</li>
+</ul>
+<h1 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h1><ul>
 <li><p>重定向到标准出错</p>
 <pre><code>GLOG_logtostderr=1 ./your_application
 </code></pre></li>
 </ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://google-glog.googlecode.com/svn/trunk/doc/glog.html" target="_blank" rel="external">https://google-glog.googlecode.com/svn/trunk/doc/glog.html</a></li>
+</ol>
 	  
 	</div>
 

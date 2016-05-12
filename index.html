@@ -111,6 +111,57 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-05-12 </div>
+			<div class="article-title"><a href="/2016/05/12/backtrace()/" >backtrace()</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>glibc在Linux下获取调用堆栈</p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>链接需要在<code>gcc-rdynamic</code>&lt;=&gt;<code>ld --export-dynamic</code></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/6934659/how-to-make-backtrace-backtrace-symbols-print-the-function-names" target="_blank" rel="external">http://stackoverflow.com/questions/6934659/how-to-make-backtrace-backtrace-symbols-print-the-function-names</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/gcc-4.8.5/gcc/Link-Options.html#Link-Options" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/gcc-4.8.5/gcc/Link-Options.html#Link-Options</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/05/12/backtrace()/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-11 </div>
+			<div class="article-title"><a href="/2016/05/11/addr2line/" >addr2line</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><p>将程序地址转换为文件名和行号，结合call stack，可以在崩溃时，打印相应信息！</p>
+
+	
+	</div>
+  <a type="button" href="/2016/05/11/addr2line/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-05-08 </div>
 			<div class="article-title"><a href="/2016/05/08/程序设计-鸭子类型/" >程序设计-鸭子类型</a></div>						
 		</h3>
@@ -380,69 +431,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-04 </div>
-			<div class="article-title"><a href="/2016/05/04/C++-智能指针/" >C++-智能指针</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="std-unique-ptr"><a href="#std-unique-ptr" class="headerlink" title="std::unique_ptr"></a><code>std::unique_ptr</code></h1><ul>
-<li>独占对象所有权</li>
-</ul>
-<h2 id="释放时机"><a href="#释放时机" class="headerlink" title="释放时机"></a>释放时机</h2><ul>
-<li><p>当赋值操作时</p>
-</li>
-<li><p>当离开作用域时</p>
-</li>
-<li><p>显式调用<code>reset</code></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/05/04/C++-智能指针/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-02 </div>
-			<div class="article-title"><a href="/2016/05/02/mysql-NULL/" >mysql-NULL</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>只能通过<code>IS NULL</code>, <code>IS NOT NULL</code>(运算符), <code>ISNULL()</code>(函数)这3个来进行测试<code>NULL</code>值</p>
-</li>
-<li><p>与<code>NULL</code>进行任何运算(比较,算术等),结果都为<code>NULL</code>,除非该运算符特别说明!</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.0/en/working-with-null.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/working-with-null.html</a></li>
-<li><a href="https://dev.mysql.com/doc/refman/5.0/en/comparison-operators.html#operator_is-null" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/comparison-operators.html#operator_is-null</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/05/02/mysql-NULL/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -557,11 +545,13 @@
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>2</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
 			<li><a href="/categories/git/">git<span>5</span></a></li>
+		
+			<li><a href="/categories/glibc/">glibc<span>1</span></a></li>
 		
 			<li><a href="/categories/grep/">grep<span>1</span></a></li>
 		
@@ -577,7 +567,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>18</span></a></li>
+			<li><a href="/categories/linux/">linux<span>19</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -738,48 +728,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
-		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
-		
-			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
-		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
-		
-			<li><a href="/tags/T/">__T<span>1</span></a></li>
-		
-			<li><a href="/tags/time/">time<span>2</span></a></li>
-		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
-		
-			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
-		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
-		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
-		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
-		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
-		
-			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
+			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
 			<li><a href="/tags/网站/">网站<span>2</span></a></li>
 		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/编程/">编程<span>5</span></a></li>
+			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
+			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
 		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
+		
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+		
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+		
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+		
+			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
+		
+			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
+		
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
+		
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+		
+			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
+		
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
+		
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
+		
+			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+		
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>545</span></a></li>
+		   <li><a href="/tags">...<span>548</span></a></li>
 		 
 		</ul>
 	</div>
@@ -792,6 +782,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
@@ -801,14 +799,6 @@
     
       <li>
         <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/07/C++-异常/" ><i class="fa fa-file-o"></i>C++-异常</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/07/C++11-override/" ><i class="fa fa-file-o"></i>C++11-override</a>
       </li>
     
   </ul>

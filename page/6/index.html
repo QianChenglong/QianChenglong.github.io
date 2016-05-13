@@ -111,6 +111,27 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-18 </div>
+			<div class="article-title"><a href="/2016/03/18/ssh/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		
+	
+	</div>
+  <a type="button" href="/2016/03/18/ssh/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-15 </div>
 			<div class="article-title"><a href="/2016/03/15/epoll/" >epoll</a></div>						
 		</h3>
@@ -396,41 +417,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-08 </div>
-			<div class="article-title"><a href="/2016/03/08/proactor/" >proactor</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>与Reactor模型相对应，Proactor最大的特点是使用异步I/O。所有的I/O操作都交由系统提供的异步I/O接口去执行。Proactor多路复用器等待异步I/O完成，并调用相应的用户处理函数。为了对比Reactor模型，以一个read操作为例：</p>
-<p>在Reactor中：</p>
-<ul>
-<li>将要读的文件描述符注册到多路复用器中。</li>
-<li>多路复用器等待上述描述符的可读事件以及其它所有已经注册过的事件。</li>
-<li>描述符变成可读之后，多路复用器返回，并调用用户提供的处理函数，开始读文件操作。</li>
-</ul>
-<p>在Proactor中：</p>
-<ul>
-<li>用户函数启动一个异步读文件的操作。同时将这个操作注册到多路复用器上。多路复用器并不关心文件是否可读而是关心这个异步读操作是否完成。</li>
-<li>异步读文件是操作系统完成，用户程序不需要关心。多路复用器等待直到有完成通知到来。</li>
-<li>当操作系统完成了读文件操作——将读到的数据复制到了用户先前提供的缓冲区之后，通知多路复用器读操作已完成。</li>
-<li>多路复用器再调用相应的处理程序，处理数据。</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/03/08/proactor/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -552,6 +538,8 @@
 			<li><a href="/categories/git/">git<span>5</span></a></li>
 		
 			<li><a href="/categories/glibc/">glibc<span>1</span></a></li>
+		
+			<li><a href="/categories/go/">go<span>2</span></a></li>
 		
 			<li><a href="/categories/grep/">grep<span>1</span></a></li>
 		
@@ -728,48 +716,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
+			<li><a href="/tags/类型转换/">类型转换<span>1</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
 		
-			<li><a href="/tags/static/">static<span>1</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>3</span></a></li>
 		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+			<li><a href="/tags/c99/">c99<span>1</span></a></li>
 		
-			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
+		
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+		
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+		
+			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+		
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+		
+			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+		
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+		
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+		
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+		
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+		
+			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
 		
 			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
 		
-			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
-		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
-		
-			<li><a href="/tags/library/">library<span>2</span></a></li>
-		
-			<li><a href="/tags/理论/">理论<span>1</span></a></li>
-		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
-		
-			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
-		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
-		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
-		
-			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
-		
-		
-		   <li><a href="/tags">...<span>548</span></a></li>
+		   <li><a href="/tags">...<span>551</span></a></li>
 		 
 		</ul>
 	</div>
@@ -780,6 +768,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
+      </li>
     
       <li>
         <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
@@ -795,10 +787,6 @@
     
       <li>
         <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
   </ul>

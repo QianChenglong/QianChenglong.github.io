@@ -111,6 +111,43 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-11-25 </div>
+			<div class="article-title"><a href="/2015/11/25/http-content-type/" >http-content-type</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="application-json"><a href="#application-json" class="headerlink" title="application/json"></a>application/json</h1><ul>
+<li><p>数据必须是<code>Unicode</code>编码,默认编码方式为<code>UTF-8</code></p>
+</li>
+<li><p>因为<code>json</code>数据前2个字符总是<code>ASCII</code>字符(<code>{&quot;</code>,与<code>[空格]</code>的组合),所以可以推断出其编码方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 xx  UTF-32BE</span><br><span class="line">00 xx 00 xx  UTF-16BE</span><br><span class="line">xx 00 00 00  UTF-32LE</span><br><span class="line">xx 00 xx 00  UTF-16LE</span><br><span class="line">xx xx xx xx  UTF-8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若采用<code>UTF-16</code>或<code>UTF-32</code>,则需要设置<code>content-transfer-encoding</code>为<code>binary</code>??</p>
+</li>
+</ul>
+<p>参考:</p>
+<ol>
+<li><a href="http://www.ietf.org/rfc/rfc4627.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc4627.txt</a></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/9254891/what-does-content-type-application-json-charset-utf-8-really-mean" target="_blank" rel="external">http://stackoverflow.com/questions/9254891/what-does-content-type-application-json-charset-utf-8-really-mean</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/25/http-content-type/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-11-18 </div>
 			<div class="article-title"><a href="/2015/11/18/go/" >go</a></div>						
 		</h3>
@@ -451,33 +488,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-09 </div>
-			<div class="article-title"><a href="/2015/11/09/go-test/" >go-test</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ol>
-<li>运行指定测试用例(<a href="http://stackoverflow.com/questions/16935965/how-to-run-test-cases-in-a-specified-file" target="_blank" rel="external">http://stackoverflow.com/questions/16935965/how-to-run-test-cases-in-a-specified-file</a>)</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/11.3.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/11.3.md</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/09/go-test/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -599,6 +609,8 @@
 			<li><a href="/categories/git/">git<span>5</span></a></li>
 		
 			<li><a href="/categories/glibc/">glibc<span>1</span></a></li>
+		
+			<li><a href="/categories/go/">go<span>2</span></a></li>
 		
 			<li><a href="/categories/grep/">grep<span>1</span></a></li>
 		
@@ -775,48 +787,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
 		
-			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
+			<li><a href="/tags/宏/">宏<span>4</span></a></li>
 		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+			<li><a href="/tags/date/">date<span>1</span></a></li>
 		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
 		
-			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
+			<li><a href="/tags/gcc/">gcc<span>4</span></a></li>
 		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
+			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
 		
-			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>38</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
+			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/json/">json<span>4</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
 		
-			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
+			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
 		
-			<li><a href="/tags/编程/">编程<span>5</span></a></li>
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
 		
-			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
+			<li><a href="/tags/C/">C++<span>26</span></a></li>
 		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
+			<li><a href="/tags/database/">database<span>3</span></a></li>
 		
-			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+			<li><a href="/tags/时间/">时间<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>548</span></a></li>
+		   <li><a href="/tags">...<span>551</span></a></li>
 		 
 		</ul>
 	</div>
@@ -827,6 +839,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
+      </li>
     
       <li>
         <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
@@ -842,10 +858,6 @@
     
       <li>
         <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/08/C++11-lambda/" ><i class="fa fa-file-o"></i>C++11-lambda</a>
       </li>
     
   </ul>

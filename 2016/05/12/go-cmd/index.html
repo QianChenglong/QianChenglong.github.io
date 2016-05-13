@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>go-test | 心若天府</title>
+  <title>go-cmd | 心若天府</title>
   <meta name="author" content="钱成龙">
   
   <meta name="description" content="笔记，经验总结，资料">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="go-test"/>
+  <meta property="og:title" content="go-cmd"/>
   <meta property="og:site_name" content="心若天府"/>
 
   
@@ -93,7 +93,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> go-test</h1>
+			<h1 class="title title-inverse "> go-cmd</h1>
 		</div>		
 	
 
@@ -113,11 +113,25 @@
 	<div class="mypage">		
 	  		
 
-	  <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ol>
-<li>运行指定测试用例(<a href="http://stackoverflow.com/questions/16935965/how-to-run-test-cases-in-a-specified-file" target="_blank" rel="external">http://stackoverflow.com/questions/16935965/how-to-run-test-cases-in-a-specified-file</a>)</li>
-</ol>
+	  <h1 id="build"><a href="#build" class="headerlink" title="build"></a>build</h1><pre><code>usage: go build [-o output] [-i] [build flags] [packages]
+</code></pre><p>编译指定包，以及其依赖</p>
+<ul>
+<li>如果是<code>main</code>包，则在当前目录下生成一个可执行文件</li>
+</ul>
+<h1 id="run"><a href="#run" class="headerlink" title="run"></a>run</h1><pre><code>usage: go run [build flags] [-exec xprog] gofiles... [arguments...]
+</code></pre><p>编译并运行<code>main</code>包</p>
+<ul>
+<li>如果<code>main</code>包是由多个文件构成，则需要都指定！</li>
+</ul>
+<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><pre><code>usage: go test [-c] [-i] [build and test flags] [packages] [flags for test binary]
+</code></pre><p>自动测试指定包</p>
+<ul>
+<li>默认情况，会编译当前目录包以及相应测试，并运行测试</li>
+</ul>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/11.3.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/11.3.md</a></li>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.3.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.3.md</a></li>
+<li><a href="http://stackoverflow.com/questions/16935965/how-to-run-test-cases-in-a-specified-file" target="_blank" rel="external">http://stackoverflow.com/questions/16935965/how-to-run-test-cases-in-a-specified-file</a></li>
+<li><a href="http://stackoverflow.com/questions/19998250/proper-package-naming-for-testing-in-go-lang" target="_blank" rel="external">http://stackoverflow.com/questions/19998250/proper-package-naming-for-testing-in-go-lang</a></li>
 </ol>
 	  
 	</div>
@@ -127,14 +141,14 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2015/11/10/go-interface/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2015/11/09/go-rpc/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2016/05/12/backtrace()/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -173,7 +187,7 @@
   <h2 class="title">留言</h2>
 
   
-  	 <div class="ds-thread" data-thread-key="2015/11/09/go-test/" data-title="go-test" data-url="https://qianchenglong.github.io/2015/11/09/go-test/"></div>  
+  	 <div class="ds-thread" data-thread-key="2016/05/12/go-cmd/" data-title="go-cmd" data-url="https://qianchenglong.github.io/2016/05/12/go-cmd/"></div>  
   
 </section>
 
@@ -187,12 +201,23 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2015-11-09 
+	2016-05-12 
 	</div>
 	
 
 	<!-- categories -->
     
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/go/">go<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
 
 	<!-- tags -->
 	
@@ -200,7 +225,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/go/">go<span>38</span></a></li> <li><a href="/tags/test/">test<span>2</span></a></li>
+  <li><a href="/tags/go/">go<span>38</span></a></li> <li><a href="/tags/cmd/">cmd<span>1</span></a></li> <li><a href="/tags/build/">build<span>1</span></a></li> <li><a href="/tags/run/">run<span>1</span></a></li> <li><a href="/tags/test/">test<span>2</span></a></li>
     </ul>
 	</div>
 		

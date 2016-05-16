@@ -112,6 +112,30 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-04-22 </div>
+			<div class="article-title"><a href="/2016/04/22/mysql-开发经验/" >mysql-开发经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>程序中，SQL语句尽量用’`’括起来，避免关键字冲突</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/04/22/mysql-开发经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-22 </div>
 			<div class="article-title"><a href="/2016/04/22/windows-md5/" >windows-md5</a></div>						
 		</h3>
 	
@@ -363,45 +387,6 @@ set timeout=1
 	
 	</div>
   <a type="button" href="/2016/04/08/cpp/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-07 </div>
-			<div class="article-title"><a href="/2016/04/07/mysql-char-vs-varchar/" >mysql-char-vs-varchar</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><h2 id="占用空间"><a href="#占用空间" class="headerlink" title="占用空间"></a>占用空间</h2><ul>
-<li><p>char(M)占用空间固定，M[0,255]个字符，具体占用字节与编码相关</p>
-</li>
-<li><p>varchar(M[0,65535])占用空间不固定，因为首部占用1或2B来记录长度M+1(<code>M&lt;256</code>)，占用M+2(<code>255&lt;M&lt;65536</code>)</p>
-</li>
-</ul>
-<h2 id="关于空格"><a href="#关于空格" class="headerlink" title="关于空格"></a>关于空格</h2><ul>
-<li><p>在存储字符串到char中时，会填充空格至相应长度</p>
-</li>
-<li><p>取出char类型值时，若<code>sql_mode</code>没有设置<code>PAD_CHAR_TO_FULL_LENGTH</code>，则会去除尾部空格</p>
-<p>所以导致插入带空格的字符串，取出时却不带有空格！</p>
-</li>
-<li><p>varchar会存储空格和保留空格，不会转换！</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://dev.mysql.com/doc/refman/5.6/en/char.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.6/en/char.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/07/mysql-char-vs-varchar/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -659,6 +644,8 @@ set timeout=1
 		
 			<li><a href="/categories/后台/">后台<span>1</span></a></li>
 		
+			<li><a href="/categories/后台开发/">后台开发<span>1</span></a></li>
+		
 			<li><a href="/categories/字符编码/">字符编码<span>4</span></a></li>
 		
 			<li><a href="/categories/操作系统/">操作系统<span>1</span></a></li>
@@ -704,48 +691,48 @@ set timeout=1
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/all/">all<span>1</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
 		
-			<li><a href="/tags/json/">json<span>4</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
+			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
 		
-			<li><a href="/tags/信息安全/">信息安全<span>1</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/if/">if<span>1</span></a></li>
 		
-			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
 		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
+			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/部署/">部署<span>1</span></a></li>
 		
-			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
+			<li><a href="/tags/池/">池<span>1</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
+			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/usb/">usb<span>3</span></a></li>
 		
-			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
 		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
+			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql/">mysql<span>34</span></a></li>
+			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>551</span></a></li>
+		   <li><a href="/tags">...<span>553</span></a></li>
 		 
 		</ul>
 	</div>
@@ -756,6 +743,10 @@ set timeout=1
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
+      </li>
     
       <li>
         <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
@@ -771,10 +762,6 @@ set timeout=1
     
       <li>
         <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/08/C++-template/" ><i class="fa fa-file-o"></i>C++-template</a>
       </li>
     
   </ul>

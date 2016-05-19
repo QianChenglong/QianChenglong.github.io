@@ -487,7 +487,13 @@ set timeout=1
     <entry>
       <title><![CDATA[死锁]]></title>
       <url>https://qianchenglong.github.io/2016/04/12/%E6%AD%BB%E9%94%81/</url>
-      <content type="html"><![CDATA[<h1 id="预防"><a href="#预防" class="headerlink" title="预防"></a>预防</h1><ul>
+      <content type="html"><![CDATA[<h1 id="可能发生的场景"><a href="#可能发生的场景" class="headerlink" title="可能发生的场景"></a>可能发生的场景</h1><ul>
+<li><p>在函数嵌套调用中，多次请求同一资源</p>
+</li>
+<li><p>不同线程中，以不同的顺序请求多个资源，而其中某个资源不足</p>
+</li>
+</ul>
+<h1 id="预防"><a href="#预防" class="headerlink" title="预防"></a>预防</h1><ul>
 <li><p>利用RAII手段，确保stack mutex离开作用域时被解锁(<code>MutexGuard, std::lock_guard</code>)</p>
 <ul>
 <li><p>异常结束(throw)</p>
@@ -3495,12 +3501,26 @@ KEYMAP=us
 </code></pre></li>
 </ul>
 <h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><ul>
+<li><p>通过文件名</p>
+<pre><code>gdb &lt;program&gt;
+</code></pre></li>
 <li><p>使用core调试</p>
 <pre><code>gdb -c &lt;core-file-name&gt; &lt;program&gt;
 </code></pre></li>
 <li><p>attach到指定进程</p>
 <pre><code>gdb -p &lt;pid&gt;
 gdb attach &lt;pid&gt;
+</code></pre></li>
+</ul>
+<h1 id="多线程调试"><a href="#多线程调试" class="headerlink" title="多线程调试"></a>多线程调试</h1><ul>
+<li><p>查看所有线程调用栈</p>
+<pre><code>thread apply all bt
+</code></pre></li>
+<li><p>调试指定线程</p>
+<pre><code>thread &lt;thread-num&gt;
+</code></pre></li>
+<li><p>锁定线程(阻止线程切换)</p>
+<pre><code>set scheduler-locking on
 </code></pre></li>
 </ul>
 <h1 id="控制类"><a href="#控制类" class="headerlink" title="控制类"></a>控制类</h1><ul>
@@ -11562,31 +11582,6 @@ qualifiers := type dir proto
     </entry>
     
     <entry>
-      <title><![CDATA[win下编译openssl]]></title>
-      <url>https://qianchenglong.github.io/2014/12/10/win%E4%B8%8B%E7%BC%96%E8%AF%91openssl/</url>
-      <content type="html"><![CDATA[<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
-<li>perl</li>
-<li>VC++</li>
-</ul>
-<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
-<li><p>生成<code>Makefile</code></p>
-<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
-ms\do_ms
-</code></pre></li>
-<li><p>编译</p>
-<pre><code>nmake -f ms\ntdll.mak
-</code></pre></li>
-<li><p>测试</p>
-<pre><code>nmake -f ms\ntdll.mak test
-</code></pre></li>
-<li><p>安装</p>
-<pre><code>nmake -f ms\ntdll.mak install
-</code></pre></li>
-</ul>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[win下编译libcurl]]></title>
       <url>https://qianchenglong.github.io/2014/12/10/win%E4%B8%8B%E7%BC%96%E8%AF%91libcurl/</url>
       <content type="html"><![CDATA[<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
@@ -11615,6 +11610,31 @@ ms\do_ms
 <li><p>输出目录为<code>builds</code></p>
 <p><img src="/img/win下编译libcurl_02.png" alt=""></p>
 </li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[win下编译openssl]]></title>
+      <url>https://qianchenglong.github.io/2014/12/10/win%E4%B8%8B%E7%BC%96%E8%AF%91openssl/</url>
+      <content type="html"><![CDATA[<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
+<li>perl</li>
+<li>VC++</li>
+</ul>
+<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
+<li><p>生成<code>Makefile</code></p>
+<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
+ms\do_ms
+</code></pre></li>
+<li><p>编译</p>
+<pre><code>nmake -f ms\ntdll.mak
+</code></pre></li>
+<li><p>测试</p>
+<pre><code>nmake -f ms\ntdll.mak test
+</code></pre></li>
+<li><p>安装</p>
+<pre><code>nmake -f ms\ntdll.mak install
+</code></pre></li>
 </ul>
 ]]></content>
     </entry>
@@ -12332,6 +12352,19 @@ by.decode(&apos;utf-8&apos;)
     </entry>
     
     <entry>
+      <title><![CDATA[替换clover图标]]></title>
+      <url>https://qianchenglong.github.io/2014/12/01/%E6%9B%BF%E6%8D%A2clover%E5%9B%BE%E6%A0%87/</url>
+      <content type="html"><![CDATA[<ul>
+<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
+</li>
+<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
+<p><img src="/img/替换clover图标_0.png" alt=""></p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[快速查看python帮助]]></title>
       <url>https://qianchenglong.github.io/2014/12/01/%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8Bpython%E5%B8%AE%E5%8A%A9/</url>
       <content type="html"><![CDATA[<h2 id="第一种：命令行使用"><a href="#第一种：命令行使用" class="headerlink" title="第一种：命令行使用"></a>第一种：命令行使用</h2><pre><code>python -m pydoc CONTENT
@@ -12364,19 +12397,6 @@ os.system(cmd)
 </li>
 </ul>
 <p>修改环境变量<code>PATHEXT</code>追加<code>.py</code>，这样直接使用<code>pydoc CONTENT</code>即可，不用每次都输入’.py’！</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[替换clover图标]]></title>
-      <url>https://qianchenglong.github.io/2014/12/01/%E6%9B%BF%E6%8D%A2clover%E5%9B%BE%E6%A0%87/</url>
-      <content type="html"><![CDATA[<ul>
-<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
-</li>
-<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
-<p><img src="/img/替换clover图标_0.png" alt=""></p>
-</li>
-</ul>
 ]]></content>
     </entry>
     

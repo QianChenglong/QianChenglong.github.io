@@ -113,7 +113,13 @@
 	<div class="mypage">		
 	  		
 
-	  <h1 id="预防"><a href="#预防" class="headerlink" title="预防"></a>预防</h1><ul>
+	  <h1 id="可能发生的场景"><a href="#可能发生的场景" class="headerlink" title="可能发生的场景"></a>可能发生的场景</h1><ul>
+<li><p>在函数嵌套调用中，多次请求同一资源</p>
+</li>
+<li><p>不同线程中，以不同的顺序请求多个资源，而其中某个资源不足</p>
+</li>
+</ul>
+<h1 id="预防"><a href="#预防" class="headerlink" title="预防"></a>预防</h1><ul>
 <li><p>利用RAII手段，确保stack mutex离开作用域时被解锁(<code>MutexGuard, std::lock_guard</code>)</p>
 <ul>
 <li><p>异常结束(throw)</p>

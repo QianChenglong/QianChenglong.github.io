@@ -122,12 +122,26 @@
 </code></pre></li>
 </ul>
 <h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><ul>
+<li><p>通过文件名</p>
+<pre><code>gdb &lt;program&gt;
+</code></pre></li>
 <li><p>使用core调试</p>
 <pre><code>gdb -c &lt;core-file-name&gt; &lt;program&gt;
 </code></pre></li>
 <li><p>attach到指定进程</p>
 <pre><code>gdb -p &lt;pid&gt;
 gdb attach &lt;pid&gt;
+</code></pre></li>
+</ul>
+<h1 id="多线程调试"><a href="#多线程调试" class="headerlink" title="多线程调试"></a>多线程调试</h1><ul>
+<li><p>查看所有线程调用栈</p>
+<pre><code>thread apply all bt
+</code></pre></li>
+<li><p>调试指定线程</p>
+<pre><code>thread &lt;thread-num&gt;
+</code></pre></li>
+<li><p>锁定线程(阻止线程切换)</p>
+<pre><code>set scheduler-locking on
 </code></pre></li>
 </ul>
 <h1 id="控制类"><a href="#控制类" class="headerlink" title="控制类"></a>控制类</h1><ul>

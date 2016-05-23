@@ -111,6 +111,47 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-22 </div>
+			<div class="article-title"><a href="/2015/01/22/git-创建一个仓库/" >git-创建一个仓库</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>登录<a href="https://github.com/" target="_blank" rel="external">git官网</a></p>
+<p><img src="/img/git-创建一个仓库-01.png" alt=""></p>
+</li>
+<li><p>初始化仓库</p>
+<pre><code>git init
+</code></pre></li>
+<li><p>添加到版本控制</p>
+<pre><code>git add .
+</code></pre></li>
+<li><p>提交</p>
+<pre><code>git commit
+</code></pre></li>
+<li><p>设置远程仓库</p>
+<pre><code>git remote add origin git@github.com:QianChenglong/lily.git
+</code></pre></li>
+<li><p>提交到远程仓库</p>
+<pre><code>git push -u origin master
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/22/git-创建一个仓库/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-21 </div>
 			<div class="article-title"><a href="/2015/01/21/chrome-查看资源加载顺序/" >chrome-查看资源加载顺序</a></div>						
 		</h3>
@@ -341,33 +382,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/20/cmake-函数中遍历ARGN/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-20 </div>
-			<div class="article-title"><a href="/2015/01/20/winsock-error-10014/" >winsock-error-10014</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="错误代码"><a href="#错误代码" class="headerlink" title="错误代码"></a>错误代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (recvfrom(socket, recv_buf, sizeof(recv_data), <span class="number">0</span>, (sockaddr *)&amp;server_addr, NULL) == SOCKET_ERROR) &#123;</span><br><span class="line">    WinSock::printError(<span class="string">"recvfrom error"</span>);</span><br><span class="line">    return <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p><code>recvfrom</code>最后一个参数是指定socket地址，为传入传出参数，不能为<code>NULL</code>!</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> len = <span class="keyword">sizeof</span>(server_addr);</span><br><span class="line"><span class="keyword">if</span> (recvfrom(socket, recv_buf, sizeof(recv_data), <span class="number">0</span>, (sockaddr *)&amp;server_addr, &amp;len) == SOCKET_ERROR) &#123;</span><br><span class="line">    WinSock::printError(<span class="string">"recvfrom error"</span>);</span><br><span class="line">    return <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/17306405/c-udp-recvfrom-is-acting-strange-wsagetlasterror-10014" target="_blank" rel="external">http://stackoverflow.com/questions/17306405/c-udp-recvfrom-is-acting-strange-wsagetlasterror-10014</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/20/winsock-error-10014/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -619,6 +633,8 @@
 		
 			<li><a href="/categories/交换机/">交换机<span>1</span></a></li>
 		
+			<li><a href="/categories/信息安全/">信息安全<span>1</span></a></li>
+		
 			<li><a href="/categories/单元测试/">单元测试<span>2</span></a></li>
 		
 			<li><a href="/categories/博客/">博客<span>1</span></a></li>
@@ -672,45 +688,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/build/">build<span>1</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
-			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/简记/">简记<span>2</span></a></li>
 		
-			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
 		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
 		
-			<li><a href="/tags/时间/">时间<span>2</span></a></li>
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
-			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+			<li><a href="/tags/all/">all<span>1</span></a></li>
 		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
-			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
 		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
 		
-			<li><a href="/tags/产品/">产品<span>1</span></a></li>
+			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
 		
-			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
 		
-			<li><a href="/tags/socket/">socket<span>6</span></a></li>
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>553</span></a></li>
@@ -726,6 +742,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
       </li>
     
@@ -739,10 +759,6 @@
     
       <li>
         <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
   </ul>

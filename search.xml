@@ -4,6 +4,54 @@
   
     
     <entry>
+      <title><![CDATA[rsa]]></title>
+      <url>https://qianchenglong.github.io/2016/05/22/rsa/</url>
+      <content type="html"><![CDATA[<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p>RSA是一种块加密，一个具体的RSA算法对应一个N(模数)</p>
+<p>块加密：</p>
+<ul>
+<li><p>密钥长度为工作长度</p>
+</li>
+<li><p>明文不足，则需填充(一般都有几种填充方式)</p>
+</li>
+<li><p>密文长度同密钥长度一致</p>
+</li>
+</ul>
+</li>
+<li><p>N(模数)的二进制位数，称之为RSA长度(对应openssl函数,<code>RSA_size(rsa)</code>)，常用1024(128B)，2048(256B)</p>
+</li>
+<li><p>openssl genrsa 采用<a href="https://tools.ietf.org/html/rfc5208" target="_blank" rel="external">PKCS#8</a>，使用<a href="https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail" target="_blank" rel="external">PEM</a>格式存储</p>
+</li>
+<li><p>公钥(N, E)</p>
+</li>
+<li><p>私钥(N, D)</p>
+</li>
+<li><p>RSA(1024)的D：3, 65537(0x10001)，当N值大于65537时，默认用65537!</p>
+</li>
+</ol>
+<h1 id="RSA-ASN-1定义"><a href="#RSA-ASN-1定义" class="headerlink" title="RSA ASN.1定义"></a>RSA ASN.1定义</h1><h1 id="加密和签名"><a href="#加密和签名" class="headerlink" title="加密和签名"></a>加密和签名</h1><ol>
+<li><p>加密：公钥用来加密，私钥解密，保证信息被唯一持有私钥的接收(（仅你可读但别人不可读，任何人都可写）)</p>
+</li>
+<li><p>签名：私钥用来加密，公钥解密，保证信息是由唯一持有私钥的发送（仅你可写但别人不可写，任何人都可读）</p>
+</li>
+</ol>
+<h1 id="填充模式"><a href="#填充模式" class="headerlink" title="填充模式"></a>填充模式</h1><ol>
+<li><p><code>RSA_PKCS1_PADDING</code> (最常用的模式)</p>
+</li>
+<li><p><code>RSA_PKCS1_OAEP_PADDING</code></p>
+</li>
+<li><p><code>RSA_NO_PADDING</code></p>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html" target="_blank" rel="external">RSA算法原理–阮一峰</a></li>
+<li><a href="https://en.wikipedia.org/wiki/65537_(number)" target="_blank" rel="external">https://en.wikipedia.org/wiki/65537_(number)</a></li>
+<li><a href="https://www.openssl.org/docs/manmaster/crypto/RSA_public_encrypt.html" target="_blank" rel="external">https://www.openssl.org/docs/manmaster/crypto/RSA_public_encrypt.html</a></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[图片存储]]></title>
       <url>https://qianchenglong.github.io/2016/05/15/%E5%9B%BE%E7%89%87%E5%AD%98%E5%82%A8/</url>
       <content type="html"><![CDATA[<ul>
@@ -686,9 +734,23 @@ set timeout=1
       <title><![CDATA[openssl]]></title>
       <url>https://qianchenglong.github.io/2016/03/28/openssl/</url>
       <content type="html"><![CDATA[<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
-<li><p>生成RSA公钥，私钥</p>
+<li><p>生成RSA私钥</p>
 <pre><code>openssl genrsa -out private.pem 1024
-openssl rsa -in private.pem -pubout -out public.pem
+</code></pre></li>
+<li><p>根据私钥生成公钥</p>
+<pre><code>openssl rsa -in private.pem -pubout -out public.pem
+</code></pre></li>
+<li><p>直接明文查看</p>
+<pre><code>openssl rsa -in private.pem -text -noout
+</code></pre></li>
+<li><p>以ASN.1查看</p>
+<pre><code>openssl asn1parse -in private.pem -noout
+</code></pre></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[I] /tmp openssl asn1parse -in private.pem </span><br><span class="line">    0:d=0  hl=4 l= 606 cons: SEQUENCE</span><br><span class="line">    4:d=1  hl=2 l=   1 prim: INTEGER           :00</span><br><span class="line">    7:d=1  hl=3 l= 129 prim: INTEGER [N]       :AD1B7BF5AE71D005A859BC0DD73FD5B18636B0022C22621A8BF8E422E1C2D31F1CC68321C3B5092E96A471BA343E2639F2B354A438DB10C978968E58FD637E4C5D91182B1B4628946D7E6DA3665172B9808C27FFEDB6EB371A55A5B724DCC8A1E8A5C8E88F34042A4D8D9FF17803683F52BBAAEE0922B8A3D6FC1A428FFB91B9</span><br><span class="line">  139:d=1  hl=2 l=   3 prim: INTEGER [E]       :010001</span><br><span class="line">  144:d=1  hl=3 l= 128 prim: INTEGER [D]       :7D64C8517A30C56023C804B9FDEF26AB76AE4CA6F6335DDF1EFF86BA61D10FBF9CC78B9BBCB979D23E9B162AACC74C4773B045A2C3F0A3E35D2FAA237A4144ED791951CCA5F89360E6163641CAC8ED769483644B6320D2C1569960C535DD50A765C5523E12BD44241AB23A217134EFA6DDE30DBF8C8BACF6A0D86F117F1DADA5</span><br><span class="line">  275:d=1  hl=2 l=  65 prim: INTEGER           :DC514054FFE713A66213D7638E0EE9D23E69672CF35D14E9DBFBF8C4A888E1096A18BBDCEC6B11831FB3E11823BC271931C83E97DB58E71384FC33DC584F1FCB</span><br><span class="line">  342:d=1  hl=2 l=  65 prim: INTEGER           :C924D2576E99412C4F4AA946352E24EDA76DEA5BD114A8282AFE1BB7B2BAF1484046291B293D9DB7F3662849202164EC923CDDBBAB95940E083EDA5BADF11C0B</span><br><span class="line">  409:d=1  hl=2 l=  65 prim: INTEGER           :85C6C85B546F895CF41CBC227535D500966905FF235E97BE5097353CA46148D3A09A9827D35E47E9E8AC1EB7BBAB19CA9091D87FF8EE88912FA4BC10C58675F5</span><br><span class="line">  476:d=1  hl=2 l=  65 prim: INTEGER           :A37CFE4A7A66AE86695C7201D2AFD2EC27AE3B52ADBA7083558E7CD0EEC0EBE4A1F964E7E2B9663C61E5A2D0ED00B79B61B17F384EDAA12056AB5FA82CD550C9</span><br><span class="line">  543:d=1  hl=2 l=  65 prim: INTEGER           :B6E4F2280035C65B6D154BAB44E09877A61D069392B2A63C4F808F7D749CFD7FAEBE450B6E596761F5974885D9F43340FB272C1F57F168366E8F3AABDEAD6413</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>获取N</p>
+<pre><code>openssl rsa -in private.pem -modulus -noout
 </code></pre></li>
 </ul>
 ]]></content>

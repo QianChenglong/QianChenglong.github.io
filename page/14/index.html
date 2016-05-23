@@ -111,6 +111,55 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-10 </div>
+			<div class="article-title"><a href="/2015/10/10/数据库-命名规范/" >数据库-命名规范</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="表名采用小写下划线"><a href="#表名采用小写下划线" class="headerlink" title="表名采用小写下划线"></a>表名采用小写下划线</h1><p>如<code>auth_user</code></p>
+<h1 id="列名采用小写下划线"><a href="#列名采用小写下划线" class="headerlink" title="列名采用小写下划线"></a>列名采用小写下划线</h1><p>如<code>is_superuser</code></p>
+<h1 id="关于id主键"><a href="#关于id主键" class="headerlink" title="关于id主键"></a>关于<code>id</code>主键</h1><ol>
+<li><p><code>表名_id</code>(优先采用)</p>
+<ul>
+<li><p>输出目标列时,不用alias,对前端人员来说,附带一个表名,会使数据库可读性更强</p>
+<pre><code>select user_id from user
+</code></pre></li>
+<li><p>在多表查询,关联条件时,比较清晰</p>
+<pre><code>select order.user_id, name, order_id from user, order where order.user_id = user.user_id
+</code></pre></li>
+</ul>
+</li>
+<li><p><code>id</code></p>
+<ul>
+<li><p>若需要引用某个表的<code>id</code>列,该列名还需要附带表名</p>
+<pre><code>select user_id from order;
+</code></pre></li>
+<li><p>输出目标列时,每个都需要alias,非常麻烦!</p>
+<pre><code>select user.id as user_id, order.id as order_id from user, order where user.id = order.user_id
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<p>参考:</p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/3933803/database-design-primary-key-naming-conventions?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/3933803/database-design-primary-key-naming-conventions?rq=1</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/10/数据库-命名规范/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-09 </div>
 			<div class="article-title"><a href="/2015/10/09/mysql-decimal/" >mysql-decimal</a></div>						
 		</h3>
@@ -440,31 +489,6 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-23 </div>
-			<div class="article-title"><a href="/2015/09/23/app-认证/" >app开发-认证</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://ruby-china.org/topics/24571" target="_blank" rel="external">手机 App 如何保持会话</a></li>
-<li><a href="http://anjianshi.net/post/yan-jiu-bi-ji/auth_store" target="_blank" rel="external">登录信息存储的最佳实践</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/23/app-认证/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -713,6 +737,8 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
 		
 			<li><a href="/categories/交换机/">交换机<span>1</span></a></li>
 		
+			<li><a href="/categories/信息安全/">信息安全<span>1</span></a></li>
+		
 			<li><a href="/categories/单元测试/">单元测试<span>2</span></a></li>
 		
 			<li><a href="/categories/博客/">博客<span>1</span></a></li>
@@ -766,45 +792,45 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
 		
-			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
 		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+			<li><a href="/tags/bash/">bash<span>1</span></a></li>
 		
-			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
 		
-			<li><a href="/tags/import/">import<span>3</span></a></li>
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
 		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
+			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/父类/">父类<span>2</span></a></li>
 		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/类/">类<span>1</span></a></li>
 		
-			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
 		
-			<li><a href="/tags/安装/">安装<span>3</span></a></li>
+			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
 		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>6</span></a></li>
 		
-			<li><a href="/tags/登录/">登录<span>2</span></a></li>
+			<li><a href="/tags/apche/">apche<span>1</span></a></li>
 		
-			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
+			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
 		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/10014/">10014<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>553</span></a></li>
@@ -820,6 +846,10 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
       </li>
     
@@ -833,10 +863,6 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
     
       <li>
         <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
   </ul>

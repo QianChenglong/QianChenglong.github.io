@@ -112,6 +112,50 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-07-09 </div>
+			<div class="article-title"><a href="/2015/07/09/mysql-事务/" >mysql-事务</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>当连接设置为自动提交时，所有修改语句永久生效，不可回滚！</p>
+</li>
+<li><p>当事务未提交时，数据只对当前连接可见！</p>
+</li>
+<li><p>mysql默认自动提交</p>
+</li>
+</ul>
+<pre><code>SELECT @@autocommit;
+</code></pre><ul>
+<li><p>设置为手动提交</p>
+<pre><code>SET autocommit=0;
+</code></pre></li>
+<li><p>手动提交</p>
+<pre><code>commit;
+</code></pre></li>
+<li><p>回滚</p>
+<pre><code>rollback;
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zetcode.com/databases/mysqltutorial/transactions/#autocommit" target="_blank" rel="external">http://zetcode.com/databases/mysqltutorial/transactions/#autocommit</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/09/mysql-事务/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-09 </div>
 			<div class="article-title"><a href="/2015/07/09/sudo赋权/" >sudo赋权</a></div>						
 		</h3>
 	
@@ -348,41 +392,6 @@
 	
 	</div>
   <a type="button" href="/2015/07/01/jsoncpp/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-01 </div>
-			<div class="article-title"><a href="/2015/07/01/C++11-枚举类型转换/" >C++11-枚举类型转换</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="boost-lexcial-cast"><a href="#boost-lexcial-cast" class="headerlink" title="boost::lexcial_cast"></a><code>boost::lexcial_cast</code></h1><p>##优点</p>
-<ul>
-<li>可直接与string互转</li>
-<li>方法一致，易用</li>
-</ul>
-<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li>需要为枚举类型重载IO</li>
-</ul>
-<h1 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
-<li>直接可用</li>
-</ul>
-<h2 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li>与string转换需要二次转换(先转为整型<code>underlying_type</code>，再转换为string)，难用</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/01/C++11-枚举类型转换/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -634,6 +643,8 @@
 		
 			<li><a href="/categories/交换机/">交换机<span>1</span></a></li>
 		
+			<li><a href="/categories/信息安全/">信息安全<span>1</span></a></li>
+		
 			<li><a href="/categories/单元测试/">单元测试<span>2</span></a></li>
 		
 			<li><a href="/categories/博客/">博客<span>1</span></a></li>
@@ -687,45 +698,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/T/">__T<span>1</span></a></li>
 		
-			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+			<li><a href="/tags/all/">all<span>1</span></a></li>
 		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/apt/">apt<span>2</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
 		
-			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/类型转换/">类型转换<span>1</span></a></li>
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
 		
-			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
+			<li><a href="/tags/mysql/">mysql<span>34</span></a></li>
 		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
 		
-			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>6</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/vim/">vim<span>22</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
+			<li><a href="/tags/exit/">exit<span>1</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
 		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
 		
-			<li><a href="/tags/od/">od<span>1</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
 		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
+			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
 		
-			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
+			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>553</span></a></li>
@@ -741,6 +752,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
       </li>
     
@@ -754,10 +769,6 @@
     
       <li>
         <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
   </ul>

@@ -111,6 +111,41 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-12 </div>
+			<div class="article-title"><a href="/2014/12/12/hexo添加网站统计/" >hexo添加网站统计</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>hexo-theme-chenall</li>
+</ul>
+<h1 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h1><ul>
+<li><p><a href="http://tongji.baidu.com/" target="_blank" rel="external">注册</a></p>
+</li>
+<li><p>获取代码</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="keyword">var</span> _bdhmProtocol = ((<span class="string">"https:"</span> == <span class="built_in">document</span>.location.protocol) ? <span class="string">" https://"</span> : <span class="string">" http://"</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="built_in">unescape</span>(<span class="string">"%3Cscript src='"</span> + _bdhmProtocol + <span class="string">"hm.baidu.com/h.js%3F9d0320e39bf03e6be5dc92bf235c8869' type='text/javascript'%3E%3C/script%3E"</span>));</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改<code>hexo-theme-chenall\layout\_analytics\baidu.ejs</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="keyword">var</span> _bdhmProtocol = ((<span class="string">"https:"</span> == <span class="built_in">document</span>.location.protocol) ? <span class="string">" https://"</span> : <span class="string">" http://"</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="built_in">unescape</span>(<span class="string">"%3Cscript src='"</span> + _bdhmProtocol + <span class="string">"hm.baidu.com/h.js%3F9d0320e39bf03e6be5dc92bf235c8869' type='text/javascript'%3E%3C/script%3E"</span>));</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2014/12/12/hexo添加网站统计/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-11 </div>
 			<div class="article-title"><a href="/2014/12/11/C第三方库/" >C第三方库</a></div>						
 		</h3>
@@ -392,36 +427,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-10 </div>
-			<div class="article-title"><a href="/2014/12/10/python-字符串编码转换/" >python-字符串编码转换</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>python使用<code>unicode</code>作为字符串内部编码，所有转换应通过<code>unicode</code>进行</p>
-<p>编码(encode)，将中间对象(<code>unicode object</code>)转为其他编码对象</p>
-<p>解码(decode)，将其他编码对象转为中间对象(<code>unicode object</code>)</p>
-<h1 id="非unicode-object转unicode-object"><a href="#非unicode-object转unicode-object" class="headerlink" title="非unicode object转unicode object"></a>非<code>unicode object</code>转<code>unicode object</code></h1><p>前提必须清楚字符串是什么编码，假设<code>str</code>为<code>gbk</code>编码</p>
-<pre><code>u = str.decode(&apos;gbk&apos;)
-</code></pre><p>或</p>
-<pre><code>u = unicode(str, &apos;gbk&apos;)
-</code></pre><h1 id="unicode-object转非unicode-object"><a href="#unicode-object转非unicode-object" class="headerlink" title="unicode object转非unicode object"></a><code>unicode object</code>转非<code>unicode object</code></h1><p>假设转为<code>utf-8</code></p>
-<pre><code>utf8 = u.encode(&apos;utf-8&apos;)
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2014/12/10/python-字符串编码转换/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -670,6 +675,8 @@
 		
 			<li><a href="/categories/交换机/">交换机<span>1</span></a></li>
 		
+			<li><a href="/categories/信息安全/">信息安全<span>1</span></a></li>
+		
 			<li><a href="/categories/单元测试/">单元测试<span>2</span></a></li>
 		
 			<li><a href="/categories/博客/">博客<span>1</span></a></li>
@@ -723,45 +730,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
 		
-			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
-		
-			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
-		
-			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
-		
-			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
-		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
-		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
-		
-			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
-		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
-		
-			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
-		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
-		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/base64/">base64<span>1</span></a></li>
 		
 			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/string/">string<span>7</span></a></li>
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
-			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
 		
-			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
 		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/rsa/">rsa<span>1</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+			<li><a href="/tags/curses/">curses<span>2</span></a></li>
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+		
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+		
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+		
+			<li><a href="/tags/类型转换/">类型转换<span>1</span></a></li>
+		
+			<li><a href="/tags/size/">size<span>1</span></a></li>
+		
+			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
+		
+			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+		
+			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
+		
+			<li><a href="/tags/build/">build<span>1</span></a></li>
+		
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
+		
+			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>553</span></a></li>
@@ -777,6 +784,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
       </li>
     
@@ -790,10 +801,6 @@
     
       <li>
         <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/08/程序设计-鸭子类型/" ><i class="fa fa-file-o"></i>程序设计-鸭子类型</a>
       </li>
     
   </ul>

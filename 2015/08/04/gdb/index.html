@@ -148,9 +148,6 @@ gdb attach &lt;pid&gt;
 <li><p>运行到指定行</p>
 <pre><code>until $line-number
 </code></pre></li>
-<li><p>向上栈</p>
-<pre><code>up &lt;num&gt;
-</code></pre></li>
 </ul>
 <h1 id="断点"><a href="#断点" class="headerlink" title="断点"></a>断点</h1><ul>
 <li><p>在指定文件指定行</p>
@@ -158,6 +155,14 @@ gdb attach &lt;pid&gt;
 </code></pre></li>
 <li><p>删除断点</p>
 <pre><code>clear linenum
+</code></pre></li>
+</ul>
+<h1 id="栈切换"><a href="#栈切换" class="headerlink" title="栈切换"></a>栈切换</h1><ul>
+<li><p>根据编号切换</p>
+<pre><code>frame n
+</code></pre></li>
+<li><p>向上</p>
+<pre><code>up &lt;num&gt;
 </code></pre></li>
 </ul>
 <h1 id="查询类"><a href="#查询类" class="headerlink" title="查询类"></a>查询类</h1><ul>

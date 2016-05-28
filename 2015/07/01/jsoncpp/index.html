@@ -121,6 +121,8 @@
 <li><p>取指定值，若不存在，则使用默认值</p>
 <pre><code>Value get(ArrayIndex index, const Value &amp;defaultValue)
 </code></pre><h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1></li>
+<li><p>文件需要是<code>UTF-8</code>不带BOM!</p>
+</li>
 <li><p>下标访问时，若该元素不存在，则返回值为<code>json::Value::nullValue</code></p>
 </li>
 <li><p><code>json::Value::nullValue</code>转换为空字符串<code>&quot;&quot;</code>(<code>\X00</code>)</p>

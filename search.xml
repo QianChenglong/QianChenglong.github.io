@@ -4,6 +4,156 @@
   
     
     <entry>
+      <title><![CDATA[C++-pointer-to-char]]></title>
+      <url>https://qianchenglong.github.io/2016/05/28/C++-pointer-to-char/</url>
+      <content type="html"><![CDATA[<h1 id="两层含义"><a href="#两层含义" class="headerlink" title="两层含义"></a>两层含义</h1><ul>
+<li><p>C风格字符串(<code>\0</code>结尾)，当使用这种语义时，只需传入该值即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_as_string</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字节数组(内容中可能包含<code>\0</code>)，当使用此种语义时，还需传入长度</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_as_hex</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s, size_t len)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C++-StringPiece]]></title>
+      <url>https://qianchenglong.github.io/2016/05/28/C++-StringPiece/</url>
+      <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
+<li><p>很多时候，当传入一个字符串到函数时，往往只是读取字符串时</p>
+</li>
+<li><p>若使用<code>std::string</code>，当实参为<code>const char *</code>时，会<strong>分配内存并拷贝</strong>该字符串以生成一个<code>std::string</code></p>
+</li>
+<li><p>当一个函数接受一个<code>const std::string</code>，而在该函数内部，又需要传递该值到另一个函数，则又需要重新生成一个<code>std::string</code></p>
+</li>
+</ul>
+<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><ul>
+<li><p>当某个接口参数是接受字符串类型时，为了减少不必要的开销</p>
+</li>
+<li><p>该类型可以接受<code>const char *</code>，<code>std::string</code>，减少冗余代码编写</p>
+</li>
+</ul>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>StringPiece(google), StringRef(llvm), string_ref(boost)</code>，本质名，<code>non-owning reference to a string</code></p>
+</li>
+<li><p>通过隐式转换，方便地从<code>const char*, std::string</code>转换到此类型</p>
+</li>
+<li><p>该类通过保存字符串指针和长度，来避免不必要的复制</p>
+</li>
+<li><p>只支持非修改操作</p>
+</li>
+<li><p>开销很低，只需要<code>sizeof(const char*) + sizeof(size_t)</code>字节</p>
+</li>
+<li><p>支持所有的类容器操作</p>
+</li>
+<li><p>因为<code>StringPiece</code>不拥有数据，所以确保在<code>StringPiece</code>生命期内，该数据可用</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3442.html" target="_blank" rel="external">N3442: string_ref: a non-owning reference to a string.</a></li>
+<li><a href="http://www.boost.org/doc/libs/1_60_0/libs/utility/doc/html/string_ref.html" target="_blank" rel="external">http://www.boost.org/doc/libs/1_60_0/libs/utility/doc/html/string_ref.html</a></li>
+<li><a href="http://stackoverflow.com/questions/2172726/are-there-any-reasons-why-the-stringpiece-stringref-idiom-is-not-more-popular" target="_blank" rel="external">http://stackoverflow.com/questions/2172726/are-there-any-reasons-why-the-stringpiece-stringref-idiom-is-not-more-popular</a></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[vim-出现^M]]></title>
+      <url>https://qianchenglong.github.io/2016/05/28/vim-%E5%87%BA%E7%8E%B0%5EM/</url>
+      <content type="html"><![CDATA[<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><ul>
+<li><p>^M在vim中，是<code>CR(回车符，0x0d)</code>(<code>:help digraph</code>)</p>
+</li>
+<li><p>原因是该文件内容混合了<code>DOS</code>和<code>UNIX</code>格式，而vim识别为<code>unix</code>格式，则多余的换行符，就使用<code>^M</code>来显示</p>
+</li>
+</ul>
+<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><ul>
+<li><p>使用vim</p>
+<pre><code>:%s;\r;;g
+</code></pre></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C++-文件打开模式-binary-VS-text]]></title>
+      <url>https://qianchenglong.github.io/2016/05/28/C++-%E6%96%87%E4%BB%B6%E6%89%93%E5%BC%80%E6%A8%A1%E5%BC%8F-binary-VS-text/</url>
+      <content type="html"><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li><p>在windows下，新建文件，默认文件格式为<code>dos</code></p>
+</li>
+<li><p>在Linux下，新建文件，默认文件格式为<code>unix</code></p>
+</li>
+</ul>
+<h1 id="text"><a href="#text" class="headerlink" title="text"></a>text</h1><ul>
+<li><p>在windows平台下</p>
+<ul>
+<li><p>输出时，<code>\n(0x0d)</code>=&gt;<code>\r\n(0x0d 0x0a)</code></p>
+</li>
+<li><p>输入时，<code>\r\n(0x0d 0x0a)</code>=&gt;<code>\n(0x0d)</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="function">ofstream <span class="title">ins</span><span class="params">(<span class="string">"test.txt"</span>)</span></span>; <span class="comment">// 默认`text`</span></span><br><span class="line"></span><br><span class="line">    ins &lt;&lt; <span class="string">"a\n"</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>linux</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[I] /m/s/T/file od -Ax -t x1 test.txt </span><br><span class="line">000000 61 0a</span><br><span class="line">000002</span><br><span class="line">[I] /m/s/T/file file test.txt</span><br><span class="line">test.txt: ASCII text</span><br></pre></td></tr></table></figure>
+<ul>
+<li>windows</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[I] /m/s/T/file od -Ax -t x1 test.txt </span><br><span class="line">000000 61 0d 0a</span><br><span class="line">000003</span><br><span class="line">[I] /m/s/T/file file test.txt</span><br><span class="line">test.txt: ASCII text, with CRLF line terminators</span><br></pre></td></tr></table></figure>
+<h1 id="binary"><a href="#binary" class="headerlink" title="binary"></a>binary</h1><ul>
+<li>不对文件内容做任何转换</li>
+</ul>
+<h2 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="function">ofstream <span class="title">ins</span><span class="params">(<span class="string">"test.txt"</span>, <span class="built_in">std</span>::ios_base::binary)</span></span>;</span><br><span class="line"></span><br><span class="line">    ins &lt;&lt; <span class="string">"a\n"</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>linux</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[I] /m/s/T/file od -Ax -t x1 test.txt </span><br><span class="line">000000 61 0a</span><br><span class="line">000002</span><br><span class="line">[I] /m/s/T/file file test.txt</span><br><span class="line">test.txt: ASCII text</span><br></pre></td></tr></table></figure>
+<ul>
+<li>windows</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[I] /m/s/T/file od -Ax -t x1 test.txt </span><br><span class="line">000000 61 0a</span><br><span class="line">000003</span><br><span class="line">[I] /m/s/T/file file test.txt</span><br><span class="line">test.txt: ASCII text</span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C++函数参数类型]]></title>
+      <url>https://qianchenglong.github.io/2016/05/28/C++%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B/</url>
+      <content type="html"><![CDATA[<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><ul>
+<li><p>效率</p>
+</li>
+<li><p>可读性</p>
+</li>
+</ul>
+<h1 id="基本类型-int-char-…"><a href="#基本类型-int-char-…" class="headerlink" title="基本类型(int, char, …)"></a>基本类型(<code>int</code>, <code>char</code>, …)</h1><ul>
+<li><p>传入，则<code>pass by value</code></p>
+</li>
+<li><p>传入传出，则<code>pass by pointer</code></p>
+</li>
+</ul>
+<h1 id="非基本类型"><a href="#非基本类型" class="headerlink" title="非基本类型"></a>非基本类型</h1><h2 id="使用指针"><a href="#使用指针" class="headerlink" title="使用指针"></a>使用指针</h2><ul>
+<li><p>传出或传入传出参数，可以显式地知道该值会发生变化</p>
+</li>
+<li><p>当参数可以接受<code>NULL</code>值时(若只作为传入，最好加上<code>const</code>)</p>
+</li>
+<li><p>当返回一个新对象(<code>new</code>)的引用时，意味着，调用者需要释放该对象</p>
+</li>
+<li><p>当作为类数据成员时</p>
+</li>
+</ul>
+<h2 id="使用引用"><a href="#使用引用" class="headerlink" title="使用引用"></a>使用引用</h2><ul>
+<li>传入参数不可以为<code>NULL</code></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/270408/is-it-better-in-c-to-pass-by-value-or-pass-by-constant-reference" target="_blank" rel="external">http://stackoverflow.com/questions/270408/is-it-better-in-c-to-pass-by-value-or-pass-by-constant-reference</a></li>
+<li><a href="http://stackoverflow.com/questions/7058339/when-to-use-references-vs-pointers" target="_blank" rel="external">http://stackoverflow.com/questions/7058339/when-to-use-references-vs-pointers</a></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[rsa]]></title>
       <url>https://qianchenglong.github.io/2016/05/22/rsa/</url>
       <content type="html"><![CDATA[<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
@@ -3628,24 +3778,19 @@ where
 <pre><code>list *$pc
 </code></pre></li>
 <li><p>x(examine)</p>
-<pre><code>x /[nfu] ADDRESS(若ADDRESS是一个变量，则认为变量值为要查看的地址)
-n用来指定重复的次数，就是指定显示格式和size确定的一个单位多少次
-#n默认为1
-
-f用来指定显示的格式，同print一样
-    Format letters
-    o(octal), x(hex), d(decimal), u(unsigned decimal), t(binary),
-    f(float), a(address), i(instruction), c(char) and s(string)
-u(unit)，指定一个单位的长度
-    Size letters
-    b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
-
-x/3uh 0x54320
-    从0x54320开始，以(h)2B为单位，(u)无符号十进制输出，显示3uh个这样的单
-    位，总共显示2 × 3 = 6B的内存
-
-x /10s *argv    查看环境变量
-</code></pre></li>
+<p>x /[nfu] ADDRESS(<strong>若ADDRESS是一个变量，则认为变量值为要查看的地址</strong>)<br>n用来指定重复的次数，就是指定显示格式和size确定的一个单位多少次<br>#n默认为1</p>
+<p>f用来指定显示的格式，同print一样</p>
+<pre><code>Format letters
+o(octal), x(hex), d(decimal), u(unsigned decimal), t(binary),
+f(float), a(address), i(instruction), c(char) and s(string)
+</code></pre><p>u(unit)，指定一个单位的长度</p>
+<pre><code>Size letters
+b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
+</code></pre><p>x/3uh 0x54320</p>
+<pre><code>从0x54320开始，以(h)2B为单位，(u)无符号十进制输出，显示3uh个这样的单
+位，总共显示2 × 3 = 6B的内存
+</code></pre><p>x /10s *argv    查看环境变量</p>
+</li>
 </ul>
 <h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><ul>
 <li><p>set args ARG-list</p>
@@ -5020,6 +5165,33 @@ mount /dev/cdrom /mnt/cdrom
     </entry>
     
     <entry>
+      <title><![CDATA[C++-智能指针之auto_ptr]]></title>
+      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bauto_ptr/</url>
+      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li>提供一种简单的垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
+</ul>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>基于RAII(资源申请即初始化)，利用C++确定性析构，保证变量当离开作用域时，自动执行析构函数来释放内存</p>
+<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
+<li><p>不能将同一个对象存储到多个<code>auto_ptr</code>，会导致多次析构，从而崩溃</p>
+<pre><code>A *p = new A();
+std::auto_ptr&lt;A&gt; a(p);
+std::auto_ptr&lt;A&gt; b(p);
+</code></pre></li>
+<li><p>不能管理数据对象，因为<code>~auto_ptr</code>是<code>delete</code>而不是<code>delete []</code></p>
+<pre><code>int *p=new int[10];
+auto_ptr&lt;int&gt;ap(p);
+</code></pre></li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>C++11已经抛弃它，boost也有更好的替代品，决不使用！</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">auto_ptr</span>&lt;A&gt; a(new A());</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
+<li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
       <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.shared_ptr/</url>
       <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
@@ -5057,33 +5229,6 @@ boost::shared_ptr&lt;A&gt; p2(a);
 </ul>
 <h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>当不需要传递所有权时，可使用</p>
 <h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/scoped_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(id)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::scoped_ptr&lt;A&gt; i(new A(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i-&gt;id_ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[C++-智能指针之auto_ptr]]></title>
-      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bauto_ptr/</url>
-      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li>提供一种简单的垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
-</ul>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>基于RAII(资源申请即初始化)，利用C++确定性析构，保证变量当离开作用域时，自动执行析构函数来释放内存</p>
-<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
-<li><p>不能将同一个对象存储到多个<code>auto_ptr</code>，会导致多次析构，从而崩溃</p>
-<pre><code>A *p = new A();
-std::auto_ptr&lt;A&gt; a(p);
-std::auto_ptr&lt;A&gt; b(p);
-</code></pre></li>
-<li><p>不能管理数据对象，因为<code>~auto_ptr</code>是<code>delete</code>而不是<code>delete []</code></p>
-<pre><code>int *p=new int[10];
-auto_ptr&lt;int&gt;ap(p);
-</code></pre></li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>C++11已经抛弃它，boost也有更好的替代品，决不使用！</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">auto_ptr</span>&lt;A&gt; a(new A());</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
-<li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
-</ol>
 ]]></content>
     </entry>
     

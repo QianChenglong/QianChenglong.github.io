@@ -111,6 +111,246 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-08 </div>
+			<div class="article-title"><a href="/2015/06/08/C++编程经验/" >C++编程经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>注释采用<code>//</code>风格</p>
+<ul>
+<li>多行注释时，方便取消局部行</li>
+<li>方便diff</li>
+<li>grep等替换时，方便确认是否需要注释</li>
+</ul>
+</li>
+<li><p>变量声明，尽量一次一个</p>
+<ul>
+<li>方便diff</li>
+<li>方便注释</li>
+</ul>
+</li>
+<li><p>函数参数大于3个时，逗号号换行</p>
+<ul>
+<li>方便diff</li>
+<li>方便调整参数(增，减，顺序)</li>
+</ul>
+</li>
+<li><p>类初始化列表，一行一个</p>
+<ul>
+<li>方便diff</li>
+</ul>
+</li>
+<li><p>禁用<code>strcpy</code>类似不带指定缓冲区大小的，使用<code>strncpy</code>这类！</p>
+<ul>
+<li>清楚地知道操作内存范围，防止越界！！！</li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/08/C++编程经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-08 </div>
+			<div class="article-title"><a href="/2015/06/08/C++-构造函数/" >C++-构造函数</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="职责"><a href="#职责" class="headerlink" title="职责"></a>职责</h1><ul>
+<li>对所有的类成员变量进行初始化, 让对象构造后处于一个可用的状态(Good State)</li>
+</ul>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>若在构造函数中抛出异常，则析构函数不被执行，因为该对象没有完全构建，会导致delete无效指针</p>
+</li>
+<li><p>构造函数抛出异常时，本应该在析构函数中被delete的对象没有被delete，会导致内存泄露</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/08/C++-构造函数/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-06 </div>
+			<div class="article-title"><a href="/2015/06/06/搭建git服务器/" >搭建git服务器</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>CentOS-7.0.1</li>
+</ul>
+<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><ul>
+<li>安装启动sshd</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>安装git</p>
+<pre><code>yum install git
+</code></pre></li>
+<li><p>创建git目录</p>
+<pre><code>mkdir /data/git
+</code></pre></li>
+<li><p>添加git用户</p>
+<pre><code>adduser git
+</code></pre></li>
+<li><p>设置登录shell</p>
+<pre><code>vi /etc/passwd
+
+git:x:1008:1009::/home/git:/user/sbin/nologin
+</code></pre></li>
+</ol>
+<ol>
+<li><p>用户认证</p>
+<ul>
+<li><p>密码方式</p>
+<pre><code>passwd git
+</code></pre></li>
+<li><p>将需要登录git的用户公钥添加进来(一个一行)</p>
+<pre><code>vi /home/git/.ssh/authorized_keys
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<h1 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h1><ul>
+<li><p>初始化仓库</p>
+<pre><code>cd /data/git
+git init --bare sample.git
+</code></pre></li>
+<li><p>设置权限</p>
+<pre><code>chown -R git:git sample.git
+</code></pre></li>
+</ul>
+<h1 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h1><ul>
+<li><p>添加远程仓库</p>
+<pre><code>git remote add web git@hostname:/data/sample.git
+</code></pre></li>
+<li><p>提交到远程仓库</p>
+<pre><code>git push origin master
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/06/搭建git服务器/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-06 </div>
+			<div class="article-title"><a href="/2015/06/06/centos-搭建SVN服务器/" >centos-搭建SVN服务器</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="安装svn"><a href="#安装svn" class="headerlink" title="安装svn"></a>安装svn</h2><pre><code>yum install svn
+</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol>
+<li><p>建立svn目录</p>
+<pre><code>mkdir /data/svn
+</code></pre></li>
+<li><p>创建仓库</p>
+<pre><code>svnadmin create /data/svn/xianji-server
+</code></pre></li>
+<li><p>进入配置目录</p>
+<pre><code>cd /data/svn/conf
+</code></pre></li>
+<li><p>配置权限</p>
+<pre><code>vi authz
+
+[/]
+admin = rw
+</code></pre></li>
+<li><p>配置账号密码(添加admin用户，密码admin)</p>
+<pre><code>vi passwd
+
+[users]
+admin = admin
+</code></pre></li>
+<li><p>svn服务配置</p>
+<pre><code>vi svnserve.conf
+
+anon-access = read #匿名用户可读
+auth-access = write #授权用户可写
+password-db = passwd #使用哪个文件作为账号文件
+authz-db = authz #使用哪个文件作为权限文件
+realm = /var/svn/test # 认证空间名，版本库所在目录
+</code></pre></li>
+</ol>
+<h2 id="启动SVN版本库"><a href="#启动SVN版本库" class="headerlink" title="启动SVN版本库"></a>启动SVN版本库</h2><pre><code>svnserve -d -r /var/svn
+</code></pre><h2 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h2><pre><code>svn checkout svn://127.0.0.1/xianji-server
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/06/06/centos-搭建SVN服务器/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-06 </div>
+			<div class="article-title"><a href="/2015/06/06/启动盘制作工具/" >启动盘制作工具</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="http://unetbootin.sourceforge.net/" target="_blank" rel="external">UNetbootin</a></p>
+</li>
+<li><p>poweriso</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/06/启动盘制作工具/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-06 </div>
 			<div class="article-title"><a href="/2015/06/06/poweriso制作U盘启动/" >poweriso制作U盘启动</a></div>						
 		</h3>
@@ -269,165 +509,6 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-03 </div>
-			<div class="article-title"><a href="/2015/06/03/ubuntu-配置rsync/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>apt-get intall rsync</p>
-</li>
-<li><p>vi /etc/rsyncd.conf</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#motd file = /etc/rsyncd.motd</span><br><span class="line">log file = /var/log/rsyncd.log</span><br><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line"></span><br><span class="line">[server]</span><br><span class="line">   path = /home/wallace/server</span><br><span class="line">   comment = gupiaoxianji server code</span><br><span class="line">   uid = wallace</span><br><span class="line">   gid = wallace</span><br><span class="line">   read only = no</span><br><span class="line">   list = yes</span><br><span class="line">   #hosts allow = 10.0.0.1/0</span><br><span class="line">   auth users = wallace</span><br><span class="line">   secrets file = /etc/rsyncd.scrt</span><br><span class="line">   strict modes = false</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>vi /etc/rsyncd.scrt</p>
-<pre><code>wallace:wallacework
-</code></pre></li>
-<li><p>vi /etc/default/rsync</p>
-<pre><code>RSYNC_ENABLE=true
-</code></pre></li>
-<li><p>/etc/init.d/rsync restart</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://ubuntuforums.org/showthread.php?t=1252720" target="_blank" rel="external">http://ubuntuforums.org/showthread.php?t=1252720</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/03/ubuntu-配置rsync/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-02 </div>
-			<div class="article-title"><a href="/2015/06/02/前向引用/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>在C++中，是指在一个类定义中，成员函数引用成员变量的位置先于成员变量定义的位置。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> C &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">mutator</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; myValue = x; &#125;</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">accessor</span><span class="params">()</span> </span>&#123; return myValue; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">   <span class="keyword">int</span> myValue;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>允许前向引用大大增加了编译器的复杂度与内存需求，并且使它不能成为一次通过型的编译器。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://zh.wikipedia.org/wiki/%E5%89%8D%E5%90%91%E5%A3%B0%E6%98%8E" target="_blank" rel="external">维基-前向声明</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/02/前向引用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-31 </div>
-			<div class="article-title"><a href="/2015/05/31/宏-函数名/" >宏-函数名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| Compile | <code>__FUNCSIG__</code> | <code>__FUNCDNAME__</code> | <code>__FUNCTION__</code> | <code>__func__</code> | <code>__PRETTY_FUNCTION__</code> |<br>|———+—————+—————–+—————-+————+———————–|<br>| GCC     | X             | X               | √              | √          | √                     |<br>| VC      | √             | √               | √              | X          | X                     |</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://gcc.gnu.org/onlinedocs/gcc/Function-Names.html" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/gcc/Function-Names.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/05/31/宏-函数名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-30 </div>
-			<div class="article-title"><a href="/2015/05/30/centos-本地镜像源设置/" >centos-本地镜像源设置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>挂载镜像文件</p>
-<pre><code>mkdir /mnt/cdrom
-mount /dev/cdrom /mnt/cdrom
-</code></pre></li>
-<li><p>编辑repo文件</p>
-<pre><code>vim /etc/yum.repos.d/centos7-local.repo
-
-[local]
-name=local
-baseurl=file:///mnt/cdrom
-enabled=1
-gpgcheck=1
-gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/05/30/centos-本地镜像源设置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-30 </div>
-			<div class="article-title"><a href="/2015/05/30/centos-配置网络/" >centos-配置网络</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>安装numtui</p>
-<pre><code>yum install NetworkManager-tui
-</code></pre></li>
-<li><p>编辑</p>
-<pre><code>nmtui
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/05/30/centos-配置网络/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -480,7 +561,7 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>24</span></a></li>
+			<li><a href="/categories/C/">C++<span>28</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -646,7 +727,7 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
 		
 			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+			<li><a href="/categories/vim/">vim<span>18</span></a></li>
 		
 			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
 		
@@ -731,48 +812,48 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/编程/">编程<span>5</span></a></li>
+			<li><a href="/tags/nging/">nging<span>1</span></a></li>
+		
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
+		
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
+		
+			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+		
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
 			<li><a href="/tags/usb/">usb<span>3</span></a></li>
 		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+			<li><a href="/tags/文件/">文件<span>7</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/打包/">打包<span>1</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>2</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
-		
-			<li><a href="/tags/go/">go<span>38</span></a></li>
-		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
-		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
 			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
 		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
+			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
 		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
 		
-			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
+			<li><a href="/tags/库/">库<span>2</span></a></li>
 		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql/">mysql<span>34</span></a></li>
-		
-			<li><a href="/tags/rune/">rune<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>553</span></a></li>
+		   <li><a href="/tags">...<span>561</span></a></li>
 		 
 		</ul>
 	</div>
@@ -785,23 +866,23 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+        <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
       </li>
     
       <li>
-        <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
+        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
+        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
       <li>
-        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

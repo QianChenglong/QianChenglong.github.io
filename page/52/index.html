@@ -111,6 +111,154 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-14 </div>
+			<div class="article-title"><a href="/2015/01/14/wireshark-开启tcp-ip校验码检查/" >wireshark-开启tcp-ip校验码检查</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Edit] =&gt; [Perference] =&gt; [Protocols] =&gt; [IPv4] =&gt; [Validate the IPv4 checksum if possible]</span><br><span class="line">                                      =&gt; [TCP] =&gt; [Validate the IPv4 checksum if possible]</span><br></pre></td></tr></table></figure>
+<p>如图：</p>
+<p><img src="/img/wireshark-开启tcp-ip校验码检查_1.png" alt=""></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://wiki.wireshark.org/TCP_Checksum_Verification" target="_blank" rel="external">http://wiki.wireshark.org/TCP_Checksum_Verification</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/14/wireshark-开启tcp-ip校验码检查/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-09 </div>
+			<div class="article-title"><a href="/2015/01/09/库的错误处理/" >库的错误处理</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>编写库，常见的错误处理方式：</p>
+<ul>
+<li><p>返回一个错误代码，提供一个函数将其转换为字符串</p>
+</li>
+<li><p>返回一个错误数据结构，该结构包括错误代码和描述信息</p>
+</li>
+<li><p>提供一个函数去获取错误代码，并提供一个函数转换为字符串</p>
+</li>
+<li><p>提供一个接口让调用者注册错误处理函数，当发生错误时，进行回调</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/4201856/error-handling-strategies-in-a-shared-library-c" target="_blank" rel="external">http://stackoverflow.com/questions/4201856/error-handling-strategies-in-a-shared-library-c</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/09/库的错误处理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-09 </div>
+			<div class="article-title"><a href="/2015/01/09/cmake-macro-vs-function/" >cmake-macro-vs-function</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>cmake中，<code>macro</code>类似于C中的宏函数，会进行参数替换，而<code>function</code>类似于C中的函数，<br>参数是一个变量，可以进行赋值等操作。</p>
+<p>示例：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(var <span class="string">"ABC"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">macro</span>(Moo arg)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"arg = $&#123;arg&#125;"</span>)</span><br><span class="line">  <span class="keyword">set</span>(arg <span class="string">"abc"</span>)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"# After change the value of arg."</span>)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"arg = $&#123;arg&#125;"</span>)</span><br><span class="line"><span class="keyword">endmacro</span>()</span><br><span class="line"><span class="keyword">message</span>(<span class="string">"=== Call macro ==="</span>)</span><br><span class="line">Moo(<span class="variable">$&#123;var&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>(Foo arg)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"arg = $&#123;arg&#125;"</span>)</span><br><span class="line">  <span class="keyword">set</span>(arg <span class="string">"abc"</span>)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"# After change the value of arg."</span>)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"arg = $&#123;arg&#125;"</span>)</span><br><span class="line"><span class="keyword">endfunction</span>()</span><br><span class="line"><span class="keyword">message</span>(<span class="string">"=== Call function ==="</span>)</span><br><span class="line">Foo(<span class="variable">$&#123;var&#125;</span>)</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">=== Call macro ===</span><br><span class="line">arg = ABC</span><br><span class="line"># After change the value of arg.</span><br><span class="line">arg = ABC</span><br><span class="line">=== Call function ===</span><br><span class="line">arg = ABC</span><br><span class="line"># After change the value of arg.</span><br><span class="line">arg = abc</span><br></pre></td></tr></table></figure></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/24297999/function-vs-macro-in-cmake" target="_blank" rel="external">http://stackoverflow.com/questions/24297999/function-vs-macro-in-cmake</a></li>
+<li><a href="http://www.cmake.org/cmake/help/v3.0/command/macro.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/macro.html</a></li>
+<li><a href="http://www.cmake.org/cmake/help/v3.0/command/function.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/function.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/09/cmake-macro-vs-function/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-08 </div>
+			<div class="article-title"><a href="/2015/01/08/pragma-once/" >pragma-once</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p><code>#pragma once</code>是一条非标准的预处理指令，用来防止同一文件被多次包含，同<code>include guard</code>作用一样。<br>绝大多数编译器都提供支持。</p>
+<p>具有的优点：</p>
+<ul>
+<li>代码更少，不用<code>include</code>那么麻烦</li>
+<li>更有效，更安全，由预处理器去维护判断是否已经包含过，而<code>include</code>需要程序员定义不同的宏名来保证，<br>若宏名冲突，则导致编译失败</li>
+<li>效率更高，预处理器针对其做了特殊的优化</li>
+<li><strong>复制，修改代码更容易，当把一个头文件复制到另一个项目中，或改名时，不用按着命令规范去修改</strong></li>
+</ul>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>当同一个文件，在项目内有符号链接或硬链接时，可能导致无法工作。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://en.wikipedia.org/wiki/Pragma_once" target="_blank" rel="external">https://en.wikipedia.org/wiki/Pragma_once</a></li>
+<li><a href="http://stackoverflow.com/questions/1143936/pragma-once-vs-include-guards" target="_blank" rel="external">http://stackoverflow.com/questions/1143936/pragma-once-vs-include-guards</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/08/pragma-once/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-08 </div>
+			<div class="article-title"><a href="/2015/01/08/makefile-目标all作用/" >makefile-目标all作用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>make在执行makefile中，若没有显式指定目标，默认执行第一个找到的目标。</p>
+<p>而一般情况下，一个项目都会生成多个目标(如多个lib，dll，exe)等，所以<br>需要<code>all</code>这个伪目标来生成多个目标。</p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/08/makefile-目标all作用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-08 </div>
 			<div class="article-title"><a href="/2015/01/08/makefile-PHONY作用/" >makefile-.PHONY作用</a></div>						
 		</h3>
@@ -303,148 +451,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-07 </div>
-			<div class="article-title"><a href="/2015/01/07/封装个人代码/" >封装个人代码</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>积累平时的代码，方便日后的复用。</p>
-<h1 id="采用什么语言封装"><a href="#采用什么语言封装" class="headerlink" title="采用什么语言封装"></a>采用什么语言封装</h1><p>采用C++，原因如下：</p>
-<ul>
-<li><p>现阶段主要使用C++，虽然也使用部分C库或系统API</p>
-</li>
-<li><p>提供默认参数值，使接口美观、易用</p>
-</li>
-<li><p>提供名字空间，可以防止名字污染</p>
-</li>
-<li><p>提供多态，使接口美观、易用</p>
-</li>
-</ul>
-<h1 id="封装遇到的问题"><a href="#封装遇到的问题" class="headerlink" title="封装遇到的问题"></a>封装遇到的问题</h1><ul>
-<li><p>代码目录怎么组织？</p>
-</li>
-<li><p>函数调用出错怎么处理？</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/07/封装个人代码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-07 </div>
-			<div class="article-title"><a href="/2015/01/07/autohotkey获得粘贴板内容/" >autohotkey获得粘贴板内容</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">; 获取当前选中内容</span></span><br><span class="line">GetSelectText()</span><br><span class="line">&#123;</span><br><span class="line">    tmp = <span class="variable">%ClipBoard%</span> <span class="comment">; 保存原来内容</span></span><br><span class="line">    <span class="built_in">ClipBoard</span> = <span class="comment">; 清空粘贴板</span></span><br><span class="line">    Send, ^c <span class="comment">; 获取当前选中内容</span></span><br><span class="line">    Sleep, <span class="number">100</span> <span class="comment">; 确保操作成功</span></span><br><span class="line">    text = <span class="variable">%ClipBoard%</span></span><br><span class="line">    <span class="built_in">ClipBoard</span> = <span class="variable">%cmp%</span> <span class="comment">; 复原</span></span><br><span class="line">    <span class="keyword">return</span> text</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">msgbox <span class="variable">% GetSelectText()</span></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/01/07/autohotkey获得粘贴板内容/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-07 </div>
-			<div class="article-title"><a href="/2015/01/07/软件设计原则资料/" >软件设计原则资料</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><a href="http://coolshell.cn/articles/4535.html" target="_blank" rel="external">一些软件设计的原则(酷壳)</a></li>
-<li><a href="https://en.wikipedia.org/wiki/KISS_principle" target="_blank" rel="external">https://en.wikipedia.org/wiki/KISS_principle</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank" rel="external">https://en.wikipedia.org/wiki/Don%27t_repeat_yourself</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/07/软件设计原则资料/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-06 </div>
-			<div class="article-title"><a href="/2015/01/06/虚拟网卡资料/" >虚拟网卡资料</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><a href="http://wushank.blog.51cto.com/3489095/1306849" target="_blank" rel="external">linux下TUN/TAP虚拟网卡的使用</a></li>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-tuntap/" target="_blank" rel="external">虚拟网卡 TUN/TAP 驱动程序设计原理</a></li>
-<li><a href="http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7" target="_blank" rel="external">http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/TUN%E4%B8%8ETAP" target="_blank" rel="external">wiki-TUN与TAP</a></li>
-<li><a href="http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has" target="_blank" rel="external">http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/06/虚拟网卡资料/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-06 </div>
-			<div class="article-title"><a href="/2015/01/06/位域与大小端/" >位域与大小端</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="小端"><a href="#小端" class="headerlink" title="小端"></a>小端</h1><p>先定义的位域占用字节低位</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> a:<span class="number">4</span>;</span><br><span class="line">    <span class="keyword">uint8_t</span> b:<span class="number">4</span>;</span><br><span class="line">&#125; Bit;</span><br></pre></td></tr></table></figure>
-<p>内存中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxxx xxxx</span><br><span class="line">b    a</span><br></pre></td></tr></table></figure>
-<p>测试：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> a:<span class="number">4</span>;    <span class="comment">/**&lt; 低4位 */</span></span><br><span class="line">    <span class="keyword">uint8_t</span> b:<span class="number">4</span>;    <span class="comment">/**&lt; 高4位 */</span></span><br><span class="line">&#125; Bit;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    Bit.a = <span class="number">0x0</span>;</span><br><span class="line">    Bit.b = <span class="number">0xf</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Bit:%#x\n"</span>, Bit);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"address:%x\n"</span>, (char*)&amp;Bit);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bit:0xf0</span><br><span class="line">address:4063f0</span><br></pre></td></tr></table></figure></p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/06/位域与大小端/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -497,7 +503,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>24</span></a></li>
+			<li><a href="/categories/C/">C++<span>28</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -663,7 +669,7 @@
 		
 			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+			<li><a href="/categories/vim/">vim<span>18</span></a></li>
 		
 			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
 		
@@ -748,48 +754,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/登录/">登录<span>2</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+			<li><a href="/tags/散列/">散列<span>1</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/column/">column<span>1</span></a></li>
 		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
+			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
 		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
 		
-			<li><a href="/tags/domain/">domain<span>3</span></a></li>
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/tags/vim/">vim<span>23</span></a></li>
+		
+			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+		
+			<li><a href="/tags/od/">od<span>1</span></a></li>
+		
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
 		
 			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+			<li><a href="/tags/linux/">linux<span>36</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
 		
-			<li><a href="/tags/override/">override<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+			<li><a href="/tags/打包/">打包<span>1</span></a></li>
 		
-			<li><a href="/tags/interface/">interface<span>1</span></a></li>
-		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
-		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
-		
-			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
-		
-			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
-		
-			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
+			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>553</span></a></li>
+		   <li><a href="/tags">...<span>561</span></a></li>
 		 
 		</ul>
 	</div>
@@ -802,23 +808,23 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+        <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
       </li>
     
       <li>
-        <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
+        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
+        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
       <li>
-        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

@@ -111,6 +111,139 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-21 </div>
+			<div class="article-title"><a href="/2015/09/21/go-library/" >go-library</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="https://github.com/gorilla/sessions" target="_blank" rel="external">https://github.com/gorilla/sessions</a></p>
+<p>http session实现</p>
+</li>
+<li><p><a href="https://github.com/golang/oauth2" target="_blank" rel="external">OAuth</a></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/21/go-library/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-18 </div>
+			<div class="article-title"><a href="/2015/09/18/go-redis/" >go-redis</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><a href="https://github.com/astaxie/goredis" target="_blank" rel="external">https://github.com/astaxie/goredis</a></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/18/go-redis/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-18 </div>
+			<div class="article-title"><a href="/2015/09/18/go-package/" >go-package</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>包内的首字母大写为可导出符号,在其他包中使用</p>
+</li>
+<li><p><code>_ import *</code>表示导入该包,但不直接使用该包内的可导出符号(如使用<code>go-sql-driver/mysql</code>)</p>
+</li>
+<li><p>导入包时,go会自动执行包内的<code>init()</code></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/18/go-package/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-18 </div>
+			<div class="article-title"><a href="/2015/09/18/go-mysql/" >go-mysql</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><code>nil</code> &lt;=&gt; <code>NULL</code></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://go-database-sql.org/index.html" target="_blank" rel="external">go-database-sql</a></li>
+<li><a href="https://golang.org/pkg/database/sql" target="_blank" rel="external">https://golang.org/pkg/database/sql</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/18/go-mysql/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-18 </div>
+			<div class="article-title"><a href="/2015/09/18/vim-tab/" >vim-tab</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="相关选项"><a href="#相关选项" class="headerlink" title="相关选项"></a>相关选项</h1><ul>
+<li><code>tabstop</code> 一个tab在显示时对应多少空格,默认为8</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/18/vim-tab/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-18 </div>
 			<div class="article-title"><a href="/2015/09/18/vim-modeline/" >vim-modeline</a></div>						
 		</h3>
@@ -289,140 +422,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-15 </div>
-			<div class="article-title"><a href="/2015/09/15/数据库设计/" >数据库设计</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h1><ol>
-<li><p>创建型记录,需附带创建时间,便于分析统计</p>
-</li>
-<li><p>需要计算类的字段,默认值不要为<code>NULL</code>,否则会导致计算结果为<code>0</code></p>
-</li>
-<li><p>尽量将字段设置为<code>NOT NULL</code></p>
-<ul>
-<li><p>多占用额外存储空间</p>
-</li>
-<li><p>影响查询效率</p>
-</li>
-</ul>
-</li>
-</ol>
-<h1 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h1><ul>
-<li>标识符不使用常见的一些语言的关键字(如<code>class</code>, <code>type</code>等)</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/15/数据库设计/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-15 </div>
-			<div class="article-title"><a href="/2015/09/15/jsonrpc/" >jsonrpc</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.jsonrpc.org/specification" target="_blank" rel="external">jsonrpc2.0</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/15/jsonrpc/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-10 </div>
-			<div class="article-title"><a href="/2015/09/10/jsonrpc框架/" >jsonrpc框架</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><a href="http://www.gorillatoolkit.org/pkg/rpc" target="_blank" rel="external">gorilla</a></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/10/jsonrpc框架/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-10 </div>
-			<div class="article-title"><a href="/2015/09/10/curl/" >curl</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>发送jsonrpc</p>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &apos;{&quot;method&quot;:&quot;HelloService.Say&quot;,&quot;params&quot;:[{&quot;Who&quot;:&quot;Test&quot;}], &quot;id&quot;:&quot;54321&quot;, &quot;jsonrpc&quot;: &quot;2.0&quot;}&apos; http://:6061/rpc
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/10/curl/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-10 </div>
-			<div class="article-title"><a href="/2015/09/10/http-常见错误代码分析/" >http-常见错误代码分析</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 错误代码 | 原因                                 | 解决                               |<br>|———-+————————————–+————————————|<br>| 415      | 请求的资源类型与提供的资源类型不匹配 | 设置<code>Content-Type</code>为服务器接受类型 |</p>
-
-	
-	</div>
-  <a type="button" href="/2015/09/10/http-常见错误代码分析/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -475,7 +474,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>24</span></a></li>
+			<li><a href="/categories/C/">C++<span>28</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -641,7 +640,7 @@
 		
 			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+			<li><a href="/categories/vim/">vim<span>18</span></a></li>
 		
 			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
 		
@@ -726,48 +725,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/library/">library<span>2</span></a></li>
-		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
-		
-			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
-		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
-		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
-		
-			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
-		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
-		
-			<li><a href="/tags/命令/">命令<span>5</span></a></li>
-		
-			<li><a href="/tags/database/">database<span>3</span></a></li>
-		
 			<li><a href="/tags/linux/">linux<span>36</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/python3/">python3<span>2</span></a></li>
 		
-			<li><a href="/tags/安装/">安装<span>3</span></a></li>
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/串口/">串口<span>2</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>3</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/str/">str<span>1</span></a></li>
 		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
+			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
 		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/tags/sal/">sal<span>1</span></a></li>
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+		
+			<li><a href="/tags/C/">C++<span>30</span></a></li>
+		
+			<li><a href="/tags/head/">head<span>1</span></a></li>
+		
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+		
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
+		
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+		
+			<li><a href="/tags/build/">build<span>1</span></a></li>
+		
+			<li><a href="/tags/select/">select<span>1</span></a></li>
+		
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
+		
+			<li><a href="/tags/打包/">打包<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>553</span></a></li>
+		   <li><a href="/tags">...<span>561</span></a></li>
 		 
 		</ul>
 	</div>
@@ -780,23 +779,23 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+        <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
       </li>
     
       <li>
-        <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
+        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
+        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
       <li>
-        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

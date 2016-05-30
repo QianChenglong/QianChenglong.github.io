@@ -111,6 +111,170 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-04-28 </div>
+			<div class="article-title"><a href="/2016/04/28/设计模式-单例模式/" >设计模式-单例模式</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
+<li><p>相比全局变量</p>
+<ul>
+<li><p>将构造函数私有，可以防止定义多个实例！</p>
+</li>
+<li><p>可以实现为uncopyable，禁止复制或赋值！</p>
+</li>
+</ul>
+</li>
+<li><p>更加的OO，使用起来便利，无须手动创建和释放！</p>
+<ul>
+<li>利用C++的确定性析构特点，可以确保程序退出时，执行析构函数，释放相应资源！</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/04/28/设计模式-单例模式/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-28 </div>
+			<div class="article-title"><a href="/2016/04/28/C++-内存区域/" >C++-内存区域</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="数据段"><a href="#数据段" class="headerlink" title="数据段"></a>数据段</h1><p>BSS段通常是指用来存放程序中未初始化的全局变量和静态变量的一块内存区域。特点是可读写的，在程序执行之前BSS段会自动清0。<br>可执行程序包括BSS段、数据段、代码段（也称文本段）。<br>BSS（Block Started by Symbol）通常是指用来存放程序中未初始化的全局变量和静态变量的一块内存区域。特点是:可读写的，在程序执行之前BSS段会自动清0。所以，未初始的全局变量在程序执行之前已经成0了。<br>数据段包括初始化的数据和未初始化的数据（BSS）两部分[1]  。BSS段存放的是未初始化的全局变量和静态变量。<br>UNIX下可使用size命令查看可执行文件的段大小信息。如size a.out。</p>
+
+	
+	</div>
+  <a type="button" href="/2016/04/28/C++-内存区域/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-28 </div>
+			<div class="article-title"><a href="/2016/04/28/C++-静态数据成员/" >C++-静态数据成员</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> X</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">int</span> normalValue = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">0</span>;       <span class="comment">// declaration, with initializer</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> X::i;                 <span class="comment">// definition</span></span><br></pre></td></tr></table></figure>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>与全局变量存储在同一区域(全局/静态存储区，又叫做数据段)</p>
+</li>
+<li><p>在函数内用static修饰的变量，也是在<strong>全局/静态存储</strong>，只是访问的<strong>作用域</strong>被编译器限定</p>
+</li>
+<li><p>static数据成员只是加上了类名字限定了的全局变量！</p>
+</li>
+</ul>
+<h1 id="为什么需要在类实现文件中单独定义static类型数据成员？"><a href="#为什么需要在类实现文件中单独定义static类型数据成员？" class="headerlink" title="为什么需要在类实现文件中单独定义static类型数据成员？"></a>为什么需要在类实现文件中单独定义static类型数据成员？</h1><ul>
+<li>因为类定义在头文件中，而头文件可以在不同的object中引用，<br>这样该定义不唯一，链接器在链接时，会报重定义错误！</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/11300652/static-data-member-initialization" target="_blank" rel="external">http://stackoverflow.com/questions/11300652/static-data-member-initialization</a></li>
+<li><a href="http://programmers.stackexchange.com/questions/145299/why-the-static-data-members-have-to-be-defined-outside-the-class-separately-in-c" target="_blank" rel="external">http://programmers.stackexchange.com/questions/145299/why-the-static-data-members-have-to-be-defined-outside-the-class-separately-in-c</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/static" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/static</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/28/C++-静态数据成员/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-26 </div>
+			<div class="article-title"><a href="/2016/04/26/daemon/" >daemon</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>关闭打开的文件描述符(0,1,2等，可通过<code>ls /proc/pid/fd</code>查看打开的文件描述符)</p>
+<p>若不关闭，虽然没有了控制终端，不会接受到相应控制信号，则仍能IO对应文件，如标准输出到启动时的终端，从终端读入！</p>
+<ul>
+<li>需要注意，默认为行缓冲！</li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/26/daemon/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-25 </div>
+			<div class="article-title"><a href="/2016/04/25/net/" >net</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="use-samba"><a href="#use-samba" class="headerlink" title="use(samba)"></a>use(samba)</h1><ul>
+<li><p>查看帮助</p>
+<pre><code>net help use
+</code></pre></li>
+<li><p>建立连接</p>
+<pre><code>net use /user:username \\computername\sharename password
+net use /user:pm \\192.168.1.2\pm pm0422
+</code></pre></li>
+<li><p>映射连接</p>
+<pre><code>net use * /user:pm \\192.168.1.2\pm pm0422
+</code></pre></li>
+<li><p>删除连接</p>
+<pre><code>net use \\computername\sharename /delete
+</code></pre></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://technet.microsoft.com/en-us/library/bb490717.aspx" target="_blank" rel="external">https://technet.microsoft.com/en-us/library/bb490717.aspx</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/25/net/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-04-22 </div>
 			<div class="article-title"><a href="/2016/04/22/suse/" >suse</a></div>						
 		</h3>
@@ -234,171 +398,6 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-18 </div>
-			<div class="article-title"><a href="/2016/04/18/select/" >select</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><h2 id="fd-set实现-usr-include-sys-select-h"><a href="#fd-set实现-usr-include-sys-select-h" class="headerlink" title="fd_set实现(/usr/include/sys/select.h)"></a>fd_set实现(<code>/usr/include/sys/select.h</code>)</h2><ul>
-<li><p>描述符采用整数数组实现，通过bitmap来存储对应描述符</p>
-</li>
-<li><p><code>FD_SETSIZE</code>默认为1024</p>
-<pre><code>/usr/include/bits/typesizes.h
-#define __FD_SETSIZE        1024
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/18/select/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-14 </div>
-			<div class="article-title"><a href="/2016/04/14/c++-bind/" >c++-bind</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>bind的参数是值传递！意味着，如果直接传递某个值，将会复制构造！所以若不想这样，得传递指针！</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/16016112/stdbind-of-class-member-function" target="_blank" rel="external">http://stackoverflow.com/questions/16016112/stdbind-of-class-member-function</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/14/c++-bind/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-14 </div>
-			<div class="article-title"><a href="/2016/04/14/TIME_WAIT/" >TIME_WAIT</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么?"></a>是什么?</h1><h1 id="为什么需要？"><a href="#为什么需要？" class="headerlink" title="为什么需要？"></a>为什么需要？</h1><h1 id="如何查看"><a href="#如何查看" class="headerlink" title="如何查看?"></a>如何查看?</h1><h1 id="如何优化？"><a href="#如何优化？" class="headerlink" title="如何优化？"></a>如何优化？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.tcp_tw_reuse = 1</span><br><span class="line">#表示开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接，默认为0，表示关闭；</span><br><span class="line">net.ipv4.tcp_tw_recycle = 1</span><br><span class="line">#表示开启TCP连接中TIME-WAIT sockets的快速回收，默认为0，表示关闭；</span><br><span class="line">net.ipv4.tcp_fin_timeout</span><br><span class="line">#修改系統默认的 TIMEOUT 时间。</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2016/04/14/TIME_WAIT/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-13 </div>
-			<div class="article-title"><a href="/2016/04/13/centos-安装记录/" >centos-安装记录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>安装VBoxGuestAdditions</p>
-</li>
-<li><p>配置sudo</p>
-<pre><code>visudo
-
-wallace ALL=(ALL)       NOPASSWD: ALL
-</code></pre></li>
-<li><p>安装epel(<a href="http://www.cyberciti.biz/faq/installing-rhel-epel-repo-on-centos-redhat-7-x/" target="_blank" rel="external">http://www.cyberciti.biz/faq/installing-rhel-epel-repo-on-centos-redhat-7-x/</a>)</p>
-<pre><code>yum install epel-release
-</code></pre></li>
-<li><p>添加组</p>
-<pre><code>yum install libuser
-lgroup -M wallace vboxsf
-</code></pre></li>
-<li><p>配置环境变量</p>
-<pre><code>vi /etc/profile
-</code></pre></li>
-<li><p>配置系统语言</p>
-<pre><code>echo LANG=en_US.UTF-8 &gt;/etc/locale.conf
-</code></pre></li>
-<li><p>配置启动时间</p>
-<pre><code>vi /boot/grub2/grub.cfg
-
-set timeout=1
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/13/centos-安装记录/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-12 </div>
-			<div class="article-title"><a href="/2016/04/12/死锁/" >死锁</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="可能发生的场景"><a href="#可能发生的场景" class="headerlink" title="可能发生的场景"></a>可能发生的场景</h1><ul>
-<li><p>在函数嵌套调用中，多次请求同一资源</p>
-</li>
-<li><p>不同线程中，以不同的顺序请求多个资源，而其中某个资源不足</p>
-</li>
-</ul>
-<h1 id="预防"><a href="#预防" class="headerlink" title="预防"></a>预防</h1><ul>
-<li><p>利用RAII手段，确保stack mutex离开作用域时被解锁(<code>MutexGuard, std::lock_guard</code>)</p>
-<ul>
-<li><p>异常结束(throw)</p>
-</li>
-<li><p>分支跳出(break, continue, return)</p>
-</li>
-<li><p>意外退出点(exit)</p>
-</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/12/死锁/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -451,7 +450,7 @@ set timeout=1
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>24</span></a></li>
+			<li><a href="/categories/C/">C++<span>28</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -617,7 +616,7 @@ set timeout=1
 		
 			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+			<li><a href="/categories/vim/">vim<span>18</span></a></li>
 		
 			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
 		
@@ -702,48 +701,48 @@ set timeout=1
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
+			<li><a href="/tags/django/">django<span>2</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+			<li><a href="/tags/socket/">socket<span>6</span></a></li>
 		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
 		
-			<li><a href="/tags/database/">database<span>3</span></a></li>
+			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
 		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+			<li><a href="/tags/include/">include<span>2</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
+			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
-			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+			<li><a href="/tags/curses/">curses<span>2</span></a></li>
 		
-			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
 		
-			<li><a href="/tags/base64/">base64<span>1</span></a></li>
+			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
 		
-			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
 		
-			<li><a href="/tags/程序/">程序<span>1</span></a></li>
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>553</span></a></li>
+		   <li><a href="/tags">...<span>561</span></a></li>
 		 
 		</ul>
 	</div>
@@ -756,23 +755,23 @@ set timeout=1
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+        <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
       </li>
     
       <li>
-        <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
+        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
+        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
       <li>
-        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

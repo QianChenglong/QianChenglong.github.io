@@ -111,6 +111,180 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-02-18 </div>
+			<div class="article-title"><a href="/2016/02/18/链表/" >链表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
+<li><p>动态存储分配</p>
+</li>
+<li><p>数据更新效率高，O(1)</p>
+</li>
+</ul>
+<h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><ul>
+<li><p>浪费了部分空间用来存储指针域</p>
+</li>
+<li><p>查询效率低，O(n)</p>
+</li>
+</ul>
+<h1 id="增加一个头节点"><a href="#增加一个头节点" class="headerlink" title="增加一个头节点"></a>增加一个头节点</h1><p>空节点，不存储数据</p>
+<ul>
+<li>优化链代码效率，避免了链表是否为空的判断</li>
+</ul>
+<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
+<li><p>判断链表是否为空</p>
+<p>头节点到链域为空，则链表为空</p>
+</li>
+<li><p>定位到尾节点</p>
+<p>尾节点的特点是链域为空。</p>
+<p>所以挨个遍历，当当前节点到链域为空时，说明当前节点为尾节点</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/02/18/链表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-02-18 </div>
+			<div class="article-title"><a href="/2016/02/18/tcp/" >tcp</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="首部"><a href="#首部" class="headerlink" title="首部"></a>首部</h1><ul>
+<li><p>PSH(push)</p>
+<p>置位后，数据立马发送，而不是填充到缓冲区等待发送</p>
+</li>
+<li><p>窗口值</p>
+<p>报文发送方的<strong>接收缓冲区</strong>大小(tcp是双工的)，允许对方发送的最大数据量</p>
+</li>
+</ul>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ol>
+<li><p>3次握手中，为什么客户端最后还需要确认一次？</p>
+<p>为了防止服务端响应了已失效的连接请求报文。</p>
+<p>假设没有再次确认，当客户端发出一次连接请求时，由于某种原因，该报文被滞留。<br>后续客户端又重新发送报文，与服务端建立了连接。<br>而此时服务端收到了之前的连接请求报文，又建立了连接，此时便导致错误。</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/02/18/tcp/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-01-18 </div>
+			<div class="article-title"><a href="/2016/01/18/电影网站/" >电影网站</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="http://www.dytt8.net/" target="_blank" rel="external">电影天堂</a></p>
+</li>
+<li><p><a href="http://www.bttiantang.com/" target="_blank" rel="external">bit天堂</a></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/01/18/电影网站/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-01-15 </div>
+			<div class="article-title"><a href="/2016/01/15/linux-最大打开文件数/" >linux-最大打开文件数</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>linux下，默认最大打开文件数为1024(<code>ulimit -n</code>)</p>
+</li>
+<li><p>一个进程打开，默认占用3个文件描述符(0,1,2分别对应标准输入，标准输出，标准出错)</p>
+</li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ul>
+<li><p>默认情况下，单进程最大打开文件数为<strong>1021</strong>个([3,1023])</p>
+</li>
+<li><p>单进程，最大连接数为<strong>1021</strong>个</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/01/15/linux-最大打开文件数/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-01-15 </div>
+			<div class="article-title"><a href="/2016/01/15/服务端编程步骤/" >服务端编程步骤</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>创建监听套接字</p>
+</li>
+<li><p>配置监听地址信息</p>
+</li>
+<li><p>套接字绑定监听地址</p>
+</li>
+<li><p>开始监听</p>
+</li>
+<li><p>连接处理/数据IO</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/01/15/服务端编程步骤/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-11-26 </div>
 			<div class="article-title"><a href="/2015/11/26/nginx-gzip/" >nginx-gzip</a></div>						
 		</h3>
@@ -292,185 +466,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-17 </div>
-			<div class="article-title"><a href="/2015/11/17/跨域共享/" >跨域共享</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="预检"><a href="#预检" class="headerlink" title="预检"></a>预检</h1><ol>
-<li><p>Origin HTTP请求头</p>
-<ul>
-<li>任何涉及CORS的请求都必须携带</li>
-</ul>
-</li>
-<li><p>Access-Control-Request-Method HTTP请求头</p>
-<ul>
-<li>真实请求的方法</li>
-</ul>
-</li>
-<li><p>Access-Contrl-Request-Headers HTTP请求头</p>
-<ul>
-<li>真实请求的自定义header列表</li>
-</ul>
-</li>
-<li><p>Access-Control-Allow-Origin HTTP响应头</p>
-<ul>
-<li>允许进行CORS的来源域</li>
-</ul>
-</li>
-<li><p>Access-Control-Allow-Method HTTP响应头</p>
-<ul>
-<li>允许进行CORS的请求方法列表(响应预检请求)</li>
-</ul>
-</li>
-<li><p>Access-Control-Allow-Headers HTTP响应头</p>
-<ul>
-<li>允许进行CORS的请求头列表(响应预检请求)</li>
-</ul>
-</li>
-<li><p>Access-Control-Max-Age HTTP响应头</p>
-<ul>
-<li>用在响应预检请求上,表示本次预检响应的有效时间.<br>在此时间内,浏览器都可以根据此次协商结果决定是否有必要直接发送真实请求，而无需再次发送预检请求</li>
-</ul>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/17/跨域共享/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-16 </div>
-			<div class="article-title"><a href="/2015/11/16/js-跨域/" >js-跨域</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域?"></a>什么是跨域?</h1><p>在了解什么是跨域问题之前,先需要了解<strong>同源策略</strong></p>
-<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h3 id="什么是同源"><a href="#什么是同源" class="headerlink" title="什么是同源?"></a>什么是同源?</h3><p>同源是指<strong>协议</strong>,<strong>域名</strong>,<strong>端口</strong>完全一致</p>
-<h3 id="为什么需要同源策略"><a href="#为什么需要同源策略" class="headerlink" title="为什么需要同源策略?"></a>为什么需要同源策略?</h3><p>为了信息安全,最基本的原则即同源的东西是安全的,除此之外都是不安全的.</p>
-<p>示例:</p>
-<p>一个中间层(代理服务器,路由网关,运营商等),通过IFrame把登录网银的页面嵌套起立,<br>里面加入了一段恶意代码,将用户的数据发送到指定位置.</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.jianshu.com/p/4e17445d66e2" target="_blank" rel="external">同源策略——浏览器的安全卫士</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/16/js-跨域/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-16 </div>
-			<div class="article-title"><a href="/2015/11/16/http-OPTIONS/" >http-OPTIONS</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><ul>
-<li>获取URL支持的HTTP请求方法</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/11/16/http-OPTIONS/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-16 </div>
-			<div class="article-title"><a href="/2015/11/16/http-head/" >http-head</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>HEAD方法跟GET方法相同，只不过服务器响应时不会返回消息体。<br>一个HEAD请求的响应中，HTTP头中包含的元信息应该和一个GET请求的响应消息相同。</p>
-<p>一个HEAD请求的响应可被缓存，也就是说，响应中的信息可能用来更新之前缓存的实体。如果当前实体跟缓存实体的阈值不同（可通过Content-Length、Content-MD5、ETag或Last-Modified的变化来表明），那么这个缓存就被视为过期了</p>
-<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul>
-<li><p>简单,快速,耗用资源少</p>
-</li>
-<li><p>响应可被缓存</p>
-</li>
-</ul>
-<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><ul>
-<li><p>测试超链接的有效性、可用性和最近的修改</p>
-</li>
-<li><p>用来获取资源的<strong>元数据</strong></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">wiki-超文本传输协议</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/16/http-head/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-16 </div>
-			<div class="article-title"><a href="/2015/11/16/ajax/" >ajax</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="什么是ajax"><a href="#什么是ajax" class="headerlink" title="什么是ajax?"></a>什么是ajax?</h1><p>全称”Asynchronous Javascript And XML”(异步JavaScript和XML)</p>
-<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>在不用重新载入整个网页的前提下(刷新),获取数据,更新网页内容</p>
-<h1 id="应用案例"><a href="#应用案例" class="headerlink" title="应用案例"></a>应用案例</h1><p>该技术在1998年前后得到了应用。允许客户端脚本发送HTTP请求（XMLHTTP）的第一个组件由Outlook Web Access小组写成。该组件原属于微软Exchange Server，并且迅速地成为了Internet Explorer 4.0的一部分。部分观察家认为，Outlook Web Access是第一个应用了Ajax技术的成功的商业应用程序，并成为包括Oddpost的网络邮件产品在内的许多产品的领头羊。但是，2005年初，许多事件使得Ajax被大众所接受。Google在它著名的交互应用程序中使用了异步通讯，如Google、Google地图、Google搜索建议、Gmail等。Ajax这个词由《Ajax: A New Approach to Web Applications》一文所创，该文的迅速流传提高了人们使用该项技术的意识。另外，对Mozilla/Gecko的支持使得该技术走向成熟，变得更为易用。</p>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>核心是<code>XMLHttpRequest</code>对象</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.w3school.com.cn/xml/xml_http.asp" target="_blank" rel="external">XMLHttpRequest 对象</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/16/ajax/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -523,7 +518,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>24</span></a></li>
+			<li><a href="/categories/C/">C++<span>28</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -689,7 +684,7 @@
 		
 			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+			<li><a href="/categories/vim/">vim<span>18</span></a></li>
 		
 			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
 		
@@ -774,48 +769,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
+			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
 		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/列表/">列表<span>7</span></a></li>
+			<li><a href="/tags/function/">function<span>1</span></a></li>
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
 		
-			<li><a href="/tags/类型转换/">类型转换<span>1</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
 		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
 		
-			<li><a href="/tags/USB/">USB<span>1</span></a></li>
+			<li><a href="/tags/apt/">apt<span>2</span></a></li>
 		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
 		
-			<li><a href="/tags/if/">if<span>1</span></a></li>
+			<li><a href="/tags/od/">od<span>1</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/博客/">博客<span>1</span></a></li>
+			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
 		
-			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>553</span></a></li>
+		   <li><a href="/tags">...<span>561</span></a></li>
 		 
 		</ul>
 	</div>
@@ -828,23 +823,23 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+        <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
       </li>
     
       <li>
-        <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
+        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
+        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
       <li>
-        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

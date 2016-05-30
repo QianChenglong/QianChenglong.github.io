@@ -112,6 +112,201 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-03 </div>
+			<div class="article-title"><a href="/2015/02/03/grep简记/" >grep简记</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>递归目录查询</p>
+<pre><code>grep __SOCKADDR_COMMON -d recurse .
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/03/grep简记/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-03 </div>
+			<div class="article-title"><a href="/2015/02/03/linux-socket寻址/" >linux-socket寻址</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>ubuntu-14.04</p>
+</li>
+<li><p>glic-2.19</p>
+</li>
+<li><p>工作目录：<code>/usr/include</code></p>
+</li>
+</ul>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="struct-sockaddr"><a href="#struct-sockaddr" class="headerlink" title="struct sockaddr"></a><code>struct sockaddr</code></h2><p><code>socket</code>API接口，无关具体地址族，协议。</p>
+<h3 id="定义位置"><a href="#定义位置" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>x86_64-linux-gnu/sys/socket.h</code> =&gt; <code>x86_64-linux-gnu/bits/socket.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Structure describing a generic socket address.  */</span></span><br><span class="line"><span class="keyword">struct</span> sockaddr</span><br><span class="line">  &#123;</span><br><span class="line">    __SOCKADDR_COMMON (sa_);    <span class="comment">/* Common data: address family and length.  */</span></span><br><span class="line">    <span class="keyword">char</span> sa_data[<span class="number">14</span>];       <span class="comment">/* Address data.  */</span></span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<ul>
+<li><code>=&gt;</code>表示包含</li>
+</ul>
+<h2 id="strcut-sockaddr-in"><a href="#strcut-sockaddr-in" class="headerlink" title="strcut sockaddr_in"></a><code>strcut sockaddr_in</code></h2><p>具体类型数据结构，用来操作地址族，IP，端口。</p>
+<h3 id="定义位置-1"><a href="#定义位置-1" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>netinet/in.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Structure describing an Internet socket address.  */</span></span><br><span class="line"><span class="keyword">struct</span> sockaddr_in</span><br><span class="line">  &#123;</span><br><span class="line">    __SOCKADDR_COMMON (sin_);</span><br><span class="line">    <span class="keyword">in_port_t</span> sin_port;         <span class="comment">/* Port number.  */</span></span><br><span class="line">    <span class="keyword">struct</span> in_addr sin_addr;        <span class="comment">/* Internet address.  */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Pad to size of `struct sockaddr'.  */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> sin_zero[<span class="keyword">sizeof</span> (<span class="keyword">struct</span> sockaddr) -</span><br><span class="line">               __SOCKADDR_COMMON_SIZE -</span><br><span class="line">               <span class="keyword">sizeof</span> (<span class="keyword">in_port_t</span>) -</span><br><span class="line">               <span class="keyword">sizeof</span> (<span class="keyword">struct</span> in_addr)];</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="struct-in-addr"><a href="#struct-in-addr" class="headerlink" title="struct in_addr"></a><code>struct in_addr</code></h2><p>定义IP</p>
+<h3 id="定义位置-2"><a href="#定义位置-2" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>netinet/in.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Internet address.  */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">uint32_t</span> <span class="keyword">in_addr_t</span>;</span><br><span class="line"><span class="keyword">struct</span> in_addr</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">in_addr_t</span> s_addr;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h1><p><code>in_addr</code> =&gt; <code>sockaddr_in</code> =&gt; <code>sockaddr</code></p>
+<p><strong>Note</strong>:</p>
+<ul>
+<li><code>=&gt;</code>表示构成</li>
+</ul>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="socket地址结构传递方向"><a href="#socket地址结构传递方向" class="headerlink" title="socket地址结构传递方向"></a>socket地址结构传递方向</h2><ul>
+<li><p>从进程到内核</p>
+<p>需要传入参数(套接字地址大小，告诉内核需要复制多少字节)</p>
+<ul>
+<li>bind</li>
+<li>connect</li>
+<li>sendto</li>
+<li>sendmsg</li>
+</ul>
+</li>
+<li><p>从内核到进程</p>
+<p>需要传入传出参数(套接字地址大小，告诉内核需要复制多少字节，以及反馈进程，返回的地址结构大小)</p>
+<ul>
+<li>accept</li>
+<li>recvfrom</li>
+<li>recvmsg</li>
+<li>getpeername</li>
+<li>getsockname</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/03/linux-socket寻址/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-03 </div>
+			<div class="article-title"><a href="/2015/02/03/gcc获取include路径列表/" >gcc获取include路径列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><pre><code>echo | gcc -v -x c -E -
+</code></pre><h1 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h1><pre><code>echo | g++ -v -x c++ -E -
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/02/03/gcc获取include路径列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-03 </div>
+			<div class="article-title"><a href="/2015/02/03/ubuntu-包管理/" >ubuntu-包管理</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h1><ul>
+<li><p>只下载不安装(二进制包)</p>
+<pre><code>apt-get download PACKAGE
+</code></pre></li>
+<li><p>下载源代码</p>
+<pre><code>apt-get source PACKAGE
+</code></pre></li>
+</ul>
+<h1 id="apt-cache"><a href="#apt-cache" class="headerlink" title="apt-cache"></a>apt-cache</h1><ul>
+<li><p>查询包依赖(该包依赖哪些包)</p>
+<pre><code>apt-cache depends PACKAGE
+</code></pre></li>
+<li><p>查询反向依赖(哪些包依赖该包)</p>
+<pre><code>apt-cache rdepends PACKAGE
+</code></pre></li>
+<li><p>查询包信息(基本信息，依赖信息)</p>
+<pre><code>apt-cache showpkg PACKAGE
+apt-cache show PACKAGE
+</code></pre></li>
+<li><p>查看包版本</p>
+<pre><code>apt-cache policy PACKAGE
+</code></pre></li>
+<li><p>搜索包</p>
+<pre><code>apt-cache search PATTERN
+</code></pre></li>
+</ul>
+<h1 id="apt-file-需要安装"><a href="#apt-file-需要安装" class="headerlink" title="apt-file(需要安装)"></a>apt-file(需要安装)</h1><ul>
+<li><p>列出包文件列表</p>
+<pre><code>apt-file list PACKAGE
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/03/ubuntu-包管理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-03 </div>
+			<div class="article-title"><a href="/2015/02/03/USB串口线是什么/" >USB串口线是什么</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="正式名称"><a href="#正式名称" class="headerlink" title="正式名称"></a>正式名称</h1><p>RS232-USB接口转换器</p>
+<p><img src="/img/USB串口线是什么-01.jpg" alt=""></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.baike.com/wiki/PL2303" target="_blank" rel="external">http://www.baike.com/wiki/PL2303</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/03/USB串口线是什么/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-03 </div>
 			<div class="article-title"><a href="/2015/02/03/sudo免密码/" >sudo免密码</a></div>						
 		</h3>
 	
@@ -257,137 +452,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-02 </div>
-			<div class="article-title"><a href="/2015/02/02/数学-关系的理解/" >数学-关系的理解</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="关系是什么？"><a href="#关系是什么？" class="headerlink" title="关系是什么？"></a>关系是什么？</h1><ul>
-<li><p>数学上，关系实质是<strong>集合</strong>，元素是有序元组。</p>
-</li>
-<li><p>自然语言描述时，关系描述的是符合某种语义结构的，如<code>2整除4</code>语义结构为<code>A整除B</code>。</p>
-</li>
-</ul>
-<h1 id="关系用来干什么？"><a href="#关系用来干什么？" class="headerlink" title="关系用来干什么？"></a>关系用来干什么？</h1><ul>
-<li><p>关系是用来描述对象之间的联系。</p>
-</li>
-<li><p>从更高的抽象程度研究对象，发现共同性质，再运用之(具象 =&gt; 抽象 =&gt; 具象)</p>
-</li>
-</ul>
-<h1 id="某某之间具有某种关系实质是什么？"><a href="#某某之间具有某种关系实质是什么？" class="headerlink" title="某某之间具有某种关系实质是什么？"></a>某某之间具有某种关系实质是什么？</h1><p>集合上的属于关系(元素和集合的关系)</p>
-<ol>
-<li><a href="http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E5%85%B3%E7%B3%BB" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E5%85%B3%E7%B3%BB</a></li>
-<li><a href="http://zh.wikipedia.org/wiki/%E5%85%B3%E7%B3%BB_(%E6%95%B0%E5%AD%A6)" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E5%85%B3%E7%B3%BB_(%E6%95%B0%E5%AD%A6)</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/02/数学-关系的理解/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-30 </div>
-			<div class="article-title"><a href="/2015/01/30/git-自动push/" >git-自动push</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p><a href="https://github.com/QianChenglong/auto-git-push" target="_blank" rel="external">https://github.com/QianChenglong/auto-git-push</a></p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/30/git-自动push/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-30 </div>
-			<div class="article-title"><a href="/2015/01/30/windows-计划任务隐藏控制台/" >windows-计划任务隐藏控制台</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p><img src="/img/windows-计划任务隐藏控制台-01.png" alt=""></p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/30/windows-计划任务隐藏控制台/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-29 </div>
-			<div class="article-title"><a href="/2015/01/29/python-unittest跳过指定测试/" >python-unittest跳过指定测试</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://docs.python.org/2/library/unittest.html#skipping-tests-and-expected-failures" target="_blank" rel="external">https://docs.python.org/2/library/unittest.html#skipping-tests-and-expected-failures</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/29/python-unittest跳过指定测试/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-29 </div>
-			<div class="article-title"><a href="/2015/01/29/cmake-打印Include路径列表/" >cmake-打印Include路径列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get_property</span>(dirs DIRECTORY <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span> PROPERTY <span class="keyword">INCLUDE_DIRECTORIES</span>)</span><br><span class="line"><span class="keyword">foreach</span>(dir <span class="variable">$&#123;dirs&#125;</span>)</span><br><span class="line">  <span class="keyword">message</span>(STATUS <span class="string">"dir='$&#123;dir&#125;'"</span>)</span><br><span class="line"><span class="keyword">endforeach</span>()</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/6902149/listing-include-directories-in-cmake" target="_blank" rel="external">http://stackoverflow.com/questions/6902149/listing-include-directories-in-cmake</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/29/cmake-打印Include路径列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -440,7 +504,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>24</span></a></li>
+			<li><a href="/categories/C/">C++<span>28</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -606,7 +670,7 @@
 		
 			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+			<li><a href="/categories/vim/">vim<span>18</span></a></li>
 		
 			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
 		
@@ -691,48 +755,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/gdb/">gdb<span>3</span></a></li>
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
 		
-			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
 		
-			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 		
-			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
+			<li><a href="/tags/json/">json<span>4</span></a></li>
 		
-			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+			<li><a href="/tags/类/">类<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/exit/">exit<span>1</span></a></li>
 		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
 		
-			<li><a href="/tags/nging/">nging<span>1</span></a></li>
+			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
+			<li><a href="/tags/git/">git<span>6</span></a></li>
 		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>553</span></a></li>
+		   <li><a href="/tags">...<span>561</span></a></li>
 		 
 		</ul>
 	</div>
@@ -745,23 +809,23 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+        <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
       </li>
     
       <li>
-        <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
+        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
+        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
       <li>
-        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

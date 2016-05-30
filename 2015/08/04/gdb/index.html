@@ -177,24 +177,19 @@ where
 <pre><code>list *$pc
 </code></pre></li>
 <li><p>x(examine)</p>
-<pre><code>x /[nfu] ADDRESS(若ADDRESS是一个变量，则认为变量值为要查看的地址)
-n用来指定重复的次数，就是指定显示格式和size确定的一个单位多少次
-#n默认为1
-
-f用来指定显示的格式，同print一样
-    Format letters
-    o(octal), x(hex), d(decimal), u(unsigned decimal), t(binary),
-    f(float), a(address), i(instruction), c(char) and s(string)
-u(unit)，指定一个单位的长度
-    Size letters
-    b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
-
-x/3uh 0x54320
-    从0x54320开始，以(h)2B为单位，(u)无符号十进制输出，显示3uh个这样的单
-    位，总共显示2 × 3 = 6B的内存
-
-x /10s *argv    查看环境变量
-</code></pre></li>
+<p>x /[nfu] ADDRESS(<strong>若ADDRESS是一个变量，则认为变量值为要查看的地址</strong>)<br>n用来指定重复的次数，就是指定显示格式和size确定的一个单位多少次<br>#n默认为1</p>
+<p>f用来指定显示的格式，同print一样</p>
+<pre><code>Format letters
+o(octal), x(hex), d(decimal), u(unsigned decimal), t(binary),
+f(float), a(address), i(instruction), c(char) and s(string)
+</code></pre><p>u(unit)，指定一个单位的长度</p>
+<pre><code>Size letters
+b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
+</code></pre><p>x/3uh 0x54320</p>
+<pre><code>从0x54320开始，以(h)2B为单位，(u)无符号十进制输出，显示3uh个这样的单
+位，总共显示2 × 3 = 6B的内存
+</code></pre><p>x /10s *argv    查看环境变量</p>
+</li>
 </ul>
 <h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><ul>
 <li><p>set args ARG-list</p>

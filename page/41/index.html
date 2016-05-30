@@ -111,6 +111,186 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-02-27 </div>
+			<div class="article-title"><a href="/2015/02/27/od/" >od</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-t TYPE</p>
+<p>指定输出格式，<br>TYPE由进制和多少字节组合决定，如x1，则以十六进制，每次输出1字节</p>
+<ul>
+<li>a named character</li>
+<li>c ASCII character or backslash escape</li>
+<li>d signed decimal</li>
+<li>f floating point</li>
+<li>o octal</li>
+<li>u unsigned decimal</li>
+<li>x hexadecimal</li>
+<li>C char</li>
+<li>S short</li>
+<li>I int</li>
+<li>L long</li>
+<li>For floating point (f):</li>
+<li>F float</li>
+<li>D double</li>
+<li>L long double</li>
+</ul>
+</li>
+<li><p>-w BYTES</p>
+<p>指定一行的宽度</p>
+</li>
+<li><p>-A, –address-radix=radix</p>
+<p>指定文件偏移量显示的基数(d,o,x)</p>
+</li>
+<li><p>-j, –skip-bytes=BYTE</p>
+<p>从BYTE（文件偏移量）开始显示</p>
+</li>
+<li><p>-c</p>
+<p>把元素的内容按照ASCII码解释成对应的字符</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>十六进制，按字节输出，并输出对应的ASCII字符</p>
+<pre><code>od -t x1 -c foo
+</code></pre></li>
+<li><p>同时按几种方式输出</p>
+<pre><code>od -tx1 -tc foo
+</code></pre></li>
+<li><p>跳过指定字节</p>
+<pre><code>od -Ax -tx1 -tc -j 0x065c main |less
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/27/od/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-27 </div>
+			<div class="article-title"><a href="/2015/02/27/socket常用宏/" >socket常用宏</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 宏名            | 值         | winsock2               | linux                     |<br>|—————–+————+————————+—————————|<br>| AF_INET         | 2          | winsock2.h =&gt; ws2def.h | socket.h =&gt; bits/socket.h |<br>| INADDR_LOOPBACK | 0x7f000001 | winsock2.h =&gt; ws2def.h | netinet/in.h              |<br>| SOCKET_ERROR    | -1         | winsock2.h             | 无                        |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/02/27/socket常用宏/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-13 </div>
+			<div class="article-title"><a href="/2015/02/13/python-list转string/" >python-list转string</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string = <span class="string">' '</span>.join(list)</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/02/13/python-list转string/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-13 </div>
+			<div class="article-title"><a href="/2015/02/13/cscope-使用/" >cscope-使用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="配合find使用"><a href="#配合find使用" class="headerlink" title="配合find使用"></a>配合find使用</h1><ul>
+<li><p>生成文件列表</p>
+<pre><code>find src lib -type f -name &quot;*.[ch]&quot; -fprint cscope.files
+</code></pre></li>
+<li><p>生成数据库</p>
+<pre><code>cscope -bqf .cscope.out
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/13/cscope-使用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-13 </div>
+			<div class="article-title"><a href="/2015/02/13/windows-常用命令/" >windows-常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查看文件属性</p>
+<pre><code>attrib
+</code></pre></li>
+<li><p>计划任务</p>
+<pre><code>taskschd.msc
+</code></pre></li>
+<li><p>设备管理器</p>
+<pre><code>devmgmt.msc
+</code></pre></li>
+<li><p>查看系统信息</p>
+<pre><code>msinfo32
+</code></pre></li>
+<li><p>查看dll导出符号表</p>
+<pre><code>dumpbin /exports filename
+</code></pre></li>
+<li><p>导出注册表项</p>
+<pre><code>regedit /e test.reg HKEY_CURRENT_USER\Environment
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/13/windows-常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-13 </div>
 			<div class="article-title"><a href="/2015/02/13/find-教程/" >find-教程</a></div>						
 		</h3>
@@ -392,141 +572,6 @@ make install
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-11 </div>
-			<div class="article-title"><a href="/2015/02/11/cppcheck-gvim设置/" >cppcheck-gvim设置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p><img src="/img/cppcheck-gvim设置-01.png" alt=""></p>
-
-	
-	</div>
-  <a type="button" href="/2015/02/11/cppcheck-gvim设置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-11 </div>
-			<div class="article-title"><a href="/2015/02/11/valgrind-使用/" >valgrind-使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
-<li>编译时需要加入调试信息，这样才能定位哪里溢出</li>
-</ul>
-<h1 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h1><pre><code>valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes ./test
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/02/11/valgrind-使用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-11 </div>
-			<div class="article-title"><a href="/2015/02/11/ubuntu-优秀软件列表/" >ubuntu-优秀软件列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>unity-tweak-tool</p>
-<p>unity配置工具</p>
-</li>
-<li><p>inetutils-traceroute</p>
-<p>traceroute</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/11/ubuntu-优秀软件列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-11 </div>
-			<div class="article-title"><a href="/2015/02/11/openwrt-开启ssh/" >openwrt-开启ssh</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>编辑配置文件</p>
-<pre><code>vi /etc/config/dropbear
-</code></pre></li>
-<li><p>添加</p>
-<pre><code>option enable &apos;1&apos;
-</code></pre></li>
-<li><p>重启</p>
-<pre><code>reboot
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/11/openwrt-开启ssh/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-11 </div>
-			<div class="article-title"><a href="/2015/02/11/ssh-实现/" >ssh-实现</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="https://matt.ucc.asn.au/dropbear/dropbear.html" target="_blank" rel="external">DropBear</a></p>
-</li>
-<li><p><a href="http://www.openssh.com/" target="_blank" rel="external">openssh</a></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/11/ssh-实现/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -579,7 +624,7 @@ make install
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>24</span></a></li>
+			<li><a href="/categories/C/">C++<span>28</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -745,7 +790,7 @@ make install
 		
 			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+			<li><a href="/categories/vim/">vim<span>18</span></a></li>
 		
 			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
 		
@@ -830,48 +875,48 @@ make install
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
+			<li><a href="/tags/extern/">extern<span>1</span></a></li>
+		
+			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+		
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
+		
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+		
+			<li><a href="/tags/link/">link<span>2</span></a></li>
+		
+			<li><a href="/tags/json/">json<span>4</span></a></li>
+		
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
+		
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+		
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+		
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
+		
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
+		
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+		
+			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+		
+			<li><a href="/tags/file/">file<span>1</span></a></li>
+		
+			<li><a href="/tags/package/">package<span>4</span></a></li>
 		
 			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/池/">池<span>1</span></a></li>
 		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
+			<li><a href="/tags/awk/">awk<span>1</span></a></li>
 		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
-		
-			<li><a href="/tags/boost/">boost<span>4</span></a></li>
-		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
-		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
-		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
-		
-			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
-		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
-		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
-		
-			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
-		
-			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
-		
-			<li><a href="/tags/du/">du<span>1</span></a></li>
-		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
-		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
-		
-			<li><a href="/tags/od/">od<span>1</span></a></li>
-		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>553</span></a></li>
+		   <li><a href="/tags">...<span>561</span></a></li>
 		 
 		</ul>
 	</div>
@@ -884,23 +929,23 @@ make install
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+        <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
       </li>
     
       <li>
-        <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
+        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
+        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
       <li>
-        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

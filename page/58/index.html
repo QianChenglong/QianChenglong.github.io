@@ -111,6 +111,202 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-09 </div>
+			<div class="article-title"><a href="/2014/12/09/svn撤销删除/" >svn撤销删除</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>通过<code>svn delete</code>删除的文件或目录</p>
+<pre><code>svn revert DeletedDir --recursive
+</code></pre></li>
+<li><p>手动删除或<code>rmdir</code></p>
+<pre><code>svn update DeletedDir
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1></li>
+</ul>
+<ol>
+<li><a href="http://stackoverflow.com/questions/1786687/svn-undo-delete-before-commit" target="_blank" rel="external">http://stackoverflow.com/questions/1786687/svn-undo-delete-before-commit</a></li>
+<li><a href="http://svnbook.red-bean.com/nightly/en/svn.ref.svn.c.revert.html" target="_blank" rel="external">http://svnbook.red-bean.com/nightly/en/svn.ref.svn.c.revert.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/09/svn撤销删除/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-09 </div>
+			<div class="article-title"><a href="/2014/12/09/解决tortoisesvn和dropbox图标冲突/" >解决tortoisesvn和dropbox图标冲突</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>冲突导致SVN项目内文件图标无法显示</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ul>
+<li><p>下载修改工具<a href="http://www.nirsoft.net/utils/shexview.html" target="_blank" rel="external">http://www.nirsoft.net/utils/shexview.html</a></p>
+</li>
+<li><p>禁用<code>dropbox</code>图标覆盖</p>
+<p><img src="/img/解决tortoisesvn和dropbox图标冲突_01.png" alt=""></p>
+</li>
+<li><p>重启<code>explorer.exe</code>或注销或重启即可</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://superuser.com/questions/809529/which-dropbox-icon-is-for-which-icon-overlay-identifier-name" target="_blank" rel="external">http://superuser.com/questions/809529/which-dropbox-icon-is-for-which-icon-overlay-identifier-name</a></li>
+<li><a href="http://www.oliverpearmain.com/blog/dropbox-and-tortoise-svnsubversion-icon-overlays-in-harmony/" target="_blank" rel="external">http://www.oliverpearmain.com/blog/dropbox-and-tortoise-svnsubversion-icon-overlays-in-harmony/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/09/解决tortoisesvn和dropbox图标冲突/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-09 </div>
+			<div class="article-title"><a href="/2014/12/09/最短域名/" >最短域名</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>最短域名，减少网络诊断<code>ping</code>命令长度</p>
+<ul>
+<li><p>g.cn</p>
+</li>
+<li><p>g.com</p>
+</li>
+<li><p>z.com</p>
+</li>
+<li><p>q.com</p>
+</li>
+<li><p>x.com</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://gawker.com/318368/the-shortest-domain-name-ever" target="_blank" rel="external">http://gawker.com/318368/the-shortest-domain-name-ever</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/09/最短域名/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-09 </div>
+			<div class="article-title"><a href="/2014/12/09/jsoncpp编译安装/" >jsoncpp编译安装</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
+<li>VC++(<em>改用其他编译器，下面的Makefile需要改成对应的</em>)</li>
+<li>cmake</li>
+</ul>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
+<li><p>下载<a href="https://github.com/open-source-parsers/jsoncpp" target="_blank" rel="external">官网</a></p>
+</li>
+<li><p>解压，在根目录新建<code>build</code>目录</p>
+</li>
+<li><p>[可选]<code>debug</code>库添加<code>d</code>后缀</p>
+<p>编辑根目录下<code>CMakelists.txt</code>，添加一行</p>
+<pre><code>SET(CMAKE_DEBUG_POSTFIX d)
+</code></pre></li>
+<li><p><code>cd build</code></p>
+</li>
+<li><p>生成<code>makefile</code></p>
+<ul>
+<li><p>shared-debug</p>
+<pre><code>cmake -DCMAKE_BUILD_TYPE=debug -DJSONCPP_LIB_BUILD_SHARED=ON -DCMAKE_INSTALL_PREFIX=./jsoncpp-0.7.0-shared-debug -G &quot;NMake Makefiles&quot; ..
+</code></pre></li>
+<li><p>shared-release</p>
+<pre><code>cmake -DCMAKE_BUILD_TYPE=release -DJSONCPP_LIB_BUILD_SHARED=ON -DCMAKE_INSTALL_PREFIX=./jsoncpp-0.7.0-shared-release -G &quot;NMake Makefiles&quot; ..
+</code></pre></li>
+<li><p>static-debug</p>
+<pre><code>cmake -DCMAKE_BUILD_TYPE=debug -DJSONCPP_LIB_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=./jsoncpp-0.7.0-static-debug -G &quot;NMake Makefiles&quot; ..
+</code></pre></li>
+<li><p>static-release</p>
+<pre><code>cmake -DCMAKE_BUILD_TYPE=release -DJSONCPP_LIB_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=./jsoncpp-0.7.0-static-release -G &quot;NMake Makefiles&quot; ..
+</code></pre></li>
+</ul>
+</li>
+<li><p>编译</p>
+<pre><code>nmake
+</code></pre></li>
+<li><p>安装</p>
+<pre><code>nmake install
+</code></pre></li>
+<li><p>生成<code>doxygen</code>文档</p>
+<pre><code>python doxybuild.py --doxygen=&quot;d:\Program Files\doxygen\bin\doxygen.EXE&quot; --open
+</code></pre></li>
+</ul>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul>
+<li>为什么使用<code>nmake</code>(<code>/MT</code>)和<code>vs2010</code>(<code>/MD</code>)编译链接的C运行库版本不一致？</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://github.com/open-source-parsers/jsoncpp" target="_blank" rel="external">https://github.com/open-source-parsers/jsoncpp</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/09/jsoncpp编译安装/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-08 </div>
+			<div class="article-title"><a href="/2014/12/08/vim十六进制编辑/" >vim十六进制编辑</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="使用十六进制编辑"><a href="#使用十六进制编辑" class="headerlink" title="使用十六进制编辑"></a>使用十六进制编辑</h2><pre><code>:%!xxd
+</code></pre><h2 id="返回到文本模式编辑"><a href="#返回到文本模式编辑" class="headerlink" title="返回到文本模式编辑"></a>返回到文本模式编辑</h2><pre><code>:%!xxd -r
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2014/12/08/vim十六进制编辑/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-08 </div>
 			<div class="article-title"><a href="/2014/12/08/python-str类型和unicode类型/" >python-str类型和unicode类型</a></div>						
 		</h3>
@@ -364,148 +560,6 @@ by.decode(&apos;utf-8&apos;)
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-08 </div>
-			<div class="article-title"><a href="/2014/12/08/windows访问网络打印机/" >windows访问网络打印机</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>输入网络打印机路径(通过IP访问)</p>
-<pre><code>\\xxx.xxx.xxx.xxx
-</code></pre></li>
-<li><p>安装打印机驱动</p>
-<p>双击打印机图标</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/08/windows访问网络打印机/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-06 </div>
-			<div class="article-title"><a href="/2014/12/06/TortoiseSVN修改SVN仓库路径/" >TortoiseSVN修改SVN仓库路径</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>右击【项目根目录】</p>
-</li>
-<li><p>点击菜单</p>
-</li>
-</ul>
-<p><img src="/img/TortoiseSVN修改SVN仓库路径-01.png" alt=""></p>
-
-	
-	</div>
-  <a type="button" href="/2014/12/06/TortoiseSVN修改SVN仓库路径/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-05 </div>
-			<div class="article-title"><a href="/2014/12/05/vim实用命令简记/" >vim实用命令简记</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="normal"><a href="#normal" class="headerlink" title="normal"></a>normal</h2><ul>
-<li><code>]}</code> 移动到复合语句尾</li>
-</ul>
-<h2 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h2><ul>
-<li><code>&lt;C-o&gt;</code> 执行一条命令后返回到插入模式</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/05/vim实用命令简记/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-05 </div>
-			<div class="article-title"><a href="/2014/12/05/python判断字符串是否为空/" >python判断字符串是否为空</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
-<li>变量为字符串类型(优雅的方式)</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> string:</span><br><span class="line">    print(<span class="string">'not empty'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'empty'</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>变量类型不确定</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> string == <span class="string">''</span>:</span><br><span class="line">    print(<span class="string">'not empty'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'empty'</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://docs.python.org/2/library/stdtypes.html#truth-value-testing" target="_blank" rel="external">https://docs.python.org/2/library/stdtypes.html#truth-value-testing</a></li>
-<li><a href="http://stackoverflow.com/questions/9573244/most-elegant-way-to-check-if-the-string-is-empty-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/9573244/most-elegant-way-to-check-if-the-string-is-empty-in-python</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/05/python判断字符串是否为空/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-05 </div>
-			<div class="article-title"><a href="/2014/12/05/python添加模块搜索路径/" >python添加模块搜索路径</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append( &lt;path to dirFoo&gt; )</span><br><span class="line"><span class="keyword">import</span> Bar</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="http://stackoverflow.com/questions/279237/import-a-module-from-a-relative-path" target="_blank" rel="external">http://stackoverflow.com/questions/279237/import-a-module-from-a-relative-path</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/05/python添加模块搜索路径/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -558,7 +612,7 @@ by.decode(&apos;utf-8&apos;)
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>24</span></a></li>
+			<li><a href="/categories/C/">C++<span>28</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -724,7 +778,7 @@ by.decode(&apos;utf-8&apos;)
 		
 			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+			<li><a href="/categories/vim/">vim<span>18</span></a></li>
 		
 			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
 		
@@ -809,48 +863,48 @@ by.decode(&apos;utf-8&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
-		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
-		
-			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
-		
-			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
-		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
-		
-			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
-		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
-		
-			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
 			<li><a href="/tags/C-11/">C++11<span>6</span></a></li>
 		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
 		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/事务/">事务<span>1</span></a></li>
+			<li><a href="/tags/模块/">模块<span>2</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/file/">file<span>1</span></a></li>
 		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
-			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
 		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
+			<li><a href="/tags/library/">library<span>2</span></a></li>
+		
+			<li><a href="/tags/编译/">编译<span>10</span></a></li>
+		
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+		
+			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+		
+			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+		
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
+		
+			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+		
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>553</span></a></li>
+		   <li><a href="/tags">...<span>561</span></a></li>
 		 
 		</ul>
 	</div>
@@ -863,23 +917,23 @@ by.decode(&apos;utf-8&apos;)
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+        <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
       </li>
     
       <li>
-        <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
+        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
+        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
       <li>
-        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

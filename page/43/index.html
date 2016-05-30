@@ -111,6 +111,328 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-02-10 </div>
+			<div class="article-title"><a href="/2015/02/10/samba-服务器搭建/" >samba搭建</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>CentOS-7.0.1</p>
+</li>
+<li><p>Samba version 4.1.12</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li><p>安装samba</p>
+<pre><code>yum install samba
+</code></pre></li>
+<li><p>修改配置文件</p>
+<pre><code>cp /etc/samba/smb.conf /etc/samba/smb.conf~
+vi /etc/samba/smb.conf
+
+[global]
+workgroup = WORKGROUP
+netbios name = xianji-server
+server string = Samba Server Version %v
+security = user
+map to guest = Bad Password
+guest account = guest
+unix extensions  = no
+load printers = no
+log file = /var/log/samba/%m.log
+max log size = 50
+encrypt passwords = true
+passdb backend = tdbsam
+unix password sync = yes
+passwd program = /usr/bin/passwd %u
+passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
+pam password change = yes
+
+[root]
+path = /
+browseable = no
+writable = yes
+wide links = yes
+guest ok = no
+
+[share]
+path = /data/share
+guest ok = yes
+read only = no
+</code></pre></li>
+<li><p>添加samba用户(需要当前已存在用户名)</p>
+<pre><code>pdbedit -a USERNAME
+</code></pre><p>输入2次密码</p>
+</li>
+<li><p>关闭SELinux</p>
+<pre><code>setenfore 0
+</code></pre></li>
+<li><p>防火墙放行(445/tcp)</p>
+<pre><code>firewall-cmd --permanent --add-port=445/tcp
+firewall-cmd --reload
+</code></pre></li>
+<li><p>重启samba服务</p>
+<pre><code>systemctl restart smb
+systemctl restart nmb
+</code></pre></li>
+</ul>
+<h1 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h1><h2 id="以用户的所有权限控制-security-user"><a href="#以用户的所有权限控制-security-user" class="headerlink" title="以用户的所有权限控制(security = user)"></a>以用户的所有权限控制(<code>security = user</code>)</h2><p>根据目录、文件的权限来控制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 添加用户</span><br><span class="line">useradd &lt;username&gt;</span><br><span class="line">pdbedit -a -u &lt;username&gt;(输入相应密码)</span><br><span class="line"></span><br><span class="line"># 修改用户名</span><br><span class="line">smbpasswd &lt;usernmae&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://wiki.archlinux.org/index.php/Samba_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Samba_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/10/samba-服务器搭建/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/源IP选择/" >源IP选择</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blogs.technet.com/b/networking/archive/2009/04/25/source-ip-address-selection-on-a-multi-homed-windows-computer.aspx" target="_blank" rel="external">http://blogs.technet.com/b/networking/archive/2009/04/25/source-ip-address-selection-on-a-multi-homed-windows-computer.aspx</a></li>
+<li><a href="https://support.microsoft.com/kb/969029" target="_blank" rel="external">https://support.microsoft.com/kb/969029</a></li>
+<li><a href="http://linux-ip.net/html/routing-saddr-selection.html" target="_blank" rel="external">http://linux-ip.net/html/routing-saddr-selection.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/源IP选择/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/ping常见错误分析/" >ping常见错误分析</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="局域网内，目标不存在或未应答"><a href="#局域网内，目标不存在或未应答" class="headerlink" title="局域网内，目标不存在或未应答"></a>局域网内，目标不存在或未应答</h1><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>该数据包未发送，因为在tcp/ip在填充目的MAC，执行ARP请求时，没有得到应答，无法确定目的MAC。</p>
+<h2 id="表象"><a href="#表象" class="headerlink" title="表象"></a>表象</h2><ul>
+<li><p>windows</p>
+<pre><code>无法访问目标主机
+</code></pre></li>
+<li><p>linux</p>
+<pre><code>Destination Host Unreachable
+</code></pre></li>
+</ul>
+<h1 id="非局域网，目标不存在或未应答"><a href="#非局域网，目标不存在或未应答" class="headerlink" title="非局域网，目标不存在或未应答"></a>非局域网，目标不存在或未应答</h1><h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><pre><code>该数据包已发送，由下一跳路由负责转发，而对应的机器不存在或未应答
+</code></pre><h2 id="表象-1"><a href="#表象-1" class="headerlink" title="表象"></a>表象</h2><ul>
+<li><p>windows</p>
+<pre><code>请求超时
+</code></pre></li>
+<li><p>linux</p>
+<pre><code>-   无输出
+</code></pre></li>
+</ul>
+<h1 id="域名解析失败"><a href="#域名解析失败" class="headerlink" title="域名解析失败"></a>域名解析失败</h1><h2 id="表象-2"><a href="#表象-2" class="headerlink" title="表象"></a>表象</h2><ul>
+<li><p>windows</p>
+<pre><code>Ping 请求找不到主机 a。请检查该名称，然后重试。
+</code></pre></li>
+<li><p>linux</p>
+<pre><code>Ping 请求找不到主机 a。请检查该名称，然后重试。
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/ping常见错误分析/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/openwrt-目录组织/" >openwrt-目录组织</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>build_dir/  用于存放所有解压后的源码，并在当中编译</p>
+<ul>
+<li><p>host/   宿主环境下的编译工具源码</p>
+</li>
+<li><p>toolchain-*   交叉C编译器，C标准库，内核，二进制工具等组件源码</p>
+</li>
+<li><p>target-*    目标系统的软件包源码</p>
+</li>
+</ul>
+</li>
+<li><p>staging_dir/    用于存放安装已编译，为了进一步编译软件包，或产生固件镜像</p>
+<ul>
+<li><p>host/   最小化的Linux</p>
+</li>
+<li><p>toolchain-* 最小化的LInux，带有交叉C编译器，用于去编译剩余的固件部分</p>
+</li>
+<li><p>target…/root-ramips/  最终的固件</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/26030670/openwrt-buildroot-build-dir-and-staging-dir" target="_blank" rel="external">http://stackoverflow.com/questions/26030670/openwrt-buildroot-build-dir-and-staging-dir</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/openwrt-目录组织/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/linux-常用命令/" >linux-常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h1><ul>
+<li><p>修改时区</p>
+<pre><code>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</code></pre></li>
+<li><p>查看或设置用户限制</p>
+<pre><code>ulimit -a
+</code></pre></li>
+<li><p>查看系统配置参数</p>
+<pre><code>getconf -a
+</code></pre></li>
+</ul>
+<h1 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h1><ul>
+<li><p>查看磁盘使用情况</p>
+<pre><code>df
+</code></pre></li>
+<li><p>查看分区类型</p>
+<pre><code>df -T
+</code></pre></li>
+<li><p>查看分区UUID，label等</p>
+<pre><code>blkid
+</code></pre></li>
+<li><p>检查并自动修复磁盘错误</p>
+<pre><code>fsck -a /dev/sda1
+</code></pre></li>
+<li><p>重新读取fstab</p>
+<pre><code>mount -a
+</code></pre></li>
+</ul>
+<h1 id="压缩包"><a href="#压缩包" class="headerlink" title="压缩包"></a>压缩包</h1><ul>
+<li><p>解压tar包</p>
+<pre><code>tar xvf XXX.tar
+</code></pre></li>
+<li><p>解压tar.gz</p>
+<pre><code>tar xvzf XXX.tar.gz
+</code></pre></li>
+</ul>
+<h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><ul>
+<li><p>重命名文件、目录</p>
+<pre><code>mv SRC DST
+</code></pre></li>
+<li><p>查看目录使用情况</p>
+<pre><code>du
+</code></pre></li>
+<li><p>实时查看文件</p>
+<pre><code>tail -f filename
+</code></pre></li>
+<li><p>复制，若父目录不存在则创建</p>
+<pre><code>cp src/a.txt /data/ ==&gt; /data/src/a.txt
+</code></pre></li>
+</ul>
+<h1 id="账号"><a href="#账号" class="headerlink" title="账号"></a>账号</h1><ul>
+<li><p>添加用户</p>
+<pre><code>useradd -m &lt;username&gt;
+</code></pre></li>
+<li><p>设置密码</p>
+<pre><code>passwd &lt;username&gt;
+</code></pre></li>
+<li><p>查看用户基本信息</p>
+<pre><code>id USERNAME
+</code></pre></li>
+<li><p>查看用户所属组</p>
+<pre><code>groups USERNAME
+lid &lt;username&gt;
+</code></pre></li>
+<li><p>查看组成员</p>
+<pre><code>lid -g &lt;group-name&gt;
+</code></pre></li>
+<li><p>用户添加附加组</p>
+<pre><code>usermod -a -G GROUPNAME USERNAME
+</code></pre></li>
+<li><p>查看动态库加载</p>
+<pre><code>ldd ./dbgateway_svc 
+</code></pre></li>
+</ul>
+<h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><ul>
+<li><p>批量删除进程</p>
+<pre><code>pkill &lt;pattern&gt;
+</code></pre></li>
+<li><p>根据端口杀进程</p>
+<pre><code>fuser -k 12000/tcp
+</code></pre></li>
+<li><p>查看进程树</p>
+<pre><code>pstree -apls PID
+</code></pre></li>
+<li><p>查看进程打开的文件</p>
+<pre><code>lsof -p 18661
+</code></pre></li>
+</ul>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li><p>选择默认编辑器</p>
+<pre><code>select-editor
+</code></pre></li>
+<li><p>查看glibc版本</p>
+<pre><code>ldd --version
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/linux-常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-09 </div>
 			<div class="article-title"><a href="/2015/02/09/virtualbox-拓展磁盘空间/" >virtualbox-拓展磁盘空间</a></div>						
 		</h3>
@@ -422,155 +744,6 @@ work Adapter
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-06 </div>
-			<div class="article-title"><a href="/2015/02/06/libnet_init/" >libnet_init</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">libnet_t</span>* libnet_init(<span class="keyword">int</span> injection_type, <span class="keyword">char</span>*  device, <span class="keyword">char</span>*  err_buf)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>device</p>
-<ul>
-<li><p>windows</p>
-<ul>
-<li>winpcap设备名，类似<code>\Device\NPF_{2A7DEE95-B437-444C-BB09-85E4EAD5E61C}</code></li>
-<li>前缀一致<code>\Device\NPF_</code>，后面的UUID可以通过<code>getmac /v</code>查看</li>
-</ul>
-</li>
-</ul>
-<p><em>参考:</em></p>
-<ol>
-<li><a href="http://stackoverflow.com/questions/17400903/libnet-device-network-interface-command-line-argument" target="_blank" rel="external">http://stackoverflow.com/questions/17400903/libnet-device-network-interface-command-line-argument</a></li>
-</ol>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/06/libnet_init/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-06 </div>
-			<div class="article-title"><a href="/2015/02/06/优秀app列表/" >优秀app列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><a href="http://www.appsapk.com/network-info/" target="_blank" rel="external">Network Info II</a></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/06/优秀app列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-05 </div>
-			<div class="article-title"><a href="/2015/02/05/ioctl/" >ioctl</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ul>
-<li><p><code>SIOCGIFCONF</code>不能获取IPv6地址</p>
-<p>参考:</p>
-<ol>
-<li><a href="http://stackoverflow.com/questions/20743709/get-ipv6-addresses-in-linux-using-ioctl" target="_blank" rel="external">http://stackoverflow.com/questions/20743709/get-ipv6-addresses-in-linux-using-ioctl</a></li>
-<li><a href="http://man7.org/linux/man-pages/man7/netdevice.7.html#NOTES" target="_blank" rel="external">http://man7.org/linux/man-pages/man7/netdevice.7.html#NOTES</a></li>
-</ol>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/05/ioctl/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-05 </div>
-			<div class="article-title"><a href="/2015/02/05/getaddrinfo/" >getaddrinfo</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getaddrinfo</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *node, <span class="keyword">const</span> <span class="keyword">char</span> *service,</span><br><span class="line">                       <span class="keyword">const</span> <span class="keyword">struct</span> addrinfo *hints,</span><br><span class="line">                       <span class="keyword">struct</span> addrinfo **res)</span></span>;</span><br></pre></td></tr></table></figure>
-<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li>转换主机名到IP地址(IPv4，IPv6)</li>
-<li>转换服务到端口</li>
-<li>不要用来查询本机IP，其只返回<code>127.0.0.1</code></li>
-</ul>
-<h1 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h1><ul>
-<li>使用<code>hints</code>来控制输出参数</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/freeaddrinfo.html" target="_blank" rel="external">http://pubs.opengroup.org/onlinepubs/9699919799/functions/freeaddrinfo.html</a></li>
-<li><a href="http://man7.org/linux/man-pages/man3/getaddrinfo.3.html" target="_blank" rel="external">http://man7.org/linux/man-pages/man3/getaddrinfo.3.html</a></li>
-<li><a href="http://beej-zhtw.netdpi.net/05-system-call-or-bust/5-1-getaddrinfo-start" target="_blank" rel="external">http://beej-zhtw.netdpi.net/05-system-call-or-bust/5-1-getaddrinfo-start</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/05/getaddrinfo/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-05 </div>
-			<div class="article-title"><a href="/2015/02/05/跟踪应用程序执行的系统调用/" >跟踪应用程序执行的系统调用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>strace program
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/02/05/跟踪应用程序执行的系统调用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -623,7 +796,7 @@ work Adapter
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>24</span></a></li>
+			<li><a href="/categories/C/">C++<span>28</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -789,7 +962,7 @@ work Adapter
 		
 			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+			<li><a href="/categories/vim/">vim<span>18</span></a></li>
 		
 			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
 		
@@ -874,48 +1047,48 @@ work Adapter
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
-		
-			<li><a href="/tags/apt/">apt<span>2</span></a></li>
-		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
-		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
-		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
-		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
-		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
-		
-			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
-		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
-		
-			<li><a href="/tags/cron/">cron<span>2</span></a></li>
-		
-			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
-		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
 		
 			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
 		
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+		
+			<li><a href="/tags/template/">template<span>2</span></a></li>
+		
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+		
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
+		
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+		
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+		
+			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+		
+			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+		
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
+		
+			<li><a href="/tags/js/">js<span>2</span></a></li>
+		
 			<li><a href="/tags/ip/">ip<span>2</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
 		
-			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+		
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>553</span></a></li>
+		   <li><a href="/tags">...<span>561</span></a></li>
 		 
 		</ul>
 	</div>
@@ -928,23 +1101,23 @@ work Adapter
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+        <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
       </li>
     
       <li>
-        <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
+        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
+        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
       <li>
-        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

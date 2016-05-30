@@ -111,6 +111,165 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-03 </div>
+			<div class="article-title"><a href="/2015/06/03/ubuntu-配置rsync/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>apt-get intall rsync</p>
+</li>
+<li><p>vi /etc/rsyncd.conf</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#motd file = /etc/rsyncd.motd</span><br><span class="line">log file = /var/log/rsyncd.log</span><br><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line"></span><br><span class="line">[server]</span><br><span class="line">   path = /home/wallace/server</span><br><span class="line">   comment = gupiaoxianji server code</span><br><span class="line">   uid = wallace</span><br><span class="line">   gid = wallace</span><br><span class="line">   read only = no</span><br><span class="line">   list = yes</span><br><span class="line">   #hosts allow = 10.0.0.1/0</span><br><span class="line">   auth users = wallace</span><br><span class="line">   secrets file = /etc/rsyncd.scrt</span><br><span class="line">   strict modes = false</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>vi /etc/rsyncd.scrt</p>
+<pre><code>wallace:wallacework
+</code></pre></li>
+<li><p>vi /etc/default/rsync</p>
+<pre><code>RSYNC_ENABLE=true
+</code></pre></li>
+<li><p>/etc/init.d/rsync restart</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://ubuntuforums.org/showthread.php?t=1252720" target="_blank" rel="external">http://ubuntuforums.org/showthread.php?t=1252720</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/03/ubuntu-配置rsync/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-02 </div>
+			<div class="article-title"><a href="/2015/06/02/前向引用/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>在C++中，是指在一个类定义中，成员函数引用成员变量的位置先于成员变量定义的位置。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> C &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">mutator</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; myValue = x; &#125;</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">accessor</span><span class="params">()</span> </span>&#123; return myValue; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">   <span class="keyword">int</span> myValue;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>允许前向引用大大增加了编译器的复杂度与内存需求，并且使它不能成为一次通过型的编译器。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zh.wikipedia.org/wiki/%E5%89%8D%E5%90%91%E5%A3%B0%E6%98%8E" target="_blank" rel="external">维基-前向声明</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/02/前向引用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-31 </div>
+			<div class="article-title"><a href="/2015/05/31/宏-函数名/" >宏-函数名</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| Compile | <code>__FUNCSIG__</code> | <code>__FUNCDNAME__</code> | <code>__FUNCTION__</code> | <code>__func__</code> | <code>__PRETTY_FUNCTION__</code> |<br>|———+—————+—————–+—————-+————+———————–|<br>| GCC     | X             | X               | √              | √          | √                     |<br>| VC      | √             | √               | √              | X          | X                     |</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://gcc.gnu.org/onlinedocs/gcc/Function-Names.html" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/gcc/Function-Names.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/05/31/宏-函数名/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-30 </div>
+			<div class="article-title"><a href="/2015/05/30/centos-本地镜像源设置/" >centos-本地镜像源设置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>挂载镜像文件</p>
+<pre><code>mkdir /mnt/cdrom
+mount /dev/cdrom /mnt/cdrom
+</code></pre></li>
+<li><p>编辑repo文件</p>
+<pre><code>vim /etc/yum.repos.d/centos7-local.repo
+
+[local]
+name=local
+baseurl=file:///mnt/cdrom
+enabled=1
+gpgcheck=1
+gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/05/30/centos-本地镜像源设置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-30 </div>
+			<div class="article-title"><a href="/2015/05/30/centos-配置网络/" >centos-配置网络</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>安装numtui</p>
+<pre><code>yum install NetworkManager-tui
+</code></pre></li>
+<li><p>编辑</p>
+<pre><code>nmtui
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/05/30/centos-配置网络/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-05-29 </div>
 			<div class="article-title"><a href="/2015/05/29/cgi-常见错误定位/" >cgi-常见错误定位</a></div>						
 		</h3>
@@ -231,134 +390,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-22 </div>
-			<div class="article-title"><a href="/2015/05/22/sql-常用语句/" >sql-常用语句</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>修改列类型</p>
-<pre><code>ALTER TABLE &lt;table-name&gt; MODIFY COLUMN &lt;col-name&gt; &lt;new-datatype&gt;;
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/05/22/sql-常用语句/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-22 </div>
-			<div class="article-title"><a href="/2015/05/22/centos-关闭SELinux/" >centos-关闭SELinux</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>vi /etc/sysconfig/selinux</p>
-<pre><code>SELINUX=disabled
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://www.centos.org/docs/5/html/5.1/Deployment_Guide/sec-sel-enable-disable.html" target="_blank" rel="external">https://www.centos.org/docs/5/html/5.1/Deployment_Guide/sec-sel-enable-disable.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/05/22/centos-关闭SELinux/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-22 </div>
-			<div class="article-title"><a href="/2015/05/22/apache-常见错误/" >apache-常见错误</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>403</p>
-<p>SELinux没有关闭或设置权限</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/05/22/apache-常见错误/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-21 </div>
-			<div class="article-title"><a href="/2015/05/21/fastcgi编程经验/" >fastcgi编程经验</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>不能再<code>FAST_Accpet()</code>IO</li>
-<li>不能使用C++IO</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/05/21/fastcgi编程经验/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-21 </div>
-			<div class="article-title"><a href="/2015/05/21/centos-安装netstat/" >centos-安装netstat</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>yum install net-tools
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/05/21/centos-安装netstat/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -411,7 +442,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>24</span></a></li>
+			<li><a href="/categories/C/">C++<span>28</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -577,7 +608,7 @@
 		
 			<li><a href="/categories/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/categories/vim/">vim<span>17</span></a></li>
+			<li><a href="/categories/vim/">vim<span>18</span></a></li>
 		
 			<li><a href="/categories/virtualbox/">virtualbox<span>3</span></a></li>
 		
@@ -662,48 +693,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
-		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
-		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
-		
-			<li><a href="/tags/undo/">undo<span>1</span></a></li>
-		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
-		
-			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
-		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
-		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
-		
-			<li><a href="/tags/gdb/">gdb<span>3</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
 			<li><a href="/tags/apk/">apk<span>1</span></a></li>
 		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
 		
-			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
 		
-			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
+			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
 		
-			<li><a href="/tags/api/">api<span>1</span></a></li>
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+		
+			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+		
+			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+		
+			<li><a href="/tags/centos/">centos<span>12</span></a></li>
+		
+			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+		
+			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
+		
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+		
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
+		
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>553</span></a></li>
+		   <li><a href="/tags">...<span>561</span></a></li>
 		 
 		</ul>
 	</div>
@@ -716,23 +747,23 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2016/05/22/rsa/" ><i class="fa fa-file-o"></i>rsa</a>
+        <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
       </li>
     
       <li>
-        <a href="/2016/05/15/图片存储/" ><i class="fa fa-file-o"></i>图片存储</a>
+        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/go-cmd/" ><i class="fa fa-file-o"></i>go-cmd</a>
+        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
       </li>
     
       <li>
-        <a href="/2016/05/12/backtrace()/" ><i class="fa fa-file-o"></i>backtrace()</a>
+        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
       <li>
-        <a href="/2016/05/11/addr2line/" ><i class="fa fa-file-o"></i>addr2line</a>
+        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

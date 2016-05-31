@@ -112,6 +112,31 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-11-17 </div>
+			<div class="article-title"><a href="/2015/11/17/nginx-CORS/" >nginx-CORS</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">     if ($request_method = &apos;OPTIONS&apos;) &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        #</span><br><span class="line">        # Om nom nom cookies</span><br><span class="line">        #</span><br><span class="line">        add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;;</span><br><span class="line">        #</span><br><span class="line">        # Custom headers and headers various browsers *should* be OK with but aren&apos;t</span><br><span class="line">        #</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&apos;;</span><br><span class="line">        #</span><br><span class="line">        # Tell client that this pre-flight info is valid for 20 days</span><br><span class="line">        #</span><br><span class="line">        add_header &apos;Access-Control-Max-Age&apos; 1728000;</span><br><span class="line">        add_header &apos;Content-Type&apos; &apos;text/plain charset=UTF-8&apos;;</span><br><span class="line">        add_header &apos;Content-Length&apos; 0;</span><br><span class="line">        return 204;</span><br><span class="line">     &#125;</span><br><span class="line">     if ($request_method = &apos;POST&apos;) &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&apos;;</span><br><span class="line">     &#125;</span><br><span class="line">     if ($request_method = &apos;GET&apos;) &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&apos;;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://enable-cors.org/server_nginx.html" target="_blank" rel="external">http://enable-cors.org/server_nginx.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/17/nginx-CORS/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-17 </div>
 			<div class="article-title"><a href="/2015/11/17/跨域共享/" >跨域共享</a></div>						
 		</h3>
 	
@@ -419,50 +444,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-06 </div>
-			<div class="article-title"><a href="/2015/11/06/go-slice/" >go-slice</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>#　要点</p>
-<ol>
-<li><p><code>slice</code>是一个数组的封装</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> slice <span class="keyword">struct</span> &#123;</span><br><span class="line">    array unsafe.Pointer</span><br><span class="line">    <span class="built_in">len</span>   <span class="keyword">int</span></span><br><span class="line">    <span class="built_in">cap</span>   <span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用<code>fmt.Printf(&quot;%T&quot;)</code>打印显示为<code>[]type</code>,跟数组类似,但不包括长度</p>
-</li>
-<li><p>作为传入参数时</p>
-<ul>
-<li><p>若只是改变<code>slice</code>中元素的值,不需要穿引用</p>
-</li>
-<li><p>若改变了<code>slice</code>长度或容量,则需要穿指针或返回新<code>slice</code></p>
-</li>
-</ul>
-</li>
-<li><p>用数组初始化<code>slice</code>时,<code>slice</code>容量等于数组的长度减去切割时的索引</p>
-</li>
-</ol>
-<pre><code><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array [<span class="number">10</span>]<span class="keyword">int</span></span><br><span class="line">slice := array[<span class="number">1</span>:<span class="number">5</span>] <span class="comment">// cap = 10 - 1 = 9, len = 5 - 1 = 4(array[1, 2, 3, 4])</span></span><br><span class="line">fmt.Printf(<span class="string">"%T %v\n"</span>, array, array)</span><br><span class="line">fmt.Printf(<span class="string">"%T %v %v %v\n"</span>, slice, slice, <span class="built_in">len</span>(slice), <span class="built_in">cap</span>(slice))</span><br><span class="line"></span><br><span class="line">[<span class="number">10</span>]<span class="keyword">int</span> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line">[]<span class="keyword">int</span> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>] <span class="number">4</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blog.golang.org/slices" target="_blank" rel="external">http://blog.golang.org/slices</a></li>
-<li><a href="https://blog.go-zh.org/go-slices-usage-and-internals" target="_blank" rel="external">https://blog.go-zh.org/go-slices-usage-and-internals</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/06/go-slice/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -515,7 +496,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>28</span></a></li>
+			<li><a href="/categories/C/">C++<span>29</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -766,48 +747,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/all/">all<span>1</span></a></li>
+		
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+		
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
+		
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+		
+			<li><a href="/tags/binary/">binary<span>1</span></a></li>
+		
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+		
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+		
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+		
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+		
+			<li><a href="/tags/socket/">socket<span>6</span></a></li>
+		
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+		
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+		
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+		
+			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
 		
 			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
 		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/script/">script<span>1</span></a></li>
 		
-			<li><a href="/tags/link/">link<span>2</span></a></li>
+			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
 		
-			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
 		
-			<li><a href="/tags/template/">template<span>2</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
-		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
-		
-			<li><a href="/tags/mysql/">mysql<span>34</span></a></li>
-		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
-		
-			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
-		
-			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
-		
-			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
-		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
-		
-			<li><a href="/tags/text/">text<span>1</span></a></li>
-		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
-		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
-		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
-		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
-		
-			<li><a href="/tags/boost/">boost<span>4</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>561</span></a></li>
+		   <li><a href="/tags">...<span>563</span></a></li>
 		 
 		</ul>
 	</div>
@@ -818,6 +799,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
+      </li>
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
@@ -833,10 +818,6 @@
     
       <li>
         <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

@@ -140,6 +140,57 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/快速查看python帮助/" >快速查看python帮助</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="第一种：命令行使用"><a href="#第一种：命令行使用" class="headerlink" title="第一种：命令行使用"></a>第一种：命令行使用</h2><pre><code>python -m pydoc CONTENT
+</code></pre><h2 id="第二种：使用python自包装"><a href="#第二种：使用python自包装" class="headerlink" title="第二种：使用python自包装"></a>第二种：使用<code>python</code>自包装</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>可以在任意路径下执行<code>pydoc CONTENT</code></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ul>
+<li><p>建立脚本文件<code>pydoc.py</code></p>
+<pre><code>#!/usr/bin/env python
+# encoding: utf-8
+
+import os
+import sys
+
+if len(sys.argv) != 2:
+    print(&quot;usage:pydoc.py OBJECT&quot;)
+    exit(1)
+
+cmd = &apos;python -m pydoc &apos; + sys.argv[1]
+# print(cmd)
+os.system(cmd)
+</code></pre></li>
+<li><p>复制到<code>PATH</code>目录下</p>
+<p><strong>建议自建目录</strong>(Win:X:/XXX/bin，Linux：/XXX/bin)，添加该目录到<code>PATH</code></p>
+<p>优点：</p>
+<ol>
+<li>容易管理</li>
+<li>重装系统或系统损坏，不丢失，下次复用方便</li>
+</ol>
+</li>
+<li><p>【Windows建议】</p>
+</li>
+</ul>
+<p>修改环境变量<code>PATHEXT</code>追加<code>.py</code>，这样直接使用<code>pydoc CONTENT</code>即可，不用每次都输入’.py’！</p>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/快速查看python帮助/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
 			<div class="article-title"><a href="/2014/12/01/windows下git生成SSH公钥/" >windows下git生成SSH公钥</a></div>						
 		</h3>
 	
@@ -436,7 +487,7 @@ hexo d
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>28</span></a></li>
+			<li><a href="/categories/C/">C++<span>29</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -687,48 +738,48 @@ hexo d
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/登录/">登录<span>2</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/macro/">macro<span>3</span></a></li>
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
 		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
 		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
+			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
 		
-			<li><a href="/tags/类型转换/">类型转换<span>1</span></a></li>
+			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
 		
-			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/scp/">scp<span>1</span></a></li>
 		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/using/">using<span>1</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
 		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+			<li><a href="/tags/string/">string<span>8</span></a></li>
 		
-			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
+			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
 		
-			<li><a href="/tags/delete/">delete<span>2</span></a></li>
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>561</span></a></li>
+		   <li><a href="/tags">...<span>563</span></a></li>
 		 
 		</ul>
 	</div>
@@ -739,6 +790,10 @@ hexo d
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
+      </li>
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
@@ -754,10 +809,6 @@ hexo d
     
       <li>
         <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

@@ -111,6 +111,44 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-16 </div>
+			<div class="article-title"><a href="/2015/09/16/go-struct-tag/" >go-struct-tag</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p><code>struct</code>中可以附加一个<code>tag</code>,用来定制一些行为</p>
+<p>如在<code>encoding/json</code>中,因为go,默认首字母大写为导出的,而希望编码为json字符串时,<br>首字母为小写.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Person <span class="keyword">struct</span> &#123;</span><br><span class="line">    FirstName    <span class="keyword">string</span>    <span class="string">`json:"first_name"`</span></span><br><span class="line">    LastName     <span class="keyword">string</span>    <span class="string">`json:"last_name"`</span></span><br><span class="line">    MiddleName   <span class="keyword">string</span>    <span class="string">`json:"middle_name,omitempty"`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ul>
+<li><p>附加<code>omitempty</code>时,当值为<code>null</code>时,不包含该字段</p>
+</li>
+<li><p>附加<code>string</code>时,不管原类型,都转换为<code>json string</code></p>
+</li>
+<li><p>附加<code>json:&quot;-&quot;</code>,不转换该字段</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/10858787/what-are-the-uses-for-tags-in-go" target="_blank" rel="external">http://stackoverflow.com/questions/10858787/what-are-the-uses-for-tags-in-go</a></li>
+<li><a href="http://golang.org/pkg/reflect/#StructTag" target="_blank" rel="external">http://golang.org/pkg/reflect/#StructTag</a></li>
+<li><a href="https://groups.google.com/forum/#!topic/golang-china/jDyG0r_atxQ" target="_blank" rel="external">https://groups.google.com/forum/#!topic/golang-china/jDyG0r_atxQ</a></li>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.2.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.2.md</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/16/go-struct-tag/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-15 </div>
 			<div class="article-title"><a href="/2015/09/15/数据库设计/" >数据库设计</a></div>						
 		</h3>
@@ -363,39 +401,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-02 </div>
-			<div class="article-title"><a href="/2015/09/02/go-使用gdb调试/" >go-使用gdb调试</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
-<li><p>编译</p>
-<pre><code>go build -gcflags &quot;-N -l&quot; test.go
-</code></pre></li>
-<li><p>调试</p>
-<pre><code>gdb test
-</code></pre></li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://golang.org/doc/gdb" target="_blank" rel="external">http://golang.org/doc/gdb</a></li>
-<li><a href="http://blog.kenshinx.me/blog/go-gdb/" target="_blank" rel="external">mac下用gdb调试Go程序</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/02/go-使用gdb调试/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -448,7 +453,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>28</span></a></li>
+			<li><a href="/categories/C/">C++<span>29</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -699,48 +704,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/模块/">模块<span>2</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
 		
-			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+			<li><a href="/tags/curl/">curl<span>2</span></a></li>
 		
-			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
+		
+			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+		
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+		
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
+		
+			<li><a href="/tags/library/">library<span>2</span></a></li>
+		
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+		
+			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+		
+			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
+		
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
 			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
 		
-			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
+			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
 		
-			<li><a href="/tags/socket/">socket<span>6</span></a></li>
+			<li><a href="/tags/dns/">dns<span>1</span></a></li>
 		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
 		
-			<li><a href="/tags/优先/">优先<span>1</span></a></li>
-		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
-		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
-		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
-		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
-		
-			<li><a href="/tags/grep/">grep<span>1</span></a></li>
-		
-			<li><a href="/tags/简记/">简记<span>2</span></a></li>
-		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
-		
-			<li><a href="/tags/centos/">centos<span>12</span></a></li>
-		
-			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
+			<li><a href="/tags/ip/">ip<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>561</span></a></li>
+		   <li><a href="/tags">...<span>563</span></a></li>
 		 
 		</ul>
 	</div>
@@ -751,6 +756,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
+      </li>
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
@@ -766,10 +775,6 @@
     
       <li>
         <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

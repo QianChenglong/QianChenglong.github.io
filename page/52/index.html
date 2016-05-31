@@ -111,6 +111,32 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-15 </div>
+			<div class="article-title"><a href="/2015/01/15/windows-in-out-in-C/" >windows-__in-__out-in-C</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://msdn.microsoft.com/en-us/library/ms235402.aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/ms235402.aspx</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/ms182032.aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/ms182032.aspx</a></li>
+<li><a href="http://stackoverflow.com/questions/4239809/what-is-the-purpose-of-in-out-in-opt-allowed-how-do-they-work-should" target="_blank" rel="external">http://stackoverflow.com/questions/4239809/what-is-the-purpose-of-in-out-in-opt-allowed-how-do-they-work-should</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/15/windows-in-out-in-C/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-14 </div>
 			<div class="article-title"><a href="/2015/01/14/wireshark-开启tcp-ip校验码检查/" >wireshark-开启tcp-ip校验码检查</a></div>						
 		</h3>
@@ -403,54 +429,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-07 </div>
-			<div class="article-title"><a href="/2015/01/07/C-函数返回值与错误处理/" >C-函数返回值与错误处理</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>除了极少数函数调用不会出错(如<code>getpid()</code>，参考[APUE-8.2])，绝大多数函数都可能发生调用失败。在调用失败时，<br>就涉及到如何通知调用者，以便调用者进行相对应的错误处理。</p>
-<h1 id="错误处理策略"><a href="#错误处理策略" class="headerlink" title="错误处理策略"></a>错误处理策略</h1><ul>
-<li>作为调用者希望函数的返回结果就是我们期待的值，但这样报告错误又不方便</li>
-<li>若用函数返回值来判断函数的成功或失败，获取期待结果又不方便</li>
-</ul>
-<p>所以在C中，往往都采用了折衷的方式，<strong>通过使用一个与所有成功结果都不相同的值作为函数失败时的返回值</strong>，常见方式有：</p>
-<ul>
-<li><p>失败时返回值</p>
-<ul>
-<li>返回<code>NULL</code>指针，如<code>fopen</code></li>
-<li>返回<code>-1</code></li>
-<li>返回<code>非0</code></li>
-<li>某些专用宏，如<code>EOF</code>，<code>SOCKET_ERROR</code></li>
-</ul>
-</li>
-<li><p>成功时返回值</p>
-<ul>
-<li>返回非空指针</li>
-<li>返回<code>0</code></li>
-<li>某些专用宏，如<code>SOCKET_SUCCESS</code></li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>UNIX环境高级编程.W.Richard Stevens / Stephen A.Rago.译者: 尤晋元 / 张亚英 / 戚正伟.ISBN: 9787115147318</li>
-<li>The Standard C Library Paperback. July 11, 1992. P.J. Plauger.ISBN-13: 978-0131315099</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/07/C-函数返回值与错误处理/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -503,7 +481,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>28</span></a></li>
+			<li><a href="/categories/C/">C++<span>29</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -754,48 +732,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/gcc/">gcc<span>4</span></a></li>
+			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/博客/">博客<span>1</span></a></li>
 		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
-			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>6</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
 		
-			<li><a href="/tags/vps/">vps<span>1</span></a></li>
+			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
 		
-			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
+			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/hex/">hex<span>1</span></a></li>
 		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
+			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
 		
-			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
 		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>561</span></a></li>
+		   <li><a href="/tags">...<span>563</span></a></li>
 		 
 		</ul>
 	</div>
@@ -806,6 +784,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
+      </li>
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
@@ -821,10 +803,6 @@
     
       <li>
         <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

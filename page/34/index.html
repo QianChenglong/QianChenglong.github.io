@@ -111,6 +111,32 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-04-01 </div>
+			<div class="article-title"><a href="/2015/04/01/CGI环境变量列表/" >CGI环境变量列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 键                | 值                                                 |<br>|——————-+—————————————————-|<br>| DOCUMENT_ROOT     | http服务器根目录                                   |<br>| GATEWAY_INTERFACE | CGI版本                                            |<br>| HTTP_COOKIE       | COOKIE值(若存在的话)                               |<br>| HTTP_HOST         | 尝试获取的页面所在服务器的主机名                   |<br>| HTTP_USER_AGENT   | 客户端代理类型(浏览器类型)                         |<br>| QUERY_STRING      | GET请求中的查询字符串                              |<br>| REMOTE_ADDR       | 客户端IP                                           |<br>| REMOTE_HOST       | 客户端主机名(需要开启reverse-name-lookup)          |<br>| REMOTE_PORT       | 客户端连接服务器的端口                             |<br>| REQUEST_METHOD    | 请求方法(GET，POST)                                |<br>| REQUEST_URI       | URL中去除主机名的部分(相对于服务器的document root) |<br>| SCRIPT_FILENAME   | 访问资源在服务器中的完全路径名                     |<br>| SCRIPT_NAME       | 访问资源的路径,URL中的路径部分                     |<br>| SERVER_ADDR       | 服务器IP                                           |<br>| SERVER_ADMIN      | 服务器管理员邮箱                                   |<br>| SERVER_NAME       | 服务器域名                                         |<br>| SERVER_PORT       | 服务器监听端口                                     |<br>| SERVER_PROTOCOL   | 服务器http协议版本                                 |<br>| SERVER_SOFTWARE   | 服务器软件名称                                     |</p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/cgi-bin/debug/print_all?a</span><br><span class="line"></span><br><span class="line">Environment</span><br><span class="line">COMSPEC: C:\Windows\system32\cmd.exe</span><br><span class="line">DOCUMENT_ROOT: E:/Work/Project/WifiClient/branches/br_ZSAC_v1.0.11_r565/src/httpd/www</span><br><span class="line">GATEWAY_INTERFACE: CGI/1.1</span><br><span class="line">HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</span><br><span class="line">HTTP_ACCEPT_ENCODING: gzip, deflate, sdch</span><br><span class="line">HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4</span><br><span class="line">HTTP_CONNECTION: keep-alive</span><br><span class="line">HTTP_COOKIE: CNZZDATA1253757582=110588724-1425953082-%7C1427333981</span><br><span class="line">HTTP_DNT: 1</span><br><span class="line">HTTP_HOST: localhost</span><br><span class="line">HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36</span><br><span class="line">PATH: C:\Program Files (x86)\Microsoft Visual Studio 10.0\VSTSDB\Deploy;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\BIN;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Tools;C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\Windows\Microsoft.NET\Framework\v3.5;C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\VCPackages;C:\Program Files (x86)\HTML Help Workshop;C:\Program Files (x86)\HTML Help Workshop;C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\NETFX 4.0 Tools;C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;d:\Program Files (x86)\Git\cmd;E:\OS\Windows\lnk;E:\OS\Windows\bin;E:\Work\bin;E:\Soft\pandoc\bin\pandoc-1.12.4;D:\Program Files (x86)\Git\bin\;E:\Soft\cmake\bin\cmake-3.1.0-rc2-win32-x86\bin;E:\Soft\Doxygen\bin\doxygen-1.8.7\bin;E:\Soft\GraphViz\bin\graphviz-2.39.20140813\bin;C:\Python27-32\Scripts;E:\Soft\MinGW\bin\MinGW-w64-builds\x64-4.8.1-posix-seh-rev5\mingw64\bin;C:\Python27-32</span><br><span class="line">PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.py;.lnk</span><br><span class="line">QUERY_STRING: a</span><br><span class="line">REMOTE_ADDR: 127.0.0.1</span><br><span class="line">REMOTE_PORT: 50252</span><br><span class="line">REQUEST_METHOD: GET</span><br><span class="line">REQUEST_URI: /cgi-bin/debug/print_all?a</span><br><span class="line">SCRIPT_FILENAME: E:/Work/Project/WifiClient/branches/br_ZSAC_v1.0.11_r565/src/httpd/cgi-bin/debug/print_all</span><br><span class="line">SCRIPT_NAME: /cgi-bin/debug/print_all</span><br><span class="line">SERVER_ADDR: 127.0.0.1</span><br><span class="line">SERVER_ADMIN: [no address given]</span><br><span class="line">SERVER_NAME: localhost</span><br><span class="line">SERVER_PORT: 80</span><br><span class="line">SERVER_PROTOCOL: HTTP/1.1</span><br><span class="line">SERVER_SIGNATURE: </span><br><span class="line">SERVER_SOFTWARE: Apache/2.2.25 (Win32)</span><br><span class="line">SYSTEMROOT: C:\Windows</span><br><span class="line">WINDIR: C:\Windows</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.cgi101.com/book/ch3/text.html" target="_blank" rel="external">http://www.cgi101.com/book/ch3/text.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/01/CGI环境变量列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-31 </div>
 			<div class="article-title"><a href="/2015/03/31/python-from import VS import/" >python-from import VS import</a></div>						
 		</h3>
@@ -416,34 +442,6 @@ func
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-30 </div>
-			<div class="article-title"><a href="/2015/03/30/hexo-google站长工具验证/" >hexo-google站长工具验证</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="HTML标记方法"><a href="#HTML标记方法" class="headerlink" title="HTML标记方法"></a><code>HTML标记</code>方法</h1><ul>
-<li>选择备用方法</li>
-</ul>
-<p><img src="/img/hexo-google站长工具验证-01.png" alt=""></p>
-<ul>
-<li>将代码复制到对应主题的<code>head.ejs</code></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/30/hexo-google站长工具验证/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -496,7 +494,7 @@ func
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>28</span></a></li>
+			<li><a href="/categories/C/">C++<span>29</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -747,48 +745,48 @@ func
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
 		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
-			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
 		
-			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
 		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
+			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
 		
-			<li><a href="/tags/find/">find<span>3</span></a></li>
+			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
 		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
 		
-			<li><a href="/tags/yed/">yed<span>1</span></a></li>
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
 		
-			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
 		
-			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>561</span></a></li>
+		   <li><a href="/tags">...<span>563</span></a></li>
 		 
 		</ul>
 	</div>
@@ -799,6 +797,10 @@ func
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
+      </li>
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
@@ -814,10 +816,6 @@ func
     
       <li>
         <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

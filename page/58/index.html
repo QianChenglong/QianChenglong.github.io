@@ -111,6 +111,54 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-10 </div>
+			<div class="article-title"><a href="/2014/12/10/win下编译libcurl/" >win下编译libcurl</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>VS2010</li>
+<li><a href="https://www.openssl.org/source/" target="_blank" rel="external">openssl-1.0.1j</a></li>
+<li>curl-7.39.0</li>
+</ul>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
+<li><p>下载<a href="http://curl.haxx.se/" target="_blank" rel="external">官网</a>，解压</p>
+</li>
+<li><p>将<strong>编译好的</strong><code>openssl</code>({ iLink title:win下编译openssl %})拷贝到<code>../deps</code></p>
+<p><img src="/img/win下编译libcurl_01.png" alt=""></p>
+</li>
+<li><p>进入<code>winbuild</code>目录</p>
+</li>
+<li><p>编译(具体参考<code>winbuild/BUILD.WINDOWS.txt</code>)</p>
+<ul>
+<li><p>release</p>
+<p>nmake /f Makefile.vc mode=dll VC=10 WITH_SSL=dll ENABLE_IDN=no</p>
+</li>
+<li><p>debug</p>
+<p>nmake /f Makefile.vc mode=dll VC=10 WITH_SSL=dll ENABLE_IDN=no DEBUG=yes</p>
+</li>
+</ul>
+</li>
+<li><p>输出目录为<code>builds</code></p>
+<p><img src="/img/win下编译libcurl_02.png" alt=""></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/10/win下编译libcurl/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-09 </div>
 			<div class="article-title"><a href="/2014/12/09/svn撤销删除/" >svn撤销删除</a></div>						
 		</h3>
@@ -527,39 +575,6 @@ by.decode(&apos;utf-8&apos;)
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-08 </div>
-			<div class="article-title"><a href="/2014/12/08/判断PC在交换机或路由器中的端口/" >判断PC在交换机或路由器中的端口</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="情景描述"><a href="#情景描述" class="headerlink" title="情景描述"></a>情景描述</h2><p>路由器下接多台交换机，不同交换机所属VLAN不同，1台PC被插到非目标交换机当中。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>如何找出PC在交换机中的端口？</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ul>
-<li><p>记录当前网络端口状态</p>
-<p>采用手机拍照，拍取当前PC所属交换机<br><img src="/img/判断PC在交换机或路由器中的端口_01.jpg" alt=""></p>
-</li>
-<li><p>拔出PC机箱后网线</p>
-</li>
-<li><p>与拍照比对</p>
-<p><strong>拍照时亮的端口，断开PC后，不亮的端口即为PC所插交换机端口</strong></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/08/判断PC在交换机或路由器中的端口/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -612,7 +627,7 @@ by.decode(&apos;utf-8&apos;)
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>28</span></a></li>
+			<li><a href="/categories/C/">C++<span>29</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -863,48 +878,48 @@ by.decode(&apos;utf-8&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
 		
-			<li><a href="/tags/domain/">domain<span>3</span></a></li>
+			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
 		
-			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
 		
-			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
+			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
 		
-			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>1</span></a></li>
 		
-			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
-		
-			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
-		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
-		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
-		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/博客/">博客<span>1</span></a></li>
 		
 			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/部署/">部署<span>1</span></a></li>
 		
-			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+		
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
+		
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+		
+			<li><a href="/tags/类型转换/">类型转换<span>1</span></a></li>
+		
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>561</span></a></li>
+		   <li><a href="/tags">...<span>563</span></a></li>
 		 
 		</ul>
 	</div>
@@ -915,6 +930,10 @@ by.decode(&apos;utf-8&apos;)
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
+      </li>
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
@@ -930,10 +949,6 @@ by.decode(&apos;utf-8&apos;)
     
       <li>
         <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++函数参数类型/" ><i class="fa fa-file-o"></i>C++函数参数类型</a>
       </li>
     
   </ul>

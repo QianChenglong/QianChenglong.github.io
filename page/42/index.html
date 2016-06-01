@@ -111,6 +111,193 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-02-12 </div>
+			<div class="article-title"><a href="/2015/02/12/vim-ctags配置/" >vim-ctags配置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>设置vim持续查找tag文件，直到根目录</p>
+<pre><code>set tags=tags;
+</code></pre><p>参考：</p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks?rq=1</a></li>
+</ol>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/12/vim-ctags配置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-11 </div>
+			<div class="article-title"><a href="/2015/02/11/Gentoo安装纪录/" >Gentoo安装纪录</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="安装环境配置"><a href="#安装环境配置" class="headerlink" title="安装环境配置"></a>安装环境配置</h1><ul>
+<li><p><a href="https://www.gentoo.org/main/en/where.xml" target="_blank" rel="external">官网镜像下载</a></p>
+</li>
+<li><p>配置镜像从启动</p>
+</li>
+<li><p>按<strong>F1</strong>进入<code>kernel</code>选择</p>
+</li>
+<li><p>输入<code>gentoo</code>，启动</p>
+</li>
+</ul>
+<h1 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h1><ul>
+<li><p>查看网络</p>
+<pre><code>ifconfig
+</code></pre></li>
+<li><p>若自动配置失败，执行<code>net-setup</code>，在选择<code>DHCP</code>即可</p>
+</li>
+</ul>
+<h1 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h1><ul>
+<li><p>分区规划</p>
+<p>/dev/sda1   boot    128M    ext2<br>/dev/sda2   swap    512M    swap<br>/dev/sda3   root    剩余    ext4</p>
+</li>
+<li><p>格式化分区</p>
+<pre><code>mkfs.ext2 /dev/sda1
+mkswap /dev/sda2
+mkfs.ext4 /dev/sda3
+</code></pre></li>
+<li><p>启用swap分区</p>
+<pre><code>swapon /dev/sda2
+</code></pre></li>
+<li><p>挂载分区</p>
+<pre><code>mount /dev/sda3 /mnt/gentoo
+mkdir /mnt/gentoo/boot
+mount /dev/sda1 /mnt/gentoo/boot
+</code></pre></li>
+</ul>
+<h1 id="安装stage"><a href="#安装stage" class="headerlink" title="安装stage"></a>安装stage</h1><ul>
+<li><p>设置当前时间</p>
+<pre><code>date MMDDhhmmYYYY
+</code></pre></li>
+<li><p><code>cd /mnt/gentoo</code></p>
+</li>
+<li><p>下载stage3压缩包(选择就近mirror)</p>
+<pre><code>links http://www.gentoo.org/main/en/mirrors.xml
+</code></pre></li>
+<li><p>解压</p>
+<pre><code>tar xvjpf stage3*
+</code></pre></li>
+<li><p>修改编译控制文件</p>
+<pre><code>vi /mnt/gentoo/etc/portage/make.conf
+</code></pre></li>
+</ul>
+<pre><code>CFLAGS=&quot;-march=native -O2 -pipe&quot;
+
+MAKEOPTS=&quot;-j2&quot;
+</code></pre><h1 id="安装基本系统"><a href="#安装基本系统" class="headerlink" title="安装基本系统"></a>安装基本系统</h1><h2 id="Chrooting"><a href="#Chrooting" class="headerlink" title="Chrooting"></a>Chrooting</h2><ul>
+<li><p>设置镜像源</p>
+<pre><code>vi /mnt/gentoo/etc/portage/make.conf
+
+SYNC=&quot;rsync://mirrors.ustc.edu.cn/gentoo-portage/&quot;
+GENTOO_MIRRORS=&quot;http://mirrors.aliyun.com/gentoo/&quot;
+</code></pre></li>
+<li><p>复制DNS信息</p>
+<pre><code>cp -L /etc/resolv.conf /mnt/gentoo/etc/
+</code></pre></li>
+<li><p>挂载文件系统</p>
+<pre><code>mount -t proc proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
+</code></pre></li>
+<li><p>进入新环境</p>
+<pre><code>chroot /mnt/gentoo /bin/bash
+source /etc/profile
+export PS1=“(chroot) $PS1”
+</code></pre></li>
+</ul>
+<h2 id="配置portable"><a href="#配置portable" class="headerlink" title="配置portable"></a>配置portable</h2><ul>
+<li><p>安装portage快照</p>
+<pre><code>emerge-websync
+</code></pre></li>
+<li><p>更新portage tree</p>
+<pre><code>emerge --sync
+</code></pre></li>
+<li><p>配置时区</p>
+<pre><code>echo &quot;Asia/Shanghai&quot; &gt;/etc/timezone
+emerge --config sys-libs/timezone-data
+</code></pre></li>
+<li><p>配置locales</p>
+<ul>
+<li><p>编辑</p>
+<pre><code>nano /etc/locale.gen
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<pre><code>        en_US.UTF-8 UTF-8
+        zh_CN.UTF-8 UTF-8
+
+-   生成locale
+
+        locale-gen
+
+-   选择默认locale
+
+        eselect locale list
+        eselect locale set 3
+</code></pre><h1 id="配置内核"><a href="#配置内核" class="headerlink" title="配置内核"></a>配置内核</h1><ul>
+<li><p>安装源码</p>
+<pre><code>emerge --ask sys-kernel/gentoo-sources
+</code></pre></li>
+<li><p>手动配置</p>
+<pre><code>cd /usr/src/linux
+make menuconfig
+</code></pre></li>
+<li><p>编译安装</p>
+<pre><code>make &amp;&amp; make modules_install
+make install
+</code></pre></li>
+</ul>
+<h1 id="配置系统"><a href="#配置系统" class="headerlink" title="配置系统"></a>配置系统</h1><h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><ul>
+<li><p>编辑fstab</p>
+<pre><code>nano -w /etc/fstab
+</code></pre></li>
+</ul>
+<h1 id="网络信息"><a href="#网络信息" class="headerlink" title="网络信息"></a>网络信息</h1><ul>
+<li><p>hostname</p>
+<pre><code>nano -w /etc/conf.d/hostname
+</code></pre></li>
+</ul>
+<pre><code>hostname=&quot;long&quot;
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://wiki.gentoo.org/wiki/Handbook:AMD64" target="_blank" rel="external">https://wiki.gentoo.org/wiki/Handbook:AMD64</a></li>
+<li><a href="http://www.gentoo.org/doc/zh_cn/gentoo-x86-quickinstall.xml" target="_blank" rel="external">http://www.gentoo.org/doc/zh_cn/gentoo-x86-quickinstall.xml</a></li>
+<li><a href="https://www.youtube.com/watch?v=P1ok-3z14ss" target="_blank" rel="external">https://www.youtube.com/watch?v=P1ok-3z14ss</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/11/Gentoo安装纪录/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-11 </div>
 			<div class="article-title"><a href="/2015/02/11/virtualbox-设置桥接/" >virtualbox-设置桥接</a></div>						
 		</h3>
@@ -336,71 +523,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-10 </div>
-			<div class="article-title"><a href="/2015/02/10/objdump-常用命令/" >objdump-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>反汇编，并带源码</p>
-<p>objdump -S OBJECT_FILE</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/10/objdump-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-10 </div>
-			<div class="article-title"><a href="/2015/02/10/linux-命令所属包/" >linux-命令所属包</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="coreutils"><a href="#coreutils" class="headerlink" title="coreutils"></a>coreutils</h1><pre><code>du, groups, mv, date
-</code></pre><h1 id="bintuils"><a href="#bintuils" class="headerlink" title="bintuils"></a>bintuils</h1><pre><code>ar, objdump, ld, c++filt, nm, ranlib, strip, readelf, size, 
-</code></pre><h1 id="bridge-utils"><a href="#bridge-utils" class="headerlink" title="bridge-utils"></a>bridge-utils</h1><pre><code>brctl,
-</code></pre><h1 id="e2fsprogs"><a href="#e2fsprogs" class="headerlink" title="e2fsprogs"></a>e2fsprogs</h1><pre><code>mkfs.ext2, mkfs.ext3, mkfs.ext4,
-</code></pre><h1 id="dosfstools"><a href="#dosfstools" class="headerlink" title="dosfstools"></a>dosfstools</h1><pre><code>mkfs.fat, mkfs.msdos, mkfs.vfat
-</code></pre><h1 id="ntfs-3g"><a href="#ntfs-3g" class="headerlink" title="ntfs-3g"></a>ntfs-3g</h1><pre><code>mkfs.ntfs
-</code></pre><h1 id="procps"><a href="#procps" class="headerlink" title="procps"></a>procps</h1><pre><code>free, ps, top, sysctl, kill
-</code></pre><h1 id="sysvinit-utils"><a href="#sysvinit-utils" class="headerlink" title="sysvinit-utils"></a>sysvinit-utils</h1><pre><code>service, pidof
-</code></pre><h1 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h1><pre><code>tar
-</code></pre><h1 id="util-linux"><a href="#util-linux" class="headerlink" title="util-linux"></a>util-linux</h1><pre><code>fdisk, cfdisk
-</code></pre><h1 id="所用查找命令"><a href="#所用查找命令" class="headerlink" title="所用查找命令"></a>所用查找命令</h1><h2 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h2><ol>
-<li><p>查看命令完整文件名</p>
-<pre><code>which COMMAND
-</code></pre></li>
-<li><p>查看命令所属包</p>
-<pre><code>apt-file search FILENAME
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/10/linux-命令所属包/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -453,7 +575,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>29</span></a></li>
+			<li><a href="/categories/C/">C++<span>30</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -539,7 +661,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>19</span></a></li>
+			<li><a href="/categories/linux/">linux<span>20</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -704,48 +826,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
 		
-			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
-		
-			<li><a href="/tags/模块/">模块<span>2</span></a></li>
-		
-			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
-		
-			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
-		
-			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
-		
-			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
-		
-			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
-		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
-		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
-		
-			<li><a href="/tags/T/">_T<span>1</span></a></li>
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
 			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
 		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
 		
-			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
+			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>6</span></a></li>
 		
-			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+			<li><a href="/tags/od/">od<span>1</span></a></li>
 		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+		
+			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
+		
+			<li><a href="/tags/update/">update<span>1</span></a></li>
+		
+			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+		
+			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
+		
+			<li><a href="/tags/C/">C<span>14</span></a></li>
+		
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+		
+			<li><a href="/tags/int/">int<span>1</span></a></li>
+		
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
+		
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>563</span></a></li>
+		   <li><a href="/tags">...<span>564</span></a></li>
 		 
 		</ul>
 	</div>
@@ -758,6 +880,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
@@ -767,14 +897,6 @@
     
       <li>
         <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
   </ul>

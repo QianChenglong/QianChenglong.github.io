@@ -111,6 +111,73 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-04 </div>
+			<div class="article-title"><a href="/2015/01/04/dns中递归查询与迭代查询的区别/" >dns中递归查询与迭代查询的区别</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>递归查询:</li>
+</ul>
+<p>一般客户机和服务器之间属递归查询，即当客户机向DNS服务器发出请求后,若DNS服务器本身不能解析,则会向另外的DNS服务器发出查询请求，得到结果后转交给客户机；</p>
+<ul>
+<li>迭代查询(反复查询):</li>
+</ul>
+<p>一般DNS服务器之间属迭代查询，如：若DNS2不能响应DNS1的请求，则它会将DNS3的IP给DNS2，以便其再向DNS3发出请求；</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zhidao.baidu.com/link?url=zZcn6vwAvt3f_391aq8kqR-rohsN-WYq5mDst_bUkzxYpEJZyuH-3ggW5BibrDPcrNpbWMqH8nMrACtahNhmZq" target="_blank" rel="external">http://zhidao.baidu.com/link?url=zZcn6vwAvt3f_391aq8kqR-rohsN-WYq5mDst_bUkzxYpEJZyuH-3ggW5BibrDPcrNpbWMqH8nMrACtahNhmZq</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/04/dns中递归查询与迭代查询的区别/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-04 </div>
+			<div class="article-title"><a href="/2015/01/04/修改文件默认打开方式/" >修改文件默认打开方式</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="系统命令方式（优先级低于用户设置，即存储于注册表中的）"><a href="#系统命令方式（优先级低于用户设置，即存储于注册表中的）" class="headerlink" title="系统命令方式（优先级低于用户设置，即存储于注册表中的）"></a>系统命令方式（优先级低于用户设置，即存储于注册表中的）</h1><ol>
+<li><p>assoc改变指定拓展名对应的文件类型</p>
+<pre><code>assoc .apk=AndroidPackage
+&lt;=&gt;
+reg add HKEY_CLASSES_ROOT\.apk /d &quot;AndroidPackage&quot; /f
+</code></pre></li>
+<li><p>ftype来指定文件执行命令，%1代表该文件，%*代表参数</p>
+<pre><code>ftype txtfile=&quot;e:\OS\Android\Exeperience\apk-install.bat&quot; %1 %*
+&lt;=&gt;
+reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\OS\Android\Exeperience\apk-install.bat\&quot; %%1 %%*&quot; /f
+</code></pre></li>
+</ol>
+<h1 id="修改用户设置"><a href="#修改用户设置" class="headerlink" title="修改用户设置"></a>修改用户设置</h1><pre><code>[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.txt\UserChoice]
+&quot;Rrogid&quot;=&quot;\&quot;C:\\Program Files (x86)\\Vim\\vim73\\gvim.exe\&quot; \&quot;%1\&quot; \&quot;%*\&quot;&quot;
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/01/04/修改文件默认打开方式/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-31 </div>
 			<div class="article-title"><a href="/2014/12/31/GetTickCount/" >GetTickCount</a></div>						
 		</h3>
@@ -370,70 +437,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-24 </div>
-			<div class="article-title"><a href="/2014/12/24/python-切换工作目录/" >python-切换工作目录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">os.chdir(path)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/1810743/how-to-set-the-current-working-directory-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/1810743/how-to-set-the-current-working-directory-in-python</a></li>
-<li><a href="https://docs.python.org/2/library/os.html#os.chdir" target="_blank" rel="external">https://docs.python.org/2/library/os.html#os.chdir</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/24/python-切换工作目录/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-24 </div>
-			<div class="article-title"><a href="/2014/12/24/python-复制文件/" >python-复制文件</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><ul>
-<li><p><code>shutil.copy(src, dst)</code></p>
-<ul>
-<li><code>src</code>，源文件</li>
-<li><code>dst</code>，目标可以是文件，也可以是目录，当是目录，则在该目录下新建同名文件或<strong>覆盖</strong>同名文件</li>
-<li>只拷贝内容，不拷贝文件<strong>元信息</strong>(创建时间，最后访问时间，修改时间等)</li>
-</ul>
-</li>
-<li><p><code>shutil.copy2(src, dst)</code></p>
-<ul>
-<li>完全拷贝(包括<strong>元信息</strong>)，相当于<code>shutil.copy(src, dst)</code>+<code>shutil.copystat(src, dst)</code></li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://docs.python.org/2/library/shutil.html#shutil.copystat" target="_blank" rel="external">https://docs.python.org/2/library/shutil.html#shutil.copystat</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/24/python-复制文件/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -486,7 +489,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>29</span></a></li>
+			<li><a href="/categories/C/">C++<span>30</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -572,7 +575,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>19</span></a></li>
+			<li><a href="/categories/linux/">linux<span>20</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -737,48 +740,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
-		
-			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
-		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
-		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
-		
-			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
-		
-			<li><a href="/tags/macro/">macro<span>3</span></a></li>
-		
 			<li><a href="/tags/端口/">端口<span>1</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
 		
-			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
 		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
 		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
-			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
+			<li><a href="/tags/TF/">TF<span>1</span></a></li>
 		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+			<li><a href="/tags/T/">__T<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
+			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
+		
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+		
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+		
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
+		
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+		
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
 		
 			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
 		
-			<li><a href="/tags/boost/">boost<span>4</span></a></li>
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
-			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+		
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>563</span></a></li>
+		   <li><a href="/tags">...<span>564</span></a></li>
 		 
 		</ul>
 	</div>
@@ -791,6 +794,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
@@ -800,14 +811,6 @@
     
       <li>
         <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
   </ul>

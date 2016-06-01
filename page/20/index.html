@@ -112,6 +112,60 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-08-05 </div>
+			<div class="article-title"><a href="/2015/08/05/vim-找出高亮定义位置/" >vim-找出高亮定义位置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>:verbose hi ProtoType
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/08/05/vim-找出高亮定义位置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-05 </div>
+			<div class="article-title"><a href="/2015/08/05/mod_fcgid配置/" >apache-fastcgi配置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>可执行</p>
+<pre><code>Options +ExecCGI
+</code></pre></li>
+<li><p>该目录下所有文件作为fastcgi程序执行</p>
+<pre><code>SetHandler fcgid-script
+</code></pre></li>
+<li><p>指定文件拓展名作为fastcgi程序执行</p>
+<pre><code>AddHandler fastcgi-script fcg fcgi fpl
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/05/mod_fcgid配置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-05 </div>
 			<div class="article-title"><a href="/2015/08/05/lsof/" >lsof</a></div>						
 		</h3>
 	
@@ -452,69 +506,6 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-24 </div>
-			<div class="article-title"><a href="/2015/07/24/python-日期加减操作/" >python-日期加减操作</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">datetime.date.today() + datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line">today = datetime.date.today() + datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line">period = int(today.strftime(<span class="string">"%Y%m%d"</span>))</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/1506901/cleanest-and-most-pythonic-way-to-get-tomorrows-date" target="_blank" rel="external">http://stackoverflow.com/questions/1506901/cleanest-and-most-pythonic-way-to-get-tomorrows-date</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/24/python-日期加减操作/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-24 </div>
-			<div class="article-title"><a href="/2015/07/24/git-常用命令/" >git-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>–git-dir 指定<code>.git</code>目录</p>
-</li>
-<li><p>–work-dir 指定工作目录</p>
-</li>
-</ul>
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
-<li><p>丢弃未缓存的修改</p>
-<pre><code>git checkout -- order.cpp
-</code></pre></li>
-<li><p>默认推送所有分支和tag</p>
-<pre><code>git push --all origin -u
-</code></pre></li>
-<li><p>迁出到指定目录</p>
-<pre><code>git --work-tree=../v0.03 checkout v0.03 .
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/24/git-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -567,7 +558,7 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>29</span></a></li>
+			<li><a href="/categories/C/">C++<span>30</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -653,7 +644,7 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>19</span></a></li>
+			<li><a href="/categories/linux/">linux<span>20</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -818,48 +809,48 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
-		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
-		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
-		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
 			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/程序/">程序<span>1</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
-			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
-			<li><a href="/tags/包/">包<span>2</span></a></li>
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
 		
-			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
 		
-			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+			<li><a href="/tags/使用/">使用<span>1</span></a></li>
 		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/c/">c++<span>8</span></a></li>
 		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
+			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
 		
-			<li><a href="/tags/script/">script<span>1</span></a></li>
+			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
 		
-			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+			<li><a href="/tags/read/">read<span>1</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+		
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+		
+			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
+		
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>563</span></a></li>
+		   <li><a href="/tags">...<span>564</span></a></li>
 		 
 		</ul>
 	</div>
@@ -872,6 +863,14 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
@@ -881,14 +880,6 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
     
       <li>
         <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
   </ul>

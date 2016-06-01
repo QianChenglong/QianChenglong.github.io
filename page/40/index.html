@@ -112,6 +112,66 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-02 </div>
+			<div class="article-title"><a href="/2015/03/02/windows-snprintf/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		
+	
+	</div>
+  <a type="button" href="/2015/03/02/windows-snprintf/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-02 </div>
+			<div class="article-title"><a href="/2015/03/02/windows-_T和__T/" >windows-_T和__T</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p><code>tchar.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __T(x)      L ## x</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _T(x)       __T(x)</span></span><br></pre></td></tr></table></figure>
+<h1 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h1><ul>
+<li><p>为什么不直接定义<code>#define _T(x) L ## x</code>呢？</p>
+<p>因为在处理类似<code>_T(__FILE__)</code>时，会被拓展成<code>L__FILE__</code>，而<code>L__FILE__</code>则是未定义标识符</p>
+<ul>
+<li><p>为什么这样能做到？</p>
+<p><code>_T(__FILE__)</code>先拓展<code>__FILE__</code>，在插入到该表达式，然后进行<strong>合并</strong>操作</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://cpp.ezbty.org/myfiles/boost/libs/wave/doc/macro_expansion_process.html" target="_blank" rel="external">http://cpp.ezbty.org/myfiles/boost/libs/wave/doc/macro_expansion_process.html</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/cppinternals/Macro-Expansion.html" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/cppinternals/Macro-Expansion.html</a></li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/09dwwt6y.aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/09dwwt6y.aspx</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/02/windows-_T和__T/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-02 </div>
 			<div class="article-title"><a href="/2015/03/02/windows-UNICODE和_UNICODE作用/" >windows-UNICODE和_UNICODE作用</a></div>						
 		</h3>
 	
@@ -393,54 +453,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-28 </div>
-			<div class="article-title"><a href="/2015/02/28/windows编程常用宏定义/" >windows编程常用宏定义</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 宏名   | 定义   | 头文件  |<br>|——–+——–+———|<br>| __T(x) | L ## x | tchar.h |</p>
-
-	
-	</div>
-  <a type="button" href="/2015/02/28/windows编程常用宏定义/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-27 </div>
-			<div class="article-title"><a href="/2015/02/27/VC命令行使用/" >VC命令行使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>链接库</p>
-<pre><code>cl main.cpp /link user32.lib
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/27/VC命令行使用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -493,7 +505,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>29</span></a></li>
+			<li><a href="/categories/C/">C++<span>30</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -579,7 +591,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>19</span></a></li>
+			<li><a href="/categories/linux/">linux<span>20</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -744,48 +756,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
+			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
 		
-			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
-			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
-			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
-			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/str/">str<span>1</span></a></li>
 		
-			<li><a href="/tags/debug/">debug<span>2</span></a></li>
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
 		
-			<li><a href="/tags/static/">static<span>1</span></a></li>
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
 		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
 		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
 		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
-			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+			<li><a href="/tags/curl/">curl<span>2</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>563</span></a></li>
+		   <li><a href="/tags">...<span>564</span></a></li>
 		 
 		</ul>
 	</div>
@@ -798,6 +810,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
@@ -807,14 +827,6 @@
     
       <li>
         <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
   </ul>

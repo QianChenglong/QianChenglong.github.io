@@ -112,6 +112,73 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-11 </div>
+			<div class="article-title"><a href="/2014/12/11/C++第三方库/" >C++第三方库</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="http://sourceforge.net/projects/log4cpp" target="_blank" rel="external">log4cpp</a></p>
+</li>
+<li><p><a href="https://github.com/open-source-parsers/jsoncpp" target="_blank" rel="external">jsoncpp</a></p>
+</li>
+<li><p><a href="http://www.boost.org" target="_blank" rel="external">boost</a></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://coolshell.info/c/c++/2014/12/13/c-open-project.html" target="_blank" rel="external">http://coolshell.info/c/c++/2014/12/13/c-open-project.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/11/C++第三方库/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-11 </div>
+			<div class="article-title"><a href="/2014/12/11/cmake编译常用选项/" >cmake编译常用选项</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="指定编译版本"><a href="#指定编译版本" class="headerlink" title="指定编译版本"></a>指定编译版本</h1><ul>
+<li><p>常用</p>
+<p>-DCMAKE_BUILD_TYPE=Debug | Release</p>
+</li>
+<li><p><a href="http://www.cmake.org/cmake/help/v3.0/variable/CMAKE_BUILD_TYPE.html" target="_blank" rel="external">手册</a></p>
+</li>
+</ul>
+<h1 id="指定安装目录前缀"><a href="#指定安装目录前缀" class="headerlink" title="指定安装目录前缀"></a>指定安装目录前缀</h1><ul>
+<li><p>常用</p>
+<p>-DCMAKE_INSTALL_PREFIX=./ProjectName</p>
+</li>
+<li><p><a href="http://www.cmake.org/cmake/help/v3.0/variable/CMAKE_INSTALL_PREFIX.html" target="_blank" rel="external">手册</a></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/11/cmake编译常用选项/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-11 </div>
 			<div class="article-title"><a href="/2014/12/11/windows-80端口被占用/" >windows-80端口被占用</a></div>						
 		</h3>
 	
@@ -354,73 +421,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-10 </div>
-			<div class="article-title"><a href="/2014/12/10/python-IDLE中文问题/" >python-IDLE中文问题</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>在IDLE中使用<code>u&#39;中文&#39;.encode(&#39;gbk&#39;)</code>报错</p>
-<p><img src="/img/python-IDLE中文问题_01.png" alt=""></p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>IDLE本身BUG</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blog.csdn.net/mayflowers/article/details/1568852" target="_blank" rel="external">http://blog.csdn.net/mayflowers/article/details/1568852</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/10/python-IDLE中文问题/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-10 </div>
-			<div class="article-title"><a href="/2014/12/10/win下编译openssl/" >win下编译openssl</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
-<li>perl</li>
-<li>VC++</li>
-</ul>
-<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
-<li><p>生成<code>Makefile</code></p>
-<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
-ms\do_ms
-</code></pre></li>
-<li><p>编译</p>
-<pre><code>nmake -f ms\ntdll.mak
-</code></pre></li>
-<li><p>测试</p>
-<pre><code>nmake -f ms\ntdll.mak test
-</code></pre></li>
-<li><p>安装</p>
-<pre><code>nmake -f ms\ntdll.mak install
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/10/win下编译openssl/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -473,7 +473,7 @@ ms\do_ms
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>29</span></a></li>
+			<li><a href="/categories/C/">C++<span>30</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -559,7 +559,7 @@ ms\do_ms
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>19</span></a></li>
+			<li><a href="/categories/linux/">linux<span>20</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -724,48 +724,48 @@ ms\do_ms
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
 		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
+			<li><a href="/tags/json/">json<span>4</span></a></li>
 		
-			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
 		
-			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
-			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+			<li><a href="/tags/build/">build<span>1</span></a></li>
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
 		
-			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
+			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
 		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
 		
-			<li><a href="/tags/cron/">cron<span>2</span></a></li>
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
 		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
 		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+			<li><a href="/tags/模块/">模块<span>2</span></a></li>
 		
-			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
 		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+			<li><a href="/tags/django/">django<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>563</span></a></li>
+		   <li><a href="/tags">...<span>564</span></a></li>
 		 
 		</ul>
 	</div>
@@ -778,6 +778,14 @@ ms\do_ms
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
@@ -787,14 +795,6 @@ ms\do_ms
     
       <li>
         <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
   </ul>

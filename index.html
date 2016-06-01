@@ -111,6 +111,60 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-05-31 </div>
+			<div class="article-title"><a href="/2016/05/31/linux-时间片/" >linux-时间片</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="查看时间片"><a href="#查看时间片" class="headerlink" title="查看时间片"></a>查看时间片</h1><pre><code>[I] ~/p/B/p/c/s/time cat /proc/sys/kernel/sched_latency_ns
+12000000
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2016/05/31/linux-时间片/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-31 </div>
+			<div class="article-title"><a href="/2016/05/31/C++-static/" >C++-static</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><ol>
+<li><p>全局作用域，声明或定义标识符(变量，函数)，语义是该符号为内部链接</p>
+</li>
+<li><p>类定义中，声明方法时，说明该方法为静态方法</p>
+</li>
+<li><p>类定义中，声明变量时，说明该变量为静态数据成员</p>
+</li>
+<li><p>函数定义中，说明该变量为静态变量，存储于<strong>数据段</strong></p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/05/31/C++-static/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-05-30 </div>
 			<div class="article-title"><a href="/2016/05/30/C++-sring-resize-reserve/" >C++-sring-resize-reserve</a></div>						
 		</h3>
@@ -487,76 +541,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-12 </div>
-			<div class="article-title"><a href="/2016/05/12/go-cmd/" >go-cmd</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="build"><a href="#build" class="headerlink" title="build"></a>build</h1><pre><code>usage: go build [-o output] [-i] [build flags] [packages]
-</code></pre><p>编译指定包，以及其依赖</p>
-<ul>
-<li>如果是<code>main</code>包，则在当前目录下生成一个可执行文件</li>
-</ul>
-<h1 id="run"><a href="#run" class="headerlink" title="run"></a>run</h1><pre><code>usage: go run [build flags] [-exec xprog] gofiles... [arguments...]
-</code></pre><p>编译并运行<code>main</code>包</p>
-<ul>
-<li>如果<code>main</code>包是由多个文件构成，则需要都指定！</li>
-</ul>
-<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><pre><code>usage: go test [-c] [-i] [build and test flags] [packages] [flags for test binary]
-</code></pre><p>自动测试指定包</p>
-<ul>
-<li>默认情况，会编译当前目录包以及相应测试，并运行测试</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.3.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.3.md</a></li>
-<li><a href="http://stackoverflow.com/questions/16935965/how-to-run-test-cases-in-a-specified-file" target="_blank" rel="external">http://stackoverflow.com/questions/16935965/how-to-run-test-cases-in-a-specified-file</a></li>
-<li><a href="http://stackoverflow.com/questions/19998250/proper-package-naming-for-testing-in-go-lang" target="_blank" rel="external">http://stackoverflow.com/questions/19998250/proper-package-naming-for-testing-in-go-lang</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/05/12/go-cmd/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-12 </div>
-			<div class="article-title"><a href="/2016/05/12/backtrace()/" >backtrace()</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>glibc在Linux下获取调用堆栈</p>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>链接需要在<code>gcc-rdynamic</code>&lt;=&gt;<code>ld --export-dynamic</code></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/6934659/how-to-make-backtrace-backtrace-symbols-print-the-function-names" target="_blank" rel="external">http://stackoverflow.com/questions/6934659/how-to-make-backtrace-backtrace-symbols-print-the-function-names</a></li>
-<li><a href="https://gcc.gnu.org/onlinedocs/gcc-4.8.5/gcc/Link-Options.html#Link-Options" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/gcc-4.8.5/gcc/Link-Options.html#Link-Options</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/05/12/backtrace()/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -609,7 +593,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>29</span></a></li>
+			<li><a href="/categories/C/">C++<span>30</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -695,7 +679,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>19</span></a></li>
+			<li><a href="/categories/linux/">linux<span>20</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -860,48 +844,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/pip/">pip<span>2</span></a></li>
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
+			<li><a href="/tags/time/">time<span>2</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/hex/">hex<span>1</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/安装/">安装<span>3</span></a></li>
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
 		
-			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
 		
-			<li><a href="/tags/gcc/">gcc<span>4</span></a></li>
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>2</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/C/">C<span>14</span></a></li>
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
 		
-			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
 		
-			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>563</span></a></li>
+		   <li><a href="/tags">...<span>564</span></a></li>
 		 
 		</ul>
 	</div>
@@ -914,6 +898,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
@@ -923,14 +915,6 @@
     
       <li>
         <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
   </ul>

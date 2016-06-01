@@ -111,6 +111,66 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-30 </div>
+			<div class="article-title"><a href="/2015/09/30/app-后台经验/" >app-后台经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><ol>
+<li><p>业务逻辑实现难易程度,拓展性等跟<strong>表结构设计</strong>相关</p>
+</li>
+<li><p>API优雅跟<strong>SQL语句的熟练,精妙程度</strong>相关</p>
+</li>
+<li><p>不要为了一点性能或存储空间而增加程序或逻辑的复杂度</p>
+<p>如用<code>int</code>来存储小数, 存储和读取都需要转换,还需要知道精度,增加复杂度,<strong>得不偿失</strong></p>
+</li>
+</ol>
+<h1 id="语言设计"><a href="#语言设计" class="headerlink" title="语言设计"></a>语言设计</h1><ul>
+<li>定义重要类型的别名，如<code>typedef uint32_t uid_t</code></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/30/app-后台经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-30 </div>
+			<div class="article-title"><a href="/2015/09/30/sql/" >sql</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><ul>
+<li><p>当需要部分更新时,不要使用多表关联更新</p>
+<p>因为可能部分关联失败,导致需要更新的数据没有更新</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> product a, <span class="keyword">order</span> b <span class="keyword">set</span> ... <span class="keyword">where</span> a.product_id = b.product_id</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/30/sql/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-28 </div>
 			<div class="article-title"><a href="/2015/09/28/mysql-数据库备份恢复/" >mysql-数据库备份恢复</a></div>						
 		</h3>
@@ -395,88 +455,6 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-23 </div>
-			<div class="article-title"><a href="/2015/09/23/go-import/" >go-import</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="正则文法"><a href="#正则文法" class="headerlink" title="正则文法"></a>正则文法</h1><pre><code>ImportDecl       = &quot;import&quot; ( ImportSpec | &quot;(&quot; { ImportSpec &quot;;&quot; } &quot;)&quot; ) .
-ImportSpec       = [ &quot;.&quot; | PackageName ] ImportPath .
-ImportPath       = string_lit .
-</code></pre><h1 id="导入路径-ImportPath"><a href="#导入路径-ImportPath" class="headerlink" title="导入路径(ImportPath)"></a>导入路径(ImportPath)</h1><ul>
-<li>相对路径</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"./test"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>绝对路径(<code>gopath</code>)</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
-<h1 id="包名-PackageName"><a href="#包名-PackageName" class="headerlink" title="包名(PackageName)"></a>包名(PackageName)</h1><ul>
-<li><code>.</code></li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> . <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
-<p>这样导入后,在使用的时候无须包名</p>
-<ul>
-<li><code>_</code></li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="string">"github.com/go-sql-driver/mysql"</span></span><br></pre></td></tr></table></figure>
-<p>不直接使用该包内的导出标识符</p>
-<ul>
-<li><code>别名</code></li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> f <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
-<p>通过别名访问(“f.Println”)</p>
-<ul>
-<li>默认形式</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/ref/spec#Import_declarations" target="_blank" rel="external">https://golang.org/ref/spec#Import_declarations</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/23/go-import/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-22 </div>
-			<div class="article-title"><a href="/2015/09/22/产品部署/" >产品部署目录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="部署目录结构"><a href="#部署目录结构" class="headerlink" title="部署目录结构"></a>部署目录结构</h1><p>部署目录 := 起始目录/项目名称/版本号/构建类型</p>
-<p>构建类型 := 开发 | 测试 | 生产</p>
-<p>开发 := debug</p>
-<p>测试 := test</p>
-<p>生产 := release</p>
-<h2 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;PROJECT_NAME&#125;</span>/<span class="variable">$&#123;PROJECT_VERSION&#125;</span>/<span class="variable">$&#123;CMAKE_BUILD_TYPE&#125;</span></span><br></pre></td></tr></table></figure>
-<p>cmake</p>
-
-	
-	</div>
-  <a type="button" href="/2015/09/22/产品部署/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -529,7 +507,7 @@ ImportPath       = string_lit .
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>29</span></a></li>
+			<li><a href="/categories/C/">C++<span>30</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -615,7 +593,7 @@ ImportPath       = string_lit .
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>19</span></a></li>
+			<li><a href="/categories/linux/">linux<span>20</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -780,48 +758,48 @@ ImportPath       = string_lit .
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
-			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
 		
-			<li><a href="/tags/cron/">cron<span>2</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>1</span></a></li>
 		
-			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+			<li><a href="/tags/c/">c++<span>8</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>38</span></a></li>
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
 		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
 		
-			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
-			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+			<li><a href="/tags/struct/">struct<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
 		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
-		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
-		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
-		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>3</span></a></li>
 		
 			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
 		
-			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
+			<li><a href="/tags/api/">api<span>1</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+		
+			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+		
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+		
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>563</span></a></li>
+		   <li><a href="/tags">...<span>564</span></a></li>
 		 
 		</ul>
 	</div>
@@ -834,6 +812,14 @@ ImportPath       = string_lit .
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
@@ -843,14 +829,6 @@ ImportPath       = string_lit .
     
       <li>
         <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
   </ul>

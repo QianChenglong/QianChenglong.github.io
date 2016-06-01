@@ -112,6 +112,86 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-04-01 </div>
+			<div class="article-title"><a href="/2015/04/01/python-安装脚本经常使用的API/" >python-安装脚本经常使用的API</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>判断当前系统类型</p>
+<pre><code>platform.system() == &apos;Windows&apos;
+os.name == &apos;nt&apos;
+</code></pre></li>
+<li><p>获取安装绝对路径名(不带”..”)</p>
+<pre><code>os.path.abspath(r&apos;./setting.ini&apos;)
+</code></pre></li>
+<li><p>获取脚本所在的目录</p>
+<pre><code>os.path.dirname(os.path.realpath(__file__)
+</code></pre></li>
+<li><p>获取用户配置完全路径名</p>
+<pre><code>os.path.expanduser(r&apos;~/_vimrc&apos;)
+</code></pre></li>
+<li><p>目录不存在则创建(递归创建)</p>
+<pre><code>if not os.path.exists(directory):
+    os.makedirs(directory)
+
+os.makedirs(os.path.dirname(f[1]), exist_ok=True)
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/01/python-安装脚本经常使用的API/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-01 </div>
+			<div class="article-title"><a href="/2015/04/01/python-pip设置第三方源/" >python-pip设置第三方源</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="命令行指定"><a href="#命令行指定" class="headerlink" title="命令行指定"></a>命令行指定</h1><p>pip install -i <a href="http://pypi.douban.com/simple/" target="_blank" rel="external">http://pypi.douban.com/simple/</a> –trusted-host pypi.douban.com gevent</p>
+<h1 id="配置文件指定"><a href="#配置文件指定" class="headerlink" title="配置文件指定"></a>配置文件指定</h1><ul>
+<li><p>win7</p>
+<p>~/pip/pip.ini</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">index-url</span> = http://pypi.douban.com/simple</span><br><span class="line"><span class="section">[install]</span></span><br><span class="line"><span class="attr">trusted-host</span>=pypi.douban.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>linux</p>
+<p>vi ~/.pip/pip.conf</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">index-url</span> = http://pypi.douban.com/simple</span><br><span class="line"><span class="section">[install]</span></span><br><span class="line"><span class="attr">trusted-host</span>=pypi.douban.com</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="第三方源列表"><a href="#第三方源列表" class="headerlink" title="第三方源列表"></a>第三方源列表</h1><ul>
+<li><a href="http://pypi.douban.com/" target="_blank" rel="external">http://pypi.douban.com/</a>  豆瓣</li>
+<li><a href="http://pypi.hustunique.com/" target="_blank" rel="external">http://pypi.hustunique.com/</a>  华中理工大学</li>
+<li><a href="http://pypi.sdutlinux.org/" target="_blank" rel="external">http://pypi.sdutlinux.org/</a>  山东理工大学</li>
+<li><a href="http://pypi.mirrors.ustc.edu.cn/" target="_blank" rel="external">http://pypi.mirrors.ustc.edu.cn/</a>  中国科学技术大学</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/01/python-pip设置第三方源/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-01 </div>
 			<div class="article-title"><a href="/2015/04/01/CGI环境变量列表/" >CGI环境变量列表</a></div>						
 		</h3>
 	
@@ -390,58 +470,6 @@ func
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-30 </div>
-			<div class="article-title"><a href="/2015/03/30/error code VS exception/" >error code VS exception</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="错误代码"><a href="#错误代码" class="headerlink" title="错误代码"></a>错误代码</h1><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li><p>错误处理麻烦</p>
-<p>函数调用后，需要检查其错误代码，并对相应错误进行处理(错误处理策略复杂)，<br>需要写很多”不相干”代码，包含很多<code>if-else</code>，代码丑陋，很难周密性检查，需要花很多精力处理。</p>
-</li>
-</ul>
-<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1>
-	
-	</div>
-  <a type="button" href="/2015/03/30/error code VS exception/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-30 </div>
-			<div class="article-title"><a href="/2015/03/30/C++-第三方库列表/" >C++-第三方库列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="http://gflags.github.io/gflags/" target="_blank" rel="external">gflags</a></p>
-<p>命令行参数处理</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/30/C++-第三方库列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -494,7 +522,7 @@ func
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>29</span></a></li>
+			<li><a href="/categories/C/">C++<span>30</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -580,7 +608,7 @@ func
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>19</span></a></li>
+			<li><a href="/categories/linux/">linux<span>20</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -745,48 +773,48 @@ func
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/T/">__T<span>1</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
-		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
-		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
-		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
-		
-			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
-		
-			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
-		
-			<li><a href="/tags/python/">python<span>69</span></a></li>
-		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
-		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
-		
-			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
-		
-			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
-		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
-		
-			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
-		
-			<li><a href="/tags/产品/">产品<span>1</span></a></li>
-		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
+			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
 		
 			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
+			<li><a href="/tags/glog/">glog<span>1</span></a></li>
 		
-		   <li><a href="/tags">...<span>563</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+		
+			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
+		
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
+		
+			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+		
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
+		
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
+		
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+		
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
+		
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
+		
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
+		
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>564</span></a></li>
 		 
 		</ul>
 	</div>
@@ -799,6 +827,14 @@ func
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
@@ -808,14 +844,6 @@ func
     
       <li>
         <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
   </ul>

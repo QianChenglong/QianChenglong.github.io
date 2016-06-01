@@ -112,6 +112,59 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-15 </div>
+			<div class="article-title"><a href="/2015/01/15/vim-查看脚本载入顺序/" >vim-查看脚本载入顺序</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">scriptnames</span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/01/15/vim-查看脚本载入顺序/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-15 </div>
+			<div class="article-title"><a href="/2015/01/15/vim-查看最后设定/" >vim-查看最后设定</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="查看某个选项最后设置位置"><a href="#查看某个选项最后设置位置" class="headerlink" title="查看某个选项最后设置位置"></a>查看某个选项最后设置位置</h1><ul>
+<li><p>查看文件类型</p>
+<pre><code>:verbose set filetype
+</code></pre></li>
+</ul>
+<h1 id="查看某个映射最后定义位置"><a href="#查看某个映射最后定义位置" class="headerlink" title="查看某个映射最后定义位置"></a>查看某个映射最后定义位置</h1><ul>
+<li><p>查看vmap</p>
+<pre><code>:verbose vmap l&lt;CR&gt;
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/15/vim-查看最后设定/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-15 </div>
 			<div class="article-title"><a href="/2015/01/15/windows-in-out-in-C/" >windows-__in-__out-in-C</a></div>						
 		</h3>
 	
@@ -343,92 +396,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-08 </div>
-			<div class="article-title"><a href="/2015/01/08/C运行库链接问题/" >C运行库链接问题</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>在同一个项目中，各组件需要保持一致的C运行库链接方式(动态或静态)，包括使用的第三方库(第三方库的C库链接方式)<br>应与项目C库链接方式一致！</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blog.csdn.net/redline2005/article/details/6313703" target="_blank" rel="external">http://blog.csdn.net/redline2005/article/details/6313703</a></li>
-<li><a href="http://msdn.microsoft.com/zh-cn/library/abx4dbyh(v=vs.100).aspx" target="_blank" rel="external">http://msdn.microsoft.com/zh-cn/library/abx4dbyh(v=vs.100).aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/08/C运行库链接问题/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-07 </div>
-			<div class="article-title"><a href="/2015/01/07/编译安装google-C-test-framework/" >编译安装google-C++-test-framework</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li>VS2010</li>
-<li>cmake-3.1.0</li>
-<li>gtest-1.7.0</li>
-</ul>
-<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><ul>
-<li><p>下载<a href="https://code.google.com/p/googletest/" target="_blank" rel="external">官网</a>，解压</p>
-</li>
-<li><p>新建<code>build</code>目录，并进入</p>
-</li>
-<li><p>生成<code>Makefile</code></p>
-<ul>
-<li><p>静态库(默认C++运行库为静态链接)</p>
-<pre><code>cmake -G &quot;NMake Makefiles&quot; ..
-</code></pre></li>
-<li><p>静态库，C++运行库采用动态链接</p>
-<pre><code>cmake -G &quot;NMake Makefiles&quot; -Dgtest_force_shared_crt=ON ..
-</code></pre></li>
-<li><p>动态库(默认C++运行库为动态链接)</p>
-<pre><code>cmake -G &quot;NMake Makefiles&quot;  -DBUILD_SHARED_LIBS=ON ..
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<p>注：</p>
-<pre><code>-   编译示例，`-Dgtest_build_samples=ON`
-</code></pre><ul>
-<li><p>编译</p>
-<pre><code>nmake
-</code></pre></li>
-</ul>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
-<li>gtest本身的C++运行时库需要和项目保持一致，不然会出现类似<code>msvcprtd.lib(MSVCP100D.dll) : error LNK2005: already defined in gtestd.lib(gtest.obj)</code>！</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stanlearnswindows.blogspot.jp/2010/06/msvcprtdlibmsvcp100ddll-error-lnk2005.html" target="_blank" rel="external">http://stanlearnswindows.blogspot.jp/2010/06/msvcprtdlibmsvcp100ddll-error-lnk2005.html</a></li>
-<li><a href="http://www.cnblogs.com/ShaneZhang/p/3480502.html" target="_blank" rel="external">http://www.cnblogs.com/ShaneZhang/p/3480502.html</a></li>
-<li><a href="http://msdn.microsoft.com/zh-cn/library/abx4dbyh(v=vs.100).aspx" target="_blank" rel="external">http://msdn.microsoft.com/zh-cn/library/abx4dbyh(v=vs.100).aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/07/编译安装google-C-test-framework/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -481,7 +448,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>29</span></a></li>
+			<li><a href="/categories/C/">C++<span>30</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -567,7 +534,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>19</span></a></li>
+			<li><a href="/categories/linux/">linux<span>20</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -732,48 +699,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+		
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+		
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
+		
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+		
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
 		
 			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/博客/">博客<span>1</span></a></li>
+			<li><a href="/tags/array/">array<span>1</span></a></li>
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
 		
-			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+		
+			<li><a href="/tags/http/">http<span>11</span></a></li>
 		
 			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/C-11/">C++11<span>6</span></a></li>
+			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
 		
-			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+			<li><a href="/tags/str/">str<span>1</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
 		
-			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
-		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
-		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
-		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
-		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
-		
-			<li><a href="/tags/warning/">warning<span>2</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>563</span></a></li>
+		   <li><a href="/tags">...<span>564</span></a></li>
 		 
 		</ul>
 	</div>
@@ -786,6 +753,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
@@ -795,14 +770,6 @@
     
       <li>
         <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
   </ul>

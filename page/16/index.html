@@ -111,6 +111,88 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-23 </div>
+			<div class="article-title"><a href="/2015/09/23/go-import/" >go-import</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="正则文法"><a href="#正则文法" class="headerlink" title="正则文法"></a>正则文法</h1><pre><code>ImportDecl       = &quot;import&quot; ( ImportSpec | &quot;(&quot; { ImportSpec &quot;;&quot; } &quot;)&quot; ) .
+ImportSpec       = [ &quot;.&quot; | PackageName ] ImportPath .
+ImportPath       = string_lit .
+</code></pre><h1 id="导入路径-ImportPath"><a href="#导入路径-ImportPath" class="headerlink" title="导入路径(ImportPath)"></a>导入路径(ImportPath)</h1><ul>
+<li>相对路径</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"./test"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>绝对路径(<code>gopath</code>)</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
+<h1 id="包名-PackageName"><a href="#包名-PackageName" class="headerlink" title="包名(PackageName)"></a>包名(PackageName)</h1><ul>
+<li><code>.</code></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> . <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
+<p>这样导入后,在使用的时候无须包名</p>
+<ul>
+<li><code>_</code></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="string">"github.com/go-sql-driver/mysql"</span></span><br></pre></td></tr></table></figure>
+<p>不直接使用该包内的导出标识符</p>
+<ul>
+<li><code>别名</code></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> f <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
+<p>通过别名访问(“f.Println”)</p>
+<ul>
+<li>默认形式</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://golang.org/ref/spec#Import_declarations" target="_blank" rel="external">https://golang.org/ref/spec#Import_declarations</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/23/go-import/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-22 </div>
+			<div class="article-title"><a href="/2015/09/22/产品部署/" >产品部署目录</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="部署目录结构"><a href="#部署目录结构" class="headerlink" title="部署目录结构"></a>部署目录结构</h1><p>部署目录 := 起始目录/项目名称/版本号/构建类型</p>
+<p>构建类型 := 开发 | 测试 | 生产</p>
+<p>开发 := debug</p>
+<p>测试 := test</p>
+<p>生产 := release</p>
+<h2 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;PROJECT_NAME&#125;</span>/<span class="variable">$&#123;PROJECT_VERSION&#125;</span>/<span class="variable">$&#123;CMAKE_BUILD_TYPE&#125;</span></span><br></pre></td></tr></table></figure>
+<p>cmake</p>
+
+	
+	</div>
+  <a type="button" href="/2015/09/22/产品部署/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-22 </div>
 			<div class="article-title"><a href="/2015/09/22/程序配置数据用文件还是数据库/" >程序配置数据用文件还是数据库</a></div>						
 		</h3>
@@ -341,76 +423,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-17 </div>
-			<div class="article-title"><a href="/2015/09/17/mock-server/" >mock-server</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="http://editor.swagger.io/" target="_blank" rel="external">swagger</a></p>
-<p>多语言</p>
-</li>
-<li><p><a href="http://www.mock-server.com/" target="_blank" rel="external">MockServer</a></p>
-</li>
-<li><p><a href="https://github.com/typicode/json-server/" target="_blank" rel="external">https://github.com/typicode/json-server/</a></p>
-</li>
-<li><p><a href="https://github.com/Jayin/json-file-server" target="_blank" rel="external">https://github.com/Jayin/json-file-server</a></p>
-</li>
-<li><p><a href="https://github.com/tomashanacek/mock-server" target="_blank" rel="external">https://github.com/tomashanacek/mock-server</a></p>
-<p>python</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.infoq.com/cn/articles/auto-test-mock-server/" target="_blank" rel="external">自动化测试基础设施（一）——为功能测试构建通用mock server系统</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/17/mock-server/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-17 </div>
-			<div class="article-title"><a href="/2015/09/17/python-global/" >python-global</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var = 1</span><br><span class="line"></span><br><span class="line">def fun():</span><br><span class="line">    var = 2</span><br><span class="line">    print(var)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    fun()</span><br><span class="line">    print(var)</span><br><span class="line">    </span><br><span class="line">&gt;&gt;&gt; main()</span><br><span class="line">2</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-<p>在pytho中函数中,python将<code>var</code>处理成同名的局部变量!</p>
-<p>所以,当执行复合赋值运算时,会报错!</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var = 1</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    var += 2</span><br><span class="line">    print(var)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; main()</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 2, in main</span><br><span class="line">UnboundLocalError: local variable &apos;var&apos; referenced before assignment</span><br></pre></td></tr></table></figure>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>添加<code>global</code>声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var = 1</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    global var</span><br><span class="line">    var += 2</span><br><span class="line">    print(var)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; main()</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/10851906/python-3-unboundlocalerror-local-variable-referenced-before-assignment?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/10851906/python-3-unboundlocalerror-local-variable-referenced-before-assignment?lq=1</a></li>
-<li><a href="http://segmentfault.com/q/1010000000195730" target="_blank" rel="external">python中在哪些情况下必须使用global来声明全局变量？</a></li>
-<li><a href="http://stackoverflow.com/questions/8934772/assigning-to-variable-from-parent-function-local-variable-referenced-before-as" target="_blank" rel="external">http://stackoverflow.com/questions/8934772/assigning-to-variable-from-parent-function-local-variable-referenced-before-as</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/17/python-global/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -463,7 +475,7 @@
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>29</span></a></li>
+			<li><a href="/categories/C/">C++<span>30</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -549,7 +561,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>19</span></a></li>
+			<li><a href="/categories/linux/">linux<span>20</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -714,48 +726,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
 		
-			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
 		
-			<li><a href="/tags/json/">json<span>4</span></a></li>
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
-			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
 		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
 		
-			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
+			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
-			<li><a href="/tags/string/">string<span>8</span></a></li>
+			<li><a href="/tags/linux/">linux<span>37</span></a></li>
 		
-			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+			<li><a href="/tags/python3/">python3<span>2</span></a></li>
 		
-			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>563</span></a></li>
+		   <li><a href="/tags">...<span>564</span></a></li>
 		 
 		</ul>
 	</div>
@@ -768,6 +780,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
@@ -777,14 +797,6 @@
     
       <li>
         <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/vim-出现^M/" ><i class="fa fa-file-o"></i>vim-出现^M</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" ><i class="fa fa-file-o"></i>C++-文件打开模式-binary-VS-text</a>
       </li>
     
   </ul>

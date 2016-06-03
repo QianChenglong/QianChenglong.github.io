@@ -112,6 +112,43 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-26 </div>
+			<div class="article-title"><a href="/2015/03/26/使用宏控制dll导入或导出/" >使用宏控制dll导入或导出</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> XXX_HAS_DLL</span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">ifdef</span> XXX_BUILD_DLL</span></span><br><span class="line"><span class="meta">#       <span class="meta-keyword">if</span> defined(_MSC_VER) || defined(__BORLANDC__) || defined(__MINGW32__)</span></span><br><span class="line"><span class="meta">#           <span class="meta-keyword">define</span> LOG4CPP_EXPORT __declspec(dllexport)</span></span><br><span class="line"><span class="meta">#               <span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#           <span class="meta-keyword">define</span> LOG4CPP_EXPORT</span></span><br><span class="line"><span class="meta">#               <span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#       <span class="meta-keyword">if</span> defined(_MSC_VER) || defined(__BORLANDC__) || defined(__MINGW32__)</span></span><br><span class="line"><span class="meta">#           <span class="meta-keyword">define</span> LOG4CPP_EXPORT __declspec(dllimport)</span></span><br><span class="line"><span class="meta">#               <span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#           <span class="meta-keyword">define</span> LOG4CPP_EXPORT</span></span><br><span class="line"><span class="meta">#               <span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">define</span> XXX_EXPORT</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>说明：</strong></p>
+<ul>
+<li><p>XXX为库名称</p>
+</li>
+<li><p>XXX_HAS_DLL 编译器是否支持<code>__declspec(dllexport)</code></p>
+</li>
+<li><p>XXX_BUILD_DLL 动态库内部使用，还是供外部引用</p>
+</li>
+<li><p>XXX_EXPORT 用来说明某个变量，函数，类是否为导出或导入</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>log4cpp/include/Export.hh</li>
+<li><a href="https://gcc.gnu.org/wiki/Visibilit" target="_blank" rel="external">https://gcc.gnu.org/wiki/Visibilit</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/26/使用宏控制dll导入或导出/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-26 </div>
 			<div class="article-title"><a href="/2015/03/26/log4cpp/" >log4cpp</a></div>						
 		</h3>
 	
@@ -514,35 +551,6 @@ APPEND raw
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-19 </div>
-			<div class="article-title"><a href="/2015/03/19/wmic常用命令/" >wmic常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查看分区信息</p>
-<pre><code>wmic volume list brief
-</code></pre></li>
-<li><p>查看磁盘列表</p>
-<pre><code>wmic diskdrive list
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/19/wmic常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -679,7 +687,7 @@ APPEND raw
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>21</span></a></li>
+			<li><a href="/categories/linux/">linux<span>22</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -844,48 +852,48 @@ APPEND raw
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
-			<li><a href="/tags/strace/">strace<span>1</span></a></li>
+			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
 		
-			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+			<li><a href="/tags/library/">library<span>2</span></a></li>
 		
-			<li><a href="/tags/pip/">pip<span>2</span></a></li>
+			<li><a href="/tags/sql/">sql<span>7</span></a></li>
 		
-			<li><a href="/tags/grep/">grep<span>1</span></a></li>
+			<li><a href="/tags/c/">c<span>8</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/T/">_T<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
 		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
 		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+			<li><a href="/tags/C/">C<span>14</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/部署/">部署<span>1</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
 		
-			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+			<li><a href="/tags/function/">function<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/package/">package<span>4</span></a></li>
 		
-			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+		
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
+		
+			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
 		
 			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
 		
-			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
-		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
-		
-			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>564</span></a></li>
+		   <li><a href="/tags">...<span>565</span></a></li>
 		 
 		</ul>
 	</div>
@@ -896,6 +904,10 @@ APPEND raw
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
+      </li>
     
       <li>
         <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
@@ -911,10 +923,6 @@ APPEND raw
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
   </ul>

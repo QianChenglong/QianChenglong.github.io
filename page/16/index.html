@@ -112,6 +112,30 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-09-23 </div>
+			<div class="article-title"><a href="/2015/09/23/go-int与string转换/" >go-int与string转换</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="int-gt-string"><a href="#int-gt-string" class="headerlink" title="int =&gt; string"></a>int =&gt; string</h1><p>第一种: strconv.Itoa(10)</p>
+<p>第二种: fmt.Sprintf(“%d”, 10)</p>
+<p>第三种: fmt.Sprint(10)</p>
+
+	
+	</div>
+  <a type="button" href="/2015/09/23/go-int与string转换/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-23 </div>
 			<div class="article-title"><a href="/2015/09/23/go-import/" >go-import</a></div>						
 		</h3>
 	
@@ -372,57 +396,6 @@ ImportPath       = string_lit .
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-18 </div>
-			<div class="article-title"><a href="/2015/09/18/go-reflect/" >go-reflect</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>从根本上说,反射只是一个机制,用来检查存储在接口内的类型和值,<br>所以在反射中,有2个类型分别对应(<code>reflect.Type</code>, <code>reflect.Value</code>),<br>分别由<code>reflect.TypeOf(i interface{}) Type</code>和<code>reflect</code></li>
-</ul>
-<h1 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h1><h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><ul>
-<li><p><code>Indirect(v Value) Value</code></p>
-<ul>
-<li>若<code>v</code>是<code>nil pointer</code>,则返回<code>zero value</code></li>
-<li>若<code>v</code>是<code>not nil pointer</code>,则返回其指向的值</li>
-<li>若<code>v</code>不是指针,则返回其本身</li>
-</ul>
-<p>有些接口同时支持指针值和非指针值,通过这个帮助函数,可以简化代码<br>可参考<code>goriila/rpc</code>中,<code>(m *serviceMap) register(rcvr interface{}, name string)</code>中,获取<code>rcvr</code>的类型名</p>
-</li>
-</ul>
-<h2 id="reflect-Value"><a href="#reflect-Value" class="headerlink" title="reflect.Value"></a><code>reflect.Value</code></h2><ul>
-<li><p><code>(v Value) Elem() Value</code></p>
-<ul>
-<li><p><code>v</code>要求是<code>interface</code>或<code>pointer</code>,其他则<code>panic</code></p>
-</li>
-<li><p><code>interface</code>则返回其动态类型值</p>
-</li>
-<li><p><code>pointer</code>则返回指向的值</p>
-</li>
-<li><p>若<code>v</code>是<code>nil</code>,则返回零值</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blog.golang.org/laws-of-reflection" target="_blank" rel="external">http://blog.golang.org/laws-of-reflection</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/18/go-reflect/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -559,7 +532,7 @@ ImportPath       = string_lit .
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>21</span></a></li>
+			<li><a href="/categories/linux/">linux<span>22</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -724,48 +697,48 @@ ImportPath       = string_lit .
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/arch/">arch<span>6</span></a></li>
+			<li><a href="/tags/glog/">glog<span>1</span></a></li>
 		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
 		
-			<li><a href="/tags/vim/">vim<span>23</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
+		
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+		
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+		
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+		
+			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+		
+			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
 		
 			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/包/">包<span>2</span></a></li>
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
 		
-			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+			<li><a href="/tags/curl/">curl<span>2</span></a></li>
 		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
-			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
+			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/linux/">linux<span>39</span></a></li>
 		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
+			<li><a href="/tags/string/">string<span>8</span></a></li>
 		
-			<li><a href="/tags/库/">库<span>2</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
 		
-			<li><a href="/tags/override/">override<span>1</span></a></li>
-		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
-		
-			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
-		
-			<li><a href="/tags/c/">c++<span>8</span></a></li>
-		
-			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
-		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>564</span></a></li>
+		   <li><a href="/tags">...<span>565</span></a></li>
 		 
 		</ul>
 	</div>
@@ -776,6 +749,10 @@ ImportPath       = string_lit .
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
+      </li>
     
       <li>
         <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
@@ -791,10 +768,6 @@ ImportPath       = string_lit .
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
   </ul>

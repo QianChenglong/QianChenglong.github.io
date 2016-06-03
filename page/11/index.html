@@ -111,6 +111,50 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-11-10 </div>
+			<div class="article-title"><a href="/2015/11/10/go-interface/" >go-interface</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p><code>interface</code>是一组<code>method</code>的集合(而不是<code>function</code>, 因为<code>function</code>没有<code>reciver</code>)</p>
+</li>
+<li><p>若某个类型实现了<code>interface</code>内所有<code>method</code>,则该类型对象与该<code>interface</code>对象转换</p>
+</li>
+<li><p><code>interface</code>是一种语义上的抽象,该对象提供了某种<strong>语义抽象</strong>功能,而该功能的具体实现不同</p>
+<p>如<code>coder(编码器)</code>,存在编码,解码功能,但具体可能有<code>json</code>,<code>xml</code>等多种方式实现</p>
+</li>
+<li><p>赋值给<code>interface</code></p>
+<ul>
+<li><p>若为值,则该类型<code>method</code>的<code>reciver</code>也必须是值类型</p>
+</li>
+<li><p>若为指针值,则该类型<code>method</code>的<code>reciver</code>也必须是指针类型</p>
+</li>
+</ul>
+<p>因为<code>method</code>的<code>reciver</code>是否为指针,代表的语义功能可能完全不一样</p>
+<p><code>reciver</code>为指针类型,意味着在该<code>method</code>中,很可能会改变该对象自身(具体由实现决定)</p>
+<p>若一个<code>method</code>要求的是指针类型,而在给<code>interface</code>赋值时,只是传值的话,是无法改变该对象的!</p>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/02.6.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/02.6.md</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/10/go-interface/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-11-09 </div>
 			<div class="article-title"><a href="/2015/11/09/go-rpc/" >go-rpc</a></div>						
 		</h3>
@@ -427,50 +471,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-02 </div>
-			<div class="article-title"><a href="/2015/11/02/mysql-中文编码/" >mysql-中文编码</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
-<li>存储使用<code>UTF-8</code>(中文占用3B,英文占用1B)</li>
-</ul>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p><code>char(n)</code>或<code>vchar(n)</code>中<code>n</code>指的是字符容量,具体占用字节空间取决于编码集</p>
-</li>
-<li><p>字符</p>
-<ul>
-<li><p>一个汉字即一个字符</p>
-</li>
-<li><p>一个英文字母即一个字符</p>
-</li>
-</ul>
-</li>
-<li><p><code>char_length</code>   获取字符串的字符数目</p>
-</li>
-<li><p><code>length</code>    获取字节数(所占空间大小)</p>
-</li>
-</ul>
-<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like 'character%';</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">| Variable_name            | Value                      |</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">| character_set_client     | utf8                       |</span><br><span class="line">| character_set_connection | utf8                       |</span><br><span class="line">| character_set_database   | utf8                       |</span><br><span class="line">| character_set_filesystem | binary                     |</span><br><span class="line">| character_set_results    | utf8                       |</span><br><span class="line">| character_set_server     | utf8                       |</span><br><span class="line">| character_set_system     | utf8                       |</span><br><span class="line">| character_sets_dir       | /usr/share/mysql/charsets/ |</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">mysql&gt; select char_length('a');</span><br><span class="line">+------------------+</span><br><span class="line">| char_length('a') |</span><br><span class="line">+------------------+</span><br><span class="line">|                1 |</span><br><span class="line">+------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select length('a');</span><br><span class="line">+-------------+</span><br><span class="line">| length('a') |</span><br><span class="line">+-------------+</span><br><span class="line">|           1 |</span><br><span class="line">+-------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select char_length('汉');</span><br><span class="line">+--------------------+</span><br><span class="line">| char_length('汉')  |</span><br><span class="line">+--------------------+</span><br><span class="line">|                  1 |</span><br><span class="line">+--------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select length('汉');</span><br><span class="line">+---------------+</span><br><span class="line">| length('汉')  |</span><br><span class="line">+---------------+</span><br><span class="line">|             3 |</span><br><span class="line">+---------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.0/en/string-functions.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/string-functions.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/02/mysql-中文编码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -607,7 +607,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>21</span></a></li>
+			<li><a href="/categories/linux/">linux<span>22</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -772,48 +772,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
+			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
 		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
-		
-			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
-		
-			<li><a href="/tags/text/">text<span>1</span></a></li>
-		
-			<li><a href="/tags/linux/">linux<span>38</span></a></li>
-		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
-		
-			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
-		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
-		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
-		
-			<li><a href="/tags/database/">database<span>3</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
 			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
 		
-			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
 		
-			<li><a href="/tags/script/">script<span>1</span></a></li>
+			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
 		
-			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
+		
+			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
+		
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
+		
+			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
+		
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
+		
+			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+		
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+		
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+		
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>564</span></a></li>
+		   <li><a href="/tags">...<span>565</span></a></li>
 		 
 		</ul>
 	</div>
@@ -824,6 +824,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
+      </li>
     
       <li>
         <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
@@ -839,10 +843,6 @@
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
   </ul>

@@ -112,6 +112,93 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-04-03 </div>
+			<div class="article-title"><a href="/2015/04/03/交换机端口模式/" >交换机端口模式</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="access"><a href="#access" class="headerlink" title="access"></a>access</h1><ul>
+<li><p>收</p>
+<p>判断是否有VLAN信息</p>
+<ul>
+<li><p>如果没有则打上端口的PVID，并进行交换转发，</p>
+</li>
+<li><p>如果有则直接丢弃（缺省）</p>
+</li>
+</ul>
+</li>
+<li><p>发</p>
+<p>将报文的VLAN信息剥离，直接发送出去</p>
+</li>
+</ul>
+<h1 id="Trunk"><a href="#Trunk" class="headerlink" title="Trunk"></a>Trunk</h1><ul>
+<li><p>收</p>
+<p>收到一个报文，判断是否有VLAN信息</p>
+<ul>
+<li><p>如果没有则打上端口的PVID，并进行交换转发，</p>
+</li>
+<li><p>如果有判断该trunk端口是否允许该 VLAN的数据进入</p>
+<ul>
+<li><p>如果可以则转发</p>
+</li>
+<li><p>否则丢弃</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>发</p>
+<p>比较端口的PVID和将要发送报文的VLAN信息</p>
+<ul>
+<li><p>如果两者相等则剥离VLAN信息，再发送</p>
+</li>
+<li><p>如果不相等则直接发送</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Hybrid"><a href="#Hybrid" class="headerlink" title="Hybrid"></a>Hybrid</h1><ul>
+<li><p>收</p>
+<p>收到一个报文判断是否有VLAN信息</p>
+<ul>
+<li><p>如果没有则打上端口的PVID，并进行交换转发，</p>
+</li>
+<li><p>如果有则判断该hybrid端口是否允许该VLAN的数据进入</p>
+<ul>
+<li><p>如果可以则转发</p>
+</li>
+<li><p>否则丢弃</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>发</p>
+<p>判断该VLAN在本端口的属性（disp interface 即可看到该端口对哪些VLAN是untag， 哪些VLAN是tag）</p>
+<ul>
+<li><p>如果是untag则剥离VLAN信息，再发送</p>
+</li>
+<li><p>如果是tag则直接发送</p>
+</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/03/交换机端口模式/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-03 </div>
 			<div class="article-title"><a href="/2015/04/03/python-获取父类名称/" >python-获取父类名称</a></div>						
 		</h3>
 	
@@ -404,35 +491,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-01 </div>
-			<div class="article-title"><a href="/2015/04/01/python-获取主模块文件名/" >python-获取主模块文件名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> __main__</span><br><span class="line"><span class="keyword">print</span> __main__.__file__</span><br></pre></td></tr></table></figure>
-<p><strong>Note:</strong></p>
-<ul>
-<li>交互式shell中执行时，<code>__main__</code>没有<code>__file__</code>属性</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/01/python-获取主模块文件名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -569,7 +627,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>21</span></a></li>
+			<li><a href="/categories/linux/">linux<span>22</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -734,48 +792,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>6</span></a></li>
+			<li><a href="/tags/文件/">文件<span>7</span></a></li>
 		
-			<li><a href="/tags/理论/">理论<span>1</span></a></li>
+			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
 		
-			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
 		
-			<li><a href="/tags/python/">python<span>69</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/宏/">宏<span>4</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
-			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
 		
-			<li><a href="/tags/散列/">散列<span>1</span></a></li>
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
 		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
 		
-			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
-		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
-		
-			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
 			<li><a href="/tags/ps/">ps<span>1</span></a></li>
 		
-			<li><a href="/tags/sal/">sal<span>1</span></a></li>
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
+		
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+		
+			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>564</span></a></li>
+		   <li><a href="/tags">...<span>565</span></a></li>
 		 
 		</ul>
 	</div>
@@ -786,6 +844,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
+      </li>
     
       <li>
         <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
@@ -801,10 +863,6 @@
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
   </ul>

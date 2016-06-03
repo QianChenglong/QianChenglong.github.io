@@ -111,6 +111,53 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-27 </div>
+			<div class="article-title"><a href="/2015/01/27/python-映射list/" >python-映射list</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="数学联系"><a href="#数学联系" class="headerlink" title="数学联系"></a>数学联系</h1><p>对某个集合进行映射（数学运算），生成一个新集合</p>
+<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>将一个序列映射为另一个序列，新序列的元素依赖于原序列的元素</p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><ul>
+<li>简单转换</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>li = [<span class="number">1</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">4</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[elem*<span class="number">2</span> <span class="keyword">for</span> elem <span class="keyword">in</span> li]      <span class="number">1</span></span><br><span class="line">[<span class="number">2</span>, <span class="number">18</span>, <span class="number">16</span>, <span class="number">8</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>li                           <span class="number">2</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">4</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>li = [elem*<span class="number">2</span> <span class="keyword">for</span> elem <span class="keyword">in</span> li] <span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>li</span><br><span class="line">[<span class="number">2</span>, <span class="number">18</span>, <span class="number">16</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>buildConnectionString</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>params = &#123;<span class="string">"server"</span>:<span class="string">"mpilgrim"</span>, <span class="string">"database"</span>:<span class="string">"master"</span>, <span class="string">"uid"</span>:<span class="string">"sa"</span>, <span class="string">"pwd"</span>:<span class="string">"secret"</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>params.items()</span><br><span class="line">[(<span class="string">'server'</span>, <span class="string">'mpilgrim'</span>), (<span class="string">'uid'</span>, <span class="string">'sa'</span>), (<span class="string">'database'</span>, <span class="string">'master'</span>), (<span class="string">'pwd'</span>, <span class="string">'secret'</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[k <span class="keyword">for</span> k, v <span class="keyword">in</span> params.items()]                <span class="number">1</span></span><br><span class="line">[<span class="string">'server'</span>, <span class="string">'uid'</span>, <span class="string">'database'</span>, <span class="string">'pwd'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[v <span class="keyword">for</span> k, v <span class="keyword">in</span> params.items()]                <span class="number">2</span></span><br><span class="line">[<span class="string">'mpilgrim'</span>, <span class="string">'sa'</span>, <span class="string">'master'</span>, <span class="string">'secret'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">"%s=%s"</span> % (k, v) <span class="keyword">for</span> k, v <span class="keyword">in</span> params.items()] <span class="number">3</span></span><br><span class="line">[<span class="string">'server=mpilgrim'</span>, <span class="string">'uid=sa'</span>, <span class="string">'database=master'</span>, <span class="string">'pwd=secret'</span>]</span><br></pre></td></tr></table></figure>
+<h1 id="过滤列表推导"><a href="#过滤列表推导" class="headerlink" title="过滤列表推导"></a>过滤列表推导</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>special_squares = [ x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>) <span class="keyword">if</span> x**<span class="number">2</span> &gt; <span class="number">5</span> <span class="keyword">and</span> x**<span class="number">2</span> &lt; <span class="number">50</span> ]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> special_squares</span><br><span class="line">[<span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h2><ul>
+<li><p><code>range(10)</code></p>
+</li>
+<li><p><code>for x in range(10)</code></p>
+</li>
+<li><p><code>if ...</code></p>
+</li>
+<li><p><code>x**2</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.u.arizona.edu/~erdmann/mse350/topics/list_comprehensions.html" target="_blank" rel="external">http://www.u.arizona.edu/~erdmann/mse350/topics/list_comprehensions.html</a></li>
+<li><a href="http://woodpecker.org.cn/diveintopython/native_data_types/mapping_lists.html" target="_blank" rel="external">http://woodpecker.org.cn/diveintopython/native_data_types/mapping_lists.html</a></li>
+<li><a href="https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions" target="_blank" rel="external">https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/27/python-映射list/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-26 </div>
 			<div class="article-title"><a href="/2015/01/26/vim-xptemplate片段编写/" >vim-xptemplate片段编写</a></div>						
 		</h3>
@@ -386,56 +433,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-24 </div>
-			<div class="article-title"><a href="/2015/01/24/python-获取文件时间属性/" >python-获取文件时间属性</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="os-path"><a href="#os-path" class="headerlink" title="os.path"></a>os.path</h1><ul>
-<li><p>修改时间</p>
-<pre><code>os.path.getmtime()
-</code></pre></li>
-</ul>
-<ul>
-<li><p>访问时间</p>
-<pre><code>os.path.getactime()
-</code></pre></li>
-</ul>
-<ul>
-<li><p>创建时间</p>
-<pre><code>os.path.getctime()
-</code></pre></li>
-</ul>
-<h1 id="os-stat"><a href="#os-stat" class="headerlink" title="os.stat"></a>os.stat</h1><ul>
-<li><p>修改时间</p>
-<pre><code>os.stat.st_mtime
-</code></pre></li>
-<li><p>访问时间</p>
-<pre><code>os.stat.st_atime
-</code></pre></li>
-<li><p>创建时间</p>
-<pre><code>os.stat.st_ctime
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/237079/how-to-get-file-creation-modification-date-times-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/237079/how-to-get-file-creation-modification-date-times-in-python</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/24/python-获取文件时间属性/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -572,7 +569,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>21</span></a></li>
+			<li><a href="/categories/linux/">linux<span>22</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -737,48 +734,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
 		
-			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
 		
-			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
+			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
 		
-			<li><a href="/tags/link/">link<span>2</span></a></li>
+			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
 		
-			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
+			<li><a href="/tags/empty/">empty<span>1</span></a></li>
 		
-			<li><a href="/tags/cron/">cron<span>2</span></a></li>
+			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
 		
-			<li><a href="/tags/产品/">产品<span>1</span></a></li>
+			<li><a href="/tags/exception/">exception<span>1</span></a></li>
 		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>1</span></a></li>
 		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 		
-			<li><a href="/tags/database/">database<span>3</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+			<li><a href="/tags/string/">string<span>8</span></a></li>
 		
-			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
-			<li><a href="/tags/程序/">程序<span>1</span></a></li>
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
+			<li><a href="/tags/进程/">进程<span>1</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/command/">command<span>8</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/debug/">debug<span>2</span></a></li>
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/启动/">启动<span>1</span></a></li>
 		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>564</span></a></li>
+		   <li><a href="/tags">...<span>565</span></a></li>
 		 
 		</ul>
 	</div>
@@ -789,6 +786,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
+      </li>
     
       <li>
         <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
@@ -804,10 +805,6 @@
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
   </ul>

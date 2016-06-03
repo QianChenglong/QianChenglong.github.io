@@ -111,6 +111,35 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-02-07 </div>
+			<div class="article-title"><a href="/2015/02/07/ubuntu-编译openwrt/" >ubuntu-编译openwrt</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>ubuntu-14.04</li>
+</ul>
+<h1 id="搭建编译环境"><a href="#搭建编译环境" class="headerlink" title="搭建编译环境"></a>搭建编译环境</h1><ul>
+<li><p>安装依赖工具</p>
+<pre><code>sudo apt-get install gawk flex zlib1g-dev libncurses5-dev subversion git findutils build-essential binutils 
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/07/ubuntu-编译openwrt/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-06 </div>
 			<div class="article-title"><a href="/2015/02/06/wireshark-显示过滤器/" >wireshark-显示过滤器</a></div>						
 		</h3>
@@ -527,33 +556,6 @@ work Adapter
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-05 </div>
-			<div class="article-title"><a href="/2015/02/05/getaddrinfo开启c99后无法编译/" >getaddrinfo开启c99后无法编译</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>开启了<code>c99</code>后，gcc采用严格标准c(<code>__STRICT_ANSI</code>)，而<code>getaddrinfo</code>是POSIX定义的，<br>所以无法使用，具体可查看<code>/usr/include/netdb.h</code>，<code>/usr/include/features.h</code></p>
-<p><strong>摘取:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">The `-ansi&apos; switch to the GNU C compiler, and standards conformance</span><br><span class="line">options such as `-std=c99&apos;, define __STRICT_ANSI__.  If none of</span><br><span class="line">these are defined, or if _DEFAULT_SOURCE is defined, the default is</span><br><span class="line">to have _SVID_SOURCE, _BSD_SOURCE, and _POSIX_SOURCE set to one and</span><br><span class="line">_POSIX_C_SOURCE set to 200809L.  If more than one of these are</span><br><span class="line">defined, they accumulate.  For example __STRICT_ANSI__,</span><br><span class="line">_POSIX_SOURCE and _POSIX_C_SOURCE together give you ISO C, 1003.1,</span><br><span class="line">and 1003.2, but nothing else.</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://groups.google.com/d/msg/gnu.gcc.help/a88eE4Ga73o/P3vji9iM5pwJ" target="_blank" rel="external">https://groups.google.com/d/msg/gnu.gcc.help/a88eE4Ga73o/P3vji9iM5pwJ</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/05/getaddrinfo开启c99后无法编译/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -690,7 +692,7 @@ work Adapter
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>21</span></a></li>
+			<li><a href="/categories/linux/">linux<span>22</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -855,48 +857,48 @@ work Adapter
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
+			<li><a href="/tags/库/">库<span>2</span></a></li>
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
 		
-			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
+			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
 		
-			<li><a href="/tags/main/">__main__<span>1</span></a></li>
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
 		
-			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
-			<li><a href="/tags/C-11/">C++11<span>6</span></a></li>
+			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
 		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
 		
-			<li><a href="/tags/exit/">exit<span>1</span></a></li>
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
 		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
+			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
 		
-			<li><a href="/tags/log/">log<span>1</span></a></li>
+			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
 		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/gcc/">gcc<span>4</span></a></li>
 		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
 		
-			<li><a href="/tags/samba/">samba<span>3</span></a></li>
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
 		
-			<li><a href="/tags/warning/">warning<span>2</span></a></li>
+			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
 		
-			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
+			<li><a href="/tags/cron/">cron<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>564</span></a></li>
+		   <li><a href="/tags">...<span>565</span></a></li>
 		 
 		</ul>
 	</div>
@@ -907,6 +909,10 @@ work Adapter
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
+      </li>
     
       <li>
         <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
@@ -922,10 +928,6 @@ work Adapter
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
   </ul>

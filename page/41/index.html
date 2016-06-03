@@ -112,6 +112,46 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-28 </div>
+			<div class="article-title"><a href="/2015/02/28/ANSI编码/" >ANSI编码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="ANSI编码是什么？"><a href="#ANSI编码是什么？" class="headerlink" title="ANSI编码是什么？"></a>ANSI编码是什么？</h1><p>ANSI编码并不是一种编码！而是<strong>美国国家标准学会(American National Standards Institute)</strong>关于制作的ANSI C中关于区域字符编码的标准。</p>
+<p>所以各地不同的编码方式统称为<strong>ANSI编码</strong></p>
+<p>在简体中文windows系统下，利用记事本等软件默认保存为<code>ANSI编码</code>，对应的代码页为<code>cp936</code>(GBK)。</p>
+<p>ANSI编码采用1~4字节进行编码，是一种变长编码方案，又叫做多字节字符集(MBCS)。</p>
+<h1 id="ANSI编码的缺陷"><a href="#ANSI编码的缺陷" class="headerlink" title="ANSI编码的缺陷"></a>ANSI编码的缺陷</h1><p>ANSI编码都是各区域针对本地的编码方式，是在兼容ASCII编码的基础上拓充而来的，如GB2312，BIG5等。<br>因为各地编码存在冲突，所以无法做到互通。</p>
+<h1 id="ANSI编码怎么实现的？"><a href="#ANSI编码怎么实现的？" class="headerlink" title="ANSI编码怎么实现的？"></a>ANSI编码怎么实现的？</h1><ul>
+<li><p>原ASCII编码字符保持不变，仍然为占用1个字节。</p>
+</li>
+<li><p>对其他字符，采用多字节编码，第一字节(前导字节)具有一定特征来表明后续字节一起来表示一个字符，</p>
+<p>如在GBK编码中，前导字节范围为0x81-0xFE。</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zh.wikipedia.org/wiki/%E4%BB%A3%E7%A0%81%E9%A1%B5#Windows.EF.BC.88ANSI.EF.BC.89.E4.BB.A3.E7.A2.BC.E9.A0.81" target="_blank" rel="external">维基-Windows(ANSI)代码页</a></li>
+<li><a href="http://en.wikipedia.org/wiki/American_National_Standards_Institute" target="_blank" rel="external">http://en.wikipedia.org/wiki/American_National_Standards_Institute</a></li>
+<li><a href="http://www.guokr.com/blog/763017/" target="_blank" rel="external">遇到乱码不怕不怕啦——计算机字符编码详尽讲解</a></li>
+<li><a href="http://baike.baidu.com/view/1273097.htm" target="_blank" rel="external">百度百科-ANSI编码</a></li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/vstudio/5z097dxa(v=vs.110" target="_blank" rel="external">msdn-支持多字节字符集</a>.aspx)</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/28/ANSI编码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-28 </div>
 			<div class="article-title"><a href="/2015/02/28/windows编程常用宏定义/" >windows编程常用宏定义</a></div>						
 		</h3>
 	
@@ -414,34 +454,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-12 </div>
-			<div class="article-title"><a href="/2015/02/12/find-常用命令/" >find-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="批量重命名"><a href="#批量重命名" class="headerlink" title="批量重命名"></a>批量重命名</h1><pre><code>find . -name &apos;*命令理解&apos; -exec rename -v &apos;s/命令理解/-comprehension/&apos; {} \;
-</code></pre><h1 id="删除vs2010的无用文件"><a href="#删除vs2010的无用文件" class="headerlink" title="删除vs2010的无用文件"></a>删除vs2010的无用文件</h1><pre><code>find . -regextype  posix-extended -regex &quot;.*Debug|.*\.sdf&quot; -exec rm -rf {} \;
-</code></pre><h1 id="批量添加-txt拓展名"><a href="#批量添加-txt拓展名" class="headerlink" title="批量添加.txt拓展名"></a>批量添加.txt拓展名</h1><pre><code>find . -type f -regextype posix-extended -regex &quot;\\.*[^.]*$&quot; -exec mv -v {} {}.txt \;
-</code></pre><h1 id="找出最近修改过的文件"><a href="#找出最近修改过的文件" class="headerlink" title="找出最近修改过的文件"></a>找出最近修改过的文件</h1><pre><code>find . -mtime -4 | grep &apos;循环&apos;
-</code></pre><h1 id="批量删除文件"><a href="#批量删除文件" class="headerlink" title="批量删除文件"></a>批量删除文件</h1><pre><code>find . -name &lt;expr&gt; -exec rm -v {} \;
-</code></pre><h1 id="批量删除-git目录"><a href="#批量删除-git目录" class="headerlink" title="批量删除.git目录"></a>批量删除.git目录</h1><pre><code>find . -name &quot;.git&quot; -type d  -print0 | xargs -0 rm -vrf
-</code></pre><h1 id="多目录查找"><a href="#多目录查找" class="headerlink" title="多目录查找"></a>多目录查找</h1><pre><code>find src lib -name &quot;*.[ch]&quot;
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/02/12/find-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -578,7 +590,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>21</span></a></li>
+			<li><a href="/categories/linux/">linux<span>22</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -743,48 +755,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
 		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
+			<li><a href="/tags/install/">install<span>2</span></a></li>
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/macro/">macro<span>3</span></a></li>
 		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
 		
-			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
 		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>6</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/static/">static<span>2</span></a></li>
+			<li><a href="/tags/module/">module<span>3</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+			<li><a href="/tags/size/">size<span>1</span></a></li>
 		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
 		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
+			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
 		
-			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+			<li><a href="/tags/资源/">资源<span>2</span></a></li>
 		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
 		
-			<li><a href="/tags/build/">build<span>1</span></a></li>
+			<li><a href="/tags/编译/">编译<span>10</span></a></li>
 		
-			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
+			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>564</span></a></li>
+		   <li><a href="/tags">...<span>565</span></a></li>
 		 
 		</ul>
 	</div>
@@ -795,6 +807,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
+      </li>
     
       <li>
         <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
@@ -810,10 +826,6 @@
     
       <li>
         <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-StringPiece/" ><i class="fa fa-file-o"></i>C++-StringPiece</a>
       </li>
     
   </ul>

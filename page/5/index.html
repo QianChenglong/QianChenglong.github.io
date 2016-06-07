@@ -193,6 +193,27 @@
 <pre><code>redis-cli KEYS &quot;prefix:*&quot; | xargs redis-cli DEL
 </code></pre></li>
 </ul>
+<h1 id="命令返回值"><a href="#命令返回值" class="headerlink" title="命令返回值"></a>命令返回值</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> redisReply &#123;</span><br><span class="line">    <span class="keyword">int</span> type; <span class="comment">/* REDIS_REPLY_* */</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> integer; <span class="comment">/* The integer when type is REDIS_REPLY_INTEGER */</span></span><br><span class="line">    <span class="keyword">int</span> len; <span class="comment">/* Length of string */</span></span><br><span class="line">    <span class="keyword">char</span> *str; <span class="comment">/* Used for both REDIS_REPLY_ERROR and REDIS_REPLY_STRING */</span></span><br><span class="line">    <span class="keyword">size_t</span> elements; <span class="comment">/* number of elements, for REDIS_REPLY_ARRAY */</span></span><br><span class="line">    <span class="keyword">struct</span> redisReply **element; <span class="comment">/* elements vector for REDIS_REPLY_ARRAY */</span></span><br><span class="line">&#125; redisReply;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>状态(<code>#define REDIS_REPLY_STATUS 5</code>),  <code>str</code>=&gt; value</p>
+<ul>
+<li><p><code>SET</code> =&gt; “OK”</p>
+</li>
+<li><p><code>PING</code> =&gt; “PONG”</p>
+</li>
+</ul>
+</li>
+<li><p>错误(<code>#define REDIS_REPLY_ERROR 6</code>), <code>str</code> =&gt; value</p>
+</li>
+<li><p>整数(<code>#define REDIS_REPLY_INTEGER 3</code>), <code>integer</code> =&gt; value</p>
+<p>一些整数操作命令，如<code>INCR</code>返回增加后的键值</p>
+</li>
+<li><p>字符串(<code>#define REDIS_REPLY_STRING 1</code>), <code>str</code> =&gt; value</p>
+<p>当请求一个字符串类型键的键值时，若每个键不存在，则返回特殊值<code>nil(#define REDIS_REPLY_NIL 4)</code></p>
+</li>
+<li><p>字符串数组(<code>#define REDIS_REPLY_ARRAY 2</code>), <code>str</code> =&gt; value, <code>element</code> =&gt; next</p>
+</li>
+</ul>
 
 	
 	</div>
@@ -723,45 +744,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
 		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
+			<li><a href="/tags/char/">char<span>2</span></a></li>
 		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
+		
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+		
+			<li><a href="/tags/import/">import<span>3</span></a></li>
+		
+			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+		
+			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
+		
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+		
+			<li><a href="/tags/module/">module<span>3</span></a></li>
+		
+			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
 		
 			<li><a href="/tags/C-11/">C++11<span>6</span></a></li>
 		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
+			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
 		
-			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
 		
-			<li><a href="/tags/主键/">主键<span>1</span></a></li>
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
 		
-			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
+			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
 		
-			<li><a href="/tags/override/">override<span>1</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>2</span></a></li>
+			<li><a href="/tags/suse/">suse<span>1</span></a></li>
 		
-			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
-		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
-		
-			<li><a href="/tags/登录/">登录<span>2</span></a></li>
-		
-			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
-		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
-		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
-		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
-		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>

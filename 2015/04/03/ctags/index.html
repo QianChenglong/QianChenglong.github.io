@@ -113,12 +113,20 @@
 	<div class="mypage">		
 	  		
 
-	  <h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+	  <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>可以指定多个文件或目录</p>
+<pre><code>ctags file1 dir1
+</code></pre></li>
+</ul>
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
 <li><p>–list-languages</p>
 <p>查看支持的语言</p>
 </li>
 <li><p>–list-kinds=python</p>
 <p>查看某种语言选项</p>
+</li>
+<li><p>–list-maps</p>
+<p>查看对应语言的拓展名映射规则</p>
 </li>
 <li><p>-R</p>
 <p>递归处理</p>
@@ -134,6 +142,11 @@
 </li>
 <li><p>–exclude</p>
 <p>指定多个时，需要分开指定。<code>--exclude=.git --exclude=node_modules --exclude=test</code></p>
+</li>
+<li><p>–extra=[+|−]flags</p>
+<ul>
+<li>q 生成额外的的修饰符tag(class::member)，以帮助定位类方法，但是会造成双倍大小！尽量不用。</li>
+</ul>
 </li>
 </ul>
 <h1 id="tag记录格式"><a href="#tag记录格式" class="headerlink" title="tag记录格式()"></a>tag记录格式(<http: ctags.sourceforge.net="" ctags.html#tag="" file="" format="">)</http:></h1><p><code>tag_name&lt;TAB&gt;file_name&lt;TAB&gt;ex_cmd;&quot;&lt;TAB&gt;extension_fields</code></p>

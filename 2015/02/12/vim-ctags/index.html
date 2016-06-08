@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>vim-ctags配置 | 心若天府</title>
+  <title>vim-ctags | 心若天府</title>
   <meta name="author" content="钱成龙">
   
   <meta name="description" content="笔记，经验总结，资料">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="vim-ctags配置"/>
+  <meta property="og:title" content="vim-ctags"/>
   <meta property="og:site_name" content="心若天府"/>
 
   
@@ -93,7 +93,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> vim-ctags配置</h1>
+			<h1 class="title title-inverse "> vim-ctags</h1>
 		</div>		
 	
 
@@ -113,15 +113,24 @@
 	<div class="mypage">		
 	  		
 
-	  <ul>
-<li><p>设置vim持续查找tag文件，直到根目录</p>
-<pre><code>set tags=tags;
-</code></pre><p>参考：</p>
-<ol>
-<li><a href="http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks?rq=1</a></li>
-</ol>
+	  <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>tags</code>用来指定tags搜索目录列表</p>
+<p>下列情况下，不再查找列表中的下个文件:</p>
+<ul>
+<li>找到了当前缓冲区的匹配的静态标签。</li>
+<li>找到了全局标签。</li>
+</ul>
+</li>
+<li><p>优先使用当前文件所在目录的tags，再使用当前目录的tags</p>
+<p> set tags=./tags;tags</p>
+</li>
+<li><p>tagfiles()  返回 |List|，当前缓冲区用于搜索的标签文件名。这是 ‘tags’ 选项扩展后的内容。</p>
 </li>
 </ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks?rq=1</a></li>
+<li><code>:help tags-option</code></li>
+</ol>
 	  
 	</div>
 
@@ -176,7 +185,7 @@
   <h2 class="title">留言</h2>
 
   
-  	 <div class="ds-thread" data-thread-key="2015/02/12/vim-ctags配置/" data-title="vim-ctags配置" data-url="https://qianchenglong.github.io/2015/02/12/vim-ctags配置/"></div>  
+  	 <div class="ds-thread" data-thread-key="2015/02/12/vim-ctags/" data-title="vim-ctags" data-url="https://qianchenglong.github.io/2015/02/12/vim-ctags/"></div>  
   
 </section>
 

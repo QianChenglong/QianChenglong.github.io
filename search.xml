@@ -5294,20 +5294,6 @@ boost::shared_ptr&lt;A&gt; p2(a);
     </entry>
     
     <entry>
-      <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
-      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.scroped_ptr/</url>
-      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li>提供一种垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
-</ul>
-<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
-<li>noncopyable，意味着不能存放到容器，或多次引用</li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>当不需要传递所有权时，可使用</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/scoped_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(id)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::scoped_ptr&lt;A&gt; i(new A(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i-&gt;id_ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[C++-智能指针之auto_ptr]]></title>
       <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bauto_ptr/</url>
       <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
@@ -5331,6 +5317,20 @@ auto_ptr&lt;int&gt;ap(p);
 <li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
 <li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
 </ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
+      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.scroped_ptr/</url>
+      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li>提供一种垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
+</ul>
+<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
+<li>noncopyable，意味着不能存放到容器，或多次引用</li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>当不需要传递所有权时，可使用</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/scoped_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(id)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::scoped_ptr&lt;A&gt; i(new A(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i-&gt;id_ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -6447,12 +6447,20 @@ pacman-key --lsign-key 4209170B
     <entry>
       <title><![CDATA[ctags]]></title>
       <url>https://qianchenglong.github.io/2015/04/03/ctags/</url>
-      <content type="html"><![CDATA[<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+      <content type="html"><![CDATA[<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>可以指定多个文件或目录</p>
+<pre><code>ctags file1 dir1
+</code></pre></li>
+</ul>
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
 <li><p>–list-languages</p>
 <p>查看支持的语言</p>
 </li>
 <li><p>–list-kinds=python</p>
 <p>查看某种语言选项</p>
+</li>
+<li><p>–list-maps</p>
+<p>查看对应语言的拓展名映射规则</p>
 </li>
 <li><p>-R</p>
 <p>递归处理</p>
@@ -6468,6 +6476,11 @@ pacman-key --lsign-key 4209170B
 </li>
 <li><p>–exclude</p>
 <p>指定多个时，需要分开指定。<code>--exclude=.git --exclude=node_modules --exclude=test</code></p>
+</li>
+<li><p>–extra=[+|−]flags</p>
+<ul>
+<li>q 生成额外的的修饰符tag(class::member)，以帮助定位类方法，但是会造成双倍大小！尽量不用。</li>
+</ul>
 </li>
 </ul>
 <h1 id="tag记录格式"><a href="#tag记录格式" class="headerlink" title="tag记录格式()"></a>tag记录格式(<http: ctags.sourceforge.net="" ctags.html#tag="" file="" format="">)</http:></h1><p><code>tag_name&lt;TAB&gt;file_name&lt;TAB&gt;ex_cmd;&quot;&lt;TAB&gt;extension_fields</code></p>
@@ -8531,17 +8544,26 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
     </entry>
     
     <entry>
-      <title><![CDATA[vim-ctags配置]]></title>
-      <url>https://qianchenglong.github.io/2015/02/12/vim-ctags%E9%85%8D%E7%BD%AE/</url>
-      <content type="html"><![CDATA[<ul>
-<li><p>设置vim持续查找tag文件，直到根目录</p>
-<pre><code>set tags=tags;
-</code></pre><p>参考：</p>
-<ol>
-<li><a href="http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks?rq=1</a></li>
-</ol>
+      <title><![CDATA[vim-ctags]]></title>
+      <url>https://qianchenglong.github.io/2015/02/12/vim-ctags/</url>
+      <content type="html"><![CDATA[<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>tags</code>用来指定tags搜索目录列表</p>
+<p>下列情况下，不再查找列表中的下个文件:</p>
+<ul>
+<li>找到了当前缓冲区的匹配的静态标签。</li>
+<li>找到了全局标签。</li>
+</ul>
+</li>
+<li><p>优先使用当前文件所在目录的tags，再使用当前目录的tags</p>
+<p> set tags=./tags;tags</p>
+</li>
+<li><p>tagfiles()  返回 |List|，当前缓冲区用于搜索的标签文件名。这是 ‘tags’ 选项扩展后的内容。</p>
 </li>
 </ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks?rq=1</a></li>
+<li><code>:help tags-option</code></li>
+</ol>
 ]]></content>
     </entry>
     

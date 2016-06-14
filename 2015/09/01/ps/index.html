@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>linux-ps | 心若天府</title>
+  <title>ps | 心若天府</title>
   <meta name="author" content="钱成龙">
   
   <meta name="description" content="笔记，经验总结，资料">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="linux-ps"/>
+  <meta property="og:title" content="ps"/>
   <meta property="og:site_name" content="心若天府"/>
 
   
@@ -93,7 +93,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> linux-ps</h1>
+			<h1 class="title title-inverse "> ps</h1>
 		</div>		
 	
 
@@ -131,6 +131,17 @@
 <li><p>-j</p>
 <p>jobs格式，输出<code>PGID   SID  C STIME</code></p>
 </li>
+<li><p>-o format(<code>/STANDARD FORMAT SPECIFIERS</code>)</p>
+<p>指定输出格式(列)</p>
+<ul>
+<li><p>pid</p>
+</li>
+<li><p>lstart 长格式启动时间</p>
+</li>
+<li><p>cmd 启动命令</p>
+</li>
+</ul>
+</li>
 </ul>
 <p><strong>OUTPUT MODIFIERS</strong></p>
 <ul>
@@ -141,6 +152,9 @@
 <h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
 <li><p>查看当前用户进程</p>
 <pre><code>ps -f
+</code></pre></li>
+<li><p>指定进程启动的时间</p>
+<pre><code>ps -eo pid,lstart,cmd|grep user_manage
 </code></pre></li>
 </ul>
 	  
@@ -197,7 +211,7 @@
   <h2 class="title">留言</h2>
 
   
-  	 <div class="ds-thread" data-thread-key="2015/09/01/ps/" data-title="linux-ps" data-url="https://qianchenglong.github.io/2015/09/01/ps/"></div>  
+  	 <div class="ds-thread" data-thread-key="2015/09/01/ps/" data-title="ps" data-url="https://qianchenglong.github.io/2015/09/01/ps/"></div>  
   
 </section>
 
@@ -217,6 +231,17 @@
 
 	<!-- categories -->
     
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/linux/">linux<span>23</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
 
 	<!-- tags -->
 	
@@ -224,7 +249,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/linux/">linux<span>39</span></a></li> <li><a href="/tags/ps/">ps<span>1</span></a></li>
+  <li><a href="/tags/command/">command<span>9</span></a></li> <li><a href="/tags/ps/">ps<span>1</span></a></li>
     </ul>
 	</div>
 		

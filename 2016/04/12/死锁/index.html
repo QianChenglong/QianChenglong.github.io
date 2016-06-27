@@ -113,13 +113,42 @@
 	<div class="mypage">		
 	  		
 
-	  <h1 id="可能发生的场景"><a href="#可能发生的场景" class="headerlink" title="可能发生的场景"></a>可能发生的场景</h1><ul>
+	  <h1 id="产生的必要条件"><a href="#产生的必要条件" class="headerlink" title="产生的必要条件"></a>产生的必要条件</h1><ul>
+<li>互斥</li>
+<li>请求与保持</li>
+<li>不被剥夺</li>
+<li><p>循环等待</p>
+<p>一直等待请求额外互斥资源</p>
+</li>
+</ul>
+<h1 id="可能发生的场景"><a href="#可能发生的场景" class="headerlink" title="可能发生的场景"></a>可能发生的场景</h1><ul>
 <li><p>在函数嵌套调用中，多次请求同一资源</p>
 </li>
 <li><p>不同线程中，以不同的顺序请求多个资源，而其中某个资源不足</p>
 </li>
 </ul>
+<h1 id="调试与诊断方法"><a href="#调试与诊断方法" class="headerlink" title="调试与诊断方法"></a>调试与诊断方法</h1><ol>
+<li><p><code>ps</code>查看进程PID，状态，阻塞原因</p>
+</li>
+<li><p><code>gdb attach</code>到目标进程</p>
+</li>
+<li><p>保存现场，防止后续调试破环</p>
+<pre><code>generate-core-file
+</code></pre></li>
+<li><p>查看所有线程的调用栈</p>
+<pre><code>thread apply all bt
+</code></pre></li>
+<li><p>切换到相应线程</p>
+<pre><code>thread NUM
+</code></pre></li>
+<li><p>查看相应互斥量，持有情况(<code>pthread_mutex_t.__owner</code>)</p>
+<pre><code>print MUTEX
+</code></pre></li>
+</ol>
 <h1 id="预防"><a href="#预防" class="headerlink" title="预防"></a>预防</h1><ul>
+<li>打破产生死锁的4个必要条件中的任何一个</li>
+</ul>
+<ul>
 <li><p>利用RAII手段，确保stack mutex离开作用域时被解锁(<code>MutexGuard, std::lock_guard</code>)</p>
 <ul>
 <li><p>异常结束(throw)</p>

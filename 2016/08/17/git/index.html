@@ -1,0 +1,381 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>git | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="git"/>
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> git</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h1 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h1><ul>
+<li><p>从一个现有仓储建立纯仓库</p>
+<pre><code>git clone --bare ssh://git@github.com:22/QianChenglong/home.git home.git
+</code></pre></li>
+<li><p>从.git目录复制<a href="https://git.wiki.kernel.org/index.php/GitFaq#How_do_I_make_existing_non-bare_repository_bare.3F" target="_blank" rel="external">https://git.wiki.kernel.org/index.php/GitFaq#How_do_I_make_existing_non-bare_repository_bare.3F</a></p>
+<pre><code>scp -rv .git dev2:~/git/Beme4wdServer.git
+cd Beme4wdServer.git/
+git config --bool core.bare true
+</code></pre></li>
+<li><p>修改远程URL</p>
+<pre><code>git remote set-url origin ssh://wallace@dev2:36000/~/git/home.git
+</code></pre></li>
+<li><p>查看远程信息</p>
+<pre><code>git remote -v
+git remote show origin
+</code></pre></li>
+<li><p>从远程仓库取数据，不合并分支</p>
+<pre><code>git fetch [remote-name]
+</code></pre></li>
+<li><p>push所有分支和tag，并跟踪</p>
+<pre><code>git push --all origin -u
+</code></pre></li>
+</ul>
+<h1 id="update-index"><a href="#update-index" class="headerlink" title="update-index"></a>update-index</h1><ul>
+<li><p>添加可执行权限</p>
+<pre><code>git update-index --chmod=+x config_server
+</code></pre></li>
+<li><p>标识已纳入版本的文件不必跟踪变化</p>
+<pre><code>git update-index --assume-unchanged &lt;files&gt;
+git update-index --no-assume-unchanged &lt;files&gt;(撤销)
+</code></pre></li>
+</ul>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><ul>
+<li><p>查看所有分支</p>
+<pre><code>git branch
+</code></pre></li>
+<li><p>查看分支详情，最后一次commit</p>
+<pre><code>git branch -v
+</code></pre></li>
+<li><p>查看当前已经合并的分支</p>
+<pre><code>git branch --merged
+</code></pre></li>
+<li><p>查看当前没有合并的分支</p>
+<pre><code>git branch --no-merged
+</code></pre></li>
+<li><p>新建分支</p>
+<pre><code>git branch testing
+</code></pre></li>
+<li><p>切换分支</p>
+<pre><code>git checkout testing
+</code></pre></li>
+<li><p>新建分支并切换</p>
+<pre><code>git checkout -b issue53
+</code></pre></li>
+<li><p>删除分支</p>
+<pre><code>git branch -d hotfix
+</code></pre></li>
+<li><p>设置跟踪分支</p>
+<pre><code>git branch --set-upstream-to=origin/master master
+</code></pre></li>
+</ul>
+<h1 id="子模块"><a href="#子模块" class="headerlink" title="子模块"></a>子模块</h1><ul>
+<li><p>添加模块</p>
+<pre><code>git submodule add ssh://wallace@dev2.beme.com:36000/~/git/ssh.git .ssh
+</code></pre></li>
+<li><p>修改url</p>
+<pre><code>vim .gitmodule
+git submodule sync
+</code></pre></li>
+<li><p>初始化</p>
+<pre><code>git submodule init
+</code></pre></li>
+<li><p>更新</p>
+<pre><code>git submodule update
+</code></pre></li>
+</ul>
+<h1 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h1><ul>
+<li><p>重置暂存区</p>
+<pre><code>git reset .
+</code></pre></li>
+<li><p>取消已经暂存的文件（git add逆操作）</p>
+<pre><code>git reset HEAD &lt;file&gt;...
+</code></pre></li>
+<li><p>取消未暂存的修改</p>
+<pre><code>git checkout -- &lt;file&gt;...
+</code></pre></li>
+<li><p>从版本库中删除，但保留工作目录里面的</p>
+<pre><code>git rm --cached readme.txt
+</code></pre></li>
+</ul>
+<h1 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h1><ul>
+<li><p>查看当前版本与上一版本的差异</p>
+<pre><code>git diff HEAD~1 HEAD functions/fish_prompt.fish
+</code></pre></li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>同步home</p>
+<pre><code>git init
+git remote add origin ssh://wallace@112.74.81.30:36000/~/git/home.git
+git fetch
+git reset --hard origin/master
+</code></pre></li>
+<li><p>初始化并递归更新submodule</p>
+<pre><code>git submodule update --init --recursive
+</code></pre></li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2016/06/02/firewalld/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2016/08/17/git/" data-title="git" data-url="https://qianchenglong.github.io/2016/08/17/git/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-08-17 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/git/">git<span>7</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'qianchenglong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "http://localhost:4000/" + "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+</body>
+   </html>

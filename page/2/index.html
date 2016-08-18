@@ -111,6 +111,69 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-05-22 </div>
+			<div class="article-title"><a href="/2016/05/22/rsa/" >rsa</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p>RSA是一种块加密，一个具体的RSA算法对应一个N(模数)</p>
+<p>块加密：</p>
+<ul>
+<li><p>密钥长度为工作长度</p>
+</li>
+<li><p>明文不足，则需填充(一般都有几种填充方式)</p>
+</li>
+<li><p>密文长度同密钥长度一致</p>
+</li>
+</ul>
+</li>
+<li><p>N(模数)的二进制位数，称之为RSA长度(对应openssl函数,<code>RSA_size(rsa)</code>)，常用1024(128B)，2048(256B)</p>
+</li>
+<li><p>openssl genrsa 采用<a href="https://tools.ietf.org/html/rfc5208" target="_blank" rel="external">PKCS#8</a>，使用<a href="https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail" target="_blank" rel="external">PEM</a>格式存储</p>
+</li>
+<li><p>公钥(N, E)</p>
+</li>
+<li><p>私钥(N, D)</p>
+</li>
+<li><p>RSA(1024)的D：3, 65537(0x10001)，当N值大于65537时，默认用65537!</p>
+</li>
+</ol>
+<h1 id="RSA-ASN-1定义"><a href="#RSA-ASN-1定义" class="headerlink" title="RSA ASN.1定义"></a>RSA ASN.1定义</h1><h1 id="加密和签名"><a href="#加密和签名" class="headerlink" title="加密和签名"></a>加密和签名</h1><ol>
+<li><p>加密：公钥用来加密，私钥解密，保证信息被唯一持有私钥的接收(（仅你可读但别人不可读，任何人都可写）)</p>
+</li>
+<li><p>签名：私钥用来加密，公钥解密，保证信息是由唯一持有私钥的发送（仅你可写但别人不可写，任何人都可读）</p>
+</li>
+</ol>
+<h1 id="填充模式"><a href="#填充模式" class="headerlink" title="填充模式"></a>填充模式</h1><ol>
+<li><p><code>RSA_PKCS1_PADDING</code> (最常用的模式)</p>
+</li>
+<li><p><code>RSA_PKCS1_OAEP_PADDING</code></p>
+</li>
+<li><p><code>RSA_NO_PADDING</code></p>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html" target="_blank" rel="external">RSA算法原理–阮一峰</a></li>
+<li><a href="https://en.wikipedia.org/wiki/65537_(number)" target="_blank" rel="external">https://en.wikipedia.org/wiki/65537_(number)</a></li>
+<li><a href="https://www.openssl.org/docs/manmaster/crypto/RSA_public_encrypt.html" target="_blank" rel="external">https://www.openssl.org/docs/manmaster/crypto/RSA_public_encrypt.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/05/22/rsa/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-05-15 </div>
 			<div class="article-title"><a href="/2016/05/15/图片存储/" >图片存储</a></div>						
 		</h3>
@@ -409,30 +472,6 @@
 	
 	</div>
   <a type="button" href="/2016/05/07/C++11-override/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-07 </div>
-			<div class="article-title"><a href="/2016/05/07/C++-泛型编程/" >C++-泛型编程</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>模板类在实例化时，必须显式指定类型，而模板函数可以不用(隐式推断)</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/05/07/C++-泛型编程/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -737,45 +776,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/tags/resize/">resize<span>1</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
 		
-			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
 		
-			<li><a href="/tags/configure/">configure<span>1</span></a></li>
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
 		
-			<li><a href="/tags/T/">__T<span>1</span></a></li>
+			<li><a href="/tags/IP/">IP<span>4</span></a></li>
 		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
 		
-			<li><a href="/tags/ip/">ip<span>2</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
-			<li><a href="/tags/串口/">串口<span>2</span></a></li>
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
 		
-			<li><a href="/tags/登录/">登录<span>2</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
 		
-			<li><a href="/tags/模块/">模块<span>2</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
-			<li><a href="/tags/import/">import<span>3</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -791,6 +830,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
+      </li>
+    
+      <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
       </li>
     
@@ -804,10 +847,6 @@
     
       <li>
         <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/28/C++-pointer-to-char/" ><i class="fa fa-file-o"></i>C++-pointer-to-char</a>
       </li>
     
   </ul>

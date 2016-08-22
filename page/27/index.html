@@ -112,6 +112,48 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-06-16 </div>
+			<div class="article-title"><a href="/2015/06/16/C++-智能指针之auto_ptr/" >C++-智能指针之auto_ptr</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li>提供一种简单的垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
+</ul>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>基于RAII(资源申请即初始化)，利用C++确定性析构，保证变量当离开作用域时，自动执行析构函数来释放内存</p>
+<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
+<li><p>不能将同一个对象存储到多个<code>auto_ptr</code>，会导致多次析构，从而崩溃</p>
+<pre><code>A *p = new A();
+std::auto_ptr&lt;A&gt; a(p);
+std::auto_ptr&lt;A&gt; b(p);
+</code></pre></li>
+<li><p>不能管理数据对象，因为<code>~auto_ptr</code>是<code>delete</code>而不是<code>delete []</code></p>
+<pre><code>int *p=new int[10];
+auto_ptr&lt;int&gt;ap(p);
+</code></pre></li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>C++11已经抛弃它，boost也有更好的替代品，决不使用！</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">auto_ptr</span>&lt;A&gt; a(new A());</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
+<li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/16/C++-智能指针之auto_ptr/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-16 </div>
 			<div class="article-title"><a href="/2015/06/16/C++-智能指针之boost.scroped_ptr/" >C++-智能指针之boost.scroped_ptr</a></div>						
 		</h3>
 	
@@ -175,48 +217,6 @@ boost::shared_ptr&lt;A&gt; p2(a);
 	
 	</div>
   <a type="button" href="/2015/06/16/C++-智能指针之boost.shared_ptr/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-16 </div>
-			<div class="article-title"><a href="/2015/06/16/C++-智能指针之auto_ptr/" >C++-智能指针之auto_ptr</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li>提供一种简单的垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
-</ul>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>基于RAII(资源申请即初始化)，利用C++确定性析构，保证变量当离开作用域时，自动执行析构函数来释放内存</p>
-<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
-<li><p>不能将同一个对象存储到多个<code>auto_ptr</code>，会导致多次析构，从而崩溃</p>
-<pre><code>A *p = new A();
-std::auto_ptr&lt;A&gt; a(p);
-std::auto_ptr&lt;A&gt; b(p);
-</code></pre></li>
-<li><p>不能管理数据对象，因为<code>~auto_ptr</code>是<code>delete</code>而不是<code>delete []</code></p>
-<pre><code>int *p=new int[10];
-auto_ptr&lt;int&gt;ap(p);
-</code></pre></li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>C++11已经抛弃它，boost也有更好的替代品，决不使用！</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">auto_ptr</span>&lt;A&gt; a(new A());</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
-<li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/16/C++-智能指针之auto_ptr/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -757,45 +757,45 @@ systemctl enable mariadb
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/base64/">base64<span>1</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
 		
-			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
+			<li><a href="/tags/c/">c<span>8</span></a></li>
 		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/json/">json<span>4</span></a></li>
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+		
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
 			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
 		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
 		
-			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
-			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
+			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+		
+			<li><a href="/tags/打包/">打包<span>1</span></a></li>
+		
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+		
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
+		
+			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+		
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
+		
+			<li><a href="/tags/10014/">10014<span>1</span></a></li>
 		
 			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
-		
-			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
-		
-			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
-		
-			<li><a href="/tags/模块/">模块<span>2</span></a></li>
-		
-			<li><a href="/tags/部署/">部署<span>1</span></a></li>
-		
-			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
-		
-			<li><a href="/tags/boost/">boost<span>4</span></a></li>
-		
-			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>

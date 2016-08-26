@@ -111,6 +111,66 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-28 </div>
+			<div class="article-title"><a href="/2015/01/28/tar/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><h3 id="功能字符"><a href="#功能字符" class="headerlink" title="功能字符"></a>功能字符</h3><p>必须指定1个，可以指定多个，多个可以连在一起，前面的’-‘不是必需的</p>
+<p>-A<br>    追加tar文件到一个archive</p>
+<p>-r<br>    追加files到archive</p>
+<p>-c<br>    创建新的archive</p>
+<p>-x<br>    解包并解压</p>
+<p>-t<br>    查看包内容</p>
+<p>###选项</p>
+<p>-a<br>    根据包名字后缀自动选择相应的压缩程序</p>
+<p>-f archive</p>
+<pre><code>指定包名字，打包就是目的包名字，解包就是要解包的包名字
+</code></pre><p>-C dir<br>    解包到指定目录</p>
+<p>-p<br>    保留文件权限，属性信息</p>
+<p>-P<br>    不拿掉绝对路径前面的’/‘</p>
+<p>-h, –dereference</p>
+<pre><code>follow symlinks; archive and dump the files they point to
+</code></pre><h3 id="压缩选项"><a href="#压缩选项" class="headerlink" title="压缩选项"></a>压缩选项</h3><p>-z<br>    gzip</p>
+<p>-j<br>    bzip2</p>
+<p>-J<br>    xz</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ul>
+<li><p>解压，解包</p>
+<pre><code>tar xf *.tar.gz
+</code></pre></li>
+<li><p>将当前目录打包，压缩</p>
+<pre><code>tar vczf tar.tar.gz .
+</code></pre></li>
+<li><p>解开包中某一个文件</p>
+<ul>
+<li><p>先查看文件</p>
+<pre><code>tar tf tar.tar.gz | grep tar
+</code></pre></li>
+<li><p>再解压指定文件</p>
+<pre><code>tar vxzf tar.tar.gz .tar实例.swp
+</code></pre></li>
+</ul>
+</li>
+<li><p>给当前目录下，某个文件夹打包压缩</p>
+<pre><code>tar vczf src.tar.gz src
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/28/tar/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-27 </div>
 			<div class="article-title"><a href="/2015/01/27/python-遍历目录/" >python-遍历目录</a></div>						
 		</h3>
@@ -384,31 +444,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/24/vim-script编码规范/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-24 </div>
-			<div class="article-title"><a href="/2015/01/24/python-module和package/" >python-module和package</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>A module is a single file (or files) that are imported under one import and used. e.g.</p>
-<pre><code>import my_module
-</code></pre><p>A package is a collection of modules in directories that give a package hierarchy.</p>
-<pre><code>from my_package.timing.danger.internets import function_of_love
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/01/24/python-module和package/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -713,45 +748,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
+		
+			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+		
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+		
+			<li><a href="/tags/domain/">domain<span>3</span></a></li>
+		
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+		
 			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
 		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
-			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
+			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
 		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+			<li><a href="/tags/dns/">dns<span>1</span></a></li>
 		
-			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
 		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
 		
-			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>38</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
 		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
-		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
-		
-			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
-		
-			<li><a href="/tags/boost/">boost<span>4</span></a></li>
-		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
-		
-			<li><a href="/tags/yed/">yed<span>1</span></a></li>
+			<li><a href="/tags/软件/">软件<span>3</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -767,6 +802,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
@@ -780,10 +819,6 @@
     
       <li>
         <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
   </ul>

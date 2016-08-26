@@ -112,6 +112,33 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-11 </div>
+			<div class="article-title"><a href="/2015/02/11/ssh-实现/" >ssh-实现</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="https://matt.ucc.asn.au/dropbear/dropbear.html" target="_blank" rel="external">DropBear</a></p>
+</li>
+<li><p><a href="http://www.openssh.com/" target="_blank" rel="external">openssh</a></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/11/ssh-实现/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-11 </div>
 			<div class="article-title"><a href="/2015/02/11/openwrt-升级固件的几种方法/" >openwrt-升级固件的几种方法</a></div>						
 		</h3>
 	
@@ -505,123 +532,6 @@ systemctl restart nmb
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-09 </div>
-			<div class="article-title"><a href="/2015/02/09/linux-常用命令/" >linux-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h1><ul>
-<li><p>修改时区</p>
-<pre><code>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-</code></pre></li>
-<li><p>查看或设置用户限制</p>
-<pre><code>ulimit -a
-</code></pre></li>
-<li><p>查看系统配置参数</p>
-<pre><code>getconf -a
-</code></pre></li>
-</ul>
-<h1 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h1><ul>
-<li><p>查看磁盘使用情况</p>
-<pre><code>df
-</code></pre></li>
-<li><p>查看分区类型</p>
-<pre><code>df -T
-</code></pre></li>
-<li><p>查看分区UUID，label等</p>
-<pre><code>blkid
-</code></pre></li>
-<li><p>检查并自动修复磁盘错误</p>
-<pre><code>fsck -a /dev/sda1
-</code></pre></li>
-<li><p>重新读取fstab</p>
-<pre><code>mount -a
-</code></pre></li>
-</ul>
-<h1 id="压缩包"><a href="#压缩包" class="headerlink" title="压缩包"></a>压缩包</h1><ul>
-<li><p>解压tar包</p>
-<pre><code>tar xvf XXX.tar
-</code></pre></li>
-<li><p>解压tar.gz</p>
-<pre><code>tar xvzf XXX.tar.gz
-</code></pre></li>
-</ul>
-<h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><ul>
-<li><p>重命名文件、目录</p>
-<pre><code>mv SRC DST
-</code></pre></li>
-<li><p>查看目录使用情况</p>
-<pre><code>du
-</code></pre></li>
-<li><p>实时查看文件</p>
-<pre><code>tail -f filename
-</code></pre></li>
-<li><p>复制，若父目录不存在则创建</p>
-<pre><code>cp src/a.txt /data/ ==&gt; /data/src/a.txt
-</code></pre></li>
-</ul>
-<h1 id="账号"><a href="#账号" class="headerlink" title="账号"></a>账号</h1><ul>
-<li><p>添加用户</p>
-<pre><code>useradd -m &lt;username&gt;
-</code></pre></li>
-<li><p>设置密码</p>
-<pre><code>passwd &lt;username&gt;
-</code></pre></li>
-<li><p>查看用户基本信息</p>
-<pre><code>id USERNAME
-</code></pre></li>
-<li><p>查看用户所属组</p>
-<pre><code>groups USERNAME
-lid &lt;username&gt;
-</code></pre></li>
-<li><p>查看组成员</p>
-<pre><code>lid -g &lt;group-name&gt;
-</code></pre></li>
-<li><p>用户添加附加组</p>
-<pre><code>usermod -a -G GROUPNAME USERNAME
-</code></pre></li>
-<li><p>查看动态库加载</p>
-<pre><code>ldd ./dbgateway_svc 
-</code></pre></li>
-</ul>
-<h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><ul>
-<li><p>批量删除进程</p>
-<pre><code>pkill &lt;pattern&gt;
-</code></pre></li>
-<li><p>根据端口杀进程</p>
-<pre><code>fuser -k 12000/tcp
-</code></pre></li>
-<li><p>查看进程树</p>
-<pre><code>pstree -apls PID
-</code></pre></li>
-<li><p>查看进程打开的文件</p>
-<pre><code>lsof -p 18661
-</code></pre></li>
-</ul>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
-<li><p>选择默认编辑器</p>
-<pre><code>select-editor
-</code></pre></li>
-<li><p>查看glibc版本</p>
-<pre><code>ldd --version
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/09/linux-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -923,45 +833,45 @@ lid &lt;username&gt;
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
 		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
+			<li><a href="/tags/binary/">binary<span>1</span></a></li>
 		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+			<li><a href="/tags/read/">read<span>1</span></a></li>
 		
-			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/串口/">串口<span>2</span></a></li>
 		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
+			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
-			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
+			<li><a href="/tags/script/">script<span>1</span></a></li>
 		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
+			<li><a href="/tags/hex/">hex<span>1</span></a></li>
 		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
 		
-			<li><a href="/tags/博客/">博客<span>1</span></a></li>
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+		
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+		
+			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
+		
+			<li><a href="/tags/form/">form<span>1</span></a></li>
+		
+			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
 		
 			<li><a href="/tags/命令/">命令<span>5</span></a></li>
-		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
-		
-			<li><a href="/tags/gcc/">gcc<span>4</span></a></li>
-		
-			<li><a href="/tags/django/">django<span>2</span></a></li>
-		
-			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -977,6 +887,10 @@ lid &lt;username&gt;
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
@@ -990,10 +904,6 @@ lid &lt;username&gt;
     
       <li>
         <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
   </ul>

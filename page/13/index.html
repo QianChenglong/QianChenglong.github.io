@@ -111,6 +111,45 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-28 </div>
+			<div class="article-title"><a href="/2015/10/28/go-内存分配/" >go-内存分配</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p>在go中,变量定义时,存储到stack还是heap上,由编译器确定</p>
+<ul>
+<li>若该变量在离开该作用域,仍被其他引用访问到(通过指针),则存储到heap</li>
+</ul>
+</li>
+</ol>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> f() *<span class="keyword">string</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"Hello world"</span></span><br><span class="line">    <span class="keyword">return</span> &amp;s</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">func</span> main() &#123;</span><br><span class="line">    r := f()</span><br><span class="line">    fmt.Printf(<span class="string">"%T %v %v\n"</span>, r, r, *r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>与C/C++不同,在go中,可以返回函数内定义的变量地址(因为存储到heap中)</li>
+</ol>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ol>
+<li>在go中,不用关心变量存储位置</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://golang.org/doc/faq#stack_or_heap" target="_blank" rel="external">https://golang.org/doc/faq#stack_or_heap</a></li>
+<li><a href="http://stackoverflow.com/questions/10866195/stack-vs-heap-allocation-of-structs-in-go-and-how-they-relate-to-garbage-collec?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/10866195/stack-vs-heap-allocation-of-structs-in-go-and-how-they-relate-to-garbage-collec?rq=1</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/28/go-内存分配/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-27 </div>
 			<div class="article-title"><a href="/2015/10/27/go-new/" >go-new</a></div>						
 		</h3>
@@ -407,36 +446,6 @@
 	
 	</div>
   <a type="button" href="/2015/10/19/http/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-19 </div>
-			<div class="article-title"><a href="/2015/10/19/http-chunked/" >http-chunked</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>在不指定<code>Content-Length</code>的情况下,来传输数据,常用来配合<code>gzip</code>使用,边压缩边传输</p>
-</li>
-<li><p>用一系列分块来传输。每个分块包含十六进制的长度值和数据，长度值独占一行，长度不包括它结尾的 CRLF（\r\n），<br>也不包括分块数据结尾的 CRLF。最后一个分块长度值必须为 0，对应的分块数据没有内容，表示实体结束</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%88%86%E5%9D%97%E4%BC%A0%E8%BE%93%E7%BC%96%E7%A0%81" target="_blank" rel="external">wiki-chunked</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/19/http-chunked/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -741,45 +750,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
+			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/string/">string<span>8</span></a></li>
 		
-			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
 		
-			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+			<li><a href="/tags/awk/">awk<span>1</span></a></li>
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
+		
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+		
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
 		
 			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/http/">http<span>11</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/empty/">empty<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
-		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
-		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/resize/">resize<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -795,6 +804,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
@@ -808,10 +821,6 @@
     
       <li>
         <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
   </ul>

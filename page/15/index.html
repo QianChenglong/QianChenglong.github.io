@@ -112,6 +112,58 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-10-10 </div>
+			<div class="article-title"><a href="/2015/10/10/mysql-alias/" >mysql-alias</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>对目标列使用,</p>
+<ul>
+<li>输出列名可读性更强</li>
+</ul>
+</li>
+<li><p>对表名使用</p>
+<ul>
+<li><p>简写表名</p>
+</li>
+<li><p>同名表关联</p>
+</li>
+</ul>
+</li>
+<li><p>在select的目标输出列中(<code>select_expr</code>)</p>
+<ul>
+<li><p>别名可以在<code>GROUP BY</code>,<code>ORDER BY</code>,<code>HAVING</code>中使用</p>
+</li>
+<li><p>标准SQl不允许在<code>WHERE</code>中使用</p>
+<p>因为<code>WHERE</code>是执行的,而<code>SELECT</code>目标列是基于<code>WHERE</code>结果的,<br>所以<code>WHERE</code>中不能使用还没产生的别名!</p>
+</li>
+</ul>
+</li>
+<li><p><code>AS</code>可以省略</p>
+<pre><code>select id userid from user;
+select a.id from user a;
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://dev.mysql.com/doc/refman/5.0/en/problems-with-alias.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/problems-with-alias.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/10/mysql-alias/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-10 </div>
 			<div class="article-title"><a href="/2015/10/10/数据库-命名规范/" >数据库-命名规范</a></div>						
 		</h3>
 	
@@ -466,32 +518,6 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-23 </div>
-			<div class="article-title"><a href="/2015/09/23/go-string操作/" >go-string操作</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>字符串分割</p>
-<pre><code>func SplitAfter(s, sep string) []string
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/23/go-string操作/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -793,45 +819,45 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
-		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
-		
-			<li><a href="/tags/线程/">线程<span>3</span></a></li>
-		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
-		
-			<li><a href="/tags/博客/">博客<span>1</span></a></li>
-		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
-		
-			<li><a href="/tags/包/">包<span>2</span></a></li>
-		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
-		
-			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
-		
-			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
-		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
-		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
-		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
-		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
-		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
-		
-			<li><a href="/tags/glog/">glog<span>1</span></a></li>
-		
-			<li><a href="/tags/列表/">列表<span>7</span></a></li>
-		
-			<li><a href="/tags/gcc/">gcc<span>4</span></a></li>
-		
-			<li><a href="/tags/apt/">apt<span>2</span></a></li>
-		
 			<li><a href="/tags/samba/">samba<span>3</span></a></li>
+		
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+		
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+		
+			<li><a href="/tags/link/">link<span>2</span></a></li>
+		
+			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+		
+			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+		
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
+		
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
+		
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+		
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+		
+			<li><a href="/tags/js/">js<span>2</span></a></li>
+		
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+		
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
+		
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+		
+			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+		
+			<li><a href="/tags/form/">form<span>1</span></a></li>
+		
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+		
+			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+		
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -847,6 +873,10 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
@@ -860,10 +890,6 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
     
       <li>
         <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
   </ul>

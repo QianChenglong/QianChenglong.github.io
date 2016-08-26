@@ -112,6 +112,31 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-17 </div>
+			<div class="article-title"><a href="/2015/03/17/各种闪存卡/" >各种闪存卡</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="SD"><a href="#SD" class="headerlink" title="SD"></a>SD</h1><p>数码相机</p>
+<p><img src="/img/各种闪存卡_01.png" alt=""></p>
+<h1 id="TF-TransFlash-MicroSD"><a href="#TF-TransFlash-MicroSD" class="headerlink" title="TF(TransFlash, MicroSD)"></a>TF(TransFlash, MicroSD)</h1><p>手机</p>
+<p><img src="/img/各种闪存卡_02.png" alt=""></p>
+
+	
+	</div>
+  <a type="button" href="/2015/03/17/各种闪存卡/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-17 </div>
 			<div class="article-title"><a href="/2015/03/17/USB各种接口/" >USB各种接口</a></div>						
 		</h3>
 	
@@ -402,91 +427,6 @@
 	
 	</div>
   <a type="button" href="/2015/03/09/doxygen常用修改选项/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-09 </div>
-			<div class="article-title"><a href="/2015/03/09/iptables/" >iptables-命令简记</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>多张表(filter, nat, mangle等)，最重要的是<code>filter</code>(<code>INPUT</code>, <code>FORWARD</code>, <code>OUTPUT</code>)用来制定本机规则</li>
-</ul>
-<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-n IP数字显示，避免DNS查询，加快查看速度</p>
-</li>
-<li><p>–line-numbers 显示规则编号</p>
-</li>
-<li><p>-L 列出规则</p>
-</li>
-<li><p>-D 删除规则</p>
-</li>
-<li><p>-A 追加到链尾</p>
-</li>
-<li><p>-I 加到链头</p>
-</li>
-</ul>
-<h1 id="查看类"><a href="#查看类" class="headerlink" title="查看类"></a>查看类</h1><ul>
-<li><p>查看规则(默认操作filter表)</p>
-<pre><code>iptables -L
-
-iptables-save -t filter
-</code></pre></li>
-</ul>
-<h1 id="删除类"><a href="#删除类" class="headerlink" title="删除类"></a>删除类</h1><ul>
-<li><p>删除指定链规则</p>
-<pre><code>iptables -D FORWARD 1(删除FORWARD链中的第一条规则)
-</code></pre></li>
-<li><p>清除所有已定义的规则</p>
-<pre><code>iptables -F
-</code></pre></li>
-<li><p>清除自定义规则</p>
-<pre><code>iptables -X
-</code></pre></li>
-<li><p>将所有的chain计数和流量统计归零</p>
-<pre><code>iptables -Z
-</code></pre></li>
-</ul>
-<h1 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h1><ul>
-<li><p>INPUT链，默认政策：DROP</p>
-<pre><code>iptables -P INPUT DROP
-</code></pre></li>
-<li><p>INPUT链，接口：本地环回(lo), ACCEPT</p>
-<pre><code>iptalbes -A INPUT -i lo -j ACCEPT
-</code></pre></li>
-<li><p>INPUT链，接口：以太网口(eth0)，源IP：192.168.1.67, ACCEPT</p>
-<pre><code>iptables -A INPUT -i eth0 -s 192.168.1.67 -j ACCEPT
-</code></pre></li>
-<li><p>INPUT链，接口：以太网口(eth0)，源IP段：192.168.1.0/24, ACCEPT</p>
-<pre><code>iptables -A INPUT -i eth0 -s 192.168.1.0/24 -j ACCEPT
-</code></pre></li>
-<li><p>INPUT链，源IP段：192.168.1.0/24, TCP, 目的端口:80, ACCEPT</p>
-<pre><code>iptables -A INPUT -s 192.168.1.0/24 -p tcp -dport 80 -j ACCEPT
-</code></pre></li>
-</ul>
-<h1 id="保存规则"><a href="#保存规则" class="headerlink" title="保存规则"></a>保存规则</h1><pre><code>iptables-save
-</code></pre><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>添加多个端口</p>
-<pre><code>iptables -A INPUT -p tcp --match multiport --dports 80,22,53 -j ACCEPT
-</code></pre></li>
-<li><p>添加端口区间</p>
-<pre><code>iptables -I INPUT -i eth1 -p tcp -m tcp --dport 6000:8000 -j ACCEPT
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/09/iptables/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -791,45 +731,45 @@ iptables-save -t filter
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
-		
-			<li><a href="/tags/find/">find<span>3</span></a></li>
-		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
-		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
-		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
-		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
-		
-			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
-		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
-		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
-		
-			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>6</span></a></li>
-		
-			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
-		
-			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+			<li><a href="/tags/sort/">sort<span>1</span></a></li>
 		
 			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
 		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
+			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
 		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/部署/">部署<span>1</span></a></li>
 		
-			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
+			<li><a href="/tags/static/">static<span>2</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
+		
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+		
+			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+		
+			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+		
+			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
+		
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+		
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+		
+			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+		
+			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
+		
+			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+		
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+		
+			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+		
+			<li><a href="/tags/连接/">连接<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -845,6 +785,10 @@ iptables-save -t filter
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
@@ -858,10 +802,6 @@ iptables-save -t filter
     
       <li>
         <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
   </ul>

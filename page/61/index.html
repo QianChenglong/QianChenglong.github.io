@@ -111,6 +111,38 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-03 </div>
+			<div class="article-title"><a href="/2014/12/03/python操作x-www-form-urlencoded数据/" >python解析x-www-form-urlencoded数据</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
+<li><code>urlencoded</code>转<code>string</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">query_string = <span class="string">'access_token=CB4C8F99D9B3E4AD376E7CF179CFA470&amp;expires_in=7776000&amp;refresh_token=4CCB49CAD66A9506F0621CE8E427F492'</span></span><br><span class="line">data = urlparse.parse_qs(query_string)</span><br><span class="line">access_token = data[<span class="string">'access_token'</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>dict</code>转<code>urlencoded</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;<span class="string">'criterias[]'</span>: [<span class="string">'member'</span>, <span class="string">'issue'</span>]&#125;</span><br><span class="line">urllib.urlencode(params, <span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://docs.python.org/2/library/urlparse.html" target="_blank" rel="external">https://docs.python.org/2/library/urlparse.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/03/python操作x-www-form-urlencoded数据/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-02 </div>
 			<div class="article-title"><a href="/2014/12/02/ssh常用操作/" >ssh常用操作</a></div>						
 		</h3>
@@ -227,6 +259,34 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/替换clover图标/" >替换clover图标</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
+</li>
+<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
+<p><img src="/img/替换clover图标_0.png" alt=""></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/替换clover图标/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
 			<div class="article-title"><a href="/2014/12/01/快速查看python帮助/" >快速查看python帮助</a></div>						
 		</h3>
 	
@@ -270,34 +330,6 @@ os.system(cmd)
 	
 	</div>
   <a type="button" href="/2014/12/01/快速查看python帮助/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/替换clover图标/" >替换clover图标</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
-</li>
-<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
-<p><img src="/img/替换clover图标_0.png" alt=""></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/替换clover图标/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -435,48 +467,6 @@ ssh-add ~/.ssh/id_rsa
 	
 	</div>
   <a type="button" href="/2014/12/01/hexo博客添加图片/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-11-11 </div>
-			<div class="article-title"><a href="/2014/11/11/log4cpp编译安装/" >log4cpp编译安装</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="http://sourceforge.net/projects/log4cpp/files/" target="_blank" rel="external">官网</a></p>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
-<li>解压</li>
-<li>找到对应工程配置文件(vs2010:msvc10)</li>
-<li>打开msvc10.sln</li>
-<li>生成log4cppLIB(静态库版本)，debug版和release版</li>
-<li>新建目标目录如<code>log4cpp-1.1.1</code></li>
-<li>将<code>include</code>目录复制到目标目录下</li>
-<li>将生成的lib(<code>log4cppD.lib</code>,<code>log4cppLIB.lib</code>)放到目标目录的子目录<code>lib</code></li>
-</ul>
-<p>最终目录结构：</p>
-<pre><code>└─log4cpp-1.1.1
-    ├─include
-    │  └─log4cpp
-    │
-    └─lib
-</code></pre><h2 id="配置解决方案属性"><a href="#配置解决方案属性" class="headerlink" title="配置解决方案属性"></a>配置解决方案属性</h2><ul>
-<li>【VC++目录】，添加<code>include</code>目录和<code>lib</code>目录</li>
-<li>Debug版，添加【附加依赖项】，<code>log4cppD.lib</code></li>
-<li>Release版，添加【附加依赖项】，<code>log4cppLIB.lib</code></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/11/11/log4cpp编译安装/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -781,45 +771,45 @@ ssh-add ~/.ssh/id_rsa
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>2</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
+			<li><a href="/tags/hex/">hex<span>1</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
+			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
-			<li><a href="/tags/参数/">参数<span>1</span></a></li>
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
 		
-			<li><a href="/tags/vps/">vps<span>1</span></a></li>
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
 		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/awk/">awk<span>1</span></a></li>
 		
-			<li><a href="/tags/gdb/">gdb<span>3</span></a></li>
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
 		
-			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
 		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+			<li><a href="/tags/同步/">同步<span>2</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
+			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -835,6 +825,10 @@ ssh-add ~/.ssh/id_rsa
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
@@ -848,10 +842,6 @@ ssh-add ~/.ssh/id_rsa
     
       <li>
         <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
   </ul>

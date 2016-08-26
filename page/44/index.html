@@ -112,6 +112,123 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/linux-常用命令/" >linux-常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h1><ul>
+<li><p>修改时区</p>
+<pre><code>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</code></pre></li>
+<li><p>查看或设置用户限制</p>
+<pre><code>ulimit -a
+</code></pre></li>
+<li><p>查看系统配置参数</p>
+<pre><code>getconf -a
+</code></pre></li>
+</ul>
+<h1 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h1><ul>
+<li><p>查看磁盘使用情况</p>
+<pre><code>df
+</code></pre></li>
+<li><p>查看分区类型</p>
+<pre><code>df -T
+</code></pre></li>
+<li><p>查看分区UUID，label等</p>
+<pre><code>blkid
+</code></pre></li>
+<li><p>检查并自动修复磁盘错误</p>
+<pre><code>fsck -a /dev/sda1
+</code></pre></li>
+<li><p>重新读取fstab</p>
+<pre><code>mount -a
+</code></pre></li>
+</ul>
+<h1 id="压缩包"><a href="#压缩包" class="headerlink" title="压缩包"></a>压缩包</h1><ul>
+<li><p>解压tar包</p>
+<pre><code>tar xvf XXX.tar
+</code></pre></li>
+<li><p>解压tar.gz</p>
+<pre><code>tar xvzf XXX.tar.gz
+</code></pre></li>
+</ul>
+<h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><ul>
+<li><p>重命名文件、目录</p>
+<pre><code>mv SRC DST
+</code></pre></li>
+<li><p>查看目录使用情况</p>
+<pre><code>du
+</code></pre></li>
+<li><p>实时查看文件</p>
+<pre><code>tail -f filename
+</code></pre></li>
+<li><p>复制，若父目录不存在则创建</p>
+<pre><code>cp src/a.txt /data/ ==&gt; /data/src/a.txt
+</code></pre></li>
+</ul>
+<h1 id="账号"><a href="#账号" class="headerlink" title="账号"></a>账号</h1><ul>
+<li><p>添加用户</p>
+<pre><code>useradd -m &lt;username&gt;
+</code></pre></li>
+<li><p>设置密码</p>
+<pre><code>passwd &lt;username&gt;
+</code></pre></li>
+<li><p>查看用户基本信息</p>
+<pre><code>id USERNAME
+</code></pre></li>
+<li><p>查看用户所属组</p>
+<pre><code>groups USERNAME
+lid &lt;username&gt;
+</code></pre></li>
+<li><p>查看组成员</p>
+<pre><code>lid -g &lt;group-name&gt;
+</code></pre></li>
+<li><p>用户添加附加组</p>
+<pre><code>usermod -a -G GROUPNAME USERNAME
+</code></pre></li>
+<li><p>查看动态库加载</p>
+<pre><code>ldd ./dbgateway_svc 
+</code></pre></li>
+</ul>
+<h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><ul>
+<li><p>批量删除进程</p>
+<pre><code>pkill &lt;pattern&gt;
+</code></pre></li>
+<li><p>根据端口杀进程</p>
+<pre><code>fuser -k 12000/tcp
+</code></pre></li>
+<li><p>查看进程树</p>
+<pre><code>pstree -apls PID
+</code></pre></li>
+<li><p>查看进程打开的文件</p>
+<pre><code>lsof -p 18661
+</code></pre></li>
+</ul>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li><p>选择默认编辑器</p>
+<pre><code>select-editor
+</code></pre></li>
+<li><p>查看glibc版本</p>
+<pre><code>ldd --version
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/linux-常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
 			<div class="article-title"><a href="/2015/02/09/virtualbox-拓展磁盘空间/" >virtualbox-拓展磁盘空间</a></div>						
 		</h3>
 	
@@ -549,28 +666,6 @@ work Adapter
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-05 </div>
-			<div class="article-title"><a href="/2015/02/05/跟踪应用程序执行的系统调用/" >跟踪应用程序执行的系统调用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>strace program
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/02/05/跟踪应用程序执行的系统调用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -872,45 +967,45 @@ work Adapter
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/size/">size<span>1</span></a></li>
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
 		
-			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
 		
-			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
-		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
-		
-			<li><a href="/tags/linux/">linux<span>38</span></a></li>
-		
-			<li><a href="/tags/ip/">ip<span>2</span></a></li>
-		
-			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
-		
-			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
 			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+		
+			<li><a href="/tags/search/">search<span>1</span></a></li>
+		
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+		
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+		
+			<li><a href="/tags/array/">array<span>1</span></a></li>
+		
+			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -926,6 +1021,10 @@ work Adapter
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
@@ -939,10 +1038,6 @@ work Adapter
     
       <li>
         <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
   </ul>

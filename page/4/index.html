@@ -111,6 +111,45 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-04-25 </div>
+			<div class="article-title"><a href="/2016/04/25/net/" >net</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="use-samba"><a href="#use-samba" class="headerlink" title="use(samba)"></a>use(samba)</h1><ul>
+<li><p>查看帮助</p>
+<pre><code>net help use
+</code></pre></li>
+<li><p>建立连接</p>
+<pre><code>net use * /user:username \\computername\sharename password
+net use * /user:pm \\192.168.1.2\pm pm0422
+</code></pre></li>
+<li><p>映射连接</p>
+<pre><code>net use * /user:pm \\192.168.1.2\pm pm0422
+</code></pre></li>
+<li><p>删除连接</p>
+<pre><code>net use \\computername\sharename /delete
+</code></pre></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://technet.microsoft.com/en-us/library/bb490717.aspx" target="_blank" rel="external">https://technet.microsoft.com/en-us/library/bb490717.aspx</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/25/net/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-04-22 </div>
 			<div class="article-title"><a href="/2016/04/22/suse/" >suse</a></div>						
 		</h3>
@@ -357,74 +396,6 @@ set timeout=1
 	
 	</div>
   <a type="button" href="/2016/04/13/centos-安装记录/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-12 </div>
-			<div class="article-title"><a href="/2016/04/12/死锁/" >死锁</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="产生的必要条件"><a href="#产生的必要条件" class="headerlink" title="产生的必要条件"></a>产生的必要条件</h1><ul>
-<li>互斥</li>
-<li>请求与保持</li>
-<li>不被剥夺</li>
-<li><p>循环等待</p>
-<p>一直等待请求额外互斥资源</p>
-</li>
-</ul>
-<h1 id="可能发生的场景"><a href="#可能发生的场景" class="headerlink" title="可能发生的场景"></a>可能发生的场景</h1><ul>
-<li><p>在函数嵌套调用中，多次请求同一资源</p>
-</li>
-<li><p>不同线程中，以不同的顺序请求多个资源，而其中某个资源不足</p>
-</li>
-</ul>
-<h1 id="调试与诊断方法"><a href="#调试与诊断方法" class="headerlink" title="调试与诊断方法"></a>调试与诊断方法</h1><ol>
-<li><p><code>ps</code>查看进程PID，状态，阻塞原因</p>
-</li>
-<li><p><code>gdb attach</code>到目标进程</p>
-</li>
-<li><p>保存现场，防止后续调试破环</p>
-<pre><code>generate-core-file
-</code></pre></li>
-<li><p>查看所有线程的调用栈</p>
-<pre><code>thread apply all bt
-</code></pre></li>
-<li><p>切换到相应线程</p>
-<pre><code>thread NUM
-</code></pre></li>
-<li><p>查看相应互斥量，持有情况(<code>pthread_mutex_t.__owner</code>)</p>
-<pre><code>print MUTEX
-</code></pre></li>
-</ol>
-<h1 id="预防"><a href="#预防" class="headerlink" title="预防"></a>预防</h1><ul>
-<li>打破产生死锁的4个必要条件中的任何一个</li>
-</ul>
-<ul>
-<li><p>利用RAII手段，确保stack mutex离开作用域时被解锁(<code>MutexGuard, std::lock_guard</code>)</p>
-<ul>
-<li><p>异常结束(throw)</p>
-</li>
-<li><p>分支跳出(break, continue, return)</p>
-</li>
-<li><p>意外退出点(exit)</p>
-</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/12/死锁/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -729,45 +700,45 @@ set timeout=1
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
-		
-			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
-		
-			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
-		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
-		
-			<li><a href="/tags/安装/">安装<span>3</span></a></li>
-		
-			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
-		
-			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
-		
-			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
-		
 			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
 		
-			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
+			<li><a href="/tags/module/">module<span>3</span></a></li>
 		
-			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
 		
-			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
 		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/json/">json<span>4</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+		
+			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+		
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
+		
+			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+		
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+		
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+		
+			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+		
+			<li><a href="/tags/war/">war<span>1</span></a></li>
+		
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -783,6 +754,10 @@ set timeout=1
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
@@ -796,10 +771,6 @@ set timeout=1
     
       <li>
         <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
   </ul>

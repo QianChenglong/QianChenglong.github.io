@@ -112,6 +112,42 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-07-01 </div>
+			<div class="article-title"><a href="/2015/07/01/jsoncpp/" >jsoncpp</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="主要的类"><a href="#主要的类" class="headerlink" title="主要的类"></a>主要的类</h1><p>| 类名         | 作用                                                                                                                                           |<br>|————–+————————————————————————————————————————————————|<br>| Json::Value  | 可以表示里所有的类型                                                                                                                           |<br>| Json::Reader | 将json文件流或字符串解析到Json::Value, 主要函数有Parse                                                                                         |<br>| Json::Writer | 与Json::Reader相反，将Json::Value转化成字符串流，注意它的两个子类：Json::FastWriter和Json::StyleWriter，分别输出不带格式的json和带格式的json。 |</p>
+<h1 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h1><ul>
+<li><p>判断json中是否有指定成员</p>
+<pre><code>bool isMember(&quot;id&quot;)
+</code></pre></li>
+<li><p>取指定值，若不存在，则使用默认值</p>
+<pre><code>Value get(ArrayIndex index, const Value &amp;defaultValue)
+</code></pre><h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1></li>
+<li><p>文件需要是<code>UTF-8</code>不带BOM!</p>
+</li>
+<li><p>下标访问时，若该元素不存在，则返回值为<code>json::Value::nullValue</code></p>
+</li>
+<li><p><code>json::Value::nullValue</code>转换为空字符串<code>&quot;&quot;</code>(<code>\X00</code>)</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/01/jsoncpp/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-01 </div>
 			<div class="article-title"><a href="/2015/07/01/C++11-枚举类型转换/" >C++11-枚举类型转换</a></div>						
 		</h3>
 	
@@ -373,34 +409,6 @@ Server = http://repo.archlinux.fr/$arch
 	
 	</div>
   <a type="button" href="/2015/06/26/arch-安装yaourt/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-26 </div>
-			<div class="article-title"><a href="/2015/06/26/arch-将吃豆人放入pacman/" >arch-将吃豆人放入pacman</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p><code>vi /etc/pacman.conf</code></p>
-<pre><code># Misc options
-Color
-ILoveCandy
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/26/arch-将吃豆人放入pacman/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -705,45 +713,45 @@ ILoveCandy
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
 		
-			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
+			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
 		
-			<li><a href="/tags/cron/">cron<span>2</span></a></li>
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
+		
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
+		
+			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+		
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
+		
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
+		
+			<li><a href="/tags/ip/">ip<span>2</span></a></li>
+		
+			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+		
+			<li><a href="/tags/debug/">debug<span>2</span></a></li>
+		
+			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
 		
 			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
 		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
 		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
-		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
-		
-			<li><a href="/tags/编译/">编译<span>10</span></a></li>
-		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
-		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
-		
-			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
-		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
-		
-			<li><a href="/tags/产品/">产品<span>1</span></a></li>
-		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -759,6 +767,10 @@ ILoveCandy
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
@@ -772,10 +784,6 @@ ILoveCandy
     
       <li>
         <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
   </ul>

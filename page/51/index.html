@@ -112,6 +112,31 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-20 </div>
+			<div class="article-title"><a href="/2015/01/20/cmake-函数中遍历ARGN/" >cmake-函数中遍历ARGN</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>(use_library)</span><br><span class="line">    <span class="keyword">foreach</span>(name <span class="variable">$&#123;ARGN&#125;</span>)</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$&#123;name&#125;</span> <span class="keyword">STREQUAL</span> <span class="string">"."</span>)</span><br><span class="line">            <span class="keyword">include_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">            <span class="keyword">link_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/lib)</span><br><span class="line">        <span class="keyword">else</span>()</span><br><span class="line">            <span class="keyword">message</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="number">3</span>rdparty/<span class="variable">$&#123;name&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">            <span class="keyword">include_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="number">3</span>rdparty/<span class="variable">$&#123;name&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">            <span class="keyword">link_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="number">3</span>rdparty/<span class="variable">$&#123;name&#125;</span>/lib)</span><br><span class="line">        <span class="keyword">endif</span>()</span><br><span class="line">    <span class="keyword">endforeach</span>()</span><br><span class="line"><span class="keyword">endfunction</span>()</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.cmake.org/cmake/help/v3.0/command/foreach.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/foreach.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/20/cmake-函数中遍历ARGN/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-20 </div>
 			<div class="article-title"><a href="/2015/01/20/winsock-error-10014/" >winsock-error-10014</a></div>						
 		</h3>
 	
@@ -371,42 +396,6 @@ sys.stdout.write(&apos;hello world&apos;)
 	
 	</div>
   <a type="button" href="/2015/01/16/python-windows彩色打印/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-16 </div>
-			<div class="article-title"><a href="/2015/01/16/python-第三方库列表/" >python-拓展包列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="https://pypi.python.org/pypi/colorama" target="_blank" rel="external">colorama</a></p>
-<p>跨平台颜色打印</p>
-</li>
-<li><p><a href="https://github.com/kennethreitz/requests" target="_blank" rel="external">requests</a></p>
-<p>人性化http操作库</p>
-<p><a href="http://docs.python-requests.org/en/latest/" target="_blank" rel="external">手册</a></p>
-</li>
-<li><p><a href="http://amoffat.github.io/sh/" target="_blank" rel="external">sh</a></p>
-<p>linux命令的包装，可以用函数调用的方式执行命令</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://github.com/vinta/awesome-python" target="_blank" rel="external">https://github.com/vinta/awesome-python</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/16/python-第三方库列表/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -711,45 +700,45 @@ sys.stdout.write(&apos;hello world&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
+			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/django/">django<span>2</span></a></li>
 		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
-		
-			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
-		
-			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
-		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
-		
-			<li><a href="/tags/du/">du<span>1</span></a></li>
-		
-			<li><a href="/tags/if/">if<span>1</span></a></li>
-		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
-		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
-		
-			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
-		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
-		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
-		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
-		
-			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
-		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
-		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
 			<li><a href="/tags/suse/">suse<span>1</span></a></li>
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
+			<li><a href="/tags/curses/">curses<span>2</span></a></li>
+		
+			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+		
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+		
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+		
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+		
+			<li><a href="/tags/test/">test<span>2</span></a></li>
+		
+			<li><a href="/tags/array/">array<span>1</span></a></li>
+		
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+		
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+		
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+		
+			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+		
+			<li><a href="/tags/string/">string<span>8</span></a></li>
+		
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+		
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
+		
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -765,6 +754,10 @@ sys.stdout.write(&apos;hello world&apos;)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
@@ -778,10 +771,6 @@ sys.stdout.write(&apos;hello world&apos;)
     
       <li>
         <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
   </ul>

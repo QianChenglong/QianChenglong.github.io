@@ -111,6 +111,74 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-04-12 </div>
+			<div class="article-title"><a href="/2016/04/12/死锁/" >死锁</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="产生的必要条件"><a href="#产生的必要条件" class="headerlink" title="产生的必要条件"></a>产生的必要条件</h1><ul>
+<li>互斥</li>
+<li>请求与保持</li>
+<li>不被剥夺</li>
+<li><p>循环等待</p>
+<p>一直等待请求额外互斥资源</p>
+</li>
+</ul>
+<h1 id="可能发生的场景"><a href="#可能发生的场景" class="headerlink" title="可能发生的场景"></a>可能发生的场景</h1><ul>
+<li><p>在函数嵌套调用中，多次请求同一资源</p>
+</li>
+<li><p>不同线程中，以不同的顺序请求多个资源，而其中某个资源不足</p>
+</li>
+</ul>
+<h1 id="调试与诊断方法"><a href="#调试与诊断方法" class="headerlink" title="调试与诊断方法"></a>调试与诊断方法</h1><ol>
+<li><p><code>ps</code>查看进程PID，状态，阻塞原因</p>
+</li>
+<li><p><code>gdb attach</code>到目标进程</p>
+</li>
+<li><p>保存现场，防止后续调试破环</p>
+<pre><code>generate-core-file
+</code></pre></li>
+<li><p>查看所有线程的调用栈</p>
+<pre><code>thread apply all bt
+</code></pre></li>
+<li><p>切换到相应线程</p>
+<pre><code>thread NUM
+</code></pre></li>
+<li><p>查看相应互斥量，持有情况(<code>pthread_mutex_t.__owner</code>)</p>
+<pre><code>print MUTEX
+</code></pre></li>
+</ol>
+<h1 id="预防"><a href="#预防" class="headerlink" title="预防"></a>预防</h1><ul>
+<li>打破产生死锁的4个必要条件中的任何一个</li>
+</ul>
+<ul>
+<li><p>利用RAII手段，确保stack mutex离开作用域时被解锁(<code>MutexGuard, std::lock_guard</code>)</p>
+<ul>
+<li><p>异常结束(throw)</p>
+</li>
+<li><p>分支跳出(break, continue, return)</p>
+</li>
+<li><p>意外退出点(exit)</p>
+</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/04/12/死锁/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-04-08 </div>
 			<div class="article-title"><a href="/2016/04/08/cpp/" >cpp</a></div>						
 		</h3>
@@ -432,31 +500,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-28 </div>
-			<div class="article-title"><a href="/2016/03/28/go-gzip/" >go-gzip</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><a href="http://my.oschina.net/u/1431106/blog/204512" target="_blank" rel="external">http://my.oschina.net/u/1431106/blog/204512</a></li>
-<li><a href="http://stackoverflow.com/questions/16890648/how-can-i-use-golangs-compress-gzip-package-to-gzip-a-file" target="_blank" rel="external">http://stackoverflow.com/questions/16890648/how-can-i-use-golangs-compress-gzip-package-to-gzip-a-file</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/03/28/go-gzip/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -758,45 +801,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/进程/">进程<span>1</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
 		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
 		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+			<li><a href="/tags/macro/">macro<span>3</span></a></li>
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/sort/">sort<span>1</span></a></li>
 		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/后台/">后台<span>6</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
+			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
 		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+		
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+		
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
+		
+			<li><a href="/tags/domain/">domain<span>3</span></a></li>
+		
+			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+		
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
 			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
 		
-			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
 		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
-		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
-		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
-		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
-		
-			<li><a href="/tags/static/">static<span>2</span></a></li>
-		
-			<li><a href="/tags/程序/">程序<span>1</span></a></li>
+			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -812,6 +855,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
@@ -825,10 +872,6 @@
     
       <li>
         <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/30/C++-sring-resize-reserve/" ><i class="fa fa-file-o"></i>C++-sring-resize-reserve</a>
       </li>
     
   </ul>

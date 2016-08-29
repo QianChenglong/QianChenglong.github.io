@@ -112,6 +112,72 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-07-22 </div>
+			<div class="article-title"><a href="/2015/07/22/windows-修改环境变量后立即生效/" >windows-修改环境变量后立即生效</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>打开cmd</p>
+<pre><code>set path=&quot;&quot;
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/22/windows-修改环境变量后立即生效/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-22 </div>
+			<div class="article-title"><a href="/2015/07/22/linux-安装go/" >linux-安装go</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>下载对应二进制包(<a href="https://golang.org/dl/" target="_blank" rel="external">官网</a>)</p>
+</li>
+<li><p>解压安装</p>
+<p>tar -C /opt/go-$VERSION -xvf go$VERSION.$OS-$ARCH.tar.gz</p>
+</li>
+<li><p>修改环境变量</p>
+<p>vi /etc/profile</p>
+<p>export GOROOT=/opt/go-$VERSION<br>export PATH=$PATH:$GOROOT/bin</p>
+</li>
+<li><p>生效</p>
+<ul>
+<li><p><code>source /etc/profile</code></p>
+</li>
+<li><p>重启sshd</p>
+</li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/22/linux-安装go/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-22 </div>
 			<div class="article-title"><a href="/2015/07/22/linux-修改环境变量后及时生效/" >linux-修改环境变量后及时生效</a></div>						
 		</h3>
 	
@@ -392,76 +458,6 @@ make install
 	
 	</div>
   <a type="button" href="/2015/07/11/编译apache/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-09 </div>
-			<div class="article-title"><a href="/2015/07/09/thinkpad-安装系统/" >thinkpad-安装系统</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>开机按<code>Enter</code> =&gt; <code>F1</code>进入BIOS</p>
-</li>
-<li><p>【starup】=&gt; <code>legacy ONLY</code></p>
-</li>
-<li><p>【security】 =&gt; <code>disabled</code></p>
-</li>
-<li><p>保存退出</p>
-</li>
-<li><p>开机<code>F12</code>选择对应启动</p>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/09/thinkpad-安装系统/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-09 </div>
-			<div class="article-title"><a href="/2015/07/09/truncate和delete区别/" >truncate和delete区别</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>truncate属于DDL，delete输入DML</p>
-</li>
-<li><p>truncate不可回滚，delete可回滚</p>
-</li>
-<li><p>delete可接where子句</p>
-</li>
-<li><p>truncate执行更快</p>
-</li>
-<li><p>truncate回收表空间，占用系统日志资源更少</p>
-</li>
-<li><p>truncate不触发delete触发器</p>
-</li>
-<li><p>truncate不能被授权</p>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/09/truncate和delete区别/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -766,45 +762,45 @@ make install
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
 		
-			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/global/">global<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>3</span></a></li>
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/固件/">固件<span>1</span></a></li>
 		
-			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
+			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
 		
-			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
+			<li><a href="/tags/module/">module<span>3</span></a></li>
 		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
 		
-			<li><a href="/tags/linux/">linux<span>38</span></a></li>
+			<li><a href="/tags/limit/">limit<span>2</span></a></li>
 		
-			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
 		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
 		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
-		
-			<li><a href="/tags/centos/">centos<span>12</span></a></li>
+			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
 		
 			<li><a href="/tags/列表/">列表<span>7</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/empty/">empty<span>1</span></a></li>
 		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
 		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
+		
+			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -820,6 +816,14 @@ make install
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -829,14 +833,6 @@ make install
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

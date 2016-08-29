@@ -112,6 +112,78 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-04-02 </div>
+			<div class="article-title"><a href="/2015/04/02/python-类/" >python-类</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul>
+<li><p>python中的类是C++和Modula-3的混合体</p>
+</li>
+<li><p>C++角度，所有成员使用<code>public</code>，所有方法都是<code>virtual</code></p>
+</li>
+<li><p>和Modula-3一样，python没有隐式关联对象与数据和方法</p>
+<p>所有方法在定义时，显示声明第一个参数<code>self</code></p>
+<p>在调用时，self隐式赋值</p>
+</li>
+<li><p>同stmalltalk一样，类本身也是对象，此机制提高了导入和重命名语义</p>
+</li>
+<li><p>同C++和Modula-3不一样的是，内置类型可以被拓展</p>
+</li>
+<li><p>允许多重继承</p>
+</li>
+<li><p>子类可以重写父类的任何方法</p>
+</li>
+<li><p>子类可以调用父类中的同名方法</p>
+</li>
+<li><p>子类<code>__init__</code>如果需要，必须显式调用父类<code>__init__</code>方法</p>
+</li>
+<li><p>类可以被动态创建，且可以在创建之后被修改</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/02/python-类/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-02 </div>
+			<div class="article-title"><a href="/2015/04/02/python-内建变量/" >python-内建变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><code>__name__</code> 模块名，主模块为<code>__main__</code></p>
+</li>
+<li><p><code>__doc__</code> 文档字符串</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/02/python-内建变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-02 </div>
 			<div class="article-title"><a href="/2015/04/02/AdBlock Plus规则语法/" >AdBlock Plus规则语法</a></div>						
 		</h3>
 	
@@ -390,111 +462,6 @@ os.makedirs(os.path.dirname(f[1]), exist_ok=True)
 	
 	</div>
   <a type="button" href="/2015/03/31/python-包/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-31 </div>
-			<div class="article-title"><a href="/2015/03/31/python-模块/" >python-模块</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>一个*.py文件即一个模块</p>
-</li>
-<li><p>主模块，程序的入口模块</p>
-</li>
-<li><p>文件名(不包括路径和拓展名)即模块名，可通过<code>__name__</code>得到，主模块名叫<code>__main__</code></p>
-</li>
-<li><p>模块是一种代码组织方式，具有方便开发，测试，维护，复用等优点</p>
-</li>
-<li><p>模块中的符号表是<strong>私有的</strong>，意味着在模块当中的符号不会与其他模块冲突</p>
-</li>
-<li><p>内建方法<code>dir()</code>查看模块名字</p>
-</li>
-</ul>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>module.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"Hello world"</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="无污染方式-优先使用"><a href="#无污染方式-优先使用" class="headerlink" title="无污染方式(优先使用)"></a>无污染方式(优先使用)</h2><ul>
-<li><p>导入模块</p>
-<pre><code>import moudle
-</code></pre></li>
-<li><p>访问模块中的符号(变量名，函数名)</p>
-<pre><code>module.var
-module.func
-</code></pre></li>
-</ul>
-<h2 id="污染方式-不推荐使用"><a href="#污染方式-不推荐使用" class="headerlink" title="污染方式(不推荐使用)"></a>污染方式(不推荐使用)</h2><h3 id="部分导入"><a href="#部分导入" class="headerlink" title="部分导入"></a>部分导入</h3><ul>
-<li><p>导入</p>
-<pre><code>from module import var
-</code></pre></li>
-<li><p>使用</p>
-<pre><code>var
-</code></pre></li>
-</ul>
-<h3 id="全部导入-不会导入单下划线-开头的符号"><a href="#全部导入-不会导入单下划线-开头的符号" class="headerlink" title="全部导入(不会导入单下划线_开头的符号)"></a>全部导入(不会导入单下划线<code>_</code>开头的符号)</h3><ul>
-<li><p>导入模块</p>
-<pre><code>from module import *
-</code></pre></li>
-<li><p>使用</p>
-<pre><code>var
-func
-</code></pre></li>
-</ul>
-<h1 id="模块搜索路径"><a href="#模块搜索路径" class="headerlink" title="模块搜索路径"></a>模块搜索路径</h1><ul>
-<li><p>工作目录</p>
-</li>
-<li><p>sys.path(路径字符串列表)中的顺序搜索</p>
-</li>
-</ul>
-<h1 id="标准模块-标准库"><a href="#标准模块-标准库" class="headerlink" title="标准模块(标准库)"></a>标准模块(标准库)</h1><ul>
-<li><p>有些内建到解释器中</p>
-</li>
-<li><p>有些依赖于平台，如win下的<code>winreg</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://docs.python.org/2/tutorial/modules.html" target="_blank" rel="external">https://docs.python.org/2/tutorial/modules.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/31/python-模块/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-31 </div>
-			<div class="article-title"><a href="/2015/03/31/windows-dhcp request IP研究/" >windows-dhcp request IP研究</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="从DHCP网络A切换至另一没有连接过的DHCP网络B"><a href="#从DHCP网络A切换至另一没有连接过的DHCP网络B" class="headerlink" title="从DHCP网络A切换至另一没有连接过的DHCP网络B"></a>从DHCP网络A切换至另一没有连接过的DHCP网络B</h1><ul>
-<li>dhcp client拿A网络分配的IP去request</li>
-</ul>
-<h1 id="从DHCP网络A切换至另一连接过的DHCP网络B"><a href="#从DHCP网络A切换至另一连接过的DHCP网络B" class="headerlink" title="从DHCP网络A切换至另一连接过的DHCP网络B"></a>从DHCP网络A切换至另一连接过的DHCP网络B</h1><ul>
-<li>dhcp client拿B网络分配过的IP去request</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/31/windows-dhcp request IP研究/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -799,45 +766,45 @@ func
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/主键/">主键<span>1</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
 		
-			<li><a href="/tags/链表/">链表<span>1</span></a></li>
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
 		
-			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
 		
-			<li><a href="/tags/安装/">安装<span>3</span></a></li>
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
 		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+			<li><a href="/tags/scp/">scp<span>1</span></a></li>
 		
-			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
+			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
 		
-			<li><a href="/tags/c/">c<span>8</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
+			<li><a href="/tags/package/">package<span>4</span></a></li>
 		
-			<li><a href="/tags/resize/">resize<span>1</span></a></li>
+			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
 		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
 		
-			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
 		
-			<li><a href="/tags/编译/">编译<span>10</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/od/">od<span>1</span></a></li>
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -853,6 +820,14 @@ func
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -862,14 +837,6 @@ func
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

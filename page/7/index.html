@@ -111,6 +111,88 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-23 </div>
+			<div class="article-title"><a href="/2016/03/23/pstree/" >pstree</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-a</p>
+<p>输出进程的命令行参数</p>
+</li>
+<li><p>-p</p>
+<p>输出进程PID</p>
+</li>
+<li><p>-u</p>
+<p>输出进程使用者</p>
+</li>
+<li><p>-s</p>
+<p>Show parent processes of the specified process.</p>
+</li>
+<li><p>-n</p>
+<p>按PID排序</p>
+</li>
+<li><p>-l</p>
+<p>完整显示，默认80列</p>
+</li>
+<li><p>-h</p>
+<p>高亮当前进程及其父进程</p>
+</li>
+<li><p>-H PID</p>
+<p>高亮PID进程及其父进程</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>显示PID进程的族谱</p>
+<pre><code>pstree -apls PID
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/23/pstree/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-19 </div>
+			<div class="article-title"><a href="/2016/03/19/linux头文件组织/" >linux头文件组织</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>通过<code>yum provides FILENAME</code>来查找所属包</p>
+<ul>
+<li><p>glibc-headers(使用C开发库，必须安装的包)</p>
+<p><code>/usr/include/sys</code>，<code>/usr/include/bits</code></p>
+</li>
+<li><p>kernel-headers(被glibc使用)</p>
+<p><code>/usr/include/linux</code>，<code>/usr/include/asm</code></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/19/linux头文件组织/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-19 </div>
 			<div class="article-title"><a href="/2016/03/19/rpm/" >rpm</a></div>						
 		</h3>
@@ -365,63 +447,6 @@ yumdownloader httpd
 	
 	</div>
   <a type="button" href="/2016/03/11/获取errno宏定义/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-11 </div>
-			<div class="article-title"><a href="/2016/03/11/tcp-accept/" >tcp-accept</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">accept</span><span class="params">(<span class="keyword">int</span> socket, <span class="keyword">struct</span> sockaddr *<span class="keyword">restrict</span> address,</span><br><span class="line">           socklen_t *<span class="keyword">restrict</span> address_len)</span></span>;</span><br></pre></td></tr></table></figure>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p><code>address_len</code>为传入传出参数！</p>
-</li>
-<li><p>当监听套接字设置为非阻塞时，若<code>accept</code>未获取到连接，则不阻塞，返回失败，<code>errno</code>设置为<code>EAGAIN</code>或<code>EWOULDBLOCK</code></p>
-</li>
-</ul>
-<h1 id="错误代码"><a href="#错误代码" class="headerlink" title="错误代码"></a>错误代码</h1><ul>
-<li><code>EMFILE</code> 打开的文件超过限制</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/03/11/tcp-accept/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-10 </div>
-			<div class="article-title"><a href="/2016/03/10/修改limit/" >修改limit</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>/etc/security/limits.conf</p>
-<pre><code>* hard nofile 10000
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/03/10/修改limit/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -726,45 +751,45 @@ yumdownloader httpd
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
-			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
+			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
 		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
+			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
 		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
-			<li><a href="/tags/pip/">pip<span>2</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
 		
-			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
+			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/struct/">struct<span>1</span></a></li>
 		
-			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
+			<li><a href="/tags/apche/">apche<span>1</span></a></li>
 		
-			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
 		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
-			<li><a href="/tags/import/">import<span>3</span></a></li>
+			<li><a href="/tags/binary/">binary<span>1</span></a></li>
 		
-			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/main/">__main__<span>1</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
 		
-			<li><a href="/tags/template/">template<span>2</span></a></li>
+			<li><a href="/tags/API/">API<span>2</span></a></li>
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -780,6 +805,14 @@ yumdownloader httpd
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -789,14 +822,6 @@ yumdownloader httpd
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

@@ -112,6 +112,137 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-06-06 </div>
+			<div class="article-title"><a href="/2015/06/06/搭建git服务器/" >搭建git服务器</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>CentOS-7.0.1</li>
+</ul>
+<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><ul>
+<li>安装启动sshd</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>安装git</p>
+<pre><code>yum install git
+</code></pre></li>
+<li><p>创建git目录</p>
+<pre><code>mkdir /data/git
+</code></pre></li>
+<li><p>添加git用户</p>
+<pre><code>adduser git
+</code></pre></li>
+<li><p>设置登录shell</p>
+<pre><code>vi /etc/passwd
+
+git:x:1008:1009::/home/git:/user/sbin/nologin
+</code></pre></li>
+</ol>
+<ol>
+<li><p>用户认证</p>
+<ul>
+<li><p>密码方式</p>
+<pre><code>passwd git
+</code></pre></li>
+<li><p>将需要登录git的用户公钥添加进来(一个一行)</p>
+<pre><code>vi /home/git/.ssh/authorized_keys
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<h1 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h1><ul>
+<li><p>初始化仓库</p>
+<pre><code>cd /data/git
+git init --bare sample.git
+</code></pre></li>
+<li><p>设置权限</p>
+<pre><code>chown -R git:git sample.git
+</code></pre></li>
+</ul>
+<h1 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h1><ul>
+<li><p>添加远程仓库</p>
+<pre><code>git remote add web git@hostname:/data/sample.git
+</code></pre></li>
+<li><p>提交到远程仓库</p>
+<pre><code>git push origin master
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/06/搭建git服务器/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-06 </div>
+			<div class="article-title"><a href="/2015/06/06/centos-搭建SVN服务器/" >centos-搭建SVN服务器</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="安装svn"><a href="#安装svn" class="headerlink" title="安装svn"></a>安装svn</h2><pre><code>yum install svn
+</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol>
+<li><p>建立svn目录</p>
+<pre><code>mkdir /data/svn
+</code></pre></li>
+<li><p>创建仓库</p>
+<pre><code>svnadmin create /data/svn/xianji-server
+</code></pre></li>
+<li><p>进入配置目录</p>
+<pre><code>cd /data/svn/conf
+</code></pre></li>
+<li><p>配置权限</p>
+<pre><code>vi authz
+
+[/]
+admin = rw
+</code></pre></li>
+<li><p>配置账号密码(添加admin用户，密码admin)</p>
+<pre><code>vi passwd
+
+[users]
+admin = admin
+</code></pre></li>
+<li><p>svn服务配置</p>
+<pre><code>vi svnserve.conf
+
+anon-access = read #匿名用户可读
+auth-access = write #授权用户可写
+password-db = passwd #使用哪个文件作为账号文件
+authz-db = authz #使用哪个文件作为权限文件
+realm = /var/svn/test # 认证空间名，版本库所在目录
+</code></pre></li>
+</ol>
+<h2 id="启动SVN版本库"><a href="#启动SVN版本库" class="headerlink" title="启动SVN版本库"></a>启动SVN版本库</h2><pre><code>svnserve -d -r /var/svn
+</code></pre><h2 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h2><pre><code>svn checkout svn://127.0.0.1/xianji-server
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/06/06/centos-搭建SVN服务器/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-06 </div>
 			<div class="article-title"><a href="/2015/06/06/启动盘制作工具/" >启动盘制作工具</a></div>						
 		</h3>
 	
@@ -361,68 +492,6 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
 	
 	</div>
   <a type="button" href="/2015/06/02/前向引用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-31 </div>
-			<div class="article-title"><a href="/2015/05/31/宏-函数名/" >宏-函数名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| Compile | <code>__FUNCSIG__</code> | <code>__FUNCDNAME__</code> | <code>__FUNCTION__</code> | <code>__func__</code> | <code>__PRETTY_FUNCTION__</code> |<br>|———+—————+—————–+—————-+————+———————–|<br>| GCC     | X             | X               | √              | √          | √                     |<br>| VC      | √             | √               | √              | X          | X                     |</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://gcc.gnu.org/onlinedocs/gcc/Function-Names.html" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/gcc/Function-Names.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/05/31/宏-函数名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-30 </div>
-			<div class="article-title"><a href="/2015/05/30/centos-本地镜像源设置/" >centos-本地镜像源设置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>挂载镜像文件</p>
-<pre><code>mkdir /mnt/cdrom
-mount /dev/cdrom /mnt/cdrom
-</code></pre></li>
-<li><p>编辑repo文件</p>
-<pre><code>vim /etc/yum.repos.d/centos7-local.repo
-
-[local]
-name=local
-baseurl=file:///mnt/cdrom
-enabled=1
-gpgcheck=1
-gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/05/30/centos-本地镜像源设置/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -727,45 +796,45 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/编译/">编译<span>10</span></a></li>
+			<li><a href="/tags/limit/">limit<span>2</span></a></li>
 		
-			<li><a href="/tags/文件/">文件<span>7</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
 		
-			<li><a href="/tags/gcc/">gcc<span>4</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
-			<li><a href="/tags/using/">using<span>1</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
 		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
 		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
 		
-			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
+			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
 		
-			<li><a href="/tags/编程/">编程<span>5</span></a></li>
+			<li><a href="/tags/if/">if<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+			<li><a href="/tags/sort/">sort<span>1</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
 		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+			<li><a href="/tags/library/">library<span>2</span></a></li>
 		
-			<li><a href="/tags/log/">log<span>1</span></a></li>
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
 		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
+			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/date/">date<span>1</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -781,6 +850,14 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -790,14 +867,6 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

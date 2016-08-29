@@ -111,6 +111,69 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-09 </div>
+			<div class="article-title"><a href="/2015/01/09/cmake-macro-vs-function/" >cmake-macro-vs-function</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>cmake中，<code>macro</code>类似于C中的宏函数，会进行参数替换，而<code>function</code>类似于C中的函数，<br>参数是一个变量，可以进行赋值等操作。</p>
+<p>示例：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(var <span class="string">"ABC"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">macro</span>(Moo arg)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"arg = $&#123;arg&#125;"</span>)</span><br><span class="line">  <span class="keyword">set</span>(arg <span class="string">"abc"</span>)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"# After change the value of arg."</span>)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"arg = $&#123;arg&#125;"</span>)</span><br><span class="line"><span class="keyword">endmacro</span>()</span><br><span class="line"><span class="keyword">message</span>(<span class="string">"=== Call macro ==="</span>)</span><br><span class="line">Moo(<span class="variable">$&#123;var&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>(Foo arg)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"arg = $&#123;arg&#125;"</span>)</span><br><span class="line">  <span class="keyword">set</span>(arg <span class="string">"abc"</span>)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"# After change the value of arg."</span>)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"arg = $&#123;arg&#125;"</span>)</span><br><span class="line"><span class="keyword">endfunction</span>()</span><br><span class="line"><span class="keyword">message</span>(<span class="string">"=== Call function ==="</span>)</span><br><span class="line">Foo(<span class="variable">$&#123;var&#125;</span>)</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">=== Call macro ===</span><br><span class="line">arg = ABC</span><br><span class="line"># After change the value of arg.</span><br><span class="line">arg = ABC</span><br><span class="line">=== Call function ===</span><br><span class="line">arg = ABC</span><br><span class="line"># After change the value of arg.</span><br><span class="line">arg = abc</span><br></pre></td></tr></table></figure></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/24297999/function-vs-macro-in-cmake" target="_blank" rel="external">http://stackoverflow.com/questions/24297999/function-vs-macro-in-cmake</a></li>
+<li><a href="http://www.cmake.org/cmake/help/v3.0/command/macro.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/macro.html</a></li>
+<li><a href="http://www.cmake.org/cmake/help/v3.0/command/function.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/function.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/09/cmake-macro-vs-function/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-08 </div>
+			<div class="article-title"><a href="/2015/01/08/pragma-once/" >pragma-once</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p><code>#pragma once</code>是一条非标准的预处理指令，用来防止同一文件被多次包含，同<code>include guard</code>作用一样。<br>绝大多数编译器都提供支持。</p>
+<p>具有的优点：</p>
+<ul>
+<li>代码更少，不用<code>include</code>那么麻烦</li>
+<li>更有效，更安全，由预处理器去维护判断是否已经包含过，而<code>include</code>需要程序员定义不同的宏名来保证，<br>若宏名冲突，则导致编译失败</li>
+<li>效率更高，预处理器针对其做了特殊的优化</li>
+<li><strong>复制，修改代码更容易，当把一个头文件复制到另一个项目中，或改名时，不用按着命令规范去修改</strong></li>
+</ul>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>当同一个文件，在项目内有符号链接或硬链接时，可能导致无法工作。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://en.wikipedia.org/wiki/Pragma_once" target="_blank" rel="external">https://en.wikipedia.org/wiki/Pragma_once</a></li>
+<li><a href="http://stackoverflow.com/questions/1143936/pragma-once-vs-include-guards" target="_blank" rel="external">http://stackoverflow.com/questions/1143936/pragma-once-vs-include-guards</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/08/pragma-once/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-08 </div>
 			<div class="article-title"><a href="/2015/01/08/makefile-目标all作用/" >makefile-目标all作用</a></div>						
 		</h3>
@@ -384,60 +447,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/07/autohotkey获得粘贴板内容/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-07 </div>
-			<div class="article-title"><a href="/2015/01/07/软件设计原则资料/" >软件设计原则资料</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><a href="http://coolshell.cn/articles/4535.html" target="_blank" rel="external">一些软件设计的原则(酷壳)</a></li>
-<li><a href="https://en.wikipedia.org/wiki/KISS_principle" target="_blank" rel="external">https://en.wikipedia.org/wiki/KISS_principle</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank" rel="external">https://en.wikipedia.org/wiki/Don%27t_repeat_yourself</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/07/软件设计原则资料/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-06 </div>
-			<div class="article-title"><a href="/2015/01/06/虚拟网卡资料/" >虚拟网卡资料</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><a href="http://wushank.blog.51cto.com/3489095/1306849" target="_blank" rel="external">linux下TUN/TAP虚拟网卡的使用</a></li>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-tuntap/" target="_blank" rel="external">虚拟网卡 TUN/TAP 驱动程序设计原理</a></li>
-<li><a href="http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7" target="_blank" rel="external">http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/TUN%E4%B8%8ETAP" target="_blank" rel="external">wiki-TUN与TAP</a></li>
-<li><a href="http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has" target="_blank" rel="external">http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/06/虚拟网卡资料/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -742,45 +751,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
 		
-			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>1</span></a></li>
 		
-			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
 		
-			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
 		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
 		
-			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
+			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
 		
-			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
 		
-			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
+			<li><a href="/tags/C/">C<span>14</span></a></li>
 		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>3</span></a></li>
 		
-			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
-			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/apt/">apt<span>2</span></a></li>
 		
-			<li><a href="/tags/du/">du<span>1</span></a></li>
+			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
 		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
+			<li><a href="/tags/install/">install<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -796,6 +805,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -805,14 +822,6 @@
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

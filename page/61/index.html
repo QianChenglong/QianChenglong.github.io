@@ -112,6 +112,62 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-03 </div>
+			<div class="article-title"><a href="/2014/12/03/python文件重命名/" >python文件重命名</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
+<li><p><code>shutil.move()</code></p>
+</li>
+<li><p><code>os.rename()</code></p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://docs.python.org/2/library/shutil.html#shutil.move" target="_blank" rel="external">https://docs.python.org/2/library/shutil.html#shutil.move</a></li>
+<li><a href="https://docs.python.org/2/library/os.html#os.rename" target="_blank" rel="external">https://docs.python.org/2/library/os.html#os.rename</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/03/python文件重命名/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-03 </div>
+			<div class="article-title"><a href="/2014/12/03/python-cgi读取表单数据/" >python-cgi读取表单数据</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">form = cgi.FieldStorage()</span><br><span class="line"><span class="keyword">if</span> <span class="string">"name"</span> <span class="keyword">not</span> <span class="keyword">in</span> form <span class="keyword">or</span> <span class="string">"addr"</span> <span class="keyword">not</span> <span class="keyword">in</span> form:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"&lt;H1&gt;Error&lt;/H1&gt;"</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Please fill in the name and addr fields."</span></span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"&lt;p&gt;name:"</span>, form[<span class="string">"name"</span>].value</span><br><span class="line"><span class="keyword">print</span> <span class="string">"&lt;p&gt;addr:"</span>, form[<span class="string">"addr"</span>].value</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://docs.python.org/2/library/cgi.html" target="_blank" rel="external">https://docs.python.org/2/library/cgi.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/03/python-cgi读取表单数据/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-03 </div>
 			<div class="article-title"><a href="/2014/12/03/python操作x-www-form-urlencoded数据/" >python解析x-www-form-urlencoded数据</a></div>						
 		</h3>
 	
@@ -378,95 +434,6 @@ ssh-add ~/.ssh/id_rsa
 	
 	</div>
   <a type="button" href="/2014/12/01/windows下git生成SSH公钥/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/MinGW编译wxWidget/" >MinGW编译wxWidget</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>WXWIN：源代码根目录</li>
-</ul>
-<ol>
-<li><p>解压源码</p>
-</li>
-<li><p>进入到<code>%WXWIN%\build\msw</code></p>
-</li>
-<li><p>清理项目</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release clean
-</code></pre></li>
-<li><p>编译</p>
-</li>
-</ol>
-<ul>
-<li><p>动态库，发行版</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release
-</code></pre></li>
-<li><p>动态库，调试版</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=debug
-</code></pre></li>
-<li><p>静态库，发行版</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=release
-</code></pre></li>
-<li><p>静态库，调试版</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=debug
-</code></pre><p>  <strong>注</strong>:</p>
-<ol>
-<li><p>可以添加-j N(N指当前CPU核心数)，加快编译速度</p>
-</li>
-<li><p>每种版本可以根据需要编译</p>
-</li>
-<li><p>动态库对应的目录(%WXWIN%\lib\gcc_dll)，静态库对应的目录(%WXWIN%\lib\gcc_lib)</p>
-</li>
-<li><p>Debug版的库名称会有<code>d</code>后缀，UNICODE版的库名称会有<code>u</code>后缀</p>
-</li>
-</ol>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/MinGW编译wxWidget/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/hexo博客添加图片/" >hexo博客添加图片</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>markdown中，插入图片的语法为：</p>
-<pre><code>![图片名称](链接地址)
-</code></pre><ul>
-<li><p>使用本地路径：在hexo/source目录下新建一个img文件夹，将图片放入该文件夹下，插入图片时链接即为/img/图片名称。</p>
-</li>
-<li><p>使用微博图床，地址<a href="http://weibotuchuang.sinaapp.com/，将图片拖入区域中，会生成图片的URL，这就是链接地址。" target="_blank" rel="external">http://weibotuchuang.sinaapp.com/，将图片拖入区域中，会生成图片的URL，这就是链接地址。</a></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/hexo博客添加图片/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -771,45 +738,45 @@ ssh-add ~/.ssh/id_rsa
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/函数/">函数<span>2</span></a></li>
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
+			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
 		
-			<li><a href="/tags/js/">js<span>2</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
+			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
-		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
-		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
-		
-			<li><a href="/tags/registry/">registry<span>1</span></a></li>
-		
-			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+			<li><a href="/tags/C/">C++<span>32</span></a></li>
 		
 			<li><a href="/tags/awk/">awk<span>1</span></a></li>
 		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+			<li><a href="/tags/nging/">nging<span>1</span></a></li>
 		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
 		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
+			<li><a href="/tags/extern/">extern<span>1</span></a></li>
 		
-			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
+		
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
+		
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+		
+			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
+		
+			<li><a href="/tags/text/">text<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -825,6 +792,14 @@ ssh-add ~/.ssh/id_rsa
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -834,14 +809,6 @@ ssh-add ~/.ssh/id_rsa
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

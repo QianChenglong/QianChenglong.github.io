@@ -112,6 +112,111 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-31 </div>
+			<div class="article-title"><a href="/2015/03/31/python-模块/" >python-模块</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>一个*.py文件即一个模块</p>
+</li>
+<li><p>主模块，程序的入口模块</p>
+</li>
+<li><p>文件名(不包括路径和拓展名)即模块名，可通过<code>__name__</code>得到，主模块名叫<code>__main__</code></p>
+</li>
+<li><p>模块是一种代码组织方式，具有方便开发，测试，维护，复用等优点</p>
+</li>
+<li><p>模块中的符号表是<strong>私有的</strong>，意味着在模块当中的符号不会与其他模块冲突</p>
+</li>
+<li><p>内建方法<code>dir()</code>查看模块名字</p>
+</li>
+</ul>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>module.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"Hello world"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="无污染方式-优先使用"><a href="#无污染方式-优先使用" class="headerlink" title="无污染方式(优先使用)"></a>无污染方式(优先使用)</h2><ul>
+<li><p>导入模块</p>
+<pre><code>import moudle
+</code></pre></li>
+<li><p>访问模块中的符号(变量名，函数名)</p>
+<pre><code>module.var
+module.func
+</code></pre></li>
+</ul>
+<h2 id="污染方式-不推荐使用"><a href="#污染方式-不推荐使用" class="headerlink" title="污染方式(不推荐使用)"></a>污染方式(不推荐使用)</h2><h3 id="部分导入"><a href="#部分导入" class="headerlink" title="部分导入"></a>部分导入</h3><ul>
+<li><p>导入</p>
+<pre><code>from module import var
+</code></pre></li>
+<li><p>使用</p>
+<pre><code>var
+</code></pre></li>
+</ul>
+<h3 id="全部导入-不会导入单下划线-开头的符号"><a href="#全部导入-不会导入单下划线-开头的符号" class="headerlink" title="全部导入(不会导入单下划线_开头的符号)"></a>全部导入(不会导入单下划线<code>_</code>开头的符号)</h3><ul>
+<li><p>导入模块</p>
+<pre><code>from module import *
+</code></pre></li>
+<li><p>使用</p>
+<pre><code>var
+func
+</code></pre></li>
+</ul>
+<h1 id="模块搜索路径"><a href="#模块搜索路径" class="headerlink" title="模块搜索路径"></a>模块搜索路径</h1><ul>
+<li><p>工作目录</p>
+</li>
+<li><p>sys.path(路径字符串列表)中的顺序搜索</p>
+</li>
+</ul>
+<h1 id="标准模块-标准库"><a href="#标准模块-标准库" class="headerlink" title="标准模块(标准库)"></a>标准模块(标准库)</h1><ul>
+<li><p>有些内建到解释器中</p>
+</li>
+<li><p>有些依赖于平台，如win下的<code>winreg</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/2/tutorial/modules.html" target="_blank" rel="external">https://docs.python.org/2/tutorial/modules.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/31/python-模块/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-31 </div>
+			<div class="article-title"><a href="/2015/03/31/windows-dhcp request IP研究/" >windows-dhcp request IP研究</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="从DHCP网络A切换至另一没有连接过的DHCP网络B"><a href="#从DHCP网络A切换至另一没有连接过的DHCP网络B" class="headerlink" title="从DHCP网络A切换至另一没有连接过的DHCP网络B"></a>从DHCP网络A切换至另一没有连接过的DHCP网络B</h1><ul>
+<li>dhcp client拿A网络分配的IP去request</li>
+</ul>
+<h1 id="从DHCP网络A切换至另一连接过的DHCP网络B"><a href="#从DHCP网络A切换至另一连接过的DHCP网络B" class="headerlink" title="从DHCP网络A切换至另一连接过的DHCP网络B"></a>从DHCP网络A切换至另一连接过的DHCP网络B</h1><ul>
+<li>dhcp client拿B网络分配过的IP去request</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/31/windows-dhcp request IP研究/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-31 </div>
 			<div class="article-title"><a href="/2015/03/31/Sphinx-安装使用/" >Sphinx-安装使用</a></div>						
 		</h3>
 	
@@ -313,116 +418,6 @@
 	
 	</div>
   <a type="button" href="/2015/03/27/TP-LINK-AC1000配置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-27 </div>
-			<div class="article-title"><a href="/2015/03/27/vim-格式化json/" >vim-格式化json</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>使用python模块</p>
-<pre><code>:%!python -m json.tool
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/27/vim-格式化json/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-26 </div>
-			<div class="article-title"><a href="/2015/03/26/C-函数操作结果返回方式/" >C-函数操作结果返回方式</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="通过返回值"><a href="#通过返回值" class="headerlink" title="通过返回值"></a>通过返回值</h1><h2 id="直接值传递"><a href="#直接值传递" class="headerlink" title="直接值传递"></a>直接值传递</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>简单，快捷，不存在内存溢出</p>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li><p>不能返回错误代码</p>
-</li>
-<li><p>无法返回非内置数据类型</p>
-</li>
-</ul>
-<h3 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h3><ul>
-<li><p>返回简单的内置类型数据</p>
-</li>
-<li><p>出错少或错误不是很严重</p>
-</li>
-</ul>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code>size_t strlen(const char * str);
-</code></pre><h2 id="内部分配static类型数据，返回指针"><a href="#内部分配static类型数据，返回指针" class="headerlink" title="内部分配static类型数据，返回指针"></a>内部分配static类型数据，返回指针</h2><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
-<li><p>可返回非内置数据类型</p>
-</li>
-<li><p>调用方便，调用者无需手动分配内存</p>
-</li>
-</ul>
-<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li><p>不可重入</p>
-</li>
-<li><p>非线程安全</p>
-</li>
-</ul>
-<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><pre><code>char *inet_ntoa(struct in_addr);
-</code></pre><h1 id="通过参数"><a href="#通过参数" class="headerlink" title="通过参数"></a>通过参数</h1><h2 id="调用者分配内存，需要传入缓冲区大小"><a href="#调用者分配内存，需要传入缓冲区大小" class="headerlink" title="调用者分配内存，需要传入缓冲区大小"></a>调用者分配内存，需要传入缓冲区大小</h2><h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ul>
-<li><p>可返回非内置数据类型</p>
-</li>
-<li><p>可重入</p>
-</li>
-<li><p>线程安全</p>
-</li>
-<li><p>正确操作下，内存不会溢出(通过缓冲区大小参数)</p>
-</li>
-</ul>
-<h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>调用麻烦，需要手动分配内存</li>
-</ul>
-<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><pre><code>char* fgets(char *str, int num, FILE * stream);
-</code></pre><h2 id="调用者分配，不传入缓冲区大小-自己不采用，只是存在此种接口"><a href="#调用者分配，不传入缓冲区大小-自己不采用，只是存在此种接口" class="headerlink" title="调用者分配，不传入缓冲区大小(自己不采用，只是存在此种接口)"></a>调用者分配，不传入缓冲区大小(自己不采用，只是存在此种接口)</h2><h3 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h3><ul>
-<li><p>可返回非内置数据类型</p>
-</li>
-<li><p>可重入</p>
-</li>
-<li><p>线程安全</p>
-</li>
-</ul>
-<h3 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>存在缓冲区越界风险！</li>
-</ul>
-<h3 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h3><pre><code>char * gets ( char * str );
-</code></pre><h2 id="二次调用确定所需空间"><a href="#二次调用确定所需空间" class="headerlink" title="二次调用确定所需空间"></a>二次调用确定所需空间</h2><h3 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h3><ul>
-<li>可以返回调用者不能确定的内存空间的数据</li>
-</ul>
-<h3 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>二次调用，使用麻烦</li>
-</ul>
-<h3 id="实例-4"><a href="#实例-4" class="headerlink" title="实例"></a>实例</h3><pre><code>DWORD GetAdaptersInfo(_Out_    PIP_ADAPTER_INFO pAdapterInfo, _Inout_  PULONG pOutBufLen);
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://msdn.microsoft.com/zh-cn/library/windows/desktop/aa365917(v=vs.85" target="_blank" rel="external">GetAdaptersInfo</a>.aspx)</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/26/C-函数操作结果返回方式/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -727,45 +722,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/configure/">configure<span>1</span></a></li>
+			<li><a href="/tags/static/">static<span>2</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
 		
-			<li><a href="/tags/global/">global<span>1</span></a></li>
+			<li><a href="/tags/资源/">资源<span>2</span></a></li>
 		
-			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
-			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
+			<li><a href="/tags/include/">include<span>2</span></a></li>
 		
-			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+			<li><a href="/tags/主键/">主键<span>1</span></a></li>
+		
+			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
 		
 			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
-			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
 		
-			<li><a href="/tags/string/">string<span>8</span></a></li>
+			<li><a href="/tags/django/">django<span>2</span></a></li>
 		
-			<li><a href="/tags/dll/">dll<span>1</span></a></li>
+			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
 		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
+			<li><a href="/tags/macro/">macro<span>3</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/散列/">散列<span>1</span></a></li>
 		
-			<li><a href="/tags/打包/">打包<span>1</span></a></li>
+			<li><a href="/tags/文件/">文件<span>7</span></a></li>
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
-		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -781,6 +776,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -790,14 +793,6 @@
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

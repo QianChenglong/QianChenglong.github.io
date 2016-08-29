@@ -111,6 +111,116 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-27 </div>
+			<div class="article-title"><a href="/2015/03/27/vim-格式化json/" >vim-格式化json</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>使用python模块</p>
+<pre><code>:%!python -m json.tool
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/27/vim-格式化json/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-26 </div>
+			<div class="article-title"><a href="/2015/03/26/C-函数操作结果返回方式/" >C-函数操作结果返回方式</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="通过返回值"><a href="#通过返回值" class="headerlink" title="通过返回值"></a>通过返回值</h1><h2 id="直接值传递"><a href="#直接值传递" class="headerlink" title="直接值传递"></a>直接值传递</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>简单，快捷，不存在内存溢出</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li><p>不能返回错误代码</p>
+</li>
+<li><p>无法返回非内置数据类型</p>
+</li>
+</ul>
+<h3 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h3><ul>
+<li><p>返回简单的内置类型数据</p>
+</li>
+<li><p>出错少或错误不是很严重</p>
+</li>
+</ul>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code>size_t strlen(const char * str);
+</code></pre><h2 id="内部分配static类型数据，返回指针"><a href="#内部分配static类型数据，返回指针" class="headerlink" title="内部分配static类型数据，返回指针"></a>内部分配static类型数据，返回指针</h2><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><p>可返回非内置数据类型</p>
+</li>
+<li><p>调用方便，调用者无需手动分配内存</p>
+</li>
+</ul>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li><p>不可重入</p>
+</li>
+<li><p>非线程安全</p>
+</li>
+</ul>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><pre><code>char *inet_ntoa(struct in_addr);
+</code></pre><h1 id="通过参数"><a href="#通过参数" class="headerlink" title="通过参数"></a>通过参数</h1><h2 id="调用者分配内存，需要传入缓冲区大小"><a href="#调用者分配内存，需要传入缓冲区大小" class="headerlink" title="调用者分配内存，需要传入缓冲区大小"></a>调用者分配内存，需要传入缓冲区大小</h2><h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><p>可返回非内置数据类型</p>
+</li>
+<li><p>可重入</p>
+</li>
+<li><p>线程安全</p>
+</li>
+<li><p>正确操作下，内存不会溢出(通过缓冲区大小参数)</p>
+</li>
+</ul>
+<h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>调用麻烦，需要手动分配内存</li>
+</ul>
+<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><pre><code>char* fgets(char *str, int num, FILE * stream);
+</code></pre><h2 id="调用者分配，不传入缓冲区大小-自己不采用，只是存在此种接口"><a href="#调用者分配，不传入缓冲区大小-自己不采用，只是存在此种接口" class="headerlink" title="调用者分配，不传入缓冲区大小(自己不采用，只是存在此种接口)"></a>调用者分配，不传入缓冲区大小(自己不采用，只是存在此种接口)</h2><h3 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><p>可返回非内置数据类型</p>
+</li>
+<li><p>可重入</p>
+</li>
+<li><p>线程安全</p>
+</li>
+</ul>
+<h3 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>存在缓冲区越界风险！</li>
+</ul>
+<h3 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h3><pre><code>char * gets ( char * str );
+</code></pre><h2 id="二次调用确定所需空间"><a href="#二次调用确定所需空间" class="headerlink" title="二次调用确定所需空间"></a>二次调用确定所需空间</h2><h3 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>可以返回调用者不能确定的内存空间的数据</li>
+</ul>
+<h3 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>二次调用，使用麻烦</li>
+</ul>
+<h3 id="实例-4"><a href="#实例-4" class="headerlink" title="实例"></a>实例</h3><pre><code>DWORD GetAdaptersInfo(_Out_    PIP_ADAPTER_INFO pAdapterInfo, _Inout_  PULONG pOutBufLen);
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/windows/desktop/aa365917(v=vs.85" target="_blank" rel="external">GetAdaptersInfo</a>.aspx)</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/26/C-函数操作结果返回方式/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-26 </div>
 			<div class="article-title"><a href="/2015/03/26/extern C/" >extern &quot;C&quot;</a></div>						
 		</h3>
@@ -401,125 +511,6 @@ APPEND raw
 	
 	</div>
   <a type="button" href="/2015/03/20/syslinux/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-20 </div>
-			<div class="article-title"><a href="/2015/03/20/活动分区/" >活动分区</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>活动分区，是MBR主分区中的一种，目的是为了标识哪个分区是启动分区。</p>
-<p>在boot loader stage 1阶段，将检查DPT中是否有唯一活动分区，若存在，则载入执行该分区的VBR。</p>
-<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul>
-<li><p>每个磁盘只能有一个活动分区</p>
-</li>
-<li><p>只能将主分区设置为活动分区，不能将逻辑分区设为活动分区</p>
-</li>
-</ul>
-<h1 id="设置，取消活动分区"><a href="#设置，取消活动分区" class="headerlink" title="设置，取消活动分区"></a>设置，取消活动分区</h1><ul>
-<li><p>使用<code>diskmgmt.msc</code></p>
-</li>
-<li><p>diskpart</p>
-<ul>
-<li><p>cmd中运行<code>diskpart</code></p>
-</li>
-<li><p>列出当前磁盘</p>
-<pre><code>list disk
-</code></pre></li>
-<li><p>选择要操作的磁盘</p>
-<pre><code>select disk X
-</code></pre></li>
-<li><p>列出分区</p>
-<pre><code>list partition
-</code></pre></li>
-<li><p>选择要操作的分区</p>
-<pre><code>select partition X
-</code></pre></li>
-<li><p>标记为活动分区</p>
-<pre><code>active
-</code></pre></li>
-<li><p>标记为非活动分区</p>
-<pre><code>inactive
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="http://zh.wikipedia.org/wiki/%E6%B4%BB%E5%8A%A8%E5%88%86%E5%8C%BA" target="_blank" rel="external">维基-活动分区</a></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/20/活动分区/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-20 </div>
-			<div class="article-title"><a href="/2015/03/20/计算机启动过程/" >计算机启动过程</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>开机或重启(CPU执行第一条指令，跳转到FFFF:0000H)</p>
-<p>Bochs模拟：</p>
-<p><img src="../img/计算机启动过程_01.png" alt=""></p>
-<p>Intel跳转指令：</p>
-<p><img src="../img/计算机启动过程_02.png" alt=""></p>
-</li>
-<li><p>BIOS加电自检 (Power On Self Test)</p>
-</li>
-<li><p>BIOS自检完毕后，执行int 19(自举服务)，按照CMOS中存储的设备启动顺序，将介质中的MBR扇区载入到0000:7C00处，</p>
-<p>检查其哨兵（0000:7DFE字）是否为(0x55AA)</p>
-<ul>
-<li><p>若是，则跳转到MBR载入位置(0000:7C00);</p>
-</li>
-<li><p>若不是则载入下一个启动介质的MBR，重复操作，</p>
-</li>
-<li><p>若没有找到合法MBR，则报错<code>Invalid partition table</code>、<code>operating system not found</code>、<code>Missing operating system</code>等类似错误，停机</p>
-</li>
-</ul>
-</li>
-<li><p>MBR首先将自己复制到0000:0600 处，然后继续执行</p>
-<p><img src="../img/计算机启动过程_03.png" alt=""></p>
-</li>
-<li><p>在主分区表中搜索标志为活动的分区 . 如果发现没有活动分区或有不止一个活动分区 , 则转停止</p>
-</li>
-<li><p>将活动分区的第一个扇区(叫做分区启动记录，Volume Boot Record, VBR)读入内存地址0000:7C00处</p>
-</li>
-<li><p>检查(WORD)0000:7DFE是否等于0xAA55, 若不等于则显示<code>Missing Operating System</code>，然后停止</p>
-</li>
-<li><p>跳转到0000 :7C00处继续执行bootloader stage 2，加载相应操作系统的启动程序</p>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-linuxboot/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-linuxboot/</a></li>
-<li><a href="http://zh.wikipedia.org/wiki/%E4%B8%BB%E5%BC%95%E5%AF%BC%E8%AE%B0%E5%BD%95" target="_blank" rel="external">维基-主引导记录</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Master_boot_record" target="_blank" rel="external">wiki-Master_boot_record</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Boot_sector" target="_blank" rel="external">http://en.wikipedia.org/wiki/Boot_sector</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/20/计算机启动过程/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -824,45 +815,45 @@ APPEND raw
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+			<li><a href="/tags/父类/">父类<span>2</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
+			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
 		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>3</span></a></li>
 		
-			<li><a href="/tags/c99/">c99<span>1</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
 		
-			<li><a href="/tags/连接/">连接<span>1</span></a></li>
+			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
+			<li><a href="/tags/10014/">10014<span>1</span></a></li>
 		
-			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
 		
-			<li><a href="/tags/template/">template<span>2</span></a></li>
+			<li><a href="/tags/vim/">vim<span>23</span></a></li>
 		
-			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>1</span></a></li>
 		
-			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
+			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/使用/">使用<span>1</span></a></li>
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
-			<li><a href="/tags/博客/">博客<span>1</span></a></li>
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -878,6 +869,14 @@ APPEND raw
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -887,14 +886,6 @@ APPEND raw
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

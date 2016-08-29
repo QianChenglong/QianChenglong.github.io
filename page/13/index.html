@@ -112,6 +112,73 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-10-28 </div>
+			<div class="article-title"><a href="/2015/10/28/go-pointer/" >go-pointer</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>在访问<code>filed</code>时,<code>pointer to struct</code>会自动解引用</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> person <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line">p := &amp;person&#123;<span class="string">"a"</span>&#125;</span><br><span class="line">p.name <span class="comment">// &lt;=&gt; (*p).name</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在调用<code>method</code>时,<code>struct</code>(<code>reciver</code>)会自动转换(取地址,解引用)</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Dog <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (d Dog) Bite(target <span class="keyword">string</span>) &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%v bite %v\n"</span>, d.name, target)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (d *Dog) Drink(target <span class="keyword">string</span>) &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%v drink %v\n"</span>, d.name, target)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> main() &#123;</span><br><span class="line">    a := Dog&#123;<span class="string">"a"</span>&#125;</span><br><span class="line">    b := &amp;Dog&#123;<span class="string">"b"</span>&#125;</span><br><span class="line">    a.Bite(<span class="string">"b"</span>)</span><br><span class="line">    b.Bite(<span class="string">"a"</span>) <span class="comment">// &lt;=&gt; (*b).Bite("a")</span></span><br><span class="line"></span><br><span class="line">    a.Drink(<span class="string">"water"</span>) <span class="comment">// &lt;=&gt; (&amp;a).Drink("water")</span></span><br><span class="line">    b.Drink(<span class="string">"beer"</span>)  <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>function</code>参数不会转换</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/20849751/rule-for-go-pointers-references-dereferencing" target="_blank" rel="external">http://stackoverflow.com/questions/20849751/rule-for-go-pointers-references-dereferencing</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/28/go-pointer/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-28 </div>
+			<div class="article-title"><a href="/2015/10/28/go-make/" >go-make</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>专为用来创建<code>slice</code>,<code>map</code>,<code>channel</code>这3中类型</p>
+<ul>
+<li>因为这3中类型依赖于底层数据结构存储,所以必须初始化!</li>
+</ul>
+</li>
+<li><p>返回<code>T</code>类型,而不是<code>*T</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://golang.org/doc/effective_go.html#allocation_make" target="_blank" rel="external">https://golang.org/doc/effective_go.html#allocation_make</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/28/go-make/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-28 </div>
 			<div class="article-title"><a href="/2015/10/28/go-内存分配/" >go-内存分配</a></div>						
 		</h3>
 	
@@ -389,63 +456,6 @@
 	
 	</div>
   <a type="button" href="/2015/10/20/mysql-datetime/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-19 </div>
-			<div class="article-title"><a href="/2015/10/19/http-content-encoding/" >http-content-encoding</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>用来说明内容编码</li>
-</ul>
-<h1 id="常见值"><a href="#常见值" class="headerlink" title="常见值"></a>常见值</h1><ul>
-<li><p>gzip(用于文本压缩传输)</p>
-</li>
-<li><p>MIME</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/10/19/http-content-encoding/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-19 </div>
-			<div class="article-title"><a href="/2015/10/19/http/" >http</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>http是请求-应答协议,只能客户端主动发起请求,服务端只负责应答</p>
-</li>
-<li><p>http请求包:状态行,头部,内容</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/10/19/http/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -750,45 +760,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
 		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/string/">string<span>8</span></a></li>
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+		
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+		
+			<li><a href="/tags/command/">command<span>9</span></a></li>
+		
+			<li><a href="/tags/ip/">ip<span>2</span></a></li>
+		
+			<li><a href="/tags/list/">list<span>1</span></a></li>
+		
+			<li><a href="/tags/resize/">resize<span>1</span></a></li>
+		
+			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+		
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
+		
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+		
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
 			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
 		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
 		
-			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
-		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
-		
-			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
-		
-			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
-		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
-		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
-		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
-		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
-		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
-		
-			<li><a href="/tags/resize/">resize<span>1</span></a></li>
+			<li><a href="/tags/global/">global<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -804,6 +814,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -813,14 +831,6 @@
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

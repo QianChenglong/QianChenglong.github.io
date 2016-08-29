@@ -112,6 +112,78 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-08-26 </div>
+			<div class="article-title"><a href="/2015/08/26/gcc-调试编译/" >gcc-调试编译</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>打印编译详细过程</p>
+<p>-v</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/26/gcc-调试编译/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-26 </div>
+			<div class="article-title"><a href="/2015/08/26/gcc-链接库顺序/" >gcc-链接库顺序</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>在gcc编译时,链接库的指定顺序会影响编译行为!</p>
+<p>gcc手册说明:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-l library</span><br><span class="line">       Search the library named library when linking.  (The second alternative with the library as a separate argument is only for POSIX compliance and is not</span><br><span class="line">       recommended.)</span><br><span class="line"></span><br><span class="line">       It makes a difference where in the command you write this option; the linker searches and processes libraries and object files in the order they are</span><br><span class="line">       specified.  Thus, foo.o -lz bar.o searches library z after file foo.o but before bar.o.  If bar.o refers to functions in z, those functions may not be</span><br><span class="line">       loaded.</span><br><span class="line"></span><br><span class="line">       The linker searches a standard list of directories for the library, which is actually a file named liblibrary.a.  The linker then uses this file as if</span><br><span class="line">       it had been specified precisely by name.</span><br><span class="line"></span><br><span class="line">       The directories searched include several standard system directories plus any that you specify with -L.</span><br><span class="line"></span><br><span class="line">       Normally the files found this way are library files---archive files whose members are object files.  The linker handles an archive file by scanning</span><br><span class="line">       through it for members which define symbols that have so far been referenced but not defined.  But if the file that is found is an ordinary object file,</span><br><span class="line">       it is linked in the usual fashion.  The only difference between using an -l option and specifying a file name is that -l surrounds library with lib and</span><br><span class="line">       .a and searches several directories.</span><br></pre></td></tr></table></figure>
+<p>理解:</p>
+<p>假设C依赖库A,B,库B依赖于库A,则链接的时候要写为:</p>
+<p>   gcc -o C -lB -lA</p>
+<p>若写成:</p>
+<p>   gcc -o C -lA -lB</p>
+<h1 id="链接时-符号寻找过程"><a href="#链接时-符号寻找过程" class="headerlink" title="链接时,符号寻找过程"></a>链接时,符号寻找过程</h1><ol>
+<li><p>根据库路径列表,依次找到需要链接的库</p>
+<ul>
+<li>若一个库在该路径列表中存在多个,则使用第一个找到的</li>
+</ul>
+</li>
+<li><p>从左向右,依次找寻符号定义</p>
+<ul>
+<li><code>gcc -o C -lB -lA</code>,符号搜寻过程是C=&gt;B, B=&gt;A</li>
+</ul>
+</li>
+</ol>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论!"></a>结论!</h1><p>在项目开发过层中尽量让lib是垂直关系,避免循环依赖,越是底层的库,越是往后面写</p>
+<pre><code>g++ ...  obj($?) -l(上层逻辑lib) -l(中间封装lib) -l(基础lib) -l(系统lib) -o $@
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.cnblogs.com/OCaml/archive/2012/06/18/2554086.html" target="_blank" rel="external">折腾gcc/g++链接时.o文件及库的顺序问题</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/08/26/gcc-链接库顺序/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-26 </div>
 			<div class="article-title"><a href="/2015/08/26/mysql-C开发/" >mysql-C开发</a></div>						
 		</h3>
 	
@@ -350,66 +422,6 @@ KEYMAP=us
 	
 	</div>
   <a type="button" href="/2015/08/15/systemd-coredump/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-15 </div>
-			<div class="article-title"><a href="/2015/08/15/使用coredump调试/" >使用coredump调试</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>打开coredump生成功能</p>
-<pre><code>ulimit -c unlimited
-</code></pre></li>
-<li><p>查看core文件位置</p>
-<pre><code>cat /proc/sys/kernel/core_pattern
-</code></pre></li>
-<li><p>使用gdb调试</p>
-<pre><code>gdb -c core文件 程序
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/08/15/使用coredump调试/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-14 </div>
-			<div class="article-title"><a href="/2015/08/14/pthread/" >pthread</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>线程共享进程所有资源(文本段,数据段,堆,文件描述符等)</p>
-</li>
-<li><p>线程句柄<code>pthread_t</code>是一个结构,跟具体实现相关,不能直接拿来比较,需要使用<code>pthread_equal</code></p>
-</li>
-</ul>
-<h1 id="重要API"><a href="#重要API" class="headerlink" title="重要API"></a>重要API</h1><p>| 名称           | 功能                                                                               |<br>|—————-+————————————————————————————|<br>| pthread_create | 创建线程                                                                           |<br>| pthread_self   | 获取线程ID                                                                         |<br>| pthread_join   | 阻塞等待指定线程退出,获取其退出状态                                                |<br>| pthread_exit   | 线程主动退出                                                                       |<br>| pthread_cancel | 请求取消同一线程中的其他线程                                                       |<br>| pthread_detach | 使该进程处于分离状态(线程一旦终止,资源立马回收,不可调用pthread_join获取其退出状态) |</p>
-
-	
-	</div>
-  <a type="button" href="/2015/08/14/pthread/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -714,45 +726,45 @@ KEYMAP=us
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
+			<li><a href="/tags/rune/">rune<span>1</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/库/">库<span>2</span></a></li>
+			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+			<li><a href="/tags/启动/">启动<span>1</span></a></li>
 		
-			<li><a href="/tags/centos/">centos<span>12</span></a></li>
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
 		
-			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+			<li><a href="/tags/function/">function<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -768,6 +780,14 @@ KEYMAP=us
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -777,14 +797,6 @@ KEYMAP=us
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

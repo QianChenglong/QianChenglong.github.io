@@ -112,6 +112,63 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/http-content-encoding/" >http-content-encoding</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>用来说明内容编码</li>
+</ul>
+<h1 id="常见值"><a href="#常见值" class="headerlink" title="常见值"></a>常见值</h1><ul>
+<li><p>gzip(用于文本压缩传输)</p>
+</li>
+<li><p>MIME</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/10/19/http-content-encoding/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/http/" >http</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>http是请求-应答协议,只能客户端主动发起请求,服务端只负责应答</p>
+</li>
+<li><p>http请求包:状态行,头部,内容</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/10/19/http/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
 			<div class="article-title"><a href="/2015/10/19/http-chunked/" >http-chunked</a></div>						
 		</h3>
 	
@@ -403,82 +460,6 @@ PATH+=%GOPATH%\bin
 	
 	</div>
   <a type="button" href="/2015/10/14/vim-go/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-13 </div>
-			<div class="article-title"><a href="/2015/10/13/go-gorilla-rpc/" >go-gorilla-rpc</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h1><ol>
-<li>外部接口</li>
-</ol>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s := rpc.NewServer() <span class="comment">// 定义一个rpc server</span></span><br><span class="line"></span><br><span class="line">s.RegisterCodec(json2.NewCustomCodec(&amp;rpc.CompressionSelector&#123;&#125;), <span class="string">"application/json"</span>)</span><br><span class="line"><span class="comment">// 定义一个codec(用来响应请求)</span></span><br><span class="line"><span class="comment">// 为rpc注册(当收到的http,`Content-Type`为`application/json`时,调用该codec响应处理)</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://github.com/gorilla/rpc" target="_blank" rel="external">https://github.com/gorilla/rpc</a></li>
-<li><a href="http://www.gorillatoolkit.org/pkg/rpc" target="_blank" rel="external">http://www.gorillatoolkit.org/pkg/rpc</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/13/go-gorilla-rpc/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-13 </div>
-			<div class="article-title"><a href="/2015/10/13/go-json/" >go-json</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>编码解码是相对于<code>json</code>字符串(<code>utf-8</code>编码的slice)来讲的</p>
-<ul>
-<li><p>编码=&gt;将<code>go</code>数据类型值转换为<code>json</code>字符串</p>
-</li>
-<li><p>解码=&gt;将<code>json</code>字符串转换为<code>go</code>中数据类型值</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h1><ul>
-<li><p><code>Marshal(v interface{}) ([]byte, error)</code></p>
-<p>编码</p>
-</li>
-<li><p><code>Unmarshal(data []byte, v interface{}) error</code></p>
-<p>解码</p>
-</li>
-<li><p><code>NewDecoder(r io.Reader) *Decoder</code> <code>(dec *Decoder) Decode(v interface{}) error</code></p>
-<p>从实现了<code>io.Reader</code>接口中的对象读取<code>json</code>字符串来解码</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.2.md" target="_blank" rel="external">build-web-application-with-golang 7.2 JSON处理</a></li>
-<li><a href="https://golang.org/pkg/encoding/json/" target="_blank" rel="external">https://golang.org/pkg/encoding/json/</a></li>
-<li><a href="https://godoc.org/github.com/bitly/go-simplejson" target="_blank" rel="external">https://godoc.org/github.com/bitly/go-simplejson</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/13/go-json/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -783,45 +764,45 @@ PATH+=%GOPATH%\bin
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/library/">library<span>2</span></a></li>
 		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
+		
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
+		
+			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
+		
+			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+		
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+		
+			<li><a href="/tags/war/">war<span>1</span></a></li>
+		
+			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
 		
 			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+			<li><a href="/tags/dns/">dns<span>1</span></a></li>
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
 		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
 		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/编译/">编译<span>10</span></a></li>
 		
-			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
-		
-			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
-		
-			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
-		
-			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
-		
-			<li><a href="/tags/registry/">registry<span>1</span></a></li>
-		
-			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
-		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -837,6 +818,14 @@ PATH+=%GOPATH%\bin
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -846,14 +835,6 @@ PATH+=%GOPATH%\bin
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

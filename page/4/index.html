@@ -111,6 +111,73 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-04-28 </div>
+			<div class="article-title"><a href="/2016/04/28/C++-静态数据成员/" >C++-静态数据成员</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> X</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">int</span> normalValue = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">0</span>;       <span class="comment">// declaration, with initializer</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> X::i;                 <span class="comment">// definition</span></span><br></pre></td></tr></table></figure>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>与全局变量存储在同一区域(全局/静态存储区，又叫做数据段)</p>
+</li>
+<li><p>在函数内用static修饰的变量，也是在<strong>全局/静态存储</strong>，只是访问的<strong>作用域</strong>被编译器限定</p>
+</li>
+<li><p>static数据成员只是加上了类名字限定了的全局变量！</p>
+</li>
+</ul>
+<h1 id="为什么需要在类实现文件中单独定义static类型数据成员？"><a href="#为什么需要在类实现文件中单独定义static类型数据成员？" class="headerlink" title="为什么需要在类实现文件中单独定义static类型数据成员？"></a>为什么需要在类实现文件中单独定义static类型数据成员？</h1><ul>
+<li>因为类定义在头文件中，而头文件可以在不同的object中引用，<br>这样该定义不唯一，链接器在链接时，会报重定义错误！</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/11300652/static-data-member-initialization" target="_blank" rel="external">http://stackoverflow.com/questions/11300652/static-data-member-initialization</a></li>
+<li><a href="http://programmers.stackexchange.com/questions/145299/why-the-static-data-members-have-to-be-defined-outside-the-class-separately-in-c" target="_blank" rel="external">http://programmers.stackexchange.com/questions/145299/why-the-static-data-members-have-to-be-defined-outside-the-class-separately-in-c</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/static" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/static</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/28/C++-静态数据成员/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-26 </div>
+			<div class="article-title"><a href="/2016/04/26/daemon/" >daemon</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>关闭打开的文件描述符(0,1,2等，可通过<code>ls /proc/pid/fd</code>查看打开的文件描述符)</p>
+<p>若不关闭，虽然没有了控制终端，不会接受到相应控制信号，则仍能IO对应文件，如标准输出到启动时的终端，从终端读入！</p>
+<ul>
+<li>需要注意，默认为行缓冲！</li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/26/daemon/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-04-25 </div>
 			<div class="article-title"><a href="/2016/04/25/net/" >net</a></div>						
 		</h3>
@@ -326,76 +393,6 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 	
 	</div>
   <a type="button" href="/2016/04/14/c++-bind/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-14 </div>
-			<div class="article-title"><a href="/2016/04/14/TIME_WAIT/" >TIME_WAIT</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么?"></a>是什么?</h1><h1 id="为什么需要？"><a href="#为什么需要？" class="headerlink" title="为什么需要？"></a>为什么需要？</h1><h1 id="如何查看"><a href="#如何查看" class="headerlink" title="如何查看?"></a>如何查看?</h1><h1 id="如何优化？"><a href="#如何优化？" class="headerlink" title="如何优化？"></a>如何优化？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.tcp_tw_reuse = 1</span><br><span class="line">#表示开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接，默认为0，表示关闭；</span><br><span class="line">net.ipv4.tcp_tw_recycle = 1</span><br><span class="line">#表示开启TCP连接中TIME-WAIT sockets的快速回收，默认为0，表示关闭；</span><br><span class="line">net.ipv4.tcp_fin_timeout</span><br><span class="line">#修改系統默认的 TIMEOUT 时间。</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2016/04/14/TIME_WAIT/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-13 </div>
-			<div class="article-title"><a href="/2016/04/13/centos-安装记录/" >centos-安装记录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>安装VBoxGuestAdditions</p>
-</li>
-<li><p>配置sudo</p>
-<pre><code>visudo
-
-wallace ALL=(ALL)       NOPASSWD: ALL
-</code></pre></li>
-<li><p>安装epel(<a href="http://www.cyberciti.biz/faq/installing-rhel-epel-repo-on-centos-redhat-7-x/" target="_blank" rel="external">http://www.cyberciti.biz/faq/installing-rhel-epel-repo-on-centos-redhat-7-x/</a>)</p>
-<pre><code>yum install epel-release
-</code></pre></li>
-<li><p>添加组</p>
-<pre><code>yum install libuser
-lgroup -M wallace vboxsf
-</code></pre></li>
-<li><p>配置环境变量</p>
-<pre><code>vi /etc/profile
-</code></pre></li>
-<li><p>配置系统语言</p>
-<pre><code>echo LANG=en_US.UTF-8 &gt;/etc/locale.conf
-</code></pre></li>
-<li><p>配置启动时间</p>
-<pre><code>vi /boot/grub2/grub.cfg
-
-set timeout=1
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/13/centos-安装记录/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -700,45 +697,45 @@ set timeout=1
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
 		
-			<li><a href="/tags/module/">module<span>3</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/cron/">cron<span>2</span></a></li>
 		
-			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
+			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/awk/">awk<span>1</span></a></li>
 		
-			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
-		
-			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
-		
-			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
-		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
-		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
-		
-			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
-		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+			<li><a href="/tags/类/">类<span>1</span></a></li>
 		
 			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+		
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
+		
+			<li><a href="/tags/debug/">debug<span>2</span></a></li>
+		
+			<li><a href="/tags/macro/">macro<span>3</span></a></li>
+		
+			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+		
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
+		
+			<li><a href="/tags/sort/">sort<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -754,6 +751,14 @@ set timeout=1
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -763,14 +768,6 @@ set timeout=1
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

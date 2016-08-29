@@ -111,6 +111,63 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-11 </div>
+			<div class="article-title"><a href="/2016/03/11/tcp-accept/" >tcp-accept</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">accept</span><span class="params">(<span class="keyword">int</span> socket, <span class="keyword">struct</span> sockaddr *<span class="keyword">restrict</span> address,</span><br><span class="line">           socklen_t *<span class="keyword">restrict</span> address_len)</span></span>;</span><br></pre></td></tr></table></figure>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>address_len</code>为传入传出参数！</p>
+</li>
+<li><p>当监听套接字设置为非阻塞时，若<code>accept</code>未获取到连接，则不阻塞，返回失败，<code>errno</code>设置为<code>EAGAIN</code>或<code>EWOULDBLOCK</code></p>
+</li>
+</ul>
+<h1 id="错误代码"><a href="#错误代码" class="headerlink" title="错误代码"></a>错误代码</h1><ul>
+<li><code>EMFILE</code> 打开的文件超过限制</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/11/tcp-accept/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-10 </div>
+			<div class="article-title"><a href="/2016/03/10/修改limit/" >修改limit</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>/etc/security/limits.conf</p>
+<pre><code>* hard nofile 10000
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/03/10/修改limit/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-10 </div>
 			<div class="article-title"><a href="/2016/03/10/线程/" >线程</a></div>						
 		</h3>
@@ -353,70 +410,6 @@
 	
 	</div>
   <a type="button" href="/2016/03/07/池/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-27 </div>
-			<div class="article-title"><a href="/2016/02/27/c++-类型转换/" >c++-类型转换</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h1><ul>
-<li>相关类型的转换，如整型到枚举，浮点到整型</li>
-</ul>
-<h1 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a><code>reinterpret_cast</code></h1><ul>
-<li>互不相关类型转换，如整型到指针</li>
-</ul>
-<h1 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a><code>const_cast</code></h1><ul>
-<li>去除<code>const</code>，<code>volatile</code>修饰</li>
-</ul>
-<h1 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a><code>dynamic_cast</code></h1><ul>
-<li><p>多态类型的转换</p>
-<ol>
-<li>子类向基类的向上转型(Up Cast)</li>
-<li>基类向子类的向下转型(Down Cast)</li>
-<li>横向转型(Cross Cast)</li>
-</ol>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/02/27/c++-类型转换/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-27 </div>
-			<div class="article-title"><a href="/2016/02/27/boost-bind/" >boost-bind</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><code>_1,_2...</code>代表的是原函数的第n个参数</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; j &lt;&lt; <span class="string">" "</span> &lt;&lt; k &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::function&lt;<span class="keyword">void</span> (<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)&gt; f1 = boost::bind(f, _3, _1, _2); <span class="comment">// f1(k, i ,j)</span></span><br><span class="line">    f1(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// 3 1 2</span></span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2016/02/27/boost-bind/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -721,45 +714,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/博客/">博客<span>1</span></a></li>
+			<li><a href="/tags/语句/">语句<span>1</span></a></li>
 		
-			<li><a href="/tags/主键/">主键<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>1</span></a></li>
 		
-			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
-		
-			<li><a href="/tags/事务/">事务<span>1</span></a></li>
-		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
-		
-			<li><a href="/tags/USB/">USB<span>1</span></a></li>
-		
-			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
-		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
-		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
-		
-			<li><a href="/tags/错误/">错误<span>2</span></a></li>
-		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
-		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
-		
-			<li><a href="/tags/link/">link<span>2</span></a></li>
-		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
-		
-			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
-		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
-		
-			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
-		
-			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
 			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+		
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+		
+			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+		
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+		
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
+		
+			<li><a href="/tags/模块/">模块<span>2</span></a></li>
+		
+			<li><a href="/tags/empty/">empty<span>1</span></a></li>
+		
+			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+		
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+		
+			<li><a href="/tags/error/">error<span>3</span></a></li>
+		
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
+		
+			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
+		
+			<li><a href="/tags/make/">make<span>2</span></a></li>
+		
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+		
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
+		
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -775,6 +768,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -784,14 +785,6 @@
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

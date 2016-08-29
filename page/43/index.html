@@ -112,6 +112,67 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-11 </div>
+			<div class="article-title"><a href="/2015/02/11/ubuntu-优秀软件列表/" >ubuntu-优秀软件列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>unity-tweak-tool</p>
+<p>unity配置工具</p>
+</li>
+<li><p>inetutils-traceroute</p>
+<p>traceroute</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/11/ubuntu-优秀软件列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-11 </div>
+			<div class="article-title"><a href="/2015/02/11/openwrt-开启ssh/" >openwrt-开启ssh</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>编辑配置文件</p>
+<pre><code>vi /etc/config/dropbear
+</code></pre></li>
+<li><p>添加</p>
+<pre><code>option enable &apos;1&apos;
+</code></pre></li>
+<li><p>重启</p>
+<pre><code>reboot
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/11/openwrt-开启ssh/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-11 </div>
 			<div class="article-title"><a href="/2015/02/11/ssh-实现/" >ssh-实现</a></div>						
 		</h3>
 	
@@ -439,99 +500,6 @@ systemctl restart nmb
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-09 </div>
-			<div class="article-title"><a href="/2015/02/09/ping常见错误分析/" >ping常见错误分析</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="局域网内，目标不存在或未应答"><a href="#局域网内，目标不存在或未应答" class="headerlink" title="局域网内，目标不存在或未应答"></a>局域网内，目标不存在或未应答</h1><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>该数据包未发送，因为在tcp/ip在填充目的MAC，执行ARP请求时，没有得到应答，无法确定目的MAC。</p>
-<h2 id="表象"><a href="#表象" class="headerlink" title="表象"></a>表象</h2><ul>
-<li><p>windows</p>
-<pre><code>无法访问目标主机
-</code></pre></li>
-<li><p>linux</p>
-<pre><code>Destination Host Unreachable
-</code></pre></li>
-</ul>
-<h1 id="非局域网，目标不存在或未应答"><a href="#非局域网，目标不存在或未应答" class="headerlink" title="非局域网，目标不存在或未应答"></a>非局域网，目标不存在或未应答</h1><h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><pre><code>该数据包已发送，由下一跳路由负责转发，而对应的机器不存在或未应答
-</code></pre><h2 id="表象-1"><a href="#表象-1" class="headerlink" title="表象"></a>表象</h2><ul>
-<li><p>windows</p>
-<pre><code>请求超时
-</code></pre></li>
-<li><p>linux</p>
-<pre><code>-   无输出
-</code></pre></li>
-</ul>
-<h1 id="域名解析失败"><a href="#域名解析失败" class="headerlink" title="域名解析失败"></a>域名解析失败</h1><h2 id="表象-2"><a href="#表象-2" class="headerlink" title="表象"></a>表象</h2><ul>
-<li><p>windows</p>
-<pre><code>Ping 请求找不到主机 a。请检查该名称，然后重试。
-</code></pre></li>
-<li><p>linux</p>
-<pre><code>Ping 请求找不到主机 a。请检查该名称，然后重试。
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/09/ping常见错误分析/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-09 </div>
-			<div class="article-title"><a href="/2015/02/09/openwrt-目录组织/" >openwrt-目录组织</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>build_dir/  用于存放所有解压后的源码，并在当中编译</p>
-<ul>
-<li><p>host/   宿主环境下的编译工具源码</p>
-</li>
-<li><p>toolchain-*   交叉C编译器，C标准库，内核，二进制工具等组件源码</p>
-</li>
-<li><p>target-*    目标系统的软件包源码</p>
-</li>
-</ul>
-</li>
-<li><p>staging_dir/    用于存放安装已编译，为了进一步编译软件包，或产生固件镜像</p>
-<ul>
-<li><p>host/   最小化的Linux</p>
-</li>
-<li><p>toolchain-* 最小化的LInux，带有交叉C编译器，用于去编译剩余的固件部分</p>
-</li>
-<li><p>target…/root-ramips/  最终的固件</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/26030670/openwrt-buildroot-build-dir-and-staging-dir" target="_blank" rel="external">http://stackoverflow.com/questions/26030670/openwrt-buildroot-build-dir-and-staging-dir</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/09/openwrt-目录组织/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -833,45 +801,45 @@ systemctl restart nmb
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
+			<li><a href="/tags/资源/">资源<span>2</span></a></li>
 		
-			<li><a href="/tags/read/">read<span>1</span></a></li>
+			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/debug/">debug<span>2</span></a></li>
 		
-			<li><a href="/tags/link/">link<span>2</span></a></li>
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
 		
-			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
-			<li><a href="/tags/串口/">串口<span>2</span></a></li>
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
+			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
 		
-			<li><a href="/tags/script/">script<span>1</span></a></li>
+			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
 		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
 		
-			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
-			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
-			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
 		
-			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
 		
-			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
 		
-			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
 		
-			<li><a href="/tags/命令/">命令<span>5</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -887,6 +855,14 @@ systemctl restart nmb
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -896,14 +872,6 @@ systemctl restart nmb
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

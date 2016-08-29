@@ -111,6 +111,95 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/MinGW编译wxWidget/" >MinGW编译wxWidget</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>WXWIN：源代码根目录</li>
+</ul>
+<ol>
+<li><p>解压源码</p>
+</li>
+<li><p>进入到<code>%WXWIN%\build\msw</code></p>
+</li>
+<li><p>清理项目</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release clean
+</code></pre></li>
+<li><p>编译</p>
+</li>
+</ol>
+<ul>
+<li><p>动态库，发行版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release
+</code></pre></li>
+<li><p>动态库，调试版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=debug
+</code></pre></li>
+<li><p>静态库，发行版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=release
+</code></pre></li>
+<li><p>静态库，调试版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=debug
+</code></pre><p>  <strong>注</strong>:</p>
+<ol>
+<li><p>可以添加-j N(N指当前CPU核心数)，加快编译速度</p>
+</li>
+<li><p>每种版本可以根据需要编译</p>
+</li>
+<li><p>动态库对应的目录(%WXWIN%\lib\gcc_dll)，静态库对应的目录(%WXWIN%\lib\gcc_lib)</p>
+</li>
+<li><p>Debug版的库名称会有<code>d</code>后缀，UNICODE版的库名称会有<code>u</code>后缀</p>
+</li>
+</ol>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/MinGW编译wxWidget/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/hexo博客添加图片/" >hexo博客添加图片</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>markdown中，插入图片的语法为：</p>
+<pre><code>![图片名称](链接地址)
+</code></pre><ul>
+<li><p>使用本地路径：在hexo/source目录下新建一个img文件夹，将图片放入该文件夹下，插入图片时链接即为/img/图片名称。</p>
+</li>
+<li><p>使用微博图床，地址<a href="http://weibotuchuang.sinaapp.com/，将图片拖入区域中，会生成图片的URL，这就是链接地址。" target="_blank" rel="external">http://weibotuchuang.sinaapp.com/，将图片拖入区域中，会生成图片的URL，这就是链接地址。</a></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/hexo博客添加图片/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-11-11 </div>
 			<div class="article-title"><a href="/2014/11/11/log4cpp编译安装/" >log4cpp编译安装</a></div>						
 		</h3>
@@ -520,45 +609,45 @@ hexo d
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/json/">json<span>4</span></a></li>
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
-		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
-		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
-		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
-		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
-		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
-		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
-		
-			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
+			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
 		
 			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
 		
-			<li><a href="/tags/strace/">strace<span>1</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
 		
-			<li><a href="/tags/gcc/">gcc<span>4</span></a></li>
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/domain/">domain<span>3</span></a></li>
+			<li><a href="/tags/池/">池<span>1</span></a></li>
 		
-			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
+			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
 		
-			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
+			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/str/">str<span>1</span></a></li>
+		
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+		
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+		
+			<li><a href="/tags/连接/">连接<span>1</span></a></li>
+		
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+		
+			<li><a href="/tags/API/">API<span>2</span></a></li>
+		
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+		
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>565</span></a></li>
@@ -574,6 +663,14 @@ hexo d
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -583,14 +680,6 @@ hexo d
     
       <li>
         <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/linux-时间片/" ><i class="fa fa-file-o"></i>linux-时间片</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/C++-static/" ><i class="fa fa-file-o"></i>C++-static</a>
       </li>
     
   </ul>

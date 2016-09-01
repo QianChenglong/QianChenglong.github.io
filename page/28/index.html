@@ -112,6 +112,41 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-06-11 </div>
+			<div class="article-title"><a href="/2015/06/11/samba-常见问题/" >samba-常见问题</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="诊断流程"><a href="#诊断流程" class="headerlink" title="诊断流程"></a>诊断流程</h1><ol>
+<li><p>首先确定samba服务是否运行，smb和nmb两个进程。</p>
+</li>
+<li><p>看一下服务器samba配置文件/etc/samba/smb.conf的workgroup，它必须与Win的工作组一致，一般Win的工作组是WORKGROUP。</p>
+</li>
+<li><p>看配置文件里的interfaces是否正确，hosts allow的ip段是否覆盖Win的ip地址。</p>
+</li>
+<li><p>服务器上启用user安全级别时，是否添加了共享用户，是否允许共享用户浏览。</p>
+</li>
+<li><p>防火墙的规则设置是否正确。</p>
+</li>
+<li><p>SELinux是否阻止你访问samba共享的目录。</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/11/samba-常见问题/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-11 </div>
 			<div class="article-title"><a href="/2015/06/11/sql-连接/" >sql-连接</a></div>						
 		</h3>
 	
@@ -534,36 +569,6 @@ MAILTO=qiancl@gupiaoxianji.com
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-08 </div>
-			<div class="article-title"><a href="/2015/06/08/C++-构造函数/" >C++-构造函数</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="职责"><a href="#职责" class="headerlink" title="职责"></a>职责</h1><ul>
-<li>对所有的类成员变量进行初始化, 让对象构造后处于一个可用的状态(Good State)</li>
-</ul>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>若在构造函数中抛出异常，则析构函数不被执行，因为该对象没有完全构建，会导致delete无效指针</p>
-</li>
-<li><p>构造函数抛出异常时，本应该在析构函数中被delete的对象没有被delete，会导致内存泄露</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/06/08/C++-构造函数/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -816,6 +821,8 @@ MAILTO=qiancl@gupiaoxianji.com
 		
 			<li><a href="/categories/博客/">博客<span>1</span></a></li>
 		
+			<li><a href="/categories/名人堂/">名人堂<span>1</span></a></li>
+		
 			<li><a href="/categories/后台/">后台<span>1</span></a></li>
 		
 			<li><a href="/categories/后台开发/">后台开发<span>1</span></a></li>
@@ -865,48 +872,48 @@ MAILTO=qiancl@gupiaoxianji.com
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/T/">_T<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/linux/">linux<span>38</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+		
+			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
+		
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
+		
+			<li><a href="/tags/http/">http<span>11</span></a></li>
+		
+			<li><a href="/tags/go/">go<span>38</span></a></li>
+		
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
+		
+			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
 		
 			<li><a href="/tags/svn/">svn<span>3</span></a></li>
 		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
 		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
+			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/file/">file<span>1</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/suse/">suse<span>1</span></a></li>
 		
-			<li><a href="/tags/rune/">rune<span>1</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
 		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
-		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
-		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
-		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
-		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
-		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
-		
-			<li><a href="/tags/js/">js<span>2</span></a></li>
+			<li><a href="/tags/C/">C++<span>32</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>565</span></a></li>
+		   <li><a href="/tags">...<span>568</span></a></li>
 		 
 		</ul>
 	</div>
@@ -919,6 +926,14 @@ MAILTO=qiancl@gupiaoxianji.com
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -927,15 +942,7 @@ MAILTO=qiancl@gupiaoxianji.com
       </li>
     
       <li>
-        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
       </li>
     
   </ul>

@@ -111,6 +111,64 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-08-31 </div>
+			<div class="article-title"><a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" >hash为什么最好使用素数来作为桶大小</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>如何使用合数的的话？产生冲突的概率更大！如10=2*5（合数本身的性质）</p>
+
+	
+	</div>
+  <a type="button" href="/2016/08/31/hash为什么最好使用素数来作为桶大小/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-08-31 </div>
+			<div class="article-title"><a href="/2016/08/31/名人堂/" >名人堂</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="Charles-Antony-Richard-Hoare-查尔斯·安东尼·理查德·霍尔"><a href="#Charles-Antony-Richard-Hoare-查尔斯·安东尼·理查德·霍尔" class="headerlink" title="Charles Antony Richard Hoare(查尔斯·安东尼·理查德·霍尔)"></a>Charles Antony Richard Hoare(查尔斯·安东尼·理查德·霍尔)</h1><h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><ul>
+<li><p>快排</p>
+</li>
+<li><p>哲学家进餐</p>
+</li>
+<li><p>ALGOL</p>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/Null_pointer" target="_blank" rel="external">null reference</a></p>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/Communicating_sequential_processes" target="_blank" rel="external">Communicating Sequential Processes</a></p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://en.wikipedia.org/wiki/Tony_Hoare" target="_blank" rel="external">https://en.wikipedia.org/wiki/Tony_Hoare</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/08/31/名人堂/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-08-26 </div>
 			<div class="article-title"><a href="/2016/08/26/mysql-CR_SERVER_LOST/" ></a></div>						
 		</h3>
@@ -199,40 +257,6 @@ tcp    FIN-WAIT-2 0      0      ::ffff:127.0.0.1:3306               ::ffff:127.0
 	
 	</div>
   <a type="button" href="/2016/08/26/踩坑/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-08-26 </div>
-			<div class="article-title"><a href="/2016/08/26/名人堂/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="Charles-Antony-Richard-Hoare-查尔斯·安东尼·理查德·霍尔"><a href="#Charles-Antony-Richard-Hoare-查尔斯·安东尼·理查德·霍尔" class="headerlink" title="Charles Antony Richard Hoare(查尔斯·安东尼·理查德·霍尔)"></a>Charles Antony Richard Hoare(查尔斯·安东尼·理查德·霍尔)</h1><h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><ul>
-<li><p>快排</p>
-</li>
-<li><p>哲学家进餐</p>
-</li>
-<li><p>ALGOL</p>
-</li>
-<li><p><a href="https://en.wikipedia.org/wiki/Null_pointer" target="_blank" rel="external">null reference</a></p>
-</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://en.wikipedia.org/wiki/Tony_Hoare" target="_blank" rel="external">https://en.wikipedia.org/wiki/Tony_Hoare</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/08/26/名人堂/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -517,62 +541,6 @@ git reset --hard origin/master
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-28 </div>
-			<div class="article-title"><a href="/2016/05/28/C++-StringPiece/" >C++-StringPiece</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
-<li><p>很多时候，当传入一个字符串到函数时，往往只是读取字符串时</p>
-</li>
-<li><p>若使用<code>std::string</code>，当实参为<code>const char *</code>时，会<strong>分配内存并拷贝</strong>该字符串以生成一个<code>std::string</code></p>
-</li>
-<li><p>当一个函数接受一个<code>const std::string</code>，而在该函数内部，又需要传递该值到另一个函数，则又需要重新生成一个<code>std::string</code></p>
-</li>
-</ul>
-<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><ul>
-<li><p>当某个接口参数是接受字符串类型时，为了减少不必要的开销</p>
-</li>
-<li><p>该类型可以接受<code>const char *</code>，<code>std::string</code>，减少冗余代码编写</p>
-</li>
-</ul>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p><code>StringPiece(google), StringRef(llvm), string_ref(boost)</code>，本质名，<code>non-owning reference to a string</code></p>
-</li>
-<li><p>通过隐式转换，方便地从<code>const char*, std::string</code>转换到此类型</p>
-</li>
-<li><p>该类通过保存字符串指针和长度，来避免不必要的复制</p>
-</li>
-<li><p>只支持非修改操作</p>
-</li>
-<li><p>开销很低，只需要<code>sizeof(const char*) + sizeof(size_t)</code>字节</p>
-</li>
-<li><p>支持所有的类容器操作</p>
-</li>
-<li><p>因为<code>StringPiece</code>不拥有数据，所以确保在<code>StringPiece</code>生命期内，该数据可用</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3442.html" target="_blank" rel="external">N3442: string_ref: a non-owning reference to a string.</a></li>
-<li><a href="http://www.boost.org/doc/libs/1_60_0/libs/utility/doc/html/string_ref.html" target="_blank" rel="external">http://www.boost.org/doc/libs/1_60_0/libs/utility/doc/html/string_ref.html</a></li>
-<li><a href="http://stackoverflow.com/questions/2172726/are-there-any-reasons-why-the-stringpiece-stringref-idiom-is-not-more-popular" target="_blank" rel="external">http://stackoverflow.com/questions/2172726/are-there-any-reasons-why-the-stringpiece-stringref-idiom-is-not-more-popular</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/05/28/C++-StringPiece/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -825,6 +793,8 @@ git reset --hard origin/master
 		
 			<li><a href="/categories/博客/">博客<span>1</span></a></li>
 		
+			<li><a href="/categories/名人堂/">名人堂<span>1</span></a></li>
+		
 			<li><a href="/categories/后台/">后台<span>1</span></a></li>
 		
 			<li><a href="/categories/后台开发/">后台开发<span>1</span></a></li>
@@ -874,48 +844,48 @@ git reset --hard origin/master
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
 		
-			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+			<li><a href="/tags/打包/">打包<span>1</span></a></li>
 		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+			<li><a href="/tags/text/">text<span>1</span></a></li>
 		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
+			<li><a href="/tags/资源/">资源<span>2</span></a></li>
 		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/string/">string<span>8</span></a></li>
 		
-			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
-			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/using/">using<span>1</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
+			<li><a href="/tags/django/">django<span>2</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+			<li><a href="/tags/语句/">语句<span>1</span></a></li>
 		
-			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/registry/">registry<span>1</span></a></li>
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
 		
-			<li><a href="/tags/编程/">编程<span>5</span></a></li>
+			<li><a href="/tags/编译/">编译<span>10</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/curses/">curses<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>565</span></a></li>
+		   <li><a href="/tags">...<span>568</span></a></li>
 		 
 		</ul>
 	</div>
@@ -928,6 +898,14 @@ git reset --hard origin/master
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -936,15 +914,7 @@ git reset --hard origin/master
       </li>
     
       <li>
-        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
       </li>
     
   </ul>

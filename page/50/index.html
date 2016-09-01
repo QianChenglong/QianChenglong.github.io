@@ -111,6 +111,74 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-23 </div>
+			<div class="article-title"><a href="/2015/01/23/win下编译boost/" >win下编译boost</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>VS2010</li>
+<li>boost-1.57.0</li>
+</ul>
+<h1 id="编译Boost"><a href="#编译Boost" class="headerlink" title="编译Boost"></a>编译Boost</h1><ol>
+<li><p><a href="http://www.boost.org/" target="_blank" rel="external">官网</a>下载源码</p>
+</li>
+<li><p>解压文件</p>
+</li>
+<li><p>进入根目录</p>
+</li>
+<li><p>运行配置工具生成文件</p>
+<ul>
+<li><p>Windows:bootstap.bat</p>
+</li>
+<li><p>Linux:bootstrap.sh</p>
+</li>
+</ul>
+</li>
+<li><p>编译，安装</p>
+<ul>
+<li><p>VS2005</p>
+<pre><code>bjam --toolset=msvc-8.0 --prefix=D:\Boost_XXX --build-type=complete install
+</code></pre></li>
+<li><p>VS2008</p>
+<pre><code>bjam --toolset=msvc-9.0 --prefix=D:\Boost_XXX --build-type=complete install
+</code></pre></li>
+<li><p>VS2010</p>
+<pre><code>bjam --toolset=msvc-10.0 --prefix=D:\Boost_XXX --build-type=complete install
+</code></pre></li>
+<li><p>VS2012</p>
+<pre><code>bjam --toolset=msvc-11.0 --prefix=D:\Boost_XXX --build-type=complete install
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<p><strong>Note:</strong></p>
+<ul>
+<li><p>清除</p>
+<pre><code>bjam.exe --clean
+</code></pre></li>
+</ul>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ol>
+<li><p>配置IDE</p>
+<p><img src="/img/win下编译boost-01.png" alt="头文件"><br><img src="/img/win下编译boost-02.png" alt="库文件"></p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/23/win下编译boost/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-22 </div>
 			<div class="article-title"><a href="/2015/01/22/gtest-输出xml/" >gtest-输出xml</a></div>						
 		</h3>
@@ -349,35 +417,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/21/cmake-定义全局变量/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-21 </div>
-			<div class="article-title"><a href="/2015/01/21/提高程序健壮性的几种办法/" >提高程序健壮性的几种办法</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="局部变量初始化"><a href="#局部变量初始化" class="headerlink" title="局部变量初始化"></a>局部变量初始化</h1><p>防止造成野指针，字符串越界，数组越界，非法访问等。</p>
-<h1 id="检查函数传入参数"><a href="#检查函数传入参数" class="headerlink" title="检查函数传入参数"></a>检查函数传入参数</h1><p>将错误的，不合法的输入阻止在最开始处</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
-<li>C中常用<code>assert</code>进行处理</li>
-</ul>
-<h1 id="检查函数的返回值，以便对函数出错进行处理"><a href="#检查函数的返回值，以便对函数出错进行处理" class="headerlink" title="检查函数的返回值，以便对函数出错进行处理"></a>检查函数的返回值，以便对函数出错进行处理</h1><h1 id="释放指针后，指针置NULL"><a href="#释放指针后，指针置NULL" class="headerlink" title="释放指针后，指针置NULL"></a>释放指针后，指针置NULL</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.codeproject.com/Articles/216077/Making-Your-Cplusplus-Code-Robust" target="_blank" rel="external">http://www.codeproject.com/Articles/216077/Making-Your-Cplusplus-Code-Robust</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/21/提高程序健壮性的几种办法/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -633,6 +672,8 @@
 		
 			<li><a href="/categories/博客/">博客<span>1</span></a></li>
 		
+			<li><a href="/categories/名人堂/">名人堂<span>1</span></a></li>
+		
 			<li><a href="/categories/后台/">后台<span>1</span></a></li>
 		
 			<li><a href="/categories/后台开发/">后台开发<span>1</span></a></li>
@@ -682,48 +723,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
 		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+			<li><a href="/tags/apt/">apt<span>2</span></a></li>
 		
-			<li><a href="/tags/c99/">c99<span>1</span></a></li>
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
-			<li><a href="/tags/boost/">boost<span>4</span></a></li>
+			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
 		
-			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
 		
-			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
 		
-			<li><a href="/tags/resize/">resize<span>1</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/素数/">素数<span>1</span></a></li>
 		
-			<li><a href="/tags/api/">api<span>1</span></a></li>
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
+			<li><a href="/tags/任播/">任播<span>1</span></a></li>
 		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
 		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>565</span></a></li>
+		   <li><a href="/tags">...<span>568</span></a></li>
 		 
 		</ul>
 	</div>
@@ -736,6 +777,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -744,15 +793,7 @@
       </li>
     
       <li>
-        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
       </li>
     
   </ul>

@@ -111,6 +111,41 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-02-18 </div>
+			<div class="article-title"><a href="/2016/02/18/tcp/" >tcp</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="首部"><a href="#首部" class="headerlink" title="首部"></a>首部</h1><ul>
+<li><p>PSH(push)</p>
+<p>置位后，数据立马发送，而不是填充到缓冲区等待发送</p>
+</li>
+<li><p>窗口值</p>
+<p>报文发送方的<strong>接收缓冲区</strong>大小(tcp是双工的)，允许对方发送的最大数据量</p>
+</li>
+</ul>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ol>
+<li><p>3次握手中，为什么客户端最后还需要确认一次？</p>
+<p>为了防止服务端响应了已失效的连接请求报文。</p>
+<p>假设没有再次确认，当客户端发出一次连接请求时，由于某种原因，该报文被滞留。<br>后续客户端又重新发送报文，与服务端建立了连接。<br>而此时服务端收到了之前的连接请求报文，又建立了连接，此时便导致错误。</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/02/18/tcp/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-01-18 </div>
 			<div class="article-title"><a href="/2016/01/18/电影网站/" >电影网站</a></div>						
 		</h3>
@@ -443,35 +478,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-16 </div>
-			<div class="article-title"><a href="/2015/11/16/js-跨域/" >js-跨域</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域?"></a>什么是跨域?</h1><p>在了解什么是跨域问题之前,先需要了解<strong>同源策略</strong></p>
-<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h3 id="什么是同源"><a href="#什么是同源" class="headerlink" title="什么是同源?"></a>什么是同源?</h3><p>同源是指<strong>协议</strong>,<strong>域名</strong>,<strong>端口</strong>完全一致</p>
-<h3 id="为什么需要同源策略"><a href="#为什么需要同源策略" class="headerlink" title="为什么需要同源策略?"></a>为什么需要同源策略?</h3><p>为了信息安全,最基本的原则即同源的东西是安全的,除此之外都是不安全的.</p>
-<p>示例:</p>
-<p>一个中间层(代理服务器,路由网关,运营商等),通过IFrame把登录网银的页面嵌套起立,<br>里面加入了一段恶意代码,将用户的数据发送到指定位置.</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.jianshu.com/p/4e17445d66e2" target="_blank" rel="external">同源策略——浏览器的安全卫士</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/16/js-跨域/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -724,6 +730,8 @@
 		
 			<li><a href="/categories/博客/">博客<span>1</span></a></li>
 		
+			<li><a href="/categories/名人堂/">名人堂<span>1</span></a></li>
+		
 			<li><a href="/categories/后台/">后台<span>1</span></a></li>
 		
 			<li><a href="/categories/后台开发/">后台开发<span>1</span></a></li>
@@ -773,48 +781,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
 		
-			<li><a href="/tags/pip/">pip<span>2</span></a></li>
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
 		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
+			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
 		
-			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
+			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
 		
-			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+			<li><a href="/tags/dns/">dns<span>1</span></a></li>
 		
-			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
+			<li><a href="/tags/struct/">struct<span>1</span></a></li>
 		
-			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
+			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
 		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/tags/select/">select<span>1</span></a></li>
+		
+			<li><a href="/tags/search/">search<span>1</span></a></li>
+		
+			<li><a href="/tags/update/">update<span>1</span></a></li>
 		
 			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
-		
-			<li><a href="/tags/go/">go<span>38</span></a></li>
-		
-			<li><a href="/tags/database/">database<span>3</span></a></li>
-		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+			<li><a href="/tags/vim/">vim<span>23</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>565</span></a></li>
+		   <li><a href="/tags">...<span>568</span></a></li>
 		 
 		</ul>
 	</div>
@@ -827,6 +835,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -835,15 +851,7 @@
       </li>
     
       <li>
-        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
       </li>
     
   </ul>

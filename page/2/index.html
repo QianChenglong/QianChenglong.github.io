@@ -112,6 +112,62 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-05-28 </div>
+			<div class="article-title"><a href="/2016/05/28/C++-StringPiece/" >C++-StringPiece</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
+<li><p>很多时候，当传入一个字符串到函数时，往往只是读取字符串时</p>
+</li>
+<li><p>若使用<code>std::string</code>，当实参为<code>const char *</code>时，会<strong>分配内存并拷贝</strong>该字符串以生成一个<code>std::string</code></p>
+</li>
+<li><p>当一个函数接受一个<code>const std::string</code>，而在该函数内部，又需要传递该值到另一个函数，则又需要重新生成一个<code>std::string</code></p>
+</li>
+</ul>
+<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><ul>
+<li><p>当某个接口参数是接受字符串类型时，为了减少不必要的开销</p>
+</li>
+<li><p>该类型可以接受<code>const char *</code>，<code>std::string</code>，减少冗余代码编写</p>
+</li>
+</ul>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>StringPiece(google), StringRef(llvm), string_ref(boost)</code>，本质名，<code>non-owning reference to a string</code></p>
+</li>
+<li><p>通过隐式转换，方便地从<code>const char*, std::string</code>转换到此类型</p>
+</li>
+<li><p>该类通过保存字符串指针和长度，来避免不必要的复制</p>
+</li>
+<li><p>只支持非修改操作</p>
+</li>
+<li><p>开销很低，只需要<code>sizeof(const char*) + sizeof(size_t)</code>字节</p>
+</li>
+<li><p>支持所有的类容器操作</p>
+</li>
+<li><p>因为<code>StringPiece</code>不拥有数据，所以确保在<code>StringPiece</code>生命期内，该数据可用</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3442.html" target="_blank" rel="external">N3442: string_ref: a non-owning reference to a string.</a></li>
+<li><a href="http://www.boost.org/doc/libs/1_60_0/libs/utility/doc/html/string_ref.html" target="_blank" rel="external">http://www.boost.org/doc/libs/1_60_0/libs/utility/doc/html/string_ref.html</a></li>
+<li><a href="http://stackoverflow.com/questions/2172726/are-there-any-reasons-why-the-stringpiece-stringref-idiom-is-not-more-popular" target="_blank" rel="external">http://stackoverflow.com/questions/2172726/are-there-any-reasons-why-the-stringpiece-stringref-idiom-is-not-more-popular</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/05/28/C++-StringPiece/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-28 </div>
 			<div class="article-title"><a href="/2016/05/28/vim-出现^M/" >vim-出现^M</a></div>						
 		</h3>
 	
@@ -502,39 +558,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-08 </div>
-			<div class="article-title"><a href="/2016/05/08/C++-template/" >C++-template</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h1><ul>
-<li><p>减少重复代码编写</p>
-</li>
-<li><p>接口统一</p>
-</li>
-</ul>
-<h1 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h1><ul>
-<li><p>因为编译器实例化，需要template实现，而实现包含了所有必须的头文件，这样增加了编译时间</p>
-</li>
-<li><p>实例化错误不宜阅读和定位解决</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/05/08/C++-template/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -787,6 +810,8 @@
 		
 			<li><a href="/categories/博客/">博客<span>1</span></a></li>
 		
+			<li><a href="/categories/名人堂/">名人堂<span>1</span></a></li>
+		
 			<li><a href="/categories/后台/">后台<span>1</span></a></li>
 		
 			<li><a href="/categories/后台开发/">后台开发<span>1</span></a></li>
@@ -836,48 +861,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
+			<li><a href="/tags/domain/">domain<span>3</span></a></li>
 		
-			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
 		
-			<li><a href="/tags/包/">包<span>2</span></a></li>
+			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
 		
-			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/软件/">软件<span>3</span></a></li>
 		
-			<li><a href="/tags/debug/">debug<span>2</span></a></li>
+			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
-			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+			<li><a href="/tags/hex/">hex<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/命令/">命令<span>5</span></a></li>
 		
-			<li><a href="/tags/size/">size<span>1</span></a></li>
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/column/">column<span>1</span></a></li>
 		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
+			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
 		
-			<li><a href="/tags/django/">django<span>2</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>565</span></a></li>
+		   <li><a href="/tags">...<span>568</span></a></li>
 		 
 		</ul>
 	</div>
@@ -890,6 +915,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -898,15 +931,7 @@
       </li>
     
       <li>
-        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
       </li>
     
   </ul>

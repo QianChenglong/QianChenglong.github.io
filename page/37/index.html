@@ -112,6 +112,57 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-20 </div>
+			<div class="article-title"><a href="/2015/03/20/syslinux/" >syslinux</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="syslinux安装"><a href="#syslinux安装" class="headerlink" title="syslinux安装"></a>syslinux安装</h1><ul>
+<li><p>安装时，会将<code>ldlinux.c32</code>,<code>ldlinux.sys</code>拷贝到安装目录，默认为<code>boot/syslinux/</code>，<br>可以使用<code>--directory  -d  Directory for installation target</code>指定</p>
+<p>syslinux安装的分区上的PBR会根据安装目录查找<code>ldlinux.c32</code>，并将该目录作为根目录</p>
+</li>
+</ul>
+<h1 id="syslinux引导过程"><a href="#syslinux引导过程" class="headerlink" title="syslinux引导过程"></a>syslinux引导过程</h1><ul>
+<li><p>MBR加载活动分区PBR</p>
+</li>
+<li><p>PBR根据安装时指定的安装目录，查找<code>ldlinux.c32</code>，若找不到，则到根目录查找</p>
+</li>
+<li><p>查找读取<code>syslinux.cfg</code></p>
+</li>
+<li><p>进入菜单交互</p>
+</li>
+</ul>
+<h1 id="syslinux文件说明"><a href="#syslinux文件说明" class="headerlink" title="syslinux文件说明"></a>syslinux文件说明</h1><p>| 文件名       | 功能                        | 依赖                     |<br>|————–+—————————–+————————–|<br>| ldlinux.c32  | 查找、解析syslinux.cfg      |                          |<br>| libutil.c32  | 功能库                      |                          |<br>| libcom32.c32 | 核心功能库                  |                          |<br>| vesamenu.c32 | 菜单功能                    | libutil.c32,libcom32.c32 |<br>| splash.jpg   | 图片背景                    |                          |<br>| syslinux.cfg | 启动配置文件                |                          |<br>| chain.c32    | 链式加载                    |                          |<br>| memdisk      | <code>memdisk</code>命令，虚拟内存磁盘 |                          |<br>| hdt.c32      | 硬件检测工具                | libmenu.c32,libgpl.c32   |<br>| linux.c32    | <code>linux</code>命令                 |                          |</p>
+<h1 id="note"><a href="#note" class="headerlink" title="note"></a>note</h1><ul>
+<li><p>启动ISO镜像</p>
+<p>因为image都是通过虚拟设备(虚拟软盘，虚拟光驱)，由BIOS 13号中断来访问的，<br>所以当操作系统加载完设备驱动时，它将自己去访问设备，不再通过BIOS去访问，<br>这时虚拟设备将失效，报错<code>INT 13h access: Not all images will complete the boot process!</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.syslinux.org/wiki/index.php/Syslinux_5_Changelog" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/Syslinux_5_Changelog</a></li>
+<li><a href="http://www.syslinux.org/wiki/index.php/Library_modules" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/Library_modules</a></li>
+<li><a href="http://linux.die.net/man/1/syslinux" target="_blank" rel="external">http://linux.die.net/man/1/syslinux</a></li>
+<li><a href="http://www.syslinux.org/wiki/index.php/SYSLINUX" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/SYSLINUX</a></li>
+<li><a href="http://www.syslinux.org/wiki/index.php/Boot_an_Iso_image" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/Boot_an_Iso_image</a></li>
+<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK#INT_13h_access:_Not_all_images_will_complete_the_boot_process.21" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK#INT_13h_access:_Not_all_images_will_complete_the_boot_process.21</a></li>
+<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/20/syslinux/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-20 </div>
 			<div class="article-title"><a href="/2015/03/20/活动分区/" >活动分区</a></div>						
 		</h3>
 	
@@ -439,30 +490,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-17 </div>
-			<div class="article-title"><a href="/2015/03/17/vim-学习资源/" >vim-学习资源</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><a href="http://learnvimscriptthehardway.stevelosh.com/" target="_blank" rel="external">http://learnvimscriptthehardway.stevelosh.com/</a></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/17/vim-学习资源/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -715,6 +742,8 @@
 		
 			<li><a href="/categories/博客/">博客<span>1</span></a></li>
 		
+			<li><a href="/categories/名人堂/">名人堂<span>1</span></a></li>
+		
 			<li><a href="/categories/后台/">后台<span>1</span></a></li>
 		
 			<li><a href="/categories/后台开发/">后台开发<span>1</span></a></li>
@@ -764,48 +793,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
 		
-			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+			<li><a href="/tags/centos/">centos<span>12</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
 		
-			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
+			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/column/">column<span>1</span></a></li>
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
-			<li><a href="/tags/rune/">rune<span>1</span></a></li>
+			<li><a href="/tags/alias/">alias<span>1</span></a></li>
 		
-			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>6</span></a></li>
 		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
 		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
+			<li><a href="/tags/时间/">时间<span>2</span></a></li>
 		
-			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
-			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
+			<li><a href="/tags/build/">build<span>1</span></a></li>
 		
-			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
+			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
 		
-			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>565</span></a></li>
+		   <li><a href="/tags">...<span>568</span></a></li>
 		 
 		</ul>
 	</div>
@@ -818,6 +847,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -826,15 +863,7 @@
       </li>
     
       <li>
-        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
       </li>
     
   </ul>

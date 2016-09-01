@@ -112,6 +112,54 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/windows下git生成SSH公钥/" >windows下git生成SSH公钥</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li><p><code>cd %HOMEPATH%</code></p>
+</li>
+<li><p><code>mkdir .ssh</code></p>
+</li>
+<li><p><code>ssh-keygen -t rsa -C &quot;qian_cheng_long@163.com&quot;</code></p>
+<ul>
+<li>输入生成文件名(<code>.ssh/rd_rsa</code>)</li>
+<li>2次输入密码(空密码可以方便连接)</li>
+</ul>
+</li>
+<li><p>添加到<code>ssh-agent</code></p>
+<pre><code>ssh-agent -s
+ssh-add ~/.ssh/id_rsa
+</code></pre></li>
+<li><p>复制到粘贴板</p>
+<pre><code>clip &lt; ~/.ssh/id_rsa.pub
+</code></pre></li>
+<li><p>将<code>.ssh/rd_rsa.pub</code>内容添加到<a href="https://github.com/settings/ssh" target="_blank" rel="external">github</a></p>
+</li>
+<li><p>测试是否添加成功</p>
+<pre><code>ssh -vT git@github.com
+</code></pre></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">https://help.github.com/articles/generating-ssh-keys/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/windows下git生成SSH公钥/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
 			<div class="article-title"><a href="/2014/12/01/MinGW编译wxWidget/" >MinGW编译wxWidget</a></div>						
 		</h3>
 	
@@ -560,6 +608,8 @@ hexo d
 		
 			<li><a href="/categories/博客/">博客<span>1</span></a></li>
 		
+			<li><a href="/categories/名人堂/">名人堂<span>1</span></a></li>
+		
 			<li><a href="/categories/后台/">后台<span>1</span></a></li>
 		
 			<li><a href="/categories/后台开发/">后台开发<span>1</span></a></li>
@@ -609,48 +659,48 @@ hexo d
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/部署/">部署<span>1</span></a></li>
+			<li><a href="/tags/char/">char<span>2</span></a></li>
 		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+			<li><a href="/tags/登录/">登录<span>2</span></a></li>
 		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+			<li><a href="/tags/c99/">c99<span>1</span></a></li>
 		
-			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
-		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
 			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
 		
-			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
+			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
+			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
 		
-			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
-			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
 		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/size/">size<span>1</span></a></li>
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
 		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
+			<li><a href="/tags/api/">api<span>1</span></a></li>
+		
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>565</span></a></li>
+		   <li><a href="/tags">...<span>568</span></a></li>
 		 
 		</ul>
 	</div>
@@ -663,6 +713,14 @@ hexo d
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -671,15 +729,7 @@ hexo d
       </li>
     
       <li>
-        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
       </li>
     
   </ul>

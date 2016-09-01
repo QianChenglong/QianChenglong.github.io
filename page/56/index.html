@@ -112,6 +112,38 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-23 </div>
+			<div class="article-title"><a href="/2014/12/23/python-获取__main__模块文件名/" >python-获取__main__模块文件名</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="情景"><a href="#情景" class="headerlink" title="情景"></a>情景</h1><p><code>__main__</code>模块中<code>import A</code>，而<code>A</code>模块中需要引用<code>__main__</code>的文件名</p>
+<h1 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> __main__</span><br><span class="line"><span class="keyword">print</span> __main__.__file__</span><br></pre></td></tr></table></figure>
+<p>缺陷：</p>
+<p>当使用<code>py2exe</code>时，无法使用</p>
+<h1 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">print</span> sys.argv[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p>缺陷：</p>
+<p>当使用<code>python</code>解释器<code>-c</code>传参启动时，无效</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python</a></li>
+<li><a href="http://www.acnenomor.com/4440072p1/how-to-get-filename-of-the-main-module-in-python" target="_blank" rel="external">http://www.acnenomor.com/4440072p1/how-to-get-filename-of-the-main-module-in-python</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/23/python-获取__main__模块文件名/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-23 </div>
 			<div class="article-title"><a href="/2014/12/23/python-获取文件名组成/" >python-获取文件名组成</a></div>						
 		</h3>
 	
@@ -553,31 +585,6 @@ qualifiers := type dir proto
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-12 </div>
-			<div class="article-title"><a href="/2014/12/12/windows获取文件名组成/" >windows获取文件名组成</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> _splitpath(</span><br><span class="line">   <span class="keyword">const</span> <span class="keyword">char</span> *path,</span><br><span class="line">   <span class="keyword">char</span> *drive,</span><br><span class="line">   <span class="keyword">char</span> *dir,</span><br><span class="line">   <span class="keyword">char</span> *fname,</span><br><span class="line">   <span class="keyword">char</span> *ext </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://msdn.microsoft.com/en-us/library/e737s6tf.aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/e737s6tf.aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/12/windows获取文件名组成/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -830,6 +837,8 @@ qualifiers := type dir proto
 		
 			<li><a href="/categories/博客/">博客<span>1</span></a></li>
 		
+			<li><a href="/categories/名人堂/">名人堂<span>1</span></a></li>
+		
 			<li><a href="/categories/后台/">后台<span>1</span></a></li>
 		
 			<li><a href="/categories/后台开发/">后台开发<span>1</span></a></li>
@@ -879,48 +888,48 @@ qualifiers := type dir proto
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
 		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
+			<li><a href="/tags/usb/">usb<span>3</span></a></li>
 		
-			<li><a href="/tags/extern/">extern<span>1</span></a></li>
+			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
 		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
 		
-			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+		
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
+		
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
+		
+			<li><a href="/tags/IP/">IP<span>4</span></a></li>
+		
+			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+		
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+		
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+		
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+		
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
+		
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
+		
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+		
+			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
 		
 			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>2</span></a></li>
+			<li><a href="/tags/linux/">linux<span>38</span></a></li>
 		
-			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
+			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
 		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
-		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
-		
-			<li><a href="/tags/命令/">命令<span>5</span></a></li>
-		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
-		
-			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
-		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
-		
-			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
-		
-			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
-		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
-		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
-		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
-		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>565</span></a></li>
+		   <li><a href="/tags">...<span>568</span></a></li>
 		 
 		</ul>
 	</div>
@@ -933,6 +942,14 @@ qualifiers := type dir proto
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
+      </li>
+    
+      <li>
+        <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
       </li>
     
@@ -941,15 +958,7 @@ qualifiers := type dir proto
       </li>
     
       <li>
-        <a href="/2016/08/26/名人堂/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
         <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/02/firewalld/" ><i class="fa fa-file-o"></i>firewalld</a>
       </li>
     
   </ul>

@@ -111,6 +111,35 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-08 </div>
+			<div class="article-title"><a href="/2014/12/08/windows访问网络打印机/" >windows访问网络打印机</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>输入网络打印机路径(通过IP访问)</p>
+<pre><code>\\xxx.xxx.xxx.xxx
+</code></pre></li>
+<li><p>安装打印机驱动</p>
+<p>双击打印机图标</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/08/windows访问网络打印机/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-06 </div>
 			<div class="article-title"><a href="/2014/12/06/TortoiseSVN修改SVN仓库路径/" >TortoiseSVN修改SVN仓库路径</a></div>						
 		</h3>
@@ -507,41 +536,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-04 </div>
-			<div class="article-title"><a href="/2014/12/04/windows.h和winsock2.h冲突/" >windows.h和winsock2.h冲突</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>在包含<code>WinSock2.h</code>之前包含了<code>Windows.h</code></li>
-<li>而<code>Windows.h</code>包含了<code>WinSock.h</code></li>
-<li>而<code>WinSock.h</code>和<code>WinSock2.h</code>不兼容！</li>
-</ul>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ul>
-<li>第一种(<strong>优先使用</strong>)</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>第二种</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WIN32_LEAN_AND_MEAN</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2014/12/04/windows.h和winsock2.h冲突/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -678,7 +672,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>23</span></a></li>
+			<li><a href="/categories/linux/">linux<span>24</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -845,45 +839,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/macro/">macro<span>3</span></a></li>
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
 		
-			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
 		
-			<li><a href="/tags/ip/">ip<span>2</span></a></li>
+			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
 		
-			<li><a href="/tags/pip/">pip<span>2</span></a></li>
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
 		
-			<li><a href="/tags/T/">_T<span>1</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
 		
-			<li><a href="/tags/link/">link<span>2</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
 		
-			<li><a href="/tags/find/">find<span>3</span></a></li>
+			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
 		
-			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
 		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
 		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
+			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
-		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
-		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
 			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+		
+			<li><a href="/tags/read/">read<span>1</span></a></li>
+		
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -899,6 +893,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
       </li>
     
@@ -912,10 +910,6 @@
     
       <li>
         <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
   </ul>

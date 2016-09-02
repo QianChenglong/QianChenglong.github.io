@@ -112,6 +112,48 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-06-24 </div>
+			<div class="article-title"><a href="/2015/06/24/django-manage常用命令/" >django-manage常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查看某个命令帮助</p>
+<pre><code>./manage.py help command
+</code></pre></li>
+<li><p>生成migrate操作</p>
+<pre><code>python manage.py makemigrations
+</code></pre></li>
+<li><p>执行migrate操作</p>
+<pre><code>./manage.py migrate
+</code></pre></li>
+<li><p>生成多个数据库(1次migrate执行一个数据库)</p>
+<pre><code>./manage.py migrate
+./manage.py migrate --database=stock_app
+</code></pre></li>
+<li><p>创建用户</p>
+<pre><code>./manage.py createsuperuser
+</code></pre></li>
+<li><p>修改用户密码</p>
+<pre><code>./manager.py changepasswd USERNAME
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/24/django-manage常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-24 </div>
 			<div class="article-title"><a href="/2015/06/24/django-中文化/" >djanggo-中文化</a></div>						
 		</h3>
 	
@@ -532,56 +574,6 @@ netctl enbale my_network
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-18 </div>
-			<div class="article-title"><a href="/2015/06/18/du/" >du</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>用来查看目录项磁盘使用情况。</p>
-<h1 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h1><ul>
-<li><p>-a</p>
-<p>也输出文件，不只是目录</p>
-</li>
-<li><p>-h</p>
-<p>容易理解的格式输出</p>
-</li>
-<li><p>-s, –summarize</p>
-<p>等价于–max-depth=0，只输出本目录</p>
-</li>
-<li><p>–max-depth=N</p>
-<p>最大深度，与find一样</p>
-</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>只查看该文件或目录</p>
-<pre><code>du -hs
-</code></pre></li>
-<li><p>查看目录的各目录项，不递归下去</p>
-<pre><code>du -ah --max-depth=1
-</code></pre></li>
-<li><p>查看目录下*.c文件并排序输出到文件</p>
-<pre><code>du --max-depth 1 -ah | grep &apos;.*\.c&apos; | sort -h &gt; study
-</code></pre></li>
-<li><p>功能：方便的查看文件内存使用情况</p>
-<pre><code>du -ah --max-depth=1 | sort -hr
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/06/18/du/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -718,7 +710,7 @@ netctl enbale my_network
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>23</span></a></li>
+			<li><a href="/categories/linux/">linux<span>24</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -885,45 +877,45 @@ netctl enbale my_network
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+			<li><a href="/tags/API/">API<span>2</span></a></li>
 		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
 		
-			<li><a href="/tags/json/">json<span>4</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
 		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
 		
-			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
+			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+		
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+		
+			<li><a href="/tags/len/">len()<span>1</span></a></li>
+		
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
+		
+			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+		
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+		
+			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
 			<li><a href="/tags/main/">__main__<span>1</span></a></li>
 		
-			<li><a href="/tags/pip/">pip<span>2</span></a></li>
-		
-			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
-		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
-		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
-		
-			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
-		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
-		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/c/">c<span>8</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -939,6 +931,10 @@ netctl enbale my_network
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
       </li>
     
@@ -952,10 +948,6 @@ netctl enbale my_network
     
       <li>
         <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
   </ul>

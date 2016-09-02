@@ -111,6 +111,30 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-08 </div>
+			<div class="article-title"><a href="/2016/03/08/nginx/" >nginx</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li>nginx 的进程由用户设置，单个worker进程就可以处理用户所有的事件，epoll_wait 返回大量事件(A,B,C,D,E)时，服务器会顺序执行的所有的事件，事件A没有处理完，E是不能执行的，也不用同时分配内存，这样就避免内存井喷的现象，当事件处理粒度大的时候，性能就出现瓶颈了</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/03/08/nginx/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-07 </div>
 			<div class="article-title"><a href="/2016/03/07/池/" >池</a></div>						
 		</h3>
@@ -359,52 +383,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-18 </div>
-			<div class="article-title"><a href="/2016/02/18/链表/" >链表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
-<li><p>动态存储分配</p>
-</li>
-<li><p>数据更新效率高，O(1)</p>
-</li>
-</ul>
-<h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><ul>
-<li><p>浪费了部分空间用来存储指针域</p>
-</li>
-<li><p>查询效率低，O(n)</p>
-</li>
-</ul>
-<h1 id="增加一个头节点"><a href="#增加一个头节点" class="headerlink" title="增加一个头节点"></a>增加一个头节点</h1><p>空节点，不存储数据</p>
-<ul>
-<li>优化链代码效率，避免了链表是否为空的判断</li>
-</ul>
-<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
-<li><p>判断链表是否为空</p>
-<p>头节点到链域为空，则链表为空</p>
-</li>
-<li><p>定位到尾节点</p>
-<p>尾节点的特点是链域为空。</p>
-<p>所以挨个遍历，当当前节点到链域为空时，说明当前节点为尾节点</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/02/18/链表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -541,7 +519,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>23</span></a></li>
+			<li><a href="/categories/linux/">linux<span>24</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -708,45 +686,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
 		
-			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
+			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
+		
+			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+		
+			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+		
+			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+		
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
+		
+			<li><a href="/tags/time/">time<span>2</span></a></li>
+		
+			<li><a href="/tags/log/">log<span>1</span></a></li>
+		
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+		
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+		
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
+		
+			<li><a href="/tags/include/">include<span>2</span></a></li>
 		
 			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
+			<li><a href="/tags/centos/">centos<span>12</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/库/">库<span>2</span></a></li>
 		
-			<li><a href="/tags/django/">django<span>2</span></a></li>
+			<li><a href="/tags/理论/">理论<span>1</span></a></li>
 		
-			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
+			<li><a href="/tags/父类/">父类<span>2</span></a></li>
 		
-			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
-		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
-		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
-		
-			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
-		
-			<li><a href="/tags/文件/">文件<span>7</span></a></li>
-		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
-		
-			<li><a href="/tags/using/">using<span>1</span></a></li>
-		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
-		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
-		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
-		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
-		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -762,6 +740,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
       </li>
     
@@ -775,10 +757,6 @@
     
       <li>
         <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
   </ul>

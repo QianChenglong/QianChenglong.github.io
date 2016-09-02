@@ -112,6 +112,75 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-09-01 </div>
+			<div class="article-title"><a href="/2015/09/01/ps/" >ps</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li><p>破折号开头的为UNIX风格</p>
+</li>
+<li><p>不带破折号开头的为BSD风格</p>
+</li>
+<li><p>gnu long option，双破折号开头</p>
+</li>
+</ul>
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-e</p>
+<p>同<code>-A</code>完全一样，选择所有进程</p>
+</li>
+<li><p>-f</p>
+<p>输出所有信息</p>
+</li>
+<li><p>-j</p>
+<p>jobs格式，输出<code>PGID   SID  C STIME</code></p>
+</li>
+<li><p>-o format(<code>/STANDARD FORMAT SPECIFIERS</code>)</p>
+<p>指定输出格式(列)</p>
+<ul>
+<li><p>pid</p>
+</li>
+<li><p>lstart 长格式启动时间</p>
+</li>
+<li><p>cmd 启动命令</p>
+</li>
+<li><p>wchan 内核阻塞</p>
+</li>
+</ul>
+</li>
+<li><p>L   Show threads, possibly with LWP and NLWP columns.</p>
+</li>
+</ul>
+<p><strong>OUTPUT MODIFIERS</strong></p>
+<ul>
+<li><p>–forest</p>
+<p>进程树</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>查看当前用户进程</p>
+<pre><code>ps -f
+</code></pre></li>
+<li><p>指定进程启动的时间</p>
+<pre><code>ps -eo pid,lstart,cmd|grep user_manage
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/01/ps/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-01 </div>
 			<div class="article-title"><a href="/2015/09/01/linux-环境变量/" >linux-环境变量</a></div>						
 		</h3>
 	
@@ -394,43 +463,6 @@ KEYMAP=us
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-15 </div>
-			<div class="article-title"><a href="/2015/08/15/多线程同步/" >多线程同步</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h1><ol>
-<li><p>子线程升序打印线程编号(主线程传进去的)</p>
-</li>
-<li><p>子线程升序打印全局变量</p>
-</li>
-</ol>
-<h1 id="未同步前"><a href="#未同步前" class="headerlink" title="未同步前"></a>未同步前</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> THREAD_NUM 10   <span class="comment">// 线程个数</span></span></span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;  <span class="comment">// 共享资源</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">counter</span><span class="params">(<span class="keyword">void</span> *arg)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num = *(int *)(arg);</span><br><span class="line"></span><br><span class="line">    sleep(<span class="number">1</span>);   <span class="comment">// 处理其他无需同步的操作</span></span><br><span class="line">    count++;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"线程编号: "</span> &lt;&lt; num &lt;&lt; <span class="string">":"</span> &lt;&lt; count &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return (void*)<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">pthread_t</span> tid[THREAD_NUM];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; THREAD_NUM; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (pthread_create(&amp;tid[i], NULL, counter, (void *)&amp;i) != <span class="number">0</span>) &#123;</span><br><span class="line">            perror(<span class="string">"pthread_create error"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sleep(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="../img/多线程同步-01.png" alt=""></p>
-<h2 id="原因及解决"><a href="#原因及解决" class="headerlink" title="原因及解决"></a>原因及解决</h2><ul>
-<li><p>创建子线程后,线程调度顺序不可预测(可能主线程先运行,也可能子线程先运行)</p>
-<p>解决: 同步主线程和子线程的运行顺序,使子线程运行后,主线程在运行</p>
-</li>
-<li><p>子线程对共享资源操作未同步</p>
-<p>解决: 对共享资源采取同步手段(互斥锁)</p>
-</li>
-</ul>
-<h1 id="同步后"><a href="#同步后" class="headerlink" title="同步后"></a>同步后</h1><h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2>
-	
-	</div>
-  <a type="button" href="/2015/08/15/多线程同步/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -567,7 +599,7 @@ KEYMAP=us
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>23</span></a></li>
+			<li><a href="/categories/linux/">linux<span>24</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -734,45 +766,45 @@ KEYMAP=us
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
-			<li><a href="/tags/linux/">linux<span>38</span></a></li>
+			<li><a href="/tags/include/">include<span>2</span></a></li>
 		
-			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
+			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
+			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
 		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
 		
-			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
+			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
 		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
+			<li><a href="/tags/command/">command<span>9</span></a></li>
 		
-			<li><a href="/tags/包/">包<span>2</span></a></li>
+			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
 		
-			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+			<li><a href="/tags/cron/">cron<span>2</span></a></li>
 		
-			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
-			<li><a href="/tags/产品/">产品<span>1</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
-			<li><a href="/tags/exit/">exit<span>1</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/hash/">hash<span>1</span></a></li>
+			<li><a href="/tags/ip/">ip<span>2</span></a></li>
 		
-			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -788,6 +820,10 @@ KEYMAP=us
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
       </li>
     
@@ -801,10 +837,6 @@ KEYMAP=us
     
       <li>
         <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
   </ul>

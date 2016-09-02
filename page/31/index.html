@@ -112,6 +112,32 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-05-22 </div>
+			<div class="article-title"><a href="/2015/05/22/sql-常用语句/" >sql-常用语句</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>修改列类型</p>
+<pre><code>ALTER TABLE &lt;table-name&gt; MODIFY COLUMN &lt;col-name&gt; &lt;new-datatype&gt;;
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/05/22/sql-常用语句/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-22 </div>
 			<div class="article-title"><a href="/2015/05/22/centos-关闭SELinux/" >centos-关闭SELinux</a></div>						
 		</h3>
 	
@@ -400,45 +426,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-15 </div>
-			<div class="article-title"><a href="/2015/04/15/redis-多数据库/" >redis-多数据库</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>一个redis实例提供了多个用来存储数据的字典</p>
-</li>
-<li><p>某个数据库对外都是一个从<strong>0</strong>开始的递增数字命名，默认支持16个，可通过参数<code>databases</code>修改</p>
-</li>
-<li><p>客户端与redis连接后，默认选择<strong>0号</strong>数据库，可通过<code>SELECT</code>命令切换</p>
-</li>
-<li><p>不支持自定义数据库名称</p>
-</li>
-<li><p>不支持账户密码控制(意味着没有权限控制)</p>
-</li>
-<li><p>数据库之间并未完全隔离，如<code>FLUSHALL</code>命令可清空所有数据库内容</p>
-<p>所以，不同的应用应该使用不同的redis实例，而不是使用同一个redis实例不同数据库。</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>redis入门指南</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/15/redis-多数据库/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -575,7 +562,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>23</span></a></li>
+			<li><a href="/categories/linux/">linux<span>24</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -742,45 +729,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/登录/">登录<span>2</span></a></li>
+		
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+		
+			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+		
+			<li><a href="/tags/时间/">时间<span>2</span></a></li>
+		
+			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
+		
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+		
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+		
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+		
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+		
+			<li><a href="/tags/form/">form<span>1</span></a></li>
+		
+			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+		
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+		
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+		
 			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
+			<li><a href="/tags/连接/">连接<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
-			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
+			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
 		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+			<li><a href="/tags/exception/">exception<span>1</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
 		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
-		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
-		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
-		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
-		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
-		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
-		
-			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
-		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
-		
-			<li><a href="/tags/import/">import<span>3</span></a></li>
-		
-			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
-		
-			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
-		
-			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
-		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
-		
-			<li><a href="/tags/main/">__main__<span>1</span></a></li>
+			<li><a href="/tags/10014/">10014<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -796,6 +783,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
       </li>
     
@@ -809,10 +800,6 @@
     
       <li>
         <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
   </ul>

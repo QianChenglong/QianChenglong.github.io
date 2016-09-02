@@ -112,6 +112,73 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-26 </div>
+			<div class="article-title"><a href="/2014/12/26/tuple/" >tuple</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="形式定义"><a href="#形式定义" class="headerlink" title="形式定义"></a>形式定义</h1><p>元组是<strong>个数有限</strong>的对象的<strong>序列</strong>。元组由三部分组成：边界符、分隔符和元素。通常采用的边界符是小括号”(  )”，分隔符是逗号”,”。</p>
+<p>特性：</p>
+<ul>
+<li><p>个数有限</p>
+</li>
+<li><p>有序</p>
+</li>
+<li><p>用来表示一组相关联数据</p>
+</li>
+</ul>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
+<li><p>在数学中，<strong>元组</strong>被用来描述对象的属性，例如，有向图被定义成一个二元组（V, E），这里V是节点的集合，E是V × V的子集，表示边。</p>
+</li>
+<li><p>在计算机科学中，<strong>元组</strong>被用来描述一组相关联的数据，常通过位置关系来隐式说明值得意义。</p>
+</li>
+</ul>
+<h1 id="python中的tuple"><a href="#python中的tuple" class="headerlink" title="python中的tuple"></a>python中的tuple</h1><p>python中的tuple元素类型不要求一致，即意味着可以各种嵌套使用。如<code>([1, 2], {&#39;a&#39;: 1}, (1, 2))</code></p>
+<h1 id="与list对比"><a href="#与list对比" class="headerlink" title="与list对比"></a>与list对比</h1><h2 id="存储对象"><a href="#存储对象" class="headerlink" title="存储对象"></a>存储对象</h2><ul>
+<li><p>tuple存储的元素是异构的(heterogeneous)，有点类似C中的结构体，是用来表达对象的组成</p>
+</li>
+<li><p>list，存储的元素是同构的(homogeneous )，是一种序列的存储方式(链式存储)，是用来做数据的容器</p>
+</li>
+</ul>
+<h2 id="可变性"><a href="#可变性" class="headerlink" title="可变性"></a>可变性</h2><ul>
+<li><p>tuple是不可变的</p>
+</li>
+<li><p>list是可变的</p>
+</li>
+</ul>
+<h2 id="提供的操作"><a href="#提供的操作" class="headerlink" title="提供的操作"></a>提供的操作</h2><ul>
+<li><p>tuple无增删改</p>
+</li>
+<li><p>list提供增删改</p>
+</li>
+</ul>
+<h1 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h1><p>逻辑清晰，代码安全，健壮性更好！</p>
+<h1 id="何时使用"><a href="#何时使用" class="headerlink" title="何时使用"></a>何时使用</h1><p>根据数据本质特征</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://en.wikipedia.org/wiki/Tuple" target="_blank" rel="external">http://en.wikipedia.org/wiki/Tuple</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/%E5%A4%9A%E5%85%83%E7%BB%84" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E5%A4%9A%E5%85%83%E7%BB%84</a></li>
+<li><a href="http://en.wikipedia.org/wiki/List_(abstract_data_type)" target="_blank" rel="external">http://en.wikipedia.org/wiki/List_(abstract_data_type)</a></li>
+<li><a href="http://stackoverflow.com/questions/626759/whats-the-difference-between-list-and-tuples" target="_blank" rel="external">http://stackoverflow.com/questions/626759/whats-the-difference-between-list-and-tuples</a></li>
+<li><a href="http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each" target="_blank" rel="external">http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each</a></li>
+<li><a href="http://news.e-scribe.com/397" target="_blank" rel="external">Understanding tuples vs. lists in Python</a></li>
+<li><a href="https://docs.python.org/dev/library/collections.html#collections.namedtuple" target="_blank" rel="external">https://docs.python.org/dev/library/collections.html#collections.namedtuple</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/26/tuple/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-26 </div>
 			<div class="article-title"><a href="/2014/12/26/python命令行选项/" >python命令行选项</a></div>						
 		</h3>
 	
@@ -366,31 +433,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-23 </div>
-			<div class="article-title"><a href="/2014/12/23/python-强制重新导入模块/" >python-强制重新导入模块</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reload(MODULE_NAME)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/684171/how-to-re-import-an-updated-package-while-in-python-interpreter" target="_blank" rel="external">http://stackoverflow.com/questions/684171/how-to-re-import-an-updated-package-while-in-python-interpreter</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/23/python-强制重新导入模块/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -527,7 +569,7 @@
 		
 			<li><a href="/categories/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/categories/linux/">linux<span>23</span></a></li>
+			<li><a href="/categories/linux/">linux<span>24</span></a></li>
 		
 			<li><a href="/categories/linxu/">linxu<span>1</span></a></li>
 		
@@ -694,45 +736,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/using/">using<span>1</span></a></li>
+			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
 		
-			<li><a href="/tags/od/">od<span>1</span></a></li>
+			<li><a href="/tags/函数/">函数<span>2</span></a></li>
 		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+			<li><a href="/tags/go/">go<span>38</span></a></li>
 		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
+			<li><a href="/tags/同步/">同步<span>2</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
 		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
 		
-			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
+			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
 		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
 		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
+			<li><a href="/tags/父类/">父类<span>2</span></a></li>
 		
-			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
+			<li><a href="/tags/if/">if<span>1</span></a></li>
 		
-			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
+			<li><a href="/tags/资源/">资源<span>2</span></a></li>
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/博客/">博客<span>1</span></a></li>
 		
-			<li><a href="/tags/module/">module<span>3</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/django/">django<span>2</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/make/">make<span>2</span></a></li>
 		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -748,6 +790,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
       </li>
     
@@ -761,10 +807,6 @@
     
       <li>
         <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/17/git/" ><i class="fa fa-file-o"></i>git</a>
       </li>
     
   </ul>

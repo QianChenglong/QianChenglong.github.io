@@ -112,6 +112,44 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/python管理拓展包/" >python管理拓展包</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>pip提供python的包管理操作</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p>下载安装脚本<a href="https://bootstrap.pypa.io/get-pip.py" target="_blank" rel="external">get-pip.py</a></p>
+</li>
+<li><p><code>python get-pip.py</code></p>
+</li>
+<li><p>win下添加<code>C:\Python27-32\Scripts</code>到<code>PATH</code></p>
+</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
+<li><p>安装</p>
+<pre><code>pip install PACKET_NAME
+</code></pre></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://pip.pypa.io/en/latest/installing.html" target="_blank" rel="external">https://pip.pypa.io/en/latest/installing.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/python管理拓展包/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
 			<div class="article-title"><a href="/2014/12/01/替换clover图标/" >替换clover图标</a></div>						
 		</h3>
 	
@@ -132,6 +170,57 @@
 	
 	</div>
   <a type="button" href="/2014/12/01/替换clover图标/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/快速查看python帮助/" >快速查看python帮助</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="第一种：命令行使用"><a href="#第一种：命令行使用" class="headerlink" title="第一种：命令行使用"></a>第一种：命令行使用</h2><pre><code>python -m pydoc CONTENT
+</code></pre><h2 id="第二种：使用python自包装"><a href="#第二种：使用python自包装" class="headerlink" title="第二种：使用python自包装"></a>第二种：使用<code>python</code>自包装</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>可以在任意路径下执行<code>pydoc CONTENT</code></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ul>
+<li><p>建立脚本文件<code>pydoc.py</code></p>
+<pre><code>#!/usr/bin/env python
+# encoding: utf-8
+
+import os
+import sys
+
+if len(sys.argv) != 2:
+    print(&quot;usage:pydoc.py OBJECT&quot;)
+    exit(1)
+
+cmd = &apos;python -m pydoc &apos; + sys.argv[1]
+# print(cmd)
+os.system(cmd)
+</code></pre></li>
+<li><p>复制到<code>PATH</code>目录下</p>
+<p><strong>建议自建目录</strong>(Win:X:/XXX/bin，Linux：/XXX/bin)，添加该目录到<code>PATH</code></p>
+<p>优点：</p>
+<ol>
+<li>容易管理</li>
+<li>重装系统或系统损坏，不丢失，下次复用方便</li>
+</ol>
+</li>
+<li><p>【Windows建议】</p>
+</li>
+</ul>
+<p>修改环境变量<code>PATHEXT</code>追加<code>.py</code>，这样直接使用<code>pydoc CONTENT</code>即可，不用每次都输入’.py’！</p>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/快速查看python帮助/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -498,7 +587,9 @@ hexo d
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>4</span></a></li>
+		
+			<li><a href="/categories/gdb/">gdb<span>1</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
@@ -687,45 +778,45 @@ hexo d
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
 		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
 		
-			<li><a href="/tags/text/">text<span>1</span></a></li>
+			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
 		
-			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
+			<li><a href="/tags/django/">django<span>2</span></a></li>
 		
-			<li><a href="/tags/理解/">理解<span>1</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/类型转换/">类型转换<span>1</span></a></li>
 		
-			<li><a href="/tags/exit/">exit<span>1</span></a></li>
+			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
 		
-			<li><a href="/tags/log/">log<span>1</span></a></li>
+			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
+		
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
+		
+			<li><a href="/tags/binary/">binary<span>1</span></a></li>
 		
 			<li><a href="/tags/密码/">密码<span>1</span></a></li>
 		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
 		
-			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
+			<li><a href="/tags/column/">column<span>1</span></a></li>
 		
-			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
 		
-			<li><a href="/tags/if/">if<span>1</span></a></li>
-		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
-		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -741,6 +832,14 @@ hexo d
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
@@ -750,14 +849,6 @@ hexo d
     
       <li>
         <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
       </li>
     
   </ul>

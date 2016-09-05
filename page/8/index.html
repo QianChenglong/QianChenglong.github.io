@@ -111,6 +111,67 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-15 </div>
+			<div class="article-title"><a href="/2016/03/15/epoll/" >epoll</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>epoll_event</code>中的<code>epoll_data_t</code>用来存储用户自定义数据</p>
+<p>当与其绑定的<code>fd</code>上发生指定的事件时，<code>epoll_wait</code>返回该<code>event</code>，用户可以拿到该数据</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/15/epoll/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-11 </div>
+			<div class="article-title"><a href="/2016/03/11/tcp-read/" >tcp-read</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>ssize_t read(int fildes, void *buf, size_t nbyte);
+</code></pre><h1 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h1><ul>
+<li><blockquote>
+<p>0，成功读取了n字节</p>
+</blockquote>
+</li>
+<li><p>=0，对方断开了连接</p>
+</li>
+<li><p>&lt;0，发生了错误</p>
+<ul>
+<li>EINTR   被中断，没有读取到数据</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/11/tcp-read/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-11 </div>
 			<div class="article-title"><a href="/2016/03/11/TCP连接释放/" >TCP连接释放</a></div>						
 		</h3>
@@ -370,59 +431,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-08 </div>
-			<div class="article-title"><a href="/2016/03/08/reactor/" >reactor</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>将所有要处理的I/O事件注册到一个中心I/O多路复用器上，同时主线程阻塞在多路复用器上；一旦有I/O事件到来或是准备就绪(区别在于多路复用器是边沿触发还是水平触发)，多路复用器返回并将相应I/O事件分发到对应的处理器中。</p>
-<p>这里有三个重要的组件：</p>
-<ul>
-<li>多路复用器：由操作系统提供，在linux上一般是select, poll, epoll等系统调用。</li>
-<li>事件分发器：将多路复用器中返回的就绪事件分到对应的处理函数中。</li>
-<li>事件处理器：负责处理特定事件的处理函数。</li>
-</ul>
-<h1 id="核心要点"><a href="#核心要点" class="headerlink" title="核心要点"></a>核心要点</h1><ul>
-<li>监听的是IO就绪事件(proactor监听的是IO完成事件)</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/03/08/reactor/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-08 </div>
-			<div class="article-title"><a href="/2016/03/08/IO复用/" >IO复用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>所谓的IO复用意思是指复用<strong>一个线程</strong>来处理多个对象的IO</p>
-
-	
-	</div>
-  <a type="button" href="/2016/03/08/IO复用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -537,7 +545,9 @@
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>4</span></a></li>
+		
+			<li><a href="/categories/gdb/">gdb<span>1</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
@@ -726,45 +736,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
 		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
+			<li><a href="/tags/ip/">ip<span>2</span></a></li>
 		
-			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/c/">c<span>8</span></a></li>
 		
-			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
+		
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+		
+			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+		
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
+		
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+		
+			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
+		
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+		
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
 			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
 		
-			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
 			<li><a href="/tags/python3/">python3<span>2</span></a></li>
 		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
-		
-			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
-		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
-		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
-		
-			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
-		
-			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
-		
-			<li><a href="/tags/exit/">exit<span>1</span></a></li>
-		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -780,6 +790,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
@@ -789,14 +807,6 @@
     
       <li>
         <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
       </li>
     
   </ul>

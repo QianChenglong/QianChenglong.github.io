@@ -111,6 +111,63 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-02 </div>
+			<div class="article-title"><a href="/2015/09/02/rpc框架/" >rpc框架</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><a href="https://thrift.apache.org/" target="_blank" rel="external">thrift</a></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/02/rpc框架/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-02 </div>
+			<div class="article-title"><a href="/2015/09/02/go-使用gdb调试/" >go-使用gdb调试</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>编译</p>
+<pre><code>go build -gcflags &quot;-N -l&quot; test.go
+</code></pre></li>
+<li><p>调试</p>
+<pre><code>gdb test
+</code></pre></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://golang.org/doc/gdb" target="_blank" rel="external">http://golang.org/doc/gdb</a></li>
+<li><a href="http://blog.kenshinx.me/blog/go-gdb/" target="_blank" rel="external">mac下用gdb调试Go程序</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/02/go-使用gdb调试/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-01 </div>
 			<div class="article-title"><a href="/2015/09/01/ps/" >ps</a></div>						
 		</h3>
@@ -409,60 +466,6 @@ KEYMAP=us
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-17 </div>
-			<div class="article-title"><a href="/2015/08/17/虚假唤醒/" >虚假唤醒</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>在使用条件变量时,有可能<code>pthread_cond_wait</code>返回时,条件并不满足</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><ul>
-<li>在多核CPU上无法完全实现条件操作语义</li>
-</ul>
-<h1 id="如何避免"><a href="#如何避免" class="headerlink" title="如何避免"></a>如何避免</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pthread_mutex_lock(&amp;lock);</span><br><span class="line"><span class="keyword">while</span> (condition_is_false) &#123;</span><br><span class="line">    pthread_cond_wait(&amp;cond, &amp;lock);</span><br><span class="line">&#125;</span><br><span class="line">pthread_mutex_unlock(&amp;lock);</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.fenesky.com/blog/2014/06/22/cond-spurious-wakeup.html" target="_blank" rel="external">http://www.fenesky.com/blog/2014/06/22/cond-spurious-wakeup.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/08/17/虚假唤醒/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-15 </div>
-			<div class="article-title"><a href="/2015/08/15/pthread-主线程等待线程组结束/" >pthread-主线程等待线程组结束</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; THREAD_NUM; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (pthread_create(&amp;tid[i], NULL, counter, (void *)&amp;i) != <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"pthread_create error"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; THREAD_NUM; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (pthread_join(tid[i], NULL) != <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"pthread_join error"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/11624545/how-to-make-main-thread-wait-for-all-child-threads-finish" target="_blank" rel="external">http://stackoverflow.com/questions/11624545/how-to-make-main-thread-wait-for-all-child-threads-finish</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/08/15/pthread-主线程等待线程组结束/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -577,7 +580,9 @@ KEYMAP=us
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>4</span></a></li>
+		
+			<li><a href="/categories/gdb/">gdb<span>1</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
@@ -766,45 +771,45 @@ KEYMAP=us
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
+			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
+			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
-			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
+			<li><a href="/tags/登录/">登录<span>2</span></a></li>
 		
-			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
-		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
-		
-			<li><a href="/tags/link/">link<span>2</span></a></li>
-		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
-		
-			<li><a href="/tags/command/">command<span>9</span></a></li>
-		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
 		
 			<li><a href="/tags/cron/">cron<span>2</span></a></li>
 		
-			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
 		
-			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
 		
-			<li><a href="/tags/ip/">ip<span>2</span></a></li>
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+		
+			<li><a href="/tags/od/">od<span>1</span></a></li>
+		
+			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+		
+			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+		
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+		
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -820,6 +825,14 @@ KEYMAP=us
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
@@ -829,14 +842,6 @@ KEYMAP=us
     
       <li>
         <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
       </li>
     
   </ul>

@@ -112,6 +112,71 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-08 </div>
+			<div class="article-title"><a href="/2014/12/08/python-cgi常见错误/" >python-cgi常见错误</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="500-Internal-Server-Error"><a href="#500-Internal-Server-Error" class="headerlink" title="500 Internal Server Error"></a>500 Internal Server Error</h2><h3 id="CGI不能执行"><a href="#CGI不能执行" class="headerlink" title="CGI不能执行"></a>CGI不能执行</h3><ul>
+<li><p>语法有问题</p>
+</li>
+<li><p>依赖未解决</p>
+</li>
+</ul>
+<h3 id="输出不正确"><a href="#输出不正确" class="headerlink" title="输出不正确"></a>输出不正确</h3><ul>
+<li><p>输出内容不符合CGI规范</p>
+<p>常见问题是，输出头不合法</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/08/python-cgi常见错误/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-08 </div>
+			<div class="article-title"><a href="/2014/12/08/判断PC在交换机或路由器中的端口/" >判断PC在交换机或路由器中的端口</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="情景描述"><a href="#情景描述" class="headerlink" title="情景描述"></a>情景描述</h2><p>路由器下接多台交换机，不同交换机所属VLAN不同，1台PC被插到非目标交换机当中。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>如何找出PC在交换机中的端口？</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ul>
+<li><p>记录当前网络端口状态</p>
+<p>采用手机拍照，拍取当前PC所属交换机<br><img src="/img/判断PC在交换机或路由器中的端口_01.jpg" alt=""></p>
+</li>
+<li><p>拔出PC机箱后网线</p>
+</li>
+<li><p>与拍照比对</p>
+<p><strong>拍照时亮的端口，断开PC后，不亮的端口即为PC所插交换机端口</strong></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/08/判断PC在交换机或路由器中的端口/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-08 </div>
 			<div class="article-title"><a href="/2014/12/08/windows访问网络打印机/" >windows访问网络打印机</a></div>						
 		</h3>
 	
@@ -467,75 +532,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-04 </div>
-			<div class="article-title"><a href="/2014/12/04/python-json操作/" >python-json操作</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="解码-decoding-："><a href="#解码-decoding-：" class="headerlink" title="解码(decoding)："></a>解码(decoding)：</h2><p>把Json格式字符串解码转换成Python对象</p>
-<ul>
-<li>从字符串中</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="string">'&#123;"id": 1, "name": "Tom"&#125;'</span></span><br><span class="line">json_data = json.loads(data)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>从文件流</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="string">'&#123;"id": 1, "name": "Tom"&#125;'</span></span><br><span class="line">json_data = json.load(data)</span><br></pre></td></tr></table></figure>
-<h2 id="编码-encoding-："><a href="#编码-encoding-：" class="headerlink" title="编码(encoding)："></a>编码(encoding)：</h2><p>把一个Python对象编码转换成Json字符串</p>
-<ul>
-<li>转为<code>python</code>字符串</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">json.dumps([<span class="string">'foo'</span>, &#123;<span class="string">'bar'</span>: (<span class="string">'baz'</span>, <span class="keyword">None</span>, <span class="number">1.0</span>, <span class="number">2</span>)&#125;])</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://docs.python.org/2/library/json.html" target="_blank" rel="external">https://docs.python.org/2/library/json.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/04/python-json操作/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-04 </div>
-			<div class="article-title"><a href="/2014/12/04/python调试手段/" >python调试手段</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="发生异常时，自动打开IPython"><a href="#发生异常时，自动打开IPython" class="headerlink" title="发生异常时，自动打开IPython"></a>发生异常时，自动打开<code>IPython</code></h2><ul>
-<li><code>crash_on_ipy.py</code></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExceptionHook</span>:</span></span><br><span class="line">    instance = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.instance <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">from</span> IPython.core <span class="keyword">import</span> ultratb</span><br><span class="line">            self.instance = ultratb.FormattedTB(mode=<span class="string">'Plain'</span>,</span><br><span class="line">                                                color_scheme=<span class="string">'Linux'</span>, call_pdb=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> self.instance(*args, **kwargs)</span><br><span class="line"></span><br><span class="line">sys.excepthook = ExceptionHook()</span><br></pre></td></tr></table></figure>
-<ul>
-<li>将<code>crash_on_ipy.py</code>放到项目中，在需要使用该功能的地方<code>import crash_on_ipy</code></li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="http://www.zhihu.com/question/21572891" target="_blank" rel="external">http://www.zhihu.com/question/21572891</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/04/python调试手段/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -650,7 +646,9 @@
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>4</span></a></li>
+		
+			<li><a href="/categories/gdb/">gdb<span>1</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
@@ -839,45 +837,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/dll/">dll<span>1</span></a></li>
-		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
-		
-			<li><a href="/tags/js/">js<span>2</span></a></li>
-		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
-		
-			<li><a href="/tags/错误/">错误<span>2</span></a></li>
-		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
-		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
-		
-			<li><a href="/tags/grep/">grep<span>1</span></a></li>
-		
-			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
-		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
-		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
-		
-			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
-		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
-		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
-		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
-		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
-		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
-		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
-		
-			<li><a href="/tags/read/">read<span>1</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
 		
 			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+		
+			<li><a href="/tags/apt/">apt<span>2</span></a></li>
+		
+			<li><a href="/tags/function/">function<span>1</span></a></li>
+		
+			<li><a href="/tags/事务/">事务<span>1</span></a></li>
+		
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+		
+			<li><a href="/tags/T/">__T<span>1</span></a></li>
+		
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
+		
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+		
+			<li><a href="/tags/vim/">vim<span>23</span></a></li>
+		
+			<li><a href="/tags/find/">find<span>3</span></a></li>
+		
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+		
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+		
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+		
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
+		
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
+		
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
+		
+			<li><a href="/tags/理论/">理论<span>1</span></a></li>
+		
+			<li><a href="/tags/linux/">linux<span>39</span></a></li>
+		
+			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -893,6 +891,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
@@ -902,14 +908,6 @@
     
       <li>
         <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
       </li>
     
   </ul>

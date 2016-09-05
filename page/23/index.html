@@ -111,6 +111,79 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-07-15 </div>
+			<div class="article-title"><a href="/2015/07/15/mysql-IP类型/" >mysql-IP类型.md</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>int</p>
+</li>
+<li><p>字符串转int</p>
+<pre><code>select inet_aton(&apos;192.168.0.1&apos;);
+</code></pre></li>
+<li><p>int转字符串</p>
+<pre><code>select inet_ntoa(&apos;3232235521&apos;);
+</code></pre></li>
+<li><p>判断IP段</p>
+<pre><code>select inet_aton(&apos;192.168.0.0&apos;) &lt;= inet_aton(&apos;192.168.0.1&apos;);
+select inet_aton(&apos;192.168.1.1&apos;) &lt;= inet_aton(&apos;192.168.0.255&apos;);
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/15/mysql-IP类型/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-14 </div>
+			<div class="article-title"><a href="/2015/07/14/数字签名/" >数字签名</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p>| 名词           | 解释             |<br>|—————-+——————|<br>| 受信任的发送方 | 拥有密钥的发送方 |</p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><ul>
+<li>发送方</li>
+</ul>
+<p>原文 =&gt; HASH =&gt; 加密(RSA) =&gt; 签名</p>
+<ul>
+<li>接收方</li>
+</ul>
+<p>除sign外的数据 =&gt; HASH ==? 发送过来的sign =&gt; 解密(RSA)</p>
+<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><ul>
+<li><p>保证数据是从指定源发送的</p>
+<p>因为受信任的发送方才有密钥，只有该密钥加密的数据才能正确地被接收方解密</p>
+</li>
+<li><p>防止数据在途中被第三方修改，保证了数据的完整性</p>
+<p>因为签名是基于全文HASH后得到的，任何修改原文操作，在没有密钥的情况下，无法重新签名，<br>也就意味着该数据无效！</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/14/数字签名/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-07-13 </div>
 			<div class="article-title"><a href="/2015/07/13/cmake-常用变量/" >cmake-常用变量</a></div>						
 		</h3>
@@ -421,66 +494,6 @@ make install
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-08 </div>
-			<div class="article-title"><a href="/2015/07/08/python-执行注释头/" >python-执行注释头</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>在python文件开头指定python版本，windows下也可用(<strong>文件关联使用py.exe打开</strong>)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#! /usr/bin/env python2</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.zhihu.com/question/22846291" target="_blank" rel="external">http://www.zhihu.com/question/22846291</a></li>
-<li><a href="https://docs.python.org/3/using/windows.html#python-launcher-for-windows" target="_blank" rel="external">https://docs.python.org/3/using/windows.html#python-launcher-for-windows</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/08/python-执行注释头/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-08 </div>
-			<div class="article-title"><a href="/2015/07/08/windows-运行指定python版本/" >windows-运行指定python版本</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>python2</p>
-<pre><code>py -2 *.py
-</code></pre></li>
-<li><p>python3</p>
-<pre><code>py -3 *.py
-</code></pre><p>py –help</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/3809314/how-to-install-both-python-2-x-and-python-3-x-in-windows-7" target="_blank" rel="external">http://stackoverflow.com/questions/3809314/how-to-install-both-python-2-x-and-python-3-x-in-windows-7</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/08/windows-运行指定python版本/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -595,7 +608,9 @@ make install
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>4</span></a></li>
+		
+			<li><a href="/categories/gdb/">gdb<span>1</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
@@ -784,45 +799,45 @@ make install
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+			<li><a href="/tags/override/">override<span>1</span></a></li>
 		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+			<li><a href="/tags/主键/">主键<span>1</span></a></li>
 		
-			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/registry/">registry<span>1</span></a></li>
+			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
 		
-			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+			<li><a href="/tags/module/">module<span>3</span></a></li>
 		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+			<li><a href="/tags/ip/">ip<span>2</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
+			<li><a href="/tags/10014/">10014<span>1</span></a></li>
 		
-			<li><a href="/tags/base64/">base64<span>1</span></a></li>
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
 		
-			<li><a href="/tags/命令/">命令<span>5</span></a></li>
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
 		
-			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+			<li><a href="/tags/mysql/">mysql<span>34</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
 		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
+			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -838,6 +853,14 @@ make install
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
@@ -847,14 +870,6 @@ make install
     
       <li>
         <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
       </li>
     
   </ul>

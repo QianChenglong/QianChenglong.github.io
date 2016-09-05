@@ -111,6 +111,50 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-05-25 </div>
+			<div class="article-title"><a href="/2015/05/25/linux-同步网络时间/" >linux-同步网络时间</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>ntpdate time.windows.com &amp;&amp; hwclock --systohc --localtime
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/05/25/linux-同步网络时间/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-23 </div>
+			<div class="article-title"><a href="/2015/05/23/xshell字符乱码/" >xshell字符乱码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>【文件】=&gt; 【属性】=&gt; 【终端】=&gt;【编码】(Unicode-UTF-8)</p>
+
+	
+	</div>
+  <a type="button" href="/2015/05/23/xshell字符乱码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-05-22 </div>
 			<div class="article-title"><a href="/2015/05/22/sql-常用语句/" >sql-常用语句</a></div>						
 		</h3>
@@ -354,78 +398,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-15 </div>
-			<div class="article-title"><a href="/2015/04/15/redis-散列/" >redis-散列</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>hash的键值是字典类型，存储的是字段(field)和字段值的映射，字段值只能是字符串，意味着不能嵌套！</p>
-</li>
-<li><p>hash适合存储对象</p>
-<ul>
-<li>使用对象类别和ID构成键名(关系数据库中的表名和ID)</li>
-<li>使用字段表示对象的属性(关系数据名中的列名)</li>
-<li>字段值即属性值(关系数据库中的值)</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>redis入门指南</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/15/redis-散列/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-15 </div>
-			<div class="article-title"><a href="/2015/04/15/redis-字符串/" >redis-字符串</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>字符串类型是redis中最基本的数据类型，其他数据类型只是组织字符串的方式不同</p>
-<ul>
-<li><p>列表类型是以列表形式组织字符串</p>
-</li>
-<li><p>集合类型是以集合形式组织字符串</p>
-</li>
-</ul>
-</li>
-<li><p>字符串可以<strong>透明存储</strong>任何形式的字符串，二进制数据，如邮箱地址，json，图片等</p>
-</li>
-</ul>
-<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p>| 操作     | 命令   |<br>|———-+——–|<br>| 赋值     | set    |<br>| 取值     | get    |<br>| 追加     | append |<br>| 获取长度 | strlen |</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>redis入门指南</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/15/redis-字符串/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -540,7 +512,9 @@
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>4</span></a></li>
+		
+			<li><a href="/categories/gdb/">gdb<span>1</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
@@ -729,45 +703,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/登录/">登录<span>2</span></a></li>
+			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
 		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
-		
-			<li><a href="/tags/时间/">时间<span>2</span></a></li>
-		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
-		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
-		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
-		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
-		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
-		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
-		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
-		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
-		
-			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
-		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
-		
-			<li><a href="/tags/连接/">连接<span>1</span></a></li>
-		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
-		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
 		
 			<li><a href="/tags/exception/">exception<span>1</span></a></li>
 		
-			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+		
+			<li><a href="/tags/head/">head<span>1</span></a></li>
+		
+			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+		
+			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
+		
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+		
+			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
+		
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+		
+			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
+		
+			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+		
+			<li><a href="/tags/make/">make<span>2</span></a></li>
+		
+			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
+		
+			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+		
+			<li><a href="/tags/centos/">centos<span>12</span></a></li>
+		
+			<li><a href="/tags/script/">script<span>1</span></a></li>
+		
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -783,6 +757,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
@@ -792,14 +774,6 @@
     
       <li>
         <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
       </li>
     
   </ul>

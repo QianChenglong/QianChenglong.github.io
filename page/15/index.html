@@ -111,6 +111,87 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-15 </div>
+			<div class="article-title"><a href="/2015/10/15/go-time/" >go-time</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>go采用一种独特地时间格式化格式,与传统的C风格不同</p>
+</li>
+<li><p>格式化标志中带有前导0时(比如月,日,分等),输出也会带有前导0</p>
+</li>
+</ul>
+<h1 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h1><ul>
+<li><p>年</p>
+<ul>
+<li><p><code>2006</code> 4位数</p>
+</li>
+<li><p><code>06</code>    年(2位数)</p>
+</li>
+</ul>
+</li>
+<li><p>月 <code>01</code></p>
+</li>
+<li><p>日 <code>02</code></p>
+</li>
+<li><p><code>15</code>:24h制时, <code>03</code>:12h制时</p>
+</li>
+<li><p>分 <code>04</code></p>
+</li>
+<li><p>秒 <code>05</code></p>
+</li>
+<li><p>周几 <code>Mon</code>,<code>Monday</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://golang.org/pkg/time/" target="_blank" rel="external">https://golang.org/pkg/time/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/15/go-time/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-15 </div>
+			<div class="article-title"><a href="/2015/10/15/date/" >date</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>20060102150405(<code>golang style</code>)</p>
+<pre><code>date  +&quot;%Y%m%d%H%M%S&quot;
+</code></pre></li>
+<li><p><code>epoch time</code>=&gt;ASCII time</p>
+<pre><code>date -d @1234567890
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/10/15/date/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-14 </div>
 			<div class="article-title"><a href="/2015/10/14/go-windows环境搭建/" >go-windows环境搭建</a></div>						
 		</h3>
@@ -422,57 +503,6 @@ select a.id from user a;
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-30 </div>
-			<div class="article-title"><a href="/2015/09/30/sql/" >sql</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><ul>
-<li><p>当需要部分更新时,不要使用多表关联更新</p>
-<p>因为可能部分关联失败,导致需要更新的数据没有更新</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> product a, <span class="keyword">order</span> b <span class="keyword">set</span> ... <span class="keyword">where</span> a.product_id = b.product_id</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/30/sql/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-28 </div>
-			<div class="article-title"><a href="/2015/09/28/mysql-数据库备份恢复/" >mysql-数据库备份恢复</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="备份恢复指定表"><a href="#备份恢复指定表" class="headerlink" title="备份恢复指定表"></a>备份恢复指定表</h1><pre><code>mysqldump -uwallace -pwallace stock_app t_banner_100 &gt;stock_app.t_banner_100
-
-mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/09/28/mysql-数据库备份恢复/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -587,7 +617,9 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>4</span></a></li>
+		
+			<li><a href="/categories/gdb/">gdb<span>1</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
@@ -776,45 +808,45 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
 		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
 		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
-		
-			<li><a href="/tags/library/">library<span>3</span></a></li>
-		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
-		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
-		
-			<li><a href="/tags/time/">time<span>2</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
 			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
 		
-			<li><a href="/tags/gdb/">gdb<span>3</span></a></li>
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
 		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
+			<li><a href="/tags/同步/">同步<span>2</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
 		
-			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
-			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
 		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
+			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/static/">static<span>2</span></a></li>
 		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
+			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+		
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+		
+			<li><a href="/tags/链表/">链表<span>1</span></a></li>
+		
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
+		
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -830,6 +862,14 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
@@ -839,14 +879,6 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
     
       <li>
         <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
       </li>
     
   </ul>

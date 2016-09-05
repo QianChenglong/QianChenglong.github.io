@@ -111,6 +111,57 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-16 </div>
+			<div class="article-title"><a href="/2015/06/16/查看boost版本号/" >查看boost版本号</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>vi /usr/include/boost/version.hpp
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/06/16/查看boost版本号/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-15 </div>
+			<div class="article-title"><a href="/2015/06/15/apache-建立虚拟站点/" >apache-建立虚拟站点</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>ubuntu-14.04</li>
+<li>apache-2.4.7</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://wiki.ubuntu.org.cn/Apache%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%8C%87%E5%8D%97" target="_blank" rel="external">http://wiki.ubuntu.org.cn/Apache%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%8C%87%E5%8D%97</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/15/apache-建立虚拟站点/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-15 </div>
 			<div class="article-title"><a href="/2015/06/15/mysql-安装/" >mysql-安装</a></div>						
 		</h3>
@@ -496,66 +547,6 @@ MAILTO=qiancl@gupiaoxianji.com
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-09 </div>
-			<div class="article-title"><a href="/2015/06/09/ubuntu-cron设置日志/" >ubuntu-cron设置日志</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>修改rsyslog文件，将<code>/etc/rsyslog.d/50-default.conf</code> 文件中的<code>#cron.*</code>前的#删掉；</p>
-</li>
-<li><p>重启rsyslog服务</p>
-<pre><code>service rsyslog restart；
-</code></pre></li>
-<li><p>重启cron服务</p>
-<pre><code>service cron restart；
-</code></pre></li>
-<li><p>查看</p>
-<pre><code>less /var/log/cron.log
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/09/ubuntu-cron设置日志/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-08 </div>
-			<div class="article-title"><a href="/2015/06/08/mysql使用memcached缓存/" >mysql使用memcached缓存</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>授权memcached访问权限</p>
-<pre><code>grant select on stock_app.* to memcache@&quot;%&quot; identified by &quot;12345&quot;;
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/06/08/mysql使用memcached缓存/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -670,7 +661,9 @@ MAILTO=qiancl@gupiaoxianji.com
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>4</span></a></li>
+		
+			<li><a href="/categories/gdb/">gdb<span>1</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
@@ -859,45 +852,45 @@ MAILTO=qiancl@gupiaoxianji.com
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
 		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
+			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
 		
-			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
+			<li><a href="/tags/linux/">linux<span>39</span></a></li>
 		
-			<li><a href="/tags/列表/">列表<span>7</span></a></li>
+			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
 		
-			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
+			<li><a href="/tags/centos/">centos<span>12</span></a></li>
 		
-			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+		
+			<li><a href="/tags/new/">new<span>1</span></a></li>
+		
+			<li><a href="/tags/编译/">编译<span>10</span></a></li>
+		
+			<li><a href="/tags/alias/">alias<span>1</span></a></li>
 		
 			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
 		
-			<li><a href="/tags/理论/">理论<span>1</span></a></li>
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
 		
-			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+			<li><a href="/tags/dns/">dns<span>1</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
-		
-			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
-		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
-		
-			<li><a href="/tags/命令/">命令<span>5</span></a></li>
+			<li><a href="/tags/debug/">debug<span>3</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -913,6 +906,14 @@ MAILTO=qiancl@gupiaoxianji.com
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
@@ -922,14 +923,6 @@ MAILTO=qiancl@gupiaoxianji.com
     
       <li>
         <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
       </li>
     
   </ul>

@@ -112,6 +112,64 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-08-05 </div>
+			<div class="article-title"><a href="/2015/08/05/mod_fcgid配置/" >apache-fastcgi配置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>可执行</p>
+<pre><code>Options +ExecCGI
+</code></pre></li>
+<li><p>该目录下所有文件作为fastcgi程序执行</p>
+<pre><code>SetHandler fcgid-script
+</code></pre></li>
+<li><p>指定文件拓展名作为fastcgi程序执行</p>
+<pre><code>AddHandler fastcgi-script fcg fcgi fpl
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/05/mod_fcgid配置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-05 </div>
+			<div class="article-title"><a href="/2015/08/05/lsof/" >lsof</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查看哪个进程打开了指定端口</p>
+<pre><code>lsof -i :8000
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/05/lsof/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-05 </div>
 			<div class="article-title"><a href="/2015/08/05/netstat/" >netstat</a></div>						
 		</h3>
 	
@@ -250,6 +308,9 @@ gdb attach &lt;pid&gt;
 </code></pre></li>
 </ul>
 <h1 id="多线程调试"><a href="#多线程调试" class="headerlink" title="多线程调试"></a>多线程调试</h1><ul>
+<li><p>查看当前所有线程</p>
+<pre><code>info threads
+</code></pre></li>
 <li><p>查看所有线程调用栈</p>
 <pre><code>thread apply all bt
 </code></pre></li>
@@ -314,8 +375,20 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 <li><p>set print pretty</p>
 <p>可爱的打印出结构体</p>
 </li>
+<li><p>set print elements 0</p>
+<p>完全打印元素，不管有多少(查看该选项值，<code>show print elements</code>)</p>
+</li>
 </ul>
-<h1 id="gdb打印STLhttps-sourceware-org-gdb-wiki-STLSupport"><a href="#gdb打印STLhttps-sourceware-org-gdb-wiki-STLSupport" class="headerlink" title="gdb打印STLhttps://sourceware.org/gdb/wiki/STLSupport"></a>gdb打印STL<a href="https://sourceware.org/gdb/wiki/STLSupport" target="_blank" rel="external">https://sourceware.org/gdb/wiki/STLSupport</a></h1>
+<h1 id="gdb打印STLhttps-sourceware-org-gdb-wiki-STLSupport"><a href="#gdb打印STLhttps-sourceware-org-gdb-wiki-STLSupport" class="headerlink" title="gdb打印STLhttps://sourceware.org/gdb/wiki/STLSupport"></a>gdb打印STL<a href="https://sourceware.org/gdb/wiki/STLSupport" target="_blank" rel="external">https://sourceware.org/gdb/wiki/STLSupport</a></h1><h1 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h1><ul>
+<li>查看宏定义以及位置</li>
+</ul>
+<pre><code>info macro &lt;macro&gt;
+</code></pre><ul>
+<li><p>展开宏</p>
+<pre><code>macro expand &lt;macro&gt;
+</code></pre></li>
+</ul>
+
 	
 	</div>
   <a type="button" href="/2015/08/04/gdb/#more" class="btn btn-default more">阅读此文</a>
@@ -451,70 +524,6 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-24 </div>
-			<div class="article-title"><a href="/2015/07/24/git-常用命令/" >git-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>–git-dir 指定<code>.git</code>目录</p>
-</li>
-<li><p>–work-dir 指定工作目录</p>
-</li>
-</ul>
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
-<li><p>丢弃未缓存的修改</p>
-<pre><code>git checkout -- order.cpp
-</code></pre></li>
-<li><p>默认推送所有分支和tag</p>
-<pre><code>git push --all origin -u
-</code></pre></li>
-<li><p>迁出到指定目录</p>
-<pre><code>git --work-tree=../v0.03 checkout v0.03 .
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/24/git-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-23 </div>
-			<div class="article-title"><a href="/2015/07/23/linux-进程后台运行/" >linux-进程后台运行</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>nohub</p>
-<p>nohup ping www.google.com &amp;</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/23/linux-进程后台运行/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -629,7 +638,9 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>4</span></a></li>
+		
+			<li><a href="/categories/gdb/">gdb<span>1</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
@@ -818,45 +829,45 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
 		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
+			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/centos/">centos<span>12</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/API/">API<span>2</span></a></li>
 		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+			<li><a href="/tags/安装/">安装<span>3</span></a></li>
 		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+			<li><a href="/tags/命令/">命令<span>5</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
 		
-			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
 		
-			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
 		
-			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
 		
-			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
+			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
 		
-			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
+			<li><a href="/tags/父类/">父类<span>2</span></a></li>
 		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
 		
-			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+		
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
+		
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 		
 			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
-		
-			<li><a href="/tags/size/">size<span>1</span></a></li>
-		
-			<li><a href="/tags/部署/">部署<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -872,6 +883,14 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
@@ -881,14 +900,6 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
     
       <li>
         <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
       </li>
     
   </ul>

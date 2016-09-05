@@ -112,6 +112,218 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/windows-路由表/" >windows-路由表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="路由表介绍"><a href="#路由表介绍" class="headerlink" title="路由表介绍"></a>路由表介绍</h1><h2 id="路由表项的种类"><a href="#路由表项的种类" class="headerlink" title="路由表项的种类"></a>路由表项的种类</h2><ul>
+<li><p>网络路由：一个在网络中有特定网络ID的路由（路径）</p>
+</li>
+<li><p>主机路由：一个有特定网络地址（网络ID和主机ID）的路由。主机路由允许智能化的路由选择。主机路由通常用于创建用于控制和优化特定网络通信的定制路由。</p>
+</li>
+<li><p>默认路由：一个当别的路由在路由表中未被找到的时候使用的路由。如果一个路由器或终端系统（如装有Microsoft Windows和Linux的个人电脑），找不到到达目的地的路由时就会使用默认路由。</p>
+</li>
+</ul>
+<h2 id="路由表项的构成"><a href="#路由表项的构成" class="headerlink" title="路由表项的构成"></a>路由表项的构成</h2><ul>
+<li><p>网络ID(主键)  由IP加子网掩码构成</p>
+</li>
+<li><p>代价    用来路径决策</p>
+</li>
+<li><p>下一跳  下一跳地址或网关地址</p>
+</li>
+</ul>
+<h1 id="实例路由说明"><a href="#实例路由说明" class="headerlink" title="实例路由说明"></a>实例路由说明</h1><ul>
+<li><p><code>0.0.0.0          0.0.0.0      192.168.1.1    192.168.1.110    276</code></p>
+<p>这是一条“默认路径”。表示，当该主机发送数据包时，如果在路由表内找不到其他可以用来发送此数据包的路径时，该数据包会通过这条“默认路径”来发送，也就是说“接口” 192.168.1.110 这个IP发出，然后送给网关 192.168.1.1 。</p>
+</li>
+<li><p>127.0.0.0        255.0.0.0            在链路上         127.0.0.1    306</p>
+<p>这是“环回网络路径”(loopback network route)。当该主机发送的数据包给 IP 地址的形式如 127.x.y.z 这种地址时，这个数据包会从接口 127.0.0.1 这个 IP 地址送给目标，而无需经过路由器。从 “在链路上” 也提示了这一点。IP 地址 127.x.y.z 是计算机内部使用的 IP 地址，通过该地址计算机将数据包发送给自己，一般情况下我们常使用 127.0.0.1 。</p>
+</li>
+<li><p><code>192.168.1.0    255.255.255.0            在链路上     192.168.1.110    276</code></p>
+<p>这是“直接连接的网络路径”(directly-attached network route)。所谓直接连接的网络就是指该主机所在的网路，这里为 192.168.1.10 ，此路径表示当该主机往此网络里的主机发送数据包时，数据包会从接口 192.168.1.110 这个 IP 发出，由“网关”处的标识“在链路上”知道，该数据包将直接发送给目标，而不需要通过路由器来转发。</p>
+</li>
+<li><p><code>192.168.1.110  255.255.255.255            在链路上     192.168.1.110    276</code></p>
+<p>这条路径是“主机路径”(host route)。当该主机要把数据包发送到 192.168.1.110（发给自己）时，该数据包会从 192.168.1.110 上发出，然后发给自己，也不需要通过路由器来转发.</p>
+</li>
+<li><p><code>192.168.1.255  255.255.255.255            在链路上     192.168.1.110    276</code></p>
+<p>该路径是“子网广播路径”(subnet broadcast route)。它表示的是，当该主机要发送数据包到 192.168.1.255 这个广播地址时（也就是要广播给 192.168.1.0 这个子网内的所有计算机），该数据包会通过 192.168.1.110 这个地址发出。同样，通过在“链路上”的提示知道，该数据包也不需要通过路由器。</p>
+</li>
+<li><p><code>224.0.0.0        240.0.0.0            在链路上     192.168.1.110    276</code></p>
+<p>该条路径是“多播路径”(multicast route)。表示该主机发送多播数据包时，该数据包会通过 192.168.1.110 这个 IP 发出，同样从“在链路上”知道数据包直接发送给目标，而不需要经过路由器。</p>
+</li>
+<li><p><code>255.255.255.255  255.255.255.255            在链路上     192.168.1.110    276</code></p>
+<p>该路径是“有限广播路径”( limited broadcast route )。它表示当该主机要发送广播数据包到 255.255.255.255 （有限广播地址）时，该数据包会通过 192.168.1.110 发出，同样道理该数据包也不需要通过路由器。<br>当主机不知道本机所处的网络时（如主机启动时），此时只能采用有限广播方式，比如无盘工作站启动时，希望从 DHCP 服务器那里获得一个 IP 时，就会用该方式。</p>
+</li>
+</ul>
+<h1 id="路由表操作"><a href="#路由表操作" class="headerlink" title="路由表操作"></a>路由表操作</h1><h2 id="命令形式"><a href="#命令形式" class="headerlink" title="命令形式"></a>命令形式</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route [-f] [-p] [command [destination] [mask netmask] [gateway] [metric metric] [<span class="keyword">if</span> interface]</span><br></pre></td></tr></table></figure>
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><ul>
+<li><p>-f</p>
+<ul>
+<li><p>清除所有不是主路由(子网掩码为255.255.255.255的路由)、环回网络路由(目标为127.0.0.0，子网掩码为255.255.255.0的路由)<br>或多播路由(目标为224.0.0.0，子网掩码为240.0.0.0的路由)的条目的路由表。</p>
+</li>
+<li><p>如果它与命令之一(例如Add、Change或Delete)结合使用，表会在运行命令之前清除。</p>
+</li>
+</ul>
+</li>
+<li><p>-p</p>
+<ul>
+<li><p>与Add命令共同使用时，指定路由被添加到注册表并在启动TCP/IP协议的时候初始化IP路由表</p>
+</li>
+<li><p>默认情况下，启动TCP/IP协议时不会保存添加的路由</p>
+</li>
+<li><p>与Print命令一起使用时，则显示永久路由列表</p>
+</li>
+<li><p>所有其他的命令都忽略此参数</p>
+</li>
+<li><p>永久路由存储在注册表中的位置是<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Tcpip\Parameters\PersistentRoutes</code></p>
+</li>
+</ul>
+</li>
+<li><p>command</p>
+<ul>
+<li><p>print</p>
+</li>
+<li><p>add</p>
+</li>
+<li><p>delete</p>
+</li>
+<li><p>change</p>
+</li>
+</ul>
+</li>
+<li><p>destination</p>
+<p>指定路由的网络目标地址。</p>
+<ul>
+<li><p>可以是网络号(主机位为0的IP)</p>
+</li>
+<li><p>对于具体主机是其IP地址</p>
+</li>
+<li><p>对于默认路由是0.0.0.0</p>
+</li>
+</ul>
+</li>
+<li><p>mask netmask</p>
+<p>指定与网络目标地址相关联的网掩码(又称子网掩码)。</p>
+<p>子网掩码对于IP网络地址可以是一适当的子网掩码</p>
+<pre><code>-   对于主机路由是255.255.255.255
+
+-   对于默认路由是0.0.0.0
+
+-   如果忽略，则使用子网掩码255.255.255.255
+</code></pre><p><strong>注意：</strong></p>
+<ul>
+<li>定义路由时由于目标地址和子网掩码之间的关系，目标地址不能比它对应的子网掩码更为详细。换句话说，如果子网掩码的一位是0，则目标地址中的对应位就不能设置为1。</li>
+</ul>
+</li>
+<li><p>gateway</p>
+<p>网关，又叫做下一跳路由器</p>
+<ul>
+<li><p>网关与主机位于同一个局域网内，可以直达的！</p>
+</li>
+<li><p>当目标网络与主机不在同一局域网，则需要网关转发</p>
+</li>
+<li><p>目标网络与主机所属同一个局域网，则显示为<strong>在链路上</strong>，说明无需路由器转发，可直达</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>interface</p>
+<p>当多网卡时，指示哪个接口(可以是环回接口，LAN，VPN拨号接口等)可以到达<code>gateway</code></p>
+<p>如：</p>
+<pre><code>网络目标        网络掩码          网关       接口   跃点数
+  0.0.0.0          0.0.0.0    100.100.103.1    100.100.103.3    200
+</code></pre><p>网关<code>100.100.103.1</code>通过<code>100.100.103.3</code>可以到达</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">===========================================================================</span><br><span class="line">接口列表</span><br><span class="line"> 11...74 d4 35 46 3c 8e ......Realtek PCIe GBE Family Controller</span><br><span class="line"> 15...00 ff e7 a5 e8 50 ......TAP-Windows Adapter V9</span><br><span class="line"> 16...08 00 27 00 94 09 ......VirtualBox Host-Only Ethernet Adapter</span><br><span class="line"> 22...00 50 56 c0 00 01 ......VMware Virtual Ethernet Adapter for VMnet1</span><br><span class="line"> 23...00 50 56 c0 00 08 ......VMware Virtual Ethernet Adapter for VMnet8</span><br><span class="line">  1...........................Software Loopback Interface 1</span><br><span class="line">===========================================================================</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>metric</p>
+<p>跃点数，用来描述路由质量，当存在多条路由时，择优依据</p>
+</li>
+</ul>
+<h2 id="command"><a href="#command" class="headerlink" title="command"></a>command</h2><ul>
+<li><p>route print</p>
+<pre><code>E:\Test&gt;route print
+===========================================================================
+接口列表
+接口号  MAC                   描述
+ 34...........................NYDUS_VPN
+ 15...00 ff e7 a5 e8 50 ......TAP-Windows Adapter V9
+ 12...00 0f 13 76 05 b2 ......Realtek RTL8188CU Wireless LAN 802.11n USB 2.0 Net
+work Adapter
+ 16...08 00 27 00 94 09 ......VirtualBox Host-Only Ethernet Adapter
+ 23...00 50 56 c0 00 01 ......VMware Virtual Ethernet Adapter for VMnet1
+ 24...00 50 56 c0 00 08 ......VMware Virtual Ethernet Adapter for VMnet8
+  1...........................Software Loopback Interface 1
+===========================================================================
+</code></pre></li>
+<li><p>清空路由表项</p>
+<pre><code>route -f
+</code></pre></li>
+<li><p>添加路由表项</p>
+<pre><code>route -p add 192.192.0.0 mask 255.255.0.0 100.100.102.1 if 11
+</code></pre></li>
+<li><p>删除路由表项</p>
+<pre><code>route delete 192.192.0.0
+</code></pre></li>
+<li><p>查找路由表项</p>
+<pre><code>route print|findstr 192.192
+</code></pre></li>
+</ul>
+<h1 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h1><ul>
+<li><p>为什么存在<code>100.100.103.3  255.255.255.255            在链路上     100.100.103.3    356</code>?</p>
+<p>为什么不是通过<code>127.0.0.1</code>而是<code>100.100.103.3</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zh.wikipedia.org/wiki/%E8%B7%AF%E7%94%B1%E8%A1%A8" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E8%B7%AF%E7%94%B1%E8%A1%A8</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Routing_table" target="_blank" rel="external">http://en.wikipedia.org/wiki/Routing_table</a></li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/cc787509(v=ws.10).aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/cc787509(v=ws.10).aspx</a></li>
+<li><a href="http://www.groad.net/bbs/thread-8080-1-1.html" target="_blank" rel="external">http://www.groad.net/bbs/thread-8080-1-1.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/windows-路由表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/路由器DHCP差异/" >路由器DHCP差异</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="Netcore-NW710"><a href="#Netcore-NW710" class="headerlink" title="Netcore-NW710"></a>Netcore-NW710</h1><ul>
+<li>DHCP不能设置DNS服务器，默认DNS为自身</li>
+</ul>
+<h1 id="TP-LINK-WR941N"><a href="#TP-LINK-WR941N" class="headerlink" title="TP-LINK-WR941N"></a>TP-LINK-WR941N</h1><ul>
+<li>DHCP可以设置DNS服务器，在应答discovery时，回应相应设置的IP</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/路由器DHCP差异/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
 			<div class="article-title"><a href="/2015/02/06/libnet_init/" >libnet_init</a></div>						
 		</h3>
 	
@@ -389,76 +601,15 @@
 <p>不开启优化</p>
 </li>
 </ul>
+<h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h1><ul>
+<li><p>-ggdb3</p>
+<p>生成gdb的调试信息，带宏相关</p>
+</li>
+</ul>
 
 	
 	</div>
   <a type="button" href="/2015/02/05/gcc选项简记/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-04 </div>
-			<div class="article-title"><a href="/2015/02/04/linux优秀书籍列表/" >linux优秀书籍列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>The Linux Kernel Module Programming Guide</p>
-<p>Linux内核模块编程</p>
-<ul>
-<li><a href="http://www.tldp.org/LDP/lkmpg/2.6/html/index.html" target="_blank" rel="external">在线阅读</a></li>
-<li><a href="http://www.tldp.org/LDP/lkmpg/2.6/lkmpg.pdf" target="_blank" rel="external">pdf下载</a></li>
-</ul>
-</li>
-<li><p>Introduction to Linux</p>
-<ul>
-<li><a href="http://tldp.org/LDP/intro-linux/html/" target="_blank" rel="external">在线阅读</a></li>
-</ul>
-</li>
-<li><p>Guide to IP Layer Network Administration with Linux</p>
-<ul>
-<li><a href="http://linux-ip.net/html/" target="_blank" rel="external">在线阅读</a></li>
-<li><a href="http://linux-ip.net/" target="_blank" rel="external">下载</a></li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/04/linux优秀书籍列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-04 </div>
-			<div class="article-title"><a href="/2015/02/04/BSD-tcp-ip头文件组织/" >BSD-tcp-ip头文件组织</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 头文件           | 作用                                             |<br>|——————+————————————————–|<br>| <code>&lt;sys/socket.h&gt;</code> | 核心socket API和数据结构                         |<br>| <code>&lt;netinet/in.h&gt;</code> | IPv4，IPv6等相关协议族地址结构定义，常用端口定义 |<br>| <code>&lt;arpa/inet.h&gt;</code>  | IP地址操作                                       |<br>| <code>&lt;netdb.h&gt;</code>      | 网络数据库查询，如主机名，服务等                 |</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://en.wikipedia.org/wiki/Berkeley_sockets#Header_files" target="_blank" rel="external">http://en.wikipedia.org/wiki/Berkeley_sockets#Header_files</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/04/BSD-tcp-ip头文件组织/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -576,7 +727,9 @@
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>4</span></a></li>
+		
+			<li><a href="/categories/gdb/">gdb<span>1</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
@@ -765,45 +918,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/domain/">domain<span>3</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
 		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
+			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
 		
-			<li><a href="/tags/centos/">centos<span>12</span></a></li>
+			<li><a href="/tags/http/">http<span>11</span></a></li>
 		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
-		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
 			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
 		
-			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+			<li><a href="/tags/串口/">串口<span>2</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
+			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
 		
-			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/T/">_T<span>1</span></a></li>
+			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
-			<li><a href="/tags/gcc/">gcc<span>4</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+		
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -819,6 +972,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
@@ -828,14 +989,6 @@
     
       <li>
         <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
       </li>
     
   </ul>

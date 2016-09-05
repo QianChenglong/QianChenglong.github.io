@@ -112,6 +112,83 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-02 </div>
+			<div class="article-title"><a href="/2015/03/02/windows-_T和__T/" >windows-_T和__T</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p><code>tchar.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __T(x)      L ## x</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _T(x)       __T(x)</span></span><br></pre></td></tr></table></figure>
+<h1 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h1><ul>
+<li><p>为什么不直接定义<code>#define _T(x) L ## x</code>呢？</p>
+<p>因为在处理类似<code>_T(__FILE__)</code>时，会被拓展成<code>L__FILE__</code>，而<code>L__FILE__</code>则是未定义标识符</p>
+<ul>
+<li><p>为什么这样能做到？</p>
+<p><code>_T(__FILE__)</code>先拓展<code>__FILE__</code>，在插入到该表达式，然后进行<strong>合并</strong>操作</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://cpp.ezbty.org/myfiles/boost/libs/wave/doc/macro_expansion_process.html" target="_blank" rel="external">http://cpp.ezbty.org/myfiles/boost/libs/wave/doc/macro_expansion_process.html</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/cppinternals/Macro-Expansion.html" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/cppinternals/Macro-Expansion.html</a></li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/09dwwt6y.aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/09dwwt6y.aspx</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/02/windows-_T和__T/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-02 </div>
+			<div class="article-title"><a href="/2015/03/02/windows-UNICODE和_UNICODE作用/" >windows-UNICODE和_UNICODE作用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="共性"><a href="#共性" class="headerlink" title="共性"></a>共性</h1><p>这两个宏都是为了控制API是使用UNICODE版还是ANSI版。</p>
+<ul>
+<li><p>若定义了，则相关的API为<code>*W</code>版本(UNICODE版)，如<code>GetWindowTextW</code></p>
+</li>
+<li><p>若未定义，则相关的API为<code>*A</code>版本(ANSI版)，如<code>GetWindowTextA</code></p>
+</li>
+</ul>
+<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ul>
+<li><p><code>UNICODE</code>宏影响windows API</p>
+</li>
+<li><p><code>_UNICODE</code>宏影响C运行库以及MFC，作用与<code>UNICODE</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blogs.msdn.com/b/oldnewthing/archive/2004/02/12/71851.aspx" target="_blank" rel="external">http://blogs.msdn.com/b/oldnewthing/archive/2004/02/12/71851.aspx</a></li>
+<li><a href="http://www.cnblogs.com/ini_always/archive/2011/05/20/2050517.html" target="_blank" rel="external">http://www.cnblogs.com/ini_always/archive/2011/05/20/2050517.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/02/windows-UNICODE和_UNICODE作用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-02 </div>
 			<div class="article-title"><a href="/2015/03/02/windows-WSA是什么意思/" >windows-WSA是什么意思</a></div>						
 		</h3>
 	
@@ -377,67 +454,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-27 </div>
-			<div class="article-title"><a href="/2015/02/27/VC命令行使用/" >VC命令行使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>链接库</p>
-<pre><code>cl main.cpp /link user32.lib
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/27/VC命令行使用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-27 </div>
-			<div class="article-title"><a href="/2015/02/27/vim-unicode-BOM设置/" >vim-unicode-BOM设置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查询当前文件是否带有BOM标记</p>
-<pre><code>:set bomb?
-</code></pre></li>
-<li><p>添加BOM</p>
-<pre><code>:set bomb
-</code></pre></li>
-<li><p>去除BOM</p>
-<pre><code>:set nobomb
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cnblogs.com/ini_always/archive/2011/12/24/2300621.html" target="_blank" rel="external">http://www.cnblogs.com/ini_always/archive/2011/12/24/2300621.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/27/vim-unicode-BOM设置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -552,7 +568,9 @@
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>4</span></a></li>
+		
+			<li><a href="/categories/gdb/">gdb<span>1</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
@@ -741,45 +759,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
 		
-			<li><a href="/tags/socket/">socket<span>6</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
-			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
+			<li><a href="/tags/池/">池<span>1</span></a></li>
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
 		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
 		
-			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
+			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
 		
-			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
 		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
 		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
+			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
-			<li><a href="/tags/模块/">模块<span>2</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
 		
-			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
+			<li><a href="/tags/static/">static<span>2</span></a></li>
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/size/">size<span>1</span></a></li>
 		
-			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -795,6 +813,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
@@ -804,14 +830,6 @@
     
       <li>
         <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
       </li>
     
   </ul>

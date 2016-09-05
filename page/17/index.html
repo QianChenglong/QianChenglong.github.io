@@ -111,6 +111,61 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-22 </div>
+			<div class="article-title"><a href="/2015/09/22/产品部署/" >产品部署目录</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="部署目录结构"><a href="#部署目录结构" class="headerlink" title="部署目录结构"></a>部署目录结构</h1><p>部署目录 := 起始目录/项目名称/版本号/构建类型</p>
+<p>构建类型 := 开发 | 测试 | 生产</p>
+<p>开发 := debug</p>
+<p>测试 := test</p>
+<p>生产 := release</p>
+<h2 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;PROJECT_NAME&#125;</span>/<span class="variable">$&#123;PROJECT_VERSION&#125;</span>/<span class="variable">$&#123;CMAKE_BUILD_TYPE&#125;</span></span><br></pre></td></tr></table></figure>
+<p>cmake</p>
+
+	
+	</div>
+  <a type="button" href="/2015/09/22/产品部署/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-22 </div>
+			<div class="article-title"><a href="/2015/09/22/程序配置数据用文件还是数据库/" >程序配置数据用文件还是数据库</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><p>| 对比点             | 文件                 | 数据库   |<br>|——————–+———————-+———-|<br>| 程序实现           | 简单                 | 相对复杂 |<br>| 数据读写操作       | 简单                 | 相对复杂 |<br>| 是否利于版本回退   | 是(可以纳入版本控制) | 否       |<br>| 部署是否方便       | 是                   | 否       |<br>| 是否方便集中式管理 | 否                   | 是       |</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>综合考虑,优先使用配置文件方式</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.perlmonks.org/?node_id=394211" target="_blank" rel="external">Storing config data - RDBMS vs File?</a></li>
+<li><a href="http://programmers.stackexchange.com/questions/179572/should-i-use-a-config-file-or-database-for-storing-business-rules" target="_blank" rel="external">Should I use a config file or database for storing business rules?</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/22/程序配置数据用文件还是数据库/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-21 </div>
 			<div class="article-title"><a href="/2015/09/21/go-library/" >go-library</a></div>						
 		</h3>
@@ -352,76 +407,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-17 </div>
-			<div class="article-title"><a href="/2015/09/17/python-global/" >python-global</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var = 1</span><br><span class="line"></span><br><span class="line">def fun():</span><br><span class="line">    var = 2</span><br><span class="line">    print(var)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    fun()</span><br><span class="line">    print(var)</span><br><span class="line">    </span><br><span class="line">&gt;&gt;&gt; main()</span><br><span class="line">2</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-<p>在pytho中函数中,python将<code>var</code>处理成同名的局部变量!</p>
-<p>所以,当执行复合赋值运算时,会报错!</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var = 1</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    var += 2</span><br><span class="line">    print(var)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; main()</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 2, in main</span><br><span class="line">UnboundLocalError: local variable &apos;var&apos; referenced before assignment</span><br></pre></td></tr></table></figure>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>添加<code>global</code>声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var = 1</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    global var</span><br><span class="line">    var += 2</span><br><span class="line">    print(var)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; main()</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/10851906/python-3-unboundlocalerror-local-variable-referenced-before-assignment?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/10851906/python-3-unboundlocalerror-local-variable-referenced-before-assignment?lq=1</a></li>
-<li><a href="http://segmentfault.com/q/1010000000195730" target="_blank" rel="external">python中在哪些情况下必须使用global来声明全局变量？</a></li>
-<li><a href="http://stackoverflow.com/questions/8934772/assigning-to-variable-from-parent-function-local-variable-referenced-before-as" target="_blank" rel="external">http://stackoverflow.com/questions/8934772/assigning-to-variable-from-parent-function-local-variable-referenced-before-as</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/17/python-global/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-16 </div>
-			<div class="article-title"><a href="/2015/09/16/go-struct-tag/" >go-struct-tag</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p><code>struct</code>中可以附加一个<code>tag</code>,用来定制一些行为</p>
-<p>如在<code>encoding/json</code>中,因为go,默认首字母大写为导出的,而希望编码为json字符串时,<br>首字母为小写.</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Person <span class="keyword">struct</span> &#123;</span><br><span class="line">    FirstName    <span class="keyword">string</span>    <span class="string">`json:"first_name"`</span></span><br><span class="line">    LastName     <span class="keyword">string</span>    <span class="string">`json:"last_name"`</span></span><br><span class="line">    MiddleName   <span class="keyword">string</span>    <span class="string">`json:"middle_name,omitempty"`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ul>
-<li><p>附加<code>omitempty</code>时,当值为<code>null</code>时,不包含该字段</p>
-</li>
-<li><p>附加<code>string</code>时,不管原类型,都转换为<code>json string</code></p>
-</li>
-<li><p>附加<code>json:&quot;-&quot;</code>,不转换该字段</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/10858787/what-are-the-uses-for-tags-in-go" target="_blank" rel="external">http://stackoverflow.com/questions/10858787/what-are-the-uses-for-tags-in-go</a></li>
-<li><a href="http://golang.org/pkg/reflect/#StructTag" target="_blank" rel="external">http://golang.org/pkg/reflect/#StructTag</a></li>
-<li><a href="https://groups.google.com/forum/#!topic/golang-china/jDyG0r_atxQ" target="_blank" rel="external">https://groups.google.com/forum/#!topic/golang-china/jDyG0r_atxQ</a></li>
-<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.2.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.2.md</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/16/go-struct-tag/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -536,7 +521,9 @@
 		
 			<li><a href="/categories/fastcgi/">fastcgi<span>1</span></a></li>
 		
-			<li><a href="/categories/gcc/">gcc<span>3</span></a></li>
+			<li><a href="/categories/gcc/">gcc<span>4</span></a></li>
+		
+			<li><a href="/categories/gdb/">gdb<span>1</span></a></li>
 		
 			<li><a href="/categories/gentoo/">gentoo<span>1</span></a></li>
 		
@@ -725,45 +712,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
+			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+			<li><a href="/tags/T/">_T<span>1</span></a></li>
 		
-			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
 		
-			<li><a href="/tags/vim/">vim<span>23</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
+			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
 		
-			<li><a href="/tags/date/">date<span>1</span></a></li>
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
+			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/apt/">apt<span>2</span></a></li>
 		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
 		
-			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
 		
-			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
 		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>568</span></a></li>
@@ -779,6 +766,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
@@ -788,14 +783,6 @@
     
       <li>
         <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/mysql-CR_SERVER_LOST/" ><i class="fa fa-file-o"></i></a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/26/踩坑/" ><i class="fa fa-file-o"></i></a>
       </li>
     
   </ul>

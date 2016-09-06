@@ -112,6 +112,65 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-10-21 </div>
+			<div class="article-title"><a href="/2015/10/21/go-net-http/" >go-net-http</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="http的几个数据结构"><a href="#http的几个数据结构" class="headerlink" title="http的几个数据结构"></a>http的几个数据结构</h1><ul>
+<li><p>Request</p>
+<p>客户端发起的http请求,包含请求的URL(资源标识),方法,内容,cooike等</p>
+</li>
+<li><p>Response</p>
+<p>服务端发送的响应(HTTP头,辅助说明响应内容)</p>
+</li>
+<li><p>Conn</p>
+<p>客户端跟服务器的连接</p>
+</li>
+<li><p>Handler</p>
+<p>URL的处理逻辑</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Handler <span class="keyword">interface</span> &#123;</span><br><span class="line">    ServeHTTP(ResponseWriter, *Request)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><p><img src="../img/go-net-http-01.png" alt=""></p>
+<ol>
+<li><p>创建Listen Socket, 监听指定的端口, 等待客户端请求到来</p>
+</li>
+<li><p>Listen Socket接受客户端的请求, 得到Client Socket, 接下来通过Client Socket与客户端通信</p>
+</li>
+<li><p>处理客户端的请求, 首先从Client Socket读取HTTP请求的协议头, 如果是POST方法, 还可能要读取客户端提交的数据, 然后交给相应的handler处理请求, handler处理完毕准备好客户端需要的数据, 通过Client Socket写给客户端</p>
+</li>
+</ol>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><ol>
+<li><p>通过<code>http.HandleFunc(pattern string, handler func(ResponseWriter, *Request))</code>处理指定请求(根据URL路由)</p>
+</li>
+<li><p>通过<code>htpp.ListenAndServe(addr string, handler Handler)</code>注册处理器</p>
+<ul>
+<li><p><code>Handler</code>实现了<code>http.ServeHTTP(ResponseWriter, *Request)</code>接口</p>
+</li>
+<li><p>该接口根据URL,请求参数等来路由,比如jsonrpc中根据<code>method</code>来路由</p>
+</li>
+</ul>
+</li>
+<li><p>通过<code>http.Handle(pattern string, handler Handler)</code>注册处理器</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/21/go-net-http/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-21 </div>
 			<div class="article-title"><a href="/2015/10/21/mysql-limit/" >mysql-limit</a></div>						
 		</h3>
 	
@@ -378,70 +437,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-16 </div>
-			<div class="article-title"><a href="/2015/10/16/go-fmt/" >go-fmt</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="包内特征"><a href="#包内特征" class="headerlink" title="包内特征"></a>包内特征</h1><ul>
-<li><p>3种IO函数</p>
-<ul>
-<li><p>输出</p>
-<ol>
-<li><p><code>Print</code>用默认格式打印值,中间用空格分隔</p>
-</li>
-<li><p><code>Println</code>追加换行</p>
-</li>
-<li><p><code>Printf</code>自定义格式化</p>
-</li>
-</ol>
-</li>
-<li><p>输入</p>
-</li>
-</ul>
-</li>
-<li><p>IO源</p>
-<ol>
-<li><p>默认<code>stdin</code>, <code>stdout</code></p>
-</li>
-<li><p><code>S</code>族(<code>fmt.Sprint</code>, <code>fmt.Sprintln</code>, <code>fmt.Sprintf</code>),<code>string</code></p>
-</li>
-<li><p><code>F</code>族(<code>fmt.Fprint</code>, <code>fmt.Fprintln</code>, <code>fmt.Fprintf</code>),<code>io.Writer</code></p>
-</li>
-</ol>
-</li>
-</ul>
-<h1 id="格式化控制"><a href="#格式化控制" class="headerlink" title="格式化控制"></a>格式化控制</h1><ul>
-<li><p>%v  默认格式</p>
-</li>
-<li><p>%+v 打印结构体字段名</p>
-</li>
-<li><p>%T  类型</p>
-</li>
-<li><p>%q  转换为字符串字面值,将非打印字符转义(<code>\xXX</code>)</p>
-</li>
-<li><p>%q  转换为字符串字面值,将非打印字符转义(<code>\xXX</code>),将<code>utf-8</code>编码的字符转换为<code>\uXXYY</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/pkg/fmt/" target="_blank" rel="external">https://golang.org/pkg/fmt/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/16/go-fmt/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -704,7 +699,7 @@
 		
 			<li><a href="/categories/字符编码/">字符编码<span>4</span></a></li>
 		
-			<li><a href="/categories/操作系统/">操作系统<span>1</span></a></li>
+			<li><a href="/categories/操作系统/">操作系统<span>2</span></a></li>
 		
 			<li><a href="/categories/数学/">数学<span>1</span></a></li>
 		
@@ -747,48 +742,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
 		
-			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+			<li><a href="/tags/宏/">宏<span>4</span></a></li>
 		
-			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
+			<li><a href="/tags/T/">__T<span>1</span></a></li>
+		
+			<li><a href="/tags/事务/">事务<span>1</span></a></li>
 		
 			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
-			<li><a href="/tags/grep/">grep<span>1</span></a></li>
+			<li><a href="/tags/vim/">vim<span>23</span></a></li>
 		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/extern/">extern<span>1</span></a></li>
 		
-			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
 		
-			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
-			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+			<li><a href="/tags/连接/">连接<span>1</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>38</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
-		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>568</span></a></li>
+		   <li><a href="/tags">...<span>569</span></a></li>
 		 
 		</ul>
 	</div>
@@ -799,6 +794,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/05/慢速系统调用VS快速系统调用/" ><i class="fa fa-file-o"></i>慢速系统调用VS快速系统调用</a>
+      </li>
     
       <li>
         <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
@@ -814,10 +813,6 @@
     
       <li>
         <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
       </li>
     
   </ul>

@@ -112,6 +112,32 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-24 </div>
+			<div class="article-title"><a href="/2014/12/24/python-切换工作目录/" >python-切换工作目录</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">os.chdir(path)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/1810743/how-to-set-the-current-working-directory-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/1810743/how-to-set-the-current-working-directory-in-python</a></li>
+<li><a href="https://docs.python.org/2/library/os.html#os.chdir" target="_blank" rel="external">https://docs.python.org/2/library/os.html#os.chdir</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/24/python-切换工作目录/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-24 </div>
 			<div class="article-title"><a href="/2014/12/24/python-复制文件/" >python-复制文件</a></div>						
 		</h3>
 	
@@ -436,52 +462,6 @@ qualifiers := type dir proto
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-18 </div>
-			<div class="article-title"><a href="/2014/12/18/SVN-工作副本怎样跟踪版本库/" >SVN-工作副本怎样跟踪版本库</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>对于工作副本的每一个文件，Subversion 在管理目录 .svn/ 记录两项关键的信息:</p>
-<ul>
-<li><p>工作文件的基准版本(叫做文件的工作版本)</p>
-</li>
-<li><p>一个本地副本最后更新的时间戳。</p>
-</li>
-</ul>
-<p>给定这些信息，通过与版本库通讯，Subversion 可以告诉我们工作文件是处与如下四种状态的那一种:</p>
-<ul>
-<li><p>未修改且是当前的</p>
-<p>文件在工作目录里没有修改，在工作版本之后没有修改提交到版本库。svn commit 操作不做任何事情，svn update 不做任何事情。</p>
-</li>
-<li><p>本地已修改且是当前的</p>
-<p>工作副本已经修改，从基准版本之后没有修改提交到版本库。本地修改没有提交，因此 commit 会成功的提交，update 不做任何事情。</p>
-</li>
-<li><p>本地未修改且过时</p>
-<p>这个文件在工作副本没有修改，但在版本库中已经修改了。这个文件应当更新到最新公共版本。commit 不做任何事情，update 将会更新工作副本到最新的版本。</p>
-</li>
-<li><p>本地已修改且过时</p>
-<p>这个文件在工作副本和版本库中都被修改了。提交 该文件将会因为 过时 而失败。该文件应该先更新; 更新 命令将会尝试合并公共更改和本机更改。如果 Subversion 不能顺利的自动完成合并，则需要用户解决冲突。</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://tortoisesvn.net/docs/nightly/TortoiseSVN_zh_CN/tsvn-basics-svn.html" target="_blank" rel="external">http://tortoisesvn.net/docs/nightly/TortoiseSVN_zh_CN/tsvn-basics-svn.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/18/SVN-工作副本怎样跟踪版本库/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -744,7 +724,7 @@ qualifiers := type dir proto
 		
 			<li><a href="/categories/字符编码/">字符编码<span>4</span></a></li>
 		
-			<li><a href="/categories/操作系统/">操作系统<span>1</span></a></li>
+			<li><a href="/categories/操作系统/">操作系统<span>2</span></a></li>
 		
 			<li><a href="/categories/数学/">数学<span>1</span></a></li>
 		
@@ -787,48 +767,48 @@ qualifiers := type dir proto
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
 		
-			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+			<li><a href="/tags/make/">make<span>2</span></a></li>
 		
-			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
 		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
+			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
 		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
 		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
 		
 			<li><a href="/tags/vim/">vim<span>23</span></a></li>
 		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
 		
-			<li><a href="/tags/选项/">选项<span>3</span></a></li>
+			<li><a href="/tags/build/">build<span>1</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/函数/">函数<span>2</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
 		
-			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
-			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
+			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
 		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
+			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
 		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/理解/">理解<span>1</span></a></li>
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>568</span></a></li>
+		   <li><a href="/tags">...<span>569</span></a></li>
 		 
 		</ul>
 	</div>
@@ -839,6 +819,10 @@ qualifiers := type dir proto
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/05/慢速系统调用VS快速系统调用/" ><i class="fa fa-file-o"></i>慢速系统调用VS快速系统调用</a>
+      </li>
     
       <li>
         <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
@@ -854,10 +838,6 @@ qualifiers := type dir proto
     
       <li>
         <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
       </li>
     
   </ul>

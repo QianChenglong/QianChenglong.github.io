@@ -112,6 +112,41 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-03-08 </div>
+			<div class="article-title"><a href="/2016/03/08/proactor/" >proactor</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>与Reactor模型相对应，Proactor最大的特点是使用异步I/O。所有的I/O操作都交由系统提供的异步I/O接口去执行。Proactor多路复用器等待异步I/O完成，并调用相应的用户处理函数。为了对比Reactor模型，以一个read操作为例：</p>
+<p>在Reactor中：</p>
+<ul>
+<li>将要读的文件描述符注册到多路复用器中。</li>
+<li>多路复用器等待上述描述符的可读事件以及其它所有已经注册过的事件。</li>
+<li>描述符变成可读之后，多路复用器返回，并调用用户提供的处理函数，开始读文件操作。</li>
+</ul>
+<p>在Proactor中：</p>
+<ul>
+<li>用户函数启动一个异步读文件的操作。同时将这个操作注册到多路复用器上。多路复用器并不关心文件是否可读而是关心这个异步读操作是否完成。</li>
+<li>异步读文件是操作系统完成，用户程序不需要关心。多路复用器等待直到有完成通知到来。</li>
+<li>当操作系统完成了读文件操作——将读到的数据复制到了用户先前提供的缓冲区之后，通知多路复用器读操作已完成。</li>
+<li>多路复用器再调用相应的处理程序，处理数据。</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/08/proactor/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-08 </div>
 			<div class="article-title"><a href="/2016/03/08/reactor/" >reactor</a></div>						
 		</h3>
 	
@@ -347,36 +382,6 @@
 	
 	</div>
   <a type="button" href="/2016/02/22/md5/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-21 </div>
-			<div class="article-title"><a href="/2016/02/21/C++-复制构造函数/" >C++-复制构造函数</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>由一个同类型值，创建一个新对象</p>
-<h1 id="调用场景"><a href="#调用场景" class="headerlink" title="调用场景"></a>调用场景</h1><ul>
-<li><p>复制一个同类型的对象</p>
-</li>
-<li><p>函数传递非引用实参时</p>
-</li>
-<li><p>函数返回非引用参数时</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/02/21/C++-复制构造函数/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -642,7 +647,7 @@
 		
 			<li><a href="/categories/字符编码/">字符编码<span>4</span></a></li>
 		
-			<li><a href="/categories/操作系统/">操作系统<span>1</span></a></li>
+			<li><a href="/categories/操作系统/">操作系统<span>2</span></a></li>
 		
 			<li><a href="/categories/数学/">数学<span>1</span></a></li>
 		
@@ -685,48 +690,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
 		
-			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
-			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
+			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
 		
-			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
-		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
-		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
-		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
-		
-			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
-		
-			<li><a href="/tags/js/">js<span>2</span></a></li>
-		
-			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
-		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
-		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
-		
-			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
-		
-			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
-		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
-		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
-		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
 		
 			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/nging/">nging<span>1</span></a></li>
+		
+			<li><a href="/tags/macro/">macro<span>4</span></a></li>
+		
+			<li><a href="/tags/linux/">linux<span>39</span></a></li>
+		
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+		
+			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+		
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
+		
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+		
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
+		
+			<li><a href="/tags/build/">build<span>1</span></a></li>
+		
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+		
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+		
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+		
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+		
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>568</span></a></li>
+		   <li><a href="/tags">...<span>569</span></a></li>
 		 
 		</ul>
 	</div>
@@ -737,6 +742,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/05/慢速系统调用VS快速系统调用/" ><i class="fa fa-file-o"></i>慢速系统调用VS快速系统调用</a>
+      </li>
     
       <li>
         <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
@@ -752,10 +761,6 @@
     
       <li>
         <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
       </li>
     
   </ul>

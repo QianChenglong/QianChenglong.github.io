@@ -111,6 +111,27 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-18 </div>
+			<div class="article-title"><a href="/2016/03/18/ssh/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		
+	
+	</div>
+  <a type="button" href="/2016/03/18/ssh/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-15 </div>
 			<div class="article-title"><a href="/2016/03/15/epoll/" >epoll</a></div>						
 		</h3>
@@ -121,9 +142,39 @@
   <div class="row">
 	
 	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+		<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">epoll_wait</span><span class="params">(<span class="keyword">int</span> epfd, <span class="keyword">struct</span> epoll_event *events, <span class="keyword">int</span> maxevents, <span class="keyword">int</span> timeout)</span></span>;</span><br></pre></td></tr></table></figure>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><ul>
+<li><blockquote>
+<p>0 返回IO就绪的文件描述符总数；</p>
+</blockquote>
+</li>
+<li><p>==0 超时返回</p>
+</li>
+<li><p>&lt;0(-1) 出错(需要注意，该调用为慢速系统调用，当被信号中断时，返回EINTR)</p>
+</li>
+</ul>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>调用epoll_create时，内核除了帮我们在epoll文件系统里建了个file结点，在内核cache里建了个红黑树用于存储以后epoll_ctl传来的fd外，还会再建立一个list链表，用于存储准备就绪的事件，当epoll_wait调用时，仅仅观察这个list链表里有没有数据即可。有数据就返回，没有数据就sleep，等到timeout时间到后即使链表没数据也返回。所以，epoll_wait非常高效。而且，通常情况下即使我们要监控百万计的fd，大多一次也只返回很少量的准备就绪fd而已，所以，epoll_wait仅需要从内核态copy少量的fd到用户态而已。那么，这个准备就绪list链表是怎么维护的呢？当我们执行epoll_ctl时，除了把fd放到epoll文件系统里file对象对应的红黑树上之外，还会给内核中断处理程序注册一个回调函数，告诉内核，如果这个fd的中断到了，就把它放到准备就绪list链表里。所以，当一个fd（例如socket）上有数据到了，内核在把设备（例如网卡）上的数据copy到内核中后就来把fd（socket）插入到准备就绪list链表里了</p>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><ol>
+<li><p>执行<code>epoll_create</code>时，创建了红黑树和就绪list链表。</p>
+</li>
+<li><p>执行<code>epoll_ctl</code>时，如果增加fd（socket），则检查在红黑树中是否存在，存在立即返回，不存在则添加到红黑树上，然后向内核注册回调函数，用于当中断事件来临时向准备就绪list链表中插入数据。</p>
+</li>
+<li><p>执行<code>epoll_wait</code>时立刻返回准备就绪链表里的数据</p>
+</li>
+</ol>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
 <li><p><code>epoll_event</code>中的<code>epoll_data_t</code>用来存储用户自定义数据</p>
 <p>当与其绑定的<code>fd</code>上发生指定的事件时，<code>epoll_wait</code>返回该<code>event</code>，用户可以拿到该数据</p>
+</li>
+</ul>
+<h1 id="为什么高效（相对select，poll-？"><a href="#为什么高效（相对select，poll-？" class="headerlink" title="为什么高效（相对select，poll)？"></a>为什么高效（相对<code>select</code>，<code>poll</code>)？</h1><ul>
+<li><p>无需每次调用，都将套接字集合从应用层拷贝到内核层。</p>
+<p>epoll采用红黑树来管理描述符，<code>epoll_ctl</code>执行管理操作</p>
+</li>
+<li><p>当有IO事件返回时，epoll无需遍历整个描述符集合(O(m)，m为IO就绪的数量)，而select/poll则是O(n)，大大的减少了轮询操作</p>
+<p>epoll返回event的集合(该event结构包含用户数据)，应用层只需根据原有数据来分发事件</p>
+</li>
+<li><p>内核采用slab算法管理epoll相关数据结构，加速了相关操作时间</p>
 </li>
 </ul>
 
@@ -396,41 +447,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-08 </div>
-			<div class="article-title"><a href="/2016/03/08/proactor/" >proactor</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>与Reactor模型相对应，Proactor最大的特点是使用异步I/O。所有的I/O操作都交由系统提供的异步I/O接口去执行。Proactor多路复用器等待异步I/O完成，并调用相应的用户处理函数。为了对比Reactor模型，以一个read操作为例：</p>
-<p>在Reactor中：</p>
-<ul>
-<li>将要读的文件描述符注册到多路复用器中。</li>
-<li>多路复用器等待上述描述符的可读事件以及其它所有已经注册过的事件。</li>
-<li>描述符变成可读之后，多路复用器返回，并调用用户提供的处理函数，开始读文件操作。</li>
-</ul>
-<p>在Proactor中：</p>
-<ul>
-<li>用户函数启动一个异步读文件的操作。同时将这个操作注册到多路复用器上。多路复用器并不关心文件是否可读而是关心这个异步读操作是否完成。</li>
-<li>异步读文件是操作系统完成，用户程序不需要关心。多路复用器等待直到有完成通知到来。</li>
-<li>当操作系统完成了读文件操作——将读到的数据复制到了用户先前提供的缓冲区之后，通知多路复用器读操作已完成。</li>
-<li>多路复用器再调用相应的处理程序，处理数据。</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/03/08/proactor/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -693,7 +709,7 @@
 		
 			<li><a href="/categories/字符编码/">字符编码<span>4</span></a></li>
 		
-			<li><a href="/categories/操作系统/">操作系统<span>1</span></a></li>
+			<li><a href="/categories/操作系统/">操作系统<span>2</span></a></li>
 		
 			<li><a href="/categories/数学/">数学<span>1</span></a></li>
 		
@@ -736,48 +752,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
-		
-			<li><a href="/tags/mysql/">mysql<span>34</span></a></li>
-		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
-		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
-		
-			<li><a href="/tags/macro/">macro<span>4</span></a></li>
-		
-			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
 		
 			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 		
-			<li><a href="/tags/exit/">exit<span>1</span></a></li>
-		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
-		
-			<li><a href="/tags/目录/">目录<span>3</span></a></li>
-		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
-		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
-		
-			<li><a href="/tags/sal/">sal<span>1</span></a></li>
-		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
-		
-			<li><a href="/tags/global/">global<span>1</span></a></li>
-		
-			<li><a href="/tags/poll/">poll<span>1</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
 			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
 		
-			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
+			<li><a href="/tags/api/">api<span>1</span></a></li>
 		
-			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
+		
+			<li><a href="/tags/yum/">yum<span>1</span></a></li>
+		
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
+		
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
+		
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
+		
+			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+		
+			<li><a href="/tags/head/">head<span>1</span></a></li>
+		
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+		
+			<li><a href="/tags/c/">c<span>8</span></a></li>
+		
+			<li><a href="/tags/博客/">博客<span>1</span></a></li>
+		
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+		
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+		
+			<li><a href="/tags/module/">module<span>3</span></a></li>
+		
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>568</span></a></li>
+		   <li><a href="/tags">...<span>569</span></a></li>
 		 
 		</ul>
 	</div>
@@ -788,6 +804,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/05/慢速系统调用VS快速系统调用/" ><i class="fa fa-file-o"></i>慢速系统调用VS快速系统调用</a>
+      </li>
     
       <li>
         <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
@@ -803,10 +823,6 @@
     
       <li>
         <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/31/名人堂/" ><i class="fa fa-file-o"></i>名人堂</a>
       </li>
     
   </ul>

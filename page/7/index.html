@@ -112,6 +112,47 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-03-28 </div>
+			<div class="article-title"><a href="/2016/03/28/openssl/" >openssl</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
+<li><p>生成RSA私钥</p>
+<pre><code>openssl genrsa -out private.pem 1024
+</code></pre></li>
+<li><p>根据私钥生成公钥</p>
+<pre><code>openssl rsa -in private.pem -pubout -out public.pem
+</code></pre></li>
+<li><p>直接明文查看</p>
+<pre><code>openssl rsa -in private.pem -text -noout
+</code></pre></li>
+<li><p>以ASN.1查看</p>
+<pre><code>openssl asn1parse -in private.pem -noout
+</code></pre></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[I] /tmp openssl asn1parse -in private.pem </span><br><span class="line">    0:d=0  hl=4 l= 606 cons: SEQUENCE</span><br><span class="line">    4:d=1  hl=2 l=   1 prim: INTEGER           :00</span><br><span class="line">    7:d=1  hl=3 l= 129 prim: INTEGER [N]       :AD1B7BF5AE71D005A859BC0DD73FD5B18636B0022C22621A8BF8E422E1C2D31F1CC68321C3B5092E96A471BA343E2639F2B354A438DB10C978968E58FD637E4C5D91182B1B4628946D7E6DA3665172B9808C27FFEDB6EB371A55A5B724DCC8A1E8A5C8E88F34042A4D8D9FF17803683F52BBAAEE0922B8A3D6FC1A428FFB91B9</span><br><span class="line">  139:d=1  hl=2 l=   3 prim: INTEGER [E]       :010001</span><br><span class="line">  144:d=1  hl=3 l= 128 prim: INTEGER [D]       :7D64C8517A30C56023C804B9FDEF26AB76AE4CA6F6335DDF1EFF86BA61D10FBF9CC78B9BBCB979D23E9B162AACC74C4773B045A2C3F0A3E35D2FAA237A4144ED791951CCA5F89360E6163641CAC8ED769483644B6320D2C1569960C535DD50A765C5523E12BD44241AB23A217134EFA6DDE30DBF8C8BACF6A0D86F117F1DADA5</span><br><span class="line">  275:d=1  hl=2 l=  65 prim: INTEGER           :DC514054FFE713A66213D7638E0EE9D23E69672CF35D14E9DBFBF8C4A888E1096A18BBDCEC6B11831FB3E11823BC271931C83E97DB58E71384FC33DC584F1FCB</span><br><span class="line">  342:d=1  hl=2 l=  65 prim: INTEGER           :C924D2576E99412C4F4AA946352E24EDA76DEA5BD114A8282AFE1BB7B2BAF1484046291B293D9DB7F3662849202164EC923CDDBBAB95940E083EDA5BADF11C0B</span><br><span class="line">  409:d=1  hl=2 l=  65 prim: INTEGER           :85C6C85B546F895CF41CBC227535D500966905FF235E97BE5097353CA46148D3A09A9827D35E47E9E8AC1EB7BBAB19CA9091D87FF8EE88912FA4BC10C58675F5</span><br><span class="line">  476:d=1  hl=2 l=  65 prim: INTEGER           :A37CFE4A7A66AE86695C7201D2AFD2EC27AE3B52ADBA7083558E7CD0EEC0EBE4A1F964E7E2B9663C61E5A2D0ED00B79B61B17F384EDAA12056AB5FA82CD550C9</span><br><span class="line">  543:d=1  hl=2 l=  65 prim: INTEGER           :B6E4F2280035C65B6D154BAB44E09877A61D069392B2A63C4F808F7D749CFD7FAEBE450B6E596761F5974885D9F43340FB272C1F57F168366E8F3AABDEAD6413</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>获取N</p>
+<pre><code>openssl rsa -in private.pem -modulus -noout
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/28/openssl/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-28 </div>
 			<div class="article-title"><a href="/2016/03/28/ssh-keygen/" >ssh-keygen</a></div>						
 		</h3>
 	
@@ -502,70 +543,6 @@ yumdownloader httpd
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-18 </div>
-			<div class="article-title"><a href="/2016/03/18/protobuf/" >protobuf</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
-<li>二进制编码，格式紧凑，编解码快，省流量</li>
-</ul>
-<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><pre><code>protoc [OPTION] PROTO_FILES
-</code></pre><h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><ul>
-<li><p>输出c++代码</p>
-<pre><code>protoc --cpp_out=. base.proto
-</code></pre></li>
-</ul>
-<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><ul>
-<li><p>基本类型(<code>uint32</code>、<code>string</code>等)提供了<code>set_</code>方法</p>
-</li>
-<li><p>singular(<code>单数</code>) message字段(自定义消息)，提供<code>mutalbe_</code>方法设置值，没有<code>set_</code>方法</p>
-</li>
-<li><p>repeated字段</p>
-<ul>
-<li><code>_size</code>查询数量</li>
-<li>下标访问(获取，修改)</li>
-<li><code>add_</code>添加(返回指针来修改数据)</li>
-</ul>
-</li>
-</ul>
-<h1 id="编码风格-https-developers-google-com-protocol-buffers-docs-style"><a href="#编码风格-https-developers-google-com-protocol-buffers-docs-style" class="headerlink" title="编码风格(https://developers.google.com/protocol-buffers/docs/style)"></a>编码风格(<a href="https://developers.google.com/protocol-buffers/docs/style" target="_blank" rel="external">https://developers.google.com/protocol-buffers/docs/style</a>)</h1><ul>
-<li><p>消息类型</p>
-<p>CamelCase(with an initial capital)</p>
-</li>
-<li><p>字段</p>
-<p>underscore_separated_names</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">message SongServerRequest &#123;</span><br><span class="line">  required string song_name = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">C++:</span><br><span class="line">  const string&amp; song_name() &#123; ... &#125;</span><br><span class="line">  void set_song_name(const string&amp; x) &#123; ... &#125;</span><br><span class="line"></span><br><span class="line">Java:</span><br><span class="line">  public String getSongName() &#123; ... &#125;</span><br><span class="line">  public Builder setSongName(String v) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>枚举</p>
-<p>Use CamelCase (with an initial capital) for enum type names and CAPITALS_WITH_UNDERSCORES for value names</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum Foo &#123;</span><br><span class="line">  FIRST_VALUE = 1;</span><br><span class="line">  SECOND_VALUE = 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>service</p>
-<p>CamelCase (with an initial capital) for both the service name and any RPC method names</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service FooService &#123;</span><br><span class="line">  rpc GetSomething(FooRequest) returns (FooResponse);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2016/03/18/protobuf/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -618,7 +595,7 @@ yumdownloader httpd
 		
 			<li><a href="/categories/C/">C<span>10</span></a></li>
 		
-			<li><a href="/categories/C/">C++<span>30</span></a></li>
+			<li><a href="/categories/C/">C++<span>31</span></a></li>
 		
 			<li><a href="/categories/CGI/">CGI<span>1</span></a></li>
 		
@@ -871,48 +848,48 @@ yumdownloader httpd
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
 		
-			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/文件/">文件<span>7</span></a></li>
+			<li><a href="/tags/awk/">awk<span>1</span></a></li>
 		
-			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
-			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
+			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/C-11/">C++11<span>6</span></a></li>
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
 		
-			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
 		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
 		
-			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
+			<li><a href="/tags/python3/">python3<span>2</span></a></li>
 		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>569</span></a></li>
+		   <li><a href="/tags">...<span>571</span></a></li>
 		 
 		</ul>
 	</div>
@@ -923,6 +900,10 @@ yumdownloader httpd
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
+      </li>
     
       <li>
         <a href="/2016/09/05/慢速系统调用VS快速系统调用/" ><i class="fa fa-file-o"></i>慢速系统调用VS快速系统调用</a>
@@ -938,10 +919,6 @@ yumdownloader httpd
     
       <li>
         <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" ><i class="fa fa-file-o"></i>hash为什么最好使用素数来作为桶大小</a>
       </li>
     
   </ul>

@@ -112,6 +112,34 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-27 </div>
+			<div class="article-title"><a href="/2015/01/27/python-遍历目录/" >python-遍历目录</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="os-walk"><a href="#os-walk" class="headerlink" title="os.walk"></a>os.walk</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(<span class="string">'.'</span>):</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">        <span class="keyword">print</span> file</span><br></pre></td></tr></table></figure>
+<h1 id="查找指定文件"><a href="#查找指定文件" class="headerlink" title="查找指定文件"></a>查找指定文件</h1><h2 id="glob-glob"><a href="#glob-glob" class="headerlink" title="glob.glob"></a>glob.glob</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> glob.glob(<span class="string">'*.txt'</span>):</span><br><span class="line">    print(file)</span><br></pre></td></tr></table></figure>
+<h2 id="fnmatch-fnmatch"><a href="#fnmatch-fnmatch" class="headerlink" title="fnmatch.fnmatch"></a>fnmatch.fnmatch</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fnmatch</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>):</span><br><span class="line">    <span class="keyword">if</span> fnmatch.fnmatch(file, <span class="string">'*.txt'</span>):</span><br><span class="line">        <span class="keyword">print</span> file</span><br></pre></td></tr></table></figure>
+<h2 id="re-match"><a href="#re-match" class="headerlink" title="re.match"></a>re.match</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> [f <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>) <span class="keyword">if</span> re.match(<span class="string">r'build-\(.*\)-.*'</span>, f)]:</span><br><span class="line">    print(<span class="string">'cleanning &#123;&#125; ...'</span>.format(d))</span><br><span class="line">    shutil.rmtree(d)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/2225564/get-a-filtered-list-of-files-in-a-directory" target="_blank" rel="external">http://stackoverflow.com/questions/2225564/get-a-filtered-list-of-files-in-a-directory</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/27/python-遍历目录/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-27 </div>
 			<div class="article-title"><a href="/2015/01/27/python-映射list/" >python-映射list</a></div>						
 		</h3>
 	
@@ -381,55 +409,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/24/python-module和package/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-24 </div>
-			<div class="article-title"><a href="/2015/01/24/python-编码规范/" >python-编码规范</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="目录组织"><a href="#目录组织" class="headerlink" title="目录组织"></a>目录组织</h1><ul>
-<li><p>[doc] 文档</p>
-</li>
-<li><p>[test] 测试</p>
-</li>
-<li><p>[package] 包</p>
-</li>
-</ul>
-<p>参考：</p>
-<ol>
-<li><a href="https://github.com/django/django" target="_blank" rel="external">https://github.com/django/django</a></li>
-</ol>
-<h1 id="文件空行"><a href="#文件空行" class="headerlink" title="文件空行"></a>文件空行</h1><hr>
-<h1 id="命名约定"><a href="#命名约定" class="headerlink" title="命名约定"></a>命名约定</h1><h2 id="文件命名"><a href="#文件命名" class="headerlink" title="文件命名"></a>文件命名</h2><p>下划线分隔</p>
-<p>若用’-‘分隔，将导致无法<code>import</code>，因为’-‘在python中是减号。</p>
-<p>参考:</p>
-<ol>
-<li><a href="http://stackoverflow.com/questions/2740026/why-are-filename-underscores-better-than-hyphens" target="_blank" rel="external">http://stackoverflow.com/questions/2740026/why-are-filename-underscores-better-than-hyphens</a></li>
-</ol>
-<h2 id="函数命名"><a href="#函数命名" class="headerlink" title="函数命名"></a>函数命名</h2><p>下划线分隔</p>
-<h2 id="类命名"><a href="#类命名" class="headerlink" title="类命名"></a>类命名</h2><p>首字母大写，骆驼命名法</p>
-<hr>
-<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><hr>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="external">https://www.python.org/dev/peps/pep-0008/</a></li>
-<li><a href="http://google-styleguide.googlecode.com/svn/trunk/pyguide.html" target="_blank" rel="external">http://google-styleguide.googlecode.com/svn/trunk/pyguide.html</a></li>
-<li><a href="https://github.com/onlytiancai/codesnip/blob/master/mypost/How_to_write_high-quality_python_program.md" target="_blank" rel="external">https://github.com/onlytiancai/codesnip/blob/master/mypost/How_to_write_high-quality_python_program.md</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/24/python-编码规范/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -709,7 +688,7 @@
 		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
-			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+			<li><a href="/categories/编程/">编程<span>8</span></a></li>
 		
 			<li><a href="/categories/网站/">网站<span>1</span></a></li>
 		
@@ -738,48 +717,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+			<li><a href="/tags/binary/">binary<span>1</span></a></li>
 		
-			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+			<li><a href="/tags/read/">read<span>1</span></a></li>
+		
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+		
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+		
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
+		
+			<li><a href="/tags/js/">js<span>2</span></a></li>
+		
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+		
+			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
+		
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
+		
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+		
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
+		
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
+		
+			<li><a href="/tags/事务/">事务<span>1</span></a></li>
+		
+			<li><a href="/tags/command/">command<span>9</span></a></li>
+		
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
+		
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
 		
 			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/库/">库<span>2</span></a></li>
 		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
-		
-			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
-		
-			<li><a href="/tags/django/">django<span>2</span></a></li>
-		
-			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
-		
-			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
-		
-			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
-		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
-		
-			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
-		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
-		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
-		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
-		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
-		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
-		
-			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
-		
-			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>571</span></a></li>
+		   <li><a href="/tags">...<span>573</span></a></li>
 		 
 		</ul>
 	</div>
@@ -790,6 +769,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
+      </li>
     
       <li>
         <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
@@ -805,10 +788,6 @@
     
       <li>
         <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
   </ul>

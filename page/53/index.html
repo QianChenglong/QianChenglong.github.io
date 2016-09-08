@@ -112,6 +112,35 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-15 </div>
+			<div class="article-title"><a href="/2015/01/15/npm-命令简记/" >npm-命令简记</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>安装包</p>
+<pre><code>npm install &lt;package-name&gt;
+</code></pre></li>
+<li><p>从文件夹安装</p>
+<pre><code>npm install .
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/15/npm-命令简记/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-15 </div>
 			<div class="article-title"><a href="/2015/01/15/awk-学习笔记/" >awk-学习笔记</a></div>						
 		</h3>
 	
@@ -352,44 +381,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/08/makefile-目标all作用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-08 </div>
-			<div class="article-title"><a href="/2015/01/08/makefile-PHONY作用/" >makefile-.PHONY作用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>先看makefile核心规则</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">target: prerequisites</span><br><span class="line">    command</span><br></pre></td></tr></table></figure>
-<p>make解析执行makefile判断过程：</p>
-<ul>
-<li>若<code>target</code>不存在，则根据<code>prerequisites</code>，执行<code>commond</code></li>
-<li>若<code>target</code>已存在，则比较<code>target</code>和<code>prerequisites</code>修改时间<ul>
-<li><strong>若<code>prerequisites</code>不存在，则不执行<code>commond</code>!</strong></li>
-<li>若<code>prerequisites</code>比<code>target</code>新，则执行<code>commond</code>(说明在生成<code>target</code>后，对依赖文件进行了修改)</li>
-<li>若<code>prerequisites</code>没有<code>target</code>新，则不执行<code>commond</code></li>
-</ul>
-</li>
-</ul>
-<h1 id="为什么需要伪目标"><a href="#为什么需要伪目标" class="headerlink" title="为什么需要伪目标"></a>为什么需要伪目标</h1><ul>
-<li>假设当前目录下已有<code>clean</code>文件，则根据make解析过程，不会执行后续<code>commond</code></li>
-</ul>
-<h1 id="什么是伪目标-PHONY"><a href="#什么是伪目标-PHONY" class="headerlink" title="什么是伪目标(.PHONY)"></a>什么是伪目标(<code>.PHONY</code>)</h1><p>伪目标相对于目标而言，其不会生成实体<strong>文件</strong></p>
-<h1 id="伪目标的作用"><a href="#伪目标的作用" class="headerlink" title="伪目标的作用"></a>伪目标的作用</h1><p>显式告诉make不要跟实体文件进行关联判断，以便执行相应的命令</p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/08/makefile-PHONY作用/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -669,7 +660,7 @@
 		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
-			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+			<li><a href="/categories/编程/">编程<span>8</span></a></li>
 		
 			<li><a href="/categories/网站/">网站<span>1</span></a></li>
 		
@@ -698,48 +689,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
+			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
-		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
-		
-			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
-		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
-		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
-		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
-		
-			<li><a href="/tags/程序/">程序<span>1</span></a></li>
-		
-			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
-		
-			<li><a href="/tags/库/">库<span>2</span></a></li>
-		
-			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
-		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
-		
-			<li><a href="/tags/library/">library<span>3</span></a></li>
-		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
 		
 			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
+			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+		
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+		
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+		
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+		
+			<li><a href="/tags/glog/">glog<span>1</span></a></li>
+		
+			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
+		
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
+		
+			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+		
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+		
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+		
+			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+		
+			<li><a href="/tags/连接/">连接<span>1</span></a></li>
+		
+			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>571</span></a></li>
+		   <li><a href="/tags">...<span>573</span></a></li>
 		 
 		</ul>
 	</div>
@@ -750,6 +741,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
+      </li>
     
       <li>
         <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
@@ -765,10 +760,6 @@
     
       <li>
         <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
   </ul>

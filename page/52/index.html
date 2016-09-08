@@ -112,6 +112,33 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-20 </div>
+			<div class="article-title"><a href="/2015/01/20/winsock-error-10014/" >winsock-error-10014</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="错误代码"><a href="#错误代码" class="headerlink" title="错误代码"></a>错误代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (recvfrom(socket, recv_buf, sizeof(recv_data), <span class="number">0</span>, (sockaddr *)&amp;server_addr, NULL) == SOCKET_ERROR) &#123;</span><br><span class="line">    WinSock::printError(<span class="string">"recvfrom error"</span>);</span><br><span class="line">    return <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p><code>recvfrom</code>最后一个参数是指定socket地址，为传入传出参数，不能为<code>NULL</code>!</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> len = <span class="keyword">sizeof</span>(server_addr);</span><br><span class="line"><span class="keyword">if</span> (recvfrom(socket, recv_buf, sizeof(recv_data), <span class="number">0</span>, (sockaddr *)&amp;server_addr, &amp;len) == SOCKET_ERROR) &#123;</span><br><span class="line">    WinSock::printError(<span class="string">"recvfrom error"</span>);</span><br><span class="line">    return <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/17306405/c-udp-recvfrom-is-acting-strange-wsagetlasterror-10014" target="_blank" rel="external">http://stackoverflow.com/questions/17306405/c-udp-recvfrom-is-acting-strange-wsagetlasterror-10014</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/20/winsock-error-10014/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-20 </div>
 			<div class="article-title"><a href="/2015/01/20/jsoncpp-使用/" >jsoncpp-使用</a></div>						
 		</h3>
 	
@@ -380,35 +407,6 @@ sys.stdout.write(&apos;hello world&apos;)
 	
 	</div>
   <a type="button" href="/2015/01/16/python-第三方库列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-15 </div>
-			<div class="article-title"><a href="/2015/01/15/npm-命令简记/" >npm-命令简记</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>安装包</p>
-<pre><code>npm install &lt;package-name&gt;
-</code></pre></li>
-<li><p>从文件夹安装</p>
-<pre><code>npm install .
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/15/npm-命令简记/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -688,7 +686,7 @@ sys.stdout.write(&apos;hello world&apos;)
 		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
-			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+			<li><a href="/categories/编程/">编程<span>8</span></a></li>
 		
 			<li><a href="/categories/网站/">网站<span>1</span></a></li>
 		
@@ -717,48 +715,48 @@ sys.stdout.write(&apos;hello world&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
 		
-			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
 		
-			<li><a href="/tags/部署/">部署<span>1</span></a></li>
-		
-			<li><a href="/tags/c/">c++<span>8</span></a></li>
-		
-			<li><a href="/tags/import/">import<span>3</span></a></li>
-		
-			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
-		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
-		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
-		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
-		
-			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
-		
-			<li><a href="/tags/事务/">事务<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
 			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
 		
-			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
+			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
 		
-			<li><a href="/tags/du/">du<span>1</span></a></li>
+			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
 		
-			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+			<li><a href="/tags/socket/">socket<span>6</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/sort/">sort<span>1</span></a></li>
 		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/cron/">cron<span>2</span></a></li>
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
 		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
+			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+		
+			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+		
+			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+		
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
+		
+			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
+		
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+		
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
+		
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+		
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>571</span></a></li>
+		   <li><a href="/tags">...<span>573</span></a></li>
 		 
 		</ul>
 	</div>
@@ -769,6 +767,10 @@ sys.stdout.write(&apos;hello world&apos;)
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
+      </li>
     
       <li>
         <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
@@ -784,10 +786,6 @@ sys.stdout.write(&apos;hello world&apos;)
     
       <li>
         <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
   </ul>

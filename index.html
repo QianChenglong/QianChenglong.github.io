@@ -111,6 +111,33 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-09-07 </div>
+			<div class="article-title"><a href="/2016/09/07/左值-右值/" >左值-右值</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>是根据可以出现在赋值操作的左右，来划分对象的。</p>
+<p>左值：可以寻址的对象，根据是否可修改属性，分为<strong>可修改左值</strong>，<strong>不可修改左值</strong></p>
+<p>右值：不是左值的对象（C/C++中，临时对象属于右值）</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c" target="_blank" rel="external">http://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/07/左值-右值/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-09-06 </div>
 			<div class="article-title"><a href="/2016/09/06/C++11-右值引用/" >C++11-右值引用</a></div>						
 		</h3>
@@ -140,6 +167,7 @@
 </ul>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a href="http://www.ibm.com/developerworks/cn/aix/library/1307_lisl_c11/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/aix/library/1307_lisl_c11/</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2027.html" target="_blank" rel="external">A Brief Introduction to Rvalue References</a></li>
 </ol>
 
 	
@@ -412,133 +440,6 @@ tcp    FIN-WAIT-2 0      0      ::ffff:127.0.0.1:3306               ::ffff:127.0
 	
 	</div>
   <a type="button" href="/2016/08/26/踩坑/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-08-17 </div>
-			<div class="article-title"><a href="/2016/08/17/git/" >git</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h1><ul>
-<li><p>从一个现有仓储建立纯仓库</p>
-<pre><code>git clone --bare ssh://git@github.com:22/QianChenglong/home.git home.git
-</code></pre></li>
-<li><p>从.git目录复制<a href="https://git.wiki.kernel.org/index.php/GitFaq#How_do_I_make_existing_non-bare_repository_bare.3F" target="_blank" rel="external">https://git.wiki.kernel.org/index.php/GitFaq#How_do_I_make_existing_non-bare_repository_bare.3F</a></p>
-<pre><code>scp -rv .git dev2:~/git/Beme4wdServer.git
-cd Beme4wdServer.git/
-git config --bool core.bare true
-</code></pre></li>
-<li><p>修改远程URL</p>
-<pre><code>git remote set-url origin ssh://wallace@dev2:36000/~/git/home.git
-</code></pre></li>
-<li><p>查看远程信息</p>
-<pre><code>git remote -v
-git remote show origin
-</code></pre></li>
-<li><p>从远程仓库取数据，不合并分支</p>
-<pre><code>git fetch [remote-name]
-</code></pre></li>
-<li><p>push所有分支和tag，并跟踪</p>
-<pre><code>git push --all origin -u
-</code></pre></li>
-</ul>
-<h1 id="update-index"><a href="#update-index" class="headerlink" title="update-index"></a>update-index</h1><ul>
-<li><p>添加可执行权限</p>
-<pre><code>git update-index --chmod=+x config_server
-</code></pre></li>
-<li><p>标识已纳入版本的文件不必跟踪变化</p>
-<pre><code>git update-index --assume-unchanged &lt;files&gt;
-git update-index --no-assume-unchanged &lt;files&gt;(撤销)
-</code></pre></li>
-</ul>
-<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><ul>
-<li><p>查看所有分支</p>
-<pre><code>git branch
-</code></pre></li>
-<li><p>查看分支详情，最后一次commit</p>
-<pre><code>git branch -v
-</code></pre></li>
-<li><p>查看当前已经合并的分支</p>
-<pre><code>git branch --merged
-</code></pre></li>
-<li><p>查看当前没有合并的分支</p>
-<pre><code>git branch --no-merged
-</code></pre></li>
-<li><p>新建分支</p>
-<pre><code>git branch testing
-</code></pre></li>
-<li><p>切换分支</p>
-<pre><code>git checkout testing
-</code></pre></li>
-<li><p>新建分支并切换</p>
-<pre><code>git checkout -b issue53
-</code></pre></li>
-<li><p>删除分支</p>
-<pre><code>git branch -d hotfix
-</code></pre></li>
-<li><p>设置跟踪分支</p>
-<pre><code>git branch --set-upstream-to=origin/master master
-</code></pre></li>
-</ul>
-<h1 id="子模块"><a href="#子模块" class="headerlink" title="子模块"></a>子模块</h1><ul>
-<li><p>添加模块</p>
-<pre><code>git submodule add ssh://wallace@dev2.beme.com:36000/~/git/ssh.git .ssh
-</code></pre></li>
-<li><p>修改url</p>
-<pre><code>vim .gitmodule
-git submodule sync
-</code></pre></li>
-<li><p>初始化</p>
-<pre><code>git submodule init
-</code></pre></li>
-<li><p>更新</p>
-<pre><code>git submodule update
-</code></pre></li>
-</ul>
-<h1 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h1><ul>
-<li><p>重置暂存区</p>
-<pre><code>git reset .
-</code></pre></li>
-<li><p>取消已经暂存的文件（git add逆操作）</p>
-<pre><code>git reset HEAD &lt;file&gt;...
-</code></pre></li>
-<li><p>取消未暂存的修改</p>
-<pre><code>git checkout -- &lt;file&gt;...
-</code></pre></li>
-<li><p>从版本库中删除，但保留工作目录里面的</p>
-<pre><code>git rm --cached readme.txt
-</code></pre></li>
-</ul>
-<h1 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h1><ul>
-<li><p>查看当前版本与上一版本的差异</p>
-<pre><code>git diff HEAD~1 HEAD functions/fish_prompt.fish
-</code></pre></li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>同步home</p>
-<pre><code>git init
-git remote add origin ssh://wallace@112.74.81.30:36000/~/git/home.git
-git fetch
-git reset --hard origin/master
-</code></pre></li>
-<li><p>初始化并递归更新submodule</p>
-<pre><code>git submodule update --init --recursive
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/08/17/git/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -818,7 +719,7 @@ git reset --hard origin/master
 		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
-			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+			<li><a href="/categories/编程/">编程<span>8</span></a></li>
 		
 			<li><a href="/categories/网站/">网站<span>1</span></a></li>
 		
@@ -847,48 +748,48 @@ git reset --hard origin/master
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
+			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
 		
-			<li><a href="/tags/du/">du<span>1</span></a></li>
+			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
+			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
-			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
 		
-			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/import/">import<span>3</span></a></li>
 		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
+			<li><a href="/tags/json/">json<span>4</span></a></li>
 		
-			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
-			<li><a href="/tags/登录/">登录<span>2</span></a></li>
+			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
 		
-			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
+			<li><a href="/tags/hash/">hash<span>1</span></a></li>
 		
-			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>571</span></a></li>
+		   <li><a href="/tags">...<span>573</span></a></li>
 		 
 		</ul>
 	</div>
@@ -899,6 +800,10 @@ git reset --hard origin/master
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
+      </li>
     
       <li>
         <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
@@ -914,10 +819,6 @@ git reset --hard origin/master
     
       <li>
         <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
   </ul>

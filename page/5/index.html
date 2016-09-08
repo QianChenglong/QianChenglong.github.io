@@ -112,6 +112,33 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-04-22 </div>
+			<div class="article-title"><a href="/2016/04/22/suse/" >suse</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>添加软件源</p>
+<pre><code>zypper ar -f &lt;URL&gt; &lt;alias&gt;
+zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/repo/oss/ rep
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/04/22/suse/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-22 </div>
 			<div class="article-title"><a href="/2016/04/22/mysql-开发经验/" >mysql-开发经验</a></div>						
 		</h3>
 	
@@ -221,7 +248,48 @@
   <div class="row">
 	
 	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><h2 id="fd-set实现-usr-include-sys-select-h"><a href="#fd-set实现-usr-include-sys-select-h" class="headerlink" title="fd_set实现(/usr/include/sys/select.h)"></a>fd_set实现(<code>/usr/include/sys/select.h</code>)</h2><ul>
+		<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">select</span><span class="params">(<span class="keyword">int</span> nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, <span class="keyword">struct</span> timeval *timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FD_CLR</span><span class="params">(<span class="keyword">int</span> fd, fd_set *<span class="built_in">set</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span>  <span class="title">FD_ISSET</span><span class="params">(<span class="keyword">int</span> fd, fd_set *<span class="built_in">set</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FD_SET</span><span class="params">(<span class="keyword">int</span> fd, fd_set *<span class="built_in">set</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FD_ZERO</span><span class="params">(fd_set *<span class="built_in">set</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+<h2 id="select"><a href="#select" class="headerlink" title="select"></a>select</h2><ul>
+<li><p>nfds 3个描述符集合中最大的描述符+1，用来减少select遍历次数</p>
+</li>
+<li><p>readfds 监听对应描述符集合的读就绪(包括end-of-file即tcp断开)</p>
+</li>
+<li><p>writefds 监听对应描述符集合的写就绪</p>
+</li>
+<li><p>exceptfds 监听对应描述符集合的异常</p>
+</li>
+</ul>
+<p>对比<code>epoll</code>：</p>
+<ul>
+<li><p>通过不同的set来监听对应事件，增加了数据拷贝量</p>
+</li>
+<li><p>通过修改传入的set，来返回对应IO就绪套接字（所以对于应用层代码来说，还需要额外保存下原set）</p>
+</li>
+<li><p>通过4个辅助宏来管理描述符，和判断哪个描述符上IO就绪</p>
+</li>
+</ul>
+<p>BUGS:</p>
+<ul>
+<li>在linux中，select可能返回对应的描述符读就绪，但实际读失败。可能原因有，数据到达但校验失败被丢弃或者被惊醒</li>
+</ul>
+<h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>跨平台，普遍支持</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li><p>描述符数量有限制，因为内部采用bitmap(固定数组)实现，只能预分配固定大小的</p>
+</li>
+<li><p>效率较低</p>
+<ul>
+<li><p>从api上看，监听套接字的多个事件时，需要更多的拷贝，因为select是通过set来区分事件的</p>
+</li>
+<li><p>每次调用都需要从应用层拷贝描述符集合到内核</p>
+</li>
+<li><p>每次调用返回，都需要遍历整个描述符集合比较</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><h2 id="fd-set实现-usr-include-sys-select-h"><a href="#fd-set实现-usr-include-sys-select-h" class="headerlink" title="fd_set实现(/usr/include/sys/select.h)"></a>fd_set实现(<code>/usr/include/sys/select.h</code>)</h2><ul>
 <li><p>描述符采用整数数组实现，通过bitmap来存储对应描述符</p>
 </li>
 <li><p><code>FD_SETSIZE</code>默认为1024</p>
@@ -398,46 +466,6 @@ set timeout=1
 	
 	</div>
   <a type="button" href="/2016/04/12/死锁/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-08 </div>
-			<div class="article-title"><a href="/2016/04/08/cpp/" >cpp</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-dCHARS</p>
-<p><code>CHARS</code>前面不能有空格</p>
-<ul>
-<li><p>M</p>
-<p>处理<code>#define</code>指令</p>
-</li>
-<li><p>D(常用)</p>
-<p>Like M except in two respects: it does not include the predefined macros, and it outputs both the #define directives and the result of preprocessing.<br>Both kinds of output go to the standard output file.</p>
-</li>
-<li><p>I</p>
-<p>Output #include directives in addition to the result of preprocessing.</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://gcc.gnu.org/onlinedocs/cpp/Preprocessor-Output.html" target="_blank" rel="external">cpp输出格式</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/08/cpp/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -717,7 +745,7 @@ set timeout=1
 		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
-			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+			<li><a href="/categories/编程/">编程<span>8</span></a></li>
 		
 			<li><a href="/categories/网站/">网站<span>1</span></a></li>
 		
@@ -746,48 +774,48 @@ set timeout=1
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/import/">import<span>3</span></a></li>
 		
-			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
-			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/empty/">empty<span>1</span></a></li>
 		
-			<li><a href="/tags/程序/">程序<span>1</span></a></li>
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
 		
-			<li><a href="/tags/链表/">链表<span>1</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
-			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+			<li><a href="/tags/if/">if<span>1</span></a></li>
 		
-			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
 		
-			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
 		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/打包/">打包<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/awk/">awk<span>1</span></a></li>
 		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+			<li><a href="/tags/父类/">父类<span>2</span></a></li>
 		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>571</span></a></li>
+		   <li><a href="/tags">...<span>573</span></a></li>
 		 
 		</ul>
 	</div>
@@ -798,6 +826,10 @@ set timeout=1
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
+      </li>
     
       <li>
         <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
@@ -813,10 +845,6 @@ set timeout=1
     
       <li>
         <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
   </ul>

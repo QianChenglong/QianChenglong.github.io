@@ -111,6 +111,40 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-07-20 </div>
+			<div class="article-title"><a href="/2015/07/20/sql-数据更新/" >sql-数据更新</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><ul>
+<li><p>记录不存在,则插入</p>
+</li>
+<li><p>记录若存在,则更新指定值</p>
+</li>
+</ul>
+<h1 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h1><ul>
+<li>数据必须存在唯一性</li>
+</ul>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="1-INSERT-ON-DUPLICATE-KEY-UPDATE"><a href="#1-INSERT-ON-DUPLICATE-KEY-UPDATE" class="headerlink" title="1.INSERT ... ON DUPLICATE KEY UPDATE"></a>1.<code>INSERT ... ON DUPLICATE KEY UPDATE</code></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">table</span> (<span class="keyword">id</span>, <span class="keyword">name</span>, age) <span class="keyword">VALUES</span>(<span class="number">1</span>, <span class="string">"A"</span>, <span class="number">19</span>) <span class="keyword">ON</span> <span class="keyword">DUPLICATE</span> <span class="keyword">KEY</span></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">name</span>=<span class="keyword">VALUES</span>(<span class="keyword">name</span>), age=<span class="keyword">VALUES</span>(age)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/20/sql-数据更新/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-07-16 </div>
 			<div class="article-title"><a href="/2015/07/16/mysql-字符串/" >mysql-字符串</a></div>						
 		</h3>
@@ -458,50 +492,6 @@ make install
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-09 </div>
-			<div class="article-title"><a href="/2015/07/09/mysql-事务/" >mysql-事务</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>当连接设置为自动提交时，所有修改语句永久生效，不可回滚！</p>
-</li>
-<li><p>当事务未提交时，数据只对当前连接可见！</p>
-</li>
-<li><p>mysql默认自动提交</p>
-</li>
-</ul>
-<pre><code>SELECT @@autocommit;
-</code></pre><ul>
-<li><p>设置为手动提交</p>
-<pre><code>SET autocommit=0;
-</code></pre></li>
-<li><p>手动提交</p>
-<pre><code>commit;
-</code></pre></li>
-<li><p>回滚</p>
-<pre><code>rollback;
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://zetcode.com/databases/mysqltutorial/transactions/#autocommit" target="_blank" rel="external">http://zetcode.com/databases/mysqltutorial/transactions/#autocommit</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/09/mysql-事务/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -778,7 +768,7 @@ make install
 		
 			<li><a href="/categories/系统/">系统<span>1</span></a></li>
 		
-			<li><a href="/categories/编程/">编程<span>7</span></a></li>
+			<li><a href="/categories/编程/">编程<span>8</span></a></li>
 		
 			<li><a href="/categories/网站/">网站<span>1</span></a></li>
 		
@@ -807,48 +797,48 @@ make install
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
 		
-			<li><a href="/tags/boost/">boost<span>4</span></a></li>
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
 		
-			<li><a href="/tags/文件/">文件<span>7</span></a></li>
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
 		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/c99/">c99<span>1</span></a></li>
 		
-			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
 		
-			<li><a href="/tags/warning/">warning<span>2</span></a></li>
-		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
-		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
-		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
-		
-			<li><a href="/tags/素数/">素数<span>1</span></a></li>
-		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
-		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
-		
-			<li><a href="/tags/nging/">nging<span>1</span></a></li>
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
 			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
 			<li><a href="/tags/c/">c<span>8</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+		
+			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+		
+			<li><a href="/tags/install/">install<span>2</span></a></li>
+		
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+		
+			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
+		
+			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
+		
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
+		
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>571</span></a></li>
+		   <li><a href="/tags">...<span>573</span></a></li>
 		 
 		</ul>
 	</div>
@@ -859,6 +849,10 @@ make install
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
+      </li>
     
       <li>
         <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
@@ -874,10 +868,6 @@ make install
     
       <li>
         <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/01/判断库是否带有调试信息/" ><i class="fa fa-file-o"></i>source\_posts\判断库是否带有调试信息</a>
       </li>
     
   </ul>

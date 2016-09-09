@@ -121,8 +121,13 @@
   <div class="row">
 	
 	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>使用链表存储，所以没有数量限制</li>
+		<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;poll.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">poll</span><span class="params">(<span class="keyword">struct</span> pollfd *fds, nfds_t nfds, <span class="keyword">int</span> timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> pollfd &#123;</span><br><span class="line">   <span class="keyword">int</span>   fd;         <span class="comment">/* file descriptor */</span></span><br><span class="line">   <span class="keyword">short</span> events;     <span class="comment">/* requested events */</span></span><br><span class="line">   <span class="keyword">short</span> revents;    <span class="comment">/* returned events */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用户层通过<code>pollfd</code>数组，来管理需要监控描述符IO事件，具体数量由用户控制</li>
+</ul>
+<h1 id="对比select"><a href="#对比select" class="headerlink" title="对比select"></a>对比select</h1><p>存储描述符和对应监听事件的数据结构不同</p>
+<ul>
+<li>描述符大小不受限制</li>
 </ul>
 
 	
@@ -696,45 +701,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/安装/">安装<span>3</span></a></li>
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/bind/">bind<span>2</span></a></li>
-		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
-		
-			<li><a href="/tags/模块/">模块<span>2</span></a></li>
-		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
-		
-			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
-		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
-		
-			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
-		
-			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
-		
-			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
-		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/apt/">apt<span>2</span></a></li>
 		
 			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
 		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
 		
-			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+		
+			<li><a href="/tags/yum/">yum<span>1</span></a></li>
+		
+			<li><a href="/tags/static/">static<span>2</span></a></li>
+		
+			<li><a href="/tags/编程/">编程<span>5</span></a></li>
+		
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+		
+			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
+		
+			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+		
+			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
+		
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+		
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>573</span></a></li>

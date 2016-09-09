@@ -113,8 +113,13 @@
 	<div class="mypage">		
 	  		
 
-	  <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>使用链表存储，所以没有数量限制</li>
+	  <h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;poll.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">poll</span><span class="params">(<span class="keyword">struct</span> pollfd *fds, nfds_t nfds, <span class="keyword">int</span> timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> pollfd &#123;</span><br><span class="line">   <span class="keyword">int</span>   fd;         <span class="comment">/* file descriptor */</span></span><br><span class="line">   <span class="keyword">short</span> events;     <span class="comment">/* requested events */</span></span><br><span class="line">   <span class="keyword">short</span> revents;    <span class="comment">/* returned events */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用户层通过<code>pollfd</code>数组，来管理需要监控描述符IO事件，具体数量由用户控制</li>
+</ul>
+<h1 id="对比select"><a href="#对比select" class="headerlink" title="对比select"></a>对比select</h1><p>存储描述符和对应监听事件的数据结构不同</p>
+<ul>
+<li>描述符大小不受限制</li>
 </ul>
 	  
 	</div>

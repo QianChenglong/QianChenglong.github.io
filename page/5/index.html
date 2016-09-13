@@ -111,6 +111,45 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-04-25 </div>
+			<div class="article-title"><a href="/2016/04/25/net/" >net</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="use-samba"><a href="#use-samba" class="headerlink" title="use(samba)"></a>use(samba)</h1><ul>
+<li><p>查看帮助</p>
+<pre><code>net help use
+</code></pre></li>
+<li><p>建立连接</p>
+<pre><code>net use * /user:username \\computername\sharename password
+net use * /user:pm \\192.168.1.2\pm pm0422
+</code></pre></li>
+<li><p>映射连接</p>
+<pre><code>net use * /user:pm \\192.168.1.2\pm pm0422
+</code></pre></li>
+<li><p>删除连接</p>
+<pre><code>net use \\computername\sharename /delete
+</code></pre></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://technet.microsoft.com/en-us/library/bb490717.aspx" target="_blank" rel="external">https://technet.microsoft.com/en-us/library/bb490717.aspx</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/25/net/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-04-22 </div>
 			<div class="article-title"><a href="/2016/04/22/suse/" >suse</a></div>						
 		</h3>
@@ -403,74 +442,6 @@ set timeout=1
 	
 	</div>
   <a type="button" href="/2016/04/13/centos-安装记录/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-12 </div>
-			<div class="article-title"><a href="/2016/04/12/死锁/" >死锁</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="产生的必要条件"><a href="#产生的必要条件" class="headerlink" title="产生的必要条件"></a>产生的必要条件</h1><ul>
-<li>互斥</li>
-<li>请求与保持</li>
-<li>不被剥夺</li>
-<li><p>循环等待</p>
-<p>一直等待请求额外互斥资源</p>
-</li>
-</ul>
-<h1 id="可能发生的场景"><a href="#可能发生的场景" class="headerlink" title="可能发生的场景"></a>可能发生的场景</h1><ul>
-<li><p>在函数嵌套调用中，多次请求同一资源</p>
-</li>
-<li><p>不同线程中，以不同的顺序请求多个资源，而其中某个资源不足</p>
-</li>
-</ul>
-<h1 id="调试与诊断方法"><a href="#调试与诊断方法" class="headerlink" title="调试与诊断方法"></a>调试与诊断方法</h1><ol>
-<li><p><code>ps</code>查看进程PID，状态，阻塞原因</p>
-</li>
-<li><p><code>gdb attach</code>到目标进程</p>
-</li>
-<li><p>保存现场，防止后续调试破环</p>
-<pre><code>generate-core-file
-</code></pre></li>
-<li><p>查看所有线程的调用栈</p>
-<pre><code>thread apply all bt
-</code></pre></li>
-<li><p>切换到相应线程</p>
-<pre><code>thread NUM
-</code></pre></li>
-<li><p>查看相应互斥量，持有情况(<code>pthread_mutex_t.__owner</code>)</p>
-<pre><code>print MUTEX
-</code></pre></li>
-</ol>
-<h1 id="预防"><a href="#预防" class="headerlink" title="预防"></a>预防</h1><ul>
-<li>打破产生死锁的4个必要条件中的任何一个</li>
-</ul>
-<ul>
-<li><p>利用RAII手段，确保stack mutex离开作用域时被解锁(<code>MutexGuard, std::lock_guard</code>)</p>
-<ul>
-<li><p>异常结束(throw)</p>
-</li>
-<li><p>分支跳出(break, continue, return)</p>
-</li>
-<li><p>意外退出点(exit)</p>
-</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/12/死锁/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -779,48 +750,48 @@ set timeout=1
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/文件/">文件<span>7</span></a></li>
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+			<li><a href="/tags/command/">command<span>9</span></a></li>
 		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
+			<li><a href="/tags/run/">run<span>1</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>38</span></a></li>
+			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
 		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
 		
-			<li><a href="/tags/启动/">启动<span>1</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/push/">push<span>2</span></a></li>
 		
-			<li><a href="/tags/global/">global<span>1</span></a></li>
+			<li><a href="/tags/suse/">suse<span>1</span></a></li>
 		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/glog/">glog<span>1</span></a></li>
+			<li><a href="/tags/base64/">base64<span>1</span></a></li>
 		
-			<li><a href="/tags/C-11/">C++11<span>7</span></a></li>
-		
-			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
+			<li><a href="/tags/django/">django<span>2</span></a></li>
 		
 			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+			<li><a href="/tags/c/">c<span>8</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
 		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
 		
-			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
 		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
+			<li><a href="/tags/install/">install<span>2</span></a></li>
+		
+			<li><a href="/tags/override/">override<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>573</span></a></li>
+		   <li><a href="/tags">...<span>574</span></a></li>
 		 
 		</ul>
 	</div>
@@ -831,6 +802,10 @@ set timeout=1
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
+      </li>
     
       <li>
         <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
@@ -846,10 +821,6 @@ set timeout=1
     
       <li>
         <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
       </li>
     
   </ul>

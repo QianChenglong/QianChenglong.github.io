@@ -112,6 +112,72 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-04-03 </div>
+			<div class="article-title"><a href="/2015/04/03/ctags/" >ctags</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>可以指定多个文件或目录</p>
+<pre><code>ctags file1 dir1
+</code></pre></li>
+</ul>
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>–list-languages</p>
+<p>查看支持的语言</p>
+</li>
+<li><p>–list-kinds=python</p>
+<p>查看某种语言选项</p>
+</li>
+<li><p>–list-maps</p>
+<p>查看对应语言的拓展名映射规则</p>
+</li>
+<li><p>-R</p>
+<p>递归处理</p>
+</li>
+<li><p>–format=level</p>
+<p> 指定tag的输出格式，默认为2，level=2时，ex_cmd会追加<code>;&quot;</code>(通过注释与老vi保持兼容)</p>
+</li>
+<li><p>−−fields=[+|−]flags</p>
+<p>用来控制<code>extension_fileds</code>中要包含的内容</p>
+</li>
+<li><p>–options</p>
+<p>指定配置文件</p>
+</li>
+<li><p>–exclude</p>
+<p>指定多个时，需要分开指定。<code>--exclude=.git --exclude=node_modules --exclude=test</code></p>
+</li>
+<li><p>–extra=[+|−]flags</p>
+<ul>
+<li>q 生成额外的的修饰符tag(class::member)，以帮助定位类方法，但是会造成双倍大小！尽量不用。</li>
+</ul>
+</li>
+</ul>
+<h1 id="tag记录格式"><a href="#tag记录格式" class="headerlink" title="tag记录格式()"></a>tag记录格式(<http: ctags.sourceforge.net="" ctags.html#tag="" file="" format="">)</http:></h1><p><code>tag_name&lt;TAB&gt;file_name&lt;TAB&gt;ex_cmd;&quot;&lt;TAB&gt;extension_fields</code></p>
+<ul>
+<li><p><code>tag_name</code> 用来检索的key</p>
+</li>
+<li><p><code>file_name</code> tag所在的文件名</p>
+</li>
+<li><p><code>ex_cmd</code> vim用来定位的命令</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/03/ctags/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-03 </div>
 			<div class="article-title"><a href="/2015/04/03/python-访问父类方法/" >python-访问父类方法</a></div>						
 		</h3>
 	
@@ -440,52 +506,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-02 </div>
-			<div class="article-title"><a href="/2015/04/02/AdBlock Plus规则语法/" >AdBlock Plus规则语法</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>规则</p>
-<pre><code>正则表达式
-</code></pre></li>
-<li><p>定义例外规则</p>
-<pre><code>@@|规则
-</code></pre></li>
-</ul>
-<h1 id="元素隐藏"><a href="#元素隐藏" class="headerlink" title="元素隐藏"></a>元素隐藏</h1><p>不支持通配符，可在前面加上域名以达到只在某域名下工作</p>
-<ul>
-<li><p>根据标签类名</p>
-<pre><code>##div.textad
-</code></pre></li>
-<li><p>根据标签ID</p>
-<pre><code>##div#sponsorad
-</code></pre></li>
-<li><p>根据标签名</p>
-<pre><code>##textad
-</code></pre></li>
-</ul>
-<h1 id="属性选择符"><a href="#属性选择符" class="headerlink" title="属性选择符"></a>属性选择符</h1><p>通过标签的属性来选择标签以屏蔽，例如<code>##table[width=&quot;80%&quot;]</code></p>
-<p>可使用正则来匹配属性名</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://adblockplus.org/zh_CN/filters" target="_blank" rel="external">https://adblockplus.org/zh_CN/filters</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/02/AdBlock Plus规则语法/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -791,48 +811,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/登录/">登录<span>2</span></a></li>
 		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
 		
-			<li><a href="/tags/打包/">打包<span>1</span></a></li>
+			<li><a href="/tags/len/">len()<span>1</span></a></li>
 		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
 		
-			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
+			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
+			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/extern/">extern<span>1</span></a></li>
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
 		
-			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
 		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+			<li><a href="/tags/API/">API<span>2</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/模块/">模块<span>2</span></a></li>
 		
-			<li><a href="/tags/C-11/">C++11<span>7</span></a></li>
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
 		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
 		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>573</span></a></li>
+		   <li><a href="/tags">...<span>574</span></a></li>
 		 
 		</ul>
 	</div>
@@ -843,6 +863,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
+      </li>
     
       <li>
         <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
@@ -858,10 +882,6 @@
     
       <li>
         <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
       </li>
     
   </ul>

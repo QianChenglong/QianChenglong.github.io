@@ -112,6 +112,38 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-11-02 </div>
+			<div class="article-title"><a href="/2015/11/02/mysql-系统变量/" >mysql-系统变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查询系统变量</p>
+<pre><code>select @@character_set_server;
+</code></pre></li>
+<li><p>通过<code>show</code></p>
+<pre><code>show variables like &apos;max_allowed_packet&apos;;
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/show-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/show-variables.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/02/mysql-系统变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-02 </div>
 			<div class="article-title"><a href="/2015/11/02/go-dsn/" >go-dsn</a></div>						
 		</h3>
 	
@@ -422,45 +454,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-28 </div>
-			<div class="article-title"><a href="/2015/10/28/go-内存分配/" >go-内存分配</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p>在go中,变量定义时,存储到stack还是heap上,由编译器确定</p>
-<ul>
-<li>若该变量在离开该作用域,仍被其他引用访问到(通过指针),则存储到heap</li>
-</ul>
-</li>
-</ol>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> f() *<span class="keyword">string</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"Hello world"</span></span><br><span class="line">    <span class="keyword">return</span> &amp;s</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">func</span> main() &#123;</span><br><span class="line">    r := f()</span><br><span class="line">    fmt.Printf(<span class="string">"%T %v %v\n"</span>, r, r, *r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>与C/C++不同,在go中,可以返回函数内定义的变量地址(因为存储到heap中)</li>
-</ol>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ol>
-<li>在go中,不用关心变量存储位置</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/doc/faq#stack_or_heap" target="_blank" rel="external">https://golang.org/doc/faq#stack_or_heap</a></li>
-<li><a href="http://stackoverflow.com/questions/10866195/stack-vs-heap-allocation-of-structs-in-go-and-how-they-relate-to-garbage-collec?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/10866195/stack-vs-heap-allocation-of-structs-in-go-and-how-they-relate-to-garbage-collec?rq=1</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/28/go-内存分配/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -766,48 +759,48 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/连接/">连接<span>1</span></a></li>
+			<li><a href="/tags/net/">net<span>2</span></a></li>
 		
-			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
+			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
 		
-			<li><a href="/tags/import/">import<span>3</span></a></li>
+			<li><a href="/tags/library/">library<span>3</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/IP/">IP<span>4</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/线程/">线程<span>3</span></a></li>
+			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/curl/">curl<span>2</span></a></li>
 		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+			<li><a href="/tags/命令/">命令<span>5</span></a></li>
 		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
 		
-			<li><a href="/tags/C/">C<span>14</span></a></li>
+			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
 		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
 		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
+			<li><a href="/tags/alias/">alias<span>1</span></a></li>
 		
-			<li><a href="/tags/text/">text<span>1</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>573</span></a></li>
+		   <li><a href="/tags">...<span>574</span></a></li>
 		 
 		</ul>
 	</div>
@@ -818,6 +811,10 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
+      </li>
     
       <li>
         <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
@@ -833,10 +830,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
     
       <li>
         <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
       </li>
     
   </ul>

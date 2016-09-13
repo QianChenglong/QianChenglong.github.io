@@ -111,6 +111,38 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-31 </div>
+			<div class="article-title"><a href="/2015/03/31/Sphinx-安装使用/" >Sphinx-安装使用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>安装</p>
+<pre><code>pip install Sphinx
+</code></pre></li>
+<li><p>使用向导生成配置文件</p>
+<pre><code>sphinx-quickstart
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://sphinx-doc.org/tutorial.html" target="_blank" rel="external">http://sphinx-doc.org/tutorial.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/31/Sphinx-安装使用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-30 </div>
 			<div class="article-title"><a href="/2015/03/30/python-cgi调试技巧/" >python-cgi调试技巧</a></div>						
 		</h3>
@@ -391,32 +423,6 @@
 	
 	</div>
   <a type="button" href="/2015/03/26/C-函数操作结果返回方式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-26 </div>
-			<div class="article-title"><a href="/2015/03/26/extern C/" >extern &quot;C&quot;</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>当使用C++编译器对C++源码编译时，对C函数采用”C”语言方式编译和连接(函数导出名不变)</p>
-<h1 id="为什么需要extern-quot-C-quot"><a href="#为什么需要extern-quot-C-quot" class="headerlink" title="为什么需要extern &quot;C&quot;"></a>为什么需要<code>extern &quot;C&quot;</code></h1><p>因为C++支持函数重载，所以对函数名存在修饰操作。</p>
-<p>若一个函数为普通全局函数，制作为dll，其他C程序进行调用，当编译该程序采用C编译器，无法找到该符号，因为C编译器与C++编译器对函数名的修饰规则不一致！</p>
-<p>所以为了使C编译器能够使用这些函数，需要使用<code>extern &quot;C&quot;</code>声明。</p>
-<h1 id="惯用法"><a href="#惯用法" class="headerlink" title="惯用法"></a>惯用法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta"># <span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/03/26/extern C/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -725,48 +731,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
 		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
 		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
 		
-			<li><a href="/tags/redis/">redis<span>6</span></a></li>
+			<li><a href="/tags/API/">API<span>2</span></a></li>
 		
-			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
+			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
 		
-			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
+			<li><a href="/tags/http/">http<span>11</span></a></li>
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
 		
-			<li><a href="/tags/import/">import<span>3</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/程序/">程序<span>1</span></a></li>
+			<li><a href="/tags/debug/">debug<span>3</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
+			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
 		
-			<li><a href="/tags/后台/">后台<span>6</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>573</span></a></li>
+		   <li><a href="/tags">...<span>574</span></a></li>
 		 
 		</ul>
 	</div>
@@ -777,6 +783,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
+      </li>
     
       <li>
         <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
@@ -792,10 +802,6 @@
     
       <li>
         <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
       </li>
     
   </ul>

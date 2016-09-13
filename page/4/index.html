@@ -112,6 +112,31 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-05-07 </div>
+			<div class="article-title"><a href="/2016/05/07/C++11-override/" >C++11-override</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h1><ul>
+<li>显式说明该方法是重写虚函数，提供编译器更强的的检查，防止因为sinature不同，重新定义函数，而不是重写！</li>
+</ul>
+<h1 id="列子"><a href="#列子" class="headerlink" title="列子"></a>列子</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Parent &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">short</span>)</span> </span>&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"B::f"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Child : <span class="keyword">public</span> Parent &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span>)</span> override </span>&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"D::f"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2016/05/07/C++11-override/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-07 </div>
 			<div class="article-title"><a href="/2016/05/07/C++-泛型编程/" >C++-泛型编程</a></div>						
 		</h3>
 	
@@ -315,6 +340,11 @@
 <li>利用C++的确定性析构特点，可以确保程序退出时，执行析构函数，释放相应资源！</li>
 </ul>
 </li>
+<li><p>可以确保在使用该对象时，该对象已被初始化，而nonlocal-static却不能保证（参考 Effective C++ Item-4 P30）</p>
+<p>因为C++标准没有定义，也无法定义不同模块中nonlocal-static对象的初始化顺序</p>
+</li>
+<li><p>程序启动更快，只有在首次使用的时候才会创建</p>
+</li>
 </ul>
 
 	
@@ -409,45 +439,6 @@
 	
 	</div>
   <a type="button" href="/2016/04/26/daemon/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-25 </div>
-			<div class="article-title"><a href="/2016/04/25/net/" >net</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="use-samba"><a href="#use-samba" class="headerlink" title="use(samba)"></a>use(samba)</h1><ul>
-<li><p>查看帮助</p>
-<pre><code>net help use
-</code></pre></li>
-<li><p>建立连接</p>
-<pre><code>net use * /user:username \\computername\sharename password
-net use * /user:pm \\192.168.1.2\pm pm0422
-</code></pre></li>
-<li><p>映射连接</p>
-<pre><code>net use * /user:pm \\192.168.1.2\pm pm0422
-</code></pre></li>
-<li><p>删除连接</p>
-<pre><code>net use \\computername\sharename /delete
-</code></pre></li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://technet.microsoft.com/en-us/library/bb490717.aspx" target="_blank" rel="external">https://technet.microsoft.com/en-us/library/bb490717.aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/25/net/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -756,48 +747,48 @@ net use * /user:pm \\192.168.1.2\pm pm0422
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
 		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
 		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
 		
-			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/time/">time<span>2</span></a></li>
 		
-			<li><a href="/tags/链表/">链表<span>1</span></a></li>
+			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
 		
-			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/read/">read<span>1</span></a></li>
 		
-			<li><a href="/tags/包/">包<span>2</span></a></li>
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
 		
-			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
 		
-			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
-			<li><a href="/tags/c/">c<span>8</span></a></li>
+			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>573</span></a></li>
+		   <li><a href="/tags">...<span>574</span></a></li>
 		 
 		</ul>
 	</div>
@@ -808,6 +799,10 @@ net use * /user:pm \\192.168.1.2\pm pm0422
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
+      </li>
     
       <li>
         <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
@@ -823,10 +818,6 @@ net use * /user:pm \\192.168.1.2\pm pm0422
     
       <li>
         <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
       </li>
     
   </ul>

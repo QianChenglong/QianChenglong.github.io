@@ -111,6 +111,64 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-10 </div>
+			<div class="article-title"><a href="/2016/03/10/线程/" >线程</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="出发点"><a href="#出发点" class="headerlink" title="出发点"></a>出发点</h1><ol>
+<li><p>提高资源利用率</p>
+</li>
+<li><p>提高系统吞吐量</p>
+</li>
+<li><p>降低编程复杂性</p>
+</li>
+</ol>
+<h1 id="使用线程的好处"><a href="#使用线程的好处" class="headerlink" title="使用线程的好处"></a>使用线程的好处</h1><ol>
+<li><p>单独的线程去处理某种事件，简化异步事件的代码，如服务端采用一对一的线程去处理IO事件</p>
+</li>
+<li><p>相比多进程，更加容易进行数据共享</p>
+</li>
+<li><p>将问题分解，改善程序的吞吐量。</p>
+<p>在单线程的情况下，任务是串行化执行的，根据任务本身地的特点，分解成多个步骤，并行</p>
+</li>
+<li><p>对于交互程序，改善响应时间</p>
+</li>
+<li><p>相对于多进程，开销更小</p>
+</li>
+</ol>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p>线程标识采用<code>pthread_t</code>，底层类型取决于实现，相等判断需要使用<code>pthread_equal</code></p>
+</li>
+<li><p>创建新线程后，与主线程的调用顺序依赖于OS的线程实现和调度算法</p>
+</li>
+<li><p>在pthread(NTPL)实现中，默认栈大小为8M，可通过如下方式查询：</p>
+<ul>
+<li><p>ulimit -s</p>
+</li>
+<li><p><code>getrlimit</code></p>
+</li>
+<li><p><code>pthread_attr_getstacksize</code></p>
+</li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/03/10/线程/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-09 </div>
 			<div class="article-title"><a href="/2016/03/09/poll/" >poll</a></div>						
 		</h3>
@@ -364,35 +422,6 @@
 	
 	</div>
   <a type="button" href="/2016/02/27/boost-bind/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-25 </div>
-			<div class="article-title"><a href="/2016/02/25/c-结构体对齐/" >c-结构体对齐</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>自身对齐值(该数据类型的size)</p>
-</li>
-<li><p>该字段起始位置整除自身对齐值</p>
-</li>
-<li><p>结构体圆整(结构体的size整除<strong>最大</strong>内部字段的自身对齐值)</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/02/25/c-结构体对齐/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -701,48 +730,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
+			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/资源/">资源<span>2</span></a></li>
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
 		
-			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
 		
-			<li><a href="/tags/hash/">hash<span>1</span></a></li>
+			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
 		
-			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
 		
-			<li><a href="/tags/database/">database<span>3</span></a></li>
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/push/">push<span>2</span></a></li>
 		
-			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
+			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
 		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
 		
-			<li><a href="/tags/ip/">ip<span>2</span></a></li>
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
 		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
 		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>573</span></a></li>
+		   <li><a href="/tags">...<span>574</span></a></li>
 		 
 		</ul>
 	</div>
@@ -753,6 +782,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
+      </li>
     
       <li>
         <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
@@ -768,10 +801,6 @@
     
       <li>
         <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/02/gcc-生成可以宏调试信息/" ><i class="fa fa-file-o"></i>gcc-生成可以宏调试信息</a>
       </li>
     
   </ul>

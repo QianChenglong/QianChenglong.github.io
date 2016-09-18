@@ -113,8 +113,53 @@
 	<div class="mypage">		
 	  		
 
-	  <h1 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h1><ul>
-<li>相关类型的转换，如整型到枚举，浮点到整型</li>
+	  <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>表达式合法性和语义由操作数类型决定</p>
+</li>
+<li><p>如果两个类型之间可以转换，则称这两类型相关</p>
+</li>
+<li><p>C++类型转换目标是尽可能防止精度丢失</p>
+</li>
+</ul>
+<h1 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>方便开发人员的使用，避免各种显式地转换</p>
+</li>
+<li><p>提供自然的语义，像内置类型一样，<code>int(1) + double(1.1)</code></p>
+</li>
+<li><p>无需额外重载，来支持多种操作符运算，重载数量与运算符线性相关！</p>
+</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>不利于掌控，有些隐式转换不是想要的，出现错误时，很难定位</li>
+</ul>
+<h2 id="发生场景"><a href="#发生场景" class="headerlink" title="发生场景"></a>发生场景</h2><p>当某个变量需要T2类型值，而该表达式值为T1类型，此时编译器会执行隐式类型转换。</p>
+<p>具体场景：</p>
+<ol>
+<li><p>当该表达式作为某个操作符(<code>=</code>, <code>+</code>…)的操作数，与期望类型T2不符</p>
+</li>
+<li><p>当该表达式作为函数调用实参，与形参类型T2不符</p>
+</li>
+<li><p>当作为函数返回语句时，与返回类型T2不符</p>
+</li>
+<li><p>当该表达式作为switch语句(T2为intergal)</p>
+</li>
+<li><p>当该表达式作为条件表达式(if, while, for, !, &amp;&amp;, ||)(T2为bool)</p>
+</li>
+</ol>
+<h2 id="实现方式（自定义类型）"><a href="#实现方式（自定义类型）" class="headerlink" title="实现方式（自定义类型）"></a>实现方式（自定义类型）</h2><h1 id="T2-gt-T1"><a href="#T2-gt-T1" class="headerlink" title="T2=&gt;T1"></a>T2=&gt;T1</h1><p>单参数构造函数(<strong>converting constructor</strong>)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T1(T2 t2);</span><br><span class="line">T1(T2 t2, <span class="keyword">int</span> i=<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="T1-gt-T2"><a href="#T1-gt-T2" class="headerlink" title="T1=&gt;T2"></a>T1=&gt;T2</h1><p>类型转换操作符函数(<strong>Conversion Operator</strong>)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">operator</span> T2&amp;();</span><br><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">T2</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></table></figure>
+<p>#　禁止隐式类型转换</p>
+<p>通过<code>explicit</code>关键字修饰函数，说明该函数不能被用来隐式转换，只能进行显式转换！</p>
+<h2 id="要点-1"><a href="#要点-1" class="headerlink" title="要点"></a>要点</h2><ul>
+<li>条件表达式中有<code>singed</code>和’unsigned’时，<code>singed</code>会转化为<code>unsinged</code>(对应类型的模运算值，如1B的-1转换为255)</li>
+</ul>
+<h1 id="显式类型转换-C-风格转换"><a href="#显式类型转换-C-风格转换" class="headerlink" title="显式类型转换(C++风格转换)"></a>显式类型转换(C++风格转换)</h1><h1 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h1><ul>
+<li><p>相关类型的转换，如整型到枚举，浮点到整型</p>
+</li>
+<li><p>显式转换，即使造成精度丢失，编译器也不会警告</p>
+</li>
 </ul>
 <h1 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a><code>reinterpret_cast</code></h1><ul>
 <li>互不相关类型转换，如整型到指针</li>
@@ -131,6 +176,10 @@
 </ol>
 </li>
 </ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>C++ Primer 5.12</li>
+<li><a href="http://en.cppreference.com/w/cpp/language/implicit_conversion" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/implicit_conversion</a></li>
+</ol>
 	  
 	</div>
 

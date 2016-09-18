@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>c-类型转换 | 心若天府</title>
+  <title>C++-初始化 | 心若天府</title>
   <meta name="author" content="钱成龙">
   
   <meta name="description" content="笔记，经验总结，资料">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="c-类型转换"/>
+  <meta property="og:title" content="C++-初始化"/>
   <meta property="og:site_name" content="心若天府"/>
 
   
@@ -93,7 +93,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> c-类型转换</h1>
+			<h1 class="title title-inverse "> C++-初始化</h1>
 		</div>		
 	
 
@@ -113,9 +113,27 @@
 	<div class="mypage">		
 	  		
 
-	  <h1 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h1><ul>
-<li>条件表达式中有<code>singed</code>和’unsigned’时，<code>singed</code>会转化为<code>unsinged</code>(对应类型的模运算值，如1B的-1转换为255)</li>
-</ul>
+	  <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>变量定义指定了变量的类型和标识符，同时可以指定初始值。</p>
+<p>指定了初始值的对象称为是已初始化的。</p>
+<p>两种初始化方式：</p>
+<ol>
+<li><p>复制初始化，语法上用<code>=</code>表达，如<code>int i = 1;</code></p>
+</li>
+<li><p>直接初始化，语法上用<code>()</code>表达，如<code>int i(1);</code></p>
+<p>主要为了保持与C的兼容</p>
+</li>
+</ol>
+<h1 id="初始化与赋值的区别"><a href="#初始化与赋值的区别" class="headerlink" title="初始化与赋值的区别"></a>初始化与赋值的区别</h1><p>初始化是指创建变量，并设置初始值的过程，是在变量定义语句中完成的，对一个变量来说，只会发生一次！</p>
+<p>而赋值是在变量初始化之后，进行值改写的过程，可以多次操作！</p>
+<h1 id="复制初始化"><a href="#复制初始化" class="headerlink" title="复制初始化"></a>复制初始化</h1><p>相比直接初始化，不能使用<code>explicit</code>修饰的构造函数和类型转换函数</p>
+<p>复制初始化会先根据重载决定机制，调用相应的构造函数创建一个该类型临时对象，然后再调用复制构造函数来初始化该对象，最后临时对象析构函数被调用。</p>
+<p>但C++标准运行复制省略(copy elision)，GCC默认开启该功能，可通过(<code>-fno-elide-constructors</code>)来关闭该功能。</p>
+<p>如果复制构造函数有副作用时(执行次数影响了程序状态)，复制省略会影响程序正确性！</p>
+<h1 id="直接初始化"><a href="#直接初始化" class="headerlink" title="直接初始化"></a>直接初始化</h1><p>直接根据重载决定机制调用相应的构造函数，或相应的类型转换函数</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://en.cppreference.com/w/cpp/language/copy_elision" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/copy_elision</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Copy_elision" target="_blank" rel="external">https://en.wikipedia.org/wiki/Copy_elision</a></li>
+</ol>
 	  
 	</div>
 
@@ -124,14 +142,14 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2016/04/07/mysql-char-vs-varchar/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2016/04/05/redis/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2016/09/12/C++11-final和override/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -170,7 +188,7 @@
   <h2 class="title">留言</h2>
 
   
-  	 <div class="ds-thread" data-thread-key="2016/04/07/c-类型转换/" data-title="c-类型转换" data-url="https://qianchenglong.github.io/2016/04/07/c-类型转换/"></div>  
+  	 <div class="ds-thread" data-thread-key="2016/09/14/C++-初始化/" data-title="C++-初始化" data-url="https://qianchenglong.github.io/2016/09/14/C++-初始化/"></div>  
   
 </section>
 
@@ -184,7 +202,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2016-04-07 
+	2016-09-14 
 	</div>
 	
 
@@ -197,7 +215,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/c/">c<span>8</span></a></li> <li><a href="/tags/类型转换/">类型转换<span>1</span></a></li>
+  <li><a href="/tags/C/">C++<span>33</span></a></li> <li><a href="/tags/初始化/">初始化<span>1</span></a></li> <li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li> <li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
     </ul>
 	</div>
 		

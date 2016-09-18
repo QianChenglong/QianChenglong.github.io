@@ -112,6 +112,75 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-08-26 </div>
+			<div class="article-title"><a href="/2016/08/26/mysql-CR_SERVER_LOST/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="产生原因之一"><a href="#产生原因之一" class="headerlink" title="产生原因之一"></a>产生原因之一</h1><p>该连接超过空闲等待时间(<code>wait_timeout</code>，默认8小时)，服务端主动关闭该连接，此时客户端再执行query，则mysql client返回该错误。</p>
+<h1 id="研究"><a href="#研究" class="headerlink" title="研究"></a>研究</h1><ol>
+<li><p>设置mysql <code>wait_timeout</code>为5s，方便复现</p>
+<pre><code>set global wait_timeout=5;
+</code></pre></li>
+<li><p>客户端首先建立好连接</p>
+<pre><code>18:07:19.831124 IP localhost.46740 &gt; localhost.mysql: Flags [S], seq 424450064, win 43690, options [mss 65495,sackOK,TS val 357860862 ecr 0,nop,wscale 7], length 0
+18:07:19.831158 IP localhost.mysql &gt; localhost.46740: Flags [S.], seq 2970334829, ack 424450065, win 43690, options [mss 65495,sackOK,TS val 357860862 ecr 357860862,nop,wscale 7], length 0
+18:07:19.831179 IP localhost.46740 &gt; localhost.mysql: Flags [.], ack 1, win 342, options [nop,nop,TS val 357860862 ecr 357860862], length 0
+...
+</code></pre></li>
+<li><p>5s后，发现服务端主动断开连接(关闭了)，服务端关闭了写通道</p>
+<pre><code>18:07:24.902120 IP localhost.mysql &gt; localhost.46740: Flags [F.], seq 233, ack 704, win 350, options [nop,nop,TS val 357865933 ecr 357860968], length 0
+18:07:24.943661 IP localhost.46740 &gt; localhost.mysql: Flags [.], ack 234, win 342, options [nop,nop,TS val 357865974 ecr 357865933], length 0
+
+[I] wallace@centos:/m/s/W/p/B/p/b/B/judge_server&gt; ss -aon|grep 3306
+tcp    CLOSE-WAIT 1      0      127.0.0.1:46739              127.0.0.1:3306                timer:(keepalive,120min,0)
+tcp    LISTEN     0      80       :::3306                 :::*                  
+tcp    FIN-WAIT-2 0      0      ::ffff:127.0.0.1:3306               ::ffff:127.0.0.1:46739               timer:(timewait,56sec,0)
+
+观看连接状态，发现服务端socket状态已变为`FIN-WAIT-2`，60s后超时关闭，服务端socket关闭连接后；
+此后客户端进入了半连接状态，若客户端继续发送数据，则会收到`RST`，客户端读返回-1，errno=ECONNRESET，
+`mysql connector c`会将该错误作为`CR_SERVER_LOST`
+</code></pre></li>
+<li><p>客户端发送数据</p>
+</li>
+</ol>
+<pre><code>18:13:23.289923 IP localhost.46740 &gt; localhost.mysql: Flags [P.], seq 704:737, ack 234, win 342, options [nop,nop,TS val 358224321 ecr 357865933], length 33
+18:13:23.289935 IP localhost.mysql &gt; localhost.46740: Flags [R], seq 2970335063, win 0, length 0
+</code></pre><ol>
+<li><p>gdb源码跟踪(<code>mysql-connector-c-6.1.5-src</code>)</p>
+<p><code>sql-common/client.c:957</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ulong</span><br><span class="line"><span class="title">cli_safe_read_with_ok</span><span class="params">(MYSQL *mysql, my_bool read_ok)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  NET *net= &amp;mysql-&gt;net;</span><br><span class="line">  ulong len=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  MYSQL_TRACE(READ_PACKET, mysql, ());</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (net-&gt;vio != <span class="number">0</span>)</span><br><span class="line">    len=my_net_read(net); <span class="comment">// &lt;= 此调用失败</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (len == packet_error || len == <span class="number">0</span>) <span class="comment">// len == packet_error 成立</span></span><br><span class="line">  &#123;</span><br><span class="line">    DBUG_PRINT(<span class="string">"error"</span>,(<span class="string">"Wrong connection or packet. fd: %s  len: %lu"</span>,</span><br><span class="line">            vio_description(net-&gt;vio),len));</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> MYSQL_SERVER</span></span><br><span class="line">    <span class="keyword">if</span> (net-&gt;vio &amp;&amp; (net-&gt;last_errno == ER_NET_READ_INTERRUPTED))</span><br><span class="line">      return (packet_error);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/*MYSQL_SERVER*/</span></span></span><br><span class="line">    end_server(mysql);</span><br><span class="line">    set_mysql_error(mysql, net-&gt;last_errno == ER_NET_PACKET_TOO_LARGE ?</span><br><span class="line">                    CR_NET_PACKET_TOO_LARGE: CR_SERVER_LOST, unknown_sqlstate); <span class="comment">// 设置错误代码为：CR_SERVER_LOST</span></span><br><span class="line">    return (packet_error);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<pre><code>Breakpoint 3, cli_safe_read_with_ok (mysql=0xb99e80, read_ok=0 &apos;\000&apos;) at /media/sf_E_DRIVE/Soft/mysql-connector/mysql-connector-c-6.1.5-src/sql-common/client.c:976
+976     set_mysql_error(mysql, net-&gt;last_errno == ER_NET_PACKET_TOO_LARGE ?
+(gdb) bt
+#0  cli_safe_read_with_ok (mysql=0xb99e80, read_ok=0 &apos;\000&apos;) at /media/sf_E_DRIVE/Soft/mysql-connector/mysql-connector-c-6.1.5-src/sql-common/client.c:976
+#1  0x00000000004183da in cli_safe_read (mysql=0xb99e80) at /media/sf_E_DRIVE/Soft/mysql-connector/mysql-connector-c-6.1.5-src/sql-common/client.c:1047
+#2  0x0000000000421f0b in cli_read_query_result (mysql=0xb99e80) at /media/sf_E_DRIVE/Soft/mysql-connector/mysql-connector-c-6.1.5-src/sql-common/client.c:4711
+#3  0x000000000042275c in mysql_real_query (mysql=0xb99e80, query=0x59c2db &quot;SELECT age, name FROM test.a&quot;, length=28)
+    at /media/sf_E_DRIVE/Soft/mysql-connector/mysql-connector-c-6.1.5-src/sql-common/client.c:4802
+#4  0x000000000040ad7b in mysql::Connection::Query (this=0xba01d0, sql=...) at Beme4wdServer/lily/mysql/connection.cpp:89
+</code></pre></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://dev.mysql.com/doc/refman/5.6/en/mysql-real-query.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.6/en/mysql-real-query.html</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.6/en/gone-away.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.6/en/gone-away.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/08/26/mysql-CR_SERVER_LOST/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-08-26 </div>
 			<div class="article-title"><a href="/2016/08/26/踩坑/" ></a></div>						
 		</h3>
 	
@@ -502,64 +571,6 @@ git reset --hard origin/master
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-28 </div>
-			<div class="article-title"><a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" >C++-文件打开模式-binary-VS-text</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
-<li><p>在windows下，新建文件，默认文件格式为<code>dos</code></p>
-</li>
-<li><p>在Linux下，新建文件，默认文件格式为<code>unix</code></p>
-</li>
-</ul>
-<h1 id="text"><a href="#text" class="headerlink" title="text"></a>text</h1><ul>
-<li><p>在windows平台下</p>
-<ul>
-<li><p>输出时，<code>\n(0x0d)</code>=&gt;<code>\r\n(0x0d 0x0a)</code></p>
-</li>
-<li><p>输入时，<code>\r\n(0x0d 0x0a)</code>=&gt;<code>\n(0x0d)</code></p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="function">ofstream <span class="title">ins</span><span class="params">(<span class="string">"test.txt"</span>)</span></span>; <span class="comment">// 默认`text`</span></span><br><span class="line"></span><br><span class="line">    ins &lt;&lt; <span class="string">"a\n"</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>linux</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[I] /m/s/T/file od -Ax -t x1 test.txt </span><br><span class="line">000000 61 0a</span><br><span class="line">000002</span><br><span class="line">[I] /m/s/T/file file test.txt</span><br><span class="line">test.txt: ASCII text</span><br></pre></td></tr></table></figure>
-<ul>
-<li>windows</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[I] /m/s/T/file od -Ax -t x1 test.txt </span><br><span class="line">000000 61 0d 0a</span><br><span class="line">000003</span><br><span class="line">[I] /m/s/T/file file test.txt</span><br><span class="line">test.txt: ASCII text, with CRLF line terminators</span><br></pre></td></tr></table></figure>
-<h1 id="binary"><a href="#binary" class="headerlink" title="binary"></a>binary</h1><ul>
-<li>不对文件内容做任何转换</li>
-</ul>
-<h2 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="function">ofstream <span class="title">ins</span><span class="params">(<span class="string">"test.txt"</span>, <span class="built_in">std</span>::ios_base::binary)</span></span>;</span><br><span class="line"></span><br><span class="line">    ins &lt;&lt; <span class="string">"a\n"</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>linux</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[I] /m/s/T/file od -Ax -t x1 test.txt </span><br><span class="line">000000 61 0a</span><br><span class="line">000002</span><br><span class="line">[I] /m/s/T/file file test.txt</span><br><span class="line">test.txt: ASCII text</span><br></pre></td></tr></table></figure>
-<ul>
-<li>windows</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[I] /m/s/T/file od -Ax -t x1 test.txt </span><br><span class="line">000000 61 0a</span><br><span class="line">000003</span><br><span class="line">[I] /m/s/T/file file test.txt</span><br><span class="line">test.txt: ASCII text</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2016/05/28/C++-文件打开模式-binary-VS-text/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -865,48 +876,48 @@ git reset --hard origin/master
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
+		
+			<li><a href="/tags/make/">make<span>2</span></a></li>
+		
+			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+		
+			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+		
+			<li><a href="/tags/global/">global<span>1</span></a></li>
+		
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+		
+			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+		
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+		
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+		
+			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+		
+			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+		
+			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+		
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+		
+			<li><a href="/tags/git/">git<span>7</span></a></li>
+		
+			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
+		
+			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
 		
 			<li><a href="/tags/部署/">部署<span>1</span></a></li>
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
 		
-			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
-		
-			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
-		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
-		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
-		
-			<li><a href="/tags/link/">link<span>2</span></a></li>
-		
-			<li><a href="/tags/选项/">选项<span>3</span></a></li>
-		
-			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
-		
-			<li><a href="/tags/resize/">resize<span>1</span></a></li>
-		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
-		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
-		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
-		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
-		
-			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
-		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
-		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
-		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+			<li><a href="/tags/app/">app<span>4</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>574</span></a></li>
+		   <li><a href="/tags">...<span>576</span></a></li>
 		 
 		</ul>
 	</div>
@@ -917,6 +928,10 @@ git reset --hard origin/master
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
+      </li>
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
@@ -932,10 +947,6 @@ git reset --hard origin/master
     
       <li>
         <a href="/2016/09/05/慢速系统调用VS快速系统调用/" ><i class="fa fa-file-o"></i>慢速系统调用VS快速系统调用</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/02/gdb-指定源文件搜索/" ><i class="fa fa-file-o"></i>gdb-指定源文件搜索</a>
       </li>
     
   </ul>

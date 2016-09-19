@@ -111,6 +111,31 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-02-27 </div>
+			<div class="article-title"><a href="/2016/02/27/boost-bind/" >boost-bind</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><code>_1,_2...</code>代表的是原函数的第n个参数</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; j &lt;&lt; <span class="string">" "</span> &lt;&lt; k &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::function&lt;<span class="keyword">void</span> (<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)&gt; f1 = boost::bind(f, _3, _1, _2); <span class="comment">// f1(k, i ,j)</span></span><br><span class="line">    f1(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// 3 1 2</span></span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2016/02/27/boost-bind/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-02-25 </div>
 			<div class="article-title"><a href="/2016/02/25/c-结构体对齐/" >c-结构体对齐</a></div>						
 		</h3>
@@ -378,39 +403,6 @@
 	
 	</div>
   <a type="button" href="/2016/01/18/电影网站/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-01-15 </div>
-			<div class="article-title"><a href="/2016/01/15/linux-最大打开文件数/" >linux-最大打开文件数</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>linux下，默认最大打开文件数为1024(<code>ulimit -n</code>)</p>
-</li>
-<li><p>一个进程打开，默认占用3个文件描述符(0,1,2分别对应标准输入，标准输出，标准出错)</p>
-</li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ul>
-<li><p>默认情况下，单进程最大打开文件数为<strong>1021</strong>个([3,1023])</p>
-</li>
-<li><p>单进程，最大连接数为<strong>1021</strong>个</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/01/15/linux-最大打开文件数/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -719,48 +711,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/curl/">curl<span>2</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
 		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+			<li><a href="/tags/T/">_T<span>1</span></a></li>
 		
-			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
+			<li><a href="/tags/部署/">部署<span>1</span></a></li>
 		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
+			<li><a href="/tags/任播/">任播<span>1</span></a></li>
 		
-			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
+			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/django/">django<span>2</span></a></li>
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/理论/">理论<span>1</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
 		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
+			<li><a href="/tags/size/">size<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
-			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>576</span></a></li>
+		   <li><a href="/tags">...<span>577</span></a></li>
 		 
 		</ul>
 	</div>
@@ -771,6 +763,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
+      </li>
     
       <li>
         <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
@@ -786,10 +782,6 @@
     
       <li>
         <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/05/慢速系统调用VS快速系统调用/" ><i class="fa fa-file-o"></i>慢速系统调用VS快速系统调用</a>
       </li>
     
   </ul>

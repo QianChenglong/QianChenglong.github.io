@@ -112,6 +112,65 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-20 </div>
+			<div class="article-title"><a href="/2015/03/20/计算机启动过程/" >计算机启动过程</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>开机或重启(CPU执行第一条指令，跳转到FFFF:0000H)</p>
+<p>Bochs模拟：</p>
+<p><img src="../img/计算机启动过程_01.png" alt=""></p>
+<p>Intel跳转指令：</p>
+<p><img src="../img/计算机启动过程_02.png" alt=""></p>
+</li>
+<li><p>BIOS加电自检 (Power On Self Test)</p>
+</li>
+<li><p>BIOS自检完毕后，执行int 19(自举服务)，按照CMOS中存储的设备启动顺序，将介质中的MBR扇区载入到0000:7C00处，</p>
+<p>检查其哨兵（0000:7DFE字）是否为(0x55AA)</p>
+<ul>
+<li><p>若是，则跳转到MBR载入位置(0000:7C00);</p>
+</li>
+<li><p>若不是则载入下一个启动介质的MBR，重复操作，</p>
+</li>
+<li><p>若没有找到合法MBR，则报错<code>Invalid partition table</code>、<code>operating system not found</code>、<code>Missing operating system</code>等类似错误，停机</p>
+</li>
+</ul>
+</li>
+<li><p>MBR首先将自己复制到0000:0600 处，然后继续执行</p>
+<p><img src="../img/计算机启动过程_03.png" alt=""></p>
+</li>
+<li><p>在主分区表中搜索标志为活动的分区 . 如果发现没有活动分区或有不止一个活动分区 , 则转停止</p>
+</li>
+<li><p>将活动分区的第一个扇区(叫做分区启动记录，Volume Boot Record, VBR)读入内存地址0000:7C00处</p>
+</li>
+<li><p>检查(WORD)0000:7DFE是否等于0xAA55, 若不等于则显示<code>Missing Operating System</code>，然后停止</p>
+</li>
+<li><p>跳转到0000 :7C00处继续执行bootloader stage 2，加载相应操作系统的启动程序</p>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-linuxboot/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-linuxboot/</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/%E4%B8%BB%E5%BC%95%E5%AF%BC%E8%AE%B0%E5%BD%95" target="_blank" rel="external">维基-主引导记录</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Master_boot_record" target="_blank" rel="external">wiki-Master_boot_record</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Boot_sector" target="_blank" rel="external">http://en.wikipedia.org/wiki/Boot_sector</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/20/计算机启动过程/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-20 </div>
 			<div class="article-title"><a href="/2015/03/20/MBR/" >MBR</a></div>						
 		</h3>
 	
@@ -408,41 +467,6 @@
 	
 	</div>
   <a type="button" href="/2015/03/17/vim-执行外部程序/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-17 </div>
-			<div class="article-title"><a href="/2015/03/17/doxygen-配置使用/" >doxygen-配置使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h1><ul>
-<li>graphviz(dot)</li>
-</ul>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="使用向导工具-推荐"><a href="#使用向导工具-推荐" class="headerlink" title="使用向导工具(推荐)"></a>使用向导工具(推荐)</h2><pre><code>doxywizard
-</code></pre><h2 id="手动修改配置文件"><a href="#手动修改配置文件" class="headerlink" title="手动修改配置文件"></a>手动修改配置文件</h2><ul>
-<li><p>生成配置文件模板</p>
-<pre><code>doxygen -g
-</code></pre></li>
-<li><p>修改配置文件<code>Doxyfile</code></p>
-</li>
-<li><p>生成doxygen</p>
-<p>doxygen</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/17/doxygen-配置使用/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -751,48 +775,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/串口/">串口<span>2</span></a></li>
 		
-			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
+			<li><a href="/tags/read/">read<span>1</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
-			<li><a href="/tags/右值/">右值<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
+			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
 		
-			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>3</span></a></li>
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
 		
-			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>576</span></a></li>
+		   <li><a href="/tags">...<span>577</span></a></li>
 		 
 		</ul>
 	</div>
@@ -803,6 +827,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
+      </li>
     
       <li>
         <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
@@ -818,10 +846,6 @@
     
       <li>
         <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/05/慢速系统调用VS快速系统调用/" ><i class="fa fa-file-o"></i>慢速系统调用VS快速系统调用</a>
       </li>
     
   </ul>

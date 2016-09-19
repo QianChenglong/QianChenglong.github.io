@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title><![CDATA[C++-变量]]></title>
+      <url>https://qianchenglong.github.io/2016/09/18/C++-%E5%8F%98%E9%87%8F/</url>
+      <content type="html"><![CDATA[<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><ul>
+<li><p>数据类型</p>
+<p>所有可能值的抽象，一种类型支持一组特定的操作</p>
+</li>
+<li><p>内存大小</p>
+<p>存储该值所需要的存储空间大小</p>
+</li>
+<li><p>变量名(可选)</p>
+<p>对变量进行引用的标识符</p>
+</li>
+<li><p>值</p>
+<p>变量存储的内容</p>
+</li>
+<li><p>作用域</p>
+</li>
+<li><p>对齐</p>
+</li>
+<li><p>存储期</p>
+</li>
+<li><p>生命期(跟存储期相关或临时)</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://en.cppreference.com/w/cpp/language/storage_duration" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/storage_duration</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/lifetime" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/lifetime</a></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[C++-初始化]]></title>
       <url>https://qianchenglong.github.io/2016/09/14/C++-%E5%88%9D%E5%A7%8B%E5%8C%96/</url>
       <content type="html"><![CDATA[<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>变量定义指定了变量的类型和标识符，同时可以指定初始值。</p>
@@ -334,6 +366,11 @@ git submodule sync
 <h1 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h1><ul>
 <li><p>查看当前版本与上一版本的差异</p>
 <pre><code>git diff HEAD~1 HEAD functions/fish_prompt.fish
+</code></pre></li>
+</ul>
+<h1 id="config"><a href="#config" class="headerlink" title="config"></a>config</h1><ul>
+<li><p>配置解包内存</p>
+<pre><code>git config --global pack.windowMemory 256m
 </code></pre></li>
 </ul>
 <h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
@@ -2035,30 +2072,69 @@ yumdownloader httpd
 <h2 id="要点-1"><a href="#要点-1" class="headerlink" title="要点"></a>要点</h2><ul>
 <li>条件表达式中有<code>singed</code>和’unsigned’时，<code>singed</code>会转化为<code>unsinged</code>(对应类型的模运算值，如1B的-1转换为255)</li>
 </ul>
-<h1 id="显式类型转换-C-风格转换"><a href="#显式类型转换-C-风格转换" class="headerlink" title="显式类型转换(C++风格转换)"></a>显式类型转换(C++风格转换)</h1><h1 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h1><ul>
+<h1 id="显式类型转换-C-风格转换"><a href="#显式类型转换-C-风格转换" class="headerlink" title="显式类型转换(C++风格转换)"></a>显式类型转换(C++风格转换)</h1><h2 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h2><ul>
+<li><p>编译期内</p>
+</li>
+<li><p>使用隐式类型转换或用户自定义转换</p>
+</li>
+<li><p>安全性较高，编译器进行类型检查</p>
+</li>
+</ul>
+<p>用途：</p>
+<ul>
 <li><p>相关类型的转换，如整型到枚举，浮点到整型</p>
 </li>
 <li><p>显式转换，即使造成精度丢失，编译器也不会警告</p>
 </li>
-</ul>
-<h1 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a><code>reinterpret_cast</code></h1><ul>
-<li>互不相关类型转换，如整型到指针</li>
-</ul>
-<h1 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a><code>const_cast</code></h1><ul>
-<li>去除<code>const</code>，<code>volatile</code>修饰</li>
-</ul>
-<h1 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a><code>dynamic_cast</code></h1><ul>
-<li><p>多态类型的转换</p>
-<ol>
-<li>子类向基类的向上转型(Up Cast)</li>
-<li>基类向子类的向下转型(Down Cast)</li>
-<li>横向转型(Cross Cast)</li>
-</ol>
+<li><p>与<code>void*</code>的双向转换</p>
 </li>
 </ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<h2 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a><code>reinterpret_cast</code></h2><ul>
+<li><p>编译期内</p>
+</li>
+<li><p>不做任何检查的转换，保证再次转换回来时，值不变(前提是转换的类型有足够的空间存储原有值)</p>
+</li>
+<li><p>危险性最高，完全靠程序员掌握</p>
+</li>
+<li><p>不生成任何CPU指令，对编译器而言，直接把该值作为指定类型(变量的属性)操作</p>
+</li>
+</ul>
+<p>用途：</p>
+<ul>
+<li>主要用于不相关类型间转换，如整型到指针，不同指针类型间</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">char</span> *pch = <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">char</span> *&gt;(&amp;i); <span class="comment">// static_cast无法完成</span></span><br></pre></td></tr></table></figure>
+<h2 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a><code>const_cast</code></h2><p>添加或移除<code>const</code>，<code>volatile</code>修饰</p>
+<ul>
+<li>不生成任何CPU指令，对编译器而言，本身这个修饰只是一种存取权限控制</li>
+</ul>
+<h2 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a><code>dynamic_cast</code></h2><ul>
+<li><p>运行期内转换</p>
+</li>
+<li><p>提供类型安全检查</p>
+</li>
+<li><p>最耗时</p>
+</li>
+</ul>
+<p>用途：</p>
+<ul>
+<li><p>子类向基类的向上转型(Up Cast)</p>
+</li>
+<li><p>基类向子类的向下转型(Down Cast)</p>
+</li>
+<li><p>横向转型(Cross Cast)</p>
+</li>
+</ul>
+<p><strong>注</strong>:</p>
+<ol>
+<li>尽量不使用C风格类型转换，因为不利于代码阅读和工具检索，而且相对于C++风格，缺少安全性控制(编译器检查)</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li>C++ Primer 5.12</li>
+<li>C++程序设计语言 6.2.7</li>
 <li><a href="http://en.cppreference.com/w/cpp/language/implicit_conversion" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/implicit_conversion</a></li>
+<li><a href="http://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used?rq=1</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/reinterpret_cast" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/reinterpret_cast</a></li>
 </ol>
 ]]></content>
     </entry>
@@ -5816,33 +5892,6 @@ mount /dev/cdrom /mnt/cdrom
     </entry>
     
     <entry>
-      <title><![CDATA[C++-智能指针之auto_ptr]]></title>
-      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bauto_ptr/</url>
-      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li>提供一种简单的垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
-</ul>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>基于RAII(资源申请即初始化)，利用C++确定性析构，保证变量当离开作用域时，自动执行析构函数来释放内存</p>
-<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
-<li><p>不能将同一个对象存储到多个<code>auto_ptr</code>，会导致多次析构，从而崩溃</p>
-<pre><code>A *p = new A();
-std::auto_ptr&lt;A&gt; a(p);
-std::auto_ptr&lt;A&gt; b(p);
-</code></pre></li>
-<li><p>不能管理数据对象，因为<code>~auto_ptr</code>是<code>delete</code>而不是<code>delete []</code></p>
-<pre><code>int *p=new int[10];
-auto_ptr&lt;int&gt;ap(p);
-</code></pre></li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>C++11已经抛弃它，boost也有更好的替代品，决不使用！</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">auto_ptr</span>&lt;A&gt; a(new A());</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
-<li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
-</ol>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
       <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.shared_ptr/</url>
       <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
@@ -5880,6 +5929,33 @@ boost::shared_ptr&lt;A&gt; p2(a);
 </ul>
 <h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>当不需要传递所有权时，可使用</p>
 <h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/scoped_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(id)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::scoped_ptr&lt;A&gt; i(new A(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i-&gt;id_ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C++-智能指针之auto_ptr]]></title>
+      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bauto_ptr/</url>
+      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li>提供一种简单的垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
+</ul>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>基于RAII(资源申请即初始化)，利用C++确定性析构，保证变量当离开作用域时，自动执行析构函数来释放内存</p>
+<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
+<li><p>不能将同一个对象存储到多个<code>auto_ptr</code>，会导致多次析构，从而崩溃</p>
+<pre><code>A *p = new A();
+std::auto_ptr&lt;A&gt; a(p);
+std::auto_ptr&lt;A&gt; b(p);
+</code></pre></li>
+<li><p>不能管理数据对象，因为<code>~auto_ptr</code>是<code>delete</code>而不是<code>delete []</code></p>
+<pre><code>int *p=new int[10];
+auto_ptr&lt;int&gt;ap(p);
+</code></pre></li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>C++11已经抛弃它，boost也有更好的替代品，决不使用！</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">auto_ptr</span>&lt;A&gt; a(new A());</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
+<li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
+</ol>
 ]]></content>
     </entry>
     
@@ -12528,31 +12604,6 @@ qualifiers := type dir proto
     </entry>
     
     <entry>
-      <title><![CDATA[win下编译openssl]]></title>
-      <url>https://qianchenglong.github.io/2014/12/10/win%E4%B8%8B%E7%BC%96%E8%AF%91openssl/</url>
-      <content type="html"><![CDATA[<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
-<li>perl</li>
-<li>VC++</li>
-</ul>
-<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
-<li><p>生成<code>Makefile</code></p>
-<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
-ms\do_ms
-</code></pre></li>
-<li><p>编译</p>
-<pre><code>nmake -f ms\ntdll.mak
-</code></pre></li>
-<li><p>测试</p>
-<pre><code>nmake -f ms\ntdll.mak test
-</code></pre></li>
-<li><p>安装</p>
-<pre><code>nmake -f ms\ntdll.mak install
-</code></pre></li>
-</ul>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[win下编译libcurl]]></title>
       <url>https://qianchenglong.github.io/2014/12/10/win%E4%B8%8B%E7%BC%96%E8%AF%91libcurl/</url>
       <content type="html"><![CDATA[<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
@@ -12581,6 +12632,31 @@ ms\do_ms
 <li><p>输出目录为<code>builds</code></p>
 <p><img src="/img/win下编译libcurl_02.png" alt=""></p>
 </li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[win下编译openssl]]></title>
+      <url>https://qianchenglong.github.io/2014/12/10/win%E4%B8%8B%E7%BC%96%E8%AF%91openssl/</url>
+      <content type="html"><![CDATA[<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
+<li>perl</li>
+<li>VC++</li>
+</ul>
+<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
+<li><p>生成<code>Makefile</code></p>
+<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
+ms\do_ms
+</code></pre></li>
+<li><p>编译</p>
+<pre><code>nmake -f ms\ntdll.mak
+</code></pre></li>
+<li><p>测试</p>
+<pre><code>nmake -f ms\ntdll.mak test
+</code></pre></li>
+<li><p>安装</p>
+<pre><code>nmake -f ms\ntdll.mak install
+</code></pre></li>
 </ul>
 ]]></content>
     </entry>

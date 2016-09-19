@@ -111,6 +111,41 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-04-14 </div>
+			<div class="article-title"><a href="/2015/04/14/进程和线程理解/" >进程和线程理解</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h1><ul>
+<li>目的都是为了提高对系统资源的利用率</li>
+</ul>
+<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ul>
+<li><p>进程是一个具有独立功能的程序关于某个数据集合的一次运行活动。<br>它可以申请和拥有系统资源，是一个动态的概念，是一个活动的实体。<br>它不只是程序的代码，还包括当前的活动，通过程序计数器的值和处理寄存器的内容来表示。</p>
+</li>
+<li><p>通常在一个进程中可以包含若干个线程，它们可以利用进程所拥有的资源。<br>在引入线程的操作系统中，通常都是把进程作为分配资源的基本单位，而把线程作为独立运行和独立调度的基本单位。<br>由于线程比进程更小，基本上不拥有系统资源，故对它的调度所付出的开销就会小得多，能更高效的提高系统内多个程序间并发执行的程度。</p>
+</li>
+</ul>
+<h1 id="自我理解"><a href="#自我理解" class="headerlink" title="自我理解"></a>自我理解</h1><ul>
+<li>每个进程是个独立的任务，完成特定的功能</li>
+<li>线程是为了协同工作，完成进程的功能</li>
+<li>进程具有层次关系，除主线程外，其他线程间属于对等关系</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/14/进程和线程理解/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-04-13 </div>
 			<div class="article-title"><a href="/2015/04/13/tex-特殊字符的输入/" >tex-特殊字符的输入</a></div>						
 		</h3>
@@ -380,28 +415,6 @@ pacman-key --lsign-key 4209170B
 	
 	</div>
   <a type="button" href="/2015/04/08/markdown-分隔代码段/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-07 </div>
-			<div class="article-title"><a href="/2015/04/07/python-单元测试组织和命名惯例/" >python-单元测试组织和命名惯例</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 名称        | 作用                                         |<br>|————-+———————————————-|<br>| tests       | 目录，位于项目根目录下，用于存放单元测试文件 |<br>| test_XXX.py | 文件，用于测试某个模块的测试源码             |<br>| XXXTestCase | 类名，测试用例名                             |<br>| test_XXX    | 测试方法名                                   |</p>
-
-	
-	</div>
-  <a type="button" href="/2015/04/07/python-单元测试组织和命名惯例/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -710,48 +723,48 @@ pacman-key --lsign-key 4209170B
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
 		
-			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
+			<li><a href="/tags/git/">git<span>7</span></a></li>
 		
-			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
+			<li><a href="/tags/debug/">debug<span>3</span></a></li>
 		
-			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+		
+			<li><a href="/tags/c/">c<span>7</span></a></li>
+		
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+		
+			<li><a href="/tags/主键/">主键<span>1</span></a></li>
+		
+			<li><a href="/tags/final/">final<span>1</span></a></li>
+		
+			<li><a href="/tags/链表/">链表<span>1</span></a></li>
+		
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+		
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
 			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
 		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
+			<li><a href="/tags/socket/">socket<span>6</span></a></li>
 		
-			<li><a href="/tags/delete/">delete<span>2</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+			<li><a href="/tags/bash/">bash<span>1</span></a></li>
 		
-			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/tags/进程/">进程<span>1</span></a></li>
 		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
-		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
-		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
-		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
-		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
-		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
-		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
-		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>576</span></a></li>
+		   <li><a href="/tags">...<span>577</span></a></li>
 		 
 		</ul>
 	</div>
@@ -762,6 +775,10 @@ pacman-key --lsign-key 4209170B
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
+      </li>
     
       <li>
         <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
@@ -777,10 +794,6 @@ pacman-key --lsign-key 4209170B
     
       <li>
         <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/05/慢速系统调用VS快速系统调用/" ><i class="fa fa-file-o"></i>慢速系统调用VS快速系统调用</a>
       </li>
     
   </ul>

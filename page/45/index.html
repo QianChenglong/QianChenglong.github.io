@@ -112,6 +112,52 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/openwrt-目录组织/" >openwrt-目录组织</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>build_dir/  用于存放所有解压后的源码，并在当中编译</p>
+<ul>
+<li><p>host/   宿主环境下的编译工具源码</p>
+</li>
+<li><p>toolchain-*   交叉C编译器，C标准库，内核，二进制工具等组件源码</p>
+</li>
+<li><p>target-*    目标系统的软件包源码</p>
+</li>
+</ul>
+</li>
+<li><p>staging_dir/    用于存放安装已编译，为了进一步编译软件包，或产生固件镜像</p>
+<ul>
+<li><p>host/   最小化的Linux</p>
+</li>
+<li><p>toolchain-* 最小化的LInux，带有交叉C编译器，用于去编译剩余的固件部分</p>
+</li>
+<li><p>target…/root-ramips/  最终的固件</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/26030670/openwrt-buildroot-build-dir-and-staging-dir" target="_blank" rel="external">http://stackoverflow.com/questions/26030670/openwrt-buildroot-build-dir-and-staging-dir</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/openwrt-目录组织/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
 			<div class="article-title"><a href="/2015/02/09/linux-常用命令/" >linux-常用命令</a></div>						
 		</h3>
 	
@@ -631,41 +677,6 @@ work Adapter
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-05 </div>
-			<div class="article-title"><a href="/2015/02/05/getaddrinfo/" >getaddrinfo</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getaddrinfo</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *node, <span class="keyword">const</span> <span class="keyword">char</span> *service,</span><br><span class="line">                       <span class="keyword">const</span> <span class="keyword">struct</span> addrinfo *hints,</span><br><span class="line">                       <span class="keyword">struct</span> addrinfo **res)</span></span>;</span><br></pre></td></tr></table></figure>
-<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li>转换主机名到IP地址(IPv4，IPv6)</li>
-<li>转换服务到端口</li>
-<li>不要用来查询本机IP，其只返回<code>127.0.0.1</code></li>
-</ul>
-<h1 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h1><ul>
-<li>使用<code>hints</code>来控制输出参数</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/freeaddrinfo.html" target="_blank" rel="external">http://pubs.opengroup.org/onlinepubs/9699919799/functions/freeaddrinfo.html</a></li>
-<li><a href="http://man7.org/linux/man-pages/man3/getaddrinfo.3.html" target="_blank" rel="external">http://man7.org/linux/man-pages/man3/getaddrinfo.3.html</a></li>
-<li><a href="http://beej-zhtw.netdpi.net/05-system-call-or-bust/5-1-getaddrinfo-start" target="_blank" rel="external">http://beej-zhtw.netdpi.net/05-system-call-or-bust/5-1-getaddrinfo-start</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/05/getaddrinfo/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -971,48 +982,48 @@ work Adapter
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/command/">command<span>9</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
-			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
 		
-			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
+			<li><a href="/tags/api/">api<span>1</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
-		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
-		
-			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
 		
 			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
 		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
+			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
 		
-			<li><a href="/tags/redis/">redis<span>6</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/file/">file<span>1</span></a></li>
 		
-			<li><a href="/tags/c99/">c99<span>1</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/log/">log<span>1</span></a></li>
+			<li><a href="/tags/array/">array<span>1</span></a></li>
+		
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
+		
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
+		
+			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
+		
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
 			<li><a href="/tags/char/">char*<span>1</span></a></li>
 		
-			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
+			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
 		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
+			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
 		
-			<li><a href="/tags/打包/">打包<span>1</span></a></li>
-		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
-		
-			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
+			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>576</span></a></li>
+		   <li><a href="/tags">...<span>577</span></a></li>
 		 
 		</ul>
 	</div>
@@ -1023,6 +1034,10 @@ work Adapter
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
+      </li>
     
       <li>
         <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
@@ -1038,10 +1053,6 @@ work Adapter
     
       <li>
         <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/05/慢速系统调用VS快速系统调用/" ><i class="fa fa-file-o"></i>慢速系统调用VS快速系统调用</a>
       </li>
     
   </ul>

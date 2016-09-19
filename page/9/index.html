@@ -112,6 +112,32 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-03-10 </div>
+			<div class="article-title"><a href="/2016/03/10/修改limit/" >修改limit</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>/etc/security/limits.conf</p>
+<pre><code>* hard nofile 10000
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/03/10/修改limit/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-10 </div>
 			<div class="article-title"><a href="/2016/03/10/线程/" >线程</a></div>						
 		</h3>
 	
@@ -417,60 +443,74 @@
 <h2 id="要点-1"><a href="#要点-1" class="headerlink" title="要点"></a>要点</h2><ul>
 <li>条件表达式中有<code>singed</code>和’unsigned’时，<code>singed</code>会转化为<code>unsinged</code>(对应类型的模运算值，如1B的-1转换为255)</li>
 </ul>
-<h1 id="显式类型转换-C-风格转换"><a href="#显式类型转换-C-风格转换" class="headerlink" title="显式类型转换(C++风格转换)"></a>显式类型转换(C++风格转换)</h1><h1 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h1><ul>
+<h1 id="显式类型转换-C-风格转换"><a href="#显式类型转换-C-风格转换" class="headerlink" title="显式类型转换(C++风格转换)"></a>显式类型转换(C++风格转换)</h1><h2 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h2><ul>
+<li><p>编译期内</p>
+</li>
+<li><p>使用隐式类型转换或用户自定义转换</p>
+</li>
+<li><p>安全性较高，编译器进行类型检查</p>
+</li>
+</ul>
+<p>用途：</p>
+<ul>
 <li><p>相关类型的转换，如整型到枚举，浮点到整型</p>
 </li>
 <li><p>显式转换，即使造成精度丢失，编译器也不会警告</p>
 </li>
-</ul>
-<h1 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a><code>reinterpret_cast</code></h1><ul>
-<li>互不相关类型转换，如整型到指针</li>
-</ul>
-<h1 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a><code>const_cast</code></h1><ul>
-<li>去除<code>const</code>，<code>volatile</code>修饰</li>
-</ul>
-<h1 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a><code>dynamic_cast</code></h1><ul>
-<li><p>多态类型的转换</p>
-<ol>
-<li>子类向基类的向上转型(Up Cast)</li>
-<li>基类向子类的向下转型(Down Cast)</li>
-<li>横向转型(Cross Cast)</li>
-</ol>
+<li><p>与<code>void*</code>的双向转换</p>
 </li>
 </ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<h2 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a><code>reinterpret_cast</code></h2><ul>
+<li><p>编译期内</p>
+</li>
+<li><p>不做任何检查的转换，保证再次转换回来时，值不变(前提是转换的类型有足够的空间存储原有值)</p>
+</li>
+<li><p>危险性最高，完全靠程序员掌握</p>
+</li>
+<li><p>不生成任何CPU指令，对编译器而言，直接把该值作为指定类型(变量的属性)操作</p>
+</li>
+</ul>
+<p>用途：</p>
+<ul>
+<li>主要用于不相关类型间转换，如整型到指针，不同指针类型间</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">char</span> *pch = <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">char</span> *&gt;(&amp;i); <span class="comment">// static_cast无法完成</span></span><br></pre></td></tr></table></figure>
+<h2 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a><code>const_cast</code></h2><p>添加或移除<code>const</code>，<code>volatile</code>修饰</p>
+<ul>
+<li>不生成任何CPU指令，对编译器而言，本身这个修饰只是一种存取权限控制</li>
+</ul>
+<h2 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a><code>dynamic_cast</code></h2><ul>
+<li><p>运行期内转换</p>
+</li>
+<li><p>提供类型安全检查</p>
+</li>
+<li><p>最耗时</p>
+</li>
+</ul>
+<p>用途：</p>
+<ul>
+<li><p>子类向基类的向上转型(Up Cast)</p>
+</li>
+<li><p>基类向子类的向下转型(Down Cast)</p>
+</li>
+<li><p>横向转型(Cross Cast)</p>
+</li>
+</ul>
+<p><strong>注</strong>:</p>
+<ol>
+<li>尽量不使用C风格类型转换，因为不利于代码阅读和工具检索，而且相对于C++风格，缺少安全性控制(编译器检查)</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li>C++ Primer 5.12</li>
+<li>C++程序设计语言 6.2.7</li>
 <li><a href="http://en.cppreference.com/w/cpp/language/implicit_conversion" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/implicit_conversion</a></li>
+<li><a href="http://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used?rq=1</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/reinterpret_cast" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/reinterpret_cast</a></li>
 </ol>
 
 	
 	</div>
   <a type="button" href="/2016/02/27/c++-类型转换/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-27 </div>
-			<div class="article-title"><a href="/2016/02/27/boost-bind/" >boost-bind</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><code>_1,_2...</code>代表的是原函数的第n个参数</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; j &lt;&lt; <span class="string">" "</span> &lt;&lt; k &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::function&lt;<span class="keyword">void</span> (<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)&gt; f1 = boost::bind(f, _3, _1, _2); <span class="comment">// f1(k, i ,j)</span></span><br><span class="line">    f1(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// 3 1 2</span></span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2016/02/27/boost-bind/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -779,48 +819,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+		
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+		
+			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
+		
+			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
+		
+			<li><a href="/tags/resize/">resize<span>1</span></a></li>
+		
+			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
+		
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
+		
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
+		
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+		
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+		
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+		
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
+		
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+		
+			<li><a href="/tags/池/">池<span>1</span></a></li>
+		
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
+		
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+		
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/tags/war/">war<span>1</span></a></li>
+		
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+		
 			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
 		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
-		
-			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
-		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
-		
-			<li><a href="/tags/T/">__T<span>1</span></a></li>
-		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
-		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
-		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
-		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
-		
-			<li><a href="/tags/rune/">rune<span>1</span></a></li>
-		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
-		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
-		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
-		
-			<li><a href="/tags/C/">C<span>14</span></a></li>
-		
-			<li><a href="/tags/优先/">优先<span>1</span></a></li>
-		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
-		
-			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
-		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
-		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
-		
-		
-		   <li><a href="/tags">...<span>576</span></a></li>
+		   <li><a href="/tags">...<span>577</span></a></li>
 		 
 		</ul>
 	</div>
@@ -831,6 +871,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
+      </li>
     
       <li>
         <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
@@ -846,10 +890,6 @@
     
       <li>
         <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/05/慢速系统调用VS快速系统调用/" ><i class="fa fa-file-o"></i>慢速系统调用VS快速系统调用</a>
       </li>
     
   </ul>

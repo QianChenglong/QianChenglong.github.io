@@ -113,7 +113,12 @@
 	<div class="mypage">		
 	  		
 
-	  <h1 id="build"><a href="#build" class="headerlink" title="build"></a>build</h1><pre><code>usage: go build [-o output] [-i] [build flags] [packages]
+	  <h1 id="get"><a href="#get" class="headerlink" title="get"></a>get</h1><ul>
+<li><p>自动获取所有依赖</p>
+<pre><code>go get .
+</code></pre></li>
+</ul>
+<h1 id="build"><a href="#build" class="headerlink" title="build"></a>build</h1><pre><code>usage: go build [-o output] [-i] [build flags] [packages]
 </code></pre><p>编译指定包，以及其依赖</p>
 <ul>
 <li>如果是<code>main</code>包，则在当前目录下生成一个可执行文件</li>

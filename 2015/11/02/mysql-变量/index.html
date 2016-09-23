@@ -113,7 +113,9 @@
 	<div class="mypage">		
 	  		
 
-	  <ul>
+	  <h1 id="用户变量"><a href="#用户变量" class="headerlink" title="用户变量"></a>用户变量</h1><p>用户变量是会话期的(作用域，生命期)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SET @t1=1, @t2=2, @t3:=4;</span><br><span class="line">mysql&gt; SELECT @t1, @t2, @t3, @t4 := @t1+@t2+@t3;</span><br><span class="line">+------+------+------+--------------------+</span><br><span class="line">| @t1  | @t2  | @t3  | @t4 := @t1+@t2+@t3 |</span><br><span class="line">+------+------+------+--------------------+</span><br><span class="line">|    1 |    2 |    4 |                  7 |</span><br><span class="line">+------+------+------+--------------------+</span><br></pre></td></tr></table></figure>
+<h1 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h1><ul>
 <li><p>查询系统变量</p>
 <pre><code>select @@character_set_server;
 </code></pre></li>
@@ -122,7 +124,10 @@
 </code></pre></li>
 </ul>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/user-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/user-variables.html</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/set-variable.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/set-variable.html</a></li>
 <li><a href="http://dev.mysql.com/doc/refman/5.7/en/show-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/show-variables.html</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html</a></li>
 </ol>
 	  
 	</div>
@@ -178,7 +183,7 @@
   <h2 class="title">留言</h2>
 
   
-  	 <div class="ds-thread" data-thread-key="2015/11/02/mysql-系统变量/" data-title="mysql-系统变量" data-url="https://qianchenglong.github.io/2015/11/02/mysql-系统变量/"></div>  
+  	 <div class="ds-thread" data-thread-key="2015/11/02/mysql-变量/" data-title="mysql-系统变量" data-url="https://qianchenglong.github.io/2015/11/02/mysql-变量/"></div>  
   
 </section>
 

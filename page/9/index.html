@@ -443,7 +443,14 @@
 <h2 id="要点-1"><a href="#要点-1" class="headerlink" title="要点"></a>要点</h2><ul>
 <li>条件表达式中有<code>singed</code>和’unsigned’时，<code>singed</code>会转化为<code>unsinged</code>(对应类型的模运算值，如1B的-1转换为255)</li>
 </ul>
-<h1 id="显式类型转换-C-风格转换"><a href="#显式类型转换-C-风格转换" class="headerlink" title="显式类型转换(C++风格转换)"></a>显式类型转换(C++风格转换)</h1><h2 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h2><ul>
+<h1 id="显式类型转换-C-风格转换"><a href="#显式类型转换-C-风格转换" class="headerlink" title="显式类型转换(C++风格转换)"></a>显式类型转换(C++风格转换)</h1><p>优点：</p>
+<ol>
+<li><p>意图更加明确，编译器可以提供更准确地检查，尽可能早地发现错误</p>
+</li>
+<li><p>利于代码阅读和工具检索</p>
+</li>
+</ol>
+<h2 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h2><ul>
 <li><p>编译期内</p>
 </li>
 <li><p>使用隐式类型转换或用户自定义转换</p>
@@ -482,12 +489,13 @@
 <h2 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a><code>dynamic_cast</code></h2><ul>
 <li><p>运行期内转换</p>
 </li>
-<li><p>提供类型安全检查</p>
+<li><p>提供类型安全检查，可以知道转换是否成功</p>
 </li>
 <li><p>最耗时</p>
 </li>
 </ul>
 <p>用途：</p>
+<p>在同一个继承体系(<strong>带有虚函数表的</strong>)中进行类型转换</p>
 <ul>
 <li><p>子类向基类的向上转型(Up Cast)</p>
 </li>
@@ -496,10 +504,6 @@
 <li><p>横向转型(Cross Cast)</p>
 </li>
 </ul>
-<p><strong>注</strong>:</p>
-<ol>
-<li>尽量不使用C风格类型转换，因为不利于代码阅读和工具检索，而且相对于C++风格，缺少安全性控制(编译器检查)</li>
-</ol>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li>C++ Primer 5.12</li>
 <li>C++程序设计语言 6.2.7</li>
@@ -819,45 +823,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
 		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
+			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
 		
-			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql/">mysql<span>34</span></a></li>
+			<li><a href="/tags/net/">net<span>2</span></a></li>
 		
-			<li><a href="/tags/后台/">后台<span>6</span></a></li>
+			<li><a href="/tags/bash/">bash<span>1</span></a></li>
 		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
+			<li><a href="/tags/T/">_T<span>1</span></a></li>
 		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
 		
-			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+			<li><a href="/tags/extern/">extern<span>1</span></a></li>
 		
-			<li><a href="/tags/时间/">时间<span>2</span></a></li>
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
 		
-			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>577</span></a></li>

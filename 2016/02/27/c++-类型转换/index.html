@@ -155,7 +155,14 @@
 <h2 id="要点-1"><a href="#要点-1" class="headerlink" title="要点"></a>要点</h2><ul>
 <li>条件表达式中有<code>singed</code>和’unsigned’时，<code>singed</code>会转化为<code>unsinged</code>(对应类型的模运算值，如1B的-1转换为255)</li>
 </ul>
-<h1 id="显式类型转换-C-风格转换"><a href="#显式类型转换-C-风格转换" class="headerlink" title="显式类型转换(C++风格转换)"></a>显式类型转换(C++风格转换)</h1><h2 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h2><ul>
+<h1 id="显式类型转换-C-风格转换"><a href="#显式类型转换-C-风格转换" class="headerlink" title="显式类型转换(C++风格转换)"></a>显式类型转换(C++风格转换)</h1><p>优点：</p>
+<ol>
+<li><p>意图更加明确，编译器可以提供更准确地检查，尽可能早地发现错误</p>
+</li>
+<li><p>利于代码阅读和工具检索</p>
+</li>
+</ol>
+<h2 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h2><ul>
 <li><p>编译期内</p>
 </li>
 <li><p>使用隐式类型转换或用户自定义转换</p>
@@ -194,12 +201,13 @@
 <h2 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a><code>dynamic_cast</code></h2><ul>
 <li><p>运行期内转换</p>
 </li>
-<li><p>提供类型安全检查</p>
+<li><p>提供类型安全检查，可以知道转换是否成功</p>
 </li>
 <li><p>最耗时</p>
 </li>
 </ul>
 <p>用途：</p>
+<p>在同一个继承体系(<strong>带有虚函数表的</strong>)中进行类型转换</p>
 <ul>
 <li><p>子类向基类的向上转型(Up Cast)</p>
 </li>
@@ -208,10 +216,6 @@
 <li><p>横向转型(Cross Cast)</p>
 </li>
 </ul>
-<p><strong>注</strong>:</p>
-<ol>
-<li>尽量不使用C风格类型转换，因为不利于代码阅读和工具检索，而且相对于C++风格，缺少安全性控制(编译器检查)</li>
-</ol>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li>C++ Primer 5.12</li>
 <li>C++程序设计语言 6.2.7</li>

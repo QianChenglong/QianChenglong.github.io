@@ -111,6 +111,56 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-09-01 </div>
+			<div class="article-title"><a href="/2016/09/01/判断库是否带有调试信息/" >source\_posts\判断库是否带有调试信息</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="通过查看符号表中是否带有调试信息"><a href="#通过查看符号表中是否带有调试信息" class="headerlink" title="通过查看符号表中是否带有调试信息"></a>通过查看符号表中是否带有调试信息</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug-true (dev)&gt; nm --debug-syms libmysqlclient.so|grep <span class="string">"\.debug_info"</span></span><br><span class="line">0000000000000000 N .debug_info</span><br></pre></td></tr></table></figure>
+<h1 id="通过file"><a href="#通过file" class="headerlink" title="通过file"></a>通过<code>file</code></h1><p><code>not stripped</code> =&gt; Debug<br><code>stripped</code> =&gt; Release</p>
+<h2 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug (dev)&gt; file libmysqlclient.so</span><br><span class="line">libmysqlclient.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=0xdb01cca2e0dba437512a3066296c995de3e2db72, not stripped</span><br></pre></td></tr></table></figure>
+<h2 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug (dev)&gt; ar t libmysqlclient.a client.c.o</span><br><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug (dev)&gt; ar x libmysqlclient.a client.c.o</span><br><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug (dev)&gt; file client.c.o</span><br><span class="line">client.c.o: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://unix.stackexchange.com/questions/2969/what-are-stripped-and-not-stripped-executables-in-unix" target="_blank" rel="external">http://unix.stackexchange.com/questions/2969/what-are-stripped-and-not-stripped-executables-in-unix</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/01/判断库是否带有调试信息/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-08-31 </div>
+			<div class="article-title"><a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" >hash为什么最好使用素数来作为桶大小</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>如何使用合数的的话？产生冲突的概率更大！如10=2*5（合数本身的性质）</p>
+
+	
+	</div>
+  <a type="button" href="/2016/08/31/hash为什么最好使用素数来作为桶大小/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-08-31 </div>
 			<div class="article-title"><a href="/2016/08/31/名人堂/" >名人堂</a></div>						
 		</h3>
@@ -495,91 +545,6 @@ git reset --hard origin/master
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-28 </div>
-			<div class="article-title"><a href="/2016/05/28/C++-pointer-to-char/" >C++-pointer-to-char</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="两层含义"><a href="#两层含义" class="headerlink" title="两层含义"></a>两层含义</h1><ul>
-<li><p>C风格字符串(<code>\0</code>结尾)，当使用这种语义时，只需传入该值即可。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_as_string</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s)</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字节数组(内容中可能包含<code>\0</code>)，当使用此种语义时，还需传入长度</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_as_hex</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s, size_t len)</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/05/28/C++-pointer-to-char/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-28 </div>
-			<div class="article-title"><a href="/2016/05/28/C++-StringPiece/" >C++-StringPiece</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
-<li><p>很多时候，当传入一个字符串到函数时，往往只是读取字符串时</p>
-</li>
-<li><p>若使用<code>std::string</code>，当实参为<code>const char *</code>时，会<strong>分配内存并拷贝</strong>该字符串以生成一个<code>std::string</code></p>
-</li>
-<li><p>当一个函数接受一个<code>const std::string</code>，而在该函数内部，又需要传递该值到另一个函数，则又需要重新生成一个<code>std::string</code></p>
-</li>
-</ul>
-<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><ul>
-<li><p>当某个接口参数是接受字符串类型时，为了减少不必要的开销</p>
-</li>
-<li><p>该类型可以接受<code>const char *</code>，<code>std::string</code>，减少冗余代码编写</p>
-</li>
-</ul>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p><code>StringPiece(google), StringRef(llvm), string_ref(boost)</code>，本质名，<code>non-owning reference to a string</code></p>
-</li>
-<li><p>通过隐式转换，方便地从<code>const char*, std::string</code>转换到此类型</p>
-</li>
-<li><p>该类通过保存字符串指针和长度，来避免不必要的复制</p>
-</li>
-<li><p>只支持非修改操作</p>
-</li>
-<li><p>开销很低，只需要<code>sizeof(const char*) + sizeof(size_t)</code>字节</p>
-</li>
-<li><p>支持所有的类容器操作</p>
-</li>
-<li><p>因为<code>StringPiece</code>不拥有数据，所以确保在<code>StringPiece</code>生命期内，该数据可用</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3442.html" target="_blank" rel="external">N3442: string_ref: a non-owning reference to a string.</a></li>
-<li><a href="http://www.boost.org/doc/libs/1_60_0/libs/utility/doc/html/string_ref.html" target="_blank" rel="external">http://www.boost.org/doc/libs/1_60_0/libs/utility/doc/html/string_ref.html</a></li>
-<li><a href="http://stackoverflow.com/questions/2172726/are-there-any-reasons-why-the-stringpiece-stringref-idiom-is-not-more-popular" target="_blank" rel="external">http://stackoverflow.com/questions/2172726/are-there-any-reasons-why-the-stringpiece-stringref-idiom-is-not-more-popular</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/05/28/C++-StringPiece/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -885,48 +850,48 @@ git reset --hard origin/master
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
 		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
-			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/命令/">命令<span>5</span></a></li>
+			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
 		
-			<li><a href="/tags/base64/">base64<span>1</span></a></li>
+			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
 		
-			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/dns/">dns<span>1</span></a></li>
 		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
 		
-			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
 		
-			<li><a href="/tags/vim/">vim<span>23</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
-			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
 		
-			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
 		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
 		
-			<li><a href="/tags/c99/">c99<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -939,6 +904,14 @@ git reset --hard origin/master
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -948,14 +921,6 @@ git reset --hard origin/master
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

@@ -111,6 +111,68 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-02-18 </div>
+			<div class="article-title"><a href="/2016/02/18/tcp/" >tcp</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="首部"><a href="#首部" class="headerlink" title="首部"></a>首部</h1><ul>
+<li><p>PSH(push)</p>
+<p>置位后，数据立马发送，而不是填充到缓冲区等待发送</p>
+</li>
+<li><p>窗口值</p>
+<p>报文发送方的<strong>接收缓冲区</strong>大小(tcp是双工的)，允许对方发送的最大数据量</p>
+</li>
+</ul>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ol>
+<li><p>3次握手中，为什么客户端最后还需要确认一次？</p>
+<p>为了防止服务端响应了已失效的连接请求报文。</p>
+<p>假设没有再次确认，当客户端发出一次连接请求时，由于某种原因，该报文被滞留。<br>后续客户端又重新发送报文，与服务端建立了连接。<br>而此时服务端收到了之前的连接请求报文，又建立了连接，此时便导致错误。</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/02/18/tcp/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-01-18 </div>
+			<div class="article-title"><a href="/2016/01/18/电影网站/" >电影网站</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="http://www.dytt8.net/" target="_blank" rel="external">电影天堂</a></p>
+</li>
+<li><p><a href="http://www.bttiantang.com/" target="_blank" rel="external">bit天堂</a></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/01/18/电影网站/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-01-15 </div>
 			<div class="article-title"><a href="/2016/01/15/linux-最大打开文件数/" >linux-最大打开文件数</a></div>						
 		</h3>
@@ -413,59 +475,6 @@
 	
 	</div>
   <a type="button" href="/2015/11/17/跨域共享/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-16 </div>
-			<div class="article-title"><a href="/2015/11/16/js-跨域/" >js-跨域</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域?"></a>什么是跨域?</h1><p>在了解什么是跨域问题之前,先需要了解<strong>同源策略</strong></p>
-<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h3 id="什么是同源"><a href="#什么是同源" class="headerlink" title="什么是同源?"></a>什么是同源?</h3><p>同源是指<strong>协议</strong>,<strong>域名</strong>,<strong>端口</strong>完全一致</p>
-<h3 id="为什么需要同源策略"><a href="#为什么需要同源策略" class="headerlink" title="为什么需要同源策略?"></a>为什么需要同源策略?</h3><p>为了信息安全,最基本的原则即同源的东西是安全的,除此之外都是不安全的.</p>
-<p>示例:</p>
-<p>一个中间层(代理服务器,路由网关,运营商等),通过IFrame把登录网银的页面嵌套起立,<br>里面加入了一段恶意代码,将用户的数据发送到指定位置.</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.jianshu.com/p/4e17445d66e2" target="_blank" rel="external">同源策略——浏览器的安全卫士</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/16/js-跨域/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-16 </div>
-			<div class="article-title"><a href="/2015/11/16/http-OPTIONS/" >http-OPTIONS</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><ul>
-<li>获取URL支持的HTTP请求方法</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/11/16/http-OPTIONS/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -774,48 +783,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
+			<li><a href="/tags/package/">package<span>4</span></a></li>
 		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
-		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
-		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
-		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
-		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
-		
-			<li><a href="/tags/arch/">arch<span>6</span></a></li>
-		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
-		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
-		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>6</span></a></li>
 		
 			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
+		
+			<li><a href="/tags/build/">build<span>1</span></a></li>
+		
+			<li><a href="/tags/时间/">时间<span>2</span></a></li>
+		
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+		
+			<li><a href="/tags/script/">script<span>1</span></a></li>
+		
+			<li><a href="/tags/date/">date<span>1</span></a></li>
+		
+			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
+		
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
 		
 			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
 		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+			<li><a href="/tags/exit/">exit<span>1</span></a></li>
 		
-			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
 		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+			<li><a href="/tags/str/">str<span>1</span></a></li>
+		
+			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -828,6 +837,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -837,14 +854,6 @@
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

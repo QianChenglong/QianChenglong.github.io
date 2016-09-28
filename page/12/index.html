@@ -112,6 +112,59 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-11-16 </div>
+			<div class="article-title"><a href="/2015/11/16/js-跨域/" >js-跨域</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域?"></a>什么是跨域?</h1><p>在了解什么是跨域问题之前,先需要了解<strong>同源策略</strong></p>
+<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h3 id="什么是同源"><a href="#什么是同源" class="headerlink" title="什么是同源?"></a>什么是同源?</h3><p>同源是指<strong>协议</strong>,<strong>域名</strong>,<strong>端口</strong>完全一致</p>
+<h3 id="为什么需要同源策略"><a href="#为什么需要同源策略" class="headerlink" title="为什么需要同源策略?"></a>为什么需要同源策略?</h3><p>为了信息安全,最基本的原则即同源的东西是安全的,除此之外都是不安全的.</p>
+<p>示例:</p>
+<p>一个中间层(代理服务器,路由网关,运营商等),通过IFrame把登录网银的页面嵌套起立,<br>里面加入了一段恶意代码,将用户的数据发送到指定位置.</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.jianshu.com/p/4e17445d66e2" target="_blank" rel="external">同源策略——浏览器的安全卫士</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/16/js-跨域/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-16 </div>
+			<div class="article-title"><a href="/2015/11/16/http-OPTIONS/" >http-OPTIONS</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><ul>
+<li>获取URL支持的HTTP请求方法</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/11/16/http-OPTIONS/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-16 </div>
 			<div class="article-title"><a href="/2015/11/16/http-head/" >http-head</a></div>						
 		</h3>
 	
@@ -371,101 +424,6 @@
 	
 	</div>
   <a type="button" href="/2015/11/03/mysql-多列排序/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-02 </div>
-			<div class="article-title"><a href="/2015/11/02/go-string/" >go-string</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>a string is in effect a read-only slice of bytes</p>
-</li>
-<li><p><code>string</code>可以存储任意的<code>bytes</code></p>
-</li>
-<li><p>字符串字面值是<code>utf-8</code>编码的,所以赋给<code>string</code>时,<code>string</code>存储的也是<code>utf-8</code>编码序列</p>
-</li>
-<li><p><code>使用range</code>得到的是字符(<code>rune</code>)序列</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _, b := <span class="keyword">range</span> str &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%T,%v\n"</span>, b, b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用<code>for</code>迭代,来访问<code>utf-8</code>字节(<code>byte</code>)</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(str); i++ &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%v:%T, %v\n"</span>, i, str[i], str[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>rune</code>的意思的<code>code point</code>(unicode码元), 底层类型为<code>int32</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://blog.golang.org/strings" target="_blank" rel="external">https://blog.golang.org/strings</a></li>
-<li><a href="http://golanghome.com/post/207" target="_blank" rel="external">http://golanghome.com/post/207</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/02/go-string/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-02 </div>
-			<div class="article-title"><a href="/2015/11/02/大小端/" >大小端</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>字节序是一个处理器架构特性。</p>
-<p>对于多字节数据，存在一个数据的字节安排问题(大小端)。</p>
-<p>大小端取决与CPU架构，X86:小端，KEIL-C51:大端</p>
-<h1 id="记忆方式"><a href="#记忆方式" class="headerlink" title="记忆方式"></a>记忆方式</h1><ul>
-<li>大端 &lt;=&gt; 字符串顺序</li>
-</ul>
-<h1 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h1><p>例：0x11223344(4B)在内存中存放时</p>
-<h2 id="大端："><a href="#大端：" class="headerlink" title="大端："></a>大端：</h2><p>数据的高位字节放在内存低地址，也就是说数据由高位字节向低位字节在内存中存放，<br>类似于字符串的存放，按照从左向右的顺序存放.</p>
-<pre><code>内存：0  1  2  3
-      11 22 33 44
-</code></pre><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
-<li>直接在内存中观察方便</li>
-</ol>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
-<li><p>不符合逻辑</p>
-</li>
-<li><p>不利于编码，解码</p>
-</li>
-</ol>
-<h2 id="小端："><a href="#小端：" class="headerlink" title="小端："></a>小端：</h2><p>数据的高位字节放在内存高地址，也就是数据从低位字节向高位字节在内存中存放</p>
-<pre><code>内存：0  1  2  3
-      44 33 22 11
-</code></pre><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ol>
-<li>这种存放方式比较符合逻辑</li>
-<li>利于读入时的解码(转换成对应数据类型的值)，如int i = 0x11223344，按ANSI<br>存放在文件中，再次读入时，需要根据ASCII码把对应的值转换成int型，容易处理，因为先<br>读入的是低位字节</li>
-</ol>
-<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ol>
-<li>直接在内存中观察时，不方便</li>
-</ol>
-<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><ol>
-<li>以上数字都是十六进制形式；</li>
-<li>假设变量地址为0</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/02/大小端/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -774,48 +732,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/redis/">redis<span>6</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
+			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
 		
-			<li><a href="/tags/博客/">博客<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+		
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+		
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+		
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
+		
+			<li><a href="/tags/variable/">variable<span>1</span></a></li>
+		
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
+		
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+		
+			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+		
+			<li><a href="/tags/10014/">10014<span>1</span></a></li>
 		
 			<li><a href="/tags/script/">script<span>1</span></a></li>
 		
-			<li><a href="/tags/import/">import<span>3</span></a></li>
+			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/python3/">python3<span>2</span></a></li>
 		
-			<li><a href="/tags/linux/">linux<span>39</span></a></li>
-		
-			<li><a href="/tags/tags/">tags<span>1</span></a></li>
-		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
-		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
-		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
-		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
-		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
-		
-			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
-		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -828,6 +786,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -837,14 +803,6 @@
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

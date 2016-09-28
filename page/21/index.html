@@ -111,6 +111,67 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-08-15 </div>
+			<div class="article-title"><a href="/2015/08/15/systemd-coredump/" >systemd-coredump</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查看core文件</p>
+<pre><code>coredumpctl list
+</code></pre></li>
+<li><p>导出core文件</p>
+<pre><code>coredumpctl -o core dump PID
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/15/systemd-coredump/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-15 </div>
+			<div class="article-title"><a href="/2015/08/15/使用coredump调试/" >使用coredump调试</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>打开coredump生成功能</p>
+<pre><code>ulimit -c unlimited
+</code></pre></li>
+<li><p>查看core文件位置</p>
+<pre><code>cat /proc/sys/kernel/core_pattern
+</code></pre></li>
+<li><p>使用gdb调试</p>
+<pre><code>gdb -c core文件 程序
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/08/15/使用coredump调试/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-08-14 </div>
 			<div class="article-title"><a href="/2015/08/14/pthread/" >pthread</a></div>						
 		</h3>
@@ -337,75 +398,6 @@
 	
 	</div>
   <a type="button" href="/2015/08/05/netstat/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-05 </div>
-			<div class="article-title"><a href="/2015/08/05/mod_fcgid/" >mod_fcgid</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="通信机制"><a href="#通信机制" class="headerlink" title="通信机制"></a>通信机制</h1><p>unix域套接字</p>
-<pre><code>netstat -lxnp
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/08/05/mod_fcgid/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-05 </div>
-			<div class="article-title"><a href="/2015/08/05/linux-管道/" >linux-管道</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h1><ul>
-<li><p>只能在具有亲缘关系的进程间使用</p>
-</li>
-<li><p>历史上,都是半双工的</p>
-</li>
-</ul>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>对管道写,不大于PIPE_BUF(<code>/usr/include/linux/limits.h</code> =&gt; 4K)时,可以保证不会与其他进程的写操作穿插(原子写)</li>
-</ul>
-<h1 id="与普通文件差异"><a href="#与普通文件差异" class="headerlink" title="与普通文件差异"></a>与普通文件差异</h1><ul>
-<li><p>管道的缓冲区固定大小(4K),不会像文件一样无限增长</p>
-<ul>
-<li>当管道满时,调用write会被阻塞</li>
-<li>当管道空时,调用read也会被阻塞</li>
-</ul>
-</li>
-<li><p>管道读是一次性的,一旦被读,就被丢弃</p>
-</li>
-</ul>
-<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>在Linux中，管道的实现并没有使用专门的数据结构，而是借助了文件系统的file结构和VFS的索引节点inode。<br>通过将两个 file 结构指向同一个临时的 VFS 索引节点，而这个 VFS 索引节点又指向一个物理页面而实现的。</p>
-<p><img src="../img/管道_01.png" alt=""></p>
-<p>图中有两个 file 数据结构，但它们定义文件操作例程地址是不同的.<br>其中一个是向管道中写入数据的例程地址，而另一个是从管道中读出数据的例程地址。<br>这样，用户程序的系统调用仍然是通常的文件操作，而内核却利用这种抽象机制实现了管道这一特殊操作。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://oss.org.cn/kernel-book/ch07/7.1.1.htm" target="_blank" rel="external">http://oss.org.cn/kernel-book/ch07/7.1.1.htm</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/08/05/linux-管道/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -714,48 +706,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
+			<li><a href="/tags/script/">script<span>1</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
 		
-			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
 		
-			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
-			<li><a href="/tags/gcc/">gcc<span>5</span></a></li>
+			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
 		
-			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
+			<li><a href="/tags/centos/">centos<span>12</span></a></li>
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/10014/">10014<span>1</span></a></li>
 		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
-			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
 		
-			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
+			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
 		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
+			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
 		
-			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/debug/">debug<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -768,6 +760,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -777,14 +777,6 @@
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

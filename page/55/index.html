@@ -111,6 +111,54 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/autohotkey获得粘贴板内容/" >autohotkey获得粘贴板内容</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">; 获取当前选中内容</span></span><br><span class="line">GetSelectText()</span><br><span class="line">&#123;</span><br><span class="line">    tmp = <span class="variable">%ClipBoard%</span> <span class="comment">; 保存原来内容</span></span><br><span class="line">    <span class="built_in">ClipBoard</span> = <span class="comment">; 清空粘贴板</span></span><br><span class="line">    Send, ^c <span class="comment">; 获取当前选中内容</span></span><br><span class="line">    Sleep, <span class="number">100</span> <span class="comment">; 确保操作成功</span></span><br><span class="line">    text = <span class="variable">%ClipBoard%</span></span><br><span class="line">    <span class="built_in">ClipBoard</span> = <span class="variable">%cmp%</span> <span class="comment">; 复原</span></span><br><span class="line">    <span class="keyword">return</span> text</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">msgbox <span class="variable">% GetSelectText()</span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/autohotkey获得粘贴板内容/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/软件设计原则资料/" >软件设计原则资料</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><a href="http://coolshell.cn/articles/4535.html" target="_blank" rel="external">一些软件设计的原则(酷壳)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/KISS_principle" target="_blank" rel="external">https://en.wikipedia.org/wiki/KISS_principle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank" rel="external">https://en.wikipedia.org/wiki/Don%27t_repeat_yourself</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/软件设计原则资料/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-06 </div>
 			<div class="article-title"><a href="/2015/01/06/虚拟网卡资料/" >虚拟网卡资料</a></div>						
 		</h3>
@@ -375,67 +423,6 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 	
 	</div>
   <a type="button" href="/2014/12/26/tuple/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-26 </div>
-			<div class="article-title"><a href="/2014/12/26/python命令行选项/" >python命令行选项</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>-B</p>
-<p>不生成<code>__pycache__</code>文件夹</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/26/python命令行选项/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-26 </div>
-			<div class="article-title"><a href="/2014/12/26/python-安装setuptools/" >python-安装setuptools</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p><a href="https://pypi.python.org/pypi/setuptools" target="_blank" rel="external">官网链接</a></p>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
-<li><p>下载<a href="https://bootstrap.pypa.io/ez_setup.py" target="_blank" rel="external">ez_setup.py</a></p>
-</li>
-<li><p>使用目标<code>python</code>运行<code>ez_setup.py</code></p>
-<pre><code>python ez_setup.py
-</code></pre></li>
-<li><p>添加<code>C:\Python27\Scripts</code>到环境变量<code>PATH</code>中</p>
-</li>
-</ul>
-<p>注：</p>
-<ol>
-<li>win下安装可能出现错误：<code>UnicodeDecodeError &#39;ascii&#39; codec can&#39;t decode byte</code>，<a href="/res/setuptools-error.pdf">请参考这里解决</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/26/python-安装setuptools/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -744,48 +731,48 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
 		
-			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/time/">time<span>2</span></a></li>
 		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
+			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
 		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
+			<li><a href="/tags/编程/">编程<span>5</span></a></li>
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/script/">script<span>1</span></a></li>
 		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
-		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
 			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
 		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
+			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/django/">django<span>2</span></a></li>
 		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
+			<li><a href="/tags/api/">api<span>1</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>38</span></a></li>
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+		
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -798,6 +785,14 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -807,14 +802,6 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

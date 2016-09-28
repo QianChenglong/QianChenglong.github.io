@@ -111,6 +111,96 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-23 </div>
+			<div class="article-title"><a href="/2015/01/23/win下编译boost/" >win下编译boost</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>VS2010</li>
+<li>boost-1.57.0</li>
+</ul>
+<h1 id="编译Boost"><a href="#编译Boost" class="headerlink" title="编译Boost"></a>编译Boost</h1><ol>
+<li><p><a href="http://www.boost.org/" target="_blank" rel="external">官网</a>下载源码</p>
+</li>
+<li><p>解压文件</p>
+</li>
+<li><p>进入根目录</p>
+</li>
+<li><p>运行配置工具生成文件</p>
+<ul>
+<li><p>Windows:bootstap.bat</p>
+</li>
+<li><p>Linux:bootstrap.sh</p>
+</li>
+</ul>
+</li>
+<li><p>编译，安装</p>
+<ul>
+<li><p>VS2005</p>
+<pre><code>bjam --toolset=msvc-8.0 --prefix=D:\Boost_XXX --build-type=complete install
+</code></pre></li>
+<li><p>VS2008</p>
+<pre><code>bjam --toolset=msvc-9.0 --prefix=D:\Boost_XXX --build-type=complete install
+</code></pre></li>
+<li><p>VS2010</p>
+<pre><code>bjam --toolset=msvc-10.0 --prefix=D:\Boost_XXX --build-type=complete install
+</code></pre></li>
+<li><p>VS2012</p>
+<pre><code>bjam --toolset=msvc-11.0 --prefix=D:\Boost_XXX --build-type=complete install
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<p><strong>Note:</strong></p>
+<ul>
+<li><p>清除</p>
+<pre><code>bjam.exe --clean
+</code></pre></li>
+</ul>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ol>
+<li><p>配置IDE</p>
+<p><img src="/img/win下编译boost-01.png" alt="头文件"><br><img src="/img/win下编译boost-02.png" alt="库文件"></p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/23/win下编译boost/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-22 </div>
+			<div class="article-title"><a href="/2015/01/22/gtest-输出xml/" >gtest-输出xml</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>test.exe  --gtest_output=&quot;xml:report.xml&quot;
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/01/22/gtest-输出xml/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-22 </div>
 			<div class="article-title"><a href="/2015/01/22/gtest-xml彩色显示/" >gtest-xml彩色显示</a></div>						
 		</h3>
@@ -327,59 +417,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/21/cmake-定义全局变量/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-21 </div>
-			<div class="article-title"><a href="/2015/01/21/提高程序健壮性的几种办法/" >提高程序健壮性的几种办法</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="局部变量初始化"><a href="#局部变量初始化" class="headerlink" title="局部变量初始化"></a>局部变量初始化</h1><p>防止造成野指针，字符串越界，数组越界，非法访问等。</p>
-<h1 id="检查函数传入参数"><a href="#检查函数传入参数" class="headerlink" title="检查函数传入参数"></a>检查函数传入参数</h1><p>将错误的，不合法的输入阻止在最开始处</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
-<li>C中常用<code>assert</code>进行处理</li>
-</ul>
-<h1 id="检查函数的返回值，以便对函数出错进行处理"><a href="#检查函数的返回值，以便对函数出错进行处理" class="headerlink" title="检查函数的返回值，以便对函数出错进行处理"></a>检查函数的返回值，以便对函数出错进行处理</h1><h1 id="释放指针后，指针置NULL"><a href="#释放指针后，指针置NULL" class="headerlink" title="释放指针后，指针置NULL"></a>释放指针后，指针置NULL</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.codeproject.com/Articles/216077/Making-Your-Cplusplus-Code-Robust" target="_blank" rel="external">http://www.codeproject.com/Articles/216077/Making-Your-Cplusplus-Code-Robust</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/21/提高程序健壮性的几种办法/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-21 </div>
-			<div class="article-title"><a href="/2015/01/21/编程经典语句/" >编程经典语句</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>异常处理不是bug fix</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/21/编程经典语句/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -688,48 +725,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
 		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
 		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
+			<li><a href="/tags/串口/">串口<span>2</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
+			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+			<li><a href="/tags/string/">string<span>8</span></a></li>
 		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
+			<li><a href="/tags/net/">net<span>2</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/mysql/">mysql<span>35</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
-			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
+			<li><a href="/tags/import/">import<span>3</span></a></li>
 		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -742,6 +779,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -751,14 +796,6 @@
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

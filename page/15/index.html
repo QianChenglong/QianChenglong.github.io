@@ -111,6 +111,78 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-20 </div>
+			<div class="article-title"><a href="/2015/10/20/mysql-datetime/" >mysql-datetime</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p>mysql中有<code>DATE, TIME, DATETIME, TIMESTAMP, YEAR</code>5种时间类型</p>
+</li>
+<li><p>时间类型的零值<code>0000-00-00 00:00:00</code></p>
+</li>
+<li><p>mysql输出时间值时,默认为标准格式<code>2006-01-02 15:04:05</code></p>
+</li>
+<li><p>mysql读入时间值时(赋值, 比较等操作),会尝试转换各种值如<code>整数20151020</code>, <code>&quot;2015-10-20&quot;</code>等(<a href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-literals.html" target="_blank" rel="external">详见</a>)</p>
+</li>
+</ol>
+<h1 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h1><ol>
+<li><p>格式化时间值</p>
+<pre><code>select date_format(&apos;2015-10-20 16:00:04&apos;, &quot;%Y%m&quot;);
+</code></pre></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-literals.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.5/en/date-and-time-literals.html</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.5/en/storage-requirements.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.5/en/storage-requirements.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/20/mysql-datetime/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/http-content-encoding/" >http-content-encoding</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>用来说明内容编码</li>
+</ul>
+<h1 id="常见值"><a href="#常见值" class="headerlink" title="常见值"></a>常见值</h1><ul>
+<li><p>gzip(用于文本压缩传输)</p>
+</li>
+<li><p>MIME</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/10/19/http-content-encoding/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-19 </div>
 			<div class="article-title"><a href="/2015/10/19/http/" >http</a></div>						
 		</h3>
@@ -398,67 +470,6 @@ PATH+=%GOPATH%\bin
 	
 	</div>
   <a type="button" href="/2015/10/14/go-windows环境搭建/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-14 </div>
-			<div class="article-title"><a href="/2015/10/14/vim-go/" >vim-go</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="https://github.com/fatih/vim-go" target="_blank" rel="external">vim-go</a></p>
-<p>集成了众多go插件</p>
-</li>
-<li><p><a href="https://github.com/golang/lint" target="_blank" rel="external">lint</a></p>
-<p>代码质量检查</p>
-</li>
-<li><p><a href="https://github.com/jstemmer/gotags" target="_blank" rel="external">gotags</a></p>
-<p>生成tag文件</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/10/14/vim-go/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-13 </div>
-			<div class="article-title"><a href="/2015/10/13/go-gorilla-rpc/" >go-gorilla-rpc</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h1><ol>
-<li>外部接口</li>
-</ol>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s := rpc.NewServer() <span class="comment">// 定义一个rpc server</span></span><br><span class="line"></span><br><span class="line">s.RegisterCodec(json2.NewCustomCodec(&amp;rpc.CompressionSelector&#123;&#125;), <span class="string">"application/json"</span>)</span><br><span class="line"><span class="comment">// 定义一个codec(用来响应请求)</span></span><br><span class="line"><span class="comment">// 为rpc注册(当收到的http,`Content-Type`为`application/json`时,调用该codec响应处理)</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://github.com/gorilla/rpc" target="_blank" rel="external">https://github.com/gorilla/rpc</a></li>
-<li><a href="http://www.gorillatoolkit.org/pkg/rpc" target="_blank" rel="external">http://www.gorillatoolkit.org/pkg/rpc</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/13/go-gorilla-rpc/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -767,48 +778,48 @@ PATH+=%GOPATH%\bin
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
-			<li><a href="/tags/理解/">理解<span>1</span></a></li>
+			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
 		
-			<li><a href="/tags/macro/">macro<span>4</span></a></li>
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
 		
-			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+			<li><a href="/tags/父类/">父类<span>2</span></a></li>
 		
-			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/string/">string<span>8</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
-			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
+			<li><a href="/tags/mysql/">mysql<span>35</span></a></li>
 		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
 		
-			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
+			<li><a href="/tags/nging/">nging<span>1</span></a></li>
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/gcc/">gcc<span>5</span></a></li>
 		
-			<li><a href="/tags/yed/">yed<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
 		
-			<li><a href="/tags/log/">log<span>1</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/curses/">curses<span>2</span></a></li>
 		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>3</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>8</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -821,6 +832,14 @@ PATH+=%GOPATH%\bin
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -830,14 +849,6 @@ PATH+=%GOPATH%\bin
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

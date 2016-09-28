@@ -111,6 +111,67 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-29 </div>
+			<div class="article-title"><a href="/2015/10/29/scp/" >scp</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><pre><code>scp [参数] [原路径] [目标路径]
+</code></pre><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>拷贝远程文件到本地</p>
+<pre><code>scp wallace@192.168.1.1:/opt/a .
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/10/29/scp/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-28 </div>
+			<div class="article-title"><a href="/2015/10/28/go-pointer/" >go-pointer</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>在访问<code>filed</code>时,<code>pointer to struct</code>会自动解引用</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> person <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line">p := &amp;person&#123;<span class="string">"a"</span>&#125;</span><br><span class="line">p.name <span class="comment">// &lt;=&gt; (*p).name</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在调用<code>method</code>时,<code>struct</code>(<code>reciver</code>)会自动转换(取地址,解引用)</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Dog <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (d Dog) Bite(target <span class="keyword">string</span>) &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%v bite %v\n"</span>, d.name, target)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (d *Dog) Drink(target <span class="keyword">string</span>) &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%v drink %v\n"</span>, d.name, target)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> main() &#123;</span><br><span class="line">    a := Dog&#123;<span class="string">"a"</span>&#125;</span><br><span class="line">    b := &amp;Dog&#123;<span class="string">"b"</span>&#125;</span><br><span class="line">    a.Bite(<span class="string">"b"</span>)</span><br><span class="line">    b.Bite(<span class="string">"a"</span>) <span class="comment">// &lt;=&gt; (*b).Bite("a")</span></span><br><span class="line"></span><br><span class="line">    a.Drink(<span class="string">"water"</span>) <span class="comment">// &lt;=&gt; (&amp;a).Drink("water")</span></span><br><span class="line">    b.Drink(<span class="string">"beer"</span>)  <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>function</code>参数不会转换</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/20849751/rule-for-go-pointers-references-dereferencing" target="_blank" rel="external">http://stackoverflow.com/questions/20849751/rule-for-go-pointers-references-dereferencing</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/28/go-pointer/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-28 </div>
 			<div class="article-title"><a href="/2015/10/28/go-make/" >go-make</a></div>						
 		</h3>
@@ -380,78 +441,6 @@
 	
 	</div>
   <a type="button" href="/2015/10/20/go-windows下科学上网/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-20 </div>
-			<div class="article-title"><a href="/2015/10/20/mysql-datetime/" >mysql-datetime</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p>mysql中有<code>DATE, TIME, DATETIME, TIMESTAMP, YEAR</code>5种时间类型</p>
-</li>
-<li><p>时间类型的零值<code>0000-00-00 00:00:00</code></p>
-</li>
-<li><p>mysql输出时间值时,默认为标准格式<code>2006-01-02 15:04:05</code></p>
-</li>
-<li><p>mysql读入时间值时(赋值, 比较等操作),会尝试转换各种值如<code>整数20151020</code>, <code>&quot;2015-10-20&quot;</code>等(<a href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-literals.html" target="_blank" rel="external">详见</a>)</p>
-</li>
-</ol>
-<h1 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h1><ol>
-<li><p>格式化时间值</p>
-<pre><code>select date_format(&apos;2015-10-20 16:00:04&apos;, &quot;%Y%m&quot;);
-</code></pre></li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html</a></li>
-<li><a href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html</a></li>
-<li><a href="https://dev.mysql.com/doc/refman/5.5/en/date-and-time-literals.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.5/en/date-and-time-literals.html</a></li>
-<li><a href="https://dev.mysql.com/doc/refman/5.5/en/storage-requirements.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.5/en/storage-requirements.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/20/mysql-datetime/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-19 </div>
-			<div class="article-title"><a href="/2015/10/19/http-content-encoding/" >http-content-encoding</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>用来说明内容编码</li>
-</ul>
-<h1 id="常见值"><a href="#常见值" class="headerlink" title="常见值"></a>常见值</h1><ul>
-<li><p>gzip(用于文本压缩传输)</p>
-</li>
-<li><p>MIME</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/10/19/http-content-encoding/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -760,48 +749,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
 		
-			<li><a href="/tags/c/">c<span>7</span></a></li>
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/git/">git<span>7</span></a></li>
 		
-			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
+			<li><a href="/tags/select/">select<span>1</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
 		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/final/">final<span>1</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+			<li><a href="/tags/ip/">ip<span>2</span></a></li>
 		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
 		
-			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
-		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
-		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
 			<li><a href="/tags/od/">od<span>1</span></a></li>
 		
-			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
+			<li><a href="/tags/net/">net<span>2</span></a></li>
 		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
 		
-			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
+		
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
+		
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -814,6 +803,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -823,14 +820,6 @@
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

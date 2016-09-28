@@ -111,6 +111,72 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-09-27 </div>
+			<div class="article-title"><a href="/2016/09/27/vim-gocode/" >vim-gocode</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>安装</p>
+<pre><code>mklink /d E:\Soft\Vim\setting\.vim\bundle\gocode E:\Soft\go\gopath\src\github.com\nsf\gocode\vim
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/27/vim-gocode/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-09-27 </div>
+			<div class="article-title"><a href="/2016/09/27/mysql-查看查询日志/" >mysql-查看查询日志</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>修改配置文件</p>
+<pre><code>sudo vim /etc/my.cnf
+
+general_log=1
+general_log_file=/var/log/mysql/mysql.log
+</code></pre></li>
+<li><p>创建相应文件</p>
+<pre><code>mkdir -p /var/log/mysql/
+touch /var/log/mysql/mysql.log
+chmod 666 /var/log/mysql/mysql.log
+</code></pre></li>
+<li><p>重启mysql</p>
+<pre><code>sudo systemctl restart mysqld
+</code></pre></li>
+<li><p>查看</p>
+<pre><code>tail -F /var/log/mysql/mysql.log
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/27/mysql-查看查询日志/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-09-18 </div>
 			<div class="article-title"><a href="/2016/09/18/C++-变量/" >C++-变量</a></div>						
 		</h3>
@@ -385,56 +451,6 @@
 	
 	</div>
   <a type="button" href="/2016/09/02/gcc-生成可以宏调试信息/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-01 </div>
-			<div class="article-title"><a href="/2016/09/01/判断库是否带有调试信息/" >source\_posts\判断库是否带有调试信息</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="通过查看符号表中是否带有调试信息"><a href="#通过查看符号表中是否带有调试信息" class="headerlink" title="通过查看符号表中是否带有调试信息"></a>通过查看符号表中是否带有调试信息</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug-true (dev)&gt; nm --debug-syms libmysqlclient.so|grep <span class="string">"\.debug_info"</span></span><br><span class="line">0000000000000000 N .debug_info</span><br></pre></td></tr></table></figure>
-<h1 id="通过file"><a href="#通过file" class="headerlink" title="通过file"></a>通过<code>file</code></h1><p><code>not stripped</code> =&gt; Debug<br><code>stripped</code> =&gt; Release</p>
-<h2 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug (dev)&gt; file libmysqlclient.so</span><br><span class="line">libmysqlclient.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=0xdb01cca2e0dba437512a3066296c995de3e2db72, not stripped</span><br></pre></td></tr></table></figure>
-<h2 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug (dev)&gt; ar t libmysqlclient.a client.c.o</span><br><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug (dev)&gt; ar x libmysqlclient.a client.c.o</span><br><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug (dev)&gt; file client.c.o</span><br><span class="line">client.c.o: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://unix.stackexchange.com/questions/2969/what-are-stripped-and-not-stripped-executables-in-unix" target="_blank" rel="external">http://unix.stackexchange.com/questions/2969/what-are-stripped-and-not-stripped-executables-in-unix</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/01/判断库是否带有调试信息/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-08-31 </div>
-			<div class="article-title"><a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" >hash为什么最好使用素数来作为桶大小</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>如何使用合数的的话？产生冲突的概率更大！如10=2*5（合数本身的性质）</p>
-
-	
-	</div>
-  <a type="button" href="/2016/08/31/hash为什么最好使用素数来作为桶大小/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -743,48 +759,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/api/">api<span>1</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
+			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
 		
-			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
+			<li><a href="/tags/固件/">固件<span>1</span></a></li>
 		
-			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
-			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
+			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
 		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/macro/">macro<span>4</span></a></li>
+			<li><a href="/tags/链表/">链表<span>1</span></a></li>
 		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
 		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
 		
-			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
+			<li><a href="/tags/alias/">alias<span>1</span></a></li>
 		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
+			<li><a href="/tags/IP/">IP<span>4</span></a></li>
 		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
 		
-			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
-			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
 		
-			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -797,6 +813,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -806,14 +830,6 @@
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

@@ -111,6 +111,116 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-18 </div>
+			<div class="article-title"><a href="/2015/06/18/sort/" >sort</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><p>sort将文件的每一行作为一个单位，相互比较，比较原则是从首字符向后，依次按ASCII码值进行比较，最后将他们按升序输出。</p>
+<h1 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h1><ul>
+<li><p>-b</p>
+<p>忽略前导空白</p>
+</li>
+<li><p>-d</p>
+<p>用来排序目录，只考虑空白符和字符？</p>
+</li>
+<li><p>-n</p>
+<p>根据字符串形式对应的数字排序</p>
+</li>
+<li><p>-h</p>
+<p>根据易读格式排序，也就是使用了B,K,M等</p>
+</li>
+<li><p>-r</p>
+<p>结果逆序输出</p>
+</li>
+<li><p>-s</p>
+<p>稳定排序</p>
+</li>
+<li><p>-u</p>
+<p>去除键重复的记录</p>
+</li>
+<li><p>-o FILENAME</p>
+<p>输出到指定文件，避免重定向到同一文件时造成的内容截断</p>
+</li>
+<li><p>-t, –field-separator=SEP</p>
+<p>使用指定分隔符来分割记录</p>
+</li>
+<li><p>-k, –key=KEYDEF</p>
+<p>指定排序键，可以多次指定</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>按第3字段的数字值排序输出</p>
+<pre><code>cat /etc/passwd|sort -t&apos;:&apos; -n -k3,3 |less
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/18/sort/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-17 </div>
+			<div class="article-title"><a href="/2015/06/17/centos-安装virtualbox增强功能/" >centos-安装virtualbox增强功能</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>CentOS-7.0.1</p>
+</li>
+<li><p>VirtualBox-4.3.28</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>更新内核</p>
+<p>yum update kernel<br>reboot</p>
+</li>
+<li><p>安装依赖</p>
+<pre><code>rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
+</code></pre></li>
+<li><p>在虚拟机控制器中，添加<code>VBoxGuestAdditions.iso</code></p>
+</li>
+<li><p>挂载光盘</p>
+<pre><code>mkdir /mnt/cdrom
+mount /dev/cdrom /mnt/cdrom
+</code></pre></li>
+<li><p>编译安装</p>
+<pre><code>cd /mnt/cdrom &amp;&amp; ./VBoxLinuxAdditions.run
+</code></pre></li>
+<li><p>重启生效</p>
+<pre><code>reboot
+</code></pre></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.if-not-true-then-false.com/2010/install-virtualbox-guest-additions-on-fedora-centos-red-hat-rhel/comment-page-7/" target="_blank" rel="external">http://www.if-not-true-then-false.com/2010/install-virtualbox-guest-additions-on-fedora-centos-red-hat-rhel/comment-page-7/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/17/centos-安装virtualbox增强功能/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-17 </div>
 			<div class="article-title"><a href="/2015/06/17/grub2-修改配置/" >grub2-修改配置</a></div>						
 		</h3>
@@ -183,6 +293,48 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-06-16 </div>
+			<div class="article-title"><a href="/2015/06/16/C++-智能指针之auto_ptr/" >C++-智能指针之auto_ptr</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li>提供一种简单的垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
+</ul>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>基于RAII(资源申请即初始化)，利用C++确定性析构，保证变量当离开作用域时，自动执行析构函数来释放内存</p>
+<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
+<li><p>不能将同一个对象存储到多个<code>auto_ptr</code>，会导致多次析构，从而崩溃</p>
+<pre><code>A *p = new A();
+std::auto_ptr&lt;A&gt; a(p);
+std::auto_ptr&lt;A&gt; b(p);
+</code></pre></li>
+<li><p>不能管理数据对象，因为<code>~auto_ptr</code>是<code>delete</code>而不是<code>delete []</code></p>
+<pre><code>int *p=new int[10];
+auto_ptr&lt;int&gt;ap(p);
+</code></pre></li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>C++11已经抛弃它，boost也有更好的替代品，决不使用！</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">auto_ptr</span>&lt;A&gt; a(new A());</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
+<li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/16/C++-智能指针之auto_ptr/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-16 </div>
 			<div class="article-title"><a href="/2015/06/16/C++-智能指针之boost.scroped_ptr/" >C++-智能指针之boost.scroped_ptr</a></div>						
 		</h3>
 	
@@ -246,48 +398,6 @@ boost::shared_ptr&lt;A&gt; p2(a);
 	
 	</div>
   <a type="button" href="/2015/06/16/C++-智能指针之boost.shared_ptr/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-16 </div>
-			<div class="article-title"><a href="/2015/06/16/C++-智能指针之auto_ptr/" >C++-智能指针之auto_ptr</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li>提供一种简单的垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
-</ul>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>基于RAII(资源申请即初始化)，利用C++确定性析构，保证变量当离开作用域时，自动执行析构函数来释放内存</p>
-<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
-<li><p>不能将同一个对象存储到多个<code>auto_ptr</code>，会导致多次析构，从而崩溃</p>
-<pre><code>A *p = new A();
-std::auto_ptr&lt;A&gt; a(p);
-std::auto_ptr&lt;A&gt; b(p);
-</code></pre></li>
-<li><p>不能管理数据对象，因为<code>~auto_ptr</code>是<code>delete</code>而不是<code>delete []</code></p>
-<pre><code>int *p=new int[10];
-auto_ptr&lt;int&gt;ap(p);
-</code></pre></li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>C++11已经抛弃它，boost也有更好的替代品，决不使用！</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">auto_ptr</span>&lt;A&gt; a(new A());</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
-<li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/16/C++-智能指针之auto_ptr/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -378,87 +488,6 @@ sudo systemctl start mariadb
 	
 	</div>
   <a type="button" href="/2015/06/15/mysql-安装/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-11 </div>
-			<div class="article-title"><a href="/2015/06/11/samba-常见问题/" >samba-常见问题</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="诊断流程"><a href="#诊断流程" class="headerlink" title="诊断流程"></a>诊断流程</h1><ol>
-<li><p>首先确定samba服务是否运行，smb和nmb两个进程。</p>
-</li>
-<li><p>看一下服务器samba配置文件/etc/samba/smb.conf的workgroup，它必须与Win的工作组一致，一般Win的工作组是WORKGROUP。</p>
-</li>
-<li><p>看配置文件里的interfaces是否正确，hosts allow的ip段是否覆盖Win的ip地址。</p>
-</li>
-<li><p>服务器上启用user安全级别时，是否添加了共享用户，是否允许共享用户浏览。</p>
-</li>
-<li><p>防火墙的规则设置是否正确。</p>
-</li>
-<li><p>SELinux是否阻止你访问samba共享的目录。</p>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/11/samba-常见问题/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-11 </div>
-			<div class="article-title"><a href="/2015/06/11/sql-连接/" >sql-连接</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><ul>
-<li><p>SQL通过<strong>连接</strong>将多个表关联起来,是实现数据组合最重要的一环!</p>
-</li>
-<li><p>所以<strong>连接</strong>的本质是通过一些生成手段来获取目标集合,再通过对<strong>连接</strong>生成的集合(临时表)加以筛选,得到目标数据</p>
-</li>
-</ul>
-<h1 id="连接方式"><a href="#连接方式" class="headerlink" title="连接方式"></a>连接方式</h1><h2 id="内连接-INNER-JOIN"><a href="#内连接-INNER-JOIN" class="headerlink" title="内连接(INNER JOIN)"></a>内连接(INNER JOIN)</h2><p>只返回两个表中连接条件成立的行</p>
-<h2 id="外连接-OUTER-JOIN"><a href="#外连接-OUTER-JOIN" class="headerlink" title="外连接(OUTER JOIN)"></a>外连接(OUTER JOIN)</h2><p>外连接并不要求连接的两表的每一条记录在对方表中都一条匹配的记录.</p>
-<h3 id="全外连接-FULL-OUTER-JOIN"><a href="#全外连接-FULL-OUTER-JOIN" class="headerlink" title="全外连接(FULL OUTER JOIN)"></a>全外连接(FULL OUTER JOIN)</h3><p>保留2边都不匹配的数据</p>
-<h3 id="左连接-LEFT-OUTER-JOIN-sql中简写LEFT-JOIN"><a href="#左连接-LEFT-OUTER-JOIN-sql中简写LEFT-JOIN" class="headerlink" title="左连接(LEFT OUTER JOIN, sql中简写LEFT JOIN)"></a>左连接(LEFT OUTER JOIN, sql中简写<code>LEFT JOIN</code>)</h3><p>保留左边不匹配的数据</p>
-<h3 id="右外连接-RIGHT-OUTER-JOIN"><a href="#右外连接-RIGHT-OUTER-JOIN" class="headerlink" title="右外连接(RIGHT OUTER JOIN)"></a>右外连接(RIGHT OUTER JOIN)</h3><p>保留右边不匹配的数据</p>
-<h2 id="交叉连接-CROSS-JOIN"><a href="#交叉连接-CROSS-JOIN" class="headerlink" title="交叉连接(CROSS JOIN)"></a>交叉连接(CROSS JOIN)</h2><p>示例:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.*, b.* <span class="keyword">FROM</span> A, B <span class="keyword">WHERE</span> A.id = b.id</span><br></pre></td></tr></table></figure>
-<p>执行过程:</p>
-<ol>
-<li><p>将A与B做笛卡尔积运算,得到临时表C</p>
-</li>
-<li><p>再通过过滤条件<code>A.id = b.id</code>,得到结果集</p>
-</li>
-</ol>
-<h2 id="自连接-SELF-JOIN"><a href="#自连接-SELF-JOIN" class="headerlink" title="自连接(SELF JOIN)"></a>自连接(SELF JOIN)</h2><p>一种交叉连接的特例,和自身交叉</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://zh.wikipedia.org/wiki/%E8%BF%9E%E6%8E%A5_(SQL" target="_blank" rel="external">widi-连接</a>)</li>
-<li><a href="http://www.mysqltutorial.org/mysql-update-join/" target="_blank" rel="external">http://www.mysqltutorial.org/mysql-update-join/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/11/sql-连接/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -767,48 +796,48 @@ sudo systemctl start mariadb
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/包/">包<span>2</span></a></li>
+			<li><a href="/tags/模块/">模块<span>2</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
+			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
 		
-			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
-			<li><a href="/tags/warning/">warning<span>2</span></a></li>
+			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/T/">_T<span>1</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
+			<li><a href="/tags/all/">all<span>1</span></a></li>
 		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
 		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/固件/">固件<span>1</span></a></li>
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/byte/">byte<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -821,6 +850,14 @@ sudo systemctl start mariadb
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -830,14 +867,6 @@ sudo systemctl start mariadb
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

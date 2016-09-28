@@ -111,6 +111,129 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-08 </div>
+			<div class="article-title"><a href="/2015/06/08/C++-构造函数/" >C++-构造函数</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="职责"><a href="#职责" class="headerlink" title="职责"></a>职责</h1><ul>
+<li>对所有的类成员变量进行初始化, 让对象构造后处于一个可用的状态(Good State)</li>
+</ul>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>若在构造函数中抛出异常，则析构函数不被执行，因为该对象没有完全构建，会导致delete无效指针</p>
+</li>
+<li><p>构造函数抛出异常时，本应该在析构函数中被delete的对象没有被delete，会导致内存泄露</p>
+</li>
+</ul>
+<h1 id="按功能分类"><a href="#按功能分类" class="headerlink" title="按功能分类"></a>按功能分类</h1><h2 id="默认构造函数"><a href="#默认构造函数" class="headerlink" title="默认构造函数"></a>默认构造函数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T(); <span class="comment">// 没有参数</span></span><br><span class="line">T(<span class="keyword">int</span> i=<span class="number">0</span>); <span class="comment">// 参数有默认值</span></span><br></pre></td></tr></table></figure>
+<p>无需参数的构造函数，提供一种无需参数就可初始化的能力</p>
+<h2 id="转换构造函数"><a href="#转换构造函数" class="headerlink" title="转换构造函数"></a>转换构造函数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T(...)</span><br></pre></td></tr></table></figure>
+<p>除默认构造函数外，没有<code>explicit</code>修饰的构造函数</p>
+<p>提供其他数据类型向该类型<strong>隐式转换(implicit conversion)</strong>的能力</p>
+<p>此类构造函数，在复制初始化(copy initialization)中会被编译器考虑选用</p>
+<h3 id="复制构造函数"><a href="#复制构造函数" class="headerlink" title="复制构造函数"></a>复制构造函数</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">T(<span class="keyword">const</span> T &amp;t);</span><br><span class="line">T(T t);</span><br><span class="line">T(T t, <span class="keyword">int</span> i=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>从一个本类型值构造出新对象，提供pass by value能力</p>
+<h3 id="移动构造函数"><a href="#移动构造函数" class="headerlink" title="移动构造函数"></a>移动构造函数</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T([<span class="keyword">const</span>|<span class="keyword">volatile</span>]T &amp;&amp;t);</span><br></pre></td></tr></table></figure>
+<p>从一个本类型值快速构造出新对象，提供了move语义</p>
+<h2 id="显式构造函数"><a href="#显式构造函数" class="headerlink" title="显式构造函数"></a>显式构造函数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">explicit</span> <span class="title">T</span><span class="params">(...)</span></span></span><br></pre></td></tr></table></figure>
+<p>除默认构造函数外，<code>explicit</code>修饰的构造函数</p>
+<p>提供其他数据类型向该类型<strong>显式转换(explicit conversion)</strong>的能力</p>
+<p>此类构造数据，在<strong>直接初始化(direct initialization)</strong>或<strong>显式转换(<code>static_cast</code>等)</strong>中会被编译器考虑选用，复制初始化不能使用此类函数</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://en.cppreference.com/w/cpp/language/converting_constructor" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/converting_constructor</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/move_constructor" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/move_constructor</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/08/C++-构造函数/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-06 </div>
+			<div class="article-title"><a href="/2015/06/06/搭建git服务器/" >搭建git服务器</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>CentOS-7.0.1</li>
+</ul>
+<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><ul>
+<li>安装启动sshd</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>安装git</p>
+<pre><code>yum install git
+</code></pre></li>
+<li><p>创建git目录</p>
+<pre><code>mkdir /data/git
+</code></pre></li>
+<li><p>添加git用户</p>
+<pre><code>adduser git
+</code></pre></li>
+<li><p>设置登录shell</p>
+<pre><code>vi /etc/passwd
+
+git:x:1008:1009::/home/git:/user/sbin/nologin
+</code></pre></li>
+</ol>
+<ol>
+<li><p>用户认证</p>
+<ul>
+<li><p>密码方式</p>
+<pre><code>passwd git
+</code></pre></li>
+<li><p>将需要登录git的用户公钥添加进来(一个一行)</p>
+<pre><code>vi /home/git/.ssh/authorized_keys
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<h1 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h1><ul>
+<li><p>初始化仓库</p>
+<pre><code>cd /data/git
+git init --bare sample.git
+</code></pre></li>
+<li><p>设置权限</p>
+<pre><code>chown -R git:git sample.git
+</code></pre></li>
+</ul>
+<h1 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h1><ul>
+<li><p>添加远程仓库</p>
+<pre><code>git remote add web git@hostname:/data/sample.git
+</code></pre></li>
+<li><p>提交到远程仓库</p>
+<pre><code>git push origin master
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/06/搭建git服务器/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-06 </div>
 			<div class="article-title"><a href="/2015/06/06/centos-搭建SVN服务器/" >centos-搭建SVN服务器</a></div>						
 		</h3>
@@ -390,58 +513,6 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
 	
 	</div>
   <a type="button" href="/2015/06/03/ubuntu-配置rsync/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-02 </div>
-			<div class="article-title"><a href="/2015/06/02/前向引用/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>在C++中，是指在一个类定义中，成员函数引用成员变量的位置先于成员变量定义的位置。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> C &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">mutator</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; myValue = x; &#125;</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">accessor</span><span class="params">()</span> </span>&#123; return myValue; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">   <span class="keyword">int</span> myValue;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>允许前向引用大大增加了编译器的复杂度与内存需求，并且使它不能成为一次通过型的编译器。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://zh.wikipedia.org/wiki/%E5%89%8D%E5%90%91%E5%A3%B0%E6%98%8E" target="_blank" rel="external">维基-前向声明</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/02/前向引用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-31 </div>
-			<div class="article-title"><a href="/2015/05/31/宏-函数名/" >宏-函数名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| Compile | <code>__FUNCSIG__</code> | <code>__FUNCDNAME__</code> | <code>__FUNCTION__</code> | <code>__func__</code> | <code>__PRETTY_FUNCTION__</code> |<br>|———+—————+—————–+—————-+————+———————–|<br>| GCC     | X             | X               | √              | √          | √                     |<br>| VC      | √             | √               | √              | X          | X                     |</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://gcc.gnu.org/onlinedocs/gcc/Function-Names.html" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/gcc/Function-Names.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/05/31/宏-函数名/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -750,48 +821,48 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
+			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+		
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+		
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
+		
+			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
+		
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+		
+			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
 		
 			<li><a href="/tags/C/">C++<span>34</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
-		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
-		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
-		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
 		
 			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
+			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
 		
-			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
+			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
 		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
 		
-			<li><a href="/tags/连接/">连接<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/command/">command<span>9</span></a></li>
+			<li><a href="/tags/cron/">cron<span>2</span></a></li>
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
-		
-			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
-		
-			<li><a href="/tags/dll/">dll<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -804,6 +875,14 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -813,14 +892,6 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

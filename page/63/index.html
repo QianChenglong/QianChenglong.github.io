@@ -112,6 +112,114 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/windows下git生成SSH公钥/" >windows下git生成SSH公钥</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li><p><code>cd %HOMEPATH%</code></p>
+</li>
+<li><p><code>mkdir .ssh</code></p>
+</li>
+<li><p><code>ssh-keygen -t rsa -C &quot;qian_cheng_long@163.com&quot;</code></p>
+<ul>
+<li>输入生成文件名(<code>.ssh/rd_rsa</code>)</li>
+<li>2次输入密码(空密码可以方便连接)</li>
+</ul>
+</li>
+<li><p>添加到<code>ssh-agent</code></p>
+<pre><code>ssh-agent -s
+ssh-add ~/.ssh/id_rsa
+</code></pre></li>
+<li><p>复制到粘贴板</p>
+<pre><code>clip &lt; ~/.ssh/id_rsa.pub
+</code></pre></li>
+<li><p>将<code>.ssh/rd_rsa.pub</code>内容添加到<a href="https://github.com/settings/ssh" target="_blank" rel="external">github</a></p>
+</li>
+<li><p>测试是否添加成功</p>
+<pre><code>ssh -vT git@github.com
+</code></pre></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">https://help.github.com/articles/generating-ssh-keys/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/windows下git生成SSH公钥/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/MinGW编译wxWidget/" >MinGW编译wxWidget</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>WXWIN：源代码根目录</li>
+</ul>
+<ol>
+<li><p>解压源码</p>
+</li>
+<li><p>进入到<code>%WXWIN%\build\msw</code></p>
+</li>
+<li><p>清理项目</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release clean
+</code></pre></li>
+<li><p>编译</p>
+</li>
+</ol>
+<ul>
+<li><p>动态库，发行版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release
+</code></pre></li>
+<li><p>动态库，调试版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=debug
+</code></pre></li>
+<li><p>静态库，发行版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=release
+</code></pre></li>
+<li><p>静态库，调试版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=debug
+</code></pre><p>  <strong>注</strong>:</p>
+<ol>
+<li><p>可以添加-j N(N指当前CPU核心数)，加快编译速度</p>
+</li>
+<li><p>每种版本可以根据需要编译</p>
+</li>
+<li><p>动态库对应的目录(%WXWIN%\lib\gcc_dll)，静态库对应的目录(%WXWIN%\lib\gcc_lib)</p>
+</li>
+<li><p>Debug版的库名称会有<code>d</code>后缀，UNICODE版的库名称会有<code>u</code>后缀</p>
+</li>
+</ol>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/MinGW编译wxWidget/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
 			<div class="article-title"><a href="/2014/12/01/hexo博客添加图片/" >hexo博客添加图片</a></div>						
 		</h3>
 	
@@ -553,48 +661,48 @@ hexo d
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
 		
-			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/C/">C++<span>34</span></a></li>
 		
-			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
-		
-			<li><a href="/tags/variable/">variable<span>1</span></a></li>
-		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
-		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
 		
 			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
 		
-			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
+			<li><a href="/tags/T/">_T<span>1</span></a></li>
+		
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+		
+			<li><a href="/tags/vim/">vim<span>24</span></a></li>
+		
+			<li><a href="/tags/软件/">软件<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -607,6 +715,14 @@ hexo d
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -616,14 +732,6 @@ hexo d
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

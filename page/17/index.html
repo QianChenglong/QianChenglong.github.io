@@ -111,6 +111,75 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-24 </div>
+			<div class="article-title"><a href="/2015/09/24/app后台-升级经验/" >app后台-升级经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>使用<code>git-flow</code>开发</p>
+</li>
+<li><p>文档化<strong>升级步骤</strong></p>
+</li>
+<li><p>每个新版本开发时,用<strong>升级文档</strong>记录下,涉及到的数据库更新,配置文件更新,部署环境更新等操作</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/24/app后台-升级经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-24 </div>
+			<div class="article-title"><a href="/2015/09/24/go-error/" >go-error</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>error</code>是一个预定义的<code>interface</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> error <span class="keyword">interface</span> &#123;</span><br><span class="line">    Error() <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最常用的一个实现是<code>errors</code>中的<code>errorString</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">errors.New(<span class="string">"error message"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>fmt</code>包中,通过反射得知是<code>error</code>类型时,则调用<code>error() string</code>方法</p>
+</li>
+<li><p>在<code>fmt</code>包中,提供了<code>Errorf(format string, a ...interface{}) error</code>来方便错误信息输出</p>
+</li>
+<li><p>在精细化的情况下(调用者需要知道错误(该错误是重新定义的的,包含其他信息)的详细信息,不只是错误字符串),<br>这时可以通过<strong>类型断言</strong>来单独处理指定错误</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> err := dec.Decode(&amp;val); err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> serr, ok := err.(*json.SyntaxError); ok &#123;</span><br><span class="line">        line, col := findLine(f, serr.Offset)</span><br><span class="line">        <span class="keyword">return</span> fmt.Errorf(<span class="string">"%s:%d:%d: %v"</span>, f.Name(), line, col, err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">_, err := my.DB.Exec(sql)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> driverErr, ok := err.(*mysql.MySQLError); ok &#123; <span class="comment">// Now the error number is accessible directly</span></span><br><span class="line">            <span class="keyword">if</span> driverErr.Number == <span class="number">1062</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> errDuplicate</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &amp;json2.Error&#123;Code: <span class="number">100</span>, Message: <span class="string">"a"</span>&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.golang.org/error-handling-and-go" target="_blank" rel="external">http://blog.golang.org/error-handling-and-go</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/24/go-error/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-23 </div>
 			<div class="article-title"><a href="/2015/09/23/go-http中获取客户端IP/" >go-http中获取客户端IP</a></div>						
 		</h3>
@@ -341,59 +410,6 @@ ImportPath       = string_lit .
 	
 	</div>
   <a type="button" href="/2015/09/21/go-library/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-18 </div>
-			<div class="article-title"><a href="/2015/09/18/go-redis/" >go-redis</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><a href="https://github.com/astaxie/goredis" target="_blank" rel="external">https://github.com/astaxie/goredis</a></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/18/go-redis/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-18 </div>
-			<div class="article-title"><a href="/2015/09/18/go-package/" >go-package</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>包内的首字母大写为可导出符号,在其他包中使用</p>
-</li>
-<li><p><code>_ import *</code>表示导入该包,但不直接使用该包内的可导出符号(如使用<code>go-sql-driver/mysql</code>)</p>
-</li>
-<li><p>导入包时,go会自动执行包内的<code>init()</code></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/18/go-package/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -702,48 +718,48 @@ ImportPath       = string_lit .
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/resize/">resize<span>1</span></a></li>
-		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
-		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
-		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
-		
-			<li><a href="/tags/python/">python<span>69</span></a></li>
-		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
-		
 			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
 		
-			<li><a href="/tags/variable/">variable<span>1</span></a></li>
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
 		
-			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
+			<li><a href="/tags/all/">all<span>1</span></a></li>
 		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
-		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
-		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
-		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
-		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
 			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/text/">text<span>1</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
+		
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+		
+			<li><a href="/tags/run/">run<span>1</span></a></li>
 		
 			<li><a href="/tags/import/">import<span>3</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+		
+			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
+		
+			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
+		
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+		
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
+		
+			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+		
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
+		
+			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+		
+			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -756,6 +772,14 @@ ImportPath       = string_lit .
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -765,14 +789,6 @@ ImportPath       = string_lit .
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

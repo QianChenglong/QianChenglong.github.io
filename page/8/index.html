@@ -111,6 +111,98 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-23 </div>
+			<div class="article-title"><a href="/2016/03/23/procps-ng/" >procps-ng</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="查询命令"><a href="#查询命令" class="headerlink" title="查询命令"></a>查询命令</h1><pre><code>rpm -ql procps-ng |grep bin
+</code></pre><h1 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h1><ul>
+<li>/usr/bin/free</li>
+<li>/usr/bin/pgrep</li>
+<li>/usr/bin/pkill</li>
+<li>/usr/bin/pmap</li>
+<li>/usr/bin/ps</li>
+<li>/usr/bin/pwdx</li>
+<li>/usr/bin/skill</li>
+<li>/usr/bin/slabtop</li>
+<li>/usr/bin/snice</li>
+<li>/usr/bin/tload</li>
+<li>/usr/bin/top</li>
+<li>/usr/bin/uptime</li>
+<li>/usr/bin/vmstat</li>
+<li>/usr/bin/w</li>
+<li>/usr/bin/watch</li>
+<li>/usr/sbin/sysctl</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/23/procps-ng/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-23 </div>
+			<div class="article-title"><a href="/2016/03/23/pstree/" >pstree</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-a</p>
+<p>输出进程的命令行参数</p>
+</li>
+<li><p>-p</p>
+<p>输出进程PID</p>
+</li>
+<li><p>-u</p>
+<p>输出进程使用者</p>
+</li>
+<li><p>-s</p>
+<p>Show parent processes of the specified process.</p>
+</li>
+<li><p>-n</p>
+<p>按PID排序</p>
+</li>
+<li><p>-l</p>
+<p>完整显示，默认80列</p>
+</li>
+<li><p>-h</p>
+<p>高亮当前进程及其父进程</p>
+</li>
+<li><p>-H PID</p>
+<p>高亮PID进程及其父进程</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>显示PID进程的族谱</p>
+<pre><code>pstree -apls PID
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/23/pstree/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-19 </div>
 			<div class="article-title"><a href="/2016/03/19/linux头文件组织/" >linux头文件组织</a></div>						
 		</h3>
@@ -400,62 +492,6 @@ yumdownloader httpd
 	
 	</div>
   <a type="button" href="/2016/03/11/TCP连接释放/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-11 </div>
-			<div class="article-title"><a href="/2016/03/11/获取errno宏定义/" >获取errno宏定义</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>cpp -dM /usr/include/errno.h | grep &apos;define E&apos; | sort -n -k 3
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/503878/how-to-know-what-the-errno-means" target="_blank" rel="external">http://stackoverflow.com/questions/503878/how-to-know-what-the-errno-means</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/03/11/获取errno宏定义/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-11 </div>
-			<div class="article-title"><a href="/2016/03/11/tcp-accept/" >tcp-accept</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">accept</span><span class="params">(<span class="keyword">int</span> socket, <span class="keyword">struct</span> sockaddr *<span class="keyword">restrict</span> address,</span><br><span class="line">           socklen_t *<span class="keyword">restrict</span> address_len)</span></span>;</span><br></pre></td></tr></table></figure>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p><code>address_len</code>为传入传出参数！</p>
-</li>
-<li><p>当监听套接字设置为非阻塞时，若<code>accept</code>未获取到连接，则不阻塞，返回失败，<code>errno</code>设置为<code>EAGAIN</code>或<code>EWOULDBLOCK</code></p>
-</li>
-</ul>
-<h1 id="错误代码"><a href="#错误代码" class="headerlink" title="错误代码"></a>错误代码</h1><ul>
-<li><code>EMFILE</code> 打开的文件超过限制</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/03/11/tcp-accept/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -764,48 +800,48 @@ yumdownloader httpd
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
 		
-			<li><a href="/tags/redis/">redis<span>6</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/package/">package<span>4</span></a></li>
 		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
+			<li><a href="/tags/同步/">同步<span>2</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
 		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
+			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/linux/">linux<span>39</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
 		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
+			<li><a href="/tags/glog/">glog<span>1</span></a></li>
 		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
 		
-			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
-			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -818,6 +854,14 @@ yumdownloader httpd
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -827,14 +871,6 @@ yumdownloader httpd
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

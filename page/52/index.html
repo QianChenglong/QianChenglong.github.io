@@ -111,6 +111,59 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-21 </div>
+			<div class="article-title"><a href="/2015/01/21/提高程序健壮性的几种办法/" >提高程序健壮性的几种办法</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="局部变量初始化"><a href="#局部变量初始化" class="headerlink" title="局部变量初始化"></a>局部变量初始化</h1><p>防止造成野指针，字符串越界，数组越界，非法访问等。</p>
+<h1 id="检查函数传入参数"><a href="#检查函数传入参数" class="headerlink" title="检查函数传入参数"></a>检查函数传入参数</h1><p>将错误的，不合法的输入阻止在最开始处</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li>C中常用<code>assert</code>进行处理</li>
+</ul>
+<h1 id="检查函数的返回值，以便对函数出错进行处理"><a href="#检查函数的返回值，以便对函数出错进行处理" class="headerlink" title="检查函数的返回值，以便对函数出错进行处理"></a>检查函数的返回值，以便对函数出错进行处理</h1><h1 id="释放指针后，指针置NULL"><a href="#释放指针后，指针置NULL" class="headerlink" title="释放指针后，指针置NULL"></a>释放指针后，指针置NULL</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.codeproject.com/Articles/216077/Making-Your-Cplusplus-Code-Robust" target="_blank" rel="external">http://www.codeproject.com/Articles/216077/Making-Your-Cplusplus-Code-Robust</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/21/提高程序健壮性的几种办法/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-21 </div>
+			<div class="article-title"><a href="/2015/01/21/编程经典语句/" >编程经典语句</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>异常处理不是bug fix</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/21/编程经典语句/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-20 </div>
 			<div class="article-title"><a href="/2015/01/20/cmake-if/" >cmake-if</a></div>						
 		</h3>
@@ -337,68 +390,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/16/autohotkey-字符串/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-16 </div>
-			<div class="article-title"><a href="/2015/01/16/python-字符串/" >python-字符串</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="将其他数据类型转换为string"><a href="#将其他数据类型转换为string" class="headerlink" title="将其他数据类型转换为string"></a>将其他数据类型转换为string</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(data)</span><br></pre></td></tr></table></figure>
-<h1 id="重复字符串指定次数"><a href="#重复字符串指定次数" class="headerlink" title="重复字符串指定次数"></a>重复字符串指定次数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">‘abc<span class="string">' * 128</span></span><br></pre></td></tr></table></figure>
-<h1 id="字符串前缀匹配"><a href="#字符串前缀匹配" class="headerlink" title="字符串前缀匹配"></a>字符串前缀匹配</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.beginswith(str)</span><br></pre></td></tr></table></figure>
-<h1 id="字符串后缀匹配"><a href="#字符串后缀匹配" class="headerlink" title="字符串后缀匹配"></a>字符串后缀匹配</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.endswith(str)</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/01/16/python-字符串/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-16 </div>
-			<div class="article-title"><a href="/2015/01/16/python-打印不追加换行/" >python-打印不追加换行</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>python2, 3</p>
-<pre><code>import sys
-sys.stdout.write(&apos;hello world&apos;)
-</code></pre></li>
-<li><p>python3</p>
-<pre><code>print(&apos;hello world&apos;, end=&quot;&quot;)
-</code></pre></li>
-<li><p>python2</p>
-<pre><code>print(&apos;hello world&apos;, )
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.zhihu.com/question/20390166" target="_blank" rel="external">http://www.zhihu.com/question/20390166</a></li>
-<li><a href="http://stackoverflow.com/questions/493386/how-to-print-in-python-without-newline-or-space" target="_blank" rel="external">http://stackoverflow.com/questions/493386/how-to-print-in-python-without-newline-or-space</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/16/python-打印不追加换行/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -707,48 +698,48 @@ sys.stdout.write(&apos;hello world&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/语句/">语句<span>1</span></a></li>
 		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
 		
-			<li><a href="/tags/final/">final<span>1</span></a></li>
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
 		
-			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
 		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
 		
-			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
-			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
 		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
 		
-			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
 		
-			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+			<li><a href="/tags/部署/">部署<span>1</span></a></li>
 		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
+			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
 		
-			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
+			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
 		
 			<li><a href="/tags/电影/">电影<span>1</span></a></li>
 		
-			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
 		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
+			<li><a href="/tags/事务/">事务<span>1</span></a></li>
 		
-			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -761,6 +752,14 @@ sys.stdout.write(&apos;hello world&apos;)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -770,14 +769,6 @@ sys.stdout.write(&apos;hello world&apos;)
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

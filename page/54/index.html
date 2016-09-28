@@ -111,6 +111,70 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-09 </div>
+			<div class="article-title"><a href="/2015/01/09/库的错误处理/" >库的错误处理</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>编写库，常见的错误处理方式：</p>
+<ul>
+<li><p>返回一个错误代码，提供一个函数将其转换为字符串</p>
+</li>
+<li><p>返回一个错误数据结构，该结构包括错误代码和描述信息</p>
+</li>
+<li><p>提供一个函数去获取错误代码，并提供一个函数转换为字符串</p>
+</li>
+<li><p>提供一个接口让调用者注册错误处理函数，当发生错误时，进行回调</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/4201856/error-handling-strategies-in-a-shared-library-c" target="_blank" rel="external">http://stackoverflow.com/questions/4201856/error-handling-strategies-in-a-shared-library-c</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/09/库的错误处理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-09 </div>
+			<div class="article-title"><a href="/2015/01/09/cmake-macro-vs-function/" >cmake-macro-vs-function</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>cmake中，<code>macro</code>类似于C中的宏函数，会进行参数替换，而<code>function</code>类似于C中的函数，<br>参数是一个变量，可以进行赋值等操作。</p>
+<p>示例：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(var <span class="string">"ABC"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">macro</span>(Moo arg)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"arg = $&#123;arg&#125;"</span>)</span><br><span class="line">  <span class="keyword">set</span>(arg <span class="string">"abc"</span>)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"# After change the value of arg."</span>)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"arg = $&#123;arg&#125;"</span>)</span><br><span class="line"><span class="keyword">endmacro</span>()</span><br><span class="line"><span class="keyword">message</span>(<span class="string">"=== Call macro ==="</span>)</span><br><span class="line">Moo(<span class="variable">$&#123;var&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>(Foo arg)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"arg = $&#123;arg&#125;"</span>)</span><br><span class="line">  <span class="keyword">set</span>(arg <span class="string">"abc"</span>)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"# After change the value of arg."</span>)</span><br><span class="line">  <span class="keyword">message</span>(<span class="string">"arg = $&#123;arg&#125;"</span>)</span><br><span class="line"><span class="keyword">endfunction</span>()</span><br><span class="line"><span class="keyword">message</span>(<span class="string">"=== Call function ==="</span>)</span><br><span class="line">Foo(<span class="variable">$&#123;var&#125;</span>)</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">=== Call macro ===</span><br><span class="line">arg = ABC</span><br><span class="line"># After change the value of arg.</span><br><span class="line">arg = ABC</span><br><span class="line">=== Call function ===</span><br><span class="line">arg = ABC</span><br><span class="line"># After change the value of arg.</span><br><span class="line">arg = abc</span><br></pre></td></tr></table></figure></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/24297999/function-vs-macro-in-cmake" target="_blank" rel="external">http://stackoverflow.com/questions/24297999/function-vs-macro-in-cmake</a></li>
+<li><a href="http://www.cmake.org/cmake/help/v3.0/command/macro.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/macro.html</a></li>
+<li><a href="http://www.cmake.org/cmake/help/v3.0/command/function.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/function.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/09/cmake-macro-vs-function/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-08 </div>
 			<div class="article-title"><a href="/2015/01/08/pragma-once/" >pragma-once</a></div>						
 		</h3>
@@ -396,54 +460,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/07/封装个人代码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-07 </div>
-			<div class="article-title"><a href="/2015/01/07/autohotkey获得粘贴板内容/" >autohotkey获得粘贴板内容</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">; 获取当前选中内容</span></span><br><span class="line">GetSelectText()</span><br><span class="line">&#123;</span><br><span class="line">    tmp = <span class="variable">%ClipBoard%</span> <span class="comment">; 保存原来内容</span></span><br><span class="line">    <span class="built_in">ClipBoard</span> = <span class="comment">; 清空粘贴板</span></span><br><span class="line">    Send, ^c <span class="comment">; 获取当前选中内容</span></span><br><span class="line">    Sleep, <span class="number">100</span> <span class="comment">; 确保操作成功</span></span><br><span class="line">    text = <span class="variable">%ClipBoard%</span></span><br><span class="line">    <span class="built_in">ClipBoard</span> = <span class="variable">%cmp%</span> <span class="comment">; 复原</span></span><br><span class="line">    <span class="keyword">return</span> text</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">msgbox <span class="variable">% GetSelectText()</span></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/01/07/autohotkey获得粘贴板内容/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-07 </div>
-			<div class="article-title"><a href="/2015/01/07/软件设计原则资料/" >软件设计原则资料</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><a href="http://coolshell.cn/articles/4535.html" target="_blank" rel="external">一些软件设计的原则(酷壳)</a></li>
-<li><a href="https://en.wikipedia.org/wiki/KISS_principle" target="_blank" rel="external">https://en.wikipedia.org/wiki/KISS_principle</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank" rel="external">https://en.wikipedia.org/wiki/Don%27t_repeat_yourself</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/07/软件设计原则资料/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -752,48 +768,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
 		
-			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
+			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
 		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
+			<li><a href="/tags/script/">script<span>1</span></a></li>
 		
-			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
 		
-			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
 		
-			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
+			<li><a href="/tags/scp/">scp<span>1</span></a></li>
 		
-			<li><a href="/tags/线程/">线程<span>3</span></a></li>
+			<li><a href="/tags/string/">string<span>8</span></a></li>
 		
-			<li><a href="/tags/C-11/">C++11<span>8</span></a></li>
+			<li><a href="/tags/limit/">limit<span>2</span></a></li>
 		
-			<li><a href="/tags/产品/">产品<span>1</span></a></li>
+			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
 		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
+			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
 		
-			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
-		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
-		
-			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
-		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
-		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+			<li><a href="/tags/extern/">extern<span>1</span></a></li>
 		
 			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+		
+			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+		
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
+		
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+		
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -806,6 +822,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -815,14 +839,6 @@
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

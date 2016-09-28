@@ -112,6 +112,67 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-28 </div>
+			<div class="article-title"><a href="/2015/01/28/linux-查看域名对应IP/" >linux-查看域名对应IP</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="nslookup"><a href="#nslookup" class="headerlink" title="nslookup"></a>nslookup</h1><p>不使用<code>/etc/hosts</code>文件</p>
+<h1 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h1><h1 id="getent"><a href="#getent" class="headerlink" title="getent"></a>getent</h1><pre><code>getent ahosts www.baidu.com
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://superuser.com/questions/106901/added-entry-to-hosts-file-ubuntu-can-ping-ok-cannot-nslookup" target="_blank" rel="external">http://superuser.com/questions/106901/added-entry-to-hosts-file-ubuntu-can-ping-ok-cannot-nslookup</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/28/linux-查看域名对应IP/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-28 </div>
+			<div class="article-title"><a href="/2015/01/28/ubuntu-查看文件所属/" >ubuntu-查看文件所属</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>安装<code>apt-file</code></p>
+<pre><code>sudo apt-get install apt-file
+</code></pre></li>
+<li><p>更新数据库</p>
+<pre><code>sudo apt-file update
+</code></pre></li>
+<li><p>查询</p>
+<pre><code>apt-file search /usr/include/arpa/inet.h
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://superuser.com/questions/10997/find-what-package-a-file-belongs-to-in-ubuntu-debian" target="_blank" rel="external">http://superuser.com/questions/10997/find-what-package-a-file-belongs-to-in-ubuntu-debian</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/28/ubuntu-查看文件所属/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-28 </div>
 			<div class="article-title"><a href="/2015/01/28/linux-添加域名映射/" >linux-添加域名映射</a></div>						
 		</h3>
 	
@@ -390,58 +451,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/26/python-install-curses-on-windows/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-26 </div>
-			<div class="article-title"><a href="/2015/01/26/cmake-Disable Warning Manually-specified variables were not used by the project/" >cmake-Disable Warning Manually-specified variables were not used by the project</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>添加命令行参数<code>--no-warn-unused-cli</code></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/14757506/cmake-toolchain-file-was-not-used-by-the-project" target="_blank" rel="external">http://stackoverflow.com/questions/14757506/cmake-toolchain-file-was-not-used-by-the-project</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/26/cmake-Disable Warning Manually-specified variables were not used by the project/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-24 </div>
-			<div class="article-title"><a href="/2015/01/24/git-push-warning/" >git-push-warning</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="warning-push-default-is-unset"><a href="#warning-push-default-is-unset" class="headerlink" title="warning: push.default is unset;"></a>warning: push.default is unset;</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">warning: push.default is unset; its implicit value is changing in</span><br><span class="line">Git 2.0 from &apos;matching&apos; to &apos;simple&apos;. To squelch this message</span><br><span class="line">and maintain the current behavior after the default changes, use:</span><br><span class="line"></span><br><span class="line">  git config --global push.default matching</span><br><span class="line"></span><br><span class="line">To squelch this message and adopt the new behavior now, use:</span><br><span class="line"></span><br><span class="line">  git config --global push.default simple</span><br><span class="line"></span><br><span class="line">When push.default is set to &apos;matching&apos;, git will push local branches</span><br><span class="line">to the remote branches that already exist with the same name.</span><br><span class="line"></span><br><span class="line">In Git 2.0, Git will default to the more conservative &apos;simple&apos;</span><br><span class="line">behavior, which only pushes the current branch to the corresponding</span><br><span class="line">remote branch that &apos;git pull&apos; uses to update the current branch.</span><br></pre></td></tr></table></figure>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ul>
-<li><p>默认只推送当前分支</p>
-<pre><code>git config --global push.default simple
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/24/git-push-warning/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -750,48 +759,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
 		
-			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
 		
-			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+			<li><a href="/tags/同步/">同步<span>2</span></a></li>
 		
-			<li><a href="/tags/resize/">resize<span>1</span></a></li>
+			<li><a href="/tags/make/">make<span>2</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
 		
-			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
+			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
 		
-			<li><a href="/tags/module/">module<span>3</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
+		
+			<li><a href="/tags/json/">json<span>4</span></a></li>
+		
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
 			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
 		
-			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
+			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
 		
-			<li><a href="/tags/main/">__main__<span>1</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
 		
-			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
 		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
-		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
-		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -804,6 +813,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -813,14 +830,6 @@
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

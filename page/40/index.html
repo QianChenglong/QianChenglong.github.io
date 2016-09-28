@@ -111,6 +111,64 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-10 </div>
+			<div class="article-title"><a href="/2015/03/10/cscope/" >cscope</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-b 只建立索引，不进入交互查询(默认进入交互查询模式)</p>
+</li>
+<li><p>-f reffile 指定输出文件名</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/10/cscope/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-09 </div>
+			<div class="article-title"><a href="/2015/03/09/doxygen使用流程简记/" >doxygen使用流程简记</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>生成配置文件模板</p>
+<pre><code>doxygen -g
+</code></pre></li>
+<li><p>修改配置文件<code>Doxyfile</code></p>
+</li>
+<li><p>生成doxygen</p>
+<p>doxygen</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/09/doxygen使用流程简记/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-09 </div>
 			<div class="article-title"><a href="/2015/03/09/doxygen常用修改选项/" >Doxygen常用修改选项</a></div>						
 		</h3>
@@ -465,83 +523,6 @@ firewall-cmd --reload
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-06 </div>
-			<div class="article-title"><a href="/2015/03/06/ubuntu-部署shadowsocks/" >ubuntu-部署shadowsocks</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
-<li><p>安装pip</p>
-<pre><code>apt-get install python-gevent python-pip
-</code></pre></li>
-<li><p>安装shadowsocks</p>
-<pre><code>pip install shadowsocks
-</code></pre></li>
-<li><p>创建<code>/etc/shadowsocks/config.json</code></p>
-</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">“server”:“my_server_ip”,</span><br><span class="line"></span><br><span class="line">“server_port”:8388,</span><br><span class="line"></span><br><span class="line">“local_port”:1080,</span><br><span class="line"></span><br><span class="line">“password”:“password”,</span><br><span class="line"></span><br><span class="line">“timeout”:600,</span><br><span class="line"></span><br><span class="line">“method”:“table”</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>启动server</p>
-<ul>
-<li><p>前端运行</p>
-<p>/usr/local/bin/ssserver -c /etc/shadowsocks.json</p>
-</li>
-<li><p>daemon</p>
-<p>/usr/local/bin/ssserver -c /etc/shadowsocks.json -d start</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><p><a href="https://github.com/clowwindy/shadowsocks/wiki/Ports-and-Clients" target="_blank" rel="external">下载地址</a></p>
-<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://felixqu.com/2014/06/23/setup-shadowsocks-on-ubuntu/" target="_blank" rel="external">http://felixqu.com/2014/06/23/setup-shadowsocks-on-ubuntu/</a></li>
-<li><a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/06/ubuntu-部署shadowsocks/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-06 </div>
-			<div class="article-title"><a href="/2015/03/06/VPN常见错误代码/" >VPN常见错误代码</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>809</p>
-<ul>
-<li>无法完成密钥交换(ISAKMP, udp port 500)，发送request，无response</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/06/VPN常见错误代码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -847,48 +828,48 @@ firewall-cmd --reload
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
-		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
-		
-			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
-		
-			<li><a href="/tags/模块/">模块<span>2</span></a></li>
+			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
 		
 			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
 		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
-		
-			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
-		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
-		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
-		
-			<li><a href="/tags/理论/">理论<span>1</span></a></li>
-		
-			<li><a href="/tags/string/">string<span>8</span></a></li>
-		
-			<li><a href="/tags/资源/">资源<span>2</span></a></li>
+			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
 		
 			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
 		
-			<li><a href="/tags/global/">global<span>1</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+			<li><a href="/tags/glog/">glog<span>1</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
+		
+			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
+		
+			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
+		
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
+		
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+		
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+		
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+		
+			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+		
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
+		
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -901,6 +882,14 @@ firewall-cmd --reload
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -910,14 +899,6 @@ firewall-cmd --reload
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

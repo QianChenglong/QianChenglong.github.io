@@ -111,6 +111,105 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-07-11 </div>
+			<div class="article-title"><a href="/2015/07/11/编译apache/" >编译apache</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h1><ul>
+<li><p>pcre</p>
+</li>
+<li><p>apr</p>
+</li>
+<li><p>apr-util</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="编译安装pcre"><a href="#编译安装pcre" class="headerlink" title="编译安装pcre"></a>编译安装pcre</h2><pre><code>wget http://sourceforge.net/projects/pcre/files/pcre/8.37/pcre-8.37.tar.bz2
+tar xvf pcre-8.37.tar.bz2
+cd pcre-8.37
+./configure --prefix=/opt/pcre-8.37
+make
+make install
+</code></pre><h2 id="编译安装apache"><a href="#编译安装apache" class="headerlink" title="编译安装apache"></a>编译安装apache</h2><pre><code>wget http://mirrors.hust.edu.cn/apache//httpd/httpd-2.4.12.tar.bz2
+wget http://apache.fayea.com//apr/apr-1.5.2.tar.bz2
+wget http://apache.fayea.com//apr/apr-util-1.5.4.tar.bz2
+tar xvf httpd-2.4.12.tar.bz2
+tar xvf apr-1.5.2.tar.bz2 -C httpd-2.4.12/srclib
+tar xvf apr-util-1.5.4.tar.bz2 -C httpd-2.4.12/srclib
+mv httpd-2.4.12/srclib/apr-1.5.2 httpd-2.4.12/srclib/apr
+mv httpd-2.4.12/srclib/apr-util-1.5.4 httpd-2.4.12/srclib/apr-util
+cd httpd-2.4.12
+./configure --prefix=/opt/httpd-2.4.12 --with-pcre=/opt/pcre-8.37
+make
+make install
+</code></pre><p>参考：</p>
+<ol>
+<li><a href="http://httpd.apache.org/docs/2.4/install.html" target="_blank" rel="external">http://httpd.apache.org/docs/2.4/install.html</a></li>
+</ol>
+<h2 id="编译安装mod-fcgid-官网"><a href="#编译安装mod-fcgid-官网" class="headerlink" title="编译安装mod_fcgid(官网)"></a>编译安装mod_fcgid(<a href="http://httpd.apache.org/download.cgi#mod_fcgid" target="_blank" rel="external">官网</a>)</h2><pre><code>wget http://mirrors.cnnic.cn/apache/httpd/mod_fcgid/mod_fcgid-2.3.9.tar.bz2
+tar xvf mod_fcgid-2.3.9.tar.bz2
+cd mod_fcgid-2.3.9
+APXS=/opt/httpd-2.4.12/bin/apxs ./configure.apxs
+make
+make install
+</code></pre><p>参考：</p>
+<ol>
+<li>README-FCGID</li>
+</ol>
+<h2 id="编译安装mod-wsgi-官网"><a href="#编译安装mod-wsgi-官网" class="headerlink" title="编译安装mod_wsgi(官网)"></a>编译安装mod_wsgi(<a href="https://code.google.com/p/modwsgi/" target="_blank" rel="external">官网</a>)</h2><pre><code>git clone https://github.com/GrahamDumpleton/mod_wsgi.git
+cd mod_wsgi/
+./configure --with-apxs=/opt/httpd-2.4.12/bin/apxs --with-python=/usr/bin/python3
+make
+make install
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/07/11/编译apache/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-09 </div>
+			<div class="article-title"><a href="/2015/07/09/thinkpad-安装系统/" >thinkpad-安装系统</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>开机按<code>Enter</code> =&gt; <code>F1</code>进入BIOS</p>
+</li>
+<li><p>【starup】=&gt; <code>legacy ONLY</code></p>
+</li>
+<li><p>【security】 =&gt; <code>disabled</code></p>
+</li>
+<li><p>保存退出</p>
+</li>
+<li><p>开机<code>F12</code>选择对应启动</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/09/thinkpad-安装系统/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-07-09 </div>
 			<div class="article-title"><a href="/2015/07/09/truncate和delete区别/" >truncate和delete区别</a></div>						
 		</h3>
@@ -376,50 +475,6 @@
 	
 	</div>
   <a type="button" href="/2015/07/08/vim-后台执行外部程序/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-08 </div>
-			<div class="article-title"><a href="/2015/07/08/Crypto++使用/" >Crypto++使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><pre><code>g++ *.c -lcryptopp -lpthread
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/07/08/Crypto++使用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-07 </div>
-			<div class="article-title"><a href="/2015/07/07/注册表运行vbs/" >注册表运行vbs</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>wscript.exe E:\OS\Windows\bin\mklink.vbs &quot;%1&quot;
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/07/07/注册表运行vbs/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -728,48 +783,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
-			<li><a href="/tags/if/">if<span>1</span></a></li>
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
 		
-			<li><a href="/tags/bind/">bind<span>2</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
-			<li><a href="/tags/find/">find<span>3</span></a></li>
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/连接/">连接<span>1</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
 		
-			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
 		
-			<li><a href="/tags/库/">库<span>2</span></a></li>
+			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/程序/">程序<span>1</span></a></li>
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
 		
-			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
-			<li><a href="/tags/main/">__main__<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
 		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/global/">global<span>1</span></a></li>
+			<li><a href="/tags/od/">od<span>1</span></a></li>
 		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/make/">make<span>2</span></a></li>
 		
-			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>577</span></a></li>
+		   <li><a href="/tags">...<span>578</span></a></li>
 		 
 		</ul>
 	</div>
@@ -782,6 +837,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
       </li>
     
@@ -791,14 +854,6 @@
     
       <li>
         <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/07/左值-右值/" ><i class="fa fa-file-o"></i>左值-右值</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/06/C++11-右值引用/" ><i class="fa fa-file-o"></i>C++11-右值引用</a>
       </li>
     
   </ul>

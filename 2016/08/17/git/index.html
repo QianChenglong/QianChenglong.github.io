@@ -190,22 +190,50 @@ git submodule sync
 </code></pre></li>
 </ul>
 <h1 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h1><ul>
-<li><p>重置暂存区</p>
-<pre><code>git reset .
-</code></pre></li>
-<li><p>取消已经暂存的文件（git add逆操作）</p>
-<pre><code>git reset HEAD &lt;file&gt;...
-</code></pre></li>
 <li><p>取消未暂存的修改</p>
 <pre><code>git checkout -- &lt;file&gt;...
 </code></pre></li>
+</ul>
+<h1 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h1><p>功能：</p>
+<ul>
+<li><p>从HEAD拷贝到INDEX(重置暂存区)，若指定PATH(文件名)，则只操作指定文件(这种情况下，最好使用<code>git checkout -- &lt;paths&gt;</code>)</p>
+<pre><code>git reset
+</code></pre></li>
+<li><p>将HEAD指定到COMMIT</p>
+<pre><code>git reset [&lt;mode&gt;] &lt;commit&gt;
+</code></pre><ul>
+<li><p>–mixed [默认] INDEX同HEAD一起更新到<code>&lt;commit&gt;</code>，WORK不变</p>
+</li>
+<li><p>–soft INDEX，WORK保持不变,HEAD更新到<code>&lt;commit&gt;</code></p>
+</li>
+<li><p>–hard INDEX，WORK同HEAD一起更新到<code>&lt;commit&gt;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="revert"><a href="#revert" class="headerlink" title="revert"></a>revert</h1><p>恢复到指定commit，是复制指定commit并使HEAD指向它</p>
+<h1 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h1><ul>
+<li><p>重做上次提交，并使用上次提交信息</p>
+<pre><code>git commit --amend --no-edit
+</code></pre></li>
+</ul>
+<h1 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h1><ul>
 <li><p>从版本库中删除，但保留工作目录里面的</p>
 <pre><code>git rm --cached readme.txt
+</code></pre></li>
+<li><p>强制删除已修改已暂存的文件(当前暂存区与上次提交的不一样)</p>
+<pre><code>git rm -f
 </code></pre></li>
 </ul>
 <h1 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h1><ul>
 <li><p>查看当前版本与上一版本的差异</p>
 <pre><code>git diff HEAD~1 HEAD functions/fish_prompt.fish
+</code></pre></li>
+<li><p>查看暂存版本与工作目录中的差异</p>
+<pre><code>git diff
+</code></pre></li>
+<li><p>查看暂存与上一次提交的差异</p>
+<pre><code>git diff --cached
 </code></pre></li>
 </ul>
 <h1 id="config"><a href="#config" class="headerlink" title="config"></a>config</h1><ul>

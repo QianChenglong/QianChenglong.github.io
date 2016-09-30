@@ -218,11 +218,14 @@ git submodule sync
 </code></pre></li>
 </ul>
 <h1 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h1><ul>
-<li><p>从版本库中删除，但保留工作目录里面的</p>
-<pre><code>git rm --cached readme.txt
+<li><p>从INDEX删除，但保留工作目录里面的</p>
+<pre><code>git rm --cached &lt;paths&gt;
 </code></pre></li>
 <li><p>强制删除已修改已暂存的文件(当前暂存区与上次提交的不一样)</p>
-<pre><code>git rm -f
+<pre><code>git rm -f &lt;paths&gt;
+</code></pre></li>
+<li><p>从INDEX，WORK中删除</p>
+<pre><code>git rm &lt;paths&gt;
 </code></pre></li>
 </ul>
 <h1 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h1><ul>

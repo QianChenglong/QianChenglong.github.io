@@ -112,6 +112,71 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/路由器DHCP差异/" >路由器DHCP差异</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="Netcore-NW710"><a href="#Netcore-NW710" class="headerlink" title="Netcore-NW710"></a>Netcore-NW710</h1><ul>
+<li>DHCP不能设置DNS服务器，默认DNS为自身</li>
+</ul>
+<h1 id="TP-LINK-WR941N"><a href="#TP-LINK-WR941N" class="headerlink" title="TP-LINK-WR941N"></a>TP-LINK-WR941N</h1><ul>
+<li>DHCP可以设置DNS服务器，在应答discovery时，回应相应设置的IP</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/路由器DHCP差异/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/libnet_init/" >libnet_init</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">libnet_t</span>* libnet_init(<span class="keyword">int</span> injection_type, <span class="keyword">char</span>*  device, <span class="keyword">char</span>*  err_buf)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>device</p>
+<ul>
+<li><p>windows</p>
+<ul>
+<li>winpcap设备名，类似<code>\Device\NPF_{2A7DEE95-B437-444C-BB09-85E4EAD5E61C}</code></li>
+<li>前缀一致<code>\Device\NPF_</code>，后面的UUID可以通过<code>getmac /v</code>查看</li>
+</ul>
+</li>
+</ul>
+<p><em>参考:</em></p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/17400903/libnet-device-network-interface-command-line-argument" target="_blank" rel="external">http://stackoverflow.com/questions/17400903/libnet-device-network-interface-command-line-argument</a></li>
+</ol>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/libnet_init/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
 			<div class="article-title"><a href="/2015/02/06/优秀app列表/" >优秀app列表</a></div>						
 		</h3>
 	
@@ -404,69 +469,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-04 </div>
-			<div class="article-title"><a href="/2015/02/04/BSD-tcp-ip头文件组织/" >BSD-tcp-ip头文件组织</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 头文件           | 作用                                             |<br>|——————+————————————————–|<br>| <code>&lt;sys/socket.h&gt;</code> | 核心socket API和数据结构                         |<br>| <code>&lt;netinet/in.h&gt;</code> | IPv4，IPv6等相关协议族地址结构定义，常用端口定义 |<br>| <code>&lt;arpa/inet.h&gt;</code>  | IP地址操作                                       |<br>| <code>&lt;netdb.h&gt;</code>      | 网络数据库查询，如主机名，服务等                 |</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://en.wikipedia.org/wiki/Berkeley_sockets#Header_files" target="_blank" rel="external">http://en.wikipedia.org/wiki/Berkeley_sockets#Header_files</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/04/BSD-tcp-ip头文件组织/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/grep/" >grep</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>-C num</p>
-<p>指定上下文行数</p>
-</li>
-<li><p>-B NUM, –before-context=NUM</p>
-<p>指定上文行数</p>
-</li>
-<li><p>-A NUM, –after-context=NUM</p>
-<p>指定下文行数</p>
-</li>
-<li><p>-m NUM, –max-count=NUM</p>
-<p>指定最大匹配数量</p>
-</li>
-<li><p>-n, –line-number</p>
-<p>显示行号</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/03/grep/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -679,7 +681,7 @@
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -772,48 +774,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
+			<li><a href="/tags/base64/">base64<span>1</span></a></li>
 		
-			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/进程/">进程<span>1</span></a></li>
 		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
+			<li><a href="/tags/登录/">登录<span>2</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
 		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
-			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
 		
-			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
-			<li><a href="/tags/散列/">散列<span>1</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/左值/">左值<span>1</span></a></li>
+			<li><a href="/tags/crond/">crond<span>1</span></a></li>
 		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
 		
-			<li><a href="/tags/command/">command<span>9</span></a></li>
+			<li><a href="/tags/net/">net<span>2</span></a></li>
 		
-			<li><a href="/tags/global/">global<span>1</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -826,23 +828,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

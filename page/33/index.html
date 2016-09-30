@@ -111,6 +111,82 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-04-15 </div>
+			<div class="article-title"><a href="/2015/04/15/redis-字符串/" >redis-字符串</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>字符串类型是redis中最基本的数据类型，其他数据类型只是组织字符串的方式不同</p>
+<ul>
+<li><p>列表类型是以列表形式组织字符串</p>
+</li>
+<li><p>集合类型是以集合形式组织字符串</p>
+</li>
+</ul>
+</li>
+<li><p>字符串可以<strong>透明存储</strong>任何形式的字符串，二进制数据，如邮箱地址，json，图片等</p>
+</li>
+</ul>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p>| 操作     | 命令   |<br>|———-+——–|<br>| 赋值     | set    |<br>| 取值     | get    |<br>| 追加     | append |<br>| 获取长度 | strlen |</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>redis入门指南</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/15/redis-字符串/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-15 </div>
+			<div class="article-title"><a href="/2015/04/15/redis-多数据库/" >redis-多数据库</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>一个redis实例提供了多个用来存储数据的字典</p>
+</li>
+<li><p>某个数据库对外都是一个从<strong>0</strong>开始的递增数字命名，默认支持16个，可通过参数<code>databases</code>修改</p>
+</li>
+<li><p>客户端与redis连接后，默认选择<strong>0号</strong>数据库，可通过<code>SELECT</code>命令切换</p>
+</li>
+<li><p>不支持自定义数据库名称</p>
+</li>
+<li><p>不支持账户密码控制(意味着没有权限控制)</p>
+</li>
+<li><p>数据库之间并未完全隔离，如<code>FLUSHALL</code>命令可清空所有数据库内容</p>
+<p>所以，不同的应用应该使用不同的redis实例，而不是使用同一个redis实例不同数据库。</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>redis入门指南</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/15/redis-多数据库/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-04-14 </div>
 			<div class="article-title"><a href="/2015/04/14/node.js-异步IO原理/" >node.js-异步IO原理</a></div>						
 		</h3>
@@ -344,82 +420,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-09 </div>
-			<div class="article-title"><a href="/2015/04/09/python-argparse/" >python-argparse</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>示例：</p>
-<pre><code>ls -l test
-</code></pre><ul>
-<li><p>位置参数(Positional Arguments)</p>
-<p>位置参数的作用取决于它的位置和程序(如<code>cp SRC DST</code>)</p>
-<p>在示例中，<code>test</code>为位置参数</p>
-</li>
-<li><p>可选参数(Optional Arguments)，又叫作选项(option)，开关(switch)</p>
-<p>一般都使用<code>-</code>和<code>--</code>来标识</p>
-<p>在示例中，<code>l</code>为可选参数</p>
-</li>
-</ul>
-<h1 id="使用可选参数"><a href="#使用可选参数" class="headerlink" title="使用可选参数"></a>使用<code>可选参数</code></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(<span class="string">"--verbosity"</span>, help=<span class="string">"increase output verbosity"</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"><span class="keyword">if</span> args.verbosity:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"verbosity turned on"</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://docs.python.org/2/howto/argparse.html" target="_blank" rel="external">https://docs.python.org/2/howto/argparse.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/09/python-argparse/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-09 </div>
-			<div class="article-title"><a href="/2015/04/09/arch下安装pandoc/" >arch下安装pandoc</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>添加仓库</p>
-<pre><code>gvim /etc/pacman.conf
-
-[haskell-core]
-Server = http://repo-hs.archlinuxcn.org/$arch
-</code></pre></li>
-<li><p>添加认证</p>
-<pre><code>pacman-key -r 4209170B
-pacman-key --lsign-key 4209170B
-</code></pre></li>
-<li><p>更新仓库</p>
-<pre><code>pacman -Syy
-</code></pre></li>
-<li><p>安装pandoc</p>
-<pre><code>pacman -S haskell-pandoc
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/04/09/arch下安装pandoc/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -632,7 +632,7 @@ pacman-key --lsign-key 4209170B
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -725,48 +725,48 @@ pacman-key --lsign-key 4209170B
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/打包/">打包<span>1</span></a></li>
+			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
 		
-			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
 		
-			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
 		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
 		
-			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
+			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
 		
-			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/hash/">hash<span>1</span></a></li>
+			<li><a href="/tags/池/">池<span>1</span></a></li>
 		
-			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
 		
-			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
+			<li><a href="/tags/centos/">centos<span>12</span></a></li>
 		
-			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
 		
-			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
 		
-			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
+			<li><a href="/tags/char/">char<span>2</span></a></li>
 		
-			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
 		
-			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
-			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>8</span></a></li>
 		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
+			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -779,23 +779,23 @@ pacman-key --lsign-key 4209170B
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

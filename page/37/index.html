@@ -111,6 +111,56 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-30 </div>
+			<div class="article-title"><a href="/2015/03/30/hexo-google站长工具验证/" >hexo-google站长工具验证</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="HTML标记方法"><a href="#HTML标记方法" class="headerlink" title="HTML标记方法"></a><code>HTML标记</code>方法</h1><ul>
+<li>选择备用方法</li>
+</ul>
+<p><img src="/img/hexo-google站长工具验证-01.png" alt=""></p>
+<ul>
+<li>将代码复制到对应主题的<code>head.ejs</code></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/30/hexo-google站长工具验证/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-27 </div>
+			<div class="article-title"><a href="/2015/03/27/网络设备登录信息列表/" >网络设备登录信息列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 设备名               | IP            | 账号  | 密码  |<br>|———————-+—————+——-+——-|<br>| H3C Switch S2610-PWR | 192.168.0.234 | admin | admin |<br>| TL AC1000            | 192.168.1.253 | admin | admin |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/03/27/网络设备登录信息列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-27 </div>
 			<div class="article-title"><a href="/2015/03/27/TP-LINK-AC1000配置/" >TP-LINK-AC1000配置</a></div>						
 		</h3>
@@ -416,80 +466,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-24 </div>
-			<div class="article-title"><a href="/2015/03/24/windows-获取当前进程文件名/" >windows-获取当前进程文件名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a><a href="https://github.com/QianChenglong/lily-windows/tree/master/%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%BF%9B%E7%A8%8B%E6%96%87%E4%BB%B6%E5%90%8D" target="_blank" rel="external">源码地址</a></h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms683197(v=vs.85).aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/windows/desktop/ms683197(v=vs.85).aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/24/windows-获取当前进程文件名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-23 </div>
-			<div class="article-title"><a href="/2015/03/23/syslinux-memdisk/" >syslinux-memdisk</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>启动一些软盘镜像，硬盘镜像，ISO镜像。</p>
-<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>memdisk作为<code>kernel</code>，而那些镜像文件作为初始化文件系统(initrd)</p>
-<p>镜像文件(zip或gzip格式)作为<code>INITRD</code>命令的参数传递</p>
-<ul>
-<li><p>命令行方式</p>
-<p>memdisk initrd=hdt.img</p>
-</li>
-<li><p>配置文件方式</p>
-<pre><code># Boot Hardware Detection Tool from floppy image
-LABEL hdt_floppy
-LINUX memdisk
-INITRD hdt.img
-
-# Boot Hardware Detection Tool from iso image (with &apos;iso&apos; parameter)
-LABEL hdt_iso
-LINUX memdisk
-INITRD hdt.iso
-APPEND iso
-
-# Boot DOS from floppy image (with &apos;raw&apos; parameter)
-LABEL dos_floppy_with_raw
-LINUX memdisk
-INITRD dosboot.img
-APPEND raw
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/23/syslinux-memdisk/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -702,7 +678,7 @@ APPEND raw
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -795,48 +771,48 @@ APPEND raw
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
 		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
+			<li><a href="/tags/同步/">同步<span>2</span></a></li>
 		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
+			<li><a href="/tags/glog/">glog<span>1</span></a></li>
 		
-			<li><a href="/tags/散列/">散列<span>1</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+			<li><a href="/tags/debug/">debug<span>3</span></a></li>
 		
-			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/USB/">USB<span>1</span></a></li>
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
 		
-			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/override/">override<span>2</span></a></li>
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-			<li><a href="/tags/macro/">macro<span>4</span></a></li>
+			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
-			<li><a href="/tags/左值/">左值<span>1</span></a></li>
+			<li><a href="/tags/all/">all<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -849,23 +825,23 @@ APPEND raw
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

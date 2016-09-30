@@ -111,6 +111,76 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-03 </div>
+			<div class="article-title"><a href="/2015/06/03/rsync常见错误/" >rsync常见错误</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li></li>
+</ol>
+<p>错误信息</p>
+<pre><code>@ERROR: chroot failed
+rsync error: error starting client-server protocol (code 5) at main.c(1635) [Receiver=3.1.1]
+</code></pre><p>原因：</p>
+<pre><code>rsyncd.conf中的path路径所设的那个目录并不存在所致.
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/06/03/rsync常见错误/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-03 </div>
+			<div class="article-title"><a href="/2015/06/03/ubuntu-配置rsync/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>apt-get intall rsync</p>
+</li>
+<li><p>vi /etc/rsyncd.conf</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#motd file = /etc/rsyncd.motd</span><br><span class="line">log file = /var/log/rsyncd.log</span><br><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line"></span><br><span class="line">[server]</span><br><span class="line">   path = /home/wallace/server</span><br><span class="line">   comment = gupiaoxianji server code</span><br><span class="line">   uid = wallace</span><br><span class="line">   gid = wallace</span><br><span class="line">   read only = no</span><br><span class="line">   list = yes</span><br><span class="line">   #hosts allow = 10.0.0.1/0</span><br><span class="line">   auth users = wallace</span><br><span class="line">   secrets file = /etc/rsyncd.scrt</span><br><span class="line">   strict modes = false</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>vi /etc/rsyncd.scrt</p>
+<pre><code>wallace:wallacework
+</code></pre></li>
+<li><p>vi /etc/default/rsync</p>
+<pre><code>RSYNC_ENABLE=true
+</code></pre></li>
+<li><p>/etc/init.d/rsync restart</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://ubuntuforums.org/showthread.php?t=1252720" target="_blank" rel="external">http://ubuntuforums.org/showthread.php?t=1252720</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/03/ubuntu-配置rsync/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-02 </div>
 			<div class="article-title"><a href="/2015/06/02/前向引用/" ></a></div>						
 		</h3>
@@ -327,54 +397,6 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-23 </div>
-			<div class="article-title"><a href="/2015/05/23/xshell字符乱码/" >xshell字符乱码</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>【文件】=&gt; 【属性】=&gt; 【终端】=&gt;【编码】(Unicode-UTF-8)</p>
-
-	
-	</div>
-  <a type="button" href="/2015/05/23/xshell字符乱码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-22 </div>
-			<div class="article-title"><a href="/2015/05/22/sql-常用语句/" >sql-常用语句</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>修改列类型</p>
-<pre><code>ALTER TABLE &lt;table-name&gt; MODIFY COLUMN &lt;col-name&gt; &lt;new-datatype&gt;;
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/05/22/sql-常用语句/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -587,7 +609,7 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -680,48 +702,48 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
-		
-			<li><a href="/tags/yed/">yed<span>1</span></a></li>
-		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
-		
-			<li><a href="/tags/centos/">centos<span>12</span></a></li>
-		
-			<li><a href="/tags/错误/">错误<span>2</span></a></li>
-		
-			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
-		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
-		
-			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
-		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
-		
-			<li><a href="/tags/date/">date<span>1</span></a></li>
-		
-			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
-		
 			<li><a href="/tags/debug/">debug<span>3</span></a></li>
 		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
 		
-			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
 		
-			<li><a href="/tags/产品/">产品<span>1</span></a></li>
+			<li><a href="/tags/final/">final<span>1</span></a></li>
+		
+			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+		
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+		
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+		
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+		
+			<li><a href="/tags/using/">using<span>1</span></a></li>
+		
+			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+		
+			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+		
+			<li><a href="/tags/package/">package<span>4</span></a></li>
+		
+			<li><a href="/tags/war/">war<span>1</span></a></li>
+		
+			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+		
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -734,23 +756,23 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

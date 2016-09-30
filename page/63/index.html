@@ -112,6 +112,85 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/替换clover图标/" >替换clover图标</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
+</li>
+<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
+<p><img src="/img/替换clover图标_0.png" alt=""></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/替换clover图标/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/快速查看python帮助/" >快速查看python帮助</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="第一种：命令行使用"><a href="#第一种：命令行使用" class="headerlink" title="第一种：命令行使用"></a>第一种：命令行使用</h2><pre><code>python -m pydoc CONTENT
+</code></pre><h2 id="第二种：使用python自包装"><a href="#第二种：使用python自包装" class="headerlink" title="第二种：使用python自包装"></a>第二种：使用<code>python</code>自包装</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>可以在任意路径下执行<code>pydoc CONTENT</code></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ul>
+<li><p>建立脚本文件<code>pydoc.py</code></p>
+<pre><code>#!/usr/bin/env python
+# encoding: utf-8
+
+import os
+import sys
+
+if len(sys.argv) != 2:
+    print(&quot;usage:pydoc.py OBJECT&quot;)
+    exit(1)
+
+cmd = &apos;python -m pydoc &apos; + sys.argv[1]
+# print(cmd)
+os.system(cmd)
+</code></pre></li>
+<li><p>复制到<code>PATH</code>目录下</p>
+<p><strong>建议自建目录</strong>(Win:X:/XXX/bin，Linux：/XXX/bin)，添加该目录到<code>PATH</code></p>
+<p>优点：</p>
+<ol>
+<li>容易管理</li>
+<li>重装系统或系统损坏，不丢失，下次复用方便</li>
+</ol>
+</li>
+<li><p>【Windows建议】</p>
+</li>
+</ul>
+<p>修改环境变量<code>PATHEXT</code>追加<code>.py</code>，这样直接使用<code>pydoc CONTENT</code>即可，不用每次都输入’.py’！</p>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/快速查看python帮助/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
 			<div class="article-title"><a href="/2014/12/01/windows下git生成SSH公钥/" >windows下git生成SSH公钥</a></div>						
 		</h3>
 	
@@ -568,7 +647,7 @@ hexo d
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -661,48 +740,48 @@ hexo d
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/素数/">素数<span>1</span></a></li>
 		
-			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
 		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
 		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
 		
-			<li><a href="/tags/线程/">线程<span>3</span></a></li>
+			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/http/">http<span>11</span></a></li>
 		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
+			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
 		
-			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
+			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
 		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
+			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -715,23 +794,23 @@ hexo d
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

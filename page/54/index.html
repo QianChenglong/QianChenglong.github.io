@@ -111,6 +111,59 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-15 </div>
+			<div class="article-title"><a href="/2015/01/15/windows-in-out-in-C/" >windows-__in-__out-in-C</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://msdn.microsoft.com/en-us/library/ms235402.aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/ms235402.aspx</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/ms182032.aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/ms182032.aspx</a></li>
+<li><a href="http://stackoverflow.com/questions/4239809/what-is-the-purpose-of-in-out-in-opt-allowed-how-do-they-work-should" target="_blank" rel="external">http://stackoverflow.com/questions/4239809/what-is-the-purpose-of-in-out-in-opt-allowed-how-do-they-work-should</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/15/windows-in-out-in-C/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-14 </div>
+			<div class="article-title"><a href="/2015/01/14/wireshark-开启tcp-ip校验码检查/" >wireshark-开启tcp-ip校验码检查</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Edit] =&gt; [Perference] =&gt; [Protocols] =&gt; [IPv4] =&gt; [Validate the IPv4 checksum if possible]</span><br><span class="line">                                      =&gt; [TCP] =&gt; [Validate the IPv4 checksum if possible]</span><br></pre></td></tr></table></figure>
+<p>如图：</p>
+<p><img src="/img/wireshark-开启tcp-ip校验码检查_1.png" alt=""></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://wiki.wireshark.org/TCP_Checksum_Verification" target="_blank" rel="external">http://wiki.wireshark.org/TCP_Checksum_Verification</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/14/wireshark-开启tcp-ip校验码检查/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-09 </div>
 			<div class="article-title"><a href="/2015/01/09/库的错误处理/" >库的错误处理</a></div>						
 		</h3>
@@ -376,93 +429,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-07 </div>
-			<div class="article-title"><a href="/2015/01/07/C-函数返回值与错误处理/" >C-函数返回值与错误处理</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>除了极少数函数调用不会出错(如<code>getpid()</code>，参考[APUE-8.2])，绝大多数函数都可能发生调用失败。在调用失败时，<br>就涉及到如何通知调用者，以便调用者进行相对应的错误处理。</p>
-<h1 id="错误处理策略"><a href="#错误处理策略" class="headerlink" title="错误处理策略"></a>错误处理策略</h1><ul>
-<li>作为调用者希望函数的返回结果就是我们期待的值，但这样报告错误又不方便</li>
-<li>若用函数返回值来判断函数的成功或失败，获取期待结果又不方便</li>
-</ul>
-<p>所以在C中，往往都采用了折衷的方式，<strong>通过使用一个与所有成功结果都不相同的值作为函数失败时的返回值</strong>，常见方式有：</p>
-<ul>
-<li><p>失败时返回值</p>
-<ul>
-<li>返回<code>NULL</code>指针，如<code>fopen</code></li>
-<li>返回<code>-1</code></li>
-<li>返回<code>非0</code></li>
-<li>某些专用宏，如<code>EOF</code>，<code>SOCKET_ERROR</code></li>
-</ul>
-</li>
-<li><p>成功时返回值</p>
-<ul>
-<li>返回非空指针</li>
-<li>返回<code>0</code></li>
-<li>某些专用宏，如<code>SOCKET_SUCCESS</code></li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>UNIX环境高级编程.W.Richard Stevens / Stephen A.Rago.译者: 尤晋元 / 张亚英 / 戚正伟.ISBN: 9787115147318</li>
-<li>The Standard C Library Paperback. July 11, 1992. P.J. Plauger.ISBN-13: 978-0131315099</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/07/C-函数返回值与错误处理/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-07 </div>
-			<div class="article-title"><a href="/2015/01/07/封装个人代码/" >封装个人代码</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>积累平时的代码，方便日后的复用。</p>
-<h1 id="采用什么语言封装"><a href="#采用什么语言封装" class="headerlink" title="采用什么语言封装"></a>采用什么语言封装</h1><p>采用C++，原因如下：</p>
-<ul>
-<li><p>现阶段主要使用C++，虽然也使用部分C库或系统API</p>
-</li>
-<li><p>提供默认参数值，使接口美观、易用</p>
-</li>
-<li><p>提供名字空间，可以防止名字污染</p>
-</li>
-<li><p>提供多态，使接口美观、易用</p>
-</li>
-</ul>
-<h1 id="封装遇到的问题"><a href="#封装遇到的问题" class="headerlink" title="封装遇到的问题"></a>封装遇到的问题</h1><ul>
-<li><p>代码目录怎么组织？</p>
-</li>
-<li><p>函数调用出错怎么处理？</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/07/封装个人代码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -675,7 +641,7 @@
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -768,48 +734,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
 		
-			<li><a href="/tags/C/">C++<span>34</span></a></li>
+			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
 		
-			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
+		
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
+		
+			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
+		
+			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+		
+			<li><a href="/tags/exception/">exception<span>1</span></a></li>
 		
 			<li><a href="/tags/操作/">操作<span>1</span></a></li>
 		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
+			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
 		
-			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
 		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 		
-			<li><a href="/tags/串口/">串口<span>2</span></a></li>
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
-		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
-		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
-		
-			<li><a href="/tags/template/">template<span>2</span></a></li>
-		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -822,23 +788,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

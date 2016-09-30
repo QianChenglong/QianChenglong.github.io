@@ -112,6 +112,57 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-21 </div>
+			<div class="article-title"><a href="/2015/01/21/VC-warning-C4819/" >VC-warning-C4819</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><ul>
+<li>源文件采用<code>utf-8</code>编码，而VC默认识别成<code>cp936</code>编码。</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/21/VC-warning-C4819/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-21 </div>
+			<div class="article-title"><a href="/2015/01/21/cmake-定义全局变量/" >cmake-定义全局变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(UTEST_LIBRARIES <span class="variable">$&#123;ARGN&#125;</span> CACHE INTERNAL <span class="string">"UTEST_LIBRARIES"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/10031953/how-to-set-the-global-variable-in-a-function-for-cmake" target="_blank" rel="external">http://stackoverflow.com/questions/10031953/how-to-set-the-global-variable-in-a-function-for-cmake</a></li>
+<li><a href="http://www.cmake.org/cmake/help/v3.0/command/set.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/set.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/21/cmake-定义全局变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-21 </div>
 			<div class="article-title"><a href="/2015/01/21/提高程序健壮性的几种办法/" >提高程序健壮性的几种办法</a></div>						
 		</h3>
 	
@@ -317,79 +368,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/16/vim-去除M/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-16 </div>
-			<div class="article-title"><a href="/2015/01/16/修改网络邻居登录密码/" >修改网络邻居登录密码</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="通过【凭据管理器】"><a href="#通过【凭据管理器】" class="headerlink" title="通过【凭据管理器】"></a>通过【凭据管理器】</h2><ul>
-<li><p>[控制面板] =&gt; 【小图标】 =&gt; 凭据管理器</p>
-</li>
-<li><p><code>control userpasswords2</code> =&gt; [高级] =&gt; [管理密码]</p>
-</li>
-<li><p><code>control keymgr.dll</code></p>
-</li>
-</ul>
-<h2 id="通过【命令】"><a href="#通过【命令】" class="headerlink" title="通过【命令】"></a>通过【命令】</h2><ul>
-<li><code>net use \\hostname\IPC$ /delete</code></li>
-</ul>
-<p>注：</p>
-<ol>
-<li><code>hostname</code>为要连接的电脑主机名，也可以是IP</li>
-</ol>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
-<li>修改后，<strong>注销</strong>生效！</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/16/修改网络邻居登录密码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-16 </div>
-			<div class="article-title"><a href="/2015/01/16/autohotkey-字符串/" >autohotkey-字符串</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="字符串是否为空"><a href="#字符串是否为空" class="headerlink" title="字符串是否为空"></a>字符串是否为空</h1><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (var = <span class="string">""</span>)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h1><ul>
-<li>表达式方法</li>
-</ul>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Var := <span class="string">"The color is "</span> . FoundColor</span><br></pre></td></tr></table></figure>
-<ul>
-<li>传统方法</li>
-</ul>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Var = The color is <span class="variable">%FoundColor%</span></span><br></pre></td></tr></table></figure>
-<p>参考：</p>
-<ol>
-<li><a href="http://www.autohotkey.com/docs/Variables.htm#Operators" target="_blank" rel="external">http://www.autohotkey.com/docs/Variables.htm#Operators</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/16/autohotkey-字符串/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -605,7 +583,7 @@
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -698,48 +676,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
+			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
-		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
-		
-			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
-		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
-		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
-		
-			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
-		
-			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
-		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
-		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
-		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
-		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
-		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
-		
-			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
-		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
-		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/C/">C++<span>34</span></a></li>
 		
 			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+		
+			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+		
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
 			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
 		
+			<li><a href="/tags/base64/">base64<span>1</span></a></li>
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+		
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+		
+			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+		
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
+		
+			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+		
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+		
+			<li><a href="/tags/search/">search<span>1</span></a></li>
+		
+			<li><a href="/tags/exit/">exit<span>1</span></a></li>
+		
+			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+		
+			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+		
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -752,23 +730,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

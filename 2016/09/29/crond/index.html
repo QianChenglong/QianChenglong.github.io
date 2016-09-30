@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ubuntu-cron设置日志 | 心若天府</title>
+  <title>crond | 心若天府</title>
   <meta name="author" content="钱成龙">
   
   <meta name="description" content="笔记，经验总结，资料">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="ubuntu-cron设置日志"/>
+  <meta property="og:title" content="crond"/>
   <meta property="og:site_name" content="心若天府"/>
 
   
@@ -93,7 +93,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> ubuntu-cron设置日志</h1>
+			<h1 class="title title-inverse "> crond</h1>
 		</div>		
 	
 
@@ -113,19 +113,18 @@
 	<div class="mypage">		
 	  		
 
-	  <ol>
-<li><p>修改rsyslog文件，将<code>/etc/rsyslog.d/50-default.conf</code> 文件中的<code>#cron.*</code>前的#删掉；</p>
-</li>
-<li><p>重启rsyslog服务</p>
-<pre><code>service rsyslog restart；
+	  <h1 id="配置语法"><a href="#配置语法" class="headerlink" title="配置语法"></a>配置语法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Example of job definition:</span><br><span class="line"># .---------------- minute (0 - 59)</span><br><span class="line"># |  .------------- hour (0 - 23)</span><br><span class="line"># |  |  .---------- day of month (1 - 31)</span><br><span class="line"># |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...</span><br><span class="line"># |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7)</span><br><span class="line"># |  |  |  |  |</span><br><span class="line"># *  *  *  *  *   command to be executed</span><br></pre></td></tr></table></figure>
+<p>| 特殊字符 | 代表意义                                                                |<br>|———-+————————————————————————-|<br>| <code>*</code>      | 代表任何时刻都接受的意思!                                               |<br>| <code>,</code>      | 0 3,6 <em> </em> <em> command代表几个时段的意思。这个例子就是3:00和6:00           |<br>| <code>-</code>      | 代表一段时间范围内,与逗号一样，只不过是连续的几个点，是’，’的特殊情况   |<br>| `</em>/n`    | <em>/5 </em> <em> </em> <em> command那个n代表数字,亦即是每隔n单位间隔，该位要用’</em>‘先填补 |</p>
+<p>特殊时间控制：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@reboot &lt;COMMAND&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>周与日和月不能同时存在，因为两个点指向的天不一定是同一天，指定了周，日和月都要置成<em>，指定了月或日，周就要置成</em>；</li>
+</ul>
+<h1 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h1><ul>
+<li><p>重定向标准输出和出错到文件</p>
+<pre><code>* * * * * &lt;COMMAND&gt; &gt;&gt;/tmp/crond.log 2&gt;&amp;1
 </code></pre></li>
-<li><p>重启cron服务</p>
-<pre><code>service cron restart；
-</code></pre></li>
-<li><p>查看</p>
-<pre><code>less /var/log/cron.log
-</code></pre></li>
-</ol>
+</ul>
 	  
 	</div>
 
@@ -135,13 +134,13 @@
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2015/06/09/cron配置/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2016/09/29/fish/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2015/06/08/mysql使用memcached缓存/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2016/09/27/vim-gocode/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -180,7 +179,7 @@
   <h2 class="title">留言</h2>
 
   
-  	 <div class="ds-thread" data-thread-key="2015/06/09/ubuntu-cron设置日志/" data-title="ubuntu-cron设置日志" data-url="https://qianchenglong.github.io/2015/06/09/ubuntu-cron设置日志/"></div>  
+  	 <div class="ds-thread" data-thread-key="2016/09/29/crond/" data-title="crond" data-url="https://qianchenglong.github.io/2016/09/29/crond/"></div>  
   
 </section>
 
@@ -194,23 +193,12 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2015-06-09 
+	2016-09-29 
 	</div>
 	
 
 	<!-- categories -->
     
-	<div class="meta-widget">
-	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
-    <ul id="categorys" class="tag_box list-unstyled collapse in">
-          
-  <li>
-    <li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
-  </li>
-
-    </ul>
-	</div>
-	
 
 	<!-- tags -->
 	
@@ -218,7 +206,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/cron/">cron<span>2</span></a></li> <li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
+  <li><a href="/tags/crond/">crond<span>1</span></a></li>
     </ul>
 	</div>
 		

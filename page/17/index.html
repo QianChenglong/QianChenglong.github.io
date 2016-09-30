@@ -111,6 +111,152 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-30 </div>
+			<div class="article-title"><a href="/2015/09/30/sql/" >sql</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><ul>
+<li><p>当需要部分更新时,不要使用多表关联更新</p>
+<p>因为可能部分关联失败,导致需要更新的数据没有更新</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> product a, <span class="keyword">order</span> b <span class="keyword">set</span> ... <span class="keyword">where</span> a.product_id = b.product_id</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/30/sql/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-28 </div>
+			<div class="article-title"><a href="/2015/09/28/mysql-数据库备份恢复/" >mysql-数据库备份恢复</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="备份恢复指定表"><a href="#备份恢复指定表" class="headerlink" title="备份恢复指定表"></a>备份恢复指定表</h1><pre><code>mysqldump -uwallace -pwallace stock_app t_banner_100 &gt;stock_app.t_banner_100
+
+mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/09/28/mysql-数据库备份恢复/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-25 </div>
+			<div class="article-title"><a href="/2015/09/25/go-database/" >go-database</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>go</code>官方没有直接提供数据库驱动,而是定义了一些标准接口(<code>database/sql</code>)</p>
+</li>
+<li><p>第三方驱动通过包初始化函数<code>init()</code>调用<code>sql.Register(name string, driver driver.Driver)</code>完成注册</p>
+</li>
+</ul>
+<h2 id="重要类型"><a href="#重要类型" class="headerlink" title="重要类型"></a>重要类型</h2><h2 id="driver-Conn"><a href="#driver-Conn" class="headerlink" title="driver.Conn"></a><code>driver.Conn</code></h2><p>Conn是一个数据库连接的接口定义，他定义了一系列方法，这个Conn只能应用在一个goroutine里面，不能使用在多个goroutine里面</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Conn <span class="keyword">interface</span> &#123;</span><br><span class="line">    Prepare(query <span class="keyword">string</span>) (Stmt, error)</span><br><span class="line">    Close() error</span><br><span class="line">    Begin() (Tx, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Prepare函数返回与当前连接相关的执行Sql语句的准备状态，可以进行查询、删除等操作。</p>
+</li>
+<li><p>Close函数关闭当前的连接，执行释放连接拥有的资源等清理工作.</p>
+</li>
+<li><p>Begin函数返回一个代表事务处理的Tx，通过它你可以进行查询,更新等操作，或者对事务进行回滚、递交。</p>
+</li>
+</ul>
+<h2 id="driver-Stmt"><a href="#driver-Stmt" class="headerlink" title="driver.Stmt"></a><code>driver.Stmt</code></h2><p>Stmt是一种准备好的状态，和Conn相关联，而且只能应用于一个goroutine中，不能应用于多个goroutine</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Stmt <span class="keyword">interface</span> &#123;</span><br><span class="line">    Close() error</span><br><span class="line">    NumInput() <span class="keyword">int</span></span><br><span class="line">    Exec(args []Value) (Result, error)</span><br><span class="line">    Query(args []Value) (Rows, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Close函数关闭当前的链接状态，但是如果当前正在执行query，query还是有效返回rows数据</p>
+</li>
+<li><p>NumInput函数返回当前预留参数的个数，当返回&gt;=0时数据库驱动就会智能检查调用者的参数。当数据库驱动包不知道预留参数的时候，返回-1</p>
+</li>
+<li><p>Exec函数执行Prepare准备好的sql，传入参数执行update/insert等操作，返回Result数据</p>
+</li>
+<li><p>Query函数执行Prepare准备好的sql，传入需要的参数执行select操作，返回Rows结果集</p>
+</li>
+</ul>
+<h2 id="driver-Tx"><a href="#driver-Tx" class="headerlink" title="driver.Tx"></a><code>driver.Tx</code></h2><p>事务处理一般就两个过程，递交或者回滚</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Tx <span class="keyword">interface</span> &#123;</span><br><span class="line">    Commit() error</span><br><span class="line">    Rollback() error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="driver-Execer"><a href="#driver-Execer" class="headerlink" title="driver.Execer"></a><code>driver.Execer</code></h2><p>这是一个Conn可选择实现的接口</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Execer <span class="keyword">interface</span> &#123;</span><br><span class="line">    Exec(query <span class="keyword">string</span>, args []Value) (Result, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果这个接口没有定义，那么在调用DB.Exec,就会首先调用Prepare返回Stmt，然后执行Stmt的Exec，然后关闭Stmt。</p>
+<h2 id="driver-Result"><a href="#driver-Result" class="headerlink" title="driver.Result"></a><code>driver.Result</code></h2><p>这个是执行Update/Insert等操作返回的结果接口定义</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Result <span class="keyword">interface</span> &#123;</span><br><span class="line">    LastInsertId() (<span class="keyword">int64</span>, error)</span><br><span class="line">    RowsAffected() (<span class="keyword">int64</span>, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>LastInsertId函数返回由数据库执行插入操作得到的自增ID号。</p>
+</li>
+<li><p>RowsAffected函数返回query操作影响的数据条目数。</p>
+</li>
+</ul>
+<h2 id="driver-Rows"><a href="#driver-Rows" class="headerlink" title="driver.Rows"></a><code>driver.Rows</code></h2><p>Rows是执行查询返回的结果集接口定义</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Rows <span class="keyword">interface</span> &#123;</span><br><span class="line">    Columns() []<span class="keyword">string</span></span><br><span class="line">    Close() error</span><br><span class="line">    Next(dest []Value) error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Columns函数返回查询数据库表的字段信息，这个返回的slice和sql查询的字段一一对应，而不是返回整个表的所有字段。</p>
+</li>
+<li><p>Close函数用来关闭Rows迭代器。</p>
+</li>
+<li><p>Next函数用来返回下一条数据，把数据赋值给dest。dest里面的元素必须是driver.Value的值除了string，返回的数据里面所有的string都必须要转换成[]byte。如果最后没数据了，Next函数最后返回io.EOF。</p>
+</li>
+</ul>
+<h2 id="driver-RowsAffected"><a href="#driver-RowsAffected" class="headerlink" title="driver.RowsAffected"></a><code>driver.RowsAffected</code></h2><p>RowsAffected其实就是一个int64的别名，但是他实现了Result接口，用来底层实现Result的表示方式</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> RowsAffected <span class="keyword">int64</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (RowsAffected) LastInsertId() (<span class="keyword">int64</span>, error)</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (v RowsAffected) RowsAffected() (<span class="keyword">int64</span>, error)</span><br></pre></td></tr></table></figure>
+<h2 id="driver-Value"><a href="#driver-Value" class="headerlink" title="driver.Value"></a><code>driver.Value</code></h2><p>Value其实就是一个空接口，他可以容纳任何的数据</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Value <span class="keyword">interface</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>drive的Value是驱动必须能够操作的Value，Value要么是nil，要么是下面的任意一种</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int64</span></span><br><span class="line"><span class="keyword">float64</span></span><br><span class="line"><span class="keyword">bool</span></span><br><span class="line">[]<span class="keyword">byte</span></span><br><span class="line"><span class="keyword">string</span>   [*]除了Rows.Next返回的不能是<span class="keyword">string</span>.</span><br><span class="line">time.Time</span><br></pre></td></tr></table></figure>
+<h2 id="driver-ValueConverter"><a href="#driver-ValueConverter" class="headerlink" title="driver.ValueConverter"></a><code>driver.ValueConverter</code></h2><p>ValueConverter接口定义了如何把一个普通的值转化成driver.Value的接口</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ValueConverter <span class="keyword">interface</span> &#123;</span><br><span class="line">    ConvertValue(v <span class="keyword">interface</span>&#123;&#125;) (Value, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在开发的数据库驱动包里面实现这个接口的函数在很多地方会使用到，这个ValueConverter有很多好处：</p>
+<ul>
+<li>转化driver.value到数据库表相应的字段，例如int64的数据如何转化成数据库表uint16字段</li>
+<li>把数据库查询结果转化成driver.Value值</li>
+<li>在scan函数里面如何把driver.Value值转化成用户定义的值</li>
+</ul>
+<h2 id="driver-Valuer"><a href="#driver-Valuer" class="headerlink" title="driver.Valuer"></a><code>driver.Valuer</code></h2><p>Valuer接口定义了返回一个driver.Value的方式</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Valuer <span class="keyword">interface</span> &#123;</span><br><span class="line">    Value() (Value, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很多类型都实现了这个Value方法，用来自身与driver.Value的转化。</p>
+<h1 id="使用相关"><a href="#使用相关" class="headerlink" title="使用相关"></a>使用相关</h1><h2 id="sql-Stmt"><a href="#sql-Stmt" class="headerlink" title="sql.Stmt"></a><code>sql.Stmt</code></h2><p><code>sql.DB.Prepare</code>返回的语句操作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(s *Stmt) Exec(args ...<span class="keyword">interface</span>&#123;&#125;) (Result, error) <span class="comment">// 带参数执行prepare语句(insert, update...)</span></span><br><span class="line">(s *Stmt) Query(args ...<span class="keyword">interface</span>&#123;&#125;) (*Rows, error) <span class="comment">// 带参数执行select语句, 返回结果集</span></span><br><span class="line">(s *Stmt) QueryRow(args ...<span class="keyword">interface</span>&#123;&#125;) *Row <span class="comment">// 带参数执行select语句,通过scan获取单行结果!(函数糖)</span></span><br><span class="line">(s *Stmt) Close() error <span class="comment">// 释放资源</span></span><br></pre></td></tr></table></figure>
+<h2 id="sql-Row"><a href="#sql-Row" class="headerlink" title="sql.Row"></a><code>sql.Row</code></h2><p><code>QueryRow返回</code>,结合<code>scan</code>用来获取单行查询结果</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/05.1.md" target="_blank" rel="external">go web编程</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/25/go-database/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-24 </div>
 			<div class="article-title"><a href="/2015/09/24/app后台-升级经验/" >app后台-升级经验</a></div>						
 		</h3>
@@ -330,89 +476,6 @@ ImportPath       = string_lit .
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-22 </div>
-			<div class="article-title"><a href="/2015/09/22/产品部署/" >产品部署目录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="部署目录结构"><a href="#部署目录结构" class="headerlink" title="部署目录结构"></a>部署目录结构</h1><p>部署目录 := 起始目录/项目名称/版本号/构建类型</p>
-<p>构建类型 := 开发 | 测试 | 生产</p>
-<p>开发 := debug</p>
-<p>测试 := test</p>
-<p>生产 := release</p>
-<h2 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;PROJECT_NAME&#125;</span>/<span class="variable">$&#123;PROJECT_VERSION&#125;</span>/<span class="variable">$&#123;CMAKE_BUILD_TYPE&#125;</span></span><br></pre></td></tr></table></figure>
-<p>cmake</p>
-
-	
-	</div>
-  <a type="button" href="/2015/09/22/产品部署/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-22 </div>
-			<div class="article-title"><a href="/2015/09/22/程序配置数据用文件还是数据库/" >程序配置数据用文件还是数据库</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><p>| 对比点             | 文件                 | 数据库   |<br>|——————–+———————-+———-|<br>| 程序实现           | 简单                 | 相对复杂 |<br>| 数据读写操作       | 简单                 | 相对复杂 |<br>| 是否利于版本回退   | 是(可以纳入版本控制) | 否       |<br>| 部署是否方便       | 是                   | 否       |<br>| 是否方便集中式管理 | 否                   | 是       |</p>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>综合考虑,优先使用配置文件方式</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.perlmonks.org/?node_id=394211" target="_blank" rel="external">Storing config data - RDBMS vs File?</a></li>
-<li><a href="http://programmers.stackexchange.com/questions/179572/should-i-use-a-config-file-or-database-for-storing-business-rules" target="_blank" rel="external">Should I use a config file or database for storing business rules?</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/22/程序配置数据用文件还是数据库/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-21 </div>
-			<div class="article-title"><a href="/2015/09/21/go-library/" >go-library</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="https://github.com/gorilla/sessions" target="_blank" rel="external">https://github.com/gorilla/sessions</a></p>
-<p>http session实现</p>
-</li>
-<li><p><a href="https://github.com/golang/oauth2" target="_blank" rel="external">OAuth</a></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/21/go-library/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -625,7 +688,7 @@ ImportPath       = string_lit .
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -718,48 +781,48 @@ ImportPath       = string_lit .
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/socket/">socket<span>6</span></a></li>
 		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+			<li><a href="/tags/command/">command<span>9</span></a></li>
 		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/usb/">usb<span>3</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
 		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/database/">database<span>3</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
-			<li><a href="/tags/启动/">启动<span>1</span></a></li>
+			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/scp/">scp<span>1</span></a></li>
 		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/vps/">vps<span>1</span></a></li>
+			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
+			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
 		
-			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
 		
-			<li><a href="/tags/script/">script<span>1</span></a></li>
+			<li><a href="/tags/主键/">主键<span>1</span></a></li>
 		
-			<li><a href="/tags/时间/">时间<span>2</span></a></li>
+			<li><a href="/tags/git/">git<span>7</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
 		
-			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -772,23 +835,23 @@ ImportPath       = string_lit .
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

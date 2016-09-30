@@ -111,6 +111,71 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-02 </div>
+			<div class="article-title"><a href="/2015/03/02/windows-UNICODE和_UNICODE作用/" >windows-UNICODE和_UNICODE作用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="共性"><a href="#共性" class="headerlink" title="共性"></a>共性</h1><p>这两个宏都是为了控制API是使用UNICODE版还是ANSI版。</p>
+<ul>
+<li><p>若定义了，则相关的API为<code>*W</code>版本(UNICODE版)，如<code>GetWindowTextW</code></p>
+</li>
+<li><p>若未定义，则相关的API为<code>*A</code>版本(ANSI版)，如<code>GetWindowTextA</code></p>
+</li>
+</ul>
+<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ul>
+<li><p><code>UNICODE</code>宏影响windows API</p>
+</li>
+<li><p><code>_UNICODE</code>宏影响C运行库以及MFC，作用与<code>UNICODE</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blogs.msdn.com/b/oldnewthing/archive/2004/02/12/71851.aspx" target="_blank" rel="external">http://blogs.msdn.com/b/oldnewthing/archive/2004/02/12/71851.aspx</a></li>
+<li><a href="http://www.cnblogs.com/ini_always/archive/2011/05/20/2050517.html" target="_blank" rel="external">http://www.cnblogs.com/ini_always/archive/2011/05/20/2050517.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/02/windows-UNICODE和_UNICODE作用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-02 </div>
+			<div class="article-title"><a href="/2015/03/02/windows-WSA是什么意思/" >windows-WSA是什么意思</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<blockquote>
+<p>Windows Sockets API</p>
+</blockquote>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.acronymfinder.com/Windows-Sockets-API-(aka-Winsock-Application)-(WSA).html" target="_blank" rel="external">http://www.acronymfinder.com/Windows-Sockets-API-(aka-Winsock-Application)-(WSA).html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/02/windows-WSA是什么意思/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-28 </div>
 			<div class="article-title"><a href="/2015/02/28/C-locale作用/" ></a></div>						
 		</h3>
@@ -376,107 +441,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-27 </div>
-			<div class="article-title"><a href="/2015/02/27/vim-unicode-BOM设置/" >vim-unicode-BOM设置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查询当前文件是否带有BOM标记</p>
-<pre><code>:set bomb?
-</code></pre></li>
-<li><p>添加BOM</p>
-<pre><code>:set bomb
-</code></pre></li>
-<li><p>去除BOM</p>
-<pre><code>:set nobomb
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cnblogs.com/ini_always/archive/2011/12/24/2300621.html" target="_blank" rel="external">http://www.cnblogs.com/ini_always/archive/2011/12/24/2300621.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/27/vim-unicode-BOM设置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-27 </div>
-			<div class="article-title"><a href="/2015/02/27/od/" >od</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-t TYPE</p>
-<p>指定输出格式，<br>TYPE由进制和多少字节组合决定，如x1，则以十六进制，每次输出1字节</p>
-<ul>
-<li>a named character</li>
-<li>c ASCII character or backslash escape</li>
-<li>d signed decimal</li>
-<li>f floating point</li>
-<li>o octal</li>
-<li>u unsigned decimal</li>
-<li>x hexadecimal</li>
-<li>C char</li>
-<li>S short</li>
-<li>I int</li>
-<li>L long</li>
-<li>For floating point (f):</li>
-<li>F float</li>
-<li>D double</li>
-<li>L long double</li>
-</ul>
-</li>
-<li><p>-w BYTES</p>
-<p>指定一行的宽度</p>
-</li>
-<li><p>-A, –address-radix=radix</p>
-<p>指定文件偏移量显示的基数(d,o,x)</p>
-</li>
-<li><p>-j, –skip-bytes=BYTE</p>
-<p>从BYTE（文件偏移量）开始显示</p>
-</li>
-<li><p>-c</p>
-<p>把元素的内容按照ASCII码解释成对应的字符</p>
-</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>十六进制，按字节输出，并输出对应的ASCII字符</p>
-<pre><code>od -t x1 -c foo
-</code></pre></li>
-<li><p>同时按几种方式输出</p>
-<pre><code>od -tx1 -tc foo
-</code></pre></li>
-<li><p>跳过指定字节</p>
-<pre><code>od -Ax -tx1 -tc -j 0x065c main |less
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/27/od/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -689,7 +653,7 @@
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -782,48 +746,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
-		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
-		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
-		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
-		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
-		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
-		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
-		
-			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
-		
-			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
-		
-			<li><a href="/tags/undo/">undo<span>1</span></a></li>
-		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
-		
-			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
-		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
-		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
-		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
-		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
-		
-			<li><a href="/tags/update/">update<span>1</span></a></li>
-		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
 		
 			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+		
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+		
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/tags/宏/">宏<span>4</span></a></li>
+		
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
+		
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+		
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+		
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
+		
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
+		
+			<li><a href="/tags/package/">package<span>4</span></a></li>
+		
+			<li><a href="/tags/串口/">串口<span>2</span></a></li>
+		
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+		
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+		
+			<li><a href="/tags/打包/">打包<span>1</span></a></li>
+		
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+		
+			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+		
+			<li><a href="/tags/理论/">理论<span>1</span></a></li>
+		
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -836,23 +800,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

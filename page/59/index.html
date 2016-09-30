@@ -112,6 +112,77 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-11 </div>
+			<div class="article-title"><a href="/2014/12/11/windows-80端口被占用/" >windows-80端口被占用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="SQL-Server"><a href="#SQL-Server" class="headerlink" title="SQL Server"></a>SQL Server</h1><pre><code>![](/img/windows-80端口被占用_01.jpg)
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.2cto.com/os/201204/126942.html" target="_blank" rel="external">http://www.2cto.com/os/201204/126942.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/11/windows-80端口被占用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-11 </div>
+			<div class="article-title"><a href="/2014/12/11/编译wingetopt/" >编译wingetopt</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>VS2010</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li><p>下载<a href="https://github.com/QianChenglong/wingetopt" target="_blank" rel="external">QianChenglong/wingetopt</a></p>
+</li>
+<li><p>新建<code>build</code>，并进入</p>
+</li>
+<li><p>生成<code>Makefile</code></p>
+<ul>
+<li><p>debug</p>
+<pre><code>cmake -G &quot;NMake Makefiles&quot; -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=./wingetopt ..
+</code></pre></li>
+<li><p>release</p>
+<pre><code>cmake -G &quot;NMake Makefiles&quot; -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./wingetopt ..
+</code></pre></li>
+</ul>
+</li>
+<li><p>编译</p>
+<pre><code>nmake
+</code></pre></li>
+<li><p>安装</p>
+<pre><code>nmake install
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/11/编译wingetopt/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-11 </div>
 			<div class="article-title"><a href="/2014/12/11/禁止企业QQ提示手机安装应用/" >禁止企业QQ提示手机安装应用</a></div>						
 		</h3>
 	
@@ -315,54 +386,6 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-10 </div>
-			<div class="article-title"><a href="/2014/12/10/win下编译libcurl/" >win下编译libcurl</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
-<li>VS2010</li>
-<li><a href="https://www.openssl.org/source/" target="_blank" rel="external">openssl-1.0.1j</a></li>
-<li>curl-7.39.0</li>
-</ul>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
-<li><p>下载<a href="http://curl.haxx.se/" target="_blank" rel="external">官网</a>，解压</p>
-</li>
-<li><p>将<strong>编译好的</strong><code>openssl</code>({ iLink title:win下编译openssl %})拷贝到<code>../deps</code></p>
-<p><img src="/img/win下编译libcurl_01.png" alt=""></p>
-</li>
-<li><p>进入<code>winbuild</code>目录</p>
-</li>
-<li><p>编译(具体参考<code>winbuild/BUILD.WINDOWS.txt</code>)</p>
-<ul>
-<li><p>release</p>
-<p>nmake /f Makefile.vc mode=dll VC=10 WITH_SSL=dll ENABLE_IDN=no</p>
-</li>
-<li><p>debug</p>
-<p>nmake /f Makefile.vc mode=dll VC=10 WITH_SSL=dll ENABLE_IDN=no DEBUG=yes</p>
-</li>
-</ul>
-</li>
-<li><p>输出目录为<code>builds</code></p>
-<p><img src="/img/win下编译libcurl_02.png" alt=""></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/10/win下编译libcurl/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-10 </div>
 			<div class="article-title"><a href="/2014/12/10/win下编译openssl/" >win下编译openssl</a></div>						
 		</h3>
 	
@@ -395,39 +418,6 @@ ms\do_ms
 	
 	</div>
   <a type="button" href="/2014/12/10/win下编译openssl/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-09 </div>
-			<div class="article-title"><a href="/2014/12/09/svn撤销删除/" >svn撤销删除</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>通过<code>svn delete</code>删除的文件或目录</p>
-<pre><code>svn revert DeletedDir --recursive
-</code></pre></li>
-<li><p>手动删除或<code>rmdir</code></p>
-<pre><code>svn update DeletedDir
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1></li>
-</ul>
-<ol>
-<li><a href="http://stackoverflow.com/questions/1786687/svn-undo-delete-before-commit" target="_blank" rel="external">http://stackoverflow.com/questions/1786687/svn-undo-delete-before-commit</a></li>
-<li><a href="http://svnbook.red-bean.com/nightly/en/svn.ref.svn.c.revert.html" target="_blank" rel="external">http://svnbook.red-bean.com/nightly/en/svn.ref.svn.c.revert.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/09/svn撤销删除/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -643,7 +633,7 @@ ms\do_ms
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -736,48 +726,48 @@ ms\do_ms
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
 		
-			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
 		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/c99/">c99<span>1</span></a></li>
+			<li><a href="/tags/事务/">事务<span>1</span></a></li>
 		
-			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
-		
-			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
-		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
-		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
-		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
-		
-			<li><a href="/tags/glog/">glog<span>1</span></a></li>
-		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
-		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
+			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
 		
 			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
 		
-			<li><a href="/tags/C/">C++<span>34</span></a></li>
+			<li><a href="/tags/使用/">使用<span>1</span></a></li>
 		
-			<li><a href="/tags/模块/">模块<span>2</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+		
+			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+		
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+		
+			<li><a href="/tags/vim/">vim<span>24</span></a></li>
+		
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+		
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/tags/char/">char<span>2</span></a></li>
+		
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -790,23 +780,23 @@ ms\do_ms
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

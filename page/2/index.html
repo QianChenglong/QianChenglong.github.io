@@ -111,6 +111,92 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-09-05 </div>
+			<div class="article-title"><a href="/2016/09/05/慢速系统调用VS快速系统调用/" >慢速系统调用VS快速系统调用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>慢速或快速是从操作系统角度，来判断一个系统调用执行所需要的时间。</p>
+<p>这个时间并无固定标准(非实时操作系统)，而是取决于该调用执行的具体情况。</p>
+<p>若该调用等待事件(TCP连接建立)或其他执行体操作(相对OS来说，比较耗时，如磁盘IO)，则属于慢速系统调用。</p>
+<p>反之，则属于快速系统调用，如<code>getpid</code>，<code>gettimeofday</code>。</p>
+<h1 id="为什么需要这样划分？"><a href="#为什么需要这样划分？" class="headerlink" title="为什么需要这样划分？"></a>为什么需要这样划分？</h1><p>因为慢速系统调用，需依赖外部，则可以将其放入等待队列，无需调度。这样便提高了资源(CPU)利用率。</p>
+<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><ul>
+<li>快速系统调用，被信号中断后，会自动重启，应用层无感知，<br>而慢速系统调用(没有设置<code>O_NONBLOCK</code>)会出错返回(-1)，<code>errno=EINTR</code></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://unix.stackexchange.com/questions/14293/difference-between-slow-system-calls-and-fast-system-calls" target="_blank" rel="external">http://unix.stackexchange.com/questions/14293/difference-between-slow-system-calls-and-fast-system-calls</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/05/慢速系统调用VS快速系统调用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-09-02 </div>
+			<div class="article-title"><a href="/2016/09/02/gdb-指定源文件搜索/" >gdb-指定源文件搜索</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="通过set-substitute-path（优先使用）"><a href="#通过set-substitute-path（优先使用）" class="headerlink" title="通过set substitute-path（优先使用）"></a>通过<code>set substitute-path</code>（优先使用）</h1><pre><code>set substitute-path from to
+</code></pre><p>路径替换，适用于debug中的路径是绝对路径</p>
+<h1 id="通过directory命令"><a href="#通过directory命令" class="headerlink" title="通过directory命令"></a>通过<code>directory</code>命令</h1><pre><code>directory dirname ...
+</code></pre><p>适用于debug中的路径是相对路径</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Source-Path.html#Source-Path" target="_blank" rel="external">https://sourceware.org/gdb/current/onlinedocs/gdb/Source-Path.html#Source-Path</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/02/gdb-指定源文件搜索/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-09-02 </div>
+			<div class="article-title"><a href="/2016/09/02/gcc-生成可以宏调试信息/" >gcc-生成可以宏调试信息</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Author: QianChenglong &lt;qian_cheng_long@163.com&gt;</span></span><br><span class="line"><span class="comment">// Create: 2016-09-01 17:51:59</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STR <span class="string">"Hello world!\n"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; STR;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">gcc main.cpp -ggdb3</span><br><span class="line">gdb a.out</span><br><span class="line">(gdb) list</span><br><span class="line">1   // Author: QianChenglong &lt;qian_cheng_long@163.com&gt;</span><br><span class="line">2   // Create: 2016-09-01 17:51:59</span><br><span class="line">3   </span><br><span class="line">4   <span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line">5   </span><br><span class="line">6   <span class="comment">#define STR "Hello world!\n"</span></span><br><span class="line">7   </span><br><span class="line">8   int main(int argc, char* argv[])</span><br><span class="line">9   &#123;</span><br><span class="line">10      std::cout &lt;&lt; STR;</span><br><span class="line">(gdb) <span class="built_in">print</span> STR</span><br><span class="line"><span class="variable">$1</span> = <span class="string">"Hello world!\n"</span></span><br><span class="line">(gdb) macro expand STR</span><br><span class="line">expands to: <span class="string">"Hello world!\n"</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://gcc.gnu.org/onlinedocs/gcc-6.2.0/gcc/Debugging-Options.html#Debugging-Options" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/gcc-6.2.0/gcc/Debugging-Options.html#Debugging-Options</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/02/gcc-生成可以宏调试信息/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-09-01 </div>
 			<div class="article-title"><a href="/2016/09/01/判断库是否带有调试信息/" >source\_posts\判断库是否带有调试信息</a></div>						
 		</h3>
@@ -407,11 +493,14 @@ git submodule sync
 </code></pre></li>
 </ul>
 <h1 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h1><ul>
-<li><p>从版本库中删除，但保留工作目录里面的</p>
-<pre><code>git rm --cached readme.txt
+<li><p>从INDEX删除，但保留工作目录里面的</p>
+<pre><code>git rm --cached &lt;paths&gt;
 </code></pre></li>
 <li><p>强制删除已修改已暂存的文件(当前暂存区与上次提交的不一样)</p>
-<pre><code>git rm -f
+<pre><code>git rm -f &lt;paths&gt;
+</code></pre></li>
+<li><p>从INDEX，WORK中删除</p>
+<pre><code>git rm &lt;paths&gt;
 </code></pre></li>
 </ul>
 <h1 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h1><ul>
@@ -477,99 +566,6 @@ git reset --hard origin/master
 	
 	</div>
   <a type="button" href="/2016/06/02/firewalld/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-31 </div>
-			<div class="article-title"><a href="/2016/05/31/linux-时间片/" >linux-时间片</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="查看时间片"><a href="#查看时间片" class="headerlink" title="查看时间片"></a>查看时间片</h1><pre><code>[I] ~/p/B/p/c/s/time cat /proc/sys/kernel/sched_latency_ns
-12000000
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2016/05/31/linux-时间片/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-31 </div>
-			<div class="article-title"><a href="/2016/05/31/C++-static/" >C++-static</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><ol>
-<li><p>全局作用域，声明或定义标识符(变量，函数)，语义是该符号为内部链接</p>
-</li>
-<li><p>类定义中，声明方法时，说明该方法为静态方法</p>
-<ul>
-<li>静态方法可以访问该类对象的私有成员和方法！</li>
-</ul>
-</li>
-<li><p>类定义中，声明变量时，说明该变量为静态数据成员</p>
-</li>
-<li><p>函数定义中，说明该变量为静态变量，存储于<strong>数据段</strong></p>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/05/31/C++-static/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-30 </div>
-			<div class="article-title"><a href="/2016/05/30/C++-sring-resize-reserve/" >C++-sring-resize-reserve</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ul>
-<li><p><code>resize</code>是调整string的size(length)，操作后，[0, n)都可访问</p>
-<ul>
-<li><p>若大于原有长度，则填充对应字符，默认<code>\0</code></p>
-</li>
-<li><p>若小于原有长度，则截断</p>
-</li>
-</ul>
-</li>
-<li><p><code>reserve</code>是预留空间，以便快速插入，操作后，元素仍保持原样</p>
-<ul>
-<li>当大于原有容量(capacity)，则引起重新分配过程</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/05/30/C++-sring-resize-reserve/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -785,7 +781,7 @@ git reset --hard origin/master
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -878,48 +874,48 @@ git reset --hard origin/master
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
 		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/gcc/">gcc<span>5</span></a></li>
 		
-			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
+			<li><a href="/tags/install/">install<span>2</span></a></li>
 		
-			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
 		
-			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
+			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
 		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
+			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/cron/">cron<span>2</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
 		
-			<li><a href="/tags/du/">du<span>1</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/文件/">文件<span>7</span></a></li>
 		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
 		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
+			<li><a href="/tags/go/">go<span>40</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -932,23 +928,23 @@ git reset --hard origin/master
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

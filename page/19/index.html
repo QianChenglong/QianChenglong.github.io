@@ -111,6 +111,114 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-17 </div>
+			<div class="article-title"><a href="/2015/09/17/python-global/" >python-global</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var = 1</span><br><span class="line"></span><br><span class="line">def fun():</span><br><span class="line">    var = 2</span><br><span class="line">    print(var)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    fun()</span><br><span class="line">    print(var)</span><br><span class="line">    </span><br><span class="line">&gt;&gt;&gt; main()</span><br><span class="line">2</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<p>在pytho中函数中,python将<code>var</code>处理成同名的局部变量!</p>
+<p>所以,当执行复合赋值运算时,会报错!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var = 1</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    var += 2</span><br><span class="line">    print(var)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; main()</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 2, in main</span><br><span class="line">UnboundLocalError: local variable &apos;var&apos; referenced before assignment</span><br></pre></td></tr></table></figure>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>添加<code>global</code>声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var = 1</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    global var</span><br><span class="line">    var += 2</span><br><span class="line">    print(var)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; main()</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/10851906/python-3-unboundlocalerror-local-variable-referenced-before-assignment?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/10851906/python-3-unboundlocalerror-local-variable-referenced-before-assignment?lq=1</a></li>
+<li><a href="http://segmentfault.com/q/1010000000195730" target="_blank" rel="external">python中在哪些情况下必须使用global来声明全局变量？</a></li>
+<li><a href="http://stackoverflow.com/questions/8934772/assigning-to-variable-from-parent-function-local-variable-referenced-before-as" target="_blank" rel="external">http://stackoverflow.com/questions/8934772/assigning-to-variable-from-parent-function-local-variable-referenced-before-as</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/17/python-global/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-16 </div>
+			<div class="article-title"><a href="/2015/09/16/go-struct-tag/" >go-struct-tag</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p><code>struct</code>中可以附加一个<code>tag</code>,用来定制一些行为</p>
+<p>如在<code>encoding/json</code>中,因为go,默认首字母大写为导出的,而希望编码为json字符串时,<br>首字母为小写.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Person <span class="keyword">struct</span> &#123;</span><br><span class="line">    FirstName    <span class="keyword">string</span>    <span class="string">`json:"first_name"`</span></span><br><span class="line">    LastName     <span class="keyword">string</span>    <span class="string">`json:"last_name"`</span></span><br><span class="line">    MiddleName   <span class="keyword">string</span>    <span class="string">`json:"middle_name,omitempty"`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ul>
+<li><p>附加<code>omitempty</code>时,当值为<code>null</code>时,不包含该字段</p>
+</li>
+<li><p>附加<code>string</code>时,不管原类型,都转换为<code>json string</code></p>
+</li>
+<li><p>附加<code>json:&quot;-&quot;</code>,不转换该字段</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/10858787/what-are-the-uses-for-tags-in-go" target="_blank" rel="external">http://stackoverflow.com/questions/10858787/what-are-the-uses-for-tags-in-go</a></li>
+<li><a href="http://golang.org/pkg/reflect/#StructTag" target="_blank" rel="external">http://golang.org/pkg/reflect/#StructTag</a></li>
+<li><a href="https://groups.google.com/forum/#!topic/golang-china/jDyG0r_atxQ" target="_blank" rel="external">https://groups.google.com/forum/#!topic/golang-china/jDyG0r_atxQ</a></li>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.2.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.2.md</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/16/go-struct-tag/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-15 </div>
+			<div class="article-title"><a href="/2015/09/15/数据库设计/" >数据库设计</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h1><ol>
+<li><p>创建型记录,需附带创建时间,便于分析统计</p>
+</li>
+<li><p>需要计算类的字段,默认值不要为<code>NULL</code>,否则会导致计算结果为<code>0</code></p>
+</li>
+<li><p>尽量将字段设置为<code>NOT NULL</code></p>
+<ul>
+<li><p>多占用额外存储空间</p>
+</li>
+<li><p>影响查询效率</p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h1><ul>
+<li>标识符不使用常见的一些语言的关键字(如<code>class</code>, <code>type</code>等)</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/15/数据库设计/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-15 </div>
 			<div class="article-title"><a href="/2015/09/15/jsonrpc/" >jsonrpc</a></div>						
 		</h3>
@@ -298,132 +406,6 @@
 	
 	</div>
   <a type="button" href="/2015/09/06/python3-base64/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-02 </div>
-			<div class="article-title"><a href="/2015/09/02/rpc框架/" >rpc框架</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><a href="https://thrift.apache.org/" target="_blank" rel="external">thrift</a></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/02/rpc框架/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-02 </div>
-			<div class="article-title"><a href="/2015/09/02/go-使用gdb调试/" >go-使用gdb调试</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
-<li><p>编译</p>
-<pre><code>go build -gcflags &quot;-N -l&quot; test.go
-</code></pre></li>
-<li><p>调试</p>
-<pre><code>gdb test
-</code></pre></li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://golang.org/doc/gdb" target="_blank" rel="external">http://golang.org/doc/gdb</a></li>
-<li><a href="http://blog.kenshinx.me/blog/go-gdb/" target="_blank" rel="external">mac下用gdb调试Go程序</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/02/go-使用gdb调试/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-01 </div>
-			<div class="article-title"><a href="/2015/09/01/ps/" >ps</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
-<li><p>破折号开头的为UNIX风格</p>
-</li>
-<li><p>不带破折号开头的为BSD风格</p>
-</li>
-<li><p>gnu long option，双破折号开头</p>
-</li>
-</ul>
-<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-e</p>
-<p>同<code>-A</code>完全一样，选择所有进程</p>
-</li>
-<li><p>-f</p>
-<p>输出所有信息</p>
-</li>
-<li><p>-j</p>
-<p>jobs格式，输出<code>PGID   SID  C STIME</code></p>
-</li>
-<li><p>-o format(<code>/STANDARD FORMAT SPECIFIERS</code>)</p>
-<p>指定输出格式(列)</p>
-<ul>
-<li><p>pid</p>
-</li>
-<li><p>lstart 长格式启动时间</p>
-</li>
-<li><p>cmd 启动命令</p>
-</li>
-<li><p>wchan 内核阻塞</p>
-</li>
-</ul>
-</li>
-<li><p>L   Show threads, possibly with LWP and NLWP columns.</p>
-</li>
-</ul>
-<p><strong>OUTPUT MODIFIERS</strong></p>
-<ul>
-<li><p>–forest</p>
-<p>进程树</p>
-</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>查看当前用户进程</p>
-<pre><code>ps -f
-</code></pre></li>
-<li><p>指定进程启动的时间</p>
-<pre><code>ps -eo pid,lstart,cmd|grep user_manage
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/01/ps/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -639,7 +621,7 @@
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -732,48 +714,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/api/">api<span>1</span></a></li>
 		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
 		
-			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
 		
-			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
 		
-			<li><a href="/tags/库/">库<span>2</span></a></li>
+			<li><a href="/tags/variable/">variable<span>1</span></a></li>
 		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/build/">build<span>1</span></a></li>
+			<li><a href="/tags/debug/">debug<span>3</span></a></li>
 		
-			<li><a href="/tags/pip/">pip<span>2</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
 		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/resize/">resize<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -786,23 +768,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

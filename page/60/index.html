@@ -111,6 +111,87 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-10 </div>
+			<div class="article-title"><a href="/2014/12/10/win下编译libcurl/" >win下编译libcurl</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>VS2010</li>
+<li><a href="https://www.openssl.org/source/" target="_blank" rel="external">openssl-1.0.1j</a></li>
+<li>curl-7.39.0</li>
+</ul>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
+<li><p>下载<a href="http://curl.haxx.se/" target="_blank" rel="external">官网</a>，解压</p>
+</li>
+<li><p>将<strong>编译好的</strong><code>openssl</code>({ iLink title:win下编译openssl %})拷贝到<code>../deps</code></p>
+<p><img src="/img/win下编译libcurl_01.png" alt=""></p>
+</li>
+<li><p>进入<code>winbuild</code>目录</p>
+</li>
+<li><p>编译(具体参考<code>winbuild/BUILD.WINDOWS.txt</code>)</p>
+<ul>
+<li><p>release</p>
+<p>nmake /f Makefile.vc mode=dll VC=10 WITH_SSL=dll ENABLE_IDN=no</p>
+</li>
+<li><p>debug</p>
+<p>nmake /f Makefile.vc mode=dll VC=10 WITH_SSL=dll ENABLE_IDN=no DEBUG=yes</p>
+</li>
+</ul>
+</li>
+<li><p>输出目录为<code>builds</code></p>
+<p><img src="/img/win下编译libcurl_02.png" alt=""></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/10/win下编译libcurl/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-09 </div>
+			<div class="article-title"><a href="/2014/12/09/svn撤销删除/" >svn撤销删除</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>通过<code>svn delete</code>删除的文件或目录</p>
+<pre><code>svn revert DeletedDir --recursive
+</code></pre></li>
+<li><p>手动删除或<code>rmdir</code></p>
+<pre><code>svn update DeletedDir
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1></li>
+</ul>
+<ol>
+<li><a href="http://stackoverflow.com/questions/1786687/svn-undo-delete-before-commit" target="_blank" rel="external">http://stackoverflow.com/questions/1786687/svn-undo-delete-before-commit</a></li>
+<li><a href="http://svnbook.red-bean.com/nightly/en/svn.ref.svn.c.revert.html" target="_blank" rel="external">http://svnbook.red-bean.com/nightly/en/svn.ref.svn.c.revert.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/09/svn撤销删除/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-09 </div>
 			<div class="article-title"><a href="/2014/12/09/解决tortoisesvn和dropbox图标冲突/" >解决tortoisesvn和dropbox图标冲突</a></div>						
 		</h3>
@@ -494,68 +575,6 @@ by.decode(&apos;utf-8&apos;)
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-08 </div>
-			<div class="article-title"><a href="/2014/12/08/判断PC在交换机或路由器中的端口/" >判断PC在交换机或路由器中的端口</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="情景描述"><a href="#情景描述" class="headerlink" title="情景描述"></a>情景描述</h2><p>路由器下接多台交换机，不同交换机所属VLAN不同，1台PC被插到非目标交换机当中。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>如何找出PC在交换机中的端口？</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ul>
-<li><p>记录当前网络端口状态</p>
-<p>采用手机拍照，拍取当前PC所属交换机<br><img src="/img/判断PC在交换机或路由器中的端口_01.jpg" alt=""></p>
-</li>
-<li><p>拔出PC机箱后网线</p>
-</li>
-<li><p>与拍照比对</p>
-<p><strong>拍照时亮的端口，断开PC后，不亮的端口即为PC所插交换机端口</strong></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/08/判断PC在交换机或路由器中的端口/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-08 </div>
-			<div class="article-title"><a href="/2014/12/08/windows访问网络打印机/" >windows访问网络打印机</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>输入网络打印机路径(通过IP访问)</p>
-<pre><code>\\xxx.xxx.xxx.xxx
-</code></pre></li>
-<li><p>安装打印机驱动</p>
-<p>双击打印机图标</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/08/windows访问网络打印机/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -768,7 +787,7 @@ by.decode(&apos;utf-8&apos;)
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -861,48 +880,48 @@ by.decode(&apos;utf-8&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
 		
-			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
 		
-			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
+			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/resize/">resize<span>1</span></a></li>
 		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/bind/">bind<span>2</span></a></li>
-		
-			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
-		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
-		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
-		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
-		
-			<li><a href="/tags/ssh/">ssh<span>6</span></a></li>
-		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
-		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
-		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
-		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
-		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
-		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
 			<li><a href="/tags/列表/">列表<span>7</span></a></li>
 		
-			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
 		
-			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+		
+			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+		
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+		
+			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+		
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+		
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+		
+			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+		
+			<li><a href="/tags/make/">make<span>2</span></a></li>
+		
+			<li><a href="/tags/app/">app<span>4</span></a></li>
+		
+			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+		
+			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+		
+			<li><a href="/tags/api/">api<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -915,23 +934,23 @@ by.decode(&apos;utf-8&apos;)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

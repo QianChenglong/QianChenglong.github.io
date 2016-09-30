@@ -111,6 +111,88 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-11 </div>
+			<div class="article-title"><a href="/2015/03/11/VC-常见错误/" >VC-常见错误</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="lily-lib-WinSock-cpp-obj-error-LNK2038-检测到“-ITERATOR-DEBUG-LEVEL”的不匹配项-值“0”不匹配值“2”-dhcpcd-obj-中"><a href="#lily-lib-WinSock-cpp-obj-error-LNK2038-检测到“-ITERATOR-DEBUG-LEVEL”的不匹配项-值“0”不匹配值“2”-dhcpcd-obj-中" class="headerlink" title="lily.lib(WinSock.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(dhcpcd.obj 中)"></a><code>lily.lib(WinSock.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(dhcpcd.obj 中)</code></h1><ul>
+<li><p>原因：</p>
+<p><code>debug</code>版程序链接了<code>release</code>版库</p>
+<ul>
+<li>在<code>cmake</code>中，<code>TAGET_LINK_LIBRARIES</code>中，没有单独链接相应版本的库。</li>
+</ul>
+</li>
+<li><p>解决：</p>
+<p>重新设置对应的库名称</p>
+<ul>
+<li><p>cmake</p>
+<p>LIST(APPEND LIBS debug lilyd optimized lily)<br>TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${LIBS})</p>
+</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/11/VC-常见错误/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-11 </div>
+			<div class="article-title"><a href="/2015/03/11/proxifier-使用/" >proxifier-使用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h1><ul>
+<li><p>打开代理服务器配置页面</p>
+<p><img src="/img/proxifier-使用_01.png" alt=""></p>
+</li>
+<li><p>配置代理服务器参数</p>
+<p><img src="/img/proxifier-使用_02.png" alt=""></p>
+</li>
+<li><p>打开规则编辑页面</p>
+<p><img src="/img/proxifier-使用_03.png" alt=""></p>
+</li>
+<li><p>添加规则</p>
+<p><img src="/img/proxifier-使用_04.png" alt=""></p>
+<p><strong>注：</strong></p>
+<ul>
+<li><p>需要将代理客户端程序放行(<code>Direct</code>)，避免回环</p>
+</li>
+<li><p><code>Default</code>设置为<code>Proxy</code>时，为全局代理</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://awy.me/2014/06/yong-shadowsocks-he-proxifier-zi-you-fang-wen-hu-lian-wang/" target="_blank" rel="external">http://awy.me/2014/06/yong-shadowsocks-he-proxifier-zi-you-fang-wen-hu-lian-wang/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/11/proxifier-使用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-10 </div>
 			<div class="article-title"><a href="/2015/03/10/cscope/" >cscope</a></div>						
 		</h3>
@@ -472,57 +554,6 @@ firewall-cmd --reload
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-07 </div>
-			<div class="article-title"><a href="/2015/03/07/python-开发工具列表/" >python-开发工具列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="http://www.py2exe.org/" target="_blank" rel="external">py2exe</a></p>
-<p>将python脚本编译为windows可执行程序</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/07/python-开发工具列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-06 </div>
-			<div class="article-title"><a href="/2015/03/06/ubuntu-设置时区/" >ubuntu-设置时区</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>sudo dpkg-reconfigure tzdata
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.christopherirish.com/2012/03/21/how-to-set-the-timezone-on-ubuntu-server/" target="_blank" rel="external">http://www.christopherirish.com/2012/03/21/how-to-set-the-timezone-on-ubuntu-server/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/06/ubuntu-设置时区/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -735,7 +766,7 @@ firewall-cmd --reload
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -828,48 +859,48 @@ firewall-cmd --reload
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
+			<li><a href="/tags/mysql/">mysql<span>35</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
 		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
-		
-			<li><a href="/tags/启动/">启动<span>1</span></a></li>
-		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
-		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
-		
-			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
-		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
-		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
-		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
-		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
-		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
-		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
 			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+		
+			<li><a href="/tags/gcc/">gcc<span>5</span></a></li>
+		
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
+		
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
+		
+			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+		
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
+		
+			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
+		
+			<li><a href="/tags/crond/">crond<span>1</span></a></li>
+		
+			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
+		
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+		
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
+		
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
 		
 			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
-			<li><a href="/tags/strace/">strace<span>1</span></a></li>
-		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -882,23 +913,23 @@ firewall-cmd --reload
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

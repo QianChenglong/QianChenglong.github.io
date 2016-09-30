@@ -111,6 +111,80 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-24 </div>
+			<div class="article-title"><a href="/2015/03/24/windows-获取当前进程文件名/" >windows-获取当前进程文件名</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a><a href="https://github.com/QianChenglong/lily-windows/tree/master/%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%BF%9B%E7%A8%8B%E6%96%87%E4%BB%B6%E5%90%8D" target="_blank" rel="external">源码地址</a></h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms683197(v=vs.85).aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/windows/desktop/ms683197(v=vs.85).aspx</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/24/windows-获取当前进程文件名/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-23 </div>
+			<div class="article-title"><a href="/2015/03/23/syslinux-memdisk/" >syslinux-memdisk</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>启动一些软盘镜像，硬盘镜像，ISO镜像。</p>
+<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>memdisk作为<code>kernel</code>，而那些镜像文件作为初始化文件系统(initrd)</p>
+<p>镜像文件(zip或gzip格式)作为<code>INITRD</code>命令的参数传递</p>
+<ul>
+<li><p>命令行方式</p>
+<p>memdisk initrd=hdt.img</p>
+</li>
+<li><p>配置文件方式</p>
+<pre><code># Boot Hardware Detection Tool from floppy image
+LABEL hdt_floppy
+LINUX memdisk
+INITRD hdt.img
+
+# Boot Hardware Detection Tool from iso image (with &apos;iso&apos; parameter)
+LABEL hdt_iso
+LINUX memdisk
+INITRD hdt.iso
+APPEND iso
+
+# Boot DOS from floppy image (with &apos;raw&apos; parameter)
+LABEL dos_floppy_with_raw
+LINUX memdisk
+INITRD dosboot.img
+APPEND raw
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/23/syslinux-memdisk/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-20 </div>
 			<div class="article-title"><a href="/2015/03/20/syslinux/" >syslinux</a></div>						
 		</h3>
@@ -435,61 +509,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-18 </div>
-			<div class="article-title"><a href="/2015/03/18/redis-学习资源/" >redis-学习资源</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>Redis设计与实现–黄健宏</p>
-<ul>
-<li><p><a href="http://weibo.com/huangz1990" target="_blank" rel="external">新浪微博</a></p>
-</li>
-<li><p><a href="http://redisbook.com/" target="_blank" rel="external">在线阅读</a></p>
-</li>
-<li><p><a href="https://github.com/huangz1990/redis-3.0-annotated" target="_blank" rel="external">redis-3.0带注释源码</a></p>
-</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/18/redis-学习资源/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-18 </div>
-			<div class="article-title"><a href="/2015/03/18/windows双击安装apk/" >windows双击安装apk</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p><a href="https://github.com/QianChenglong/apk-instll" target="_blank" rel="external">https://github.com/QianChenglong/apk-instll</a></p>
-
-	
-	</div>
-  <a type="button" href="/2015/03/18/windows双击安装apk/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -702,7 +721,7 @@
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -795,48 +814,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/打包/">打包<span>1</span></a></li>
+		
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
+		
+			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+		
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+		
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+		
+			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+		
+			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
+		
+			<li><a href="/tags/link/">link<span>2</span></a></li>
+		
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+		
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+		
 			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
 		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/右值/">右值<span>1</span></a></li>
 		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
 		
-			<li><a href="/tags/c/">c<span>7</span></a></li>
+			<li><a href="/tags/linux/">linux<span>39</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
 		
-			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+			<li><a href="/tags/package/">package<span>4</span></a></li>
 		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
-		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
-		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
-		
-			<li><a href="/tags/log/">log<span>2</span></a></li>
-		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
-		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
-		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
-		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
-		
-			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
-		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
-		
-			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+			<li><a href="/tags/rune/">rune<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -849,23 +868,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

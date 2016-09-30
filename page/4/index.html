@@ -111,6 +111,104 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-05-12 </div>
+			<div class="article-title"><a href="/2016/05/12/go-cmd/" >go-cmd</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="get"><a href="#get" class="headerlink" title="get"></a>get</h1><ul>
+<li><p>自动获取所有依赖</p>
+<pre><code>go get .
+</code></pre></li>
+</ul>
+<h1 id="build"><a href="#build" class="headerlink" title="build"></a>build</h1><pre><code>usage: go build [-o output] [-i] [build flags] [packages]
+</code></pre><p>编译指定包，以及其依赖</p>
+<ul>
+<li>如果是<code>main</code>包，则在当前目录下生成一个可执行文件</li>
+</ul>
+<h1 id="run"><a href="#run" class="headerlink" title="run"></a>run</h1><pre><code>usage: go run [build flags] [-exec xprog] gofiles... [arguments...]
+</code></pre><p>编译并运行<code>main</code>包</p>
+<ul>
+<li>如果<code>main</code>包是由多个文件构成，则需要都指定！</li>
+</ul>
+<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><pre><code>usage: go test [-c] [-i] [build and test flags] [packages] [flags for test binary]
+</code></pre><p>自动测试指定包</p>
+<ul>
+<li>默认情况，会编译当前目录包以及相应测试，并运行测试</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.3.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.3.md</a></li>
+<li><a href="http://stackoverflow.com/questions/16935965/how-to-run-test-cases-in-a-specified-file" target="_blank" rel="external">http://stackoverflow.com/questions/16935965/how-to-run-test-cases-in-a-specified-file</a></li>
+<li><a href="http://stackoverflow.com/questions/19998250/proper-package-naming-for-testing-in-go-lang" target="_blank" rel="external">http://stackoverflow.com/questions/19998250/proper-package-naming-for-testing-in-go-lang</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/05/12/go-cmd/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-12 </div>
+			<div class="article-title"><a href="/2016/05/12/backtrace()/" >backtrace()</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>glibc在Linux下获取调用堆栈</p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>链接需要在<code>gcc-rdynamic</code>&lt;=&gt;<code>ld --export-dynamic</code></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/6934659/how-to-make-backtrace-backtrace-symbols-print-the-function-names" target="_blank" rel="external">http://stackoverflow.com/questions/6934659/how-to-make-backtrace-backtrace-symbols-print-the-function-names</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/gcc-4.8.5/gcc/Link-Options.html#Link-Options" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/gcc-4.8.5/gcc/Link-Options.html#Link-Options</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/05/12/backtrace()/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-11 </div>
+			<div class="article-title"><a href="/2016/05/11/addr2line/" >addr2line</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><p>将程序地址转换为文件名和行号，结合call stack，可以在崩溃时，打印相应信息！</p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><pre><code>addr2line -e a.out 0x5061ad
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2016/05/11/addr2line/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-05-08 </div>
 			<div class="article-title"><a href="/2016/05/08/程序设计-鸭子类型/" >程序设计-鸭子类型</a></div>						
 		</h3>
@@ -317,129 +415,6 @@
 	
 	</div>
   <a type="button" href="/2016/05/07/C++11-using/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-06 </div>
-			<div class="article-title"><a href="/2016/05/06/mysql-int(n)/" >mysql-int(n)</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><ul>
-<li><p>若不指定显示宽度，则默认为该类型的最大位数(int=&gt;11)</p>
-</li>
-<li><p>作用相同于<code>printf</code>宽度控制，当数值位数小于指定值时，默认填充空格，大于指定值时，也不会截断！</p>
-</li>
-<li><p>该显示宽度是可通过结果集(Result Set)中的元数据(Metadata)获取，<strong>具体采不采用取决于应用程序</strong>!</p>
-</li>
-<li><p>宽度和<code>zerofill</code>对数据存储(存储形式，占用空间)没有任何影响</p>
-</li>
-<li><p>当列定义指定<code>zerofill</code>时，若该值小于指定宽度，<code>select</code>查询输出会填充相应个数的0</p>
-</li>
-</ul>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><ul>
-<li>指定宽度和<code>zerofill</code></li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">create table t(num int(5) zerofill);</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; desc t;</span><br><span class="line">+-------+--------------------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type                     | Null | Key | Default | Extra |</span><br><span class="line">+-------+--------------------------+------+-----+---------+-------+</span><br><span class="line">| num   | int(5) unsigned zerofill | YES  |     | NULL    |       |</span><br><span class="line">+-------+--------------------------+------+-----+---------+-------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; insert into t values(1);</span><br><span class="line">Query OK, 1 row affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; select * from t;</span><br><span class="line">+-------+</span><br><span class="line">| num   |</span><br><span class="line">+-------+</span><br><span class="line">| 00001 |</span><br><span class="line">+-------+</span><br></pre></td></tr></table></figure>
-<ul>
-<li>不指定<code>zerofill</code></li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [test]&gt; create table t1(num int(5));</span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; insert into t1 values(1);</span><br><span class="line">Query OK, 1 row affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; select * from t1;</span><br><span class="line">+------+</span><br><span class="line">| num  |</span><br><span class="line">+------+</span><br><span class="line">|    1 |</span><br><span class="line">+------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>不指定宽度，指定<code>zerofill</code></li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [test]&gt; create table t2(num int zerofill);</span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; insert into t2 values(1);</span><br><span class="line">Query OK, 1 row affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [test]&gt; select * from t2;</span><br><span class="line">+------------+</span><br><span class="line">| num        |</span><br><span class="line">+------------+</span><br><span class="line">| 0000000001 |</span><br><span class="line">+------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-<h1 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h1><ul>
-<li><p>对于int来说，取值范围-2^(32-1) to 0 to 2^(32-1)-1 =  -2147483648 to 0 to 2147483647，最大显示宽度为11</p>
-</li>
-<li><p>对于unsigned int，0~4294967295，最大显示宽度为10</p>
-</li>
-<li><p>当指定<code>zerofill</code>时，mysql会自动追加<code>unsigned</code>属性，！</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">-------+---------------------------+------+-----+---------+-------+</span></span><br><span class="line">| Field | Type                      | Null | Key | Default | Extra |</span><br><span class="line">+<span class="comment">-------+---------------------------+------+-----+---------+-------+</span></span><br><span class="line">| num   | int(10) unsigned zerofill | YES  |     | NULL    |       |</span><br><span class="line">+<span class="comment">-------+---------------------------+------+-----+---------+-------+</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://dev.mysql.com/doc/refman/5.7/en/numeric-type-attributes.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/numeric-type-attributes.html</a></li>
-<li><a href="http://stackoverflow.com/questions/5634104/what-is-the-size-of-column-of-int11-in-mysql-in-bytes" target="_blank" rel="external">http://stackoverflow.com/questions/5634104/what-is-the-size-of-column-of-int11-in-mysql-in-bytes</a></li>
-<li><a href="http://stackoverflow.com/questions/5256469/what-is-the-benefit-of-zerofill-in-mysql" target="_blank" rel="external">http://stackoverflow.com/questions/5256469/what-is-the-benefit-of-zerofill-in-mysql</a></li>
-<li><a href="http://dev.mysql.com/doc/refman/5.7/en/integer-types.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/integer-types.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/05/06/mysql-int(n)/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-04 </div>
-			<div class="article-title"><a href="/2016/05/04/C++-智能指针/" >C++-智能指针</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="std-unique-ptr"><a href="#std-unique-ptr" class="headerlink" title="std::unique_ptr"></a><code>std::unique_ptr</code></h1><ul>
-<li>独占对象所有权</li>
-</ul>
-<h2 id="释放时机"><a href="#释放时机" class="headerlink" title="释放时机"></a>释放时机</h2><ul>
-<li><p>当赋值操作时</p>
-</li>
-<li><p>当离开作用域时</p>
-</li>
-<li><p>显式调用<code>reset</code></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/05/04/C++-智能指针/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-02 </div>
-			<div class="article-title"><a href="/2016/05/02/mysql-NULL/" >mysql-NULL</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>只能通过<code>IS NULL</code>, <code>IS NOT NULL</code>(运算符), <code>ISNULL()</code>(函数)这3个来进行测试<code>NULL</code>值</p>
-</li>
-<li><p>与<code>NULL</code>进行任何运算(比较,算术等),结果都为<code>NULL</code>,除非该运算符特别说明!</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.0/en/working-with-null.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/working-with-null.html</a></li>
-<li><a href="https://dev.mysql.com/doc/refman/5.0/en/comparison-operators.html#operator_is-null" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/comparison-operators.html#operator_is-null</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/05/02/mysql-NULL/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -655,7 +630,7 @@
 		
 			<li><a href="/categories/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/categories/ubuntu/">ubuntu<span>10</span></a></li>
+			<li><a href="/categories/ubuntu/">ubuntu<span>9</span></a></li>
 		
 			<li><a href="/categories/usb/">usb<span>2</span></a></li>
 		
@@ -748,48 +723,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/语句/">语句<span>1</span></a></li>
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>12</span></a></li>
+			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
 		
-			<li><a href="/tags/command/">command<span>9</span></a></li>
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+			<li><a href="/tags/linux/">linux<span>39</span></a></li>
 		
-			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
-		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
+			<li><a href="/tags/池/">池<span>1</span></a></li>
 		
 			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
 		
-			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/命令/">命令<span>5</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
 		
-			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
 		
-			<li><a href="/tags/od/">od<span>1</span></a></li>
+			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
 		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
+			<li><a href="/tags/软件/">软件<span>3</span></a></li>
 		
-			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
 		
-			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+			<li><a href="/tags/串口/">串口<span>2</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/package/">package<span>4</span></a></li>
+		
+			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>578</span></a></li>
+		   <li><a href="/tags">...<span>581</span></a></li>
 		 
 		</ul>
 	</div>
@@ -802,23 +777,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
+      </li>
+    
+      <li>
+        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
       <li>
         <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/18/C++-变量/" ><i class="fa fa-file-o"></i>C++-变量</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/14/C++-初始化/" ><i class="fa fa-file-o"></i>C++-初始化</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/12/C++11-final和override/" ><i class="fa fa-file-o"></i>C++11-final和override</a>
       </li>
     
   </ul>

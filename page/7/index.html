@@ -247,22 +247,34 @@
   <div class="row">
 	
 	
-		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+		<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>通过一定的<strong>约定和组织</strong>来编写测试代码</p>
+<p>go test命令遍历所有<code>*_test.go</code>文件，生成一个临时的main包来调用相应测试函数，然后构建并运行，报告测试结果，最后清理临时文件</p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>所有测试代码文件以<code>_test.go</code>结尾</p>
+</li>
+<li><p>功能测试以<code>Test</code>开头</p>
+</li>
+<li><p>基准测试以<code>Benchmark</code>开头</p>
+</li>
+<li><p>示例函数以<code>Example</code>开头</p>
+</li>
+</ul>
+<h1 id="组织方式"><a href="#组织方式" class="headerlink" title="组织方式"></a>组织方式</h1><h2 id="白盒测试"><a href="#白盒测试" class="headerlink" title="白盒测试"></a>白盒测试</h2><p>测试文件与被测试文件属于同一个包</p>
+<h2 id="黑盒测试"><a href="#黑盒测试" class="headerlink" title="黑盒测试"></a>黑盒测试</h2><p>测试文件包应为被测试包名+<code>_test</code>结尾</p>
+<p>为了简化访问方式，可以采用匿名导入<code>import . XXX</code></p>
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
 <li><p>-v</p>
 <pre><code>打印所有输出
 </code></pre></li>
-</ul>
-<h1 id="命令规范"><a href="#命令规范" class="headerlink" title="命令规范"></a>命令规范</h1><ul>
-<li><p>文件名：要测试的文件名_test.go</p>
-</li>
-<li><p>函数名：Test_XXX</p>
-</li>
 </ul>
 <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
 <li><p>运行指定测试</p>
 <pre><code>go test login_test.go
 </code></pre></li>
 </ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.ruanjiadeng.com/gopl-zh/ch11/ch11-01.html" target="_blank" rel="external">https://docs.ruanjiadeng.com/gopl-zh/ch11/ch11-01.html</a></li>
+</ol>
 
 	
 	</div>
@@ -752,45 +764,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/od/">od<span>1</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>2</span></a></li>
 		
-			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
 		
-			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
-			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
+			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
 		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+			<li><a href="/tags/vim/">vim<span>24</span></a></li>
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
 		
-			<li><a href="/tags/登录/">登录<span>2</span></a></li>
+			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/extern/">extern<span>1</span></a></li>
 		
-			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+			<li><a href="/tags/suse/">suse<span>1</span></a></li>
 		
-			<li><a href="/tags/时间/">时间<span>2</span></a></li>
+			<li><a href="/tags/resize/">resize<span>1</span></a></li>
 		
 			<li><a href="/tags/模块/">模块<span>2</span></a></li>
 		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
 		
-			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
 		
-			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>581</span></a></li>

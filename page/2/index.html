@@ -111,6 +111,48 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-09-06 </div>
+			<div class="article-title"><a href="/2016/09/06/C++11-右值引用/" >C++11-右值引用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><ol>
+<li><p>实现移动语义(Move Sementics)，减少不必要的临时对象的创建、拷贝、销毁(内存管理费时)，极大地提升语言效率</p>
+</li>
+<li><p>完美转发(Perfect Forwarding)，可以简洁地定义泛型函数</p>
+</li>
+</ol>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>右值引用类型既可以被当作左值也可以被当作右值，判断的标准是，如果它有名字，那就是左值，否则就是右值。</p>
+<p>为了确保move之后，不会被再次引用到。所以，有名字的变量是左值。</p>
+</li>
+<li><p><code>std::move</code>可以将一个有名变量(左值)转换为右值引用</p>
+<p>该功能的意图是，该变量作为其他变量的值来源后，便不再使用该值，只用来被赋值或弃用。</p>
+<p>典型用途：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class T&gt;</span><br><span class="line">void swap(T&amp; a, T&amp; b)</span><br><span class="line">&#123;</span><br><span class="line">  T tmp(std::move(a)); // a用来作为tmp的值来源</span><br><span class="line">  a = std::move(b); // a被重新赋值</span><br><span class="line">  b = std::move(tmp); // tmp不再使用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注</strong>：若该类型不支持移动操作，则仍执行对应的拷贝或赋值操作。</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.ibm.com/developerworks/cn/aix/library/1307_lisl_c11/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/aix/library/1307_lisl_c11/</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2027.html" target="_blank" rel="external">A Brief Introduction to Rvalue References</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/06/C++11-右值引用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-09-05 </div>
 			<div class="article-title"><a href="/2016/09/05/慢速系统调用VS快速系统调用/" >慢速系统调用VS快速系统调用</a></div>						
 		</h3>
@@ -546,38 +588,6 @@ git reset --hard origin/master
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-06-02 </div>
-			<div class="article-title"><a href="/2016/06/02/firewalld/" >firewalld</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>停止防火墙</p>
-<p>systemctl stop firewalld.service</p>
-</li>
-<li><p>禁用防火墙</p>
-<p>systemctl disable firewalld.service</p>
-</li>
-<li><p>放行端口</p>
-<p>firewall-cmd –permanent –add-port=80/tcp<br>firewall-cmd –reload</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/06/02/firewalld/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -883,45 +893,45 @@ git reset --hard origin/master
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
 		
-			<li><a href="/tags/产品/">产品<span>1</span></a></li>
-		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
-		
-			<li><a href="/tags/sal/">sal<span>1</span></a></li>
-		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
-		
-			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
-		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
-		
-			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
-		
-			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
-		
-			<li><a href="/tags/yed/">yed<span>1</span></a></li>
-		
-			<li><a href="/tags/build/">build<span>1</span></a></li>
-		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
-		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
-		
-			<li><a href="/tags/密码/">密码<span>1</span></a></li>
-		
-			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
-		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
-		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
-		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
-		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
+			<li><a href="/tags/cron/">cron<span>1</span></a></li>
 		
 			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+		
+			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+		
+			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+		
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
+		
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+		
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+		
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+		
+			<li><a href="/tags/script/">script<span>1</span></a></li>
+		
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
+		
+			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
+		
+			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+		
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+		
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+		
+			<li><a href="/tags/T/">__T<span>1</span></a></li>
+		
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
+		
+			<li><a href="/tags/test/">test<span>2</span></a></li>
+		
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+		
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>581</span></a></li>
@@ -937,6 +947,10 @@ git reset --hard origin/master
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
@@ -950,10 +964,6 @@ git reset --hard origin/master
     
       <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
       </li>
     
   </ul>

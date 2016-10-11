@@ -112,6 +112,30 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-04-22 </div>
+			<div class="article-title"><a href="/2016/04/22/mysql-开发经验/" >mysql-开发经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>程序中，SQL语句尽量用’`’括起来，避免关键字冲突</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/04/22/mysql-开发经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-22 </div>
 			<div class="article-title"><a href="/2016/04/22/windows-md5/" >windows-md5</a></div>						
 		</h3>
 	
@@ -463,45 +487,6 @@ set timeout=1
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-07 </div>
-			<div class="article-title"><a href="/2016/04/07/mysql-char-vs-varchar/" >mysql-char-vs-varchar</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><h2 id="占用空间"><a href="#占用空间" class="headerlink" title="占用空间"></a>占用空间</h2><ul>
-<li><p>char(M)占用空间固定，M[0,255]个字符，具体占用字节与编码相关</p>
-</li>
-<li><p>varchar(M[0,65535])占用空间不固定，因为首部占用1或2B来记录长度M+1(<code>M&lt;256</code>)，占用M+2(<code>255&lt;M&lt;65536</code>)</p>
-</li>
-</ul>
-<h2 id="关于空格"><a href="#关于空格" class="headerlink" title="关于空格"></a>关于空格</h2><ul>
-<li><p>在存储字符串到char中时，会填充空格至相应长度</p>
-</li>
-<li><p>取出char类型值时，若<code>sql_mode</code>没有设置<code>PAD_CHAR_TO_FULL_LENGTH</code>，则会去除尾部空格</p>
-<p>所以导致插入带空格的字符串，取出时却不带有空格！</p>
-</li>
-<li><p>varchar会存储空格和保留空格，不会转换！</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://dev.mysql.com/doc/refman/5.6/en/char.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.6/en/char.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/07/mysql-char-vs-varchar/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -809,43 +794,43 @@ set timeout=1
 		
 			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
 		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
+			<li><a href="/tags/右值/">右值<span>1</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/file/">file<span>1</span></a></li>
 		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+			<li><a href="/tags/c/">c<span>7</span></a></li>
 		
-			<li><a href="/tags/base64/">base64<span>1</span></a></li>
+			<li><a href="/tags/左值/">左值<span>1</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
 		
-			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
-			<li><a href="/tags/理论/">理论<span>1</span></a></li>
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
 		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+			<li><a href="/tags/import/">import<span>3</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/打包/">打包<span>1</span></a></li>
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
 		
-			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>581</span></a></li>
@@ -861,6 +846,10 @@ set timeout=1
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
@@ -874,10 +863,6 @@ set timeout=1
     
       <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
       </li>
     
   </ul>

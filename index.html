@@ -111,6 +111,63 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-10-10 </div>
+			<div class="article-title"><a href="/2016/10/10/ssh/" >ssh</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-C</p>
+<p>  压缩数据</p>
+</li>
+<li><p>-N</p>
+<p>  不执行命令，只在端口转发时特别有用</p>
+</li>
+<li><p>-v</p>
+<p>显示详细信息，便于追踪调试</p>
+</li>
+<li><p>-F /path/to/configfile</p>
+<p>指定配置文件</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>服务端开启调试</p>
+<pre><code>sudo /usr/sbin/sshd -p 22 -d
+</code></pre></li>
+<li><p>客户端verbose</p>
+<pre><code>ssh -vT git@112.74.81.30 -p 22
+</code></pre></li>
+</ul>
+<ul>
+<li><p>生成ssh key</p>
+<pre><code>ssh-keygen -C &quot;wallace@beme 2016-06-30 15:43:00&quot;
+</code></pre></li>
+<li><p>ssh后，执行指定命令</p>
+<pre><code>ssh web -t &quot;cd $web_dir; bash&quot;
+</code></pre></li>
+<li><p>本地转发</p>
+<pre><code>ssh -CNL 6000:rm-wz9cp2458eedl74zs.mysql.rds.aliyuncs.com:3306 of-dev01
+</code></pre></li>
+<li><p>socket代理</p>
+<pre><code>ssh -D 0.0.0.0:1124 -C root@104.238.150.39
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/10/10/ssh/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-09-29 </div>
 			<div class="article-title"><a href="/2016/09/29/go-flag/" >go-flag</a></div>						
 		</h3>
@@ -194,7 +251,14 @@
 <p>特殊时间控制：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@reboot &lt;COMMAND&gt;</span><br></pre></td></tr></table></figure>
 <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>周与日和月不能同时存在，因为两个点指向的天不一定是同一天，指定了周，日和月都要置成<em>，指定了月或日，周就要置成</em>；</li>
+<li><p>周与日和月不能同时存在，因为两个点指向的天不一定是同一天，指定了周，日和月都要置成<em>，指定了月或日，周就要置成</em>；</p>
+</li>
+<li><p><code>%</code>需要转义，默认用来表示后续字符作为命令的标准输入！</p>
+<p><code>date --date=&#39;-1 day&#39; +&quot;\%Y-\%m-\%d&quot;</code></p>
+</li>
+<li><p>指定shell</p>
+<pre><code>SHELL=/bin/bash
+</code></pre></li>
 </ul>
 <h1 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h1><ul>
 <li><p>重定向标准输出和出错到文件</p>
@@ -424,48 +488,6 @@ chmod 666 /var/log/mysql/mysql.log
 	
 	</div>
   <a type="button" href="/2016/09/07/左值-右值/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-06 </div>
-			<div class="article-title"><a href="/2016/09/06/C++11-右值引用/" >C++11-右值引用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><ol>
-<li><p>实现移动语义(Move Sementics)，减少不必要的临时对象的创建、拷贝、销毁(内存管理费时)，极大地提升语言效率</p>
-</li>
-<li><p>完美转发(Perfect Forwarding)，可以简洁地定义泛型函数</p>
-</li>
-</ol>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>右值引用类型既可以被当作左值也可以被当作右值，判断的标准是，如果它有名字，那就是左值，否则就是右值。</p>
-<p>为了确保move之后，不会被再次引用到。所以，有名字的变量是左值。</p>
-</li>
-<li><p><code>std::move</code>可以将一个有名变量(左值)转换为右值引用</p>
-<p>该功能的意图是，该变量作为其他变量的值来源后，便不再使用该值，只用来被赋值或弃用。</p>
-<p>典型用途：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class T&gt;</span><br><span class="line">void swap(T&amp; a, T&amp; b)</span><br><span class="line">&#123;</span><br><span class="line">  T tmp(std::move(a)); // a用来作为tmp的值来源</span><br><span class="line">  a = std::move(b); // a被重新赋值</span><br><span class="line">  b = std::move(tmp); // tmp不再使用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>注</strong>：若该类型不支持移动操作，则仍执行对应的拷贝或赋值操作。</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.ibm.com/developerworks/cn/aix/library/1307_lisl_c11/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/aix/library/1307_lisl_c11/</a></li>
-<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2027.html" target="_blank" rel="external">A Brief Introduction to Rvalue References</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/06/C++11-右值引用/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -774,45 +796,45 @@ chmod 666 /var/log/mysql/mysql.log
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
-		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
-		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
-		
-			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
-		
-			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
-		
-			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
-		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
-		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
-		
-			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
-		
-			<li><a href="/tags/configure/">configure<span>1</span></a></li>
-		
-			<li><a href="/tags/串口/">串口<span>2</span></a></li>
-		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
-		
-			<li><a href="/tags/左值/">左值<span>1</span></a></li>
-		
-			<li><a href="/tags/C-11/">C++11<span>8</span></a></li>
+			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
 		
 			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/文件/">文件<span>7</span></a></li>
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
 		
-			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
-			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
+			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+		
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
+		
+			<li><a href="/tags/fish-shell/">fish,shell<span>1</span></a></li>
+		
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+		
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+		
+			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
+		
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
+		
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
+		
+			<li><a href="/tags/link/">link<span>2</span></a></li>
+		
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
+		
+			<li><a href="/tags/function/">function<span>1</span></a></li>
+		
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+		
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
+		
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>581</span></a></li>
@@ -828,6 +850,10 @@ chmod 666 /var/log/mysql/mysql.log
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
@@ -841,10 +867,6 @@ chmod 666 /var/log/mysql/mysql.log
     
       <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
       </li>
     
   </ul>

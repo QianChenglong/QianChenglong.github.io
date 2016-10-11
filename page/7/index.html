@@ -111,6 +111,45 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-04-07 </div>
+			<div class="article-title"><a href="/2016/04/07/mysql-char-vs-varchar/" >mysql-char-vs-varchar</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><h2 id="占用空间"><a href="#占用空间" class="headerlink" title="占用空间"></a>占用空间</h2><ul>
+<li><p>char(M)占用空间固定，M[0,255]个字符，具体占用字节与编码相关</p>
+</li>
+<li><p>varchar(M[0,65535])占用空间不固定，因为首部占用1或2B来记录长度M+1(<code>M&lt;256</code>)，占用M+2(<code>255&lt;M&lt;65536</code>)</p>
+</li>
+</ul>
+<h2 id="关于空格"><a href="#关于空格" class="headerlink" title="关于空格"></a>关于空格</h2><ul>
+<li><p>在存储字符串到char中时，会填充空格至相应长度</p>
+</li>
+<li><p>取出char类型值时，若<code>sql_mode</code>没有设置<code>PAD_CHAR_TO_FULL_LENGTH</code>，则会去除尾部空格</p>
+<p>所以导致插入带空格的字符串，取出时却不带有空格！</p>
+</li>
+<li><p>varchar会存储空格和保留空格，不会转换！</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://dev.mysql.com/doc/refman/5.6/en/char.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.6/en/char.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/07/mysql-char-vs-varchar/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-04-05 </div>
 			<div class="article-title"><a href="/2016/04/05/redis/" >redis</a></div>						
 		</h3>
@@ -433,32 +472,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-28 </div>
-			<div class="article-title"><a href="/2016/03/28/ssh-keygen/" >ssh-keygen</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>将pub格式转换为pem格式</p>
-<pre><code>ssh-keygen -f id_rsa.pub -e -m pem &gt;id_rsa.pub.pem
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/03/28/ssh-keygen/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -764,45 +777,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
+			<li><a href="/tags/进程/">进程<span>1</span></a></li>
 		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+			<li><a href="/tags/read/">read<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
 		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
 		
-			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
+			<li><a href="/tags/同步/">同步<span>2</span></a></li>
 		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
 		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
+			<li><a href="/tags/API/">API<span>2</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
 		
-			<li><a href="/tags/module/">module<span>3</span></a></li>
+			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/串口/">串口<span>2</span></a></li>
 		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
+			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
 		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>581</span></a></li>
@@ -818,6 +831,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
@@ -831,10 +848,6 @@
     
       <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
       </li>
     
   </ul>

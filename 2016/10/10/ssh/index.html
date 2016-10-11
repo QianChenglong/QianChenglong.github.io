@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>心若天府</title>
+  <title>ssh | 心若天府</title>
   <meta name="author" content="钱成龙">
   
   <meta name="description" content="笔记，经验总结，资料">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="ssh"/>
   <meta property="og:site_name" content="心若天府"/>
 
   
@@ -93,7 +93,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> </h1>
+			<h1 class="title title-inverse "> ssh</h1>
 		</div>		
 	
 
@@ -113,7 +113,43 @@
 	<div class="mypage">		
 	  		
 
-	  	  
+	  <h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-C</p>
+<p>  压缩数据</p>
+</li>
+<li><p>-N</p>
+<p>  不执行命令，只在端口转发时特别有用</p>
+</li>
+<li><p>-v</p>
+<p>显示详细信息，便于追踪调试</p>
+</li>
+<li><p>-F /path/to/configfile</p>
+<p>指定配置文件</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>服务端开启调试</p>
+<pre><code>sudo /usr/sbin/sshd -p 22 -d
+</code></pre></li>
+<li><p>客户端verbose</p>
+<pre><code>ssh -vT git@112.74.81.30 -p 22
+</code></pre></li>
+</ul>
+<ul>
+<li><p>生成ssh key</p>
+<pre><code>ssh-keygen -C &quot;wallace@beme 2016-06-30 15:43:00&quot;
+</code></pre></li>
+<li><p>ssh后，执行指定命令</p>
+<pre><code>ssh web -t &quot;cd $web_dir; bash&quot;
+</code></pre></li>
+<li><p>本地转发</p>
+<pre><code>ssh -CNL 6000:rm-wz9cp2458eedl74zs.mysql.rds.aliyuncs.com:3306 of-dev01
+</code></pre></li>
+<li><p>socket代理</p>
+<pre><code>ssh -D 0.0.0.0:1124 -C root@104.238.150.39
+</code></pre></li>
+</ul>
+	  
 	</div>
 
 	<div>
@@ -121,14 +157,14 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2016/03/18/protobuf/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2016/03/15/epoll/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2016/09/29/go-flag/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -167,7 +203,7 @@
   <h2 class="title">留言</h2>
 
   
-  	 <div class="ds-thread" data-thread-key="2016/03/18/ssh/" data-title="" data-url="https://qianchenglong.github.io/2016/03/18/ssh/"></div>  
+  	 <div class="ds-thread" data-thread-key="2016/10/10/ssh/" data-title="ssh" data-url="https://qianchenglong.github.io/2016/10/10/ssh/"></div>  
   
 </section>
 
@@ -181,7 +217,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2016-03-18 
+	2016-10-10 
 	</div>
 	
 
@@ -189,6 +225,14 @@
     
 
 	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/ssh/">ssh<span>7</span></a></li>
+    </ul>
+	</div>
 		
 
 	<!-- toc -->

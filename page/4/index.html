@@ -111,6 +111,62 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-05-15 </div>
+			<div class="article-title"><a href="/2016/05/15/图片存储/" >图片存储</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>客户端采用BASE64编码图片</li>
+</ul>
+<h1 id="方案1"><a href="#方案1" class="headerlink" title="方案1"></a>方案1</h1><p>服务端直接存储到数据库，客户端查询回去自行解码</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>服务器端实现简单</p>
+</li>
+<li><p>服务器端不需要依赖具体编码方式</p>
+</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>相比二进制存储，多占用了33.3%空间</li>
+</ul>
+<h1 id="方案2"><a href="#方案2" class="headerlink" title="方案2"></a>方案2</h1><p>服务器解码后，存储二进制到数据库，客户端请求时再编码返回给客户端</p>
+<h2 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>节省空间</li>
+</ul>
+<h2 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li><p>服务端多做工作，而且浪费时间</p>
+</li>
+<li><p>依赖客户端编码方式，可能会修改代码</p>
+</li>
+</ul>
+<h1 id="方案3"><a href="#方案3" class="headerlink" title="方案3"></a>方案3</h1><p>服务器解码后，以文件形式存储到目录，客户端直接GET对应资源</p>
+<h2 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>无需存储到数据库</p>
+</li>
+<li><p>客户端实现简单</p>
+</li>
+</ul>
+<h2 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>不安全，头像可能被直接访问到！</li>
+<li>数据迁移麻烦，万一路径地址改变，资料丢失等</li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>采用方案1.</p>
+
+	
+	</div>
+  <a type="button" href="/2016/05/15/图片存储/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-05-12 </div>
 			<div class="article-title"><a href="/2016/05/12/go-cmd/" >go-cmd</a></div>						
 		</h3>
@@ -382,39 +438,6 @@
 	
 	</div>
   <a type="button" href="/2016/05/07/C++-泛型编程/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-07 </div>
-			<div class="article-title"><a href="/2016/05/07/C++11-using/" >C++11-using</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h1><ol>
-<li>相比<code>typedef</code>可读性更强</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> PrintFunc = <span class="keyword">void</span>(*)(std::string);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Print</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> s)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    PrintFunc f = Print;</span><br><span class="line"></span><br><span class="line">    f(<span class="string">"Hello world"</span>);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>可以支持<code>template</code></li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">using</span> deleted_unique_ptr = <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;T, <span class="built_in">std</span>::function&lt;<span class="keyword">void</span>(T *)&gt;&gt;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    deleted_unique_ptr&lt;FILE&gt; file(fopen(<span class="string">"test"</span>, <span class="string">"w"</span>),</span><br><span class="line">    [](FILE * f) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        fclose(f);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">fputs</span>(<span class="string">"Hello world"</span>, file.get());</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/10747810/what-is-the-difference-between-typedef-and-using-in-c11" target="_blank" rel="external">http://stackoverflow.com/questions/10747810/what-is-the-difference-between-typedef-and-using-in-c11</a></li>
-<li><a href="http://stackoverflow.com/questions/19053351/how-do-i-use-a-custom-deleter-with-a-stdunique-ptr-member" target="_blank" rel="external">http://stackoverflow.com/questions/19053351/how-do-i-use-a-custom-deleter-with-a-stdunique-ptr-member</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/05/07/C++11-using/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -723,45 +746,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/安装/">安装<span>3</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
 		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
 		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
 		
-			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
 		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
 		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
 		
-			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
 		
-			<li><a href="/tags/C/">C<span>14</span></a></li>
+			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
 		
-			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/log/">log<span>2</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/任播/">任播<span>1</span></a></li>
 		
-			<li><a href="/tags/ip/">ip<span>2</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
 		
-			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>581</span></a></li>
@@ -777,6 +800,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
+      </li>
+    
+      <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
@@ -790,10 +817,6 @@
     
       <li>
         <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/mysql-查看查询日志/" ><i class="fa fa-file-o"></i>mysql-查看查询日志</a>
       </li>
     
   </ul>

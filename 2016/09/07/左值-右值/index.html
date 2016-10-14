@@ -114,12 +114,20 @@
 	  		
 
 	  <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>最早起源于<code>CPL</code>语言(1960s)。</p>
-<p>是根据可以出现在赋值操作的左右，来划分对象的。</p>
-<p>左值：可以寻址的对象，根据是否可修改属性，分为<strong>可修改左值</strong>，<strong>不可修改左值</strong></p>
+<p>是<strong>表达式</strong>的二个属性(类型，值类别)之一!</p>
+<p>左值：可以寻址(<strong>L</strong>ocate)的对象，根据是否可修改属性，分为<strong>可修改左值</strong>，<strong>不可修改左值</strong></p>
 <p>右值：不是左值的对象（C/C++中，临时对象属于右值）</p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>字符串常量是<strong>左值(不可修改的)</strong>！因为该数据存放在文本段，是有地址的！</p>
+</li>
+<li><p>在C中，<strong>prefix increment(++)/decrement(–), assignment(=), compound assignment(+=…), comma(,), ternary conditional(? :)</strong>是右值！而在C++中却是左值！！！</p>
+</li>
+</ul>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a href="http://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c" target="_blank" rel="external">http://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c</a></li>
 <li><a href="http://en.cppreference.com/w/c/language/value_category" target="_blank" rel="external">http://en.cppreference.com/w/c/language/value_category</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/value_category" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/value_category</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/operator_other#Built-in_comma_operator" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/operator_other#Built-in_comma_operator</a></li>
 </ol>
 	  
 	</div>

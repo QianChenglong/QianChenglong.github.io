@@ -120,6 +120,9 @@
 </li>
 </ol>
 <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>右值引用除了拥有左值引用的功能，还可以绑定到临时对象(<strong>rvalue</strong>)，而(non const)左值引用不可以！</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A&amp;  a_ref3 = A();  <span class="comment">// Error!</span></span><br><span class="line">A&amp;&amp; a_ref4 = A();  <span class="comment">// Ok</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>右值引用类型既可以被当作左值也可以被当作右值，判断的标准是，如果它有名字，那就是左值，否则就是右值。</p>
 <p>为了确保move之后，不会被再次引用到。所以，有名字的变量是左值。</p>
 </li>

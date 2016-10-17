@@ -111,6 +111,72 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-01-15 </div>
+			<div class="article-title"><a href="/2016/01/15/linux-最大打开文件数/" >linux-最大打开文件数</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>linux下，默认最大打开文件数为1024(<code>ulimit -n</code>)</p>
+</li>
+<li><p>一个进程打开，默认占用3个文件描述符(0,1,2分别对应标准输入，标准输出，标准出错)</p>
+</li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ul>
+<li><p>默认情况下，单进程最大打开文件数为<strong>1021</strong>个([3,1023])</p>
+</li>
+<li><p>单进程，最大连接数为<strong>1021</strong>个</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/01/15/linux-最大打开文件数/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-01-15 </div>
+			<div class="article-title"><a href="/2016/01/15/服务端编程步骤/" >服务端编程步骤</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>创建监听套接字</p>
+</li>
+<li><p>配置监听地址信息</p>
+</li>
+<li><p>套接字绑定监听地址</p>
+</li>
+<li><p>开始监听</p>
+</li>
+<li><p>连接处理/数据IO</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/01/15/服务端编程步骤/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-11-26 </div>
 			<div class="article-title"><a href="/2015/11/26/nginx-gzip/" >nginx-gzip</a></div>						
 		</h3>
@@ -400,74 +466,6 @@
 	
 	</div>
   <a type="button" href="/2015/11/16/http-OPTIONS/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-16 </div>
-			<div class="article-title"><a href="/2015/11/16/http-head/" >http-head</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>HEAD方法跟GET方法相同，只不过服务器响应时不会返回消息体。<br>一个HEAD请求的响应中，HTTP头中包含的元信息应该和一个GET请求的响应消息相同。</p>
-<p>一个HEAD请求的响应可被缓存，也就是说，响应中的信息可能用来更新之前缓存的实体。如果当前实体跟缓存实体的阈值不同（可通过Content-Length、Content-MD5、ETag或Last-Modified的变化来表明），那么这个缓存就被视为过期了</p>
-<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul>
-<li><p>简单,快速,耗用资源少</p>
-</li>
-<li><p>响应可被缓存</p>
-</li>
-</ul>
-<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><ul>
-<li><p>测试超链接的有效性、可用性和最近的修改</p>
-</li>
-<li><p>用来获取资源的<strong>元数据</strong></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">wiki-超文本传输协议</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/16/http-head/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-16 </div>
-			<div class="article-title"><a href="/2015/11/16/ajax/" >ajax</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="什么是ajax"><a href="#什么是ajax" class="headerlink" title="什么是ajax?"></a>什么是ajax?</h1><p>全称”Asynchronous Javascript And XML”(异步JavaScript和XML)</p>
-<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>在不用重新载入整个网页的前提下(刷新),获取数据,更新网页内容</p>
-<h1 id="应用案例"><a href="#应用案例" class="headerlink" title="应用案例"></a>应用案例</h1><p>该技术在1998年前后得到了应用。允许客户端脚本发送HTTP请求（XMLHTTP）的第一个组件由Outlook Web Access小组写成。该组件原属于微软Exchange Server，并且迅速地成为了Internet Explorer 4.0的一部分。部分观察家认为，Outlook Web Access是第一个应用了Ajax技术的成功的商业应用程序，并成为包括Oddpost的网络邮件产品在内的许多产品的领头羊。但是，2005年初，许多事件使得Ajax被大众所接受。Google在它著名的交互应用程序中使用了异步通讯，如Google、Google地图、Google搜索建议、Gmail等。Ajax这个词由《Ajax: A New Approach to Web Applications》一文所创，该文的迅速流传提高了人们使用该项技术的意识。另外，对Mozilla/Gecko的支持使得该技术走向成熟，变得更为易用。</p>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>核心是<code>XMLHttpRequest</code>对象</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.w3school.com.cn/xml/xml_http.asp" target="_blank" rel="external">XMLHttpRequest 对象</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/16/ajax/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -776,48 +774,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
 		
-			<li><a href="/tags/c99/">c99<span>1</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/启动/">启动<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
+			<li><a href="/tags/池/">池<span>1</span></a></li>
 		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
 		
-			<li><a href="/tags/json/">json<span>4</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
-			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/array/">array<span>1</span></a></li>
 		
-			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
 		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
+			<li><a href="/tags/app/">app<span>4</span></a></li>
 		
-			<li><a href="/tags/module/">module<span>3</span></a></li>
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
 		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/script/">script<span>1</span></a></li>
+			<li><a href="/tags/curses/">curses<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -830,6 +828,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -839,14 +845,6 @@
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

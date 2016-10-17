@@ -111,6 +111,56 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-24 </div>
+			<div class="article-title"><a href="/2015/06/24/windows-安装常见错误/" >windows-安装常见错误</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="win7"><a href="#win7" class="headerlink" title="win7"></a>win7</h1><ul>
+<li><p>win7 安装 找不到任何设备驱动程序</p>
+<pre><code>不要使用USB3.0安装
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/24/windows-安装常见错误/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-24 </div>
+			<div class="article-title"><a href="/2015/06/24/树形数据存储/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>一般比较普遍的就是四种方法：（具体见 SQL Anti-patterns这本书）<br>Adjacency List：每一条记录存parent_id<br>Path Enumerations：每一条记录存整个tree path经过的node枚举<br>Nested Sets：每一条记录存 nleft 和 nright<br>Closure Table：维护一个表，所有的tree path作为记录进行保存。</p>
+<p>各种方法的常用操作代价见下图</p>
+<p>推荐一本书 SQL Anti-patterns，<br>见：<a href="http://www.ppurl.com/2010/06/sql-antipatterns-avoiding-the-pitfalls-of-database-programming.html" target="_blank" rel="external">http://www.ppurl.com/2010/06/sql-antipatterns-avoiding-the-pitfalls-of-database-programming.html</a><br>其中对于树形结构在关系型数据库中的存储做了分析。</p>
+
+	
+	</div>
+  <a type="button" href="/2015/06/24/树形数据存储/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-18 </div>
 			<div class="article-title"><a href="/2015/06/18/tomcat部署war包/" >tomcat部署war包</a></div>						
 		</h3>
@@ -455,77 +505,6 @@ mount /dev/cdrom /mnt/cdrom
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-17 </div>
-			<div class="article-title"><a href="/2015/06/17/grub2-修改配置/" >grub2-修改配置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
-<li><p>修改配置文件</p>
-<pre><code>vi /etc/default/grub
-/etc/grub.d/
-</code></pre></li>
-<li><p>更新配置</p>
-<pre><code>grub2-mkconfig -o /boot/grub2/grub.cfg
-</code></pre></li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://help.ubuntu.com/community/Grub2/Setup" target="_blank" rel="external">https://help.ubuntu.com/community/Grub2/Setup</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/17/grub2-修改配置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-17 </div>
-			<div class="article-title"><a href="/2015/06/17/muduo-编译安装/" >muduo-编译安装</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li><p>CentOS-7.0.1</p>
-</li>
-<li><p>muduo-2.5</p>
-</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
-<li><p>下载</p>
-<pre><code>wget https://github.com/chenshuo/muduo/archive/master.zip
-</code></pre></li>
-<li><p>解压</p>
-<pre><code>unzip master.zip
-</code></pre></li>
-<li><p>编译</p>
-<pre><code>cd muduo-master &amp;&amp; sh build.sh
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/17/muduo-编译安装/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -831,48 +810,48 @@ mount /dev/cdrom /mnt/cdrom
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
 		
-			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
 		
-			<li><a href="/tags/flag/">flag<span>1</span></a></li>
+			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+		
+			<li><a href="/tags/C-11/">C++11<span>8</span></a></li>
+		
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+		
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+		
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
+		
+			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+		
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+		
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
+		
+			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+		
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
 		
 			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/编程/">编程<span>5</span></a></li>
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
 		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
 		
-			<li><a href="/tags/date/">date<span>1</span></a></li>
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
-			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/时间/">时间<span>2</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
-		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
-		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
-		
-			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
-		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
-		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
-		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
-		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
-		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
-		
-			<li><a href="/tags/T/">__T<span>1</span></a></li>
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -885,6 +864,14 @@ mount /dev/cdrom /mnt/cdrom
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -894,14 +881,6 @@ mount /dev/cdrom /mnt/cdrom
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

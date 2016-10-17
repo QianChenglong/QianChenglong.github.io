@@ -111,6 +111,68 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-25 </div>
+			<div class="article-title"><a href="/2014/12/25/python-subprocess隐藏命令行/" >python-subprocess隐藏命令行</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line">startupinfo = subprocess.STARTUPINFO()</span><br><span class="line">startupinfo.dwFlags = subprocess.CREATE_NEW_CONSOLE | subprocess.STARTF_USESHOWWINDOW</span><br><span class="line">startupinfo.wShowWindow = subprocess.SW_HIDE</span><br><span class="line">subprocess.Popen([<span class="string">"ping"</span>, <span class="string">"-c 1"</span>, ip], stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startupinfo)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://code.activestate.com/recipes/578300-python-subprocess-hide-console-on-windows/" target="_blank" rel="external">http://code.activestate.com/recipes/578300-python-subprocess-hide-console-on-windows/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/25/python-subprocess隐藏命令行/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-24 </div>
+			<div class="article-title"><a href="/2014/12/24/python-格式字符串/" >python-格式字符串</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>因python不提供隐式类型转换，不支持类似<code>string + int</code>等操作，所以字符串的连接<br>需要使用其他的方法。</p>
+<h1 id="2-6之后推荐使用string-format"><a href="#2-6之后推荐使用string-format" class="headerlink" title="2.6之后推荐使用string.format()"></a>2.6之后推荐使用<code>string.format()</code></h1><h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><ul>
+<li><code>string</code>连接其他类型</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var = <span class="keyword">False</span></span><br><span class="line"><span class="string">'True Or &#123;&#125;!'</span>.format(var)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>命名参数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">madlib = <span class="string">" I &#123;verb&#125; the &#123;object&#125; off the &#123;place&#125; "</span>.format(verb=<span class="string">"took"</span>, object=<span class="string">"cheese"</span>, place=<span class="string">"table"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="不推荐使用"><a href="#不推荐使用" class="headerlink" title="不推荐使用%"></a>不推荐使用<code>%</code></h1><p>原因，参见<a href="https://www.python.org/dev/peps/pep-3101/" target="_blank" rel="external">PEP-3101</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://www.python.org/dev/peps/pep-3101/" target="_blank" rel="external">https://www.python.org/dev/peps/pep-3101/</a></li>
+<li><a href="https://docs.python.org/2.7/library/string.html#formatspec" target="_blank" rel="external">https://docs.python.org/2.7/library/string.html#formatspec</a></li>
+<li><a href="http://youngsterxyf.github.io/2013/01/26/python-string-format/" target="_blank" rel="external">http://youngsterxyf.github.io/2013/01/26/python-string-format/</a></li>
+<li><a href="http://www.pythonclub.org/python-basic/print" target="_blank" rel="external">http://www.pythonclub.org/python-basic/print</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/24/python-格式字符串/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-24 </div>
 			<div class="article-title"><a href="/2014/12/24/python-获取相对路径/" >python-获取相对路径</a></div>						
 		</h3>
@@ -390,52 +452,6 @@
 	
 	</div>
   <a type="button" href="/2014/12/22/优秀网站列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-19 </div>
-			<div class="article-title"><a href="/2014/12/19/ejs语法/" >ejs语法</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><p><code>&lt;% javascript %&gt;</code></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.embeddedjs.com/" target="_blank" rel="external">http://www.embeddedjs.com/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/19/ejs语法/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-19 </div>
-			<div class="article-title"><a href="/2014/12/19/markdown语法/" >markdown语法</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="文件名后缀"><a href="#文件名后缀" class="headerlink" title="文件名后缀"></a>文件名后缀</h2><p>采用*.md</p>
-	
-	</div>
-  <a type="button" href="/2014/12/19/markdown语法/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -744,48 +760,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/列表/">列表<span>7</span></a></li>
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 		
-			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
+			<li><a href="/tags/final/">final<span>1</span></a></li>
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
 		
-			<li><a href="/tags/grep/">grep<span>1</span></a></li>
+			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
 		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
 		
-			<li><a href="/tags/strace/">strace<span>1</span></a></li>
+			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
 		
-			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
-			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+			<li><a href="/tags/column/">column<span>1</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
 		
-			<li><a href="/tags/string/">string<span>8</span></a></li>
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/module/">module<span>3</span></a></li>
 		
-			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
+			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/import/">import<span>3</span></a></li>
 		
-			<li><a href="/tags/STL/">STL<span>1</span></a></li>
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
 		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
+			<li><a href="/tags/右值/">右值<span>1</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
 		
-			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
+			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -798,6 +814,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -807,14 +831,6 @@
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

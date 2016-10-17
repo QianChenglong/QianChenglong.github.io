@@ -112,6 +112,94 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-07-09 </div>
+			<div class="article-title"><a href="/2015/07/09/truncate和delete区别/" >truncate和delete区别</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>truncate属于DDL，delete输入DML</p>
+</li>
+<li><p>truncate不可回滚，delete可回滚</p>
+</li>
+<li><p>delete可接where子句</p>
+</li>
+<li><p>truncate执行更快</p>
+</li>
+<li><p>truncate回收表空间，占用系统日志资源更少</p>
+</li>
+<li><p>truncate不触发delete触发器</p>
+</li>
+<li><p>truncate不能被授权</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/09/truncate和delete区别/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-09 </div>
+			<div class="article-title"><a href="/2015/07/09/sql-语句分类/" >sql-语句分类</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="数据查询语言-Data-Query-Language-DQL"><a href="#数据查询语言-Data-Query-Language-DQL" class="headerlink" title="数据查询语言(Data Query Language, DQL)"></a>数据查询语言(Data Query Language, DQL)</h1><p>查询数据</p>
+<ul>
+<li><code>select</code></li>
+</ul>
+<h1 id="数据操纵语言-Data-Manipulation-Language-DML"><a href="#数据操纵语言-Data-Manipulation-Language-DML" class="headerlink" title="数据操纵语言(Data Manipulation Language, DML)"></a>数据操纵语言(Data Manipulation Language, DML)</h1><p>对数据的修改操作</p>
+<ul>
+<li><code>insert</code></li>
+<li><code>update</code></li>
+<li><code>delete</code></li>
+</ul>
+<h1 id="数据定义语言-Data-Definition-Language-DDl"><a href="#数据定义语言-Data-Definition-Language-DDl" class="headerlink" title="数据定义语言(Data Definition Language, DDl)"></a>数据定义语言(Data Definition Language, DDl)</h1><p>定义，修改，删除数据库实体(表，视图，触发器等)</p>
+<ul>
+<li><code>create</code></li>
+<li><code>alter</code></li>
+<li><code>drop</code></li>
+<li><code>truncate</code></li>
+</ul>
+<h1 id="数据控制语言-Data-Control-Language-DCL"><a href="#数据控制语言-Data-Control-Language-DCL" class="headerlink" title="数据控制语言(Data Control Language, DCL)"></a>数据控制语言(Data Control Language, DCL)</h1><p>用来授予或回收访问数据库的某种特权，并控制数据库操纵事务发生的时间及效果，对数据库实行监视等</p>
+<ul>
+<li><p><code>grant</code></p>
+</li>
+<li><p><code>deny</code></p>
+</li>
+<li><p><code>revoke</code></p>
+</li>
+<li><p><code>rollback</code></p>
+</li>
+<li><p><code>commit</code></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/09/sql-语句分类/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-09 </div>
 			<div class="article-title"><a href="/2015/07/09/mysql-事务/" >mysql-事务</a></div>						
 		</h3>
 	
@@ -332,68 +420,6 @@
 	
 	</div>
   <a type="button" href="/2015/07/07/注册表运行vbs/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-01 </div>
-			<div class="article-title"><a href="/2015/07/01/mysql-常用命令行参数/" >mysql-常用命令行参数</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>–skip-column-names</p>
-<p>结果列不输出列名</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/01/mysql-常用命令行参数/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-01 </div>
-			<div class="article-title"><a href="/2015/07/01/jsoncpp/" >jsoncpp</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="主要的类"><a href="#主要的类" class="headerlink" title="主要的类"></a>主要的类</h1><p>| 类名         | 作用                                                                                                                                           |<br>|————–+————————————————————————————————————————————————|<br>| Json::Value  | 可以表示里所有的类型                                                                                                                           |<br>| Json::Reader | 将json文件流或字符串解析到Json::Value, 主要函数有Parse                                                                                         |<br>| Json::Writer | 与Json::Reader相反，将Json::Value转化成字符串流，注意它的两个子类：Json::FastWriter和Json::StyleWriter，分别输出不带格式的json和带格式的json。 |</p>
-<h1 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h1><ul>
-<li><p>判断json中是否有指定成员</p>
-<pre><code>bool isMember(&quot;id&quot;)
-</code></pre></li>
-<li><p>取指定值，若不存在，则使用默认值</p>
-<pre><code>Value get(ArrayIndex index, const Value &amp;defaultValue)
-</code></pre><h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1></li>
-<li><p>文件需要是<code>UTF-8</code>不带BOM!</p>
-</li>
-<li><p>下标访问时，若该元素不存在，则返回值为<code>json::Value::nullValue</code></p>
-</li>
-<li><p><code>json::Value::nullValue</code>转换为空字符串<code>&quot;&quot;</code>(<code>\X00</code>)</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/01/jsoncpp/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -702,48 +728,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/go/">go<span>40</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
-			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
 		
-			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
 		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
-		
-			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
-		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
-		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
-		
-			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
-		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
-		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
-		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
-		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
-		
-			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
-		
-			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
 		
 			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+			<li><a href="/tags/nging/">nging<span>1</span></a></li>
 		
-			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
+			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
+		
+			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+		
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+		
+			<li><a href="/tags/search/">search<span>1</span></a></li>
+		
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
+		
+			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+		
+			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+		
+			<li><a href="/tags/部署/">部署<span>1</span></a></li>
+		
+			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
+		
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+		
+			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -756,6 +782,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -765,14 +799,6 @@
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

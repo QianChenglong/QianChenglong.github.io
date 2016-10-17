@@ -111,6 +111,67 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-05-08 </div>
+			<div class="article-title"><a href="/2016/05/08/C++-template/" >C++-template</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h1><ul>
+<li><p>减少重复代码编写</p>
+</li>
+<li><p>接口统一</p>
+</li>
+</ul>
+<h1 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h1><ul>
+<li><p>因为编译器实例化，需要template实现，而实现包含了所有必须的头文件，这样增加了编译时间</p>
+</li>
+<li><p>实例化错误不宜阅读和定位解决</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/05/08/C++-template/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-08 </div>
+			<div class="article-title"><a href="/2016/05/08/C++11-lambda/" >C++11-lambda</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>lambda表达式</code>实质上，是一种快速定义<strong>函数对象</strong>的语法(编译器实现)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> cpp_bigger = [](int a, int b)&#123; return a &gt; b; &#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt;=&gt;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> _CompilerInventedName</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span> <span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> <span class="keyword">const</span> </span>&#123; return a &gt; b; &#125;</span><br><span class="line">&#125;;</span><br><span class="line">_CompilerInventedName cpp_bigger;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/05/08/C++11-lambda/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-05-07 </div>
 			<div class="article-title"><a href="/2016/05/07/C++-异常/" >C++-异常</a></div>						
 		</h3>
@@ -377,66 +438,6 @@
 	
 	</div>
   <a type="button" href="/2016/04/28/设计模式-单例模式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-28 </div>
-			<div class="article-title"><a href="/2016/04/28/C++-内存区域/" >C++-内存区域</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="数据段"><a href="#数据段" class="headerlink" title="数据段"></a>数据段</h1><p>BSS段通常是指用来存放程序中未初始化的全局变量和静态变量的一块内存区域。特点是可读写的，在程序执行之前BSS段会自动清0。<br>可执行程序包括BSS段、数据段、代码段（也称文本段）。<br>BSS（Block Started by Symbol）通常是指用来存放程序中未初始化的全局变量和静态变量的一块内存区域。特点是:可读写的，在程序执行之前BSS段会自动清0。所以，未初始的全局变量在程序执行之前已经成0了。<br>数据段包括初始化的数据和未初始化的数据（BSS）两部分[1]  。BSS段存放的是未初始化的全局变量和静态变量。<br>UNIX下可使用size命令查看可执行文件的段大小信息。如size a.out。</p>
-
-	
-	</div>
-  <a type="button" href="/2016/04/28/C++-内存区域/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-28 </div>
-			<div class="article-title"><a href="/2016/04/28/C++-静态数据成员/" >C++-静态数据成员</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> X</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">int</span> normalValue = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">0</span>;       <span class="comment">// declaration, with initializer</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> X::i;                 <span class="comment">// definition</span></span><br></pre></td></tr></table></figure>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>与全局变量存储在同一区域(全局/静态存储区，又叫做数据段)</p>
-</li>
-<li><p>在函数内用static修饰的变量，也是在<strong>全局/静态存储</strong>，只是访问的<strong>作用域</strong>被编译器限定</p>
-</li>
-<li><p>static数据成员只是加上了类名字限定了的全局变量！</p>
-</li>
-</ul>
-<h1 id="为什么需要在类实现文件中单独定义static类型数据成员？"><a href="#为什么需要在类实现文件中单独定义static类型数据成员？" class="headerlink" title="为什么需要在类实现文件中单独定义static类型数据成员？"></a>为什么需要在类实现文件中单独定义static类型数据成员？</h1><ul>
-<li>因为类定义在头文件中，而头文件可以在不同的object中引用，<br>这样该定义不唯一，链接器在链接时，会报重定义错误！</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/11300652/static-data-member-initialization" target="_blank" rel="external">http://stackoverflow.com/questions/11300652/static-data-member-initialization</a></li>
-<li><a href="http://programmers.stackexchange.com/questions/145299/why-the-static-data-members-have-to-be-defined-outside-the-class-separately-in-c" target="_blank" rel="external">http://programmers.stackexchange.com/questions/145299/why-the-static-data-members-have-to-be-defined-outside-the-class-separately-in-c</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/static" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/static</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/28/C++-静态数据成员/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -745,48 +746,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
 		
-			<li><a href="/tags/bind/">bind<span>2</span></a></li>
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
 		
-			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+			<li><a href="/tags/进程/">进程<span>1</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
+		
+			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+		
+			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+		
+			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+		
+			<li><a href="/tags/连接/">连接<span>1</span></a></li>
+		
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+		
+			<li><a href="/tags/宏/">宏<span>4</span></a></li>
+		
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
+		
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+		
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+		
+			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
+		
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
 			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
+			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
 		
-			<li><a href="/tags/理解/">理解<span>1</span></a></li>
-		
-			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
-		
-			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
-		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
-		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
-		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
-		
-			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
-		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
-		
-			<li><a href="/tags/glog/">glog<span>1</span></a></li>
-		
-			<li><a href="/tags/列表/">列表<span>7</span></a></li>
-		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
-		
-			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
+			<li><a href="/tags/右值/">右值<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -799,6 +800,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -808,14 +817,6 @@
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

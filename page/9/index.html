@@ -111,6 +111,88 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-23 </div>
+			<div class="article-title"><a href="/2016/03/23/pstree/" >pstree</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-a</p>
+<p>输出进程的命令行参数</p>
+</li>
+<li><p>-p</p>
+<p>输出进程PID</p>
+</li>
+<li><p>-u</p>
+<p>输出进程使用者</p>
+</li>
+<li><p>-s</p>
+<p>Show parent processes of the specified process.</p>
+</li>
+<li><p>-n</p>
+<p>按PID排序</p>
+</li>
+<li><p>-l</p>
+<p>完整显示，默认80列</p>
+</li>
+<li><p>-h</p>
+<p>高亮当前进程及其父进程</p>
+</li>
+<li><p>-H PID</p>
+<p>高亮PID进程及其父进程</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>显示PID进程的族谱</p>
+<pre><code>pstree -apls PID
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/23/pstree/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-19 </div>
+			<div class="article-title"><a href="/2016/03/19/linux头文件组织/" >linux头文件组织</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>通过<code>yum provides FILENAME</code>来查找所属包</p>
+<ul>
+<li><p>glibc-headers(使用C开发库，必须安装的包)</p>
+<p><code>/usr/include/sys</code>，<code>/usr/include/bits</code></p>
+</li>
+<li><p>kernel-headers(被glibc使用)</p>
+<p><code>/usr/include/linux</code>，<code>/usr/include/asm</code></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/19/linux头文件组织/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-19 </div>
 			<div class="article-title"><a href="/2016/03/19/rpm/" >rpm</a></div>						
 		</h3>
@@ -405,90 +487,6 @@ yumdownloader httpd
 	
 	</div>
   <a type="button" href="/2016/03/11/tcp-accept/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-10 </div>
-			<div class="article-title"><a href="/2016/03/10/修改limit/" >修改limit</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>/etc/security/limits.conf</p>
-<pre><code>* hard nofile 10000
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/03/10/修改limit/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-10 </div>
-			<div class="article-title"><a href="/2016/03/10/线程/" >线程</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="出发点"><a href="#出发点" class="headerlink" title="出发点"></a>出发点</h1><ol>
-<li><p>提高资源利用率</p>
-</li>
-<li><p>提高系统吞吐量</p>
-</li>
-<li><p>降低编程复杂性</p>
-</li>
-</ol>
-<h1 id="使用线程的好处"><a href="#使用线程的好处" class="headerlink" title="使用线程的好处"></a>使用线程的好处</h1><ol>
-<li><p>单独的线程去处理某种事件，简化异步事件的代码，如服务端采用一对一的线程去处理IO事件</p>
-</li>
-<li><p>相比多进程，更加容易进行数据共享</p>
-</li>
-<li><p>将问题分解，改善程序的吞吐量。</p>
-<p>在单线程的情况下，任务是串行化执行的，根据任务本身地的特点，分解成多个步骤，并行</p>
-</li>
-<li><p>对于交互程序，改善响应时间</p>
-</li>
-<li><p>相对于多进程，开销更小</p>
-</li>
-</ol>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p>线程标识采用<code>pthread_t</code>，底层类型取决于实现，相等判断需要使用<code>pthread_equal</code></p>
-</li>
-<li><p>创建新线程后，与主线程的调用顺序依赖于OS的线程实现和调度算法</p>
-</li>
-<li><p>在pthread(NTPL)实现中，默认栈大小为8M，可通过如下方式查询：</p>
-<ul>
-<li><p>ulimit -s</p>
-</li>
-<li><p><code>getrlimit</code></p>
-</li>
-<li><p><code>pthread_attr_getstacksize</code></p>
-</li>
-</ul>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/03/10/线程/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -797,48 +795,48 @@ yumdownloader httpd
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
 		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
+			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+			<li><a href="/tags/time/">time<span>2</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
 		
-			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
 		
-			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
+			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
-		
-			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
 		
 			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
+			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
+			<li><a href="/tags/列表/">列表<span>7</span></a></li>
 		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
 		
-			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
+			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/awk/">awk<span>1</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
+		
+			<li><a href="/tags/flag/">flag<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -851,6 +849,14 @@ yumdownloader httpd
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -860,14 +866,6 @@ yumdownloader httpd
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

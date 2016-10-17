@@ -111,6 +111,64 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-11 </div>
+			<div class="article-title"><a href="/2014/12/11/网站SEO/" >网站SEO</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h1><ul>
+<li><a href="https://www.google.com/webmasters" target="_blank" rel="external">google站长地址</a></li>
+</ul>
+<h1 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h1><ul>
+<li><a href="http://www.sousuoyinqingtijiao.com/" target="_blank" rel="external">百度站长地址</a></li>
+<li><a href="http://ping.baidu.com/ping.html" target="_blank" rel="external">百度PING</a></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/11/网站SEO/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-10 </div>
+			<div class="article-title"><a href="/2014/12/10/python-字符串编码转换/" >python-字符串编码转换</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>python使用<code>unicode</code>作为字符串内部编码，所有转换应通过<code>unicode</code>进行</p>
+<p>编码(encode)，将中间对象(<code>unicode object</code>)转为其他编码对象</p>
+<p>解码(decode)，将其他编码对象转为中间对象(<code>unicode object</code>)</p>
+<h1 id="非unicode-object转unicode-object"><a href="#非unicode-object转unicode-object" class="headerlink" title="非unicode object转unicode object"></a>非<code>unicode object</code>转<code>unicode object</code></h1><p>前提必须清楚字符串是什么编码，假设<code>str</code>为<code>gbk</code>编码</p>
+<pre><code>u = str.decode(&apos;gbk&apos;)
+</code></pre><p>或</p>
+<pre><code>u = unicode(str, &apos;gbk&apos;)
+</code></pre><h1 id="unicode-object转非unicode-object"><a href="#unicode-object转非unicode-object" class="headerlink" title="unicode object转非unicode object"></a><code>unicode object</code>转非<code>unicode object</code></h1><p>假设转为<code>utf-8</code></p>
+<pre><code>utf8 = u.encode(&apos;utf-8&apos;)
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2014/12/10/python-字符串编码转换/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-10 </div>
 			<div class="article-title"><a href="/2014/12/10/python-字符串常量编码/" >python-字符串常量编码</a></div>						
 		</h3>
@@ -172,6 +230,46 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-10 </div>
+			<div class="article-title"><a href="/2014/12/10/win下编译openssl/" >win下编译openssl</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
+<li>perl</li>
+<li>VC++</li>
+</ul>
+<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
+<li><p>生成<code>Makefile</code></p>
+<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
+ms\do_ms
+</code></pre></li>
+<li><p>编译</p>
+<pre><code>nmake -f ms\ntdll.mak
+</code></pre></li>
+<li><p>测试</p>
+<pre><code>nmake -f ms\ntdll.mak test
+</code></pre></li>
+<li><p>安装</p>
+<pre><code>nmake -f ms\ntdll.mak install
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/10/win下编译openssl/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-10 </div>
 			<div class="article-title"><a href="/2014/12/10/win下编译libcurl/" >win下编译libcurl</a></div>						
 		</h3>
 	
@@ -212,46 +310,6 @@
 	
 	</div>
   <a type="button" href="/2014/12/10/win下编译libcurl/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-10 </div>
-			<div class="article-title"><a href="/2014/12/10/win下编译openssl/" >win下编译openssl</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
-<li>perl</li>
-<li>VC++</li>
-</ul>
-<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
-<li><p>生成<code>Makefile</code></p>
-<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
-ms\do_ms
-</code></pre></li>
-<li><p>编译</p>
-<pre><code>nmake -f ms\ntdll.mak
-</code></pre></li>
-<li><p>测试</p>
-<pre><code>nmake -f ms\ntdll.mak test
-</code></pre></li>
-<li><p>安装</p>
-<pre><code>nmake -f ms\ntdll.mak install
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/10/win下编译openssl/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -425,62 +483,6 @@ ms\do_ms
 	
 	</div>
   <a type="button" href="/2014/12/09/jsoncpp编译安装/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-08 </div>
-			<div class="article-title"><a href="/2014/12/08/vim十六进制编辑/" >vim十六进制编辑</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="使用十六进制编辑"><a href="#使用十六进制编辑" class="headerlink" title="使用十六进制编辑"></a>使用十六进制编辑</h2><pre><code>:%!xxd
-</code></pre><h2 id="返回到文本模式编辑"><a href="#返回到文本模式编辑" class="headerlink" title="返回到文本模式编辑"></a>返回到文本模式编辑</h2><pre><code>:%!xxd -r
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2014/12/08/vim十六进制编辑/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-08 </div>
-			<div class="article-title"><a href="/2014/12/08/python-str类型和unicode类型/" >python-str类型和unicode类型</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>str object和unicode object是两种不同的类型</p>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>字符组成的序列</p>
-<p>而字符是经过编码的，常见的编码如ASCII，GB2312，UTF-8等等</p>
-<h3 id="词法"><a href="#词法" class="headerlink" title="词法"></a>词法</h3><p>引号括起来的字符序列</p>
-<h2 id="unicode字符串"><a href="#unicode字符串" class="headerlink" title="unicode字符串"></a>unicode字符串</h2><p>unicode码元序列</p>
-<p>在python里，16-bit的unicode，对应的是ucs2编码。32-bit对应的是ucs4编码</p>
-<p>通过<code>sys.maxunicode</code>可以查看当前Python的unicode编码</p>
-<h3 id="词法-1"><a href="#词法-1" class="headerlink" title="词法"></a>词法</h3><p>引号括起来的字符序列，前面加<code>u</code>，如<code>u&#39;Hello world&#39;</code></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange" target="_blank" rel="external">https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange</a></li>
-<li><a href="http://blog.csdn.net/ktb2007/article/details/3876429" target="_blank" rel="external">http://blog.csdn.net/ktb2007/article/details/3876429</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/08/python-str类型和unicode类型/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -789,48 +791,48 @@ ms\do_ms
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/IP/">IP<span>4</span></a></li>
 		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
 		
-			<li><a href="/tags/registry/">registry<span>1</span></a></li>
+			<li><a href="/tags/库/">库<span>2</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
 		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
+			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
 		
-			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
+			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
 		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
 		
-			<li><a href="/tags/右值/">右值<span>1</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
-		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/usb/">usb<span>3</span></a></li>
 		
 			<li><a href="/tags/dll/">dll<span>1</span></a></li>
 		
-			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
 		
-			<li><a href="/tags/编程/">编程<span>5</span></a></li>
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
 		
-			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
+			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
 		
-			<li><a href="/tags/global/">global<span>1</span></a></li>
+			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
 		
-			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
+			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+		
+			<li><a href="/tags/启动/">启动<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -843,6 +845,14 @@ ms\do_ms
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -852,14 +862,6 @@ ms\do_ms
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

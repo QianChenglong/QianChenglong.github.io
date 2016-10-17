@@ -111,6 +111,65 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-02-11 </div>
+			<div class="article-title"><a href="/2015/02/11/ssh-实现/" >ssh-实现</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="https://matt.ucc.asn.au/dropbear/dropbear.html" target="_blank" rel="external">DropBear</a></p>
+</li>
+<li><p><a href="http://www.openssh.com/" target="_blank" rel="external">openssh</a></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/11/ssh-实现/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-11 </div>
+			<div class="article-title"><a href="/2015/02/11/openwrt-升级固件的几种方法/" >openwrt-升级固件的几种方法</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li>固件名称：openwrt-*-upgrade.bin</li>
+</ul>
+<h1 id="通过web方式"><a href="#通过web方式" class="headerlink" title="通过web方式"></a>通过web方式</h1><ul>
+<li><p>主机IP设置为与路由器同一网段的，一般为192.168.1.0/24</p>
+</li>
+<li><p>打开浏览器，登录web管理页面，一般默认为192.168.1.1</p>
+</li>
+<li><p>选择固件升级即可</p>
+</li>
+</ul>
+<h1 id="通过ssh"><a href="#通过ssh" class="headerlink" title="通过ssh"></a>通过ssh</h1>
+	
+	</div>
+  <a type="button" href="/2015/02/11/openwrt-升级固件的几种方法/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-10 </div>
 			<div class="article-title"><a href="/2015/02/10/C-复合语句中的局部变量定义问题/" >C-复合语句中的局部变量定义问题</a></div>						
 		</h3>
@@ -476,168 +535,6 @@ systemctl restart nmb
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-09 </div>
-			<div class="article-title"><a href="/2015/02/09/linux-常用命令/" >linux-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h1><ul>
-<li><p>修改时区</p>
-<pre><code>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-</code></pre></li>
-<li><p>查看或设置用户限制</p>
-<pre><code>ulimit -a
-</code></pre></li>
-<li><p>查看系统配置参数</p>
-<pre><code>getconf -a
-</code></pre></li>
-</ul>
-<h1 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h1><ul>
-<li><p>查看磁盘使用情况</p>
-<pre><code>df
-</code></pre></li>
-<li><p>查看分区类型</p>
-<pre><code>df -T
-</code></pre></li>
-<li><p>查看分区UUID，label等</p>
-<pre><code>blkid
-</code></pre></li>
-<li><p>检查并自动修复磁盘错误</p>
-<pre><code>fsck -a /dev/sda1
-</code></pre></li>
-<li><p>重新读取fstab</p>
-<pre><code>mount -a
-</code></pre></li>
-</ul>
-<h1 id="压缩包"><a href="#压缩包" class="headerlink" title="压缩包"></a>压缩包</h1><ul>
-<li><p>解压tar包</p>
-<pre><code>tar xvf XXX.tar
-</code></pre></li>
-<li><p>解压tar.gz</p>
-<pre><code>tar xvzf XXX.tar.gz
-</code></pre></li>
-</ul>
-<h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><ul>
-<li><p>重命名文件、目录</p>
-<pre><code>mv SRC DST
-</code></pre></li>
-<li><p>查看目录使用情况</p>
-<pre><code>du
-</code></pre></li>
-<li><p>实时查看文件</p>
-<pre><code>tail -f filename
-</code></pre></li>
-<li><p>复制，若父目录不存在则创建</p>
-<pre><code>cp src/a.txt /data/ ==&gt; /data/src/a.txt
-</code></pre></li>
-</ul>
-<h1 id="账号"><a href="#账号" class="headerlink" title="账号"></a>账号</h1><ul>
-<li><p>添加用户</p>
-<pre><code>useradd -m &lt;username&gt;
-</code></pre></li>
-<li><p>设置密码</p>
-<pre><code>passwd &lt;username&gt;
-</code></pre></li>
-<li><p>查看用户基本信息</p>
-<pre><code>id USERNAME
-</code></pre></li>
-<li><p>查看用户所属组</p>
-<pre><code>groups USERNAME
-lid &lt;username&gt;
-</code></pre></li>
-<li><p>查看组成员</p>
-<pre><code>lid -g &lt;group-name&gt;
-</code></pre></li>
-<li><p>用户添加附加组</p>
-<pre><code>usermod -a -G GROUPNAME USERNAME
-</code></pre></li>
-<li><p>查看动态库加载</p>
-<pre><code>ldd ./dbgateway_svc 
-</code></pre></li>
-</ul>
-<h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><ul>
-<li><p>批量删除进程</p>
-<pre><code>pkill &lt;pattern&gt;
-</code></pre></li>
-<li><p>根据端口杀进程</p>
-<pre><code>fuser -k 12000/tcp
-</code></pre></li>
-<li><p>查看进程树</p>
-<pre><code>pstree -apls PID
-</code></pre></li>
-<li><p>查看进程打开的文件</p>
-<pre><code>lsof -p 18661
-</code></pre></li>
-</ul>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
-<li><p>选择默认编辑器</p>
-<pre><code>select-editor
-</code></pre></li>
-<li><p>查看glibc版本</p>
-<pre><code>ldd --version
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/09/linux-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-09 </div>
-			<div class="article-title"><a href="/2015/02/09/virtualbox-拓展磁盘空间/" >virtualbox-拓展磁盘空间</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li><p>宿主    win7-64</p>
-</li>
-<li><p>虚拟机  ubuntu-14.04</p>
-</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
-<li><p>进入<code>virtualbox</code>目录</p>
-</li>
-<li><p>调整大小</p>
-<pre><code>VBoxManage.exe modifyhd E:\Soft\VirtualBox\VMs\Ubuntu-14.04\Ubuntu-14.04.vdi --resize 20480
-</code></pre></li>
-<li><p>重新调整分区大小</p>
-<ul>
-<li><p>使用<code>GParted Live CD</code></p>
-</li>
-<li><p>使用<code>ubuntu Live CD</code></p>
-</li>
-</ul>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://forums.virtualbox.org/viewtopic.php?f=35&amp;t=50661" target="_blank" rel="external">https://forums.virtualbox.org/viewtopic.php?f=35&amp;t=50661</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/09/virtualbox-拓展磁盘空间/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -943,48 +840,48 @@ lid &lt;username&gt;
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
-			<li><a href="/tags/USB/">USB<span>1</span></a></li>
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/列表/">列表<span>7</span></a></li>
 		
-			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
-			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+			<li><a href="/tags/package/">package<span>4</span></a></li>
 		
-			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
-			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+			<li><a href="/tags/TF/">TF<span>1</span></a></li>
 		
-			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
 		
-			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>8</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/mrakdown/">mrakdown<span>1</span></a></li>
 		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
-			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
 		
-			<li><a href="/tags/flag/">flag<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
 		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
+			<li><a href="/tags/hash/">hash<span>1</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
 		
-			<li><a href="/tags/resize/">resize<span>1</span></a></li>
+			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
 		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+			<li><a href="/tags/domain/">domain<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -997,6 +894,14 @@ lid &lt;username&gt;
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -1006,14 +911,6 @@ lid &lt;username&gt;
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

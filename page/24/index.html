@@ -111,6 +111,70 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-07-22 </div>
+			<div class="article-title"><a href="/2015/07/22/linux-安装go/" >linux-安装go</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>下载对应二进制包(<a href="https://golang.org/dl/" target="_blank" rel="external">官网</a>)</p>
+</li>
+<li><p>解压安装</p>
+<p>tar -C /opt/go-$VERSION -xvf go$VERSION.$OS-$ARCH.tar.gz</p>
+</li>
+<li><p>修改环境变量</p>
+<p>vi /etc/profile</p>
+<p>export GOROOT=/opt/go-$VERSION<br>export PATH=$PATH:$GOROOT/bin</p>
+</li>
+<li><p>生效</p>
+<ul>
+<li><p><code>source /etc/profile</code></p>
+</li>
+<li><p>重启sshd</p>
+</li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/22/linux-安装go/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-22 </div>
+			<div class="article-title"><a href="/2015/07/22/linux-修改环境变量后及时生效/" >linux-修改环境变量后及时生效</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="source-etc-profile"><a href="#source-etc-profile" class="headerlink" title="source /etc/profile"></a><code>source /etc/profile</code></h1><h1 id="重启对应的父进程"><a href="#重启对应的父进程" class="headerlink" title="重启对应的父进程"></a>重启对应的父进程</h1><ul>
+<li>对ssh来说,重启sshd</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/22/linux-修改环境变量后及时生效/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-07-20 </div>
 			<div class="article-title"><a href="/2015/07/20/sql-数据更新/" >sql-数据更新</a></div>						
 		</h3>
@@ -401,94 +465,6 @@ make install
 	
 	</div>
   <a type="button" href="/2015/07/09/thinkpad-安装系统/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-09 </div>
-			<div class="article-title"><a href="/2015/07/09/truncate和delete区别/" >truncate和delete区别</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>truncate属于DDL，delete输入DML</p>
-</li>
-<li><p>truncate不可回滚，delete可回滚</p>
-</li>
-<li><p>delete可接where子句</p>
-</li>
-<li><p>truncate执行更快</p>
-</li>
-<li><p>truncate回收表空间，占用系统日志资源更少</p>
-</li>
-<li><p>truncate不触发delete触发器</p>
-</li>
-<li><p>truncate不能被授权</p>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/09/truncate和delete区别/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-09 </div>
-			<div class="article-title"><a href="/2015/07/09/sql-语句分类/" >sql-语句分类</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="数据查询语言-Data-Query-Language-DQL"><a href="#数据查询语言-Data-Query-Language-DQL" class="headerlink" title="数据查询语言(Data Query Language, DQL)"></a>数据查询语言(Data Query Language, DQL)</h1><p>查询数据</p>
-<ul>
-<li><code>select</code></li>
-</ul>
-<h1 id="数据操纵语言-Data-Manipulation-Language-DML"><a href="#数据操纵语言-Data-Manipulation-Language-DML" class="headerlink" title="数据操纵语言(Data Manipulation Language, DML)"></a>数据操纵语言(Data Manipulation Language, DML)</h1><p>对数据的修改操作</p>
-<ul>
-<li><code>insert</code></li>
-<li><code>update</code></li>
-<li><code>delete</code></li>
-</ul>
-<h1 id="数据定义语言-Data-Definition-Language-DDl"><a href="#数据定义语言-Data-Definition-Language-DDl" class="headerlink" title="数据定义语言(Data Definition Language, DDl)"></a>数据定义语言(Data Definition Language, DDl)</h1><p>定义，修改，删除数据库实体(表，视图，触发器等)</p>
-<ul>
-<li><code>create</code></li>
-<li><code>alter</code></li>
-<li><code>drop</code></li>
-<li><code>truncate</code></li>
-</ul>
-<h1 id="数据控制语言-Data-Control-Language-DCL"><a href="#数据控制语言-Data-Control-Language-DCL" class="headerlink" title="数据控制语言(Data Control Language, DCL)"></a>数据控制语言(Data Control Language, DCL)</h1><p>用来授予或回收访问数据库的某种特权，并控制数据库操纵事务发生的时间及效果，对数据库实行监视等</p>
-<ul>
-<li><p><code>grant</code></p>
-</li>
-<li><p><code>deny</code></p>
-</li>
-<li><p><code>revoke</code></p>
-</li>
-<li><p><code>rollback</code></p>
-</li>
-<li><p><code>commit</code></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/09/sql-语句分类/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -797,48 +773,48 @@ make install
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
 		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
 		
-			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
 		
-			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
+			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
 		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
-			<li><a href="/tags/domain/">domain<span>3</span></a></li>
+			<li><a href="/tags/http/">http<span>11</span></a></li>
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
 		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
 		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
+			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
 		
-			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
+			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
 		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/C/">C++<span>35</span></a></li>
+			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
 		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+			<li><a href="/tags/curses/">curses<span>2</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -851,6 +827,14 @@ make install
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -860,14 +844,6 @@ make install
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

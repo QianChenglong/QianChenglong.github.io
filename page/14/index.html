@@ -112,6 +112,79 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-11-02 </div>
+			<div class="article-title"><a href="/2015/11/02/编码-utf-8/" >编码-utf-8</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="规律"><a href="#规律" class="headerlink" title="规律"></a>规律</h1><ul>
+<li><p>对于UTF-8编码中的任意字节B，如果B的第一位为0，则B为ASCII码，并且B独立的表示一个字符；</p>
+</li>
+<li><p>如果B的第一位为1，第二位为0，则B为一个非ASCII字符（该字符由多个字节表示）中的一个字节，并且不是字符的第一个字节编码；</p>
+</li>
+<li><p>如果B的前两位为1，第三位为0，则B为一个非ASCII字符（该字符由多个字节表示）中的第一个字节，并且该字符由两个字节表示；</p>
+</li>
+<li><p>如果B的前三位为1，第四位为0，则B为一个非ASCII字符（该字符由多个字节表示）中的第一个字节，并且该字符由三个字节表示；</p>
+</li>
+<li><p>如果B的前四位为1，第五位为0，则B为一个非ASCII字符（该字符由多个字节表示）中的第一个字节，并且该字符由四个字节表示；</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://zh.wikipedia.org/wiki/UTF-8" target="_blank" rel="external">https://zh.wikipedia.org/wiki/UTF-8</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/02/编码-utf-8/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-02 </div>
+			<div class="article-title"><a href="/2015/11/02/mysql-变量/" >mysql-系统变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="用户变量"><a href="#用户变量" class="headerlink" title="用户变量"></a>用户变量</h1><p>用户变量是会话期的(作用域，生命期)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SET @t1=1, @t2=2, @t3:=4;</span><br><span class="line">mysql&gt; SELECT @t1, @t2, @t3, @t4 := @t1+@t2+@t3;</span><br><span class="line">+------+------+------+--------------------+</span><br><span class="line">| @t1  | @t2  | @t3  | @t4 := @t1+@t2+@t3 |</span><br><span class="line">+------+------+------+--------------------+</span><br><span class="line">|    1 |    2 |    4 |                  7 |</span><br><span class="line">+------+------+------+--------------------+</span><br></pre></td></tr></table></figure>
+<h1 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h1><ul>
+<li><p>查询系统变量</p>
+<pre><code>select @@character_set_server;
+</code></pre></li>
+<li><p>通过<code>show</code></p>
+<pre><code>show variables like &apos;max_allowed_packet&apos;;
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/user-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/user-variables.html</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/set-variable.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/set-variable.html</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/show-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/show-variables.html</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/02/mysql-变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-02 </div>
 			<div class="article-title"><a href="/2015/11/02/go-dsn/" >go-dsn</a></div>						
 		</h3>
 	
@@ -386,78 +459,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 	
 	</div>
   <a type="button" href="/2015/10/28/go-pointer/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-28 </div>
-			<div class="article-title"><a href="/2015/10/28/go-make/" >go-make</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>专为用来创建<code>slice</code>,<code>map</code>,<code>channel</code>这3中类型</p>
-<ul>
-<li>因为这3中类型依赖于底层数据结构存储,所以必须初始化!</li>
-</ul>
-</li>
-<li><p>返回<code>T</code>类型,而不是<code>*T</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/doc/effective_go.html#allocation_make" target="_blank" rel="external">https://golang.org/doc/effective_go.html#allocation_make</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/28/go-make/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-28 </div>
-			<div class="article-title"><a href="/2015/10/28/go-内存分配/" >go-内存分配</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p>在go中,变量定义时,存储到stack还是heap上,由编译器确定</p>
-<ul>
-<li>若该变量在离开该作用域,仍被其他引用访问到(通过指针),则存储到heap</li>
-</ul>
-</li>
-</ol>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> f() *<span class="keyword">string</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"Hello world"</span></span><br><span class="line">    <span class="keyword">return</span> &amp;s</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">func</span> main() &#123;</span><br><span class="line">    r := f()</span><br><span class="line">    fmt.Printf(<span class="string">"%T %v %v\n"</span>, r, r, *r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>与C/C++不同,在go中,可以返回函数内定义的变量地址(因为存储到heap中)</li>
-</ol>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ol>
-<li>在go中,不用关心变量存储位置</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/doc/faq#stack_or_heap" target="_blank" rel="external">https://golang.org/doc/faq#stack_or_heap</a></li>
-<li><a href="http://stackoverflow.com/questions/10866195/stack-vs-heap-allocation-of-structs-in-go-and-how-they-relate-to-garbage-collec?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/10866195/stack-vs-heap-allocation-of-structs-in-go-and-how-they-relate-to-garbage-collec?rq=1</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/28/go-内存分配/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -766,48 +767,48 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
 		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
 		
-			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
+			<li><a href="/tags/byte/">byte<span>1</span></a></li>
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
 		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/centos/">centos<span>12</span></a></li>
 		
-			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+			<li><a href="/tags/yum/">yum<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
+			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
+			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
 		
-			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
+			<li><a href="/tags/部署/">部署<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/启动/">启动<span>1</span></a></li>
 		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
+			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
 		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
+			<li><a href="/tags/模块/">模块<span>2</span></a></li>
 		
-			<li><a href="/tags/fish-shell/">fish,shell<span>1</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -820,6 +821,14 @@ pre-up iptables-restore &lt; /etc/iptables.rule
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -829,14 +838,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

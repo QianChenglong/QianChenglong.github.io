@@ -112,6 +112,63 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/http/" >http</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>http是请求-应答协议,只能客户端主动发起请求,服务端只负责应答</p>
+</li>
+<li><p>http请求包:状态行,头部,内容</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/10/19/http/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/http-chunked/" >http-chunked</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>在不指定<code>Content-Length</code>的情况下,来传输数据,常用来配合<code>gzip</code>使用,边压缩边传输</p>
+</li>
+<li><p>用一系列分块来传输。每个分块包含十六进制的长度值和数据，长度值独占一行，长度不包括它结尾的 CRLF（\r\n），<br>也不包括分块数据结尾的 CRLF。最后一个分块长度值必须为 0，对应的分块数据没有内容，表示实体结束</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%88%86%E5%9D%97%E4%BC%A0%E8%BE%93%E7%BC%96%E7%A0%81" target="_blank" rel="external">wiki-chunked</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/19/http-chunked/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
 			<div class="article-title"><a href="/2015/10/19/mysql-prepare-update部分更新/" >mysql-prepare-update部分更新</a></div>						
 		</h3>
 	
@@ -413,105 +470,6 @@ PATH+=%GOPATH%\bin
 	
 	</div>
   <a type="button" href="/2015/10/13/go-gorilla-rpc/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-13 </div>
-			<div class="article-title"><a href="/2015/10/13/go-json/" >go-json</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>编码解码是相对于<code>json</code>字符串(<code>utf-8</code>编码的slice)来讲的</p>
-<ul>
-<li><p>编码=&gt;将<code>go</code>数据类型值转换为<code>json</code>字符串</p>
-</li>
-<li><p>解码=&gt;将<code>json</code>字符串转换为<code>go</code>中数据类型值</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h1><ul>
-<li><p><code>Marshal(v interface{}) ([]byte, error)</code></p>
-<p>编码</p>
-</li>
-<li><p><code>Unmarshal(data []byte, v interface{}) error</code></p>
-<p>解码</p>
-</li>
-<li><p><code>NewDecoder(r io.Reader) *Decoder</code> <code>(dec *Decoder) Decode(v interface{}) error</code></p>
-<p>从实现了<code>io.Reader</code>接口中的对象读取<code>json</code>字符串来解码</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.2.md" target="_blank" rel="external">build-web-application-with-golang 7.2 JSON处理</a></li>
-<li><a href="https://golang.org/pkg/encoding/json/" target="_blank" rel="external">https://golang.org/pkg/encoding/json/</a></li>
-<li><a href="https://godoc.org/github.com/bitly/go-simplejson" target="_blank" rel="external">https://godoc.org/github.com/bitly/go-simplejson</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/13/go-json/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-10 </div>
-			<div class="article-title"><a href="/2015/10/10/mysql-alias/" >mysql-alias</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>对目标列使用,</p>
-<ul>
-<li>输出列名可读性更强</li>
-</ul>
-</li>
-<li><p>对表名使用</p>
-<ul>
-<li><p>简写表名</p>
-</li>
-<li><p>同名表关联</p>
-</li>
-</ul>
-</li>
-<li><p>在select的目标输出列中(<code>select_expr</code>)</p>
-<ul>
-<li><p>别名可以在<code>GROUP BY</code>,<code>ORDER BY</code>,<code>HAVING</code>中使用</p>
-</li>
-<li><p>标准SQl不允许在<code>WHERE</code>中使用</p>
-<p>因为<code>WHERE</code>是执行的,而<code>SELECT</code>目标列是基于<code>WHERE</code>结果的,<br>所以<code>WHERE</code>中不能使用还没产生的别名!</p>
-</li>
-</ul>
-</li>
-<li><p><code>AS</code>可以省略</p>
-<pre><code>select id userid from user;
-select a.id from user a;
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.0/en/problems-with-alias.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/problems-with-alias.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/10/mysql-alias/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -820,48 +778,48 @@ select a.id from user a;
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/C/">C++<span>37</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
 		
-			<li><a href="/tags/text/">text<span>1</span></a></li>
+			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
 		
-			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
 		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
+			<li><a href="/tags/左值/">左值<span>1</span></a></li>
+		
+			<li><a href="/tags/django/">django<span>2</span></a></li>
+		
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
 			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/curses/">curses<span>2</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/registry/">registry<span>1</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
-			<li><a href="/tags/boost/">boost<span>4</span></a></li>
+			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
 		
-			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>6</span></a></li>
 		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
-		
-			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
-		
-			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -874,6 +832,14 @@ select a.id from user a;
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -883,14 +849,6 @@ select a.id from user a;
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

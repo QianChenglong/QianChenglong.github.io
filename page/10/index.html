@@ -111,6 +111,90 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-10 </div>
+			<div class="article-title"><a href="/2016/03/10/修改limit/" >修改limit</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>/etc/security/limits.conf</p>
+<pre><code>* hard nofile 10000
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/03/10/修改limit/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-10 </div>
+			<div class="article-title"><a href="/2016/03/10/线程/" >线程</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="出发点"><a href="#出发点" class="headerlink" title="出发点"></a>出发点</h1><ol>
+<li><p>提高资源利用率</p>
+</li>
+<li><p>提高系统吞吐量</p>
+</li>
+<li><p>降低编程复杂性</p>
+</li>
+</ol>
+<h1 id="使用线程的好处"><a href="#使用线程的好处" class="headerlink" title="使用线程的好处"></a>使用线程的好处</h1><ol>
+<li><p>单独的线程去处理某种事件，简化异步事件的代码，如服务端采用一对一的线程去处理IO事件</p>
+</li>
+<li><p>相比多进程，更加容易进行数据共享</p>
+</li>
+<li><p>将问题分解，改善程序的吞吐量。</p>
+<p>在单线程的情况下，任务是串行化执行的，根据任务本身地的特点，分解成多个步骤，并行</p>
+</li>
+<li><p>对于交互程序，改善响应时间</p>
+</li>
+<li><p>相对于多进程，开销更小</p>
+</li>
+</ol>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p>线程标识采用<code>pthread_t</code>，底层类型取决于实现，相等判断需要使用<code>pthread_equal</code></p>
+</li>
+<li><p>创建新线程后，与主线程的调用顺序依赖于OS的线程实现和调度算法</p>
+</li>
+<li><p>在pthread(NTPL)实现中，默认栈大小为8M，可通过如下方式查询：</p>
+<ul>
+<li><p>ulimit -s</p>
+</li>
+<li><p><code>getrlimit</code></p>
+</li>
+<li><p><code>pthread_attr_getstacksize</code></p>
+</li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/03/10/线程/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-09 </div>
 			<div class="article-title"><a href="/2016/03/09/poll/" >poll</a></div>						
 		</h3>
@@ -434,60 +518,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-27 </div>
-			<div class="article-title"><a href="/2016/02/27/boost-bind/" >boost-bind</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><code>_1,_2...</code>代表的是原函数的第n个参数</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; j &lt;&lt; <span class="string">" "</span> &lt;&lt; k &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::function&lt;<span class="keyword">void</span> (<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)&gt; f1 = boost::bind(f, _3, _1, _2); <span class="comment">// f1(k, i ,j)</span></span><br><span class="line">    f1(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// 3 1 2</span></span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2016/02/27/boost-bind/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-25 </div>
-			<div class="article-title"><a href="/2016/02/25/c-结构体对齐/" >c-结构体对齐</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>自身对齐值(该数据类型的size)</p>
-</li>
-<li><p>该字段起始位置整除自身对齐值</p>
-</li>
-<li><p>结构体圆整(结构体的size整除<strong>最大</strong>内部字段的自身对齐值)</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/02/25/c-结构体对齐/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -793,48 +823,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
 		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
 		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
+			<li><a href="/tags/T/">_T<span>1</span></a></li>
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
-			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>3</span></a></li>
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
+		
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+		
+			<li><a href="/tags/global/">global<span>1</span></a></li>
 		
 			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
+			<li><a href="/tags/c/">c<span>7</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>40</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+			<li><a href="/tags/事务/">事务<span>1</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
+			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
 		
-			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
+			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
 		
-			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+			<li><a href="/tags/module/">module<span>3</span></a></li>
 		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
-		
-			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
-		
-			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
+			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -847,6 +877,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -856,14 +894,6 @@
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

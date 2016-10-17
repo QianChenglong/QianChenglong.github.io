@@ -111,6 +111,54 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-10 </div>
+			<div class="article-title"><a href="/2015/09/10/curl/" >curl</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>发送jsonrpc</p>
+<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &apos;{&quot;method&quot;:&quot;HelloService.Say&quot;,&quot;params&quot;:[{&quot;Who&quot;:&quot;Test&quot;}], &quot;id&quot;:&quot;54321&quot;, &quot;jsonrpc&quot;: &quot;2.0&quot;}&apos; http://:6061/rpc
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/10/curl/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-10 </div>
+			<div class="article-title"><a href="/2015/09/10/http-常见错误代码分析/" >http-常见错误代码分析</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 错误代码 | 原因                                 | 解决                               |<br>|———-+————————————–+————————————|<br>| 415      | 请求的资源类型与提供的资源类型不匹配 | 设置<code>Content-Type</code>为服务器接受类型 |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/09/10/http-常见错误代码分析/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-09 </div>
 			<div class="article-title"><a href="/2015/09/09/install/" >install</a></div>						
 		</h3>
@@ -389,74 +437,6 @@
 	
 	</div>
   <a type="button" href="/2015/08/26/gcc-调试编译/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-26 </div>
-			<div class="article-title"><a href="/2015/08/26/gcc-链接库顺序/" >gcc-链接库顺序</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>在gcc编译时,链接库的指定顺序会影响编译行为!</p>
-<p>gcc手册说明:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-l library</span><br><span class="line">       Search the library named library when linking.  (The second alternative with the library as a separate argument is only for POSIX compliance and is not</span><br><span class="line">       recommended.)</span><br><span class="line"></span><br><span class="line">       It makes a difference where in the command you write this option; the linker searches and processes libraries and object files in the order they are</span><br><span class="line">       specified.  Thus, foo.o -lz bar.o searches library z after file foo.o but before bar.o.  If bar.o refers to functions in z, those functions may not be</span><br><span class="line">       loaded.</span><br><span class="line"></span><br><span class="line">       The linker searches a standard list of directories for the library, which is actually a file named liblibrary.a.  The linker then uses this file as if</span><br><span class="line">       it had been specified precisely by name.</span><br><span class="line"></span><br><span class="line">       The directories searched include several standard system directories plus any that you specify with -L.</span><br><span class="line"></span><br><span class="line">       Normally the files found this way are library files---archive files whose members are object files.  The linker handles an archive file by scanning</span><br><span class="line">       through it for members which define symbols that have so far been referenced but not defined.  But if the file that is found is an ordinary object file,</span><br><span class="line">       it is linked in the usual fashion.  The only difference between using an -l option and specifying a file name is that -l surrounds library with lib and</span><br><span class="line">       .a and searches several directories.</span><br></pre></td></tr></table></figure>
-<p>理解:</p>
-<p>假设C依赖库A,B,库B依赖于库A,则链接的时候要写为:</p>
-<p>   gcc -o C -lB -lA</p>
-<p>若写成:</p>
-<p>   gcc -o C -lA -lB</p>
-<h1 id="链接时-符号寻找过程"><a href="#链接时-符号寻找过程" class="headerlink" title="链接时,符号寻找过程"></a>链接时,符号寻找过程</h1><ol>
-<li><p>根据库路径列表,依次找到需要链接的库</p>
-<ul>
-<li>若一个库在该路径列表中存在多个,则使用第一个找到的</li>
-</ul>
-</li>
-<li><p>从左向右,依次找寻符号定义</p>
-<ul>
-<li><code>gcc -o C -lB -lA</code>,符号搜寻过程是C=&gt;B, B=&gt;A</li>
-</ul>
-</li>
-</ol>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论!"></a>结论!</h1><p>在项目开发过层中尽量让lib是垂直关系,避免循环依赖,越是底层的库,越是往后面写</p>
-<pre><code>g++ ...  obj($?) -l(上层逻辑lib) -l(中间封装lib) -l(基础lib) -l(系统lib) -o $@
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cnblogs.com/OCaml/archive/2012/06/18/2554086.html" target="_blank" rel="external">折腾gcc/g++链接时.o文件及库的顺序问题</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/08/26/gcc-链接库顺序/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-26 </div>
-			<div class="article-title"><a href="/2015/08/26/mysql-C开发/" >mysql-C开发</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="编译器参数"><a href="#编译器参数" class="headerlink" title="编译器参数"></a>编译器参数</h1><pre><code>mysql_config --cflags --libs
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/08/26/mysql-C开发/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -765,48 +745,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
 		
-			<li><a href="/tags/arch/">arch<span>6</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
 		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
 		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/模块/">模块<span>2</span></a></li>
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
+			<li><a href="/tags/usb/">usb<span>3</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
 		
-			<li><a href="/tags/script/">script<span>1</span></a></li>
+			<li><a href="/tags/apche/">apche<span>1</span></a></li>
 		
-			<li><a href="/tags/warning/">warning<span>2</span></a></li>
+			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+			<li><a href="/tags/od/">od<span>1</span></a></li>
 		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
 		
-			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/c99/">c99<span>1</span></a></li>
+			<li><a href="/tags/事务/">事务<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -819,6 +799,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -828,14 +816,6 @@
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

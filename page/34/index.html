@@ -111,6 +111,50 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-04-13 </div>
+			<div class="article-title"><a href="/2015/04/13/tex-特殊字符的输入/" >tex-特殊字符的输入</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 字符      | lex      |<br>|———–+———-|<br>| 波浪线(~) | <code>$\sim$</code> |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/04/13/tex-特殊字符的输入/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-13 </div>
+			<div class="article-title"><a href="/2015/04/13/tex-宏包列表/" >tex-宏包列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 包名     | 功能         |<br>|———-+————–|<br>| enumitem | 设置列表间距 |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/04/13/tex-宏包列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-04-10 </div>
 			<div class="article-title"><a href="/2015/04/10/tex-去除pdf链接边框/" >tex-去除pdf链接边框</a></div>						
 		</h3>
@@ -358,100 +402,6 @@ pacman-key --lsign-key 4209170B
 	
 	</div>
   <a type="button" href="/2015/04/07/python-单元测试组织和命名惯例/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-03 </div>
-			<div class="article-title"><a href="/2015/04/03/ctags/" >ctags</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>可以指定多个文件或目录</p>
-<pre><code>ctags file1 dir1
-</code></pre></li>
-</ul>
-<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>–list-languages</p>
-<p>查看支持的语言</p>
-</li>
-<li><p>–list-kinds=python</p>
-<p>查看某种语言选项</p>
-</li>
-<li><p>–list-maps</p>
-<p>查看对应语言的拓展名映射规则</p>
-</li>
-<li><p>-R</p>
-<p>递归处理</p>
-</li>
-<li><p>–format=level</p>
-<p> 指定tag的输出格式，默认为2，level=2时，ex_cmd会追加<code>;&quot;</code>(通过注释与老vi保持兼容)</p>
-</li>
-<li><p>−−fields=[+|−]flags</p>
-<p>用来控制<code>extension_fileds</code>中要包含的内容</p>
-</li>
-<li><p>–options</p>
-<p>指定配置文件</p>
-</li>
-<li><p>–exclude</p>
-<p>指定多个时，需要分开指定。<code>--exclude=.git --exclude=node_modules --exclude=test</code></p>
-</li>
-<li><p>–extra=[+|−]flags</p>
-<ul>
-<li>q 生成额外的的修饰符tag(class::member)，以帮助定位类方法，但是会造成双倍大小！尽量不用。</li>
-</ul>
-</li>
-</ul>
-<h1 id="tag记录格式"><a href="#tag记录格式" class="headerlink" title="tag记录格式()"></a>tag记录格式(<http: ctags.sourceforge.net="" ctags.html#tag="" file="" format="">)</http:></h1><p><code>tag_name&lt;TAB&gt;file_name&lt;TAB&gt;ex_cmd;&quot;&lt;TAB&gt;extension_fields</code></p>
-<ul>
-<li><p><code>tag_name</code> 用来检索的key</p>
-</li>
-<li><p><code>file_name</code> tag所在的文件名</p>
-</li>
-<li><p><code>ex_cmd</code> vim用来定位的命令</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/04/03/ctags/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-03 </div>
-			<div class="article-title"><a href="/2015/04/03/python-访问父类方法/" >python-访问父类方法</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<h1 id="使用super"><a href="#使用super" class="headerlink" title="使用super"></a>使用<code>super</code></h1><p>要求父类必须派生自<code>object</code>!</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(B, self).__init__()</span><br></pre></td></tr></table></figure>
-<h1 id="使用类名访问"><a href="#使用类名访问" class="headerlink" title="使用类名访问"></a>使用类名访问</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        A.__init__(self)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/753640/inheritance-and-overriding-init-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/753640/inheritance-and-overriding-init-in-python</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/03/python-访问父类方法/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -760,48 +710,48 @@ pacman-key --lsign-key 4209170B
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
 		
-			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
 		
-			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
+			<li><a href="/tags/hex/">hex<span>1</span></a></li>
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/go/">go<span>40</span></a></li>
 		
-			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
+			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
 		
-			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
 		
-			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
+			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
 		
-			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
 		
-			<li><a href="/tags/宏/">宏<span>4</span></a></li>
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/bash/">bash<span>1</span></a></li>
 		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
 		
-			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
+			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/C/">C++<span>37</span></a></li>
 		
-			<li><a href="/tags/程序/">程序<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -814,6 +764,14 @@ pacman-key --lsign-key 4209170B
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -823,14 +781,6 @@ pacman-key --lsign-key 4209170B
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

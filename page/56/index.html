@@ -111,6 +111,58 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-06 </div>
+			<div class="article-title"><a href="/2015/01/06/位域与大小端/" >位域与大小端</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="小端"><a href="#小端" class="headerlink" title="小端"></a>小端</h1><p>先定义的位域占用字节低位</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> a:<span class="number">4</span>;</span><br><span class="line">    <span class="keyword">uint8_t</span> b:<span class="number">4</span>;</span><br><span class="line">&#125; Bit;</span><br></pre></td></tr></table></figure>
+<p>内存中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxxx xxxx</span><br><span class="line">b    a</span><br></pre></td></tr></table></figure>
+<p>测试：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> a:<span class="number">4</span>;    <span class="comment">/**&lt; 低4位 */</span></span><br><span class="line">    <span class="keyword">uint8_t</span> b:<span class="number">4</span>;    <span class="comment">/**&lt; 高4位 */</span></span><br><span class="line">&#125; Bit;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    Bit.a = <span class="number">0x0</span>;</span><br><span class="line">    Bit.b = <span class="number">0xf</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Bit:%#x\n"</span>, Bit);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"address:%x\n"</span>, (char*)&amp;Bit);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bit:0xf0</span><br><span class="line">address:4063f0</span><br></pre></td></tr></table></figure></p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/06/位域与大小端/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-05 </div>
+			<div class="article-title"><a href="/2015/01/05/本地透明代理的实现/" >本地透明代理的实现</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="转载自http-blog-csdn-net-someonea-article-details-5864946"><a href="#转载自http-blog-csdn-net-someonea-article-details-5864946" class="headerlink" title="转载自http://blog.csdn.net/someonea/article/details/5864946"></a>转载自<a href="http://blog.csdn.net/someonea/article/details/5864946" target="_blank" rel="external">http://blog.csdn.net/someonea/article/details/5864946</a></h2><p>Windows下实现本地透明代理可以通过一个过滤驱动和代理进程实现。<br> 过滤驱动Attach到“//Device//Tcp”和”//Device//Udp”,然后在Dispatch函数中修改<br> 连接的目的地址并保存原始目的地址和源地址。<br> 上层的代理进程在accept到连接时，向过滤驱动查询连接的原始目的地址，<br> 然后向原始目的地址发起连接。</p>
+<p> Linux下面使用netfilter(iptables)可以很容易的实现一个TCP透明代理，<br> 使用iptables的REDIRECT选项无需编写内核模块就可以把连接重定向到本地代理进程。<br> 然后代理进程accept到连接时通过SO_ORIGINAL_DST这个socket选项就可以得到原始目的地址，<br> 非常方便。<br> 不过这只是对TCP而言的，对应UDP而言，还是需要编写一个内核模块，自己做一些处理。<br> 对于UDP，可以用nf_register_hook注册一个Hook，然后保存socket目的地址。<br> 另外注册一个字符设备，在字符设备的IOCTL处理函数中把socket的原始目的地址发送给代理进程。<br> 这一点与Windows的过滤驱动很相似，过滤驱动一般也是注册一个控制设备，<br> 用户态程序通过控制设备与过滤驱动通信。</p>
+<p> Mac OS X中也有类似的机制（使用ipfw的fwd、divert选项），不过用的人较少。</p>
+<p> Mac OS X中可以注册Socket Filters手工过滤特定的连接。</p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/05/本地透明代理的实现/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-04 </div>
 			<div class="article-title"><a href="/2015/01/04/任播/" >任播</a></div>						
 		</h3>
@@ -378,68 +430,6 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 	
 	</div>
   <a type="button" href="/2014/12/26/python-使用py2exe打包/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-25 </div>
-			<div class="article-title"><a href="/2014/12/25/python-subprocess隐藏命令行/" >python-subprocess隐藏命令行</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line">startupinfo = subprocess.STARTUPINFO()</span><br><span class="line">startupinfo.dwFlags = subprocess.CREATE_NEW_CONSOLE | subprocess.STARTF_USESHOWWINDOW</span><br><span class="line">startupinfo.wShowWindow = subprocess.SW_HIDE</span><br><span class="line">subprocess.Popen([<span class="string">"ping"</span>, <span class="string">"-c 1"</span>, ip], stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startupinfo)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://code.activestate.com/recipes/578300-python-subprocess-hide-console-on-windows/" target="_blank" rel="external">http://code.activestate.com/recipes/578300-python-subprocess-hide-console-on-windows/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/25/python-subprocess隐藏命令行/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-24 </div>
-			<div class="article-title"><a href="/2014/12/24/python-格式字符串/" >python-格式字符串</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>因python不提供隐式类型转换，不支持类似<code>string + int</code>等操作，所以字符串的连接<br>需要使用其他的方法。</p>
-<h1 id="2-6之后推荐使用string-format"><a href="#2-6之后推荐使用string-format" class="headerlink" title="2.6之后推荐使用string.format()"></a>2.6之后推荐使用<code>string.format()</code></h1><h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><ul>
-<li><code>string</code>连接其他类型</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var = <span class="keyword">False</span></span><br><span class="line"><span class="string">'True Or &#123;&#125;!'</span>.format(var)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>命名参数</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">madlib = <span class="string">" I &#123;verb&#125; the &#123;object&#125; off the &#123;place&#125; "</span>.format(verb=<span class="string">"took"</span>, object=<span class="string">"cheese"</span>, place=<span class="string">"table"</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="不推荐使用"><a href="#不推荐使用" class="headerlink" title="不推荐使用%"></a>不推荐使用<code>%</code></h1><p>原因，参见<a href="https://www.python.org/dev/peps/pep-3101/" target="_blank" rel="external">PEP-3101</a></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://www.python.org/dev/peps/pep-3101/" target="_blank" rel="external">https://www.python.org/dev/peps/pep-3101/</a></li>
-<li><a href="https://docs.python.org/2.7/library/string.html#formatspec" target="_blank" rel="external">https://docs.python.org/2.7/library/string.html#formatspec</a></li>
-<li><a href="http://youngsterxyf.github.io/2013/01/26/python-string-format/" target="_blank" rel="external">http://youngsterxyf.github.io/2013/01/26/python-string-format/</a></li>
-<li><a href="http://www.pythonclub.org/python-basic/print" target="_blank" rel="external">http://www.pythonclub.org/python-basic/print</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/24/python-格式字符串/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -748,48 +738,48 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/c/">c++<span>8</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
 		
-			<li><a href="/tags/template/">template<span>2</span></a></li>
+			<li><a href="/tags/API/">API<span>2</span></a></li>
 		
-			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
 		
-			<li><a href="/tags/find/">find<span>3</span></a></li>
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/link/">link<span>2</span></a></li>
+			<li><a href="/tags/limit/">limit<span>2</span></a></li>
 		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/事务/">事务<span>1</span></a></li>
 		
-			<li><a href="/tags/资源/">资源<span>2</span></a></li>
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
 		
-			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
+			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
 		
-			<li><a href="/tags/T/">_T<span>1</span></a></li>
+			<li><a href="/tags/IP/">IP<span>4</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -802,6 +792,14 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -811,14 +809,6 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

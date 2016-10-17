@@ -111,6 +111,73 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-22 </div>
+			<div class="article-title"><a href="/2015/01/22/chrome-xml加载本地文件/" >chrome-xml加载本地文件</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>chrome为了安全，默认不允许加载本地文件</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>添加启动参数<code>--allow-file-access-from-files</code></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/3828898/can-chrome-be-made-to-perform-an-xsl-transform-on-a-local-file" target="_blank" rel="external">http://stackoverflow.com/questions/3828898/can-chrome-be-made-to-perform-an-xsl-transform-on-a-local-file</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/22/chrome-xml加载本地文件/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-22 </div>
+			<div class="article-title"><a href="/2015/01/22/git-创建一个仓库/" >git-创建一个仓库</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>登录<a href="https://github.com/" target="_blank" rel="external">git官网</a></p>
+<p><img src="/img/git-创建一个仓库-01.png" alt=""></p>
+</li>
+<li><p>初始化仓库</p>
+<pre><code>git init
+</code></pre></li>
+<li><p>添加到版本控制</p>
+<pre><code>git add .
+</code></pre></li>
+<li><p>提交</p>
+<pre><code>git commit
+</code></pre></li>
+<li><p>设置远程仓库</p>
+<pre><code>git remote add origin git@github.com:QianChenglong/lily.git
+</code></pre></li>
+<li><p>提交到远程仓库</p>
+<pre><code>git push -u origin master
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/22/git-创建一个仓库/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-21 </div>
 			<div class="article-title"><a href="/2015/01/21/chrome-查看资源加载顺序/" >chrome-查看资源加载顺序</a></div>						
 		</h3>
@@ -316,58 +383,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/20/cmake-if/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-20 </div>
-			<div class="article-title"><a href="/2015/01/20/cmake-函数中遍历ARGN/" >cmake-函数中遍历ARGN</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>(use_library)</span><br><span class="line">    <span class="keyword">foreach</span>(name <span class="variable">$&#123;ARGN&#125;</span>)</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$&#123;name&#125;</span> <span class="keyword">STREQUAL</span> <span class="string">"."</span>)</span><br><span class="line">            <span class="keyword">include_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">            <span class="keyword">link_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/lib)</span><br><span class="line">        <span class="keyword">else</span>()</span><br><span class="line">            <span class="keyword">message</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="number">3</span>rdparty/<span class="variable">$&#123;name&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">            <span class="keyword">include_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="number">3</span>rdparty/<span class="variable">$&#123;name&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">            <span class="keyword">link_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="number">3</span>rdparty/<span class="variable">$&#123;name&#125;</span>/lib)</span><br><span class="line">        <span class="keyword">endif</span>()</span><br><span class="line">    <span class="keyword">endforeach</span>()</span><br><span class="line"><span class="keyword">endfunction</span>()</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cmake.org/cmake/help/v3.0/command/foreach.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/foreach.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/20/cmake-函数中遍历ARGN/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-20 </div>
-			<div class="article-title"><a href="/2015/01/20/winsock-error-10014/" >winsock-error-10014</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="错误代码"><a href="#错误代码" class="headerlink" title="错误代码"></a>错误代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (recvfrom(socket, recv_buf, sizeof(recv_data), <span class="number">0</span>, (sockaddr *)&amp;server_addr, NULL) == SOCKET_ERROR) &#123;</span><br><span class="line">    WinSock::printError(<span class="string">"recvfrom error"</span>);</span><br><span class="line">    return <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p><code>recvfrom</code>最后一个参数是指定socket地址，为传入传出参数，不能为<code>NULL</code>!</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> len = <span class="keyword">sizeof</span>(server_addr);</span><br><span class="line"><span class="keyword">if</span> (recvfrom(socket, recv_buf, sizeof(recv_data), <span class="number">0</span>, (sockaddr *)&amp;server_addr, &amp;len) == SOCKET_ERROR) &#123;</span><br><span class="line">    WinSock::printError(<span class="string">"recvfrom error"</span>);</span><br><span class="line">    return <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/17306405/c-udp-recvfrom-is-acting-strange-wsagetlasterror-10014" target="_blank" rel="external">http://stackoverflow.com/questions/17306405/c-udp-recvfrom-is-acting-strange-wsagetlasterror-10014</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/20/winsock-error-10014/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -676,48 +691,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
+			<li><a href="/tags/ssh/">ssh<span>7</span></a></li>
 		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+		
+			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
+		
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
 			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/app/">app<span>4</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
-			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+			<li><a href="/tags/usb/">usb<span>3</span></a></li>
 		
-			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/od/">od<span>1</span></a></li>
+			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/c/">c<span>7</span></a></li>
 		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+			<li><a href="/tags/date/">date<span>1</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
+			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 		
-			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
-		
-			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
-		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -730,6 +745,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -739,14 +762,6 @@
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

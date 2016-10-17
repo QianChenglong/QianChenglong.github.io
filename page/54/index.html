@@ -111,6 +111,71 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-16 </div>
+			<div class="article-title"><a href="/2015/01/16/python-第三方库列表/" >python-拓展包列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="https://pypi.python.org/pypi/colorama" target="_blank" rel="external">colorama</a></p>
+<p>跨平台颜色打印</p>
+</li>
+<li><p><a href="https://github.com/kennethreitz/requests" target="_blank" rel="external">requests</a></p>
+<p>人性化http操作库</p>
+<p><a href="http://docs.python-requests.org/en/latest/" target="_blank" rel="external">手册</a></p>
+</li>
+<li><p><a href="http://amoffat.github.io/sh/" target="_blank" rel="external">sh</a></p>
+<p>linux命令的包装，可以用函数调用的方式执行命令</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://github.com/vinta/awesome-python" target="_blank" rel="external">https://github.com/vinta/awesome-python</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/16/python-第三方库列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-15 </div>
+			<div class="article-title"><a href="/2015/01/15/npm-命令简记/" >npm-命令简记</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>安装包</p>
+<pre><code>npm install &lt;package-name&gt;
+</code></pre></li>
+<li><p>从文件夹安装</p>
+<pre><code>npm install .
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/15/npm-命令简记/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-15 </div>
 			<div class="article-title"><a href="/2015/01/15/awk-学习笔记/" >awk-学习笔记</a></div>						
 		</h3>
@@ -329,67 +394,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/08/pragma-once/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-08 </div>
-			<div class="article-title"><a href="/2015/01/08/makefile-目标all作用/" >makefile-目标all作用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>make在执行makefile中，若没有显式指定目标，默认执行第一个找到的目标。</p>
-<p>而一般情况下，一个项目都会生成多个目标(如多个lib，dll，exe)等，所以<br>需要<code>all</code>这个伪目标来生成多个目标。</p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/08/makefile-目标all作用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-08 </div>
-			<div class="article-title"><a href="/2015/01/08/makefile-PHONY作用/" >makefile-.PHONY作用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>先看makefile核心规则</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">target: prerequisites</span><br><span class="line">    command</span><br></pre></td></tr></table></figure>
-<p>make解析执行makefile判断过程：</p>
-<ul>
-<li>若<code>target</code>不存在，则根据<code>prerequisites</code>，执行<code>commond</code></li>
-<li>若<code>target</code>已存在，则比较<code>target</code>和<code>prerequisites</code>修改时间<ul>
-<li><strong>若<code>prerequisites</code>不存在，则不执行<code>commond</code>!</strong></li>
-<li>若<code>prerequisites</code>比<code>target</code>新，则执行<code>commond</code>(说明在生成<code>target</code>后，对依赖文件进行了修改)</li>
-<li>若<code>prerequisites</code>没有<code>target</code>新，则不执行<code>commond</code></li>
-</ul>
-</li>
-</ul>
-<h1 id="为什么需要伪目标"><a href="#为什么需要伪目标" class="headerlink" title="为什么需要伪目标"></a>为什么需要伪目标</h1><ul>
-<li>假设当前目录下已有<code>clean</code>文件，则根据make解析过程，不会执行后续<code>commond</code></li>
-</ul>
-<h1 id="什么是伪目标-PHONY"><a href="#什么是伪目标-PHONY" class="headerlink" title="什么是伪目标(.PHONY)"></a>什么是伪目标(<code>.PHONY</code>)</h1><p>伪目标相对于目标而言，其不会生成实体<strong>文件</strong></p>
-<h1 id="伪目标的作用"><a href="#伪目标的作用" class="headerlink" title="伪目标的作用"></a>伪目标的作用</h1><p>显式告诉make不要跟实体文件进行关联判断，以便执行相应的命令</p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/08/makefile-PHONY作用/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -698,48 +702,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
 		
-			<li><a href="/tags/列表/">列表<span>7</span></a></li>
+			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
 		
-			<li><a href="/tags/链表/">链表<span>1</span></a></li>
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+		
+			<li><a href="/tags/安装/">安装<span>3</span></a></li>
+		
+			<li><a href="/tags/部署/">部署<span>1</span></a></li>
+		
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+		
+			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+		
+			<li><a href="/tags/base64/">base64<span>1</span></a></li>
 		
 			<li><a href="/tags/module/">module<span>3</span></a></li>
 		
-			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
+			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/if/">if<span>1</span></a></li>
 		
-			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+			<li><a href="/tags/file/">file<span>1</span></a></li>
 		
-			<li><a href="/tags/c/">c<span>7</span></a></li>
+			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
 		
-			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
 		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
 		
-			<li><a href="/tags/宏/">宏<span>4</span></a></li>
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
 		
-			<li><a href="/tags/slab/">slab<span>1</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/资源/">资源<span>2</span></a></li>
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
-		
-			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
-		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
-		
-			<li><a href="/tags/C/">C<span>14</span></a></li>
-		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
-		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -752,6 +756,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -761,14 +773,6 @@
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

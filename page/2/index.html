@@ -111,6 +111,93 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-09-27 </div>
+			<div class="article-title"><a href="/2016/09/27/mysql-查看查询日志/" >mysql-查看查询日志</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>修改配置文件</p>
+<pre><code>sudo vim /etc/my.cnf
+
+general_log=1
+general_log_file=/var/log/mysql/mysql.log
+</code></pre></li>
+<li><p>创建相应文件</p>
+<pre><code>mkdir -p /var/log/mysql/
+touch /var/log/mysql/mysql.log
+chmod 666 /var/log/mysql/mysql.log
+</code></pre></li>
+<li><p>重启mysql</p>
+<pre><code>sudo systemctl restart mysqld
+</code></pre></li>
+<li><p>查看</p>
+<pre><code>tail -F /var/log/mysql/mysql.log
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/27/mysql-查看查询日志/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-09-18 </div>
+			<div class="article-title"><a href="/2016/09/18/C++-变量/" >C++-变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><ul>
+<li><p>数据类型</p>
+<p>所有可能值的抽象，一种类型支持一组特定的操作</p>
+</li>
+<li><p>内存大小</p>
+<p>存储该值所需要的存储空间大小</p>
+</li>
+<li><p>变量名(可选)</p>
+<p>对变量进行引用的标识符</p>
+</li>
+<li><p>值</p>
+<p>变量存储的内容</p>
+</li>
+<li><p>作用域</p>
+</li>
+<li><p>对齐</p>
+</li>
+<li><p>存储期</p>
+</li>
+<li><p>生命期(跟存储期相关或临时)</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://en.cppreference.com/w/cpp/language/storage_duration" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/storage_duration</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/lifetime" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/lifetime</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/18/C++-变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-09-14 </div>
 			<div class="article-title"><a href="/2016/09/14/C++-初始化/" >C++-初始化</a></div>						
 		</h3>
@@ -379,76 +466,6 @@
 	
 	</div>
   <a type="button" href="/2016/09/01/判断库是否带有调试信息/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-08-31 </div>
-			<div class="article-title"><a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" >hash为什么最好使用素数来作为桶大小</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>如何使用合数的的话？产生冲突的概率更大！如10=2*5（合数本身的性质）</p>
-
-	
-	</div>
-  <a type="button" href="/2016/08/31/hash为什么最好使用素数来作为桶大小/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-08-31 </div>
-			<div class="article-title"><a href="/2016/08/31/名人堂/" >名人堂</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="Alan-Jay-Perlis-艾伦·杰·佩利"><a href="#Alan-Jay-Perlis-艾伦·杰·佩利" class="headerlink" title="Alan Jay Perlis(艾伦·杰·佩利)"></a><a href="https://en.wikipedia.org/wiki/Alan_Perlis" target="_blank" rel="external">Alan Jay Perlis</a>(艾伦·杰·佩利)</h1><ul>
-<li><p>ALGOL 60</p>
-</li>
-<li><p>首届图灵奖</p>
-</li>
-</ul>
-<h1 id="Charles-Antony-Richard-Hoare-查尔斯·安东尼·理查德·霍尔"><a href="#Charles-Antony-Richard-Hoare-查尔斯·安东尼·理查德·霍尔" class="headerlink" title="Charles Antony Richard Hoare(查尔斯·安东尼·理查德·霍尔)"></a>Charles Antony Richard Hoare(查尔斯·安东尼·理查德·霍尔)</h1><h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><ul>
-<li><p>快排</p>
-</li>
-<li><p>哲学家进餐</p>
-</li>
-<li><p>ALGOL</p>
-</li>
-<li><p><a href="https://en.wikipedia.org/wiki/Null_pointer" target="_blank" rel="external">null reference</a></p>
-</li>
-<li><p><a href="https://en.wikipedia.org/wiki/Communicating_sequential_processes" target="_blank" rel="external">Communicating Sequential Processes</a></p>
-</li>
-</ul>
-<h1 id="Sir-Maurice-Vincent-Wilkes-莫里斯·文森特·威尔克斯"><a href="#Sir-Maurice-Vincent-Wilkes-莫里斯·文森特·威尔克斯" class="headerlink" title="Sir Maurice Vincent Wilkes(莫里斯·文森特·威尔克斯)"></a>Sir Maurice Vincent Wilkes(莫里斯·文森特·威尔克斯)</h1><h2 id="关键字-1"><a href="#关键字-1" class="headerlink" title="关键字"></a>关键字</h2><ul>
-<li><p>世界上第一台存储程序式电子计算机EDSAC(第一台冯诺依曼体系结构计算机)</p>
-</li>
-<li><p>变址，宏指令，微程序，子例程，高速缓冲存储器</p>
-</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://en.wikipedia.org/wiki/Tony_Hoare" target="_blank" rel="external">https://en.wikipedia.org/wiki/Tony_Hoare</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/08/31/名人堂/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -757,48 +774,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+		
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
+		
+			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+		
+			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+		
+			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
+		
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+		
+			<li><a href="/tags/ssh/">ssh<span>7</span></a></li>
+		
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+		
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
+		
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+		
+			<li><a href="/tags/python/">python<span>69</span></a></li>
+		
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+		
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+		
+			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+		
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+		
+			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
+		
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
+		
+			<li><a href="/tags/module/">module<span>3</span></a></li>
+		
 			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
 		
-			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
-		
-			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
-		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
-		
-			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
-		
-			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
-		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
-		
-			<li><a href="/tags/左值/">左值<span>1</span></a></li>
-		
-			<li><a href="/tags/js/">js<span>2</span></a></li>
-		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
-		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
-		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
-		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
-		
-			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
-		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
-		
-			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
-		
-			<li><a href="/tags/vps/">vps<span>1</span></a></li>
-		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
-		
-			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
-		
-			<li><a href="/tags/cron/">cron<span>1</span></a></li>
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -811,6 +828,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -820,14 +845,6 @@
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

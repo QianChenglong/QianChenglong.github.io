@@ -111,6 +111,157 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-08-04 </div>
+			<div class="article-title"><a href="/2015/08/04/gdb/" >gdb</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h1><ul>
+<li><p>自定义初始化设置</p>
+<pre><code>~/.gdbinit
+</code></pre></li>
+<li><p>载入配置文件</p>
+<pre><code>source ~/.gdbinit
+</code></pre></li>
+</ul>
+<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><ul>
+<li><p>通过文件名</p>
+<pre><code>gdb &lt;program&gt;
+</code></pre></li>
+<li><p>使用core调试</p>
+<pre><code>gdb -c &lt;core-file-name&gt; &lt;program&gt;
+</code></pre></li>
+<li><p>attach到指定进程</p>
+<pre><code>gdb -p &lt;pid&gt;
+gdb attach &lt;pid&gt;
+</code></pre></li>
+</ul>
+<h1 id="多线程调试"><a href="#多线程调试" class="headerlink" title="多线程调试"></a>多线程调试</h1><ul>
+<li><p>查看当前所有线程</p>
+<pre><code>info threads
+</code></pre></li>
+<li><p>查看所有线程调用栈</p>
+<pre><code>thread apply all bt
+</code></pre></li>
+<li><p>调试指定线程</p>
+<pre><code>thread &lt;thread-num&gt;
+</code></pre></li>
+<li><p>锁定线程(阻止线程切换)</p>
+<pre><code>set scheduler-locking on
+</code></pre></li>
+</ul>
+<h1 id="控制类"><a href="#控制类" class="headerlink" title="控制类"></a>控制类</h1><ul>
+<li><p>运行到指定行</p>
+<pre><code>until $line-number
+</code></pre></li>
+</ul>
+<h1 id="断点"><a href="#断点" class="headerlink" title="断点"></a>断点</h1><ul>
+<li><p>在指定文件指定行</p>
+<pre><code>break filename:linenum
+</code></pre></li>
+<li><p>删除断点</p>
+<pre><code>clear linenum
+</code></pre></li>
+</ul>
+<h1 id="栈切换"><a href="#栈切换" class="headerlink" title="栈切换"></a>栈切换</h1><ul>
+<li><p>根据编号切换</p>
+<pre><code>frame n
+</code></pre></li>
+<li><p>向上</p>
+<pre><code>up &lt;num&gt;
+</code></pre></li>
+</ul>
+<h1 id="查询类"><a href="#查询类" class="headerlink" title="查询类"></a>查询类</h1><ul>
+<li><p>打印调用栈</p>
+<pre><code>bt
+where
+</code></pre></li>
+<li><p>打印当前帧(查询当前执行语句位置)</p>
+<pre><code>frame
+</code></pre></li>
+<li><p>打印当前行</p>
+<pre><code>list *$pc
+</code></pre></li>
+<li><p>x(examine)</p>
+<p>x /[nfu] ADDRESS(<strong>若ADDRESS是一个变量，则认为变量值为要查看的地址</strong>)<br>n用来指定重复的次数，就是指定显示格式和size确定的一个单位多少次<br>#n默认为1</p>
+<p>f用来指定显示的格式，同print一样</p>
+<pre><code>Format letters
+o(octal), x(hex), d(decimal), u(unsigned decimal), t(binary),
+f(float), a(address), i(instruction), c(char) and s(string)
+</code></pre><p>u(unit)，指定一个单位的长度</p>
+<pre><code>Size letters
+b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
+</code></pre><p>x/3uh 0x54320</p>
+<pre><code>从0x54320开始，以(h)2B为单位，(u)无符号十进制输出，显示3uh个这样的单
+位，总共显示2 × 3 = 6B的内存
+</code></pre><p>x /10s *argv    查看环境变量</p>
+</li>
+</ul>
+<h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><ul>
+<li><p>set args ARG-list</p>
+<p>设置程序的命令行参数，依次传给argv[1],…<br>#需要在文件载入之后，程序开始执行之前</p>
+</li>
+<li><p>set print pretty</p>
+<p>可爱的打印出结构体</p>
+</li>
+<li><p>set print elements 0</p>
+<p>完全打印元素，不管有多少(查看该选项值，<code>show print elements</code>)</p>
+</li>
+</ul>
+<h1 id="gdb打印STLhttps-sourceware-org-gdb-wiki-STLSupport"><a href="#gdb打印STLhttps-sourceware-org-gdb-wiki-STLSupport" class="headerlink" title="gdb打印STLhttps://sourceware.org/gdb/wiki/STLSupport"></a>gdb打印STL<a href="https://sourceware.org/gdb/wiki/STLSupport" target="_blank" rel="external">https://sourceware.org/gdb/wiki/STLSupport</a></h1><h1 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h1><ul>
+<li>查看宏定义以及位置</li>
+</ul>
+<pre><code>info macro &lt;macro&gt;
+</code></pre><ul>
+<li><p>展开宏</p>
+<pre><code>macro expand &lt;macro&gt;
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/04/gdb/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-29 </div>
+			<div class="article-title"><a href="/2015/07/29/c++-文件读写/" >c++-文件读写</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="fstream"><a href="#fstream" class="headerlink" title="fstream"></a>fstream</h1><ul>
+<li><p>默认读写打开</p>
+<ul>
+<li>从文件开始读</li>
+<li>从文件末尾写</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/29/c++-文件读写/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-07-28 </div>
 			<div class="article-title"><a href="/2015/07/28/后台开发经验/" >后台开发经验</a></div>						
 		</h3>
@@ -346,70 +497,6 @@
 	
 	</div>
   <a type="button" href="/2015/07/22/windows-修改环境变量后立即生效/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-22 </div>
-			<div class="article-title"><a href="/2015/07/22/linux-安装go/" >linux-安装go</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>下载对应二进制包(<a href="https://golang.org/dl/" target="_blank" rel="external">官网</a>)</p>
-</li>
-<li><p>解压安装</p>
-<p>tar -C /opt/go-$VERSION -xvf go$VERSION.$OS-$ARCH.tar.gz</p>
-</li>
-<li><p>修改环境变量</p>
-<p>vi /etc/profile</p>
-<p>export GOROOT=/opt/go-$VERSION<br>export PATH=$PATH:$GOROOT/bin</p>
-</li>
-<li><p>生效</p>
-<ul>
-<li><p><code>source /etc/profile</code></p>
-</li>
-<li><p>重启sshd</p>
-</li>
-</ul>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/22/linux-安装go/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-22 </div>
-			<div class="article-title"><a href="/2015/07/22/linux-修改环境变量后及时生效/" >linux-修改环境变量后及时生效</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="source-etc-profile"><a href="#source-etc-profile" class="headerlink" title="source /etc/profile"></a><code>source /etc/profile</code></h1><h1 id="重启对应的父进程"><a href="#重启对应的父进程" class="headerlink" title="重启对应的父进程"></a>重启对应的父进程</h1><ul>
-<li>对ssh来说,重启sshd</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/22/linux-修改环境变量后及时生效/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -718,48 +805,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
-			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/库/">库<span>2</span></a></li>
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
 		
-			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
 		
-			<li><a href="/tags/C/">C++<span>35</span></a></li>
+			<li><a href="/tags/template/">template<span>2</span></a></li>
 		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
+			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
 		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
+			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
 		
-			<li><a href="/tags/c99/">c99<span>1</span></a></li>
+			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
 		
-			<li><a href="/tags/登录/">登录<span>2</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+			<li><a href="/tags/slab/">slab<span>1</span></a></li>
 		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
+			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
 		
-			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
 		
-			<li><a href="/tags/samba/">samba<span>3</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
 		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>40</span></a></li>
+			<li><a href="/tags/vim/">vim<span>24</span></a></li>
 		
-			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
+			<li><a href="/tags/django/">django<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -772,6 +859,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -781,14 +876,6 @@
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

@@ -111,6 +111,59 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-31 </div>
+			<div class="article-title"><a href="/2015/03/31/Sphinx-安装使用/" >Sphinx-安装使用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>安装</p>
+<pre><code>pip install Sphinx
+</code></pre></li>
+<li><p>使用向导生成配置文件</p>
+<pre><code>sphinx-quickstart
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://sphinx-doc.org/tutorial.html" target="_blank" rel="external">http://sphinx-doc.org/tutorial.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/31/Sphinx-安装使用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-30 </div>
+			<div class="article-title"><a href="/2015/03/30/python-cgi调试技巧/" >python-cgi调试技巧</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		
+	
+	</div>
+  <a type="button" href="/2015/03/30/python-cgi调试技巧/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-30 </div>
 			<div class="article-title"><a href="/2015/03/30/编程书籍/" ></a></div>						
 		</h3>
@@ -370,56 +423,6 @@
 	
 	</div>
   <a type="button" href="/2015/03/26/C-函数操作结果返回方式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-26 </div>
-			<div class="article-title"><a href="/2015/03/26/extern C/" >extern &quot;C&quot;</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>当使用C++编译器对C++源码编译时，对C函数采用”C”语言方式编译和连接(函数导出名不变)</p>
-<h1 id="为什么需要extern-quot-C-quot"><a href="#为什么需要extern-quot-C-quot" class="headerlink" title="为什么需要extern &quot;C&quot;"></a>为什么需要<code>extern &quot;C&quot;</code></h1><p>因为C++支持函数重载，所以对函数名存在修饰操作。</p>
-<p>若一个函数为普通全局函数，制作为dll，其他C程序进行调用，当编译该程序采用C编译器，无法找到该符号，因为C编译器与C++编译器对函数名的修饰规则不一致！</p>
-<p>所以为了使C编译器能够使用这些函数，需要使用<code>extern &quot;C&quot;</code>声明。</p>
-<h1 id="惯用法"><a href="#惯用法" class="headerlink" title="惯用法"></a>惯用法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta"># <span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/03/26/extern C/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-26 </div>
-			<div class="article-title"><a href="/2015/03/26/采用doxygen的项目列表/" >采用doxygen的项目列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>log4cpp</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/26/采用doxygen的项目列表/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -728,48 +731,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
 		
-			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
 		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+			<li><a href="/tags/variable/">variable<span>1</span></a></li>
 		
-			<li><a href="/tags/线程/">线程<span>3</span></a></li>
+			<li><a href="/tags/push/">push<span>2</span></a></li>
 		
-			<li><a href="/tags/boost/">boost<span>4</span></a></li>
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
 		
-			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
 		
-			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
+			<li><a href="/tags/size/">size<span>1</span></a></li>
 		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
-			<li><a href="/tags/exit/">exit<span>1</span></a></li>
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
+			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
 		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
+			<li><a href="/tags/hex/">hex<span>1</span></a></li>
 		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/mrakdown/">mrakdown<span>1</span></a></li>
+			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>586</span></a></li>
+		   <li><a href="/tags">...<span>588</span></a></li>
 		 
 		</ul>
 	</div>
@@ -782,6 +785,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
@@ -791,14 +802,6 @@
     
       <li>
         <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
       </li>
     
   </ul>

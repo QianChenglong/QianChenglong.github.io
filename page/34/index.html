@@ -111,6 +111,90 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-04-10 </div>
+			<div class="article-title"><a href="/2015/04/10/tex-去除pdf链接边框/" >tex-去除pdf链接边框</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;hypersetup&#125;</span><br><span class="line">\hypersetup&#123;</span><br><span class="line">    pdfborder=&#123;0 0 0&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://tex.stackexchange.com/questions/823/remove-ugly-borders-around-clickable-cross-references-and-hyperlinks" target="_blank" rel="external">http://tex.stackexchange.com/questions/823/remove-ugly-borders-around-clickable-cross-references-and-hyperlinks</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/10/tex-去除pdf链接边框/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-10 </div>
+			<div class="article-title"><a href="/2015/04/10/tex-设置pdf元数据/" >tex-设置pdf元数据</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;hypersetup&#125;</span><br><span class="line">\hypersetup&#123;pdfauthor=&#123;Author&#125;,</span><br><span class="line">            pdftitle=&#123;Your Title&#125;,</span><br><span class="line">            pdfsubject=&#123;Whatever&#125;,</span><br><span class="line">            pdfkeywords=&#123;one, two&#125;,</span><br><span class="line">            pdfproducer=&#123;LaTeX&#125;,</span><br><span class="line">            pdfcreator=&#123;pdfLaTeX&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.zhihu.com/question/20786104" target="_blank" rel="external">http://www.zhihu.com/question/20786104</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/10/tex-设置pdf元数据/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-10 </div>
+			<div class="article-title"><a href="/2015/04/10/检查pdf文字字体信息/" >检查pdf文字字体信息</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>使用<code>pdf-xchange-viewer</code></p>
+</li>
+<li><p>选中想要检查的文字</p>
+</li>
+<li><p>右键<code>文本属性</code></p>
+</li>
+<li><p>点击<code>格式化</code>标签页</p>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://superuser.com/questions/117443/how-to-know-which-fonts-are-used-in-selected-part-of-a-pdf-document" target="_blank" rel="external">http://superuser.com/questions/117443/how-to-know-which-fonts-are-used-in-selected-part-of-a-pdf-document</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/10/检查pdf文字字体信息/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-04-09 </div>
 			<div class="article-title"><a href="/2015/04/09/python-argparse/" >python-argparse</a></div>						
 		</h3>
@@ -368,157 +452,6 @@ pacman-key --lsign-key 4209170B
 	
 	</div>
   <a type="button" href="/2015/04/03/python-访问父类方法/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-03 </div>
-			<div class="article-title"><a href="/2015/04/03/交换机端口模式/" >交换机端口模式</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="access"><a href="#access" class="headerlink" title="access"></a>access</h1><ul>
-<li><p>收</p>
-<p>判断是否有VLAN信息</p>
-<ul>
-<li><p>如果没有则打上端口的PVID，并进行交换转发，</p>
-</li>
-<li><p>如果有则直接丢弃（缺省）</p>
-</li>
-</ul>
-</li>
-<li><p>发</p>
-<p>将报文的VLAN信息剥离，直接发送出去</p>
-</li>
-</ul>
-<h1 id="Trunk"><a href="#Trunk" class="headerlink" title="Trunk"></a>Trunk</h1><ul>
-<li><p>收</p>
-<p>收到一个报文，判断是否有VLAN信息</p>
-<ul>
-<li><p>如果没有则打上端口的PVID，并进行交换转发，</p>
-</li>
-<li><p>如果有判断该trunk端口是否允许该 VLAN的数据进入</p>
-<ul>
-<li><p>如果可以则转发</p>
-</li>
-<li><p>否则丢弃</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>发</p>
-<p>比较端口的PVID和将要发送报文的VLAN信息</p>
-<ul>
-<li><p>如果两者相等则剥离VLAN信息，再发送</p>
-</li>
-<li><p>如果不相等则直接发送</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="Hybrid"><a href="#Hybrid" class="headerlink" title="Hybrid"></a>Hybrid</h1><ul>
-<li><p>收</p>
-<p>收到一个报文判断是否有VLAN信息</p>
-<ul>
-<li><p>如果没有则打上端口的PVID，并进行交换转发，</p>
-</li>
-<li><p>如果有则判断该hybrid端口是否允许该VLAN的数据进入</p>
-<ul>
-<li><p>如果可以则转发</p>
-</li>
-<li><p>否则丢弃</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>发</p>
-<p>判断该VLAN在本端口的属性（disp interface 即可看到该端口对哪些VLAN是untag， 哪些VLAN是tag）</p>
-<ul>
-<li><p>如果是untag则剥离VLAN信息，再发送</p>
-</li>
-<li><p>如果是tag则直接发送</p>
-</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/04/03/交换机端口模式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-03 </div>
-			<div class="article-title"><a href="/2015/04/03/python-获取父类名称/" >python-获取父类名称</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="通过-bases-属性"><a href="#通过-bases-属性" class="headerlink" title="通过__bases__属性"></a>通过<code>__bases__</code>属性</h1><pre><code>str.__bases__
-</code></pre><h1 id="通过inspect模块"><a href="#通过inspect模块" class="headerlink" title="通过inspect模块"></a>通过<code>inspect</code>模块</h1><pre><code>inspect.getmro(str)
-</code></pre><p><strong>注：</strong></p>
-<ul>
-<li>mro:method resolution order</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/2611892/get-python-class-parents" target="_blank" rel="external">http://stackoverflow.com/questions/2611892/get-python-class-parents</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/03/python-获取父类名称/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-02 </div>
-			<div class="article-title"><a href="/2015/04/02/python-简单http服务/" >python-简单http服务</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
-<li><p>进入web根目录</p>
-</li>
-<li><p>运行</p>
-<pre><code>python -m SimpleHTTPServer
-</code></pre></li>
-<li><p>访问</p>
-<pre><code>http://localhost:8000
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://coolshell.cn/articles/1480.html" target="_blank" rel="external">http://coolshell.cn/articles/1480.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/02/python-简单http服务/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -827,48 +760,48 @@ pacman-key --lsign-key 4209170B
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
 		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
 		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/事务/">事务<span>1</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/宏/">宏<span>4</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
 		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+			<li><a href="/tags/sort/">sort<span>1</span></a></li>
 		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>40</span></a></li>
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
 		
-			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -881,23 +814,23 @@ pacman-key --lsign-key 4209170B
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

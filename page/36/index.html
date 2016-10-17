@@ -112,6 +112,115 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-04-01 </div>
+			<div class="article-title"><a href="/2015/04/01/python-获取主模块文件名/" >python-获取主模块文件名</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> __main__</span><br><span class="line"><span class="keyword">print</span> __main__.__file__</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<ul>
+<li>交互式shell中执行时，<code>__main__</code>没有<code>__file__</code>属性</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/01/python-获取主模块文件名/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-01 </div>
+			<div class="article-title"><a href="/2015/04/01/python-安装脚本经常使用的API/" >python-安装脚本经常使用的API</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>判断当前系统类型</p>
+<pre><code>platform.system() == &apos;Windows&apos;
+os.name == &apos;nt&apos;
+</code></pre></li>
+<li><p>获取安装绝对路径名(不带”..”)</p>
+<pre><code>os.path.abspath(r&apos;./setting.ini&apos;)
+</code></pre></li>
+<li><p>获取脚本所在的目录</p>
+<pre><code>os.path.dirname(os.path.realpath(__file__)
+</code></pre></li>
+<li><p>获取用户配置完全路径名</p>
+<pre><code>os.path.expanduser(r&apos;~/_vimrc&apos;)
+</code></pre></li>
+<li><p>目录不存在则创建(递归创建)</p>
+<pre><code>if not os.path.exists(directory):
+    os.makedirs(directory)
+
+os.makedirs(os.path.dirname(f[1]), exist_ok=True)
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/01/python-安装脚本经常使用的API/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-01 </div>
+			<div class="article-title"><a href="/2015/04/01/python-pip设置第三方源/" >python-pip设置第三方源</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="命令行指定"><a href="#命令行指定" class="headerlink" title="命令行指定"></a>命令行指定</h1><p>pip install -i <a href="http://pypi.douban.com/simple/" target="_blank" rel="external">http://pypi.douban.com/simple/</a> –trusted-host pypi.douban.com gevent</p>
+<h1 id="配置文件指定"><a href="#配置文件指定" class="headerlink" title="配置文件指定"></a>配置文件指定</h1><ul>
+<li><p>win7</p>
+<p>~/pip/pip.ini</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">index-url</span> = http://pypi.douban.com/simple</span><br><span class="line"><span class="section">[install]</span></span><br><span class="line"><span class="attr">trusted-host</span>=pypi.douban.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>linux</p>
+<p>vi ~/.pip/pip.conf</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">index-url</span> = http://pypi.douban.com/simple</span><br><span class="line"><span class="section">[install]</span></span><br><span class="line"><span class="attr">trusted-host</span>=pypi.douban.com</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="第三方源列表"><a href="#第三方源列表" class="headerlink" title="第三方源列表"></a>第三方源列表</h1><ul>
+<li><a href="http://pypi.douban.com/" target="_blank" rel="external">http://pypi.douban.com/</a>  豆瓣</li>
+<li><a href="http://pypi.hustunique.com/" target="_blank" rel="external">http://pypi.hustunique.com/</a>  华中理工大学</li>
+<li><a href="http://pypi.sdutlinux.org/" target="_blank" rel="external">http://pypi.sdutlinux.org/</a>  山东理工大学</li>
+<li><a href="http://pypi.mirrors.ustc.edu.cn/" target="_blank" rel="external">http://pypi.mirrors.ustc.edu.cn/</a>  中国科学技术大学</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/01/python-pip设置第三方源/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-01 </div>
 			<div class="article-title"><a href="/2015/04/01/CGI环境变量列表/" >CGI环境变量列表</a></div>						
 		</h3>
 	
@@ -360,85 +469,6 @@ func
 	
 	</div>
   <a type="button" href="/2015/03/30/python-cgi调试技巧/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-30 </div>
-			<div class="article-title"><a href="/2015/03/30/编程书籍/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>The Art of Readable Code(编写可读性代码的艺术)</p>
-</li>
-<li><p>Clean Code(代码整洁之道)</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/30/编程书籍/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-30 </div>
-			<div class="article-title"><a href="/2015/03/30/error code VS exception/" >error code VS exception</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="错误代码"><a href="#错误代码" class="headerlink" title="错误代码"></a>错误代码</h1><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li><p>错误处理麻烦</p>
-<p>函数调用后，需要检查其错误代码，并对相应错误进行处理(错误处理策略复杂)，<br>需要写很多”不相干”代码，包含很多<code>if-else</code>，代码丑陋，很难周密性检查，需要花很多精力处理。</p>
-</li>
-</ul>
-<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1>
-	
-	</div>
-  <a type="button" href="/2015/03/30/error code VS exception/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-30 </div>
-			<div class="article-title"><a href="/2015/03/30/C++-第三方库列表/" >C++-第三方库列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="http://gflags.github.io/gflags/" target="_blank" rel="external">gflags</a></p>
-<p>命令行参数处理</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/30/C++-第三方库列表/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -747,48 +777,48 @@ func
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
-		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
-		
-			<li><a href="/tags/参数/">参数<span>1</span></a></li>
-		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
-		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
-		
-			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
-		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
-		
-			<li><a href="/tags/串口/">串口<span>2</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
 			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
 		
-			<li><a href="/tags/左值/">左值<span>1</span></a></li>
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
 		
-			<li><a href="/tags/command/">command<span>9</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
 		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/variable/">variable<span>1</span></a></li>
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
 		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
 		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
+		
+			<li><a href="/tags/apt/">apt<span>2</span></a></li>
+		
+			<li><a href="/tags/app/">app<span>4</span></a></li>
+		
+			<li><a href="/tags/global/">global<span>1</span></a></li>
+		
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
+		
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+		
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+		
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -801,23 +831,23 @@ func
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

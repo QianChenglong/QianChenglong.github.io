@@ -112,6 +112,85 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-30 </div>
+			<div class="article-title"><a href="/2015/03/30/编程书籍/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>The Art of Readable Code(编写可读性代码的艺术)</p>
+</li>
+<li><p>Clean Code(代码整洁之道)</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/30/编程书籍/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-30 </div>
+			<div class="article-title"><a href="/2015/03/30/error code VS exception/" >error code VS exception</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="错误代码"><a href="#错误代码" class="headerlink" title="错误代码"></a>错误代码</h1><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li><p>错误处理麻烦</p>
+<p>函数调用后，需要检查其错误代码，并对相应错误进行处理(错误处理策略复杂)，<br>需要写很多”不相干”代码，包含很多<code>if-else</code>，代码丑陋，很难周密性检查，需要花很多精力处理。</p>
+</li>
+</ul>
+<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1>
+	
+	</div>
+  <a type="button" href="/2015/03/30/error code VS exception/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-30 </div>
+			<div class="article-title"><a href="/2015/03/30/C++-第三方库列表/" >C++-第三方库列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="http://gflags.github.io/gflags/" target="_blank" rel="external">gflags</a></p>
+<p>命令行参数处理</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/30/C++-第三方库列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-30 </div>
 			<div class="article-title"><a href="/2015/03/30/hexo-google站长工具验证/" >hexo-google站长工具验证</a></div>						
 		</h3>
 	
@@ -341,128 +420,6 @@
 	
 	</div>
   <a type="button" href="/2015/03/26/采用doxygen的项目列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-26 </div>
-			<div class="article-title"><a href="/2015/03/26/使用宏控制dll导入或导出/" >使用宏控制dll导入或导出</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> XXX_HAS_DLL</span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">ifdef</span> XXX_BUILD_DLL</span></span><br><span class="line"><span class="meta">#       <span class="meta-keyword">if</span> defined(_MSC_VER) || defined(__BORLANDC__) || defined(__MINGW32__)</span></span><br><span class="line"><span class="meta">#           <span class="meta-keyword">define</span> LOG4CPP_EXPORT __declspec(dllexport)</span></span><br><span class="line"><span class="meta">#               <span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#           <span class="meta-keyword">define</span> LOG4CPP_EXPORT</span></span><br><span class="line"><span class="meta">#               <span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#       <span class="meta-keyword">if</span> defined(_MSC_VER) || defined(__BORLANDC__) || defined(__MINGW32__)</span></span><br><span class="line"><span class="meta">#           <span class="meta-keyword">define</span> LOG4CPP_EXPORT __declspec(dllimport)</span></span><br><span class="line"><span class="meta">#               <span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#           <span class="meta-keyword">define</span> LOG4CPP_EXPORT</span></span><br><span class="line"><span class="meta">#               <span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#   <span class="meta-keyword">define</span> XXX_EXPORT</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-<p><strong>说明：</strong></p>
-<ul>
-<li><p>XXX为库名称</p>
-</li>
-<li><p>XXX_HAS_DLL 编译器是否支持<code>__declspec(dllexport)</code></p>
-</li>
-<li><p>XXX_BUILD_DLL 动态库内部使用，还是供外部引用</p>
-</li>
-<li><p>XXX_EXPORT 用来说明某个变量，函数，类是否为导出或导入</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>log4cpp/include/Export.hh</li>
-<li><a href="https://gcc.gnu.org/wiki/Visibilit" target="_blank" rel="external">https://gcc.gnu.org/wiki/Visibilit</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/26/使用宏控制dll导入或导出/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-26 </div>
-			<div class="article-title"><a href="/2015/03/26/log4cpp/" >log4cpp</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>一个C++日志库，模仿Log4j(java日志库)</p>
-<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
-<li><p>可拓展的、多种记录日志方式，包括命令行、文件、回滚文件、内存、syslog服务器、<br>win事件日志、VS debuger等</p>
-</li>
-<li><p>可动态调整日志优先级</p>
-</li>
-<li><p>可动态加载配置文件</p>
-</li>
-<li><p>内存占用小，不到200KB</p>
-</li>
-<li><p>跨平台</p>
-</li>
-</ul>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>log4cpp主要有3大组件：category、appender、layout。</p>
-<ul>
-<li><p>layout</p>
-<p>用来控制输出日志消息的格式，每个appender关联一个layout</p>
-</li>
-<li><p>appender</p>
-<p>用来指定输出目的地</p>
-</li>
-<li><p>category</p>
-<p>一个日志工作体，具有日志级别属性，可以拥有多个appender(一条消息可以输出到多个目的地)</p>
-<p>category被组织成一棵树，子category创建时优先级缺省NOTSET，category缺省会继承父category的appender。<br>而如果不希望这种appender的继承关系，log4cpp允许使用additivity 标签，为false时新的appender取代category的appender列表。</p>
-</li>
-</ul>
-<h1 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h1><ol>
-<li><p>实例化一个layout对象，设置格式</p>
-</li>
-<li><p>实例化一个appender对象，设置layout</p>
-</li>
-<li><p>实例化一个category，添加appender</p>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://log4cpp.sourceforge.net/" target="_blank" rel="external">http://log4cpp.sourceforge.net/</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/linux/l-log4cpp/" target="_blank" rel="external">便利的开发工具-log4cpp快速使用指南</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/26/log4cpp/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-25 </div>
-			<div class="article-title"><a href="/2015/03/25/cmake-常用命令/" >cmake-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>修改目标输出文件名</p>
-<pre><code>SET_TARGET_PROPERTIES(&lt;target_name&gt; PROPERTIES OUTPUT_NAME &lt;new_name&gt;)
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/25/cmake-常用命令/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -771,48 +728,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/size/">size<span>1</span></a></li>
+			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
 		
-			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
 		
-			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
 		
-			<li><a href="/tags/命令/">命令<span>5</span></a></li>
+			<li><a href="/tags/app/">app<span>4</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
 		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
 		
-			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
 		
-			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
+			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
 		
-			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
-			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
 		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
+			<li><a href="/tags/exit/">exit<span>1</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
+			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
 		
-			<li><a href="/tags/log/">log<span>2</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/mrakdown/">mrakdown<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -825,23 +782,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

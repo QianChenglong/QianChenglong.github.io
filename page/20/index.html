@@ -111,6 +111,104 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-09 </div>
+			<div class="article-title"><a href="/2015/09/09/install/" >install</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>-D</p>
+<p>所有的参数都被当作要创建的目录名,用来创建不存在的目录</p>
+</li>
+<li><p>-C, –compare</p>
+<p>比较文件内容,再决定更新</p>
+</li>
+<li><p>-m, –mode=MODE</p>
+<p>指定权限</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>安装文件</p>
+<pre><code>install -v --compare -D --mode=755 log.py /data/gpxj_server/yun_tong_xun/bin/log.py
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/09/install/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-06 </div>
+			<div class="article-title"><a href="/2015/09/06/python3-md5/" >python3-md5</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li>方法1</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import hashlib</span><br><span class="line"></span><br><span class="line">hashlib.md5(b&apos;Hello world&apos;).hexdigest()</span><br></pre></td></tr></table></figure>
+<ol>
+<li>方法2</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import hashlib</span><br><span class="line"></span><br><span class="line">md5 = hashlib.md5()</span><br><span class="line">md5.update(b&apos;Hello world&apos;)</span><br><span class="line">md5.hexdigest()</span><br></pre></td></tr></table></figure>
+<ol>
+<li>方法3</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import hashlib</span><br><span class="line"></span><br><span class="line">md5 = hashlib.new(&apos;md5&apos;, b&apos;Hello world&apos;)</span><br><span class="line">md5.hexdigest()</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/3/library/hashlib.html" target="_blank" rel="external">https://docs.python.org/3/library/hashlib.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/06/python3-md5/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-06 </div>
+			<div class="article-title"><a href="/2015/09/06/python3-base64/" >python3-base64</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line"></span><br><span class="line">base64.b64encode(b&apos;Hello world&apos;)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/3/library/base64.html#module-base64" target="_blank" rel="external">https://docs.python.org/3/library/base64.html#module-base64</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/06/python3-base64/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-02 </div>
 			<div class="article-title"><a href="/2015/09/02/rpc框架/" >rpc框架</a></div>						
 		</h3>
@@ -359,110 +457,6 @@
 	
 	</div>
   <a type="button" href="/2015/08/26/mysql-C开发/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-26 </div>
-			<div class="article-title"><a href="/2015/08/26/arch-修改键盘映射/" >arch-修改键盘映射</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h1><pre><code>vi /etc/vconsole.conf
-
-KEYMAP=us
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://wiki.archlinux.org/index.php/Keyboard_Configuration_in_Console_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Keyboard_Configuration_in_Console_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/08/26/arch-修改键盘映射/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-17 </div>
-			<div class="article-title"><a href="/2015/08/17/mysql-mysql_use_result-VS-mysql_store_result/" >mysql-mysql_use_result-VS-mysql_store_result</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="mysql-use-result"><a href="#mysql-use-result" class="headerlink" title="mysql_use_result"></a>mysql_use_result</h1><p>保留了如何从服务器取结果集</p>
-<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
-<li><p>客户端占用内存小</p>
-</li>
-<li></li>
-</ul>
-<h2 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h2><ul>
-<li><p>不能随机访问结果行</p>
-</li>
-<li><p>必须访问完,才能获取行数</p>
-</li>
-<li><p>客户端对结果处理必须得快,否则对服务端造成压力</p>
-</li>
-<li><p>必须从服务端获取所有结果,即使已经找到需要的行</p>
-</li>
-</ul>
-<h1 id="mysql-store-result"><a href="#mysql-store-result" class="headerlink" title="mysql_store_result"></a>mysql_store_result</h1><p>将sql执行结果全部获取到客户端</p>
-<h2 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h2><ul>
-<li><p>能直接获取结果行数</p>
-</li>
-<li><p>能随机访问结果行</p>
-</li>
-</ul>
-<h2 id="劣势-1"><a href="#劣势-1" class="headerlink" title="劣势"></a>劣势</h2><ul>
-<li>客户端占用内存大,可能内存溢出</li>
-</ul>
-<h1 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h1><ul>
-<li>都需要调用<code>mysql_free_result</code>释放内存</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>mysql-manual.23.8.6</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/08/17/mysql-mysql_use_result-VS-mysql_store_result/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-17 </div>
-			<div class="article-title"><a href="/2015/08/17/条件变量/" >条件变量</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="为什么需要条件变量"><a href="#为什么需要条件变量" class="headerlink" title="为什么需要条件变量"></a>为什么需要条件变量</h1><ul>
-<li><code>mutex</code>只能保证互斥地操作共享资源,不能及时通知其他线程某一条件已经满足</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/08/17/条件变量/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -771,48 +765,48 @@ KEYMAP=us
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
 		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
-			<li><a href="/tags/ip/">ip<span>2</span></a></li>
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
 		
-			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
 		
-			<li><a href="/tags/主键/">主键<span>1</span></a></li>
+			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
 		
-			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
+			<li><a href="/tags/char/">char<span>2</span></a></li>
 		
-			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/script/">script<span>1</span></a></li>
 		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
 		
-			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
+			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
 		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
 		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
 		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
 		
-			<li><a href="/tags/api/">api<span>1</span></a></li>
+			<li><a href="/tags/c99/">c99<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -825,23 +819,23 @@ KEYMAP=us
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

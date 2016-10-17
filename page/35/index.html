@@ -111,6 +111,157 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-04-03 </div>
+			<div class="article-title"><a href="/2015/04/03/交换机端口模式/" >交换机端口模式</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="access"><a href="#access" class="headerlink" title="access"></a>access</h1><ul>
+<li><p>收</p>
+<p>判断是否有VLAN信息</p>
+<ul>
+<li><p>如果没有则打上端口的PVID，并进行交换转发，</p>
+</li>
+<li><p>如果有则直接丢弃（缺省）</p>
+</li>
+</ul>
+</li>
+<li><p>发</p>
+<p>将报文的VLAN信息剥离，直接发送出去</p>
+</li>
+</ul>
+<h1 id="Trunk"><a href="#Trunk" class="headerlink" title="Trunk"></a>Trunk</h1><ul>
+<li><p>收</p>
+<p>收到一个报文，判断是否有VLAN信息</p>
+<ul>
+<li><p>如果没有则打上端口的PVID，并进行交换转发，</p>
+</li>
+<li><p>如果有判断该trunk端口是否允许该 VLAN的数据进入</p>
+<ul>
+<li><p>如果可以则转发</p>
+</li>
+<li><p>否则丢弃</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>发</p>
+<p>比较端口的PVID和将要发送报文的VLAN信息</p>
+<ul>
+<li><p>如果两者相等则剥离VLAN信息，再发送</p>
+</li>
+<li><p>如果不相等则直接发送</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Hybrid"><a href="#Hybrid" class="headerlink" title="Hybrid"></a>Hybrid</h1><ul>
+<li><p>收</p>
+<p>收到一个报文判断是否有VLAN信息</p>
+<ul>
+<li><p>如果没有则打上端口的PVID，并进行交换转发，</p>
+</li>
+<li><p>如果有则判断该hybrid端口是否允许该VLAN的数据进入</p>
+<ul>
+<li><p>如果可以则转发</p>
+</li>
+<li><p>否则丢弃</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>发</p>
+<p>判断该VLAN在本端口的属性（disp interface 即可看到该端口对哪些VLAN是untag， 哪些VLAN是tag）</p>
+<ul>
+<li><p>如果是untag则剥离VLAN信息，再发送</p>
+</li>
+<li><p>如果是tag则直接发送</p>
+</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/03/交换机端口模式/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-03 </div>
+			<div class="article-title"><a href="/2015/04/03/python-获取父类名称/" >python-获取父类名称</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="通过-bases-属性"><a href="#通过-bases-属性" class="headerlink" title="通过__bases__属性"></a>通过<code>__bases__</code>属性</h1><pre><code>str.__bases__
+</code></pre><h1 id="通过inspect模块"><a href="#通过inspect模块" class="headerlink" title="通过inspect模块"></a>通过<code>inspect</code>模块</h1><pre><code>inspect.getmro(str)
+</code></pre><p><strong>注：</strong></p>
+<ul>
+<li>mro:method resolution order</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/2611892/get-python-class-parents" target="_blank" rel="external">http://stackoverflow.com/questions/2611892/get-python-class-parents</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/03/python-获取父类名称/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-02 </div>
+			<div class="article-title"><a href="/2015/04/02/python-简单http服务/" >python-简单http服务</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li><p>进入web根目录</p>
+</li>
+<li><p>运行</p>
+<pre><code>python -m SimpleHTTPServer
+</code></pre></li>
+<li><p>访问</p>
+<pre><code>http://localhost:8000
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://coolshell.cn/articles/1480.html" target="_blank" rel="external">http://coolshell.cn/articles/1480.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/02/python-简单http服务/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-04-02 </div>
 			<div class="article-title"><a href="/2015/04/02/python-运行模块/" >python-运行模块</a></div>						
 		</h3>
@@ -337,115 +488,6 @@
 	
 	</div>
   <a type="button" href="/2015/04/01/python-相对导入/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-01 </div>
-			<div class="article-title"><a href="/2015/04/01/python-获取主模块文件名/" >python-获取主模块文件名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> __main__</span><br><span class="line"><span class="keyword">print</span> __main__.__file__</span><br></pre></td></tr></table></figure>
-<p><strong>Note:</strong></p>
-<ul>
-<li>交互式shell中执行时，<code>__main__</code>没有<code>__file__</code>属性</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/01/python-获取主模块文件名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-01 </div>
-			<div class="article-title"><a href="/2015/04/01/python-安装脚本经常使用的API/" >python-安装脚本经常使用的API</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>判断当前系统类型</p>
-<pre><code>platform.system() == &apos;Windows&apos;
-os.name == &apos;nt&apos;
-</code></pre></li>
-<li><p>获取安装绝对路径名(不带”..”)</p>
-<pre><code>os.path.abspath(r&apos;./setting.ini&apos;)
-</code></pre></li>
-<li><p>获取脚本所在的目录</p>
-<pre><code>os.path.dirname(os.path.realpath(__file__)
-</code></pre></li>
-<li><p>获取用户配置完全路径名</p>
-<pre><code>os.path.expanduser(r&apos;~/_vimrc&apos;)
-</code></pre></li>
-<li><p>目录不存在则创建(递归创建)</p>
-<pre><code>if not os.path.exists(directory):
-    os.makedirs(directory)
-
-os.makedirs(os.path.dirname(f[1]), exist_ok=True)
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/04/01/python-安装脚本经常使用的API/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-01 </div>
-			<div class="article-title"><a href="/2015/04/01/python-pip设置第三方源/" >python-pip设置第三方源</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="命令行指定"><a href="#命令行指定" class="headerlink" title="命令行指定"></a>命令行指定</h1><p>pip install -i <a href="http://pypi.douban.com/simple/" target="_blank" rel="external">http://pypi.douban.com/simple/</a> –trusted-host pypi.douban.com gevent</p>
-<h1 id="配置文件指定"><a href="#配置文件指定" class="headerlink" title="配置文件指定"></a>配置文件指定</h1><ul>
-<li><p>win7</p>
-<p>~/pip/pip.ini</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">index-url</span> = http://pypi.douban.com/simple</span><br><span class="line"><span class="section">[install]</span></span><br><span class="line"><span class="attr">trusted-host</span>=pypi.douban.com</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>linux</p>
-<p>vi ~/.pip/pip.conf</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">index-url</span> = http://pypi.douban.com/simple</span><br><span class="line"><span class="section">[install]</span></span><br><span class="line"><span class="attr">trusted-host</span>=pypi.douban.com</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="第三方源列表"><a href="#第三方源列表" class="headerlink" title="第三方源列表"></a>第三方源列表</h1><ul>
-<li><a href="http://pypi.douban.com/" target="_blank" rel="external">http://pypi.douban.com/</a>  豆瓣</li>
-<li><a href="http://pypi.hustunique.com/" target="_blank" rel="external">http://pypi.hustunique.com/</a>  华中理工大学</li>
-<li><a href="http://pypi.sdutlinux.org/" target="_blank" rel="external">http://pypi.sdutlinux.org/</a>  山东理工大学</li>
-<li><a href="http://pypi.mirrors.ustc.edu.cn/" target="_blank" rel="external">http://pypi.mirrors.ustc.edu.cn/</a>  中国科学技术大学</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/04/01/python-pip设置第三方源/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -754,48 +796,48 @@ os.makedirs(os.path.dirname(f[1]), exist_ok=True)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/resize/">resize<span>1</span></a></li>
 		
-			<li><a href="/tags/final/">final<span>1</span></a></li>
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+		
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+		
+			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
+		
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+		
+			<li><a href="/tags/包/">包<span>2</span></a></li>
+		
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
+		
+			<li><a href="/tags/c/">c++<span>8</span></a></li>
+		
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+		
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+		
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+		
+			<li><a href="/tags/size/">size<span>1</span></a></li>
+		
+			<li><a href="/tags/du/">du<span>1</span></a></li>
 		
 			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
-			<li><a href="/tags/extern/">extern<span>1</span></a></li>
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/base64/">base64<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
 		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
+			<li><a href="/tags/date/">date<span>1</span></a></li>
 		
-			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
+			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
-		
-			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
-		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
-		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
-		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
-		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
-		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
-		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
-		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
-		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
-		
-			<li><a href="/tags/log/">log<span>2</span></a></li>
-		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -808,23 +850,23 @@ os.makedirs(os.path.dirname(f[1]), exist_ok=True)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

@@ -111,6 +111,166 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-04 </div>
+			<div class="article-title"><a href="/2015/03/04/strongswan搭建VPN/" >strongswan搭建VPN</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>VPS服务商：digitalocean</p>
+</li>
+<li><p>VPS系统：ubuntu-14.04-64</p>
+</li>
+<li><p>VPN：strongSwan-5.1.2</p>
+</li>
+</ul>
+<h1 id="准备编译环境"><a href="#准备编译环境" class="headerlink" title="准备编译环境"></a>准备编译环境</h1><pre><code>apt-get install build-essential
+aptitude install libgmp10 libgmp3-dev libssl-dev pkg-config libpcsclite-dev libpam0g-dev
+</code></pre><h1 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h1><ul>
+<li><p>下载源码</p>
+<pre><code>wget http://download.strongswan.org/strongswan-5.1.2.tar.bz2
+</code></pre></li>
+<li><p>解压</p>
+<pre><code>tar -jxvf strongswan-5.1.2.tar.bz2 &amp; cd strongswan-5.1.2
+</code></pre></li>
+<li><p>生成Makefile</p>
+<pre><code>./configure --prefix=/usr --sysconfdir=/etc  --enable-openssl --enable-nat-transport --disable-mysql --disable-ldap  --disable-static --enable-shared --enable-md4 --enable-eap-mschapv2 --enable-eap-aka --enable-eap-aka-3gpp2  --enable-eap-gtc --enable-eap-identity --enable-eap-md5 --enable-eap-peap --enable-eap-radius --enable-eap-sim --enable-eap-sim-file --enable-eap-simaka-pseudonym --enable-eap-simaka-reauth --enable-eap-simaka-sql --enable-eap-tls --enable-eap-tnc --enable-eap-ttls
+</code></pre></li>
+</ul>
+<ul>
+<li><p>编译安装</p>
+<pre><code>make &amp;&amp; make install
+</code></pre></li>
+</ul>
+<h1 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h1><h2 id="根证书"><a href="#根证书" class="headerlink" title="根证书"></a>根证书</h2><ul>
+<li><p>生成私钥</p>
+<pre><code>ipsec pki --gen --outform pem &gt; caKey.pem
+</code></pre></li>
+<li><p>基于这个私钥自己签一个CA证书</p>
+<pre><code>ipsec pki --self --in ca.pem --dn &quot;C=CN, O=strongSwan, CN=107.170.222.166&quot; --ca --outform pem &gt; caCert.pem
+</code></pre></li>
+</ul>
+<h2 id="服务器证书"><a href="#服务器证书" class="headerlink" title="服务器证书"></a>服务器证书</h2><ul>
+<li><p>生成私钥</p>
+<p>ipsec pki –gen –outform pem &gt; serverKey.pem</p>
+</li>
+<li><p>基于这个私钥自己签一个CA证书</p>
+<p>ipsec pki –pub –in serverKey.pem | ipsec pki –issue –cacert caCert.pem –cakey caKey.pem –dn “C=CN, O=strongSwan, CN=107.170.222.166” –san=”107.170.222.166” –flag serverAuth –flag ikeIntermediate –outform pem &gt; serverCert.pem</p>
+<p><strong>注：</strong></p>
+<pre><code>-   VPS的公网IP即自己的VPS的IP
+</code></pre></li>
+</ul>
+<h2 id="客户端证书"><a href="#客户端证书" class="headerlink" title="客户端证书"></a>客户端证书</h2><ul>
+<li><p>生成私钥</p>
+<pre><code>ipsec pki --gen --outform pem &gt; clientKey.pem
+</code></pre></li>
+<li><p>基于这个私钥自己签一个 CA 证书</p>
+<pre><code>ipsec pki --pub --in clientKey.pem | ipsec pki --issue --cacert caCert.pem --cakey caKey.pem --dn &quot;C=CN, O=strongSwan, CN=client&quot; --outform pem &gt; clientCert.pem
+</code></pre></li>
+<li><p>将该证书转换为<code>P12</code>格式</p>
+<pre><code>openssl pkcs12 -export -inkey clientKey.pem -in clientCert.pem -name &quot;client&quot; -certfile caCert.pem -caname &quot;strongSwan CA&quot; -out clientCert.p12
+</code></pre></li>
+<li><p>使用<code>winscp</code>等工具将该证书<code>clientCert.p12</code>下载到本地</p>
+</li>
+</ul>
+<h1 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a>安装证书</h1><pre><code>cp caCert.pem /etc/ipsec.d/cacerts/
+cp serverCert.pem /etc/ipsec.d/certs/
+cp serverKey.pem /etc/ipsec.d/private/
+</code></pre><h1 id="服务端配置"><a href="#服务端配置" class="headerlink" title="服务端配置"></a>服务端配置</h1><h2 id="etc-ipsec-conf"><a href="#etc-ipsec-conf" class="headerlink" title="/etc/ipsec.conf"></a>/etc/ipsec.conf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">config setup</span><br><span class="line"></span><br><span class="line">conn %default</span><br><span class="line">    keyexchange=ikev2</span><br><span class="line">    ike=aes256-sha1-modp1024! </span><br><span class="line">    esp=aes256-sha1!</span><br><span class="line">    dpdaction=clear</span><br><span class="line">    dpddelay=300s</span><br><span class="line">    rekey=no</span><br><span class="line"></span><br><span class="line">conn windows7</span><br><span class="line">    left=%any</span><br><span class="line">    leftauth=pubkey</span><br><span class="line">    leftcert=serverCert.pem</span><br><span class="line">    leftid=@107.170.222.166</span><br><span class="line">    leftsubnet=0.0.0.0/0</span><br><span class="line">    right=%any</span><br><span class="line">    rightauth=eap-mschapv2</span><br><span class="line">    rightsourceip=10.11.1.0/24</span><br><span class="line">    #rightsendcert=never</span><br><span class="line">    eap_identity=%any</span><br></pre></td></tr></table></figure>
+<h1 id="etc-ipsec-secrets"><a href="#etc-ipsec-secrets" class="headerlink" title="/etc/ipsec.secrets"></a>/etc/ipsec.secrets</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">: RSA serverKey.pem</span><br><span class="line">qian : EAP &quot;test&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="etc-strongswan-conf"><a href="#etc-strongswan-conf" class="headerlink" title="/etc/strongswan.conf"></a>/etc/strongswan.conf</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">charon &#123;</span><br><span class="line">        dns1 = 8.8.8.8</span><br><span class="line">        load_modular = yes</span><br><span class="line">        plugins &#123;</span><br><span class="line">                include strongswan.d/charon/*.conf</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">include strongswan.d/*.conf</span><br></pre></td></tr></table></figure>
+<h1 id="配置iptables转发"><a href="#配置iptables转发" class="headerlink" title="配置iptables转发"></a>配置iptables转发</h1><pre><code>iptables -A INPUT -p udp --dport 500 -j ACCEPT
+iptables -A INPUT -p udp --dport 4500 -j ACCEPT
+echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -s 10.11.1.0/24 -o eth0 -j MASQUERADE  #地址与上面地址池对应
+iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
+</code></pre><p><strong>Note:</strong>为避免VPS重启后NAT功能失效，可以把如上5行命令添加到 /etc/rc.local 文件中，添加在exit那一行之前即可。</p>
+<h1 id="重启strongSwan"><a href="#重启strongSwan" class="headerlink" title="重启strongSwan"></a>重启<code>strongSwan</code></h1><pre><code>ipsec restart
+</code></pre><p><strong>Note:</strong>可以追加<code>--nofork</code>选项，帮助调试</p>
+<h1 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h1><h2 id="win7"><a href="#win7" class="headerlink" title="win7"></a>win7</h2><h3 id="导入证书到win7"><a href="#导入证书到win7" class="headerlink" title="导入证书到win7"></a>导入证书到<code>win7</code></h3><p>参考<a href="https://wiki.strongswan.org/projects/strongswan/wiki/Win7Certs" target="_blank" rel="external">https://wiki.strongswan.org/projects/strongswan/wiki/Win7Certs</a></p>
+<h3 id="建立VPN连接"><a href="#建立VPN连接" class="headerlink" title="建立VPN连接"></a>建立VPN连接</h3><p>参考<a href="https://wiki.strongswan.org/projects/strongswan/wiki/Win7Config" target="_blank" rel="external">https://wiki.strongswan.org/projects/strongswan/wiki/Win7Config</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://www.zeitgeist.se/2013/11/22/strongswan-howto-create-your-own-vpn/" target="_blank" rel="external">https://www.zeitgeist.se/2013/11/22/strongswan-howto-create-your-own-vpn/</a></li>
+<li><a href="https://zh.opensuse.org/SDB:Setup_Ipsec_VPN_with_Strongswan" target="_blank" rel="external">https://zh.opensuse.org/SDB:Setup_Ipsec_VPN_with_Strongswan</a></li>
+<li><a href="http://www.csnc.ch/misc/files/publications/2009_scsII_andreas_steffen_VPNWindows7x.pdf" target="_blank" rel="external">http://www.csnc.ch/misc/files/publications/2009_scsII_andreas_steffen_VPNWindows7x.pdf</a></li>
+<li><a href="https://gist.github.com/losisli/11081793" target="_blank" rel="external">https://gist.github.com/losisli/11081793</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/04/strongswan搭建VPN/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-02 </div>
+			<div class="article-title"><a href="/2015/03/02/windows-snprintf/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		
+	
+	</div>
+  <a type="button" href="/2015/03/02/windows-snprintf/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-02 </div>
+			<div class="article-title"><a href="/2015/03/02/windows-_T和__T/" >windows-_T和__T</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p><code>tchar.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __T(x)      L ## x</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _T(x)       __T(x)</span></span><br></pre></td></tr></table></figure>
+<h1 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h1><ul>
+<li><p>为什么不直接定义<code>#define _T(x) L ## x</code>呢？</p>
+<p>因为在处理类似<code>_T(__FILE__)</code>时，会被拓展成<code>L__FILE__</code>，而<code>L__FILE__</code>则是未定义标识符</p>
+<ul>
+<li><p>为什么这样能做到？</p>
+<p><code>_T(__FILE__)</code>先拓展<code>__FILE__</code>，在插入到该表达式，然后进行<strong>合并</strong>操作</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://cpp.ezbty.org/myfiles/boost/libs/wave/doc/macro_expansion_process.html" target="_blank" rel="external">http://cpp.ezbty.org/myfiles/boost/libs/wave/doc/macro_expansion_process.html</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/cppinternals/Macro-Expansion.html" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/cppinternals/Macro-Expansion.html</a></li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/09dwwt6y.aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/09dwwt6y.aspx</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/02/windows-_T和__T/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-02 </div>
 			<div class="article-title"><a href="/2015/03/02/windows-UNICODE和_UNICODE作用/" >windows-UNICODE和_UNICODE作用</a></div>						
 		</h3>
@@ -350,94 +510,6 @@
 	
 	</div>
   <a type="button" href="/2015/02/28/Latin-1/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-28 </div>
-			<div class="article-title"><a href="/2015/02/28/ANSI编码/" >ANSI编码</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="ANSI编码是什么？"><a href="#ANSI编码是什么？" class="headerlink" title="ANSI编码是什么？"></a>ANSI编码是什么？</h1><p>ANSI编码并不是一种编码！而是<strong>美国国家标准学会(American National Standards Institute)</strong>关于制作的ANSI C中关于区域字符编码的标准。</p>
-<p>所以各地不同的编码方式统称为<strong>ANSI编码</strong></p>
-<p>在简体中文windows系统下，利用记事本等软件默认保存为<code>ANSI编码</code>，对应的代码页为<code>cp936</code>(GBK)。</p>
-<p>ANSI编码采用1~4字节进行编码，是一种变长编码方案，又叫做多字节字符集(MBCS)。</p>
-<h1 id="ANSI编码的缺陷"><a href="#ANSI编码的缺陷" class="headerlink" title="ANSI编码的缺陷"></a>ANSI编码的缺陷</h1><p>ANSI编码都是各区域针对本地的编码方式，是在兼容ASCII编码的基础上拓充而来的，如GB2312，BIG5等。<br>因为各地编码存在冲突，所以无法做到互通。</p>
-<h1 id="ANSI编码怎么实现的？"><a href="#ANSI编码怎么实现的？" class="headerlink" title="ANSI编码怎么实现的？"></a>ANSI编码怎么实现的？</h1><ul>
-<li><p>原ASCII编码字符保持不变，仍然为占用1个字节。</p>
-</li>
-<li><p>对其他字符，采用多字节编码，第一字节(前导字节)具有一定特征来表明后续字节一起来表示一个字符，</p>
-<p>如在GBK编码中，前导字节范围为0x81-0xFE。</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://zh.wikipedia.org/wiki/%E4%BB%A3%E7%A0%81%E9%A1%B5#Windows.EF.BC.88ANSI.EF.BC.89.E4.BB.A3.E7.A2.BC.E9.A0.81" target="_blank" rel="external">维基-Windows(ANSI)代码页</a></li>
-<li><a href="http://en.wikipedia.org/wiki/American_National_Standards_Institute" target="_blank" rel="external">http://en.wikipedia.org/wiki/American_National_Standards_Institute</a></li>
-<li><a href="http://www.guokr.com/blog/763017/" target="_blank" rel="external">遇到乱码不怕不怕啦——计算机字符编码详尽讲解</a></li>
-<li><a href="http://baike.baidu.com/view/1273097.htm" target="_blank" rel="external">百度百科-ANSI编码</a></li>
-<li><a href="https://msdn.microsoft.com/zh-cn/library/vstudio/5z097dxa(v=vs.110" target="_blank" rel="external">msdn-支持多字节字符集</a>.aspx)</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/28/ANSI编码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-28 </div>
-			<div class="article-title"><a href="/2015/02/28/windows编程常用宏定义/" >windows编程常用宏定义</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 宏名   | 定义   | 头文件  |<br>|——–+——–+———|<br>| __T(x) | L ## x | tchar.h |</p>
-
-	
-	</div>
-  <a type="button" href="/2015/02/28/windows编程常用宏定义/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-27 </div>
-			<div class="article-title"><a href="/2015/02/27/VC命令行使用/" >VC命令行使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>链接库</p>
-<pre><code>cl main.cpp /link user32.lib
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/27/VC命令行使用/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -746,48 +818,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
 		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
 		
-			<li><a href="/tags/log/">log<span>2</span></a></li>
+			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
 		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
 		
-			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+			<li><a href="/tags/启动/">启动<span>1</span></a></li>
 		
-			<li><a href="/tags/T/">_T<span>1</span></a></li>
+			<li><a href="/tags/ssh/">ssh<span>7</span></a></li>
 		
-			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
+			<li><a href="/tags/理论/">理论<span>1</span></a></li>
 		
-			<li><a href="/tags/arch/">arch<span>6</span></a></li>
+			<li><a href="/tags/make/">make<span>2</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
 		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>6</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -800,23 +872,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

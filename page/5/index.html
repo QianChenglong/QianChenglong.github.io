@@ -112,6 +112,82 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-05-07 </div>
+			<div class="article-title"><a href="/2016/05/07/C++-异常/" >C++-异常</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h1><ul>
+<li>抛出异常时，除了ErrorMsg之外，不带文件名，行号，<code>callstack</code>等信息，不利于定位问题和分析问题</li>
+</ul>
+<h1 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h1><ul>
+<li>相比错误代码，不需要每个调用都逐个比较，也不需要手动向上传递</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/05/07/C++-异常/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-07 </div>
+			<div class="article-title"><a href="/2016/05/07/C++11-override/" >C++11-override</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h1><ul>
+<li>显式说明该方法是重写虚函数，提供编译器更强的的检查，防止因为sinature不同，重新定义函数，而不是重写！</li>
+</ul>
+<h1 id="列子"><a href="#列子" class="headerlink" title="列子"></a>列子</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Parent &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">short</span>)</span> </span>&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"B::f"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Child : <span class="keyword">public</span> Parent &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span>)</span> override </span>&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"D::f"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2016/05/07/C++11-override/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-07 </div>
+			<div class="article-title"><a href="/2016/05/07/C++-泛型编程/" >C++-泛型编程</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>模板类在实例化时，必须显式指定类型，而模板函数可以不用(隐式推断)</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/05/07/C++-泛型编程/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-07 </div>
 			<div class="article-title"><a href="/2016/05/07/C++11-using/" >C++11-using</a></div>						
 		</h3>
 	
@@ -361,104 +437,6 @@
 	
 	</div>
   <a type="button" href="/2016/04/28/C++-静态数据成员/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-26 </div>
-			<div class="article-title"><a href="/2016/04/26/daemon/" >daemon</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
-<li><p>关闭打开的文件描述符(0,1,2等，可通过<code>ls /proc/pid/fd</code>查看打开的文件描述符)</p>
-<p>若不关闭，虽然没有了控制终端，不会接受到相应控制信号，则仍能IO对应文件，如标准输出到启动时的终端，从终端读入！</p>
-<ul>
-<li>需要注意，默认为行缓冲！</li>
-</ul>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/26/daemon/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-25 </div>
-			<div class="article-title"><a href="/2016/04/25/net/" >net</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="use-samba"><a href="#use-samba" class="headerlink" title="use(samba)"></a>use(samba)</h1><ul>
-<li><p>查看帮助</p>
-<pre><code>net help use
-</code></pre></li>
-<li><p>建立连接</p>
-<pre><code>net use * /user:username \\computername\sharename password
-net use * /user:pm \\192.168.1.2\pm pm0422
-</code></pre></li>
-<li><p>映射连接</p>
-<pre><code>net use * /user:pm \\192.168.1.2\pm pm0422
-</code></pre></li>
-<li><p>删除连接</p>
-<pre><code>net use \\computername\sharename /delete
-</code></pre></li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://technet.microsoft.com/en-us/library/bb490717.aspx" target="_blank" rel="external">https://technet.microsoft.com/en-us/library/bb490717.aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/25/net/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-22 </div>
-			<div class="article-title"><a href="/2016/04/22/suse/" >suse</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>添加软件源</p>
-<pre><code>zypper ar -f &lt;URL&gt; &lt;alias&gt;
-zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/repo/oss/ rep
-</code></pre></li>
-<li><p>关闭防火墙</p>
-<pre><code>/sbin/rcSuSEfirewall2 stop
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/22/suse/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -767,48 +745,48 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
+			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
 		
-			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
+			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
 		
-			<li><a href="/tags/c/">c<span>7</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
 		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/text/">text<span>1</span></a></li>
+			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
+			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/command/">command<span>9</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
 		
-			<li><a href="/tags/部署/">部署<span>1</span></a></li>
+			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
 		
-			<li><a href="/tags/文件/">文件<span>7</span></a></li>
+			<li><a href="/tags/glog/">glog<span>1</span></a></li>
 		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+			<li><a href="/tags/列表/">列表<span>7</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -821,23 +799,23 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

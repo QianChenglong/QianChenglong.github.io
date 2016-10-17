@@ -111,6 +111,107 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-07-09 </div>
+			<div class="article-title"><a href="/2015/07/09/mysql-事务/" >mysql-事务</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>当连接设置为自动提交时，所有修改语句永久生效，不可回滚！</p>
+</li>
+<li><p>当事务未提交时，数据只对当前连接可见！</p>
+</li>
+<li><p>mysql默认自动提交</p>
+</li>
+</ul>
+<pre><code>SELECT @@autocommit;
+</code></pre><ul>
+<li><p>设置为手动提交</p>
+<pre><code>SET autocommit=0;
+</code></pre></li>
+<li><p>手动提交</p>
+<pre><code>commit;
+</code></pre></li>
+<li><p>回滚</p>
+<pre><code>rollback;
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zetcode.com/databases/mysqltutorial/transactions/#autocommit" target="_blank" rel="external">http://zetcode.com/databases/mysqltutorial/transactions/#autocommit</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/09/mysql-事务/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-09 </div>
+			<div class="article-title"><a href="/2015/07/09/sudo赋权/" >sudo赋权</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>usermod -a -G sudo mzs0207
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/07/09/sudo赋权/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-08 </div>
+			<div class="article-title"><a href="/2015/07/08/nodejs-调试/" >nodejs-调试</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>安装</p>
+<pre><code>npm install -g node-inspector
+</code></pre></li>
+<li><p>运行</p>
+<pre><code>node-inspector
+</code></pre></li>
+<li><p>打开调试页面</p>
+<pre><code>http://127.0.0.1:8080/?ws=127.0.0.1:8080&amp;port=5858
+</code></pre></li>
+<li><p>调试程序</p>
+<pre><code>node --debug *.js
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/08/nodejs-调试/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-07-08 </div>
 			<div class="article-title"><a href="/2015/07/08/python-执行注释头/" >python-执行注释头</a></div>						
 		</h3>
@@ -293,91 +394,6 @@
 	
 	</div>
   <a type="button" href="/2015/07/01/jsoncpp/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-01 </div>
-			<div class="article-title"><a href="/2015/07/01/C++11-枚举类型转换/" >C++11-枚举类型转换</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="boost-lexcial-cast"><a href="#boost-lexcial-cast" class="headerlink" title="boost::lexcial_cast"></a><code>boost::lexcial_cast</code></h1><p>##优点</p>
-<ul>
-<li>可直接与string互转</li>
-<li>方法一致，易用</li>
-</ul>
-<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li>需要为枚举类型重载IO</li>
-</ul>
-<h1 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
-<li>直接可用</li>
-</ul>
-<h2 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li>与string转换需要二次转换(先转为整型<code>underlying_type</code>，再转换为string)，难用</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/01/C++11-枚举类型转换/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-01 </div>
-			<div class="article-title"><a href="/2015/07/01/C++-获取变量类型名/" >C++-获取变量类型名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(a).name() &lt;&lt; <span class="string">":"</span> &lt;&lt; a &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
-<p><code>./a.out | c++filt  -t</code></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/4465872/why-does-typeid-name-return-weird-characters-using-gcc-and-how-to-make-it-prin" target="_blank" rel="external">http://stackoverflow.com/questions/4465872/why-does-typeid-name-return-weird-characters-using-gcc-and-how-to-make-it-prin</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/01/C++-获取变量类型名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-30 </div>
-			<div class="article-title"><a href="/2015/06/30/爬虫优化经验/" >爬虫优化经验</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>URL中host使用IP，域名解析，重定向等费时间(还需要设置header[“host”]为原域名)</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/06/30/爬虫优化经验/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -686,48 +702,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/go/">go<span>40</span></a></li>
 		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
 		
-			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
+			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
 		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
 		
-			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
+			<li><a href="/tags/scp/">scp<span>1</span></a></li>
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
-		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
-		
-			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
-		
-			<li><a href="/tags/部署/">部署<span>1</span></a></li>
-		
-			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
-		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
 		
 			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
 		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
 		
-			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+		
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+		
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+		
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
+		
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+		
+			<li><a href="/tags/同步/">同步<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -740,23 +756,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

@@ -111,6 +111,162 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-02-05 </div>
+			<div class="article-title"><a href="/2015/02/05/getaddrinfo开启c99后无法编译/" >getaddrinfo开启c99后无法编译</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>开启了<code>c99</code>后，gcc采用严格标准c(<code>__STRICT_ANSI</code>)，而<code>getaddrinfo</code>是POSIX定义的，<br>所以无法使用，具体可查看<code>/usr/include/netdb.h</code>，<code>/usr/include/features.h</code></p>
+<p><strong>摘取:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">The `-ansi&apos; switch to the GNU C compiler, and standards conformance</span><br><span class="line">options such as `-std=c99&apos;, define __STRICT_ANSI__.  If none of</span><br><span class="line">these are defined, or if _DEFAULT_SOURCE is defined, the default is</span><br><span class="line">to have _SVID_SOURCE, _BSD_SOURCE, and _POSIX_SOURCE set to one and</span><br><span class="line">_POSIX_C_SOURCE set to 200809L.  If more than one of these are</span><br><span class="line">defined, they accumulate.  For example __STRICT_ANSI__,</span><br><span class="line">_POSIX_SOURCE and _POSIX_C_SOURCE together give you ISO C, 1003.1,</span><br><span class="line">and 1003.2, but nothing else.</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://groups.google.com/d/msg/gnu.gcc.help/a88eE4Ga73o/P3vji9iM5pwJ" target="_blank" rel="external">https://groups.google.com/d/msg/gnu.gcc.help/a88eE4Ga73o/P3vji9iM5pwJ</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/05/getaddrinfo开启c99后无法编译/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-05 </div>
+			<div class="article-title"><a href="/2015/02/05/gcc选项简记/" >gcc选项简记</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>-D name=definition</p>
+<p>指定预处理宏定义，相当于#define name definition</p>
+</li>
+<li><p>-std=XXX</p>
+<ul>
+<li>c99</li>
+<li>c++11</li>
+</ul>
+</li>
+<li><p>-M</p>
+<p>输出依赖关系，隐含-E，也就是不编译，只是查看依赖关系，依赖关系包含系统头文件</p>
+</li>
+<li><p>-MM</p>
+<p>输出依赖关系，只是用户的，不包含库文件</p>
+</li>
+<li><p>-MF file</p>
+<p>依赖关系的结果输出到指定文件中，必须指定-M或-MM</p>
+</li>
+<li><p>-MD</p>
+<p>相当于-MM -MF <em>.d ，<br>输出依赖关系，不隐含-E，也就是同时生成依赖文件(</em>.d)，还编译,依赖关系中包含<br>系统头文件</p>
+</li>
+<li><p>-MMD</p>
+<p>相当于-MD，生成的*.d中不包含系统头文件</p>
+</li>
+<li><p>-MT file</p>
+<p>使用file中的依赖关系编译，也就是配合-MMD或-MD或-MF来使用，使用他们生成的依赖<br>关系自动编译</p>
+</li>
+<li><p>-MP</p>
+<p>连头文件也输出对应的依赖关系，可能为伪目标，防止删除了头文件，而没有更新<br>makefile导致编译错误</p>
+</li>
+<li><p>-Ldir</p>
+<p>添加dir到目录列表，目录列表用来搜索链接库</p>
+</li>
+<li><p>-llibrary</p>
+<p>指定链接库，优先寻找共享库(liblibrary.so,liblibrary.a)，该选项最好放到最后，<br>防止后面需要链接的，详见gcc(1)</p>
+</li>
+<li><p>-static</p>
+<p>指定链接静态库</p>
+</li>
+<li><p>-fPIC</p>
+<p>生成位置无关代码(position independent code)</p>
+</li>
+<li><p>-shared</p>
+<p>生成共享库，需要-fPIC</p>
+</li>
+<li><p>-Idir</p>
+<p>添加目录到搜索头文件列表，添加的优先搜索</p>
+</li>
+<li><p>-Wl,</p>
+<p>向链接器传递选项，’,’隔开选项</p>
+</li>
+<li><p>-Wa,</p>
+<p>向汇编器传递选项，’,’隔开选项</p>
+</li>
+<li><p>-Wp,</p>
+<p>向预处理器传递选项，’,’隔开选项</p>
+</li>
+<li><p>-O</p>
+<p>不开启优化</p>
+</li>
+</ul>
+<h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h1><ul>
+<li><p>-ggdb3</p>
+<p>生成gdb的调试信息，带宏相关</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/05/gcc选项简记/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-04 </div>
+			<div class="article-title"><a href="/2015/02/04/linux优秀书籍列表/" >linux优秀书籍列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>The Linux Kernel Module Programming Guide</p>
+<p>Linux内核模块编程</p>
+<ul>
+<li><a href="http://www.tldp.org/LDP/lkmpg/2.6/html/index.html" target="_blank" rel="external">在线阅读</a></li>
+<li><a href="http://www.tldp.org/LDP/lkmpg/2.6/lkmpg.pdf" target="_blank" rel="external">pdf下载</a></li>
+</ul>
+</li>
+<li><p>Introduction to Linux</p>
+<ul>
+<li><a href="http://tldp.org/LDP/intro-linux/html/" target="_blank" rel="external">在线阅读</a></li>
+</ul>
+</li>
+<li><p>Guide to IP Layer Network Administration with Linux</p>
+<ul>
+<li><a href="http://linux-ip.net/html/" target="_blank" rel="external">在线阅读</a></li>
+<li><a href="http://linux-ip.net/" target="_blank" rel="external">下载</a></li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/04/linux优秀书籍列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-04 </div>
 			<div class="article-title"><a href="/2015/02/04/BSD-tcp-ip头文件组织/" >BSD-tcp-ip头文件组织</a></div>						
 		</h3>
@@ -368,95 +524,6 @@ apt-cache show PACKAGE
 	
 	</div>
   <a type="button" href="/2015/02/03/sudo免密码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/USB接口线颜色定义/" >USB接口线颜色定义</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 功能        | 颜色 |<br>|————-+——|<br>| VCC         | 红   |<br>| GND         | 黑   |<br>| DATA+(SEND) | 绿   |<br>| DATA-(RECV) | 白   |</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://en.wikipedia.org/wiki/USB" target="_blank" rel="external">http://en.wikipedia.org/wiki/USB</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/03/USB接口线颜色定义/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/为什么工业控制中用串口不用usb口/" >为什么工业控制中用串口不用usb口</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<blockquote>
-<p>USB传输距离短，超过3米就衰减大了，且传输的是数字信号。<br>串口传输距离一般25米，超过25米衰减变大，但可以通过加中继设备增加传输距离，传输的是模拟信号。 适用于功能的遥控，遥信，采集信号等。</p>
-</blockquote>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://zhidao.baidu.com/link?url=GRHZYimPe-X2pEfWudaDVL969TEaIO11-5yi3yybyWqOpT9NpvOLVoG8Xj_WQOs5nKJLjrKw_bVx2mYuXe0PuK" target="_blank" rel="external">http://zhidao.baidu.com/link?url=GRHZYimPe-X2pEfWudaDVL969TEaIO11-5yi3yybyWqOpT9NpvOLVoG8Xj_WQOs5nKJLjrKw_bVx2mYuXe0PuK</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/03/为什么工业控制中用串口不用usb口/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-02 </div>
-			<div class="article-title"><a href="/2015/02/02/ubuntu-自动登录/" >ubuntu-自动登录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="UI方式"><a href="#UI方式" class="headerlink" title="UI方式"></a>UI方式</h1><ul>
-<li><p>【system setting】 =&gt; 【user accounts】</p>
-<p><img src="/img/ubuntu-自动登录-01.png" alt=""></p>
-</li>
-</ul>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><ul>
-<li><p>打开</p>
-<pre><code>sudo gedit /etc/lightdm/lightdm.conf
-</code></pre></li>
-<li><p>添加</p>
-<pre><code>autologin-user=username
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://wiki.ubuntu.com/LightDM" target="_blank" rel="external">https://wiki.ubuntu.com/LightDM</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/02/ubuntu-自动登录/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -765,48 +832,48 @@ apt-cache show PACKAGE
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/boost/">boost<span>4</span></a></li>
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/centos/">centos<span>12</span></a></li>
-		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
 		
 			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
 		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+		
+			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+		
+			<li><a href="/tags/软件/">软件<span>3</span></a></li>
+		
+			<li><a href="/tags/C/">C++<span>35</span></a></li>
+		
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+		
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+		
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+		
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
 		
 			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
+			<li><a href="/tags/rune/">rune<span>1</span></a></li>
 		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
+			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
 		
-			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
 		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+			<li><a href="/tags/启动/">启动<span>1</span></a></li>
 		
-			<li><a href="/tags/主键/">主键<span>1</span></a></li>
-		
-			<li><a href="/tags/time/">time<span>2</span></a></li>
-		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
-		
-			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
-		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
-		
-			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
-		
-			<li><a href="/tags/script/">script<span>1</span></a></li>
+			<li><a href="/tags/global/">global<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -819,23 +886,23 @@ apt-cache show PACKAGE
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

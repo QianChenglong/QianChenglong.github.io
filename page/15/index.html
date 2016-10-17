@@ -111,6 +111,124 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-27 </div>
+			<div class="article-title"><a href="/2015/10/27/go-new/" >go-new</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>填充零值(不会进一步初始化),返回指针</p>
+</li>
+<li><p>可用来简化定义内部类型(<code>int</code>, <code>string</code>…),因为<code>&amp;int</code>是非法的</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i := <span class="built_in">new</span>(<span class="keyword">int</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> j <span class="keyword">int</span></span><br><span class="line">i = &amp;j</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://golang.org/doc/effective_go.html#allocation_new" target="_blank" rel="external">https://golang.org/doc/effective_go.html#allocation_new</a></li>
+<li><a href="http://stackoverflow.com/questions/9320862/go-why-would-i-make-or-new" target="_blank" rel="external">http://stackoverflow.com/questions/9320862/go-why-would-i-make-or-new</a></li>
+<li><a href="http://stackoverflow.com/questions/13244947/is-there-a-difference-between-new-and-regular-allocation?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/13244947/is-there-a-difference-between-new-and-regular-allocation?lq=1</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/27/go-new/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-22 </div>
+			<div class="article-title"><a href="/2015/10/22/go-struct/" >go-struct</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p>结构体指针用来实现类似C++的方法,通过指针才可以修改数据</p>
+<pre><code>func (data *Data)
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/22/go-struct/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-21 </div>
+			<div class="article-title"><a href="/2015/10/21/go-net-http/" >go-net-http</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="http的几个数据结构"><a href="#http的几个数据结构" class="headerlink" title="http的几个数据结构"></a>http的几个数据结构</h1><ul>
+<li><p>Request</p>
+<p>客户端发起的http请求,包含请求的URL(资源标识),方法,内容,cooike等</p>
+</li>
+<li><p>Response</p>
+<p>服务端发送的响应(HTTP头,辅助说明响应内容)</p>
+</li>
+<li><p>Conn</p>
+<p>客户端跟服务器的连接</p>
+</li>
+<li><p>Handler</p>
+<p>URL的处理逻辑</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Handler <span class="keyword">interface</span> &#123;</span><br><span class="line">    ServeHTTP(ResponseWriter, *Request)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><p><img src="../img/go-net-http-01.png" alt=""></p>
+<ol>
+<li><p>创建Listen Socket, 监听指定的端口, 等待客户端请求到来</p>
+</li>
+<li><p>Listen Socket接受客户端的请求, 得到Client Socket, 接下来通过Client Socket与客户端通信</p>
+</li>
+<li><p>处理客户端的请求, 首先从Client Socket读取HTTP请求的协议头, 如果是POST方法, 还可能要读取客户端提交的数据, 然后交给相应的handler处理请求, handler处理完毕准备好客户端需要的数据, 通过Client Socket写给客户端</p>
+</li>
+</ol>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><ol>
+<li><p>通过<code>http.HandleFunc(pattern string, handler func(ResponseWriter, *Request))</code>处理指定请求(根据URL路由)</p>
+</li>
+<li><p>通过<code>htpp.ListenAndServe(addr string, handler Handler)</code>注册处理器</p>
+<ul>
+<li><p><code>Handler</code>实现了<code>http.ServeHTTP(ResponseWriter, *Request)</code>接口</p>
+</li>
+<li><p>该接口根据URL,请求参数等来路由,比如jsonrpc中根据<code>method</code>来路由</p>
+</li>
+</ul>
+</li>
+<li><p>通过<code>http.Handle(pattern string, handler Handler)</code>注册处理器</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/21/go-net-http/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-21 </div>
 			<div class="article-title"><a href="/2015/10/21/mysql-limit/" >mysql-limit</a></div>						
 		</h3>
@@ -319,126 +437,6 @@
 	
 	</div>
   <a type="button" href="/2015/10/19/http-chunked/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-19 </div>
-			<div class="article-title"><a href="/2015/10/19/mysql-prepare-update部分更新/" >mysql-prepare-update部分更新</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>有的时候<code>prepare update</code>只需要部分更新,其他字段保留原来的值,例如<br><code>update set A=?, B=?</code>,这里只更新A,但是<code>prepare</code>语句执行的时候,<br>必须需要带2个参数.</p>
-<h1 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h1><p><code>update set A=COALESCE(?, A), B=COALESCE(?, B)</code></p>
-<p>prepare(NULL, 1) =&gt; 则只更新B</p>
-<p>prepare(1, NULL) =&gt; 则只更新A</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.0/en/comparison-operators.html#function_coalesce" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/comparison-operators.html#function_coalesce</a></li>
-<li><a href="http://www.perlmonks.org/?node_id=302181" target="_blank" rel="external">http://www.perlmonks.org/?node_id=302181</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/19/mysql-prepare-update部分更新/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-19 </div>
-			<div class="article-title"><a href="/2015/10/19/Exchange-ActiveSync/" >Exchange ActiveSync</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>是微软开发地一种同步协议</p>
-</li>
-<li><p>用来同步通讯录,日历,邮件</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/10/19/Exchange-ActiveSync/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-16 </div>
-			<div class="article-title"><a href="/2015/10/16/go-fmt/" >go-fmt</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="包内特征"><a href="#包内特征" class="headerlink" title="包内特征"></a>包内特征</h1><ul>
-<li><p>3种IO函数</p>
-<ul>
-<li><p>输出</p>
-<ol>
-<li><p><code>Print</code>用默认格式打印值,中间用空格分隔</p>
-</li>
-<li><p><code>Println</code>追加换行</p>
-</li>
-<li><p><code>Printf</code>自定义格式化</p>
-</li>
-</ol>
-</li>
-<li><p>输入</p>
-</li>
-</ul>
-</li>
-<li><p>IO源</p>
-<ol>
-<li><p>默认<code>stdin</code>, <code>stdout</code></p>
-</li>
-<li><p><code>S</code>族(<code>fmt.Sprint</code>, <code>fmt.Sprintln</code>, <code>fmt.Sprintf</code>),<code>string</code></p>
-</li>
-<li><p><code>F</code>族(<code>fmt.Fprint</code>, <code>fmt.Fprintln</code>, <code>fmt.Fprintf</code>),<code>io.Writer</code></p>
-</li>
-</ol>
-</li>
-</ul>
-<h1 id="格式化控制"><a href="#格式化控制" class="headerlink" title="格式化控制"></a>格式化控制</h1><ul>
-<li><p>%v  默认格式</p>
-</li>
-<li><p>%+v 打印结构体字段名</p>
-</li>
-<li><p>%T  类型</p>
-</li>
-<li><p>%q  转换为字符串字面值,将非打印字符转义(<code>\xXX</code>)</p>
-</li>
-<li><p>%q  转换为字符串字面值,将非打印字符转义(<code>\xXX</code>),将<code>utf-8</code>编码的字符转换为<code>\uXXYY</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/pkg/fmt/" target="_blank" rel="external">https://golang.org/pkg/fmt/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/16/go-fmt/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -747,48 +745,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/log/">log<span>2</span></a></li>
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
 		
-			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
 		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
 		
-			<li><a href="/tags/redis/">redis<span>6</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
+			<li><a href="/tags/global/">global<span>1</span></a></li>
 		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+			<li><a href="/tags/hex/">hex<span>1</span></a></li>
 		
-			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
+			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
 		
-			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
 		
-			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/gcc/">gcc<span>5</span></a></li>
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
 		
-			<li><a href="/tags/dll/">dll<span>1</span></a></li>
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
 		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
+			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
-			<li><a href="/tags/django/">django<span>2</span></a></li>
+			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -801,23 +799,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

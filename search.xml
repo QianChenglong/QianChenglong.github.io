@@ -4,6 +4,97 @@
   
     
     <entry>
+      <title><![CDATA[slab]]></title>
+      <url>https://qianchenglong.github.io/2016/10/15/slab/</url>
+      <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>一种内存分配机制，基于对象(特定数据结构)管理内存，主要针对于经常分配并释放的对象，如进程描述符等。</p>
+<p>基于同种对象管理，当分配时，直接返回空闲的，释放时，直接收回，不返还给上级内存管理。</p>
+<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
+<li><p>分配和释放效率高</p>
+</li>
+<li><p>基于对象去管理内存，避免了内存碎片</p>
+</li>
+<li><p>支持通用对象的初始化，客户端使用免初始化，加快了效率</p>
+</li>
+<li><p>支持cache line，更好地发挥了硬件性能，提高了整体效率</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[STL容器比较]]></title>
+      <url>https://qianchenglong.github.io/2016/10/15/STL%E5%AE%B9%E5%99%A8%E6%AF%94%E8%BE%83/</url>
+      <content type="html"><![CDATA[<h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><p>采用连续的存储空间实现</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>占用内存少</p>
+</li>
+<li><p>支持下标访问，快速的随机访问能力</p>
+</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li><p>插入或删除中间数据效率低，且耗时不固定（对于一些场景来说，影响效率）</p>
+</li>
+<li><p>只支持尾部push，pop</p>
+</li>
+<li><p>当可用空间不足时，会重新分配空间(原来的2倍)，在C++11之前，会极大地影响效率，因为需要拷贝，再销毁原来元素，还会引起迭代器失效</p>
+</li>
+</ul>
+<h1 id="list"><a href="#list" class="headerlink" title="list"></a>list</h1><p>采用链表实现</p>
+<h2 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>插入或删除效率高，且耗时固定</p>
+</li>
+<li><p>可在两端进行push，pop</p>
+</li>
+</ul>
+<h2 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li><p>占用更多的内存</p>
+</li>
+<li><p>不支持随机访问</p>
+</li>
+</ul>
+<h1 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h1><p>提供栈概念</p>
+<h1 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h1><p>提供队列(FIFO)概念</p>
+<h1 id="dequeue"><a href="#dequeue" class="headerlink" title="dequeue"></a>dequeue</h1><p>提供双端队列概念</p>
+<h2 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>支持随机访问和at</p>
+</li>
+<li><p>可在两端进行push、pop</p>
+</li>
+</ul>
+<h1 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h1><p>提供优先级队列概念</p>
+<h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><p>提供集合概念（元素唯一），内部采用平衡二叉树实现，遍历时有序</p>
+<h1 id="unordered-set"><a href="#unordered-set" class="headerlink" title="unordered_set"></a>unordered_set</h1><p>无序的集合</p>
+<h1 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h1><p>可重复的集合</p>
+<h1 id="unordered-multiset"><a href="#unordered-multiset" class="headerlink" title="unordered_multiset"></a>unordered_multiset</h1><p>无序的，可重复的集合</p>
+<h1 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h1><p>提供元组概念（存储一组不同类型的值）</p>
+<h1 id="map"><a href="#map" class="headerlink" title="map"></a>map</h1><p>提供字典概念，内部采用红黑树实现，遍历时有序</p>
+<h1 id="multimap"><a href="#multimap" class="headerlink" title="multimap"></a>multimap</h1><p>key可重复的map</p>
+<h1 id="unordered-map"><a href="#unordered-map" class="headerlink" title="unordered_map"></a>unordered_map</h1><p>无序字典，又叫hashmap，内部采用hash实现，相比map，多占用内存(存放hash桶元素)，访问效率高</p>
+<h1 id="unordered-multimap"><a href="#unordered-multimap" class="headerlink" title="unordered_multimap"></a>unordered_multimap</h1><p>key可重复的hashmap</p>
+<h1 id="array"><a href="#array" class="headerlink" title="array"></a>array</h1><p>数组，存储固定大小的序列</p>
+<h1 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h1><ul>
+<li>相比C风格数组，提供了STL式API，越界检查</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[markdown-resume]]></title>
+      <url>https://qianchenglong.github.io/2016/10/15/markdown-resume/</url>
+      <content type="html"><![CDATA[<ol>
+<li><p><code>git clone https://github.com/there4/markdown-resume.git</code></p>
+</li>
+<li><p>安装依赖</p>
+<pre><code>sudo yum install php-mbstring wkhtmltopdf -y
+</code></pre></li>
+<li><p>测试</p>
+<pre><code>./bin/md2resume html examples/source/zhsample.md examples/output/
+</code></pre></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[ssh]]></title>
       <url>https://qianchenglong.github.io/2016/10/10/ssh/</url>
       <content type="html"><![CDATA[<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
@@ -6141,33 +6232,6 @@ mount /dev/cdrom /mnt/cdrom
     </entry>
     
     <entry>
-      <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
-      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.shared_ptr/</url>
-      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li><p>提供一种强大的垃圾回收机制</p>
-</li>
-<li><p>copyable，可存放到容器中，可多次引用</p>
-</li>
-<li><p>当引用计数为0时，自动析构</p>
-</li>
-</ul>
-<h1 id="使用误区"><a href="#使用误区" class="headerlink" title="使用误区"></a>使用误区</h1><ul>
-<li><p>不能使用同一个对象指针来构造</p>
-<pre><code>A *a = new A(1);
-
-boost::shared_ptr&lt;A&gt; p1(a);
-boost::shared_ptr&lt;A&gt; p2(a);
-// 应该这样
-// boost::shared_ptr&lt;A&gt; p1(new A(1));
-// boost::shared_ptr&lt;A&gt; p2(p1);
-</code></pre></li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>非常强大，多多使用！</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/shared_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(new <span class="keyword">int</span>(id))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">delete</span> id_;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    A *a = new A(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p1(a);</span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p2(p1);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *(p1-&gt;id_) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[C++-智能指针之auto_ptr]]></title>
       <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bauto_ptr/</url>
       <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
@@ -6191,6 +6255,33 @@ auto_ptr&lt;int&gt;ap(p);
 <li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
 <li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
 </ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
+      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.shared_ptr/</url>
+      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li><p>提供一种强大的垃圾回收机制</p>
+</li>
+<li><p>copyable，可存放到容器中，可多次引用</p>
+</li>
+<li><p>当引用计数为0时，自动析构</p>
+</li>
+</ul>
+<h1 id="使用误区"><a href="#使用误区" class="headerlink" title="使用误区"></a>使用误区</h1><ul>
+<li><p>不能使用同一个对象指针来构造</p>
+<pre><code>A *a = new A(1);
+
+boost::shared_ptr&lt;A&gt; p1(a);
+boost::shared_ptr&lt;A&gt; p2(a);
+// 应该这样
+// boost::shared_ptr&lt;A&gt; p1(new A(1));
+// boost::shared_ptr&lt;A&gt; p2(p1);
+</code></pre></li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>非常强大，多多使用！</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/shared_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(new <span class="keyword">int</span>(id))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">delete</span> id_;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    A *a = new A(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p1(a);</span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p2(p1);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *(p1-&gt;id_) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -12823,31 +12914,6 @@ qualifiers := type dir proto
     </entry>
     
     <entry>
-      <title><![CDATA[win下编译openssl]]></title>
-      <url>https://qianchenglong.github.io/2014/12/10/win%E4%B8%8B%E7%BC%96%E8%AF%91openssl/</url>
-      <content type="html"><![CDATA[<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
-<li>perl</li>
-<li>VC++</li>
-</ul>
-<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
-<li><p>生成<code>Makefile</code></p>
-<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
-ms\do_ms
-</code></pre></li>
-<li><p>编译</p>
-<pre><code>nmake -f ms\ntdll.mak
-</code></pre></li>
-<li><p>测试</p>
-<pre><code>nmake -f ms\ntdll.mak test
-</code></pre></li>
-<li><p>安装</p>
-<pre><code>nmake -f ms\ntdll.mak install
-</code></pre></li>
-</ul>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[win下编译libcurl]]></title>
       <url>https://qianchenglong.github.io/2014/12/10/win%E4%B8%8B%E7%BC%96%E8%AF%91libcurl/</url>
       <content type="html"><![CDATA[<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
@@ -12876,6 +12942,31 @@ ms\do_ms
 <li><p>输出目录为<code>builds</code></p>
 <p><img src="/img/win下编译libcurl_02.png" alt=""></p>
 </li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[win下编译openssl]]></title>
+      <url>https://qianchenglong.github.io/2014/12/10/win%E4%B8%8B%E7%BC%96%E8%AF%91openssl/</url>
+      <content type="html"><![CDATA[<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
+<li>perl</li>
+<li>VC++</li>
+</ul>
+<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
+<li><p>生成<code>Makefile</code></p>
+<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
+ms\do_ms
+</code></pre></li>
+<li><p>编译</p>
+<pre><code>nmake -f ms\ntdll.mak
+</code></pre></li>
+<li><p>测试</p>
+<pre><code>nmake -f ms\ntdll.mak test
+</code></pre></li>
+<li><p>安装</p>
+<pre><code>nmake -f ms\ntdll.mak install
+</code></pre></li>
 </ul>
 ]]></content>
     </entry>

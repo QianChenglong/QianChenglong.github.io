@@ -111,6 +111,86 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-19 </div>
+			<div class="article-title"><a href="/2015/03/19/wmic常用命令/" >wmic常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查看分区信息</p>
+<pre><code>wmic volume list brief
+</code></pre></li>
+<li><p>查看磁盘列表</p>
+<pre><code>wmic diskdrive list
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/19/wmic常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-19 </div>
+			<div class="article-title"><a href="/2015/03/19/C优秀书籍列表/" >C优秀书籍列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>C语言接口与实现:创建可重用软件的技术</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/19/C优秀书籍列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-18 </div>
+			<div class="article-title"><a href="/2015/03/18/优秀个人博客/" >优秀个人博客</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="http://beej.us/" target="_blank" rel="external">http://beej.us/</a></p>
+</li>
+<li><p><a href="http://fleurer-lee.com/" target="_blank" rel="external">http://fleurer-lee.com/</a></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/18/优秀个人博客/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-18 </div>
 			<div class="article-title"><a href="/2015/03/18/redis-学习资源/" >redis-学习资源</a></div>						
 		</h3>
@@ -332,94 +412,6 @@
 	
 	</div>
   <a type="button" href="/2015/03/17/USB各种接口/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-13 </div>
-			<div class="article-title"><a href="/2015/03/13/Programs Files vs Program files (x86)/" >Programs Files vs Program files (x86)</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><code>Program Files</code>: 64bit程序</p>
-</li>
-<li><p><code>Program Fiels</code>: 32bit程序</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://answers.microsoft.com/en-us/windows/forum/windows_7-files/programs-files-vs-program-files-x86/7d631676-e688-472a-a1bb-eefccfeca6d7" target="_blank" rel="external">http://answers.microsoft.com/en-us/windows/forum/windows_7-files/programs-files-vs-program-files-x86/7d631676-e688-472a-a1bb-eefccfeca6d7</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/13/Programs Files vs Program files (x86)/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-12 </div>
-			<div class="article-title"><a href="/2015/03/12/Visual Studio调试快速查看错误代码/" >Visual Studio调试快速查看错误代码</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>在<code>监视中</code>添加表达式<code>$err,hr</code></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://msdn.microsoft.com/zh-cn/library/ms164891.aspx" target="_blank" rel="external">msdn-伪变量</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/12/Visual Studio调试快速查看错误代码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-11 </div>
-			<div class="article-title"><a href="/2015/03/11/C++-RAII与exit/" >C++-RAII与exit</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="exit执行析构函数情况"><a href="#exit执行析构函数情况" class="headerlink" title="exit执行析构函数情况"></a><code>exit</code>执行析构函数情况</h1><ul>
-<li><p>不会执行<strong>栈</strong>空间上的类变量的析构函数！所以，在使用<code>RAII</code>时，调用<code>exit</code>会使其失效。</p>
-</li>
-<li><p>全局变量会执行析构函数</p>
-</li>
-<li><p><code>static</code>存储类型也会执行析构函数</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blog.copton.net/archives/2007/04/23/raii_vs__exit/index.html" target="_blank" rel="external">http://blog.copton.net/archives/2007/04/23/raii_vs__exit/index.html</a></li>
-<li><a href="http://www.zhihu.com/question/20765487" target="_blank" rel="external">http://www.zhihu.com/question/20765487</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/11/C++-RAII与exit/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -728,48 +720,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
-			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
 		
-			<li><a href="/tags/串口/">串口<span>2</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/scp/">scp<span>1</span></a></li>
 		
-			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
+			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
+			<li><a href="/tags/exit/">exit<span>1</span></a></li>
 		
-			<li><a href="/tags/override/">override<span>2</span></a></li>
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
 		
-			<li><a href="/tags/T/">_T<span>1</span></a></li>
+			<li><a href="/tags/编译/">编译<span>11</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>3</span></a></li>
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
-		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
-		
-			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
-		
-			<li><a href="/tags/arch/">arch<span>6</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
 			<li><a href="/tags/右值/">右值<span>1</span></a></li>
 		
-			<li><a href="/tags/od/">od<span>1</span></a></li>
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+		
+			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
+		
+			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+		
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -782,23 +774,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

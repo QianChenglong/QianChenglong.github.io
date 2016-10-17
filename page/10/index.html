@@ -111,6 +111,103 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-09 </div>
+			<div class="article-title"><a href="/2016/03/09/poll/" >poll</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;poll.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">poll</span><span class="params">(<span class="keyword">struct</span> pollfd *fds, nfds_t nfds, <span class="keyword">int</span> timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> pollfd &#123;</span><br><span class="line">   <span class="keyword">int</span>   fd;         <span class="comment">/* file descriptor */</span></span><br><span class="line">   <span class="keyword">short</span> events;     <span class="comment">/* requested events */</span></span><br><span class="line">   <span class="keyword">short</span> revents;    <span class="comment">/* returned events */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用户层通过<code>pollfd</code>数组，来管理需要监控描述符IO事件，具体数量由用户控制</li>
+</ul>
+<h1 id="对比select"><a href="#对比select" class="headerlink" title="对比select"></a>对比select</h1><p>存储描述符和对应监听事件的数据结构不同</p>
+<ul>
+<li>描述符大小不受限制</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/09/poll/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-09 </div>
+			<div class="article-title"><a href="/2016/03/09/IO模型/" >IO模型</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><ul>
+<li><p>阻塞IO</p>
+</li>
+<li><p>非阻塞IO</p>
+</li>
+<li><p>IO复用(select,poll,epoll)</p>
+</li>
+<li><p>信号驱动IO</p>
+</li>
+<li><p>异步IO</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/09/IO模型/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-08 </div>
+			<div class="article-title"><a href="/2016/03/08/proactor/" >proactor</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>与Reactor模型相对应，Proactor最大的特点是使用异步I/O。所有的I/O操作都交由系统提供的异步I/O接口去执行。Proactor多路复用器等待异步I/O完成，并调用相应的用户处理函数。为了对比Reactor模型，以一个read操作为例：</p>
+<p>在Reactor中：</p>
+<ul>
+<li>将要读的文件描述符注册到多路复用器中。</li>
+<li>多路复用器等待上述描述符的可读事件以及其它所有已经注册过的事件。</li>
+<li>描述符变成可读之后，多路复用器返回，并调用用户提供的处理函数，开始读文件操作。</li>
+</ul>
+<p>在Proactor中：</p>
+<ul>
+<li>用户函数启动一个异步读文件的操作。同时将这个操作注册到多路复用器上。多路复用器并不关心文件是否可读而是关心这个异步读操作是否完成。</li>
+<li>异步读文件是操作系统完成，用户程序不需要关心。多路复用器等待直到有完成通知到来。</li>
+<li>当操作系统完成了读文件操作——将读到的数据复制到了用户先前提供的缓冲区之后，通知多路复用器读操作已完成。</li>
+<li>多路复用器再调用相应的处理程序，处理数据。</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/08/proactor/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-08 </div>
 			<div class="article-title"><a href="/2016/03/08/reactor/" >reactor</a></div>						
 		</h3>
@@ -388,87 +485,6 @@
 	
 	</div>
   <a type="button" href="/2016/02/25/c-结构体对齐/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-25 </div>
-			<div class="article-title"><a href="/2016/02/25/c-基本类型size/" >c-基本类型size</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 类型    | 32位  | 64位  |<br>|———+——-+——-|<br>| char    | 1     | 1     |<br>| short   | 2     | 2     |<br>| int     | 4     | 4     |<br>| long    | 4     | <strong>8</strong> |<br>| float   | 4     | <strong>8</strong> |<br>| double  | <strong>8</strong> | 8     |<br>| pointer | 4     | <strong>8</strong> |</p>
-
-	
-	</div>
-  <a type="button" href="/2016/02/25/c-基本类型size/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-22 </div>
-			<div class="article-title"><a href="/2016/02/22/md5/" >md5</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><ol>
-<li><p>简单的密码加密(因为不可逆)</p>
-</li>
-<li><p>作为hash函数，用来作为key</p>
-</li>
-<li><p>对数据的签名，确保没有被更改(数据包，文件传输等)</p>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/02/22/md5/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-21 </div>
-			<div class="article-title"><a href="/2016/02/21/C++-复制构造函数/" >C++-复制构造函数</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>由一个同类型值，创建一个新对象</p>
-<h1 id="调用场景"><a href="#调用场景" class="headerlink" title="调用场景"></a>调用场景</h1><ul>
-<li><p>复制一个同类型的对象</p>
-</li>
-<li><p>函数传递非引用实参时</p>
-</li>
-<li><p>函数返回非引用参数时</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/02/21/C++-复制构造函数/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -777,48 +793,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+			<li><a href="/tags/curses/">curses<span>2</span></a></li>
 		
-			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
 		
-			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
+			<li><a href="/tags/library/">library<span>3</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
 		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
 		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
+			<li><a href="/tags/go/">go<span>40</span></a></li>
 		
-			<li><a href="/tags/extern/">extern<span>1</span></a></li>
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
 		
-			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
+			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
 		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/选项/">选项<span>3</span></a></li>
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
 		
-			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
+			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
+			<li><a href="/tags/IP/">IP<span>4</span></a></li>
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
 		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -831,23 +847,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

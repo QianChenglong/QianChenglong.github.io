@@ -111,6 +111,94 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-02-28 </div>
+			<div class="article-title"><a href="/2015/02/28/ANSI编码/" >ANSI编码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="ANSI编码是什么？"><a href="#ANSI编码是什么？" class="headerlink" title="ANSI编码是什么？"></a>ANSI编码是什么？</h1><p>ANSI编码并不是一种编码！而是<strong>美国国家标准学会(American National Standards Institute)</strong>关于制作的ANSI C中关于区域字符编码的标准。</p>
+<p>所以各地不同的编码方式统称为<strong>ANSI编码</strong></p>
+<p>在简体中文windows系统下，利用记事本等软件默认保存为<code>ANSI编码</code>，对应的代码页为<code>cp936</code>(GBK)。</p>
+<p>ANSI编码采用1~4字节进行编码，是一种变长编码方案，又叫做多字节字符集(MBCS)。</p>
+<h1 id="ANSI编码的缺陷"><a href="#ANSI编码的缺陷" class="headerlink" title="ANSI编码的缺陷"></a>ANSI编码的缺陷</h1><p>ANSI编码都是各区域针对本地的编码方式，是在兼容ASCII编码的基础上拓充而来的，如GB2312，BIG5等。<br>因为各地编码存在冲突，所以无法做到互通。</p>
+<h1 id="ANSI编码怎么实现的？"><a href="#ANSI编码怎么实现的？" class="headerlink" title="ANSI编码怎么实现的？"></a>ANSI编码怎么实现的？</h1><ul>
+<li><p>原ASCII编码字符保持不变，仍然为占用1个字节。</p>
+</li>
+<li><p>对其他字符，采用多字节编码，第一字节(前导字节)具有一定特征来表明后续字节一起来表示一个字符，</p>
+<p>如在GBK编码中，前导字节范围为0x81-0xFE。</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zh.wikipedia.org/wiki/%E4%BB%A3%E7%A0%81%E9%A1%B5#Windows.EF.BC.88ANSI.EF.BC.89.E4.BB.A3.E7.A2.BC.E9.A0.81" target="_blank" rel="external">维基-Windows(ANSI)代码页</a></li>
+<li><a href="http://en.wikipedia.org/wiki/American_National_Standards_Institute" target="_blank" rel="external">http://en.wikipedia.org/wiki/American_National_Standards_Institute</a></li>
+<li><a href="http://www.guokr.com/blog/763017/" target="_blank" rel="external">遇到乱码不怕不怕啦——计算机字符编码详尽讲解</a></li>
+<li><a href="http://baike.baidu.com/view/1273097.htm" target="_blank" rel="external">百度百科-ANSI编码</a></li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/vstudio/5z097dxa(v=vs.110" target="_blank" rel="external">msdn-支持多字节字符集</a>.aspx)</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/28/ANSI编码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-28 </div>
+			<div class="article-title"><a href="/2015/02/28/windows编程常用宏定义/" >windows编程常用宏定义</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 宏名   | 定义   | 头文件  |<br>|——–+——–+———|<br>| __T(x) | L ## x | tchar.h |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/02/28/windows编程常用宏定义/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-27 </div>
+			<div class="article-title"><a href="/2015/02/27/VC命令行使用/" >VC命令行使用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>链接库</p>
+<pre><code>cl main.cpp /link user32.lib
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/27/VC命令行使用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-27 </div>
 			<div class="article-title"><a href="/2015/02/27/vim-unicode-BOM设置/" >vim-unicode-BOM设置</a></div>						
 		</h3>
@@ -366,230 +454,6 @@
 	
 	</div>
   <a type="button" href="/2015/02/13/find-教程/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-12 </div>
-			<div class="article-title"><a href="/2015/02/12/find-常用命令/" >find-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="批量重命名"><a href="#批量重命名" class="headerlink" title="批量重命名"></a>批量重命名</h1><pre><code>find . -name &apos;*命令理解&apos; -exec rename -v &apos;s/命令理解/-comprehension/&apos; {} \;
-</code></pre><h1 id="删除vs2010的无用文件"><a href="#删除vs2010的无用文件" class="headerlink" title="删除vs2010的无用文件"></a>删除vs2010的无用文件</h1><pre><code>find . -regextype  posix-extended -regex &quot;.*Debug|.*\.sdf&quot; -exec rm -rf {} \;
-</code></pre><h1 id="批量添加-txt拓展名"><a href="#批量添加-txt拓展名" class="headerlink" title="批量添加.txt拓展名"></a>批量添加.txt拓展名</h1><pre><code>find . -type f -regextype posix-extended -regex &quot;\\.*[^.]*$&quot; -exec mv -v {} {}.txt \;
-</code></pre><h1 id="找出最近修改过的文件"><a href="#找出最近修改过的文件" class="headerlink" title="找出最近修改过的文件"></a>找出最近修改过的文件</h1><pre><code>find . -mtime -4 | grep &apos;循环&apos;
-</code></pre><h1 id="批量删除文件"><a href="#批量删除文件" class="headerlink" title="批量删除文件"></a>批量删除文件</h1><pre><code>find . -name &lt;expr&gt; -exec rm -v {} \;
-</code></pre><h1 id="批量删除-git目录"><a href="#批量删除-git目录" class="headerlink" title="批量删除.git目录"></a>批量删除.git目录</h1><pre><code>find . -name &quot;.git&quot; -type d  -print0 | xargs -0 rm -vrf
-</code></pre><h1 id="多目录查找"><a href="#多目录查找" class="headerlink" title="多目录查找"></a>多目录查找</h1><pre><code>find src lib -name &quot;*.[ch]&quot;
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/02/12/find-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-12 </div>
-			<div class="article-title"><a href="/2015/02/12/vim-ctags/" >vim-ctags</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p><code>tags</code>用来指定tags搜索目录列表</p>
-<p>下列情况下，不再查找列表中的下个文件:</p>
-<ul>
-<li>找到了当前缓冲区的匹配的静态标签。</li>
-<li>找到了全局标签。</li>
-</ul>
-</li>
-<li><p>优先使用当前文件所在目录的tags，再使用当前目录的tags</p>
-<p> set tags=./tags;tags</p>
-</li>
-<li><p>tagfiles()  返回 |List|，当前缓冲区用于搜索的标签文件名。这是 ‘tags’ 选项扩展后的内容。</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks?rq=1</a></li>
-<li><code>:help tags-option</code></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/12/vim-ctags/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-11 </div>
-			<div class="article-title"><a href="/2015/02/11/Gentoo安装纪录/" >Gentoo安装纪录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="安装环境配置"><a href="#安装环境配置" class="headerlink" title="安装环境配置"></a>安装环境配置</h1><ul>
-<li><p><a href="https://www.gentoo.org/main/en/where.xml" target="_blank" rel="external">官网镜像下载</a></p>
-</li>
-<li><p>配置镜像从启动</p>
-</li>
-<li><p>按<strong>F1</strong>进入<code>kernel</code>选择</p>
-</li>
-<li><p>输入<code>gentoo</code>，启动</p>
-</li>
-</ul>
-<h1 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h1><ul>
-<li><p>查看网络</p>
-<pre><code>ifconfig
-</code></pre></li>
-<li><p>若自动配置失败，执行<code>net-setup</code>，在选择<code>DHCP</code>即可</p>
-</li>
-</ul>
-<h1 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h1><ul>
-<li><p>分区规划</p>
-<p>/dev/sda1   boot    128M    ext2<br>/dev/sda2   swap    512M    swap<br>/dev/sda3   root    剩余    ext4</p>
-</li>
-<li><p>格式化分区</p>
-<pre><code>mkfs.ext2 /dev/sda1
-mkswap /dev/sda2
-mkfs.ext4 /dev/sda3
-</code></pre></li>
-<li><p>启用swap分区</p>
-<pre><code>swapon /dev/sda2
-</code></pre></li>
-<li><p>挂载分区</p>
-<pre><code>mount /dev/sda3 /mnt/gentoo
-mkdir /mnt/gentoo/boot
-mount /dev/sda1 /mnt/gentoo/boot
-</code></pre></li>
-</ul>
-<h1 id="安装stage"><a href="#安装stage" class="headerlink" title="安装stage"></a>安装stage</h1><ul>
-<li><p>设置当前时间</p>
-<pre><code>date MMDDhhmmYYYY
-</code></pre></li>
-<li><p><code>cd /mnt/gentoo</code></p>
-</li>
-<li><p>下载stage3压缩包(选择就近mirror)</p>
-<pre><code>links http://www.gentoo.org/main/en/mirrors.xml
-</code></pre></li>
-<li><p>解压</p>
-<pre><code>tar xvjpf stage3*
-</code></pre></li>
-<li><p>修改编译控制文件</p>
-<pre><code>vi /mnt/gentoo/etc/portage/make.conf
-</code></pre></li>
-</ul>
-<pre><code>CFLAGS=&quot;-march=native -O2 -pipe&quot;
-
-MAKEOPTS=&quot;-j2&quot;
-</code></pre><h1 id="安装基本系统"><a href="#安装基本系统" class="headerlink" title="安装基本系统"></a>安装基本系统</h1><h2 id="Chrooting"><a href="#Chrooting" class="headerlink" title="Chrooting"></a>Chrooting</h2><ul>
-<li><p>设置镜像源</p>
-<pre><code>vi /mnt/gentoo/etc/portage/make.conf
-
-SYNC=&quot;rsync://mirrors.ustc.edu.cn/gentoo-portage/&quot;
-GENTOO_MIRRORS=&quot;http://mirrors.aliyun.com/gentoo/&quot;
-</code></pre></li>
-<li><p>复制DNS信息</p>
-<pre><code>cp -L /etc/resolv.conf /mnt/gentoo/etc/
-</code></pre></li>
-<li><p>挂载文件系统</p>
-<pre><code>mount -t proc proc /mnt/gentoo/proc
-mount --rbind /sys /mnt/gentoo/sys
-mount --make-rslave /mnt/gentoo/sys
-mount --rbind /dev /mnt/gentoo/dev
-mount --make-rslave /mnt/gentoo/dev
-</code></pre></li>
-<li><p>进入新环境</p>
-<pre><code>chroot /mnt/gentoo /bin/bash
-source /etc/profile
-export PS1=“(chroot) $PS1”
-</code></pre></li>
-</ul>
-<h2 id="配置portable"><a href="#配置portable" class="headerlink" title="配置portable"></a>配置portable</h2><ul>
-<li><p>安装portage快照</p>
-<pre><code>emerge-websync
-</code></pre></li>
-<li><p>更新portage tree</p>
-<pre><code>emerge --sync
-</code></pre></li>
-<li><p>配置时区</p>
-<pre><code>echo &quot;Asia/Shanghai&quot; &gt;/etc/timezone
-emerge --config sys-libs/timezone-data
-</code></pre></li>
-<li><p>配置locales</p>
-<ul>
-<li><p>编辑</p>
-<pre><code>nano /etc/locale.gen
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<pre><code>        en_US.UTF-8 UTF-8
-        zh_CN.UTF-8 UTF-8
-
--   生成locale
-
-        locale-gen
-
--   选择默认locale
-
-        eselect locale list
-        eselect locale set 3
-</code></pre><h1 id="配置内核"><a href="#配置内核" class="headerlink" title="配置内核"></a>配置内核</h1><ul>
-<li><p>安装源码</p>
-<pre><code>emerge --ask sys-kernel/gentoo-sources
-</code></pre></li>
-<li><p>手动配置</p>
-<pre><code>cd /usr/src/linux
-make menuconfig
-</code></pre></li>
-<li><p>编译安装</p>
-<pre><code>make &amp;&amp; make modules_install
-make install
-</code></pre></li>
-</ul>
-<h1 id="配置系统"><a href="#配置系统" class="headerlink" title="配置系统"></a>配置系统</h1><h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><ul>
-<li><p>编辑fstab</p>
-<pre><code>nano -w /etc/fstab
-</code></pre></li>
-</ul>
-<h1 id="网络信息"><a href="#网络信息" class="headerlink" title="网络信息"></a>网络信息</h1><ul>
-<li><p>hostname</p>
-<pre><code>nano -w /etc/conf.d/hostname
-</code></pre></li>
-</ul>
-<pre><code>hostname=&quot;long&quot;
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://wiki.gentoo.org/wiki/Handbook:AMD64" target="_blank" rel="external">https://wiki.gentoo.org/wiki/Handbook:AMD64</a></li>
-<li><a href="http://www.gentoo.org/doc/zh_cn/gentoo-x86-quickinstall.xml" target="_blank" rel="external">http://www.gentoo.org/doc/zh_cn/gentoo-x86-quickinstall.xml</a></li>
-<li><a href="https://www.youtube.com/watch?v=P1ok-3z14ss" target="_blank" rel="external">https://www.youtube.com/watch?v=P1ok-3z14ss</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/11/Gentoo安装纪录/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -898,48 +762,48 @@ make install
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
-		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
-		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
-		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
-		
-			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
-		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
-		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
-		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
-		
-			<li><a href="/tags/socket/">socket<span>6</span></a></li>
-		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
-		
-			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
-		
 			<li><a href="/tags/资源/">资源<span>2</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
 		
-			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/vps/">vps<span>1</span></a></li>
+			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
 		
-			<li><a href="/tags/博客/">博客<span>1</span></a></li>
+			<li><a href="/tags/binary/">binary<span>1</span></a></li>
 		
-			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
+			<li><a href="/tags/array/">array<span>1</span></a></li>
+		
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+		
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+		
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
+		
+			<li><a href="/tags/empty/">empty<span>1</span></a></li>
+		
+			<li><a href="/tags/git/">git<span>7</span></a></li>
+		
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+		
+			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+		
+			<li><a href="/tags/C/">C++<span>35</span></a></li>
+		
+			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
+		
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
+		
+			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -952,23 +816,23 @@ make install
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

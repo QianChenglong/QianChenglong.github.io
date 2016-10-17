@@ -112,6 +112,89 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-21 </div>
+			<div class="article-title"><a href="/2015/01/21/chrome-查看资源加载顺序/" >chrome-查看资源加载顺序</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><code>F12</code>打开控制台</li>
+</ul>
+<p><img src="/img/chrome-查看资源加载顺序-01.png" alt=""></p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/21/chrome-查看资源加载顺序/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-21 </div>
+			<div class="article-title"><a href="/2015/01/21/python-sleep/" >python-sleep</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.yiibai.com/python/python_time.sleep.html" target="_blank" rel="external">http://www.yiibai.com/python/python_time.sleep.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/21/python-sleep/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-21 </div>
+			<div class="article-title"><a href="/2015/01/21/gtest-运行指定测试用例/" >gtest-运行指定测试用例</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="使用命令行"><a href="#使用命令行" class="headerlink" title="使用命令行"></a>使用命令行</h1><ul>
+<li><p>指定测试用例</p>
+<p>test.exe –gtest_filter=request_save_release_ip.multi_ips</p>
+</li>
+<li><p>指定测试用例集</p>
+<p>test.exe –gtest_filter=request_save_release_ip.*</p>
+</li>
+</ul>
+<h1 id="使用gtest-GUI工具-Guitar"><a href="#使用gtest-GUI工具-Guitar" class="headerlink" title="使用gtest GUI工具(Guitar)"></a>使用gtest GUI工具(Guitar)</h1><p><img src="/img/gtest-运行指定测试用例-01.png" alt=""></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/19798879/how-to-run-single-google-test-in-visual-studio" target="_blank" rel="external">http://stackoverflow.com/questions/19798879/how-to-run-single-google-test-in-visual-studio</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/21/gtest-运行指定测试用例/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-21 </div>
 			<div class="article-title"><a href="/2015/01/21/VC-warning-C4819/" >VC-warning-C4819</a></div>						
 		</h3>
 	
@@ -285,89 +368,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/20/winsock-error-10014/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-20 </div>
-			<div class="article-title"><a href="/2015/01/20/jsoncpp-使用/" >jsoncpp-使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;json/json.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h1 id="生成json数据对象"><a href="#生成json数据对象" class="headerlink" title="生成json数据对象"></a>生成json数据对象</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Json::Value send_data;</span><br><span class="line"></span><br><span class="line">send_data[<span class="string">"msgType"</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// json对象</span></span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"ipAddress"</span>] = <span class="string">"192.168.1.1"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// json数组</span></span><br><span class="line">send_data[<span class="string">"name"</span>].append(<span class="string">"li"</span>);</span><br><span class="line">send_data[<span class="string">"name"</span>].append(<span class="string">"zhang"</span>);</span><br></pre></td></tr></table></figure>
-<h1 id="json对象转为字符串"><a href="#json对象转为字符串" class="headerlink" title="json对象转为字符串"></a>json对象转为字符串</h1><h2 id="转为格式化过的字符串"><a href="#转为格式化过的字符串" class="headerlink" title="转为格式化过的字符串"></a>转为格式化过的字符串</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> str = send_data.toStyledString();</span><br></pre></td></tr></table></figure>
-<h2 id="转为非格式化字符串"><a href="#转为非格式化字符串" class="headerlink" title="转为非格式化字符串"></a>转为非格式化字符串</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Json::FastWriter fast_writer;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> str = fast_writer.write(send_data);</span><br></pre></td></tr></table></figure>
-<h1 id="读取json数据"><a href="#读取json数据" class="headerlink" title="读取json数据"></a>读取json数据</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Json::Value send_data;</span><br><span class="line">send_data[<span class="string">"msgType"</span>] = <span class="number">1</span>;</span><br><span class="line">send_data[<span class="string">"msgCode"</span>] = <span class="number">10000</span>;</span><br><span class="line">send_data[<span class="string">"errCode"</span>] = <span class="number">0</span>;</span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"ipAddress"</span>] = <span class="string">"192.168.1.1"</span>;</span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"macAddress"</span>] = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">send_data[<span class="string">"msgType"</span>].asInt();</span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"ipAddress"</span>].asString();</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/01/20/jsoncpp-使用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-16 </div>
-			<div class="article-title"><a href="/2015/01/16/vim-输入二合字母/" >vim-输入二合字母</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="二合字母"><a href="#二合字母" class="headerlink" title="二合字母"></a>二合字母</h1><p>二合字母用来输入不能用普通键盘输入的字符。它们通常是可显示的非 ASCII 字符。</p>
-<h1 id="输入方法"><a href="#输入方法" class="headerlink" title="输入方法"></a>输入方法</h1><pre><code>&lt;Ctrl-k&gt;{char1}{char2}
-</code></pre><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>CR ^M</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><pre><code>:help digraph
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/01/16/vim-输入二合字母/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-16 </div>
-			<div class="article-title"><a href="/2015/01/16/vim-去除M/" >vim-去除^M</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>方法1</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s;&lt;Ctrl-V&gt;&lt;Ctrl-M&gt;;;g</span><br></pre></td></tr></table></figure>
-<ul>
-<li>方法2</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s;&lt;Ctrl-K&gt;CR;;g</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/811193/how-to-convert-the-m-linebreak-to-normal-linebreak-in-a-file-opened-in-vim" target="_blank" rel="external">http://stackoverflow.com/questions/811193/how-to-convert-the-m-linebreak-to-normal-linebreak-in-a-file-opened-in-vim</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/16/vim-去除M/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -676,48 +676,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql/">mysql<span>35</span></a></li>
+			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
-		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
-		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
-		
-			<li><a href="/tags/virtualbox/">virtualbox<span>5</span></a></li>
-		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
-		
-			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
-		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
-		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
-		
-			<li><a href="/tags/extern/">extern<span>1</span></a></li>
-		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
-		
-			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
-		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
-		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
-		
-			<li><a href="/tags/管道/">管道<span>1</span></a></li>
-		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
-		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
 		
 			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
 		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
+			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+		
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+		
+			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+		
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+		
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+		
+			<li><a href="/tags/od/">od<span>1</span></a></li>
+		
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+		
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+		
+			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+		
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+		
+			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+		
+			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
+		
+			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+		
+			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+		
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+		
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -730,23 +730,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

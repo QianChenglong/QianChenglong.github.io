@@ -111,6 +111,106 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-07-28 </div>
+			<div class="article-title"><a href="/2015/07/28/后台开发经验/" >后台开发经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>撤单回退资金,双重校验(传入的UID, 订单关联的UID)</p>
+</li>
+<li><p>增量拉取</p>
+<ul>
+<li><p>确定前端排序规则(排序键)</p>
+</li>
+<li><p>传入(排序键值, 拉取个数)</p>
+</li>
+</ul>
+</li>
+<li><p>错误处理</p>
+<ul>
+<li>请求参数严格校验(防止执行时导致内部错误)</li>
+<li>SQL错误结合接口意义,返回客户端错误提示</li>
+</ul>
+</li>
+<li><p>保持app原版本兼容时,相关数据表,追加版本号</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/28/后台开发经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-27 </div>
+			<div class="article-title"><a href="/2015/07/27/c-获取各种级别时间值/" >c-获取各种级别时间值</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>秒级别</p>
+<pre><code>time()
+</code></pre></li>
+<li><p>微秒</p>
+<pre><code>gettimeofday()
+</code></pre></li>
+</ul>
+<ul>
+<li><p>纳秒</p>
+<pre><code>clock_gettime()
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/27/c-获取各种级别时间值/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-24 </div>
+			<div class="article-title"><a href="/2015/07/24/python-日期加减操作/" >python-日期加减操作</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">datetime.date.today() + datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line">today = datetime.date.today() + datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line">period = int(today.strftime(<span class="string">"%Y%m%d"</span>))</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/1506901/cleanest-and-most-pythonic-way-to-get-tomorrows-date" target="_blank" rel="external">http://stackoverflow.com/questions/1506901/cleanest-and-most-pythonic-way-to-get-tomorrows-date</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/24/python-日期加减操作/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-07-24 </div>
 			<div class="article-title"><a href="/2015/07/24/git-常用命令/" >git-常用命令</a></div>						
 		</h3>
@@ -310,105 +410,6 @@
 	
 	</div>
   <a type="button" href="/2015/07/22/linux-修改环境变量后及时生效/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-20 </div>
-			<div class="article-title"><a href="/2015/07/20/sql-数据更新/" >sql-数据更新</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><ul>
-<li><p>记录不存在,则插入</p>
-</li>
-<li><p>记录若存在,则更新指定值</p>
-</li>
-</ul>
-<h1 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h1><ul>
-<li>数据必须存在唯一性</li>
-</ul>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="1-INSERT-ON-DUPLICATE-KEY-UPDATE"><a href="#1-INSERT-ON-DUPLICATE-KEY-UPDATE" class="headerlink" title="1.INSERT ... ON DUPLICATE KEY UPDATE"></a>1.<code>INSERT ... ON DUPLICATE KEY UPDATE</code></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">table</span> (<span class="keyword">id</span>, <span class="keyword">name</span>, age) <span class="keyword">VALUES</span>(<span class="number">1</span>, <span class="string">"A"</span>, <span class="number">19</span>) <span class="keyword">ON</span> <span class="keyword">DUPLICATE</span> <span class="keyword">KEY</span></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">name</span>=<span class="keyword">VALUES</span>(<span class="keyword">name</span>), age=<span class="keyword">VALUES</span>(age)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/20/sql-数据更新/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-16 </div>
-			<div class="article-title"><a href="/2015/07/16/mysql-字符串/" >mysql-字符串</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h1><ul>
-<li><p><code>char(N)</code>, <code>varchar(N)</code>,N指的是<strong>特定字符集下的</strong>字符长度</p>
-<ul>
-<li>latin1下,char(1)占1字节</li>
-<li>utf-8下,char(1)占1~4字节,汉字一般占3字节</li>
-</ul>
-</li>
-</ul>
-<h1 id="长度判断"><a href="#长度判断" class="headerlink" title="长度判断"></a>长度判断</h1><ul>
-<li><p><code>length()</code> 获取字符串占用多少字节</p>
-</li>
-<li><p><code>char_length()</code> 获取字符串长度(特定字符集下的字符个数)</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/16/mysql-字符串/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-15 </div>
-			<div class="article-title"><a href="/2015/07/15/sql-经验/" >sql-经验</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>除非查询所有字段，否则避免使用select *</p>
-<ul>
-<li>增加IO，增加查询时间</li>
-<li>增加网络传输，浪费用户流量</li>
-<li>增加不安全性，客户端看见了所有字段</li>
-</ul>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/15/sql-经验/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -717,48 +718,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/macro/">macro<span>4</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
+			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
 		
-			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/库/">库<span>2</span></a></li>
 		
-			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/C/">C++<span>35</span></a></li>
 		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
-			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+			<li><a href="/tags/c99/">c99<span>1</span></a></li>
 		
-			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
+			<li><a href="/tags/登录/">登录<span>2</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
 		
-			<li><a href="/tags/template/">template<span>2</span></a></li>
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+			<li><a href="/tags/go/">go<span>40</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -771,23 +772,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

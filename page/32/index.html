@@ -111,6 +111,82 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-05-29 </div>
+			<div class="article-title"><a href="/2015/05/29/经验/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>没有更好的办法之前，先用笨办法解决问题</p>
+</li>
+<li><p>区分代码版本</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/05/29/经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-27 </div>
+			<div class="article-title"><a href="/2015/05/27/APP后台API设计/" >APP后台设计</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="设计准则"><a href="#设计准则" class="headerlink" title="设计准则"></a>设计准则</h1><h2 id="API设计"><a href="#API设计" class="headerlink" title="API设计"></a>API设计</h2><ul>
+<li>重要页面尽量配合app</li>
+</ul>
+<h1 id="数据返回格式"><a href="#数据返回格式" class="headerlink" title="数据返回格式"></a>数据返回格式</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.csdn.net/newjueqi/article/details/44037011" target="_blank" rel="external">http://blog.csdn.net/newjueqi/article/details/44037011</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/05/27/APP后台API设计/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-25 </div>
+			<div class="article-title"><a href="/2015/05/25/linux-同步网络时间/" >linux-同步网络时间</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>ntpdate time.windows.com &amp;&amp; hwclock --systohc --localtime
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/05/25/linux-同步网络时间/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-05-23 </div>
 			<div class="article-title"><a href="/2015/05/23/xshell字符乱码/" >xshell字符乱码</a></div>						
 		</h3>
@@ -283,131 +359,6 @@
 	
 	</div>
   <a type="button" href="/2015/05/20/apache-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-20 </div>
-			<div class="article-title"><a href="/2015/05/20/mysql-常用命令/" >mysql-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>连接数据库</p>
-<pre><code>mysql -h &lt;host&gt; -u &lt;username&gt; -p &lt;password&gt;
-</code></pre></li>
-<li><p>查看有哪些数据库</p>
-<pre><code>show databases;
-</code></pre></li>
-<li><p>使用某个数据库</p>
-<pre><code>use &lt;database_name&gt;;
-</code></pre></li>
-<li><p>查看有哪些表</p>
-<pre><code>show tables;
-</code></pre></li>
-<li><p>查看系统变量</p>
-<pre><code>show variables;
-</code></pre></li>
-<li><p>查看表创建语句</p>
-<pre><code>show create table &lt;tablename&gt;;
-</code></pre></li>
-<li><p>修改root密码</p>
-<ul>
-<li><p>先登录</p>
-<pre><code>SET PASSWORD FOR &apos;root&apos;@&apos;localhost&apos; = PASSWORD(&apos;MyNewPass&apos;);
-</code></pre></li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/05/20/mysql-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-17 </div>
-			<div class="article-title"><a href="/2015/04/17/注册表/" >注册表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h1><p>注册表采用树结构</p>
-<ul>
-<li><p>键</p>
-<ul>
-<li>树节点，值项的依赖</li>
-<li>一个键可以有多个值项</li>
-<li>每个键都有一个默认值项，值名称为空</li>
-</ul>
-</li>
-<li><p>值项</p>
-<ul>
-<li>用来存储具体的数据</li>
-<li>值项由名称，数据类型，数据组成</li>
-<li>每个键都有一个默认值</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://zh.wikipedia.org/wiki/%E6%B3%A8%E5%86%8C%E8%A1%A8" target="_blank" rel="external">wiki-注册表</a></li>
-<li><a href="https://msdn.microsoft.com/zh-cn/library/cc776231(v=ws.10" target="_blank" rel="external">msdn-注册表</a>.aspx)</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/17/注册表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-15 </div>
-			<div class="article-title"><a href="/2015/04/15/redis-散列/" >redis-散列</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>hash的键值是字典类型，存储的是字段(field)和字段值的映射，字段值只能是字符串，意味着不能嵌套！</p>
-</li>
-<li><p>hash适合存储对象</p>
-<ul>
-<li>使用对象类别和ID构成键名(关系数据库中的表名和ID)</li>
-<li>使用字段表示对象的属性(关系数据名中的列名)</li>
-<li>字段值即属性值(关系数据库中的值)</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>redis入门指南</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/15/redis-散列/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -716,48 +667,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/c/">c++<span>8</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
 		
-			<li><a href="/tags/c99/">c99<span>1</span></a></li>
+			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
 		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
+			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
 		
-			<li><a href="/tags/warning/">warning<span>2</span></a></li>
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/宏/">宏<span>4</span></a></li>
 		
-			<li><a href="/tags/sal/">sal<span>1</span></a></li>
+			<li><a href="/tags/str/">str<span>1</span></a></li>
 		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
 		
-			<li><a href="/tags/串口/">串口<span>2</span></a></li>
+			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
 		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
+		
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+		
+			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
 			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
 		
-			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/function/">function<span>1</span></a></li>
 		
-			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
-		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
-		
-			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -770,23 +721,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

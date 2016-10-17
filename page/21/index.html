@@ -111,6 +111,110 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-08-26 </div>
+			<div class="article-title"><a href="/2015/08/26/arch-修改键盘映射/" >arch-修改键盘映射</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h1><pre><code>vi /etc/vconsole.conf
+
+KEYMAP=us
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://wiki.archlinux.org/index.php/Keyboard_Configuration_in_Console_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Keyboard_Configuration_in_Console_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/08/26/arch-修改键盘映射/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-17 </div>
+			<div class="article-title"><a href="/2015/08/17/mysql-mysql_use_result-VS-mysql_store_result/" >mysql-mysql_use_result-VS-mysql_store_result</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="mysql-use-result"><a href="#mysql-use-result" class="headerlink" title="mysql_use_result"></a>mysql_use_result</h1><p>保留了如何从服务器取结果集</p>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<li><p>客户端占用内存小</p>
+</li>
+<li></li>
+</ul>
+<h2 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h2><ul>
+<li><p>不能随机访问结果行</p>
+</li>
+<li><p>必须访问完,才能获取行数</p>
+</li>
+<li><p>客户端对结果处理必须得快,否则对服务端造成压力</p>
+</li>
+<li><p>必须从服务端获取所有结果,即使已经找到需要的行</p>
+</li>
+</ul>
+<h1 id="mysql-store-result"><a href="#mysql-store-result" class="headerlink" title="mysql_store_result"></a>mysql_store_result</h1><p>将sql执行结果全部获取到客户端</p>
+<h2 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h2><ul>
+<li><p>能直接获取结果行数</p>
+</li>
+<li><p>能随机访问结果行</p>
+</li>
+</ul>
+<h2 id="劣势-1"><a href="#劣势-1" class="headerlink" title="劣势"></a>劣势</h2><ul>
+<li>客户端占用内存大,可能内存溢出</li>
+</ul>
+<h1 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h1><ul>
+<li>都需要调用<code>mysql_free_result</code>释放内存</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>mysql-manual.23.8.6</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/08/17/mysql-mysql_use_result-VS-mysql_store_result/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-17 </div>
+			<div class="article-title"><a href="/2015/08/17/条件变量/" >条件变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="为什么需要条件变量"><a href="#为什么需要条件变量" class="headerlink" title="为什么需要条件变量"></a>为什么需要条件变量</h1><ul>
+<li><code>mutex</code>只能保证互斥地操作共享资源,不能及时通知其他线程某一条件已经满足</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/17/条件变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-08-17 </div>
 			<div class="article-title"><a href="/2015/08/17/虚假唤醒/" >虚假唤醒</a></div>						
 		</h3>
@@ -306,92 +410,6 @@
 	
 	</div>
   <a type="button" href="/2015/08/11/virtualbox-在win下服务启动/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-10 </div>
-			<div class="article-title"><a href="/2015/08/10/actor模型/" >actor模型</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>当一个参与者接收到一则消息，它可以做出一些决策、创建更多的参与者、发送更多的消息、决定要如何回答接下来的消息。</p>
-</li>
-<li><p>actor是一个计算实体，当其收到消息时，可以并发执行如下操作：</p>
-<ol>
-<li><p>发送有限数量的消息给其他actor</p>
-</li>
-<li><p>创建有限数量的新actor</p>
-</li>
-<li><p>指定收到下一消息时的行为</p>
-</li>
-</ol>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/08/10/actor模型/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-05 </div>
-			<div class="article-title"><a href="/2015/08/05/vim-十六进制编辑/" >vim-十六进制编辑</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>十六进制编辑</p>
-<pre><code>:%!xxd 
-</code></pre></li>
-<li><p>返回到文本编辑</p>
-<pre><code>:%!xxd -r
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/08/05/vim-十六进制编辑/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-05 </div>
-			<div class="article-title"><a href="/2015/08/05/vim-找出高亮定义位置/" >vim-找出高亮定义位置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>:verbose hi ProtoType
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/08/05/vim-找出高亮定义位置/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -700,48 +718,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
+			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
 		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
-		
-			<li><a href="/tags/database/">database<span>3</span></a></li>
-		
-			<li><a href="/tags/USB/">USB<span>1</span></a></li>
-		
-			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
-		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
-		
-			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
-		
-			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+			<li><a href="/tags/empty/">empty<span>1</span></a></li>
 		
 			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 		
-			<li><a href="/tags/打包/">打包<span>1</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
 		
-			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
 		
-			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
+			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
+		
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
+		
+			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
+		
+			<li><a href="/tags/socket/">socket<span>6</span></a></li>
+		
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+		
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+		
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -754,23 +772,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

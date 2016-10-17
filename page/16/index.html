@@ -111,6 +111,126 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/mysql-prepare-update部分更新/" >mysql-prepare-update部分更新</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>有的时候<code>prepare update</code>只需要部分更新,其他字段保留原来的值,例如<br><code>update set A=?, B=?</code>,这里只更新A,但是<code>prepare</code>语句执行的时候,<br>必须需要带2个参数.</p>
+<h1 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h1><p><code>update set A=COALESCE(?, A), B=COALESCE(?, B)</code></p>
+<p>prepare(NULL, 1) =&gt; 则只更新B</p>
+<p>prepare(1, NULL) =&gt; 则只更新A</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://dev.mysql.com/doc/refman/5.0/en/comparison-operators.html#function_coalesce" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/comparison-operators.html#function_coalesce</a></li>
+<li><a href="http://www.perlmonks.org/?node_id=302181" target="_blank" rel="external">http://www.perlmonks.org/?node_id=302181</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/19/mysql-prepare-update部分更新/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/Exchange-ActiveSync/" >Exchange ActiveSync</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>是微软开发地一种同步协议</p>
+</li>
+<li><p>用来同步通讯录,日历,邮件</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/10/19/Exchange-ActiveSync/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-16 </div>
+			<div class="article-title"><a href="/2015/10/16/go-fmt/" >go-fmt</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="包内特征"><a href="#包内特征" class="headerlink" title="包内特征"></a>包内特征</h1><ul>
+<li><p>3种IO函数</p>
+<ul>
+<li><p>输出</p>
+<ol>
+<li><p><code>Print</code>用默认格式打印值,中间用空格分隔</p>
+</li>
+<li><p><code>Println</code>追加换行</p>
+</li>
+<li><p><code>Printf</code>自定义格式化</p>
+</li>
+</ol>
+</li>
+<li><p>输入</p>
+</li>
+</ul>
+</li>
+<li><p>IO源</p>
+<ol>
+<li><p>默认<code>stdin</code>, <code>stdout</code></p>
+</li>
+<li><p><code>S</code>族(<code>fmt.Sprint</code>, <code>fmt.Sprintln</code>, <code>fmt.Sprintf</code>),<code>string</code></p>
+</li>
+<li><p><code>F</code>族(<code>fmt.Fprint</code>, <code>fmt.Fprintln</code>, <code>fmt.Fprintf</code>),<code>io.Writer</code></p>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="格式化控制"><a href="#格式化控制" class="headerlink" title="格式化控制"></a>格式化控制</h1><ul>
+<li><p>%v  默认格式</p>
+</li>
+<li><p>%+v 打印结构体字段名</p>
+</li>
+<li><p>%T  类型</p>
+</li>
+<li><p>%q  转换为字符串字面值,将非打印字符转义(<code>\xXX</code>)</p>
+</li>
+<li><p>%q  转换为字符串字面值,将非打印字符转义(<code>\xXX</code>),将<code>utf-8</code>编码的字符转换为<code>\uXXYY</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://golang.org/pkg/fmt/" target="_blank" rel="external">https://golang.org/pkg/fmt/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/16/go-fmt/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-15 </div>
 			<div class="article-title"><a href="/2015/10/15/go-time/" >go-time</a></div>						
 		</h3>
@@ -392,125 +512,6 @@ select a.id from user a;
 	
 	</div>
   <a type="button" href="/2015/10/10/mysql-alias/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-10 </div>
-			<div class="article-title"><a href="/2015/10/10/数据库-命名规范/" >数据库-命名规范</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="表名采用小写下划线"><a href="#表名采用小写下划线" class="headerlink" title="表名采用小写下划线"></a>表名采用小写下划线</h1><p>如<code>auth_user</code></p>
-<h1 id="列名采用小写下划线"><a href="#列名采用小写下划线" class="headerlink" title="列名采用小写下划线"></a>列名采用小写下划线</h1><p>如<code>is_superuser</code></p>
-<h1 id="关于id主键"><a href="#关于id主键" class="headerlink" title="关于id主键"></a>关于<code>id</code>主键</h1><ol>
-<li><p><code>表名_id</code>(优先采用)</p>
-<ul>
-<li><p>输出目标列时,不用alias,对前端人员来说,附带一个表名,会使数据库可读性更强</p>
-<pre><code>select user_id from user
-</code></pre></li>
-<li><p>在多表查询,关联条件时,比较清晰</p>
-<pre><code>select order.user_id, name, order_id from user, order where order.user_id = user.user_id
-</code></pre></li>
-</ul>
-</li>
-<li><p><code>id</code></p>
-<ul>
-<li><p>若需要引用某个表的<code>id</code>列,该列名还需要附带表名</p>
-<pre><code>select user_id from order;
-</code></pre></li>
-<li><p>输出目标列时,每个都需要alias,非常麻烦!</p>
-<pre><code>select user.id as user_id, order.id as order_id from user, order where user.id = order.user_id
-</code></pre></li>
-</ul>
-</li>
-</ol>
-<p>参考:</p>
-<ol>
-<li><a href="http://stackoverflow.com/questions/3933803/database-design-primary-key-naming-conventions?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/3933803/database-design-primary-key-naming-conventions?rq=1</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/10/数据库-命名规范/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-09 </div>
-			<div class="article-title"><a href="/2015/10/09/mysql-decimal/" >mysql-decimal</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p><code>decimal</code>是使用字符存储数字的,所以不存在精度丢失问题</p>
-</li>
-<li><p><code>decimal(M, N)</code></p>
-<ul>
-<li><p>M说明存储数位长度(包括小数部分, 又叫精度, precision),取值范围1~65</p>
-</li>
-<li><p>N说明小数位数(scale, 标度),取值范围0~30,必须不大于M</p>
-</li>
-</ul>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.1/en/precision-math-decimal-characteristics.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.1/en/precision-math-decimal-characteristics.html</a></li>
-<li><a href="http://stackoverflow.com/questions/2377174/how-do-i-interpret-precision-and-scale-of-a-number-in-a-database" target="_blank" rel="external">http://stackoverflow.com/questions/2377174/how-do-i-interpret-precision-and-scale-of-a-number-in-a-database</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/09/mysql-decimal/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-30 </div>
-			<div class="article-title"><a href="/2015/09/30/app-后台经验/" >app-后台经验</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><ol>
-<li><p>业务逻辑实现难易程度,拓展性等跟<strong>表结构设计</strong>相关</p>
-</li>
-<li><p>API优雅跟<strong>SQL语句的熟练,精妙程度</strong>相关</p>
-</li>
-<li><p>不要为了一点性能或存储空间而增加程序或逻辑的复杂度</p>
-<p>如用<code>int</code>来存储小数, 存储和读取都需要转换,还需要知道精度,增加复杂度,<strong>得不偿失</strong></p>
-</li>
-</ol>
-<h1 id="语言设计"><a href="#语言设计" class="headerlink" title="语言设计"></a>语言设计</h1><ul>
-<li>定义重要类型的别名，如<code>typedef uint32_t uid_t</code></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/30/app-后台经验/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -819,48 +820,48 @@ select a.id from user a;
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/cron/">cron<span>1</span></a></li>
+			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
 		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
+			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/text/">text<span>1</span></a></li>
 		
-			<li><a href="/tags/宏/">宏<span>4</span></a></li>
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
 		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
+			<li><a href="/tags/install/">install<span>2</span></a></li>
 		
-			<li><a href="/tags/yed/">yed<span>1</span></a></li>
+			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/str/">str<span>1</span></a></li>
 		
-			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
+			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
 		
-			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
 		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
+			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
 		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
 		
-			<li><a href="/tags/size/">size<span>1</span></a></li>
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -873,23 +874,23 @@ select a.id from user a;
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

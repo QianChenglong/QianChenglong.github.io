@@ -111,6 +111,107 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-05 </div>
+			<div class="article-title"><a href="/2015/06/05/现代C++编程/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="使用override强制说明该函数为重写版本"><a href="#使用override强制说明该函数为重写版本" class="headerlink" title="使用override强制说明该函数为重写版本"></a>使用<code>override</code>强制说明该函数为重写版本</h1><ul>
+<li><p>增强可读性</p>
+</li>
+<li><p>确保该函数是重写父类的虚函数，避免拼写错误，类型不匹配，导致没有形成多态！</p>
+</li>
+<li><p>可以更加清楚地表明该函数的用途，假设子类函数与父类函数完全一样，没有<code>override</code><br>辅助说明，则使用者很可能误用！</p>
+</li>
+<li><p>定义和派生抽象类的利器，可在编译时发现诸如：修改了基类中某虚方法的参数列表后，忘记在其派生类中做出相应修改等各类相关错误。</p>
+</li>
+</ul>
+<h1 id="改进的大于号解析"><a href="#改进的大于号解析" class="headerlink" title="改进的大于号解析"></a>改进的大于号解析</h1><p>定义模板实例时，不再需要小心地在多个连续的大于号之间添加空格了。<br>优点</p>
+<p>不必再担心模板定义中的“&gt;&gt;”被解析为右移操作。</p>
+
+	
+	</div>
+  <a type="button" href="/2015/06/05/现代C++编程/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-05 </div>
+			<div class="article-title"><a href="/2015/06/05/mysql-触发器/" >mysql-触发器</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查看触发器</p>
+<pre><code>show triggers;
+</code></pre></li>
+<li><p>删除触发器</p>
+<pre><code>drop &lt;trigger-name&gt;;
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/05/mysql-触发器/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-05 </div>
+			<div class="article-title"><a href="/2015/06/05/mysql-远程连接/" >mysql-远程连接</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>centos7.0.1-64</p>
+</li>
+<li><p>5.5.41-MariaDB MariaDB Server</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>确保mysql配置文件<code>/etc/my.cnf</code>中没有bind本地地址</p>
+</li>
+<li><p>授权允许用户远程登录</p>
+<pre><code>grant all PRIVILEGES on 数据库名.表名 to 用户名@&apos;IP&apos; identified by &apos;密码&apos;;
+flush privileges;
+</code></pre></li>
+<li><p>放行mysql端口</p>
+<pre><code>firewall-cmd --permanent --add-port=3306/tcp
+firewall-cmd --reload
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/05/mysql-远程连接/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-03 </div>
 			<div class="article-title"><a href="/2015/06/03/rsync常见错误/" >rsync常见错误</a></div>						
 		</h3>
@@ -318,82 +419,6 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
 	
 	</div>
   <a type="button" href="/2015/05/29/cgi-常见错误定位/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-29 </div>
-			<div class="article-title"><a href="/2015/05/29/经验/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>没有更好的办法之前，先用笨办法解决问题</p>
-</li>
-<li><p>区分代码版本</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/05/29/经验/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-27 </div>
-			<div class="article-title"><a href="/2015/05/27/APP后台API设计/" >APP后台设计</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="设计准则"><a href="#设计准则" class="headerlink" title="设计准则"></a>设计准则</h1><h2 id="API设计"><a href="#API设计" class="headerlink" title="API设计"></a>API设计</h2><ul>
-<li>重要页面尽量配合app</li>
-</ul>
-<h1 id="数据返回格式"><a href="#数据返回格式" class="headerlink" title="数据返回格式"></a>数据返回格式</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blog.csdn.net/newjueqi/article/details/44037011" target="_blank" rel="external">http://blog.csdn.net/newjueqi/article/details/44037011</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/05/27/APP后台API设计/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-25 </div>
-			<div class="article-title"><a href="/2015/05/25/linux-同步网络时间/" >linux-同步网络时间</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>ntpdate time.windows.com &amp;&amp; hwclock --systohc --localtime
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/05/25/linux-同步网络时间/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -702,48 +727,48 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>40</span></a></li>
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
 		
-			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
-		
-			<li><a href="/tags/apache/">apache<span>6</span></a></li>
-		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
-		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
 		
 			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
 		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
 		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/exit/">exit<span>1</span></a></li>
 		
-			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+			<li><a href="/tags/10014/">10014<span>1</span></a></li>
 		
-			<li><a href="/tags/log/">log<span>2</span></a></li>
+			<li><a href="/tags/右值/">右值<span>1</span></a></li>
 		
-			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
 		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
-			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/module/">module<span>3</span></a></li>
+			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+		
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+		
+			<li><a href="/tags/size/">size<span>1</span></a></li>
+		
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>581</span></a></li>
+		   <li><a href="/tags">...<span>586</span></a></li>
 		 
 		</ul>
 	</div>
@@ -756,23 +781,23 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/10/ssh/" ><i class="fa fa-file-o"></i>ssh</a>
       </li>
     
       <li>
         <a href="/2016/09/29/go-flag/" ><i class="fa fa-file-o"></i>go-flag</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/fish/" ><i class="fa fa-file-o"></i>fish</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/29/crond/" ><i class="fa fa-file-o"></i>crond</a>
-      </li>
-    
-      <li>
-        <a href="/2016/09/27/vim-gocode/" ><i class="fa fa-file-o"></i>vim-gocode</a>
       </li>
     
   </ul>

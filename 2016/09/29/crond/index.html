@@ -126,6 +126,8 @@
 <li><p>指定shell</p>
 <pre><code>SHELL=/bin/bash
 </code></pre></li>
+<li><p>命令中不能使用<code>sudo</code>，除非修改<code>/etc/sudoers</code>中配置<code>Defaults requiretty</code>=&gt;<code>Defaults !requiretty</code></p>
+</li>
 </ul>
 <h1 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h1><ul>
 <li><p>重定向标准输出和出错到文件</p>

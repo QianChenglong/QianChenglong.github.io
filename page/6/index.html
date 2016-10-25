@@ -112,6 +112,47 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-04-28 </div>
+			<div class="article-title"><a href="/2016/04/28/设计模式-单例模式/" >设计模式-单例模式</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
+<li><p>相比全局变量</p>
+<ul>
+<li><p>将构造函数私有，可以防止定义多个实例！</p>
+</li>
+<li><p>可以实现为uncopyable，禁止复制或赋值！</p>
+</li>
+</ul>
+</li>
+<li><p>更加的OO，使用起来便利，无须手动创建和释放！</p>
+<ul>
+<li>利用C++的确定性析构特点，可以确保程序退出时，执行析构函数，释放相应资源！</li>
+</ul>
+</li>
+<li><p>可以确保在使用该对象时，该对象已被初始化，而nonlocal-static却不能保证（参考 Effective C++ Item-4 P30）</p>
+<p>因为C++标准没有定义，也无法定义不同模块中nonlocal-static对象的初始化顺序</p>
+</li>
+<li><p>程序启动更快，只有在首次使用的时候才会创建</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/04/28/设计模式-单例模式/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-28 </div>
 			<div class="article-title"><a href="/2016/04/28/C++-内存区域/" >C++-内存区域</a></div>						
 		</h3>
 	
@@ -362,81 +403,6 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 	
 	</div>
   <a type="button" href="/2016/04/18/mysql-c-connector/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-18 </div>
-			<div class="article-title"><a href="/2016/04/18/select/" >select</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">select</span><span class="params">(<span class="keyword">int</span> nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, <span class="keyword">struct</span> timeval *timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FD_CLR</span><span class="params">(<span class="keyword">int</span> fd, fd_set *<span class="built_in">set</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span>  <span class="title">FD_ISSET</span><span class="params">(<span class="keyword">int</span> fd, fd_set *<span class="built_in">set</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FD_SET</span><span class="params">(<span class="keyword">int</span> fd, fd_set *<span class="built_in">set</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FD_ZERO</span><span class="params">(fd_set *<span class="built_in">set</span>)</span></span>;</span><br></pre></td></tr></table></figure>
-<h2 id="select"><a href="#select" class="headerlink" title="select"></a>select</h2><ul>
-<li><p>nfds 3个描述符集合中最大的描述符+1，用来减少select遍历次数</p>
-</li>
-<li><p>readfds 监听对应描述符集合的读就绪(包括end-of-file即tcp断开)</p>
-</li>
-<li><p>writefds 监听对应描述符集合的写就绪</p>
-</li>
-<li><p>exceptfds 监听对应描述符集合的异常</p>
-</li>
-</ul>
-<p>对比<code>epoll</code>：</p>
-<ul>
-<li><p>通过不同的set来监听对应事件，增加了数据拷贝量</p>
-</li>
-<li><p>通过修改传入的set，来返回对应IO就绪套接字（所以对于应用层代码来说，还需要额外保存下原set）</p>
-</li>
-<li><p>通过4个辅助宏来管理描述符，和判断哪个描述符上IO就绪</p>
-</li>
-</ul>
-<p>BUGS:</p>
-<ul>
-<li>在linux中，select可能返回对应的描述符读就绪，但实际读失败。可能原因有，数据到达但校验失败被丢弃或者被惊醒</li>
-</ul>
-<h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
-<li>跨平台，普遍支持</li>
-</ul>
-<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li><p>描述符大小有限制(也就限制了数量)，因为内部采用bitmap(固定数组)实现，只能预分配固定大小的</p>
-<p>描述符必须小于<code>FD_SETSIZE</code></p>
-</li>
-<li><p>效率较低</p>
-<ul>
-<li><p>从api上看，监听套接字的多个事件时，需要更多的拷贝，因为select是通过set来区分事件的</p>
-</li>
-<li><p>每次调用都需要从应用层拷贝描述符集合到内核</p>
-</li>
-<li><p>每次调用返回，都需要遍历整个描述符集合比较</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><h2 id="fd-set实现-usr-include-sys-select-h"><a href="#fd-set实现-usr-include-sys-select-h" class="headerlink" title="fd_set实现(/usr/include/sys/select.h)"></a>fd_set实现(<code>/usr/include/sys/select.h</code>)</h2><ul>
-<li><p>描述符采用整数数组实现，通过bitmap来存储对应描述符</p>
-</li>
-<li><p><code>FD_SETSIZE</code>默认为1024</p>
-<pre><code>/usr/include/bits/typesizes.h
-#define __FD_SETSIZE        1024
-</code></pre></li>
-</ul>
-<h1 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h1><p><code>/usr/include/sys/select.h</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* The fd_set member is required to be an array of longs.  */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">int</span> __fd_mask;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Some versions of &lt;linux/posix_types.h&gt; define this macros.  */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span>  __NFDBITS</span></span><br><span class="line"><span class="comment">/* It's easier to assume 8-bit bytes than to get CHAR_BIT.  */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __NFDBITS   (8 * (int) sizeof (__fd_mask))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __FD_ELT(d) ((d) / __NFDBITS)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __FD_MASK(d)    ((__fd_mask) 1 &lt;&lt; ((d) % __NFDBITS))</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* fd_set for select and pselect.  */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">/* XPG4.2 requires this member name.  Otherwise avoid the name</span><br><span class="line">       from the global namespace.  */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __USE_XOPEN</span></span><br><span class="line">    __fd_mask fds_bits[__FD_SETSIZE / __NFDBITS];</span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> __FDS_BITS(set) ((set)-&gt;fds_bits)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    __fd_mask __fds_bits[__FD_SETSIZE / __NFDBITS];</span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> __FDS_BITS(set) ((set)-&gt;__fds_bits)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  &#125; fd_set;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Maximum number of file descriptors in `fd_set'.  */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FD_SETSIZE      __FD_SETSIZE</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __USE_MISC</span></span><br><span class="line"><span class="comment">/* Sometimes the fd_set member is assumed to have this type.  */</span></span><br><span class="line"><span class="keyword">typedef</span> __fd_mask fd_mask;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Number of bits per word of `fd_set' (some code assumes this is 32).  */</span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> NFDBITS        __NFDBITS</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Access macros for `fd_set'.  */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FD_SET(fd, fdsetp)  __FD_SET (fd, fdsetp)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FD_CLR(fd, fdsetp)  __FD_CLR (fd, fdsetp)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FD_ISSET(fd, fdsetp)    __FD_ISSET (fd, fdsetp)</span></span><br></pre></td></tr></table></figure>
-<p><code>/usr/include/bits/select.h</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined __GNUC__ &amp;&amp; __GNUC__ &gt;= 2</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">if</span> __WORDSIZE == 64</span></span><br><span class="line"><span class="meta">#  <span class="meta-keyword">define</span> __FD_ZERO_STOS <span class="string">"stosq"</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#  <span class="meta-keyword">define</span> __FD_ZERO_STOS <span class="string">"stosl"</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> __FD_ZERO(fdsp) \</span><br><span class="line">  do &#123;                                        \</span><br><span class="line">    int __d0, __d1;                               \</span><br><span class="line">    __asm__ __volatile__ (<span class="string">"cld; rep; "</span> __FD_ZERO_STOS                 \</span><br><span class="line">              : <span class="string">"=c"</span> (__d0), <span class="string">"=D"</span> (__d1)                  \</span><br><span class="line">              : <span class="string">"a"</span> (0), <span class="string">"0"</span> (sizeof (fd_set)             \</span><br><span class="line">                      / sizeof (__fd_mask)),          \</span><br><span class="line">                <span class="string">"1"</span> (&amp;__FDS_BITS (fdsp)[0])               \</span><br><span class="line">              : <span class="string">"memory"</span>);                        \</span><br><span class="line">  &#125; while (0)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span>   <span class="comment">/* ! GNU CC */</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* We don't use `memset' because this would require a prototype and</span><br><span class="line">   the array isn't too big.  */</span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> __FD_ZERO(set)  \</span><br><span class="line">  do &#123;                                        \</span><br><span class="line">    unsigned int __i;                                 \</span><br><span class="line">    fd_set *__arr = (set);                            \</span><br><span class="line">    for (__i = 0; __i &lt; sizeof (fd_set) / sizeof (__fd_mask); ++__i)          \</span><br><span class="line">      __FDS_BITS (__arr)[__i] = 0;                        \</span><br><span class="line">  &#125; while (0)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  <span class="comment">/* GNU CC */</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __FD_SET(d, set) \</span><br><span class="line">  ((void) (__FDS_BITS (set)[__FD_ELT (d)] |= __FD_MASK (d)))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __FD_CLR(d, set) \</span><br><span class="line">  ((void) (__FDS_BITS (set)[__FD_ELT (d)] &amp;= ~__FD_MASK (d)))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __FD_ISSET(d, set) \</span><br><span class="line">  ((__FDS_BITS (set)[__FD_ELT (d)] &amp; __FD_MASK (d)) != 0)</span></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2016/04/18/select/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -745,45 +711,45 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
+			<li><a href="/tags/同步/">同步<span>2</span></a></li>
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
 		
-			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
 		
-			<li><a href="/tags/c/">c<span>7</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+			<li><a href="/tags/curl/">curl<span>2</span></a></li>
 		
-			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/tags/dll/">dll<span>1</span></a></li>
+			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
 		
-			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/function/">function<span>1</span></a></li>
 		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
 		
-			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
 		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
+			<li><a href="/tags/进程/">进程<span>1</span></a></li>
 		
-			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
 		
-			<li><a href="/tags/api/">api<span>1</span></a></li>
+			<li><a href="/tags/extern/">extern<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -799,6 +765,10 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
       </li>
     
@@ -812,10 +782,6 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
     
       <li>
         <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
       </li>
     
   </ul>

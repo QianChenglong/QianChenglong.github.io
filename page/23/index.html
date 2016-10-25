@@ -111,6 +111,52 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-08-05 </div>
+			<div class="article-title"><a href="/2015/08/05/linux-管道/" >linux-管道</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h1><ul>
+<li><p>只能在具有亲缘关系的进程间使用</p>
+</li>
+<li><p>历史上,都是半双工的</p>
+</li>
+</ul>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>对管道写,不大于PIPE_BUF(<code>/usr/include/linux/limits.h</code> =&gt; 4K)时,可以保证不会与其他进程的写操作穿插(原子写)</li>
+</ul>
+<h1 id="与普通文件差异"><a href="#与普通文件差异" class="headerlink" title="与普通文件差异"></a>与普通文件差异</h1><ul>
+<li><p>管道的缓冲区固定大小(4K),不会像文件一样无限增长</p>
+<ul>
+<li>当管道满时,调用write会被阻塞</li>
+<li>当管道空时,调用read也会被阻塞</li>
+</ul>
+</li>
+<li><p>管道读是一次性的,一旦被读,就被丢弃</p>
+</li>
+</ul>
+<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>在Linux中，管道的实现并没有使用专门的数据结构，而是借助了文件系统的file结构和VFS的索引节点inode。<br>通过将两个 file 结构指向同一个临时的 VFS 索引节点，而这个 VFS 索引节点又指向一个物理页面而实现的。</p>
+<p><img src="../img/管道_01.png" alt=""></p>
+<p>图中有两个 file 数据结构，但它们定义文件操作例程地址是不同的.<br>其中一个是向管道中写入数据的例程地址，而另一个是从管道中读出数据的例程地址。<br>这样，用户程序的系统调用仍然是通常的文件操作，而内核却利用这种抽象机制实现了管道这一特殊操作。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://oss.org.cn/kernel-book/ch07/7.1.1.htm" target="_blank" rel="external">http://oss.org.cn/kernel-book/ch07/7.1.1.htm</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/08/05/linux-管道/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-08-04 </div>
 			<div class="article-title"><a href="/2015/08/04/gdb/" >gdb</a></div>						
 		</h3>
@@ -474,32 +520,6 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-22 </div>
-			<div class="article-title"><a href="/2015/07/22/windows-修改环境变量后立即生效/" >windows-修改环境变量后立即生效</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>打开cmd</p>
-<pre><code>set path=&quot;&quot;
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/22/windows-修改环境变量后立即生效/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -805,45 +825,45 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
-		
-			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
-		
-			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
-		
-			<li><a href="/tags/散列/">散列<span>1</span></a></li>
-		
-			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
-		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
-		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
-		
-			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
-		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
-		
-			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+			<li><a href="/tags/json/">json<span>4</span></a></li>
 		
 			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/T/">__T<span>1</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
+			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
 		
-			<li><a href="/tags/strace/">strace<span>1</span></a></li>
+			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
 		
-			<li><a href="/tags/选项/">选项<span>3</span></a></li>
+			<li><a href="/tags/vim/">vim<span>24</span></a></li>
 		
-			<li><a href="/tags/bind/">bind<span>2</span></a></li>
+			<li><a href="/tags/右值/">右值<span>1</span></a></li>
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+		
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
+		
+			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+		
+			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+		
+			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
+		
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+		
+			<li><a href="/tags/django/">django<span>2</span></a></li>
+		
+			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+		
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -859,6 +879,10 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
       </li>
     
@@ -872,10 +896,6 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
     
       <li>
         <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
       </li>
     
   </ul>

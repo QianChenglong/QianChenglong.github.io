@@ -112,6 +112,60 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-11-02 </div>
+			<div class="article-title"><a href="/2015/11/02/大小端/" >大小端</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>字节序是一个处理器架构特性。</p>
+<p>对于多字节数据，存在一个数据的字节安排问题(大小端)。</p>
+<p>大小端取决与CPU架构，X86:小端，KEIL-C51:大端</p>
+<h1 id="记忆方式"><a href="#记忆方式" class="headerlink" title="记忆方式"></a>记忆方式</h1><ul>
+<li>大端 &lt;=&gt; 字符串顺序</li>
+</ul>
+<h1 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h1><p>例：0x11223344(4B)在内存中存放时</p>
+<h2 id="大端："><a href="#大端：" class="headerlink" title="大端："></a>大端：</h2><p>数据的高位字节放在内存低地址，也就是说数据由高位字节向低位字节在内存中存放，<br>类似于字符串的存放，按照从左向右的顺序存放.</p>
+<pre><code>内存：0  1  2  3
+      11 22 33 44
+</code></pre><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>直接在内存中观察方便</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li><p>不符合逻辑</p>
+</li>
+<li><p>不利于编码，解码</p>
+</li>
+</ol>
+<h2 id="小端："><a href="#小端：" class="headerlink" title="小端："></a>小端：</h2><p>数据的高位字节放在内存高地址，也就是数据从低位字节向高位字节在内存中存放</p>
+<pre><code>内存：0  1  2  3
+      44 33 22 11
+</code></pre><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>这种存放方式比较符合逻辑</li>
+<li>利于读入时的解码(转换成对应数据类型的值)，如int i = 0x11223344，按ANSI<br>存放在文件中，再次读入时，需要根据ASCII码把对应的值转换成int型，容易处理，因为先<br>读入的是低位字节</li>
+</ol>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>直接在内存中观察时，不方便</li>
+</ol>
+<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><ol>
+<li>以上数字都是十六进制形式；</li>
+<li>假设变量地址为0</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/02/大小端/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-02 </div>
 			<div class="article-title"><a href="/2015/11/02/编码-utf-8/" >编码-utf-8</a></div>						
 		</h3>
 	
@@ -428,40 +482,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-28 </div>
-			<div class="article-title"><a href="/2015/10/28/go-pointer/" >go-pointer</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>在访问<code>filed</code>时,<code>pointer to struct</code>会自动解引用</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> person <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line">p := &amp;person&#123;<span class="string">"a"</span>&#125;</span><br><span class="line">p.name <span class="comment">// &lt;=&gt; (*p).name</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在调用<code>method</code>时,<code>struct</code>(<code>reciver</code>)会自动转换(取地址,解引用)</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Dog <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (d Dog) Bite(target <span class="keyword">string</span>) &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%v bite %v\n"</span>, d.name, target)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> (d *Dog) Drink(target <span class="keyword">string</span>) &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%v drink %v\n"</span>, d.name, target)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> main() &#123;</span><br><span class="line">    a := Dog&#123;<span class="string">"a"</span>&#125;</span><br><span class="line">    b := &amp;Dog&#123;<span class="string">"b"</span>&#125;</span><br><span class="line">    a.Bite(<span class="string">"b"</span>)</span><br><span class="line">    b.Bite(<span class="string">"a"</span>) <span class="comment">// &lt;=&gt; (*b).Bite("a")</span></span><br><span class="line"></span><br><span class="line">    a.Drink(<span class="string">"water"</span>) <span class="comment">// &lt;=&gt; (&amp;a).Drink("water")</span></span><br><span class="line">    b.Drink(<span class="string">"beer"</span>)  <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>function</code>参数不会转换</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/20849751/rule-for-go-pointers-references-dereferencing" target="_blank" rel="external">http://stackoverflow.com/questions/20849751/rule-for-go-pointers-references-dereferencing</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/28/go-pointer/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -767,45 +787,45 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
-		
-			<li><a href="/tags/linux/">linux<span>40</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
 			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
 		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
 		
-			<li><a href="/tags/STL/">STL<span>1</span></a></li>
+			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
 		
-			<li><a href="/tags/bind/">bind<span>2</span></a></li>
+			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
+			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
-			<li><a href="/tags/右值/">右值<span>1</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
-		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
-		
-			<li><a href="/tags/read/">read<span>1</span></a></li>
-		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
-		
-			<li><a href="/tags/command/">command<span>9</span></a></li>
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
 		
 			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
 		
-			<li><a href="/tags/C-11/">C++11<span>8</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 		
-			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
-			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
+			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+		
+			<li><a href="/tags/static/">static<span>2</span></a></li>
+		
+			<li><a href="/tags/override/">override<span>2</span></a></li>
+		
+			<li><a href="/tags/slab/">slab<span>1</span></a></li>
+		
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
+		
+			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -821,6 +841,10 @@ pre-up iptables-restore &lt; /etc/iptables.rule
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
       </li>
     
@@ -834,10 +858,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
     
       <li>
         <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
       </li>
     
   </ul>

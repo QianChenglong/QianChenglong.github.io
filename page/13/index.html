@@ -112,6 +112,30 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-11-16 </div>
+			<div class="article-title"><a href="/2015/11/16/http-OPTIONS/" >http-OPTIONS</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><ul>
+<li>获取URL支持的HTTP请求方法</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/11/16/http-OPTIONS/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-16 </div>
 			<div class="article-title"><a href="/2015/11/16/http-head/" >http-head</a></div>						
 		</h3>
 	
@@ -412,60 +436,6 @@
 	
 	</div>
   <a type="button" href="/2015/11/02/go-string/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-02 </div>
-			<div class="article-title"><a href="/2015/11/02/大小端/" >大小端</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>字节序是一个处理器架构特性。</p>
-<p>对于多字节数据，存在一个数据的字节安排问题(大小端)。</p>
-<p>大小端取决与CPU架构，X86:小端，KEIL-C51:大端</p>
-<h1 id="记忆方式"><a href="#记忆方式" class="headerlink" title="记忆方式"></a>记忆方式</h1><ul>
-<li>大端 &lt;=&gt; 字符串顺序</li>
-</ul>
-<h1 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h1><p>例：0x11223344(4B)在内存中存放时</p>
-<h2 id="大端："><a href="#大端：" class="headerlink" title="大端："></a>大端：</h2><p>数据的高位字节放在内存低地址，也就是说数据由高位字节向低位字节在内存中存放，<br>类似于字符串的存放，按照从左向右的顺序存放.</p>
-<pre><code>内存：0  1  2  3
-      11 22 33 44
-</code></pre><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
-<li>直接在内存中观察方便</li>
-</ol>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
-<li><p>不符合逻辑</p>
-</li>
-<li><p>不利于编码，解码</p>
-</li>
-</ol>
-<h2 id="小端："><a href="#小端：" class="headerlink" title="小端："></a>小端：</h2><p>数据的高位字节放在内存高地址，也就是数据从低位字节向高位字节在内存中存放</p>
-<pre><code>内存：0  1  2  3
-      44 33 22 11
-</code></pre><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ol>
-<li>这种存放方式比较符合逻辑</li>
-<li>利于读入时的解码(转换成对应数据类型的值)，如int i = 0x11223344，按ANSI<br>存放在文件中，再次读入时，需要根据ASCII码把对应的值转换成int型，容易处理，因为先<br>读入的是低位字节</li>
-</ol>
-<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ol>
-<li>直接在内存中观察时，不方便</li>
-</ol>
-<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><ol>
-<li>以上数字都是十六进制形式；</li>
-<li>假设变量地址为0</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/02/大小端/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -774,45 +744,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/crond/">crond<span>1</span></a></li>
+			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
 		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
-		
-			<li><a href="/tags/json/">json<span>4</span></a></li>
-		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
-		
-			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
-		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
-		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
-		
-			<li><a href="/tags/mysql/">mysql<span>35</span></a></li>
-		
-			<li><a href="/tags/sal/">sal<span>1</span></a></li>
-		
-			<li><a href="/tags/final/">final<span>1</span></a></li>
-		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
-		
-			<li><a href="/tags/散列/">散列<span>1</span></a></li>
-		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
-		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
-		
-			<li><a href="/tags/macro/">macro<span>4</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
 			<li><a href="/tags/打包/">打包<span>1</span></a></li>
 		
-			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
+			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
+		
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
+		
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+		
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+		
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+		
+			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+		
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
+		
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
+		
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
+		
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
+		
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+		
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+		
+			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
+		
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -828,6 +798,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
       </li>
     
@@ -841,10 +815,6 @@
     
       <li>
         <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
       </li>
     
   </ul>

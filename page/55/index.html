@@ -112,6 +112,40 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-08 </div>
+			<div class="article-title"><a href="/2015/01/08/pragma-once/" >pragma-once</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p><code>#pragma once</code>是一条非标准的预处理指令，用来防止同一文件被多次包含，同<code>include guard</code>作用一样。<br>绝大多数编译器都提供支持。</p>
+<p>具有的优点：</p>
+<ul>
+<li>代码更少，不用<code>include</code>那么麻烦</li>
+<li>更有效，更安全，由预处理器去维护判断是否已经包含过，而<code>include</code>需要程序员定义不同的宏名来保证，<br>若宏名冲突，则导致编译失败</li>
+<li>效率更高，预处理器针对其做了特殊的优化</li>
+<li><strong>复制，修改代码更容易，当把一个头文件复制到另一个项目中，或改名时，不用按着命令规范去修改</strong></li>
+</ul>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>当同一个文件，在项目内有符号链接或硬链接时，可能导致无法工作。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://en.wikipedia.org/wiki/Pragma_once" target="_blank" rel="external">https://en.wikipedia.org/wiki/Pragma_once</a></li>
+<li><a href="http://stackoverflow.com/questions/1143936/pragma-once-vs-include-guards" target="_blank" rel="external">http://stackoverflow.com/questions/1143936/pragma-once-vs-include-guards</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/08/pragma-once/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-08 </div>
 			<div class="article-title"><a href="/2015/01/08/makefile-目标all作用/" >makefile-目标all作用</a></div>						
 		</h3>
 	
@@ -410,34 +444,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/07/软件设计原则资料/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-06 </div>
-			<div class="article-title"><a href="/2015/01/06/虚拟网卡资料/" >虚拟网卡资料</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><a href="http://wushank.blog.51cto.com/3489095/1306849" target="_blank" rel="external">linux下TUN/TAP虚拟网卡的使用</a></li>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-tuntap/" target="_blank" rel="external">虚拟网卡 TUN/TAP 驱动程序设计原理</a></li>
-<li><a href="http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7" target="_blank" rel="external">http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/TUN%E4%B8%8ETAP" target="_blank" rel="external">wiki-TUN与TAP</a></li>
-<li><a href="http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has" target="_blank" rel="external">http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/06/虚拟网卡资料/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -746,45 +752,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/编译/">编译<span>11</span></a></li>
+			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/打包/">打包<span>1</span></a></li>
 		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
+			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
 		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
 		
-			<li><a href="/tags/glog/">glog<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/素数/">素数<span>1</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
 		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
-		
-			<li><a href="/tags/pip/">pip<span>2</span></a></li>
+			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
 		
 			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
 		
-			<li><a href="/tags/主键/">主键<span>1</span></a></li>
+			<li><a href="/tags/limit/">limit<span>2</span></a></li>
 		
-			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
+		
+			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -800,6 +806,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
       </li>
     
@@ -813,10 +823,6 @@
     
       <li>
         <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
       </li>
     
   </ul>

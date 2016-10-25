@@ -112,6 +112,43 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-05-30 </div>
+			<div class="article-title"><a href="/2015/05/30/centos-本地镜像源设置/" >centos-本地镜像源设置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>挂载镜像文件</p>
+<pre><code>mkdir /mnt/cdrom
+mount /dev/cdrom /mnt/cdrom
+</code></pre></li>
+<li><p>编辑repo文件</p>
+<pre><code>vim /etc/yum.repos.d/centos7-local.repo
+
+[local]
+name=local
+baseurl=file:///mnt/cdrom
+enabled=1
+gpgcheck=1
+gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/05/30/centos-本地镜像源设置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-30 </div>
 			<div class="article-title"><a href="/2015/05/30/centos-配置网络/" >centos-配置网络</a></div>						
 		</h3>
 	
@@ -338,31 +375,6 @@
 	
 	</div>
   <a type="button" href="/2015/05/22/apache-常见错误/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-21 </div>
-			<div class="article-title"><a href="/2015/05/21/fastcgi编程经验/" >fastcgi编程经验</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>不能再<code>FAST_Accpet()</code>IO</li>
-<li>不能使用C++IO</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/05/21/fastcgi编程经验/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -671,45 +683,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/macro/">macro<span>4</span></a></li>
+			<li><a href="/tags/base64/">base64<span>1</span></a></li>
 		
-			<li><a href="/tags/虚函数/">虚函数<span>1</span></a></li>
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
 		
-			<li><a href="/tags/C-11/">C++11<span>8</span></a></li>
+			<li><a href="/tags/resume/">resume<span>1</span></a></li>
 		
-			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+			<li><a href="/tags/socket/">socket<span>6</span></a></li>
 		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/api/">api<span>1</span></a></li>
 		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
 		
-			<li><a href="/tags/后台/">后台<span>6</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
 		
-			<li><a href="/tags/script/">script<span>1</span></a></li>
+			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
 		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
 		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
+			<li><a href="/tags/池/">池<span>1</span></a></li>
 		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -725,6 +737,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
       </li>
     
@@ -738,10 +754,6 @@
     
       <li>
         <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
       </li>
     
   </ul>

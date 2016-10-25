@@ -111,6 +111,34 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-09-01 </div>
+			<div class="article-title"><a href="/2016/09/01/判断库是否带有调试信息/" >source\_posts\判断库是否带有调试信息</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="通过查看符号表中是否带有调试信息"><a href="#通过查看符号表中是否带有调试信息" class="headerlink" title="通过查看符号表中是否带有调试信息"></a>通过查看符号表中是否带有调试信息</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug-true (dev)&gt; nm --debug-syms libmysqlclient.so|grep <span class="string">"\.debug_info"</span></span><br><span class="line">0000000000000000 N .debug_info</span><br></pre></td></tr></table></figure>
+<h1 id="通过file"><a href="#通过file" class="headerlink" title="通过file"></a>通过<code>file</code></h1><p><code>not stripped</code> =&gt; Debug<br><code>stripped</code> =&gt; Release</p>
+<h2 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug (dev)&gt; file libmysqlclient.so</span><br><span class="line">libmysqlclient.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=0xdb01cca2e0dba437512a3066296c995de3e2db72, not stripped</span><br></pre></td></tr></table></figure>
+<h2 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug (dev)&gt; ar t libmysqlclient.a client.c.o</span><br><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug (dev)&gt; ar x libmysqlclient.a client.c.o</span><br><span class="line">[I] wallace@centos:/m/s/W/p/B/p/B/t/m/lib64_debug (dev)&gt; file client.c.o</span><br><span class="line">client.c.o: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://unix.stackexchange.com/questions/2969/what-are-stripped-and-not-stripped-executables-in-unix" target="_blank" rel="external">http://unix.stackexchange.com/questions/2969/what-are-stripped-and-not-stripped-executables-in-unix</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/01/判断库是否带有调试信息/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-08-31 </div>
 			<div class="article-title"><a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" >hash为什么最好使用素数来作为桶大小</a></div>						
 		</h3>
@@ -564,35 +592,6 @@ git reset --hard origin/master
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-28 </div>
-			<div class="article-title"><a href="/2016/05/28/C++-pointer-to-char/" >C++-pointer-to-char</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="两层含义"><a href="#两层含义" class="headerlink" title="两层含义"></a>两层含义</h1><ul>
-<li><p>C风格字符串(<code>\0</code>结尾)，当使用这种语义时，只需传入该值即可。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_as_string</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s)</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字节数组(内容中可能包含<code>\0</code>)，当使用此种语义时，还需传入长度</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_as_hex</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s, size_t len)</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/05/28/C++-pointer-to-char/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -898,45 +897,45 @@ git reset --hard origin/master
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
+		
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+		
+			<li><a href="/tags/search/">search<span>1</span></a></li>
+		
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+		
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+		
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
+		
+			<li><a href="/tags/char/">char<span>2</span></a></li>
+		
+			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+		
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
+		
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+		
+			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+		
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+		
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+		
 			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
 		
-			<li><a href="/tags/参数/">参数<span>1</span></a></li>
+			<li><a href="/tags/size/">size<span>1</span></a></li>
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/素数/">素数<span>1</span></a></li>
 		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
 		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
-		
-			<li><a href="/tags/main/">__main__<span>1</span></a></li>
-		
-			<li><a href="/tags/目录/">目录<span>3</span></a></li>
-		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
-		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
-		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
-		
-			<li><a href="/tags/delete/">delete<span>2</span></a></li>
-		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
-		
-			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
-		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
-		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
-		
-			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
-		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
-		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
-		
-			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -952,6 +951,10 @@ git reset --hard origin/master
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
       </li>
     
@@ -965,10 +968,6 @@ git reset --hard origin/master
     
       <li>
         <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/markdown-resume/" ><i class="fa fa-file-o"></i>markdown-resume</a>
       </li>
     
   </ul>

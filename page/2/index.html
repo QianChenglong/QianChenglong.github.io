@@ -111,6 +111,48 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-09-29 </div>
+			<div class="article-title"><a href="/2016/09/29/crond/" >crond</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="配置语法"><a href="#配置语法" class="headerlink" title="配置语法"></a>配置语法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Example of job definition:</span><br><span class="line"># .---------------- minute (0 - 59)</span><br><span class="line"># |  .------------- hour (0 - 23)</span><br><span class="line"># |  |  .---------- day of month (1 - 31)</span><br><span class="line"># |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...</span><br><span class="line"># |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7)</span><br><span class="line"># |  |  |  |  |</span><br><span class="line"># *  *  *  *  *   command to be executed</span><br></pre></td></tr></table></figure>
+<p>| 特殊字符 | 代表意义                                                                |<br>|———-+————————————————————————-|<br>| <code>*</code>      | 代表任何时刻都接受的意思!                                               |<br>| <code>,</code>      | 0 3,6 <em> </em> <em> command代表几个时段的意思。这个例子就是3:00和6:00           |<br>| <code>-</code>      | 代表一段时间范围内,与逗号一样，只不过是连续的几个点，是’，’的特殊情况   |<br>| `</em>/n`    | <em>/5 </em> <em> </em> <em> command那个n代表数字,亦即是每隔n单位间隔，该位要用’</em>‘先填补 |</p>
+<p>特殊时间控制：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@reboot &lt;COMMAND&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>周与日和月不能同时存在，因为两个点指向的天不一定是同一天，指定了周，日和月都要置成<em>，指定了月或日，周就要置成</em>；</p>
+</li>
+<li><p><code>%</code>需要转义，默认用来表示后续字符作为命令的标准输入！</p>
+<p><code>date --date=&#39;-1 day&#39; +&quot;\%Y-\%m-\%d&quot;</code></p>
+</li>
+<li><p>指定shell</p>
+<pre><code>SHELL=/bin/bash
+</code></pre></li>
+<li><p>命令中不能使用<code>sudo</code>，除非修改<code>/etc/sudoers</code>中配置<code>Defaults requiretty</code>=&gt;<code>Defaults !requiretty</code></p>
+</li>
+</ul>
+<h1 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h1><ul>
+<li><p>重定向标准输出和出错到文件</p>
+<pre><code>* * * * * &lt;COMMAND&gt; &gt;&gt;/tmp/crond.log 2&gt;&amp;1
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/09/29/crond/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-09-27 </div>
 			<div class="article-title"><a href="/2016/09/27/vim-gocode/" >vim-gocode</a></div>						
 		</h3>
@@ -441,32 +483,6 @@ chmod 666 /var/log/mysql/mysql.log
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-02 </div>
-			<div class="article-title"><a href="/2016/09/02/gcc-生成可以宏调试信息/" >gcc-生成可以宏调试信息</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Author: QianChenglong &lt;qian_cheng_long@163.com&gt;</span></span><br><span class="line"><span class="comment">// Create: 2016-09-01 17:51:59</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STR <span class="string">"Hello world!\n"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; STR;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">gcc main.cpp -ggdb3</span><br><span class="line">gdb a.out</span><br><span class="line">(gdb) list</span><br><span class="line">1   // Author: QianChenglong &lt;qian_cheng_long@163.com&gt;</span><br><span class="line">2   // Create: 2016-09-01 17:51:59</span><br><span class="line">3   </span><br><span class="line">4   <span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line">5   </span><br><span class="line">6   <span class="comment">#define STR "Hello world!\n"</span></span><br><span class="line">7   </span><br><span class="line">8   int main(int argc, char* argv[])</span><br><span class="line">9   &#123;</span><br><span class="line">10      std::cout &lt;&lt; STR;</span><br><span class="line">(gdb) <span class="built_in">print</span> STR</span><br><span class="line"><span class="variable">$1</span> = <span class="string">"Hello world!\n"</span></span><br><span class="line">(gdb) macro expand STR</span><br><span class="line">expands to: <span class="string">"Hello world!\n"</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://gcc.gnu.org/onlinedocs/gcc-6.2.0/gcc/Debugging-Options.html#Debugging-Options" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/gcc-6.2.0/gcc/Debugging-Options.html#Debugging-Options</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/02/gcc-生成可以宏调试信息/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -772,45 +788,45 @@ chmod 666 /var/log/mysql/mysql.log
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/主键/">主键<span>1</span></a></li>
+			<li><a href="/tags/variable/">variable<span>1</span></a></li>
 		
-			<li><a href="/tags/flag/">flag<span>1</span></a></li>
+			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+		
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
+		
+			<li><a href="/tags/git/">git<span>7</span></a></li>
+		
+			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
+		
+			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+		
+			<li><a href="/tags/exit/">exit<span>1</span></a></li>
 		
 			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
-			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
 		
-			<li><a href="/tags/资源/">资源<span>2</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
 		
-			<li><a href="/tags/编程/">编程<span>5</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/samba/">samba<span>3</span></a></li>
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
+			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
 		
-			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
+			<li><a href="/tags/package/">package<span>4</span></a></li>
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
 		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
-		
-			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
-		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
-		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
-		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
-		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -826,6 +842,10 @@ chmod 666 /var/log/mysql/mysql.log
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
       </li>
     
@@ -839,10 +859,6 @@ chmod 666 /var/log/mysql/mysql.log
     
       <li>
         <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/STL容器比较/" ><i class="fa fa-file-o"></i>STL容器比较</a>
       </li>
     
   </ul>

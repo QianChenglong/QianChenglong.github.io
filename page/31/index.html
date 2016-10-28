@@ -111,6 +111,132 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-08 </div>
+			<div class="article-title"><a href="/2015/06/08/mysql使用memcached缓存/" >mysql使用memcached缓存</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>授权memcached访问权限</p>
+<pre><code>grant select on stock_app.* to memcache@&quot;%&quot; identified by &quot;12345&quot;;
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/08/mysql使用memcached缓存/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-08 </div>
+			<div class="article-title"><a href="/2015/06/08/C++编程经验/" >C++编程经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>注释采用<code>//</code>风格</p>
+<ul>
+<li>多行注释时，方便取消局部行</li>
+<li>方便diff</li>
+<li>grep等替换时，方便确认是否需要注释</li>
+</ul>
+</li>
+<li><p>变量声明，尽量一次一个</p>
+<ul>
+<li>方便diff</li>
+<li>方便注释</li>
+</ul>
+</li>
+<li><p>函数参数大于3个时，逗号号换行</p>
+<ul>
+<li>方便diff</li>
+<li>方便调整参数(增，减，顺序)</li>
+</ul>
+</li>
+<li><p>类初始化列表，一行一个</p>
+<ul>
+<li>方便diff</li>
+</ul>
+</li>
+<li><p>禁用<code>strcpy</code>类似不带指定缓冲区大小的，使用<code>strncpy</code>这类！</p>
+<ul>
+<li>清楚地知道操作内存范围，防止越界！！！</li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/08/C++编程经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-08 </div>
+			<div class="article-title"><a href="/2015/06/08/C++-构造函数/" >C++-构造函数</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="职责"><a href="#职责" class="headerlink" title="职责"></a>职责</h1><ul>
+<li>对所有的类成员变量进行初始化, 让对象构造后处于一个可用的状态(Good State)</li>
+</ul>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>若在构造函数中抛出异常，则析构函数不被执行，因为该对象没有完全构建，会导致delete无效指针</p>
+</li>
+<li><p>构造函数抛出异常时，本应该在析构函数中被delete的对象没有被delete，会导致内存泄露</p>
+</li>
+</ul>
+<h1 id="按功能分类"><a href="#按功能分类" class="headerlink" title="按功能分类"></a>按功能分类</h1><h2 id="默认构造函数"><a href="#默认构造函数" class="headerlink" title="默认构造函数"></a>默认构造函数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T(); <span class="comment">// 没有参数</span></span><br><span class="line">T(<span class="keyword">int</span> i=<span class="number">0</span>); <span class="comment">// 参数有默认值</span></span><br></pre></td></tr></table></figure>
+<p>无需参数的构造函数，提供一种无需参数就可初始化的能力</p>
+<h2 id="转换构造函数"><a href="#转换构造函数" class="headerlink" title="转换构造函数"></a>转换构造函数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T(...)</span><br></pre></td></tr></table></figure>
+<p>除默认构造函数外，没有<code>explicit</code>修饰的构造函数</p>
+<p>提供其他数据类型向该类型<strong>隐式转换(implicit conversion)</strong>的能力</p>
+<p>此类构造函数，在复制初始化(copy initialization)中会被编译器考虑选用</p>
+<h3 id="复制构造函数"><a href="#复制构造函数" class="headerlink" title="复制构造函数"></a>复制构造函数</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">T(<span class="keyword">const</span> T &amp;t);</span><br><span class="line">T(T t);</span><br><span class="line">T(T t, <span class="keyword">int</span> i=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>从一个本类型值构造出新对象，提供pass by value能力</p>
+<h3 id="移动构造函数"><a href="#移动构造函数" class="headerlink" title="移动构造函数"></a>移动构造函数</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T([<span class="keyword">const</span>|<span class="keyword">volatile</span>]T &amp;&amp;t);</span><br></pre></td></tr></table></figure>
+<p>从一个本类型值快速构造出新对象，提供了move语义</p>
+<h2 id="显式构造函数"><a href="#显式构造函数" class="headerlink" title="显式构造函数"></a>显式构造函数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">explicit</span> <span class="title">T</span><span class="params">(...)</span></span></span><br></pre></td></tr></table></figure>
+<p>除默认构造函数外，<code>explicit</code>修饰的构造函数</p>
+<p>提供其他数据类型向该类型<strong>显式转换(explicit conversion)</strong>的能力</p>
+<p>此类构造数据，在<strong>直接初始化(direct initialization)</strong>或<strong>显式转换(<code>static_cast</code>等)</strong>中会被编译器考虑选用，复制初始化不能使用此类函数</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://en.cppreference.com/w/cpp/language/converting_constructor" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/converting_constructor</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/move_constructor" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/move_constructor</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/08/C++-构造函数/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-06 </div>
 			<div class="article-title"><a href="/2015/06/06/搭建git服务器/" >搭建git服务器</a></div>						
 		</h3>
@@ -395,103 +521,6 @@ firewall-cmd --reload
 	
 	</div>
   <a type="button" href="/2015/06/05/mysql-远程连接/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-03 </div>
-			<div class="article-title"><a href="/2015/06/03/rsync常见错误/" >rsync常见错误</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li></li>
-</ol>
-<p>错误信息</p>
-<pre><code>@ERROR: chroot failed
-rsync error: error starting client-server protocol (code 5) at main.c(1635) [Receiver=3.1.1]
-</code></pre><p>原因：</p>
-<pre><code>rsyncd.conf中的path路径所设的那个目录并不存在所致.
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/06/03/rsync常见错误/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-03 </div>
-			<div class="article-title"><a href="/2015/06/03/ubuntu-配置rsync/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>apt-get intall rsync</p>
-</li>
-<li><p>vi /etc/rsyncd.conf</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#motd file = /etc/rsyncd.motd</span><br><span class="line">log file = /var/log/rsyncd.log</span><br><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line"></span><br><span class="line">[server]</span><br><span class="line">   path = /home/wallace/server</span><br><span class="line">   comment = gupiaoxianji server code</span><br><span class="line">   uid = wallace</span><br><span class="line">   gid = wallace</span><br><span class="line">   read only = no</span><br><span class="line">   list = yes</span><br><span class="line">   #hosts allow = 10.0.0.1/0</span><br><span class="line">   auth users = wallace</span><br><span class="line">   secrets file = /etc/rsyncd.scrt</span><br><span class="line">   strict modes = false</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>vi /etc/rsyncd.scrt</p>
-<pre><code>wallace:wallacework
-</code></pre></li>
-<li><p>vi /etc/default/rsync</p>
-<pre><code>RSYNC_ENABLE=true
-</code></pre></li>
-<li><p>/etc/init.d/rsync restart</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://ubuntuforums.org/showthread.php?t=1252720" target="_blank" rel="external">http://ubuntuforums.org/showthread.php?t=1252720</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/03/ubuntu-配置rsync/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-02 </div>
-			<div class="article-title"><a href="/2015/06/02/前向引用/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>在C++中，是指在一个类定义中，成员函数引用成员变量的位置先于成员变量定义的位置。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> C &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">mutator</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; myValue = x; &#125;</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">accessor</span><span class="params">()</span> </span>&#123; return myValue; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">   <span class="keyword">int</span> myValue;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>允许前向引用大大增加了编译器的复杂度与内存需求，并且使它不能成为一次通过型的编译器。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://zh.wikipedia.org/wiki/%E5%89%8D%E5%90%91%E5%A3%B0%E6%98%8E" target="_blank" rel="external">维基-前向声明</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/02/前向引用/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -800,45 +829,45 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
 		
-			<li><a href="/tags/poll/">poll<span>1</span></a></li>
+			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
 		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
 		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
 		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
+			<li><a href="/tags/函数/">函数<span>2</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
 		
-			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
+			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
 		
-			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
+			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
 		
-			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
+			<li><a href="/tags/事务/">事务<span>1</span></a></li>
 		
-			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
+			<li><a href="/tags/C/">C<span>14</span></a></li>
 		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/父类/">父类<span>2</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/variable/">variable<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -854,23 +883,23 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

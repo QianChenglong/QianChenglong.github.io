@@ -111,6 +111,106 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-07 </div>
+			<div class="article-title"><a href="/2015/03/07/python-开发工具列表/" >python-开发工具列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="http://www.py2exe.org/" target="_blank" rel="external">py2exe</a></p>
+<p>将python脚本编译为windows可执行程序</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/07/python-开发工具列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-06 </div>
+			<div class="article-title"><a href="/2015/03/06/ubuntu-设置时区/" >ubuntu-设置时区</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>sudo dpkg-reconfigure tzdata
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.christopherirish.com/2012/03/21/how-to-set-the-timezone-on-ubuntu-server/" target="_blank" rel="external">http://www.christopherirish.com/2012/03/21/how-to-set-the-timezone-on-ubuntu-server/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/06/ubuntu-设置时区/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-06 </div>
+			<div class="article-title"><a href="/2015/03/06/ubuntu-部署shadowsocks/" >ubuntu-部署shadowsocks</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
+<li><p>安装pip</p>
+<pre><code>apt-get install python-gevent python-pip
+</code></pre></li>
+<li><p>安装shadowsocks</p>
+<pre><code>pip install shadowsocks
+</code></pre></li>
+<li><p>创建<code>/etc/shadowsocks/config.json</code></p>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">“server”:“my_server_ip”,</span><br><span class="line"></span><br><span class="line">“server_port”:8388,</span><br><span class="line"></span><br><span class="line">“local_port”:1080,</span><br><span class="line"></span><br><span class="line">“password”:“password”,</span><br><span class="line"></span><br><span class="line">“timeout”:600,</span><br><span class="line"></span><br><span class="line">“method”:“table”</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>启动server</p>
+<ul>
+<li><p>前端运行</p>
+<p>/usr/local/bin/ssserver -c /etc/shadowsocks.json</p>
+</li>
+<li><p>daemon</p>
+<p>/usr/local/bin/ssserver -c /etc/shadowsocks.json -d start</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><p><a href="https://github.com/clowwindy/shadowsocks/wiki/Ports-and-Clients" target="_blank" rel="external">下载地址</a></p>
+<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://felixqu.com/2014/06/23/setup-shadowsocks-on-ubuntu/" target="_blank" rel="external">http://felixqu.com/2014/06/23/setup-shadowsocks-on-ubuntu/</a></li>
+<li><a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/06/ubuntu-部署shadowsocks/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-06 </div>
 			<div class="article-title"><a href="/2015/03/06/VPN常见错误代码/" >VPN常见错误代码</a></div>						
 		</h3>
@@ -434,92 +534,6 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-02 </div>
-			<div class="article-title"><a href="/2015/03/02/windows-UNICODE和_UNICODE作用/" >windows-UNICODE和_UNICODE作用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="共性"><a href="#共性" class="headerlink" title="共性"></a>共性</h1><p>这两个宏都是为了控制API是使用UNICODE版还是ANSI版。</p>
-<ul>
-<li><p>若定义了，则相关的API为<code>*W</code>版本(UNICODE版)，如<code>GetWindowTextW</code></p>
-</li>
-<li><p>若未定义，则相关的API为<code>*A</code>版本(ANSI版)，如<code>GetWindowTextA</code></p>
-</li>
-</ul>
-<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ul>
-<li><p><code>UNICODE</code>宏影响windows API</p>
-</li>
-<li><p><code>_UNICODE</code>宏影响C运行库以及MFC，作用与<code>UNICODE</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blogs.msdn.com/b/oldnewthing/archive/2004/02/12/71851.aspx" target="_blank" rel="external">http://blogs.msdn.com/b/oldnewthing/archive/2004/02/12/71851.aspx</a></li>
-<li><a href="http://www.cnblogs.com/ini_always/archive/2011/05/20/2050517.html" target="_blank" rel="external">http://www.cnblogs.com/ini_always/archive/2011/05/20/2050517.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/02/windows-UNICODE和_UNICODE作用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-02 </div>
-			<div class="article-title"><a href="/2015/03/02/windows-WSA是什么意思/" >windows-WSA是什么意思</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<blockquote>
-<p>Windows Sockets API</p>
-</blockquote>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.acronymfinder.com/Windows-Sockets-API-(aka-Winsock-Application)-(WSA).html" target="_blank" rel="external">http://www.acronymfinder.com/Windows-Sockets-API-(aka-Winsock-Application)-(WSA).html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/02/windows-WSA是什么意思/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-28 </div>
-			<div class="article-title"><a href="/2015/02/28/C-locale作用/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		
-	
-	</div>
-  <a type="button" href="/2015/02/28/C-locale作用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -825,45 +839,45 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
 		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
+			<li><a href="/tags/左值/">左值<span>1</span></a></li>
 		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
-			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+			<li><a href="/tags/text/">text<span>1</span></a></li>
 		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
 		
-			<li><a href="/tags/库/">库<span>2</span></a></li>
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
 		
-			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+			<li><a href="/tags/read/">read<span>1</span></a></li>
 		
-			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
 		
-			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
+			<li><a href="/tags/len/">len()<span>1</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
+			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
 		
-			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+			<li><a href="/tags/exit/">exit<span>1</span></a></li>
 		
-			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
+			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -879,23 +893,23 @@ iptables -A FORWARD -s 10.11.1.0/24 -j ACCEPT     #同上
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

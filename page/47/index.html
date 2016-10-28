@@ -111,6 +111,95 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/路由器DHCP差异/" >路由器DHCP差异</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="Netcore-NW710"><a href="#Netcore-NW710" class="headerlink" title="Netcore-NW710"></a>Netcore-NW710</h1><ul>
+<li>DHCP不能设置DNS服务器，默认DNS为自身</li>
+</ul>
+<h1 id="TP-LINK-WR941N"><a href="#TP-LINK-WR941N" class="headerlink" title="TP-LINK-WR941N"></a>TP-LINK-WR941N</h1><ul>
+<li>DHCP可以设置DNS服务器，在应答discovery时，回应相应设置的IP</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/路由器DHCP差异/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/libnet_init/" >libnet_init</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">libnet_t</span>* libnet_init(<span class="keyword">int</span> injection_type, <span class="keyword">char</span>*  device, <span class="keyword">char</span>*  err_buf)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>device</p>
+<ul>
+<li><p>windows</p>
+<ul>
+<li>winpcap设备名，类似<code>\Device\NPF_{2A7DEE95-B437-444C-BB09-85E4EAD5E61C}</code></li>
+<li>前缀一致<code>\Device\NPF_</code>，后面的UUID可以通过<code>getmac /v</code>查看</li>
+</ul>
+</li>
+</ul>
+<p><em>参考:</em></p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/17400903/libnet-device-network-interface-command-line-argument" target="_blank" rel="external">http://stackoverflow.com/questions/17400903/libnet-device-network-interface-command-line-argument</a></li>
+</ol>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/libnet_init/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-06 </div>
+			<div class="article-title"><a href="/2015/02/06/优秀app列表/" >优秀app列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><a href="http://www.appsapk.com/network-info/" target="_blank" rel="external">Network Info II</a></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/06/优秀app列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-05 </div>
 			<div class="article-title"><a href="/2015/02/05/ioctl/" >ioctl</a></div>						
 		</h3>
@@ -377,137 +466,6 @@
 	
 	</div>
   <a type="button" href="/2015/02/04/linux优秀书籍列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-04 </div>
-			<div class="article-title"><a href="/2015/02/04/BSD-tcp-ip头文件组织/" >BSD-tcp-ip头文件组织</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 头文件           | 作用                                             |<br>|——————+————————————————–|<br>| <code>&lt;sys/socket.h&gt;</code> | 核心socket API和数据结构                         |<br>| <code>&lt;netinet/in.h&gt;</code> | IPv4，IPv6等相关协议族地址结构定义，常用端口定义 |<br>| <code>&lt;arpa/inet.h&gt;</code>  | IP地址操作                                       |<br>| <code>&lt;netdb.h&gt;</code>      | 网络数据库查询，如主机名，服务等                 |</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://en.wikipedia.org/wiki/Berkeley_sockets#Header_files" target="_blank" rel="external">http://en.wikipedia.org/wiki/Berkeley_sockets#Header_files</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/04/BSD-tcp-ip头文件组织/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/grep/" >grep</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>-C num</p>
-<p>指定上下文行数</p>
-</li>
-<li><p>-B NUM, –before-context=NUM</p>
-<p>指定上文行数</p>
-</li>
-<li><p>-A NUM, –after-context=NUM</p>
-<p>指定下文行数</p>
-</li>
-<li><p>-m NUM, –max-count=NUM</p>
-<p>指定最大匹配数量</p>
-</li>
-<li><p>-n, –line-number</p>
-<p>显示行号</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/03/grep/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/linux-socket寻址/" >linux-socket寻址</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li><p>ubuntu-14.04</p>
-</li>
-<li><p>glic-2.19</p>
-</li>
-<li><p>工作目录：<code>/usr/include</code></p>
-</li>
-</ul>
-<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="struct-sockaddr"><a href="#struct-sockaddr" class="headerlink" title="struct sockaddr"></a><code>struct sockaddr</code></h2><p><code>socket</code>API接口，无关具体地址族，协议。</p>
-<h3 id="定义位置"><a href="#定义位置" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>x86_64-linux-gnu/sys/socket.h</code> =&gt; <code>x86_64-linux-gnu/bits/socket.h</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Structure describing a generic socket address.  */</span></span><br><span class="line"><span class="keyword">struct</span> sockaddr</span><br><span class="line">  &#123;</span><br><span class="line">    __SOCKADDR_COMMON (sa_);    <span class="comment">/* Common data: address family and length.  */</span></span><br><span class="line">    <span class="keyword">char</span> sa_data[<span class="number">14</span>];       <span class="comment">/* Address data.  */</span></span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>Note:</strong></p>
-<ul>
-<li><code>=&gt;</code>表示包含</li>
-</ul>
-<h2 id="strcut-sockaddr-in"><a href="#strcut-sockaddr-in" class="headerlink" title="strcut sockaddr_in"></a><code>strcut sockaddr_in</code></h2><p>具体类型数据结构，用来操作地址族，IP，端口。</p>
-<h3 id="定义位置-1"><a href="#定义位置-1" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>netinet/in.h</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Structure describing an Internet socket address.  */</span></span><br><span class="line"><span class="keyword">struct</span> sockaddr_in</span><br><span class="line">  &#123;</span><br><span class="line">    __SOCKADDR_COMMON (sin_);</span><br><span class="line">    <span class="keyword">in_port_t</span> sin_port;         <span class="comment">/* Port number.  */</span></span><br><span class="line">    <span class="keyword">struct</span> in_addr sin_addr;        <span class="comment">/* Internet address.  */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Pad to size of `struct sockaddr'.  */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> sin_zero[<span class="keyword">sizeof</span> (<span class="keyword">struct</span> sockaddr) -</span><br><span class="line">               __SOCKADDR_COMMON_SIZE -</span><br><span class="line">               <span class="keyword">sizeof</span> (<span class="keyword">in_port_t</span>) -</span><br><span class="line">               <span class="keyword">sizeof</span> (<span class="keyword">struct</span> in_addr)];</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="struct-in-addr"><a href="#struct-in-addr" class="headerlink" title="struct in_addr"></a><code>struct in_addr</code></h2><p>定义IP</p>
-<h3 id="定义位置-2"><a href="#定义位置-2" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>netinet/in.h</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Internet address.  */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">uint32_t</span> <span class="keyword">in_addr_t</span>;</span><br><span class="line"><span class="keyword">struct</span> in_addr</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">in_addr_t</span> s_addr;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h1><p><code>in_addr</code> =&gt; <code>sockaddr_in</code> =&gt; <code>sockaddr</code></p>
-<p><strong>Note</strong>:</p>
-<ul>
-<li><code>=&gt;</code>表示构成</li>
-</ul>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="socket地址结构传递方向"><a href="#socket地址结构传递方向" class="headerlink" title="socket地址结构传递方向"></a>socket地址结构传递方向</h2><ul>
-<li><p>从进程到内核</p>
-<p>需要传入参数(套接字地址大小，告诉内核需要复制多少字节)</p>
-<ul>
-<li>bind</li>
-<li>connect</li>
-<li>sendto</li>
-<li>sendmsg</li>
-</ul>
-</li>
-<li><p>从内核到进程</p>
-<p>需要传入传出参数(套接字地址大小，告诉内核需要复制多少字节，以及反馈进程，返回的地址结构大小)</p>
-<ul>
-<li>accept</li>
-<li>recvfrom</li>
-<li>recvmsg</li>
-<li>getpeername</li>
-<li>getsockname</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/03/linux-socket寻址/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -816,45 +774,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+			<li><a href="/tags/template/">template<span>2</span></a></li>
 		
-			<li><a href="/tags/import/">import<span>3</span></a></li>
+			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/语句/">语句<span>1</span></a></li>
 		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/vps/">vps<span>1</span></a></li>
+			<li><a href="/tags/左值/">左值<span>1</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/命令/">命令<span>5</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
 		
-			<li><a href="/tags/c/">c++<span>8</span></a></li>
+			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
 		
-			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
-			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
+			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
 		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
+			<li><a href="/tags/file/">file<span>1</span></a></li>
 		
-			<li><a href="/tags/grep/">grep<span>1</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
 		
-			<li><a href="/tags/resume/">resume<span>1</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/run/">run<span>1</span></a></li>
 		
-			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
+			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
 		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
+			<li><a href="/tags/使用/">使用<span>1</span></a></li>
 		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>6</span></a></li>
 		
-			<li><a href="/tags/resize/">resize<span>1</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -870,23 +828,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

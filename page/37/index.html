@@ -111,6 +111,104 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-04-01 </div>
+			<div class="article-title"><a href="/2015/04/01/CGI环境变量列表/" >CGI环境变量列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 键                | 值                                                 |<br>|——————-+—————————————————-|<br>| DOCUMENT_ROOT     | http服务器根目录                                   |<br>| GATEWAY_INTERFACE | CGI版本                                            |<br>| HTTP_COOKIE       | COOKIE值(若存在的话)                               |<br>| HTTP_HOST         | 尝试获取的页面所在服务器的主机名                   |<br>| HTTP_USER_AGENT   | 客户端代理类型(浏览器类型)                         |<br>| QUERY_STRING      | GET请求中的查询字符串                              |<br>| REMOTE_ADDR       | 客户端IP                                           |<br>| REMOTE_HOST       | 客户端主机名(需要开启reverse-name-lookup)          |<br>| REMOTE_PORT       | 客户端连接服务器的端口                             |<br>| REQUEST_METHOD    | 请求方法(GET，POST)                                |<br>| REQUEST_URI       | URL中去除主机名的部分(相对于服务器的document root) |<br>| SCRIPT_FILENAME   | 访问资源在服务器中的完全路径名                     |<br>| SCRIPT_NAME       | 访问资源的路径,URL中的路径部分                     |<br>| SERVER_ADDR       | 服务器IP                                           |<br>| SERVER_ADMIN      | 服务器管理员邮箱                                   |<br>| SERVER_NAME       | 服务器域名                                         |<br>| SERVER_PORT       | 服务器监听端口                                     |<br>| SERVER_PROTOCOL   | 服务器http协议版本                                 |<br>| SERVER_SOFTWARE   | 服务器软件名称                                     |</p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/cgi-bin/debug/print_all?a</span><br><span class="line"></span><br><span class="line">Environment</span><br><span class="line">COMSPEC: C:\Windows\system32\cmd.exe</span><br><span class="line">DOCUMENT_ROOT: E:/Work/Project/WifiClient/branches/br_ZSAC_v1.0.11_r565/src/httpd/www</span><br><span class="line">GATEWAY_INTERFACE: CGI/1.1</span><br><span class="line">HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</span><br><span class="line">HTTP_ACCEPT_ENCODING: gzip, deflate, sdch</span><br><span class="line">HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4</span><br><span class="line">HTTP_CONNECTION: keep-alive</span><br><span class="line">HTTP_COOKIE: CNZZDATA1253757582=110588724-1425953082-%7C1427333981</span><br><span class="line">HTTP_DNT: 1</span><br><span class="line">HTTP_HOST: localhost</span><br><span class="line">HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36</span><br><span class="line">PATH: C:\Program Files (x86)\Microsoft Visual Studio 10.0\VSTSDB\Deploy;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\BIN;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Tools;C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\Windows\Microsoft.NET\Framework\v3.5;C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\VCPackages;C:\Program Files (x86)\HTML Help Workshop;C:\Program Files (x86)\HTML Help Workshop;C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\NETFX 4.0 Tools;C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;d:\Program Files (x86)\Git\cmd;E:\OS\Windows\lnk;E:\OS\Windows\bin;E:\Work\bin;E:\Soft\pandoc\bin\pandoc-1.12.4;D:\Program Files (x86)\Git\bin\;E:\Soft\cmake\bin\cmake-3.1.0-rc2-win32-x86\bin;E:\Soft\Doxygen\bin\doxygen-1.8.7\bin;E:\Soft\GraphViz\bin\graphviz-2.39.20140813\bin;C:\Python27-32\Scripts;E:\Soft\MinGW\bin\MinGW-w64-builds\x64-4.8.1-posix-seh-rev5\mingw64\bin;C:\Python27-32</span><br><span class="line">PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.py;.lnk</span><br><span class="line">QUERY_STRING: a</span><br><span class="line">REMOTE_ADDR: 127.0.0.1</span><br><span class="line">REMOTE_PORT: 50252</span><br><span class="line">REQUEST_METHOD: GET</span><br><span class="line">REQUEST_URI: /cgi-bin/debug/print_all?a</span><br><span class="line">SCRIPT_FILENAME: E:/Work/Project/WifiClient/branches/br_ZSAC_v1.0.11_r565/src/httpd/cgi-bin/debug/print_all</span><br><span class="line">SCRIPT_NAME: /cgi-bin/debug/print_all</span><br><span class="line">SERVER_ADDR: 127.0.0.1</span><br><span class="line">SERVER_ADMIN: [no address given]</span><br><span class="line">SERVER_NAME: localhost</span><br><span class="line">SERVER_PORT: 80</span><br><span class="line">SERVER_PROTOCOL: HTTP/1.1</span><br><span class="line">SERVER_SIGNATURE: </span><br><span class="line">SERVER_SOFTWARE: Apache/2.2.25 (Win32)</span><br><span class="line">SYSTEMROOT: C:\Windows</span><br><span class="line">WINDIR: C:\Windows</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.cgi101.com/book/ch3/text.html" target="_blank" rel="external">http://www.cgi101.com/book/ch3/text.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/01/CGI环境变量列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-31 </div>
+			<div class="article-title"><a href="/2015/03/31/python-from import VS import/" >python-from import VS import</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="from-A-B-C-import-D"><a href="#from-A-B-C-import-D" class="headerlink" title="from A.B.C import D"></a>from A.B.C import D</h1><ul>
+<li><p>C之前的名字必须是包名</p>
+</li>
+<li><p>C必须是模块名</p>
+<p>不能是已定义的名字(变量，函数，类)，如果这样的话，D没有意义</p>
+</li>
+<li><p>D名字导入进来，可以直接使用<code>D.name</code>访问</p>
+</li>
+</ul>
+<h1 id="import-A-B"><a href="#import-A-B" class="headerlink" title="import A.B"></a>import A.B</h1><ul>
+<li><p>最后部分可以是包名，模块名，已定义名字</p>
+</li>
+<li><p>需要使用<code>A.B.name</code>访问</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/2/tutorial/modules.html#packages" target="_blank" rel="external">https://docs.python.org/2/tutorial/modules.html#packages</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/31/python-from import VS import/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-31 </div>
+			<div class="article-title"><a href="/2015/03/31/python-包/" >python-包</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>包是一种模块命名空间的组织方法，使用<code>package.module</code>方式来访问模块，用来避免模块名冲突</p>
+</li>
+<li><p>python语法上，包是带有<code>__init__.py</code>的目录</p>
+</li>
+<li><p>使用<code>from package import item</code>导入</p>
+<p><code>item</code>可以是已定义的名字，子模块或子包</p>
+</li>
+</ul>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/2/tutorial/modules.html#packages" target="_blank" rel="external">https://docs.python.org/2/tutorial/modules.html#packages</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/31/python-包/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-31 </div>
 			<div class="article-title"><a href="/2015/03/31/python-模块/" >python-模块</a></div>						
 		</h3>
@@ -341,83 +439,6 @@ func
 	
 	</div>
   <a type="button" href="/2015/03/30/C++-第三方库列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-30 </div>
-			<div class="article-title"><a href="/2015/03/30/hexo-google站长工具验证/" >hexo-google站长工具验证</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="HTML标记方法"><a href="#HTML标记方法" class="headerlink" title="HTML标记方法"></a><code>HTML标记</code>方法</h1><ul>
-<li>选择备用方法</li>
-</ul>
-<p><img src="/img/hexo-google站长工具验证-01.png" alt=""></p>
-<ul>
-<li>将代码复制到对应主题的<code>head.ejs</code></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/30/hexo-google站长工具验证/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-27 </div>
-			<div class="article-title"><a href="/2015/03/27/网络设备登录信息列表/" >网络设备登录信息列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 设备名               | IP            | 账号  | 密码  |<br>|———————-+—————+——-+——-|<br>| H3C Switch S2610-PWR | 192.168.0.234 | admin | admin |<br>| TL AC1000            | 192.168.1.253 | admin | admin |</p>
-
-	
-	</div>
-  <a type="button" href="/2015/03/27/网络设备登录信息列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-27 </div>
-			<div class="article-title"><a href="/2015/03/27/TP-LINK-AC1000配置/" >TP-LINK-AC1000配置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="登录AC"><a href="#登录AC" class="headerlink" title="登录AC"></a>登录AC</h1><ul>
-<li><p>AC默认IP(192.168.1.253:24)</p>
-</li>
-<li><p>PC设置静态同网段IP(网关不用设置，因为属于同网段，无需网关转发)</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/27/TP-LINK-AC1000配置/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -726,45 +747,45 @@ func
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/列表/">列表<span>7</span></a></li>
+			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
 		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
-		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
-		
-			<li><a href="/tags/散列/">散列<span>1</span></a></li>
-		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
-		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
-		
-			<li><a href="/tags/dll/">dll<span>1</span></a></li>
-		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
-		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
-		
-			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
-		
-			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
-		
-			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
-		
-			<li><a href="/tags/using/">using<span>1</span></a></li>
+			<li><a href="/tags/串口/">串口<span>2</span></a></li>
 		
 			<li><a href="/tags/STL/">STL<span>1</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/链表/">链表<span>1</span></a></li>
 		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
+			<li><a href="/tags/domain/">domain<span>3</span></a></li>
 		
-			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
+			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+		
+			<li><a href="/tags/启动/">启动<span>1</span></a></li>
+		
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+		
+			<li><a href="/tags/find/">find<span>3</span></a></li>
+		
+			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
+		
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+		
+			<li><a href="/tags/od/">od<span>1</span></a></li>
+		
+			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
+		
+			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+		
+			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+		
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+		
+			<li><a href="/tags/memory-manage/">memory manage<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -780,23 +801,23 @@ func
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

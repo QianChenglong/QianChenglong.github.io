@@ -112,6 +112,104 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-16 </div>
+			<div class="article-title"><a href="/2015/01/16/修改网络邻居登录密码/" >修改网络邻居登录密码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="通过【凭据管理器】"><a href="#通过【凭据管理器】" class="headerlink" title="通过【凭据管理器】"></a>通过【凭据管理器】</h2><ul>
+<li><p>[控制面板] =&gt; 【小图标】 =&gt; 凭据管理器</p>
+</li>
+<li><p><code>control userpasswords2</code> =&gt; [高级] =&gt; [管理密码]</p>
+</li>
+<li><p><code>control keymgr.dll</code></p>
+</li>
+</ul>
+<h2 id="通过【命令】"><a href="#通过【命令】" class="headerlink" title="通过【命令】"></a>通过【命令】</h2><ul>
+<li><code>net use \\hostname\IPC$ /delete</code></li>
+</ul>
+<p>注：</p>
+<ol>
+<li><code>hostname</code>为要连接的电脑主机名，也可以是IP</li>
+</ol>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>修改后，<strong>注销</strong>生效！</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/16/修改网络邻居登录密码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-16 </div>
+			<div class="article-title"><a href="/2015/01/16/autohotkey-字符串/" >autohotkey-字符串</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="字符串是否为空"><a href="#字符串是否为空" class="headerlink" title="字符串是否为空"></a>字符串是否为空</h1><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (var = <span class="string">""</span>)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h1><ul>
+<li>表达式方法</li>
+</ul>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Var := <span class="string">"The color is "</span> . FoundColor</span><br></pre></td></tr></table></figure>
+<ul>
+<li>传统方法</li>
+</ul>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Var = The color is <span class="variable">%FoundColor%</span></span><br></pre></td></tr></table></figure>
+<p>参考：</p>
+<ol>
+<li><a href="http://www.autohotkey.com/docs/Variables.htm#Operators" target="_blank" rel="external">http://www.autohotkey.com/docs/Variables.htm#Operators</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/16/autohotkey-字符串/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-16 </div>
+			<div class="article-title"><a href="/2015/01/16/python-字符串/" >python-字符串</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="将其他数据类型转换为string"><a href="#将其他数据类型转换为string" class="headerlink" title="将其他数据类型转换为string"></a>将其他数据类型转换为string</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(data)</span><br></pre></td></tr></table></figure>
+<h1 id="重复字符串指定次数"><a href="#重复字符串指定次数" class="headerlink" title="重复字符串指定次数"></a>重复字符串指定次数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">‘abc<span class="string">' * 128</span></span><br></pre></td></tr></table></figure>
+<h1 id="字符串前缀匹配"><a href="#字符串前缀匹配" class="headerlink" title="字符串前缀匹配"></a>字符串前缀匹配</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.beginswith(str)</span><br></pre></td></tr></table></figure>
+<h1 id="字符串后缀匹配"><a href="#字符串后缀匹配" class="headerlink" title="字符串后缀匹配"></a>字符串后缀匹配</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.endswith(str)</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/01/16/python-字符串/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-16 </div>
 			<div class="article-title"><a href="/2015/01/16/python-打印不追加换行/" >python-打印不追加换行</a></div>						
 		</h3>
 	
@@ -302,94 +400,6 @@ sys.stdout.write(&apos;hello world&apos;)
 	
 	</div>
   <a type="button" href="/2015/01/15/vim-查看最后设定/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-15 </div>
-			<div class="article-title"><a href="/2015/01/15/windows-in-out-in-C/" >windows-__in-__out-in-C</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://msdn.microsoft.com/en-us/library/ms235402.aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/ms235402.aspx</a></li>
-<li><a href="http://msdn.microsoft.com/en-us/library/ms182032.aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/ms182032.aspx</a></li>
-<li><a href="http://stackoverflow.com/questions/4239809/what-is-the-purpose-of-in-out-in-opt-allowed-how-do-they-work-should" target="_blank" rel="external">http://stackoverflow.com/questions/4239809/what-is-the-purpose-of-in-out-in-opt-allowed-how-do-they-work-should</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/15/windows-in-out-in-C/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-14 </div>
-			<div class="article-title"><a href="/2015/01/14/wireshark-开启tcp-ip校验码检查/" >wireshark-开启tcp-ip校验码检查</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Edit] =&gt; [Perference] =&gt; [Protocols] =&gt; [IPv4] =&gt; [Validate the IPv4 checksum if possible]</span><br><span class="line">                                      =&gt; [TCP] =&gt; [Validate the IPv4 checksum if possible]</span><br></pre></td></tr></table></figure>
-<p>如图：</p>
-<p><img src="/img/wireshark-开启tcp-ip校验码检查_1.png" alt=""></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://wiki.wireshark.org/TCP_Checksum_Verification" target="_blank" rel="external">http://wiki.wireshark.org/TCP_Checksum_Verification</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/14/wireshark-开启tcp-ip校验码检查/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-09 </div>
-			<div class="article-title"><a href="/2015/01/09/库的错误处理/" >库的错误处理</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>编写库，常见的错误处理方式：</p>
-<ul>
-<li><p>返回一个错误代码，提供一个函数将其转换为字符串</p>
-</li>
-<li><p>返回一个错误数据结构，该结构包括错误代码和描述信息</p>
-</li>
-<li><p>提供一个函数去获取错误代码，并提供一个函数转换为字符串</p>
-</li>
-<li><p>提供一个接口让调用者注册错误处理函数，当发生错误时，进行回调</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/4201856/error-handling-strategies-in-a-shared-library-c" target="_blank" rel="external">http://stackoverflow.com/questions/4201856/error-handling-strategies-in-a-shared-library-c</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/09/库的错误处理/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -698,45 +708,45 @@ sys.stdout.write(&apos;hello world&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/理论/">理论<span>1</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
-			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+			<li><a href="/tags/时间/">时间<span>3</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>40</span></a></li>
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
 		
-			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
+			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
 		
-			<li><a href="/tags/密码/">密码<span>1</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+			<li><a href="/tags/API/">API<span>2</span></a></li>
 		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
 		
-			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/USB/">USB<span>1</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
 		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
 		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
-			<li><a href="/tags/resume/">resume<span>1</span></a></li>
+			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
 		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
+			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/glog/">glog<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -752,23 +762,23 @@ sys.stdout.write(&apos;hello world&apos;)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

@@ -111,6 +111,83 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-30 </div>
+			<div class="article-title"><a href="/2015/03/30/hexo-google站长工具验证/" >hexo-google站长工具验证</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="HTML标记方法"><a href="#HTML标记方法" class="headerlink" title="HTML标记方法"></a><code>HTML标记</code>方法</h1><ul>
+<li>选择备用方法</li>
+</ul>
+<p><img src="/img/hexo-google站长工具验证-01.png" alt=""></p>
+<ul>
+<li>将代码复制到对应主题的<code>head.ejs</code></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/30/hexo-google站长工具验证/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-27 </div>
+			<div class="article-title"><a href="/2015/03/27/网络设备登录信息列表/" >网络设备登录信息列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 设备名               | IP            | 账号  | 密码  |<br>|———————-+—————+——-+——-|<br>| H3C Switch S2610-PWR | 192.168.0.234 | admin | admin |<br>| TL AC1000            | 192.168.1.253 | admin | admin |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/03/27/网络设备登录信息列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-27 </div>
+			<div class="article-title"><a href="/2015/03/27/TP-LINK-AC1000配置/" >TP-LINK-AC1000配置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="登录AC"><a href="#登录AC" class="headerlink" title="登录AC"></a>登录AC</h1><ul>
+<li><p>AC默认IP(192.168.1.253:24)</p>
+</li>
+<li><p>PC设置静态同网段IP(网关不用设置，因为属于同网段，无需网关转发)</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/27/TP-LINK-AC1000配置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-27 </div>
 			<div class="article-title"><a href="/2015/03/27/vim-格式化json/" >vim-格式化json</a></div>						
 		</h3>
@@ -386,131 +463,6 @@
 	
 	</div>
   <a type="button" href="/2015/03/25/cmake-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-24 </div>
-			<div class="article-title"><a href="/2015/03/24/windows-获取当前进程文件名/" >windows-获取当前进程文件名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a><a href="https://github.com/QianChenglong/lily-windows/tree/master/%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%BF%9B%E7%A8%8B%E6%96%87%E4%BB%B6%E5%90%8D" target="_blank" rel="external">源码地址</a></h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms683197(v=vs.85).aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/windows/desktop/ms683197(v=vs.85).aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/24/windows-获取当前进程文件名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-23 </div>
-			<div class="article-title"><a href="/2015/03/23/syslinux-memdisk/" >syslinux-memdisk</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>启动一些软盘镜像，硬盘镜像，ISO镜像。</p>
-<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>memdisk作为<code>kernel</code>，而那些镜像文件作为初始化文件系统(initrd)</p>
-<p>镜像文件(zip或gzip格式)作为<code>INITRD</code>命令的参数传递</p>
-<ul>
-<li><p>命令行方式</p>
-<p>memdisk initrd=hdt.img</p>
-</li>
-<li><p>配置文件方式</p>
-<pre><code># Boot Hardware Detection Tool from floppy image
-LABEL hdt_floppy
-LINUX memdisk
-INITRD hdt.img
-
-# Boot Hardware Detection Tool from iso image (with &apos;iso&apos; parameter)
-LABEL hdt_iso
-LINUX memdisk
-INITRD hdt.iso
-APPEND iso
-
-# Boot DOS from floppy image (with &apos;raw&apos; parameter)
-LABEL dos_floppy_with_raw
-LINUX memdisk
-INITRD dosboot.img
-APPEND raw
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/23/syslinux-memdisk/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-20 </div>
-			<div class="article-title"><a href="/2015/03/20/syslinux/" >syslinux</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="syslinux安装"><a href="#syslinux安装" class="headerlink" title="syslinux安装"></a>syslinux安装</h1><ul>
-<li><p>安装时，会将<code>ldlinux.c32</code>,<code>ldlinux.sys</code>拷贝到安装目录，默认为<code>boot/syslinux/</code>，<br>可以使用<code>--directory  -d  Directory for installation target</code>指定</p>
-<p>syslinux安装的分区上的PBR会根据安装目录查找<code>ldlinux.c32</code>，并将该目录作为根目录</p>
-</li>
-</ul>
-<h1 id="syslinux引导过程"><a href="#syslinux引导过程" class="headerlink" title="syslinux引导过程"></a>syslinux引导过程</h1><ul>
-<li><p>MBR加载活动分区PBR</p>
-</li>
-<li><p>PBR根据安装时指定的安装目录，查找<code>ldlinux.c32</code>，若找不到，则到根目录查找</p>
-</li>
-<li><p>查找读取<code>syslinux.cfg</code></p>
-</li>
-<li><p>进入菜单交互</p>
-</li>
-</ul>
-<h1 id="syslinux文件说明"><a href="#syslinux文件说明" class="headerlink" title="syslinux文件说明"></a>syslinux文件说明</h1><p>| 文件名       | 功能                        | 依赖                     |<br>|————–+—————————–+————————–|<br>| ldlinux.c32  | 查找、解析syslinux.cfg      |                          |<br>| libutil.c32  | 功能库                      |                          |<br>| libcom32.c32 | 核心功能库                  |                          |<br>| vesamenu.c32 | 菜单功能                    | libutil.c32,libcom32.c32 |<br>| splash.jpg   | 图片背景                    |                          |<br>| syslinux.cfg | 启动配置文件                |                          |<br>| chain.c32    | 链式加载                    |                          |<br>| memdisk      | <code>memdisk</code>命令，虚拟内存磁盘 |                          |<br>| hdt.c32      | 硬件检测工具                | libmenu.c32,libgpl.c32   |<br>| linux.c32    | <code>linux</code>命令                 |                          |</p>
-<h1 id="note"><a href="#note" class="headerlink" title="note"></a>note</h1><ul>
-<li><p>启动ISO镜像</p>
-<p>因为image都是通过虚拟设备(虚拟软盘，虚拟光驱)，由BIOS 13号中断来访问的，<br>所以当操作系统加载完设备驱动时，它将自己去访问设备，不再通过BIOS去访问，<br>这时虚拟设备将失效，报错<code>INT 13h access: Not all images will complete the boot process!</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.syslinux.org/wiki/index.php/Syslinux_5_Changelog" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/Syslinux_5_Changelog</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/Library_modules" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/Library_modules</a></li>
-<li><a href="http://linux.die.net/man/1/syslinux" target="_blank" rel="external">http://linux.die.net/man/1/syslinux</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/SYSLINUX" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/SYSLINUX</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/Boot_an_Iso_image" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/Boot_an_Iso_image</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK#INT_13h_access:_Not_all_images_will_complete_the_boot_process.21" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK#INT_13h_access:_Not_all_images_will_complete_the_boot_process.21</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/20/syslinux/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -819,45 +771,45 @@ APPEND raw
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
+			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
+			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
-			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+			<li><a href="/tags/任播/">任播<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/文件/">文件<span>7</span></a></li>
 		
-			<li><a href="/tags/apt/">apt<span>2</span></a></li>
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/hash/">hash<span>1</span></a></li>
+			<li><a href="/tags/all/">all<span>1</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
 		
-			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
 		
-			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
+			<li><a href="/tags/时间/">时间<span>3</span></a></li>
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
+			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
 		
-			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
+			<li><a href="/tags/flag/">flag<span>1</span></a></li>
 		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -873,23 +825,23 @@ APPEND raw
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

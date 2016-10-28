@@ -111,6 +111,102 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-04 </div>
+			<div class="article-title"><a href="/2014/12/04/python调试手段/" >python调试手段</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="发生异常时，自动打开IPython"><a href="#发生异常时，自动打开IPython" class="headerlink" title="发生异常时，自动打开IPython"></a>发生异常时，自动打开<code>IPython</code></h2><ul>
+<li><code>crash_on_ipy.py</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExceptionHook</span>:</span></span><br><span class="line">    instance = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.instance <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">from</span> IPython.core <span class="keyword">import</span> ultratb</span><br><span class="line">            self.instance = ultratb.FormattedTB(mode=<span class="string">'Plain'</span>,</span><br><span class="line">                                                color_scheme=<span class="string">'Linux'</span>, call_pdb=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> self.instance(*args, **kwargs)</span><br><span class="line"></span><br><span class="line">sys.excepthook = ExceptionHook()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将<code>crash_on_ipy.py</code>放到项目中，在需要使用该功能的地方<code>import crash_on_ipy</code></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="http://www.zhihu.com/question/21572891" target="_blank" rel="external">http://www.zhihu.com/question/21572891</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/04/python调试手段/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-04 </div>
+			<div class="article-title"><a href="/2014/12/04/windows.h和winsock2.h冲突/" >windows.h和winsock2.h冲突</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在包含<code>WinSock2.h</code>之前包含了<code>Windows.h</code></li>
+<li>而<code>Windows.h</code>包含了<code>WinSock.h</code></li>
+<li>而<code>WinSock.h</code>和<code>WinSock2.h</code>不兼容！</li>
+</ul>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ul>
+<li>第一种(<strong>优先使用</strong>)</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二种</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WIN32_LEAN_AND_MEAN</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2014/12/04/windows.h和winsock2.h冲突/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-03 </div>
+			<div class="article-title"><a href="/2014/12/03/python文件删除/" >python文件删除</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
+<li><p><code>os.remove()</code></p>
+</li>
+<li><p><code>shutil.re</code></p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://docs.python.org/2/library/os.html#os.remove" target="_blank" rel="external">https://docs.python.org/2/library/os.html#os.remove</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/03/python文件删除/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-03 </div>
 			<div class="article-title"><a href="/2014/12/03/python文件重命名/" >python文件重命名</a></div>						
 		</h3>
@@ -307,133 +403,6 @@
 	
 	</div>
   <a type="button" href="/2014/12/01/python管理拓展包/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/快速查看python帮助/" >快速查看python帮助</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="第一种：命令行使用"><a href="#第一种：命令行使用" class="headerlink" title="第一种：命令行使用"></a>第一种：命令行使用</h2><pre><code>python -m pydoc CONTENT
-</code></pre><h2 id="第二种：使用python自包装"><a href="#第二种：使用python自包装" class="headerlink" title="第二种：使用python自包装"></a>第二种：使用<code>python</code>自包装</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>可以在任意路径下执行<code>pydoc CONTENT</code></p>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ul>
-<li><p>建立脚本文件<code>pydoc.py</code></p>
-<pre><code>#!/usr/bin/env python
-# encoding: utf-8
-
-import os
-import sys
-
-if len(sys.argv) != 2:
-    print(&quot;usage:pydoc.py OBJECT&quot;)
-    exit(1)
-
-cmd = &apos;python -m pydoc &apos; + sys.argv[1]
-# print(cmd)
-os.system(cmd)
-</code></pre></li>
-<li><p>复制到<code>PATH</code>目录下</p>
-<p><strong>建议自建目录</strong>(Win:X:/XXX/bin，Linux：/XXX/bin)，添加该目录到<code>PATH</code></p>
-<p>优点：</p>
-<ol>
-<li>容易管理</li>
-<li>重装系统或系统损坏，不丢失，下次复用方便</li>
-</ol>
-</li>
-<li><p>【Windows建议】</p>
-</li>
-</ul>
-<p>修改环境变量<code>PATHEXT</code>追加<code>.py</code>，这样直接使用<code>pydoc CONTENT</code>即可，不用每次都输入’.py’！</p>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/快速查看python帮助/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/替换clover图标/" >替换clover图标</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
-</li>
-<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
-<p><img src="/img/替换clover图标_0.png" alt=""></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/替换clover图标/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/windows下git生成SSH公钥/" >windows下git生成SSH公钥</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
-<li><p><code>cd %HOMEPATH%</code></p>
-</li>
-<li><p><code>mkdir .ssh</code></p>
-</li>
-<li><p><code>ssh-keygen -t rsa -C &quot;qian_cheng_long@163.com&quot;</code></p>
-<ul>
-<li>输入生成文件名(<code>.ssh/rd_rsa</code>)</li>
-<li>2次输入密码(空密码可以方便连接)</li>
-</ul>
-</li>
-<li><p>添加到<code>ssh-agent</code></p>
-<pre><code>ssh-agent -s
-ssh-add ~/.ssh/id_rsa
-</code></pre></li>
-<li><p>复制到粘贴板</p>
-<pre><code>clip &lt; ~/.ssh/id_rsa.pub
-</code></pre></li>
-<li><p>将<code>.ssh/rd_rsa.pub</code>内容添加到<a href="https://github.com/settings/ssh" target="_blank" rel="external">github</a></p>
-</li>
-<li><p>测试是否添加成功</p>
-<pre><code>ssh -vT git@github.com
-</code></pre></li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">https://help.github.com/articles/generating-ssh-keys/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/windows下git生成SSH公钥/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -742,45 +711,45 @@ ssh-add ~/.ssh/id_rsa
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>2</span></a></li>
 		
-			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
 		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+			<li><a href="/tags/final/">final<span>1</span></a></li>
 		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
 		
-			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
+			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
-			<li><a href="/tags/编程/">编程<span>6</span></a></li>
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
+			<li><a href="/tags/go/">go<span>40</span></a></li>
 		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
 		
-			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
+			<li><a href="/tags/module/">module<span>3</span></a></li>
 		
-			<li><a href="/tags/部署/">部署<span>1</span></a></li>
+			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
 		
-			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
+			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
 		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
 		
-			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -796,23 +765,23 @@ ssh-add ~/.ssh/id_rsa
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

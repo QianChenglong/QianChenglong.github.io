@@ -111,6 +111,124 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-31 </div>
+			<div class="article-title"><a href="/2014/12/31/GetTickCount/" >GetTickCount</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="精度"><a href="#精度" class="headerlink" title="精度"></a>精度</h2><p>这个函数并非实时发送，而是由系统每18ms发送一次，因此其最小精度为18ms。当需要有小于18ms的精度计算时，应使用StopWatch方法进行。</p>
+<ul>
+<li>连续触发200次，实测下来，最小间隔在15ms。</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/31/GetTickCount/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-26 </div>
+			<div class="article-title"><a href="/2014/12/26/tuple/" >tuple</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="形式定义"><a href="#形式定义" class="headerlink" title="形式定义"></a>形式定义</h1><p>元组是<strong>个数有限</strong>的对象的<strong>序列</strong>。元组由三部分组成：边界符、分隔符和元素。通常采用的边界符是小括号”(  )”，分隔符是逗号”,”。</p>
+<p>特性：</p>
+<ul>
+<li><p>个数有限</p>
+</li>
+<li><p>有序</p>
+</li>
+<li><p>用来表示一组相关联数据</p>
+</li>
+</ul>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
+<li><p>在数学中，<strong>元组</strong>被用来描述对象的属性，例如，有向图被定义成一个二元组（V, E），这里V是节点的集合，E是V × V的子集，表示边。</p>
+</li>
+<li><p>在计算机科学中，<strong>元组</strong>被用来描述一组相关联的数据，常通过位置关系来隐式说明值得意义。</p>
+</li>
+</ul>
+<h1 id="python中的tuple"><a href="#python中的tuple" class="headerlink" title="python中的tuple"></a>python中的tuple</h1><p>python中的tuple元素类型不要求一致，即意味着可以各种嵌套使用。如<code>([1, 2], {&#39;a&#39;: 1}, (1, 2))</code></p>
+<h1 id="与list对比"><a href="#与list对比" class="headerlink" title="与list对比"></a>与list对比</h1><h2 id="存储对象"><a href="#存储对象" class="headerlink" title="存储对象"></a>存储对象</h2><ul>
+<li><p>tuple存储的元素是异构的(heterogeneous)，有点类似C中的结构体，是用来表达对象的组成</p>
+</li>
+<li><p>list，存储的元素是同构的(homogeneous )，是一种序列的存储方式(链式存储)，是用来做数据的容器</p>
+</li>
+</ul>
+<h2 id="可变性"><a href="#可变性" class="headerlink" title="可变性"></a>可变性</h2><ul>
+<li><p>tuple是不可变的</p>
+</li>
+<li><p>list是可变的</p>
+</li>
+</ul>
+<h2 id="提供的操作"><a href="#提供的操作" class="headerlink" title="提供的操作"></a>提供的操作</h2><ul>
+<li><p>tuple无增删改</p>
+</li>
+<li><p>list提供增删改</p>
+</li>
+</ul>
+<h1 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h1><p>逻辑清晰，代码安全，健壮性更好！</p>
+<h1 id="何时使用"><a href="#何时使用" class="headerlink" title="何时使用"></a>何时使用</h1><p>根据数据本质特征</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://en.wikipedia.org/wiki/Tuple" target="_blank" rel="external">http://en.wikipedia.org/wiki/Tuple</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/%E5%A4%9A%E5%85%83%E7%BB%84" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E5%A4%9A%E5%85%83%E7%BB%84</a></li>
+<li><a href="http://en.wikipedia.org/wiki/List_(abstract_data_type)" target="_blank" rel="external">http://en.wikipedia.org/wiki/List_(abstract_data_type)</a></li>
+<li><a href="http://stackoverflow.com/questions/626759/whats-the-difference-between-list-and-tuples" target="_blank" rel="external">http://stackoverflow.com/questions/626759/whats-the-difference-between-list-and-tuples</a></li>
+<li><a href="http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each" target="_blank" rel="external">http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each</a></li>
+<li><a href="http://news.e-scribe.com/397" target="_blank" rel="external">Understanding tuples vs. lists in Python</a></li>
+<li><a href="https://docs.python.org/dev/library/collections.html#collections.namedtuple" target="_blank" rel="external">https://docs.python.org/dev/library/collections.html#collections.namedtuple</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/26/tuple/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-26 </div>
+			<div class="article-title"><a href="/2014/12/26/python命令行选项/" >python命令行选项</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>-B</p>
+<p>不生成<code>__pycache__</code>文件夹</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/26/python命令行选项/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-26 </div>
 			<div class="article-title"><a href="/2014/12/26/python-安装setuptools/" >python-安装setuptools</a></div>						
 		</h3>
@@ -313,87 +431,6 @@
 	
 	</div>
   <a type="button" href="/2014/12/24/python-复制文件/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-23 </div>
-			<div class="article-title"><a href="/2014/12/23/打开方式无法添加新程序/" >打开方式无法添加新程序</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>修改了文件名，注册表没有同步</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>删除对应注册表项</p>
-<pre><code>HKEY_CURRENT_USER\Software\Classes\Applications\&lt;Application-name&gt;
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2014/12/23/打开方式无法添加新程序/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-23 </div>
-			<div class="article-title"><a href="/2014/12/23/python-强制重新导入模块/" >python-强制重新导入模块</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reload(MODULE_NAME)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/684171/how-to-re-import-an-updated-package-while-in-python-interpreter" target="_blank" rel="external">http://stackoverflow.com/questions/684171/how-to-re-import-an-updated-package-while-in-python-interpreter</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/23/python-强制重新导入模块/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-23 </div>
-			<div class="article-title"><a href="/2014/12/23/python-获取__main__模块文件名/" >python-获取__main__模块文件名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="情景"><a href="#情景" class="headerlink" title="情景"></a>情景</h1><p><code>__main__</code>模块中<code>import A</code>，而<code>A</code>模块中需要引用<code>__main__</code>的文件名</p>
-<h1 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> __main__</span><br><span class="line"><span class="keyword">print</span> __main__.__file__</span><br></pre></td></tr></table></figure>
-<p>缺陷：</p>
-<p>当使用<code>py2exe</code>时，无法使用</p>
-<h1 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">print</span> sys.argv[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-<p>缺陷：</p>
-<p>当使用<code>python</code>解释器<code>-c</code>传参启动时，无效</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python" target="_blank" rel="external">http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python</a></li>
-<li><a href="http://www.acnenomor.com/4440072p1/how-to-get-filename-of-the-main-module-in-python" target="_blank" rel="external">http://www.acnenomor.com/4440072p1/how-to-get-filename-of-the-main-module-in-python</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/23/python-获取__main__模块文件名/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -702,45 +739,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
+			<li><a href="/tags/右值/">右值<span>1</span></a></li>
+		
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+		
+			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+		
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+		
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+		
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+		
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
+		
+			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
+		
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+		
+			<li><a href="/tags/final/">final<span>1</span></a></li>
+		
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
+		
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
 			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
 		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
 		
-			<li><a href="/tags/macro/">macro<span>4</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
-		
-			<li><a href="/tags/C/">C++<span>38</span></a></li>
-		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
-		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
-		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
-		
-			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
-		
-			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
-		
-			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
-		
-			<li><a href="/tags/资源/">资源<span>2</span></a></li>
-		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
-		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
-		
-			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -756,23 +793,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

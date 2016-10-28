@@ -112,6 +112,133 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/替换clover图标/" >替换clover图标</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
+</li>
+<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
+<p><img src="/img/替换clover图标_0.png" alt=""></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/替换clover图标/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/快速查看python帮助/" >快速查看python帮助</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="第一种：命令行使用"><a href="#第一种：命令行使用" class="headerlink" title="第一种：命令行使用"></a>第一种：命令行使用</h2><pre><code>python -m pydoc CONTENT
+</code></pre><h2 id="第二种：使用python自包装"><a href="#第二种：使用python自包装" class="headerlink" title="第二种：使用python自包装"></a>第二种：使用<code>python</code>自包装</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>可以在任意路径下执行<code>pydoc CONTENT</code></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ul>
+<li><p>建立脚本文件<code>pydoc.py</code></p>
+<pre><code>#!/usr/bin/env python
+# encoding: utf-8
+
+import os
+import sys
+
+if len(sys.argv) != 2:
+    print(&quot;usage:pydoc.py OBJECT&quot;)
+    exit(1)
+
+cmd = &apos;python -m pydoc &apos; + sys.argv[1]
+# print(cmd)
+os.system(cmd)
+</code></pre></li>
+<li><p>复制到<code>PATH</code>目录下</p>
+<p><strong>建议自建目录</strong>(Win:X:/XXX/bin，Linux：/XXX/bin)，添加该目录到<code>PATH</code></p>
+<p>优点：</p>
+<ol>
+<li>容易管理</li>
+<li>重装系统或系统损坏，不丢失，下次复用方便</li>
+</ol>
+</li>
+<li><p>【Windows建议】</p>
+</li>
+</ul>
+<p>修改环境变量<code>PATHEXT</code>追加<code>.py</code>，这样直接使用<code>pydoc CONTENT</code>即可，不用每次都输入’.py’！</p>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/快速查看python帮助/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/windows下git生成SSH公钥/" >windows下git生成SSH公钥</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li><p><code>cd %HOMEPATH%</code></p>
+</li>
+<li><p><code>mkdir .ssh</code></p>
+</li>
+<li><p><code>ssh-keygen -t rsa -C &quot;qian_cheng_long@163.com&quot;</code></p>
+<ul>
+<li>输入生成文件名(<code>.ssh/rd_rsa</code>)</li>
+<li>2次输入密码(空密码可以方便连接)</li>
+</ul>
+</li>
+<li><p>添加到<code>ssh-agent</code></p>
+<pre><code>ssh-agent -s
+ssh-add ~/.ssh/id_rsa
+</code></pre></li>
+<li><p>复制到粘贴板</p>
+<pre><code>clip &lt; ~/.ssh/id_rsa.pub
+</code></pre></li>
+<li><p>将<code>.ssh/rd_rsa.pub</code>内容添加到<a href="https://github.com/settings/ssh" target="_blank" rel="external">github</a></p>
+</li>
+<li><p>测试是否添加成功</p>
+<pre><code>ssh -vT git@github.com
+</code></pre></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">https://help.github.com/articles/generating-ssh-keys/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/windows下git生成SSH公钥/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
 			<div class="article-title"><a href="/2014/12/01/MinGW编译wxWidget/" >MinGW编译wxWidget</a></div>						
 		</h3>
 	
@@ -613,45 +740,45 @@ hexo d
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
 		
-			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
 		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
+			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
 		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
-		
-			<li><a href="/tags/编程/">编程<span>6</span></a></li>
-		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
-		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
-		
-			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
 			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
 		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
 		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
 		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+		
+			<li><a href="/tags/form/">form<span>1</span></a></li>
+		
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
+		
+			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+		
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -667,23 +794,23 @@ hexo d
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

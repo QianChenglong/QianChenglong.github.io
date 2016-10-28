@@ -111,6 +111,85 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-18 </div>
+			<div class="article-title"><a href="/2015/03/18/redis-学习资源/" >redis-学习资源</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>Redis设计与实现–黄健宏</p>
+<ul>
+<li><p><a href="http://weibo.com/huangz1990" target="_blank" rel="external">新浪微博</a></p>
+</li>
+<li><p><a href="http://redisbook.com/" target="_blank" rel="external">在线阅读</a></p>
+</li>
+<li><p><a href="https://github.com/huangz1990/redis-3.0-annotated" target="_blank" rel="external">redis-3.0带注释源码</a></p>
+</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/18/redis-学习资源/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-18 </div>
+			<div class="article-title"><a href="/2015/03/18/windows双击安装apk/" >windows双击安装apk</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p><a href="https://github.com/QianChenglong/apk-instll" target="_blank" rel="external">https://github.com/QianChenglong/apk-instll</a></p>
+
+	
+	</div>
+  <a type="button" href="/2015/03/18/windows双击安装apk/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-17 </div>
+			<div class="article-title"><a href="/2015/03/17/vim-学习资源/" >vim-学习资源</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><a href="http://learnvimscriptthehardway.stevelosh.com/" target="_blank" rel="external">http://learnvimscriptthehardway.stevelosh.com/</a></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/17/vim-学习资源/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-17 </div>
 			<div class="article-title"><a href="/2015/03/17/vim-执行外部程序/" >vim-执行外部程序</a></div>						
 		</h3>
@@ -341,115 +420,6 @@
 	
 	</div>
   <a type="button" href="/2015/03/11/C++-RAII与exit/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-11 </div>
-			<div class="article-title"><a href="/2015/03/11/VC-常见错误/" >VC-常见错误</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="lily-lib-WinSock-cpp-obj-error-LNK2038-检测到“-ITERATOR-DEBUG-LEVEL”的不匹配项-值“0”不匹配值“2”-dhcpcd-obj-中"><a href="#lily-lib-WinSock-cpp-obj-error-LNK2038-检测到“-ITERATOR-DEBUG-LEVEL”的不匹配项-值“0”不匹配值“2”-dhcpcd-obj-中" class="headerlink" title="lily.lib(WinSock.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(dhcpcd.obj 中)"></a><code>lily.lib(WinSock.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(dhcpcd.obj 中)</code></h1><ul>
-<li><p>原因：</p>
-<p><code>debug</code>版程序链接了<code>release</code>版库</p>
-<ul>
-<li>在<code>cmake</code>中，<code>TAGET_LINK_LIBRARIES</code>中，没有单独链接相应版本的库。</li>
-</ul>
-</li>
-<li><p>解决：</p>
-<p>重新设置对应的库名称</p>
-<ul>
-<li><p>cmake</p>
-<p>LIST(APPEND LIBS debug lilyd optimized lily)<br>TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${LIBS})</p>
-</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/11/VC-常见错误/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-11 </div>
-			<div class="article-title"><a href="/2015/03/11/proxifier-使用/" >proxifier-使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h1><ul>
-<li><p>打开代理服务器配置页面</p>
-<p><img src="/img/proxifier-使用_01.png" alt=""></p>
-</li>
-<li><p>配置代理服务器参数</p>
-<p><img src="/img/proxifier-使用_02.png" alt=""></p>
-</li>
-<li><p>打开规则编辑页面</p>
-<p><img src="/img/proxifier-使用_03.png" alt=""></p>
-</li>
-<li><p>添加规则</p>
-<p><img src="/img/proxifier-使用_04.png" alt=""></p>
-<p><strong>注：</strong></p>
-<ul>
-<li><p>需要将代理客户端程序放行(<code>Direct</code>)，避免回环</p>
-</li>
-<li><p><code>Default</code>设置为<code>Proxy</code>时，为全局代理</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://awy.me/2014/06/yong-shadowsocks-he-proxifier-zi-you-fang-wen-hu-lian-wang/" target="_blank" rel="external">http://awy.me/2014/06/yong-shadowsocks-he-proxifier-zi-you-fang-wen-hu-lian-wang/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/11/proxifier-使用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-10 </div>
-			<div class="article-title"><a href="/2015/03/10/cscope/" >cscope</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-b 只建立索引，不进入交互查询(默认进入交互查询模式)</p>
-</li>
-<li><p>-f reffile 指定输出文件名</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/10/cscope/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -758,45 +728,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
 		
-			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
+			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
 		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
-			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
 		
-			<li><a href="/tags/main/">__main__<span>1</span></a></li>
+			<li><a href="/tags/T/">__T<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
 		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
+			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
 		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+			<li><a href="/tags/链表/">链表<span>1</span></a></li>
 		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
+			<li><a href="/tags/django/">django<span>2</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/text/">text<span>1</span></a></li>
 		
-			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
 		
-			<li><a href="/tags/fish-shell/">fish,shell<span>1</span></a></li>
+			<li><a href="/tags/软件/">软件<span>3</span></a></li>
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
 		
-			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
+			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
 		
-			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
+			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
 		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
 		
-			<li><a href="/tags/USB/">USB<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -812,23 +782,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

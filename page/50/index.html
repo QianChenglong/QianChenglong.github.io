@@ -111,6 +111,104 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-29 </div>
+			<div class="article-title"><a href="/2015/01/29/nautilus-隐藏指定文件/" >nautilus-隐藏指定文件</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>添加要隐藏的文件到<code>.hidden</code></p>
+<pre><code>echo &apos;$RECYCLE.BIN&apos; &gt;&gt;.hidden
+</code></pre></li>
+<li><p><code>F5</code>刷新即可</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://askubuntu.com/questions/143315/how-to-hide-files-and-folders-in-nautilus" target="_blank" rel="external">http://askubuntu.com/questions/143315/how-to-hide-files-and-folders-in-nautilus</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/29/nautilus-隐藏指定文件/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-29 </div>
+			<div class="article-title"><a href="/2015/01/29/ubuntu-nautilus快捷键打开terminal/" >ubuntu-nautilus快捷键打开terminal</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>ubuntu-14.04</p>
+</li>
+<li><p>nautilus-3.10.1</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li><p>安装<code>nautilus-open-terminal</code></p>
+<pre><code>sudo apt-get install nautilus-open-terminal
+</code></pre></li>
+<li><p>退出nautilus</p>
+<pre><code>nautilus -q
+</code></pre></li>
+<li><p>编辑配置文件</p>
+<pre><code>gvim ~/.config/nautilus/accels
+</code></pre></li>
+<li><p>反注释掉该行，并添加映射</p>
+<p>(gtk_accel_path “<actions>/ExtensionsMenuGroup/NautilusOpenTerminal::open_terminal” “F4”)</actions></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/29/ubuntu-nautilus快捷键打开terminal/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-28 </div>
+			<div class="article-title"><a href="/2015/01/28/linux-查看域名对应IP/" >linux-查看域名对应IP</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="nslookup"><a href="#nslookup" class="headerlink" title="nslookup"></a>nslookup</h1><p>不使用<code>/etc/hosts</code>文件</p>
+<h1 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h1><h1 id="getent"><a href="#getent" class="headerlink" title="getent"></a>getent</h1><pre><code>getent ahosts www.baidu.com
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://superuser.com/questions/106901/added-entry-to-hosts-file-ubuntu-can-ping-ok-cannot-nslookup" target="_blank" rel="external">http://superuser.com/questions/106901/added-entry-to-hosts-file-ubuntu-can-ping-ok-cannot-nslookup</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/28/linux-查看域名对应IP/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-28 </div>
 			<div class="article-title"><a href="/2015/01/28/ubuntu-查看文件所属/" >ubuntu-查看文件所属</a></div>						
 		</h3>
@@ -360,96 +458,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/26/vim-代码片段插件比较/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-26 </div>
-			<div class="article-title"><a href="/2015/01/26/python-ImportError-No-module-named-curses/" >python-ImportError-No-module-named-_curses</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>python中的<code>curses</code>不支持windows</p>
-<p>参考：</p>
-<ol>
-<li><a href="https://docs.python.org/2/library/curses.html" target="_blank" rel="external">https://docs.python.org/2/library/curses.html</a></li>
-</ol>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>安装拓展包，参见{ iLink title:python-install-curses-on-windows %}</p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/26/python-ImportError-No-module-named-curses/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-26 </div>
-			<div class="article-title"><a href="/2015/01/26/python-install-curses-on-windows/" >python-install-curses-on-windows</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h1><ul>
-<li><p>python2.7-32bit</p>
-</li>
-<li><p>win7</p>
-</li>
-</ul>
-<h1 id="Step"><a href="#Step" class="headerlink" title="Step"></a>Step</h1><ul>
-<li><p><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#curses" target="_blank" rel="external">Download corresponding package</a></p>
-<p>In my environment, I downloaded <code>curses-2.2-cp27-none-win32.whl</code>.</p>
-</li>
-<li><p><code>cd</code> to download directory and Install it</p>
-<pre><code>pip install curses-2.2-cp27-none-win32.whl
-</code></pre></li>
-</ul>
-<h1 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h1><ul>
-<li><a href="http://stackoverflow.com/users/812183/anthony-sottile" target="_blank" rel="external">Anthony Sottile</a></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/26/python-install-curses-on-windows/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-26 </div>
-			<div class="article-title"><a href="/2015/01/26/cmake-Disable Warning Manually-specified variables were not used by the project/" >cmake-Disable Warning Manually-specified variables were not used by the project</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>添加命令行参数<code>--no-warn-unused-cli</code></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/14757506/cmake-toolchain-file-was-not-used-by-the-project" target="_blank" rel="external">http://stackoverflow.com/questions/14757506/cmake-toolchain-file-was-not-used-by-the-project</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/26/cmake-Disable Warning Manually-specified variables were not used by the project/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -758,45 +766,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
 		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
+			<li><a href="/tags/curses/">curses<span>2</span></a></li>
 		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
 		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/time/">time<span>2</span></a></li>
 		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
+			<li><a href="/tags/od/">od<span>1</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/awk/">awk<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/C/">C++<span>38</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
 		
-			<li><a href="/tags/delete/">delete<span>2</span></a></li>
+			<li><a href="/tags/flag/">flag<span>1</span></a></li>
 		
-			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+			<li><a href="/tags/gcc/">gcc<span>5</span></a></li>
 		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
 		
-			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
+			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
 		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -812,23 +820,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

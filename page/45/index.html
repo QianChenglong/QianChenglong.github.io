@@ -112,6 +112,79 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-11 </div>
+			<div class="article-title"><a href="/2015/02/11/virtualbox-设置桥接/" >virtualbox-设置桥接</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>设置guest的网卡连接模式：</p>
+<p><img src="../img/virtualbox-设置桥接-01.png" alt=""></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/11/virtualbox-设置桥接/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-11 </div>
+			<div class="article-title"><a href="/2015/02/11/cppcheck-gvim设置/" >cppcheck-gvim设置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p><img src="/img/cppcheck-gvim设置-01.png" alt=""></p>
+
+	
+	</div>
+  <a type="button" href="/2015/02/11/cppcheck-gvim设置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-11 </div>
+			<div class="article-title"><a href="/2015/02/11/valgrind-使用/" >valgrind-使用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li>编译时需要加入调试信息，这样才能定位哪里溢出</li>
+</ul>
+<h1 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h1><pre><code>valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes ./test
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/02/11/valgrind-使用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-11 </div>
 			<div class="article-title"><a href="/2015/02/11/ubuntu-优秀软件列表/" >ubuntu-优秀软件列表</a></div>						
 		</h3>
 	
@@ -325,181 +398,6 @@
 	
 	</div>
   <a type="button" href="/2015/02/10/linux-命令所属包/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-10 </div>
-			<div class="article-title"><a href="/2015/02/10/samba-常用操作/" >samba-常用操作</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>测试配置文件语法</p>
-<pre><code>testparm
-</code></pre></li>
-<li><p>本地连接测试</p>
-<pre><code>smbclient -L //127.0.0.1
-</code></pre></li>
-<li><p>连接</p>
-<pre><code>smbclient //localhost/fanny -U chanpin
-</code></pre></li>
-<li><p>观察连接状态</p>
-<pre><code>smbstatus
-</code></pre></li>
-<li><p>挂载共享目录</p>
-<pre><code>mount -t cifs //127.0.0.1/read /mnt
-</code></pre></li>
-<li><p>查看用户</p>
-<pre><code>pdbedit -L
-</code></pre></li>
-<li><p>添加一个用户</p>
-<pre><code>pdbedit -a -u USERNAME
-</code></pre></li>
-<li><p>删除用户</p>
-<pre><code>pdbedit -x -u USERNAME
-</code></pre></li>
-<li><p>修改samba用户登录密码</p>
-<pre><code>smbpasswd USERNAME
-</code></pre></li>
-<li><p>重启samba</p>
-<ul>
-<li><p>system-v4</p>
-<pre><code>service smbd restart
-</code></pre></li>
-<li><p>systemd</p>
-<pre><code>systemctl restart smb
-</code></pre></li>
-</ul>
-</li>
-<li><p>查看samba版本</p>
-<pre><code>smbstatus
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/10/samba-常用操作/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-10 </div>
-			<div class="article-title"><a href="/2015/02/10/samba-服务器搭建/" >samba搭建</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li><p>CentOS-7.0.1</p>
-</li>
-<li><p>Samba version 4.1.12</p>
-</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
-<li><p>安装samba</p>
-<pre><code>yum install samba
-</code></pre></li>
-<li><p>修改配置文件</p>
-<pre><code>cp /etc/samba/smb.conf /etc/samba/smb.conf~
-vi /etc/samba/smb.conf
-
-[global]
-workgroup = WORKGROUP
-netbios name = xianji-server
-server string = Samba Server Version %v
-security = user
-map to guest = Bad Password
-guest account = guest
-unix extensions  = no
-load printers = no
-log file = /var/log/samba/%m.log
-max log size = 50
-encrypt passwords = true
-passdb backend = tdbsam
-unix password sync = yes
-passwd program = /usr/bin/passwd %u
-passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
-pam password change = yes
-
-[root]
-path = /
-browseable = no
-writable = yes
-wide links = yes
-guest ok = no
-
-[share]
-path = /data/share
-guest ok = yes
-read only = no
-</code></pre></li>
-<li><p>添加samba用户(需要当前已存在用户名)</p>
-<pre><code>pdbedit -a USERNAME
-</code></pre><p>输入2次密码</p>
-</li>
-<li><p>关闭SELinux</p>
-<pre><code>setenfore 0
-</code></pre></li>
-<li><p>防火墙放行(445/tcp)</p>
-<pre><code>firewall-cmd --permanent --add-port=445/tcp
-firewall-cmd --reload
-</code></pre></li>
-<li><p>重启samba服务</p>
-<pre><code>systemctl restart smb
-systemctl restart nmb
-</code></pre></li>
-</ul>
-<h1 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h1><h2 id="以用户的所有权限控制-security-user"><a href="#以用户的所有权限控制-security-user" class="headerlink" title="以用户的所有权限控制(security = user)"></a>以用户的所有权限控制(<code>security = user</code>)</h2><p>根据目录、文件的权限来控制</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 添加用户</span><br><span class="line">useradd &lt;username&gt;</span><br><span class="line">pdbedit -a -u &lt;username&gt;(输入相应密码)</span><br><span class="line"></span><br><span class="line"># 修改用户名</span><br><span class="line">smbpasswd &lt;usernmae&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://wiki.archlinux.org/index.php/Samba_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Samba_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/10/samba-服务器搭建/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-09 </div>
-			<div class="article-title"><a href="/2015/02/09/源IP选择/" >源IP选择</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blogs.technet.com/b/networking/archive/2009/04/25/source-ip-address-selection-on-a-multi-homed-windows-computer.aspx" target="_blank" rel="external">http://blogs.technet.com/b/networking/archive/2009/04/25/source-ip-address-selection-on-a-multi-homed-windows-computer.aspx</a></li>
-<li><a href="https://support.microsoft.com/kb/969029" target="_blank" rel="external">https://support.microsoft.com/kb/969029</a></li>
-<li><a href="http://linux-ip.net/html/routing-saddr-selection.html" target="_blank" rel="external">http://linux-ip.net/html/routing-saddr-selection.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/09/源IP选择/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -808,45 +706,45 @@ systemctl restart nmb
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/mysql/">mysql<span>35</span></a></li>
+			<li><a href="/tags/网站/">网站<span>2</span></a></li>
 		
-			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
 		
-			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
 		
-			<li><a href="/tags/后台/">后台<span>6</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+			<li><a href="/tags/command/">command<span>9</span></a></li>
 		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/编译/">编译<span>11</span></a></li>
-		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
-		
-			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
-		
-			<li><a href="/tags/模块/">模块<span>2</span></a></li>
-		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
-		
-			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
-		
-			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
 		
 			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+		
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
+		
+			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+		
+			<li><a href="/tags/C-11/">C++11<span>9</span></a></li>
+		
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
+		
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+		
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -862,23 +760,23 @@ systemctl restart nmb
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

@@ -111,6 +111,83 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-08 </div>
+			<div class="article-title"><a href="/2016/03/08/reactor/" >reactor</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>将所有要处理的I/O事件注册到一个中心I/O多路复用器上，同时主线程阻塞在多路复用器上；一旦有I/O事件到来或是准备就绪(区别在于多路复用器是边沿触发还是水平触发)，多路复用器返回并将相应I/O事件分发到对应的处理器中。</p>
+<p>这里有三个重要的组件：</p>
+<ul>
+<li>多路复用器：由操作系统提供，在linux上一般是select, poll, epoll等系统调用。</li>
+<li>事件分发器：将多路复用器中返回的就绪事件分到对应的处理函数中。</li>
+<li>事件处理器：负责处理特定事件的处理函数。</li>
+</ul>
+<h1 id="核心要点"><a href="#核心要点" class="headerlink" title="核心要点"></a>核心要点</h1><ul>
+<li>监听的是IO就绪事件(proactor监听的是IO完成事件)</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/08/reactor/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-08 </div>
+			<div class="article-title"><a href="/2016/03/08/IO复用/" >IO复用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>所谓的IO复用意思是指复用<strong>一个线程</strong>来处理多个对象的IO</p>
+
+	
+	</div>
+  <a type="button" href="/2016/03/08/IO复用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-08 </div>
+			<div class="article-title"><a href="/2016/03/08/nginx/" >nginx</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li>nginx 的进程由用户设置，单个worker进程就可以处理用户所有的事件，epoll_wait 返回大量事件(A,B,C,D,E)时，服务器会顺序执行的所有的事件，事件A没有处理完，E是不能执行的，也不用同时分配内存，这样就避免内存井喷的现象，当事件处理粒度大的时候，性能就出现瓶颈了</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/03/08/nginx/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-07 </div>
 			<div class="article-title"><a href="/2016/03/07/池/" >池</a></div>						
 		</h3>
@@ -392,108 +469,6 @@
 	
 	</div>
   <a type="button" href="/2016/02/21/C++-复制构造函数/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-21 </div>
-			<div class="article-title"><a href="/2016/02/21/strcpy和memcpy比较/" >strcpy和memcpy比较</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h1><ul>
-<li>strcpy是复制源字符串，直到NUL为止（包括NUL)，而memcpy是复制指定个数的字节内容<br>，不会复制到NUL就结束！</li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ul>
-<li>在字符串的复制方面，更推荐使用strcpy，前提是确保dst足够大！</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/02/21/strcpy和memcpy比较/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-21 </div>
-			<div class="article-title"><a href="/2016/02/21/linux-查看mtu/" >linux-查看mtu</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>cat /sys/class/net/enp0s3/mtu</p>
-</li>
-<li><p>netstat -i</p>
-</li>
-<li><p>ip address show</p>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/02/21/linux-查看mtu/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-18 </div>
-			<div class="article-title"><a href="/2016/02/18/链表/" >链表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
-<li><p>动态存储分配</p>
-</li>
-<li><p>数据更新效率高，O(1)</p>
-</li>
-</ul>
-<h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><ul>
-<li><p>浪费了部分空间用来存储指针域</p>
-</li>
-<li><p>查询效率低，O(n)</p>
-</li>
-</ul>
-<h1 id="增加一个头节点"><a href="#增加一个头节点" class="headerlink" title="增加一个头节点"></a>增加一个头节点</h1><p>空节点，不存储数据</p>
-<ul>
-<li>优化链代码效率，避免了链表是否为空的判断</li>
-</ul>
-<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
-<li><p>判断链表是否为空</p>
-<p>头节点到链域为空，则链表为空</p>
-</li>
-<li><p>定位到尾节点</p>
-<p>尾节点的特点是链域为空。</p>
-<p>所以挨个遍历，当当前节点到链域为空时，说明当前节点为尾节点</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/02/18/链表/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -802,45 +777,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/import/">import<span>3</span></a></li>
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
 		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+			<li><a href="/tags/主键/">主键<span>1</span></a></li>
 		
-			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+			<li><a href="/tags/prefix/">prefix<span>1</span></a></li>
 		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+			<li><a href="/tags/fish-shell/">fish,shell<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
 		
-			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>3</span></a></li>
+			<li><a href="/tags/slab/">slab<span>1</span></a></li>
 		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/size/">size<span>1</span></a></li>
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
 		
-			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
+			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
 		
-			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
+			<li><a href="/tags/extern/">extern<span>1</span></a></li>
 		
-			<li><a href="/tags/编程/">编程<span>6</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
 		
-			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
 		
-			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
 		
-			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
+			<li><a href="/tags/linux/">linux<span>43</span></a></li>
 		
 			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -856,23 +831,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

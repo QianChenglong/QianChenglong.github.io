@@ -111,6 +111,137 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-30 </div>
+			<div class="article-title"><a href="/2015/10/30/ubuntu-使用pptpd搭建vpn/" >ubuntu-使用pptpd搭建vpn</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>安装<code>pptpd</code></p>
+<pre><code>apt-get install pptpd
+</code></pre></li>
+<li><p><code>vi /etc/pptpd.conf</code></p>
+<pre><code>option /etc/ppp/pptpd-option                    #指定PPP选项文件的位置
+debug                                           #启用调试模式
+localip 192.168.0.1                             #VPN服务器的虚拟ip
+remoteip 192.168.0.200-238,192.168.0.245        #分配给VPN客户端的虚拟ip
+</code></pre></li>
+<li><p><code>vi /etc/ppp/pptpd-options</code></p>
+<pre><code>name pptpd                      #pptpd服务的名称
+refuse-pap                      #拒绝pap身份认证模式
+refuse-chap                     #拒绝chap身份认证模式
+refuse-mschap                   #拒绝mschap身份认证模式
+require-mschap-v2               #允许mschap-v2身份认证模式
+require-mppe-128                #允许mppe 128位加密身份认证模式
+ms-dns 8.8.8.8                  #使用Google DNS
+ms-dns 8.8.4.4                  #使用Google DNS
+proxyarp                        #arp代理
+debug                           #调试模式
+dump                            #服务启动时打印出所有配置信息
+lock                            #锁定TTY设备
+nobsdcomp                       #禁用BSD压缩模式
+</code></pre></li>
+<li><p>添加用户<code>vi /etc/ppp/chap-secrets</code></p>
+<pre><code>#格式：用户名   服务类型   密码   分配的ip地址
+test    *    1234    *
+</code></pre></li>
+<li><p>重启PPTPD服务</p>
+<pre><code>service pptpd restart
+</code></pre></li>
+<li><p>配置网络和路由规则,设置ipv4转发</p>
+<pre><code>sed -i &apos;s/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g&apos; /etc/sysctl.conf
+sysctl -p
+
+iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE
+</code></pre></li>
+<li><p>设置MTU来确保过大的包不会被丢弃(可选)</p>
+<pre><code>iptables -I FORWARD -s 192.168.0.0/24 -p tcp --syn -i ppp+ -j TCPMSS --set-mss 1300
+</code></pre></li>
+<li><p>备份iptables</p>
+<pre><code>iptables-save &gt; /etc/iptables.rule
+</code></pre></li>
+<li><p>开机自动加载</p>
+<pre><code>vi /etc/network/interfaces
+
+pre-up iptables-restore &lt; /etc/iptables.rule
+</code></pre></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.fens.me/ubuntu-vpn-pptp/" target="_blank" rel="external">http://blog.fens.me/ubuntu-vpn-pptp/</a></li>
+<li><a href="http://blueve.me/archives/1087" target="_blank" rel="external">http://blueve.me/archives/1087</a></li>
+<li><a href="http://www.777s.me/centos-pptp.html" target="_blank" rel="external">http://www.777s.me/centos-pptp.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/30/ubuntu-使用pptpd搭建vpn/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-29 </div>
+			<div class="article-title"><a href="/2015/10/29/nginx-add-header/" >nginx-add-header</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add_header Cache-Control &quot;no-cache&quot;;</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/10/29/nginx-add-header/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-29 </div>
+			<div class="article-title"><a href="/2015/10/29/后台-域名/" >后台-域名</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h1><ul>
+<li>基础域名 <code>base.com</code></li>
+</ul>
+<h1 id="域名配置相关"><a href="#域名配置相关" class="headerlink" title="域名配置相关"></a>域名配置相关</h1><p><img src="../img/后台-域名-002.png" alt=""></p>
+<h1 id="官网-配置www"><a href="#官网-配置www" class="headerlink" title="官网(配置www)"></a>官网(配置www)</h1><p>[www].基础域名</p>
+<h1 id="后台接口"><a href="#后台接口" class="headerlink" title="后台接口"></a>后台接口</h1><p>[用途].[项目简称].api.[基础域名]</p>
+<p>用途:</p>
+<pre><code>-   开发 `dev` `dev.app.api.base.com`
+-   测试 `test` `test.app.api.base.com`
+-   生产 为空 `app.api.base.com`
+</code></pre><p>实例:</p>
+<p><img src="../img/后台-域名-01.png" alt=""></p>
+
+	
+	</div>
+  <a type="button" href="/2015/10/29/后台-域名/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-29 </div>
 			<div class="article-title"><a href="/2015/10/29/scp/" >scp</a></div>						
 		</h3>
@@ -355,92 +486,6 @@
 	
 	</div>
   <a type="button" href="/2015/10/21/go-net-http/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-21 </div>
-			<div class="article-title"><a href="/2015/10/21/mysql-limit/" >mysql-limit</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p><code>limit [M,]N</code></p>
-<ul>
-<li><p><code>M</code>:偏移量,第M+1条</p>
-</li>
-<li><p><code>N</code>:数量</p>
-</li>
-</ul>
-<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ol>
-<li><p>获取指定数目列</p>
-<pre><code>select * from t_stock_base limit 1;
-</code></pre></li>
-<li><p>获取排序结果中的指定序号,指定书目列</p>
-<pre><code>select * from t_stock_base order by stockid limit 1,2;
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/21/mysql-limit/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-21 </div>
-			<div class="article-title"><a href="/2015/10/21/mysql-查询技巧/" >mysql-查询技巧</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>关联查询时,使用<code>INNER JOIN &lt;table&gt; USING (&lt;column&gt;)</code></p>
-<ul>
-<li><code>select</code>结果列,去除了关联列,避免了使用<code>a.column</code></li>
-</ul>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/21/mysql-查询技巧/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-20 </div>
-			<div class="article-title"><a href="/2015/10/20/go-windows下科学上网/" >go-windows下科学上网</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="通过设置环境变量代理"><a href="#通过设置环境变量代理" class="headerlink" title="通过设置环境变量代理"></a>通过设置环境变量代理</h1><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> HTTP_PROXY=http://<span class="number">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">1080</span></span><br><span class="line"><span class="built_in">set</span> HTTPS_PROXY=http://<span class="number">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">1080</span></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/10/20/go-windows下科学上网/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -749,45 +794,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
-			<li><a href="/tags/python/">python<span>69</span></a></li>
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
 		
-			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
-			<li><a href="/tags/素数/">素数<span>1</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
 		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
-			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/poll/">poll<span>1</span></a></li>
+			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
+			<li><a href="/tags/hash/">hash<span>1</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
+			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
 		
-			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>2</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>4</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/git/">git<span>7</span></a></li>
 		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -803,23 +848,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

@@ -111,6 +111,102 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-11-06 </div>
+			<div class="article-title"><a href="/2015/11/06/go-array/" >go-array</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p>长度是数组类型的一部分</p>
+</li>
+<li><p>数组长度不可变</p>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.golang.org/slices" target="_blank" rel="external">http://blog.golang.org/slices</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/06/go-array/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-06 </div>
+			<div class="article-title"><a href="/2015/11/06/go-slice/" >go-slice</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>#　要点</p>
+<ol>
+<li><p><code>slice</code>是一个数组的封装</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> slice <span class="keyword">struct</span> &#123;</span><br><span class="line">    array unsafe.Pointer</span><br><span class="line">    <span class="built_in">len</span>   <span class="keyword">int</span></span><br><span class="line">    <span class="built_in">cap</span>   <span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>fmt.Printf(&quot;%T&quot;)</code>打印显示为<code>[]type</code>,跟数组类似,但不包括长度</p>
+</li>
+<li><p>作为传入参数时</p>
+<ul>
+<li><p>若只是改变<code>slice</code>中元素的值,不需要穿引用</p>
+</li>
+<li><p>若改变了<code>slice</code>长度或容量,则需要穿指针或返回新<code>slice</code></p>
+</li>
+</ul>
+</li>
+<li><p>用数组初始化<code>slice</code>时,<code>slice</code>容量等于数组的长度减去切割时的索引</p>
+</li>
+</ol>
+<pre><code><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array [<span class="number">10</span>]<span class="keyword">int</span></span><br><span class="line">slice := array[<span class="number">1</span>:<span class="number">5</span>] <span class="comment">// cap = 10 - 1 = 9, len = 5 - 1 = 4(array[1, 2, 3, 4])</span></span><br><span class="line">fmt.Printf(<span class="string">"%T %v\n"</span>, array, array)</span><br><span class="line">fmt.Printf(<span class="string">"%T %v %v %v\n"</span>, slice, slice, <span class="built_in">len</span>(slice), <span class="built_in">cap</span>(slice))</span><br><span class="line"></span><br><span class="line">[<span class="number">10</span>]<span class="keyword">int</span> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line">[]<span class="keyword">int</span> [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>] <span class="number">4</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.golang.org/slices" target="_blank" rel="external">http://blog.golang.org/slices</a></li>
+<li><a href="https://blog.go-zh.org/go-slices-usage-and-internals" target="_blank" rel="external">https://blog.go-zh.org/go-slices-usage-and-internals</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/06/go-slice/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-03 </div>
+			<div class="article-title"><a href="/2015/11/03/mysql-多列排序/" >mysql-多列排序</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">order</span> <span class="keyword">by</span> A <span class="keyword">DESC</span>, B AESC</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/11/03/mysql-多列排序/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-11-02 </div>
 			<div class="article-title"><a href="/2015/11/02/go-string/" >go-string</a></div>						
 		</h3>
@@ -362,137 +458,6 @@
 	
 	</div>
   <a type="button" href="/2015/11/02/mysql-忽略客户端编码设定/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-30 </div>
-			<div class="article-title"><a href="/2015/10/30/ubuntu-使用pptpd搭建vpn/" >ubuntu-使用pptpd搭建vpn</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
-<li><p>安装<code>pptpd</code></p>
-<pre><code>apt-get install pptpd
-</code></pre></li>
-<li><p><code>vi /etc/pptpd.conf</code></p>
-<pre><code>option /etc/ppp/pptpd-option                    #指定PPP选项文件的位置
-debug                                           #启用调试模式
-localip 192.168.0.1                             #VPN服务器的虚拟ip
-remoteip 192.168.0.200-238,192.168.0.245        #分配给VPN客户端的虚拟ip
-</code></pre></li>
-<li><p><code>vi /etc/ppp/pptpd-options</code></p>
-<pre><code>name pptpd                      #pptpd服务的名称
-refuse-pap                      #拒绝pap身份认证模式
-refuse-chap                     #拒绝chap身份认证模式
-refuse-mschap                   #拒绝mschap身份认证模式
-require-mschap-v2               #允许mschap-v2身份认证模式
-require-mppe-128                #允许mppe 128位加密身份认证模式
-ms-dns 8.8.8.8                  #使用Google DNS
-ms-dns 8.8.4.4                  #使用Google DNS
-proxyarp                        #arp代理
-debug                           #调试模式
-dump                            #服务启动时打印出所有配置信息
-lock                            #锁定TTY设备
-nobsdcomp                       #禁用BSD压缩模式
-</code></pre></li>
-<li><p>添加用户<code>vi /etc/ppp/chap-secrets</code></p>
-<pre><code>#格式：用户名   服务类型   密码   分配的ip地址
-test    *    1234    *
-</code></pre></li>
-<li><p>重启PPTPD服务</p>
-<pre><code>service pptpd restart
-</code></pre></li>
-<li><p>配置网络和路由规则,设置ipv4转发</p>
-<pre><code>sed -i &apos;s/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g&apos; /etc/sysctl.conf
-sysctl -p
-
-iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE
-</code></pre></li>
-<li><p>设置MTU来确保过大的包不会被丢弃(可选)</p>
-<pre><code>iptables -I FORWARD -s 192.168.0.0/24 -p tcp --syn -i ppp+ -j TCPMSS --set-mss 1300
-</code></pre></li>
-<li><p>备份iptables</p>
-<pre><code>iptables-save &gt; /etc/iptables.rule
-</code></pre></li>
-<li><p>开机自动加载</p>
-<pre><code>vi /etc/network/interfaces
-
-pre-up iptables-restore &lt; /etc/iptables.rule
-</code></pre></li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blog.fens.me/ubuntu-vpn-pptp/" target="_blank" rel="external">http://blog.fens.me/ubuntu-vpn-pptp/</a></li>
-<li><a href="http://blueve.me/archives/1087" target="_blank" rel="external">http://blueve.me/archives/1087</a></li>
-<li><a href="http://www.777s.me/centos-pptp.html" target="_blank" rel="external">http://www.777s.me/centos-pptp.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/30/ubuntu-使用pptpd搭建vpn/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-29 </div>
-			<div class="article-title"><a href="/2015/10/29/nginx-add-header/" >nginx-add-header</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add_header Cache-Control &quot;no-cache&quot;;</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/10/29/nginx-add-header/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-29 </div>
-			<div class="article-title"><a href="/2015/10/29/后台-域名/" >后台-域名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h1><ul>
-<li>基础域名 <code>base.com</code></li>
-</ul>
-<h1 id="域名配置相关"><a href="#域名配置相关" class="headerlink" title="域名配置相关"></a>域名配置相关</h1><p><img src="../img/后台-域名-002.png" alt=""></p>
-<h1 id="官网-配置www"><a href="#官网-配置www" class="headerlink" title="官网(配置www)"></a>官网(配置www)</h1><p>[www].基础域名</p>
-<h1 id="后台接口"><a href="#后台接口" class="headerlink" title="后台接口"></a>后台接口</h1><p>[用途].[项目简称].api.[基础域名]</p>
-<p>用途:</p>
-<pre><code>-   开发 `dev` `dev.app.api.base.com`
--   测试 `test` `test.app.api.base.com`
--   生产 为空 `app.api.base.com`
-</code></pre><p>实例:</p>
-<p><img src="../img/后台-域名-01.png" alt=""></p>
-
-	
-	</div>
-  <a type="button" href="/2015/10/29/后台-域名/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -801,45 +766,45 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
+		
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+		
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
+		
+			<li><a href="/tags/类/">类<span>1</span></a></li>
+		
+			<li><a href="/tags/glog/">glog<span>1</span></a></li>
+		
+			<li><a href="/tags/python/">python<span>69</span></a></li>
+		
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
+		
+			<li><a href="/tags/命令/">命令<span>5</span></a></li>
+		
+			<li><a href="/tags/memory-manage/">memory manage<span>1</span></a></li>
+		
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
+		
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
+		
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
+		
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
 		
 			<li><a href="/tags/事务/">事务<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/编译/">编译<span>11</span></a></li>
 		
-			<li><a href="/tags/main/">__main__<span>1</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
+			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/install/">install<span>2</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
-		
-			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
-		
-			<li><a href="/tags/od/">od<span>1</span></a></li>
-		
-			<li><a href="/tags/arch/">arch<span>6</span></a></li>
-		
-			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
-		
-			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
-		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
-		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
-		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
-		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
-		
-			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
-		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
-		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
+			<li><a href="/tags/bash/">bash<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -855,23 +820,23 @@ pre-up iptables-restore &lt; /etc/iptables.rule
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

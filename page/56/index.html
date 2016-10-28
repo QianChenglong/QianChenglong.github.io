@@ -112,6 +112,115 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/C-函数返回值与错误处理/" >C-函数返回值与错误处理</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>除了极少数函数调用不会出错(如<code>getpid()</code>，参考[APUE-8.2])，绝大多数函数都可能发生调用失败。在调用失败时，<br>就涉及到如何通知调用者，以便调用者进行相对应的错误处理。</p>
+<h1 id="错误处理策略"><a href="#错误处理策略" class="headerlink" title="错误处理策略"></a>错误处理策略</h1><ul>
+<li>作为调用者希望函数的返回结果就是我们期待的值，但这样报告错误又不方便</li>
+<li>若用函数返回值来判断函数的成功或失败，获取期待结果又不方便</li>
+</ul>
+<p>所以在C中，往往都采用了折衷的方式，<strong>通过使用一个与所有成功结果都不相同的值作为函数失败时的返回值</strong>，常见方式有：</p>
+<ul>
+<li><p>失败时返回值</p>
+<ul>
+<li>返回<code>NULL</code>指针，如<code>fopen</code></li>
+<li>返回<code>-1</code></li>
+<li>返回<code>非0</code></li>
+<li>某些专用宏，如<code>EOF</code>，<code>SOCKET_ERROR</code></li>
+</ul>
+</li>
+<li><p>成功时返回值</p>
+<ul>
+<li>返回非空指针</li>
+<li>返回<code>0</code></li>
+<li>某些专用宏，如<code>SOCKET_SUCCESS</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>UNIX环境高级编程.W.Richard Stevens / Stephen A.Rago.译者: 尤晋元 / 张亚英 / 戚正伟.ISBN: 9787115147318</li>
+<li>The Standard C Library Paperback. July 11, 1992. P.J. Plauger.ISBN-13: 978-0131315099</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/C-函数返回值与错误处理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/封装个人代码/" >封装个人代码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>积累平时的代码，方便日后的复用。</p>
+<h1 id="采用什么语言封装"><a href="#采用什么语言封装" class="headerlink" title="采用什么语言封装"></a>采用什么语言封装</h1><p>采用C++，原因如下：</p>
+<ul>
+<li><p>现阶段主要使用C++，虽然也使用部分C库或系统API</p>
+</li>
+<li><p>提供默认参数值，使接口美观、易用</p>
+</li>
+<li><p>提供名字空间，可以防止名字污染</p>
+</li>
+<li><p>提供多态，使接口美观、易用</p>
+</li>
+</ul>
+<h1 id="封装遇到的问题"><a href="#封装遇到的问题" class="headerlink" title="封装遇到的问题"></a>封装遇到的问题</h1><ul>
+<li><p>代码目录怎么组织？</p>
+</li>
+<li><p>函数调用出错怎么处理？</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/封装个人代码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/autohotkey获得粘贴板内容/" >autohotkey获得粘贴板内容</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">; 获取当前选中内容</span></span><br><span class="line">GetSelectText()</span><br><span class="line">&#123;</span><br><span class="line">    tmp = <span class="variable">%ClipBoard%</span> <span class="comment">; 保存原来内容</span></span><br><span class="line">    <span class="built_in">ClipBoard</span> = <span class="comment">; 清空粘贴板</span></span><br><span class="line">    Send, ^c <span class="comment">; 获取当前选中内容</span></span><br><span class="line">    Sleep, <span class="number">100</span> <span class="comment">; 确保操作成功</span></span><br><span class="line">    text = <span class="variable">%ClipBoard%</span></span><br><span class="line">    <span class="built_in">ClipBoard</span> = <span class="variable">%cmp%</span> <span class="comment">; 复原</span></span><br><span class="line">    <span class="keyword">return</span> text</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">msgbox <span class="variable">% GetSelectText()</span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/autohotkey获得粘贴板内容/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
 			<div class="article-title"><a href="/2015/01/07/软件设计原则资料/" >软件设计原则资料</a></div>						
 		</h3>
 	
@@ -309,124 +418,6 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 	
 	</div>
   <a type="button" href="/2015/01/04/修改文件默认打开方式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-31 </div>
-			<div class="article-title"><a href="/2014/12/31/GetTickCount/" >GetTickCount</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="精度"><a href="#精度" class="headerlink" title="精度"></a>精度</h2><p>这个函数并非实时发送，而是由系统每18ms发送一次，因此其最小精度为18ms。当需要有小于18ms的精度计算时，应使用StopWatch方法进行。</p>
-<ul>
-<li>连续触发200次，实测下来，最小间隔在15ms。</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/31/GetTickCount/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-26 </div>
-			<div class="article-title"><a href="/2014/12/26/tuple/" >tuple</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="形式定义"><a href="#形式定义" class="headerlink" title="形式定义"></a>形式定义</h1><p>元组是<strong>个数有限</strong>的对象的<strong>序列</strong>。元组由三部分组成：边界符、分隔符和元素。通常采用的边界符是小括号”(  )”，分隔符是逗号”,”。</p>
-<p>特性：</p>
-<ul>
-<li><p>个数有限</p>
-</li>
-<li><p>有序</p>
-</li>
-<li><p>用来表示一组相关联数据</p>
-</li>
-</ul>
-<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
-<li><p>在数学中，<strong>元组</strong>被用来描述对象的属性，例如，有向图被定义成一个二元组（V, E），这里V是节点的集合，E是V × V的子集，表示边。</p>
-</li>
-<li><p>在计算机科学中，<strong>元组</strong>被用来描述一组相关联的数据，常通过位置关系来隐式说明值得意义。</p>
-</li>
-</ul>
-<h1 id="python中的tuple"><a href="#python中的tuple" class="headerlink" title="python中的tuple"></a>python中的tuple</h1><p>python中的tuple元素类型不要求一致，即意味着可以各种嵌套使用。如<code>([1, 2], {&#39;a&#39;: 1}, (1, 2))</code></p>
-<h1 id="与list对比"><a href="#与list对比" class="headerlink" title="与list对比"></a>与list对比</h1><h2 id="存储对象"><a href="#存储对象" class="headerlink" title="存储对象"></a>存储对象</h2><ul>
-<li><p>tuple存储的元素是异构的(heterogeneous)，有点类似C中的结构体，是用来表达对象的组成</p>
-</li>
-<li><p>list，存储的元素是同构的(homogeneous )，是一种序列的存储方式(链式存储)，是用来做数据的容器</p>
-</li>
-</ul>
-<h2 id="可变性"><a href="#可变性" class="headerlink" title="可变性"></a>可变性</h2><ul>
-<li><p>tuple是不可变的</p>
-</li>
-<li><p>list是可变的</p>
-</li>
-</ul>
-<h2 id="提供的操作"><a href="#提供的操作" class="headerlink" title="提供的操作"></a>提供的操作</h2><ul>
-<li><p>tuple无增删改</p>
-</li>
-<li><p>list提供增删改</p>
-</li>
-</ul>
-<h1 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h1><p>逻辑清晰，代码安全，健壮性更好！</p>
-<h1 id="何时使用"><a href="#何时使用" class="headerlink" title="何时使用"></a>何时使用</h1><p>根据数据本质特征</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://en.wikipedia.org/wiki/Tuple" target="_blank" rel="external">http://en.wikipedia.org/wiki/Tuple</a></li>
-<li><a href="http://zh.wikipedia.org/wiki/%E5%A4%9A%E5%85%83%E7%BB%84" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E5%A4%9A%E5%85%83%E7%BB%84</a></li>
-<li><a href="http://en.wikipedia.org/wiki/List_(abstract_data_type)" target="_blank" rel="external">http://en.wikipedia.org/wiki/List_(abstract_data_type)</a></li>
-<li><a href="http://stackoverflow.com/questions/626759/whats-the-difference-between-list-and-tuples" target="_blank" rel="external">http://stackoverflow.com/questions/626759/whats-the-difference-between-list-and-tuples</a></li>
-<li><a href="http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each" target="_blank" rel="external">http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each</a></li>
-<li><a href="http://news.e-scribe.com/397" target="_blank" rel="external">Understanding tuples vs. lists in Python</a></li>
-<li><a href="https://docs.python.org/dev/library/collections.html#collections.namedtuple" target="_blank" rel="external">https://docs.python.org/dev/library/collections.html#collections.namedtuple</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/26/tuple/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-26 </div>
-			<div class="article-title"><a href="/2014/12/26/python命令行选项/" >python命令行选项</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>-B</p>
-<p>不生成<code>__pycache__</code>文件夹</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/26/python命令行选项/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -735,45 +726,45 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
 		
-			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
+			<li><a href="/tags/usb/">usb<span>3</span></a></li>
 		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
 		
-			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
 		
-			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
 		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/go/">go<span>40</span></a></li>
 		
-			<li><a href="/tags/事务/">事务<span>1</span></a></li>
+			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
+			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
 		
-			<li><a href="/tags/slab/">slab<span>1</span></a></li>
+			<li><a href="/tags/博客/">博客<span>1</span></a></li>
 		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
+			<li><a href="/tags/fish-shell/">fish,shell<span>1</span></a></li>
 		
-			<li><a href="/tags/理解/">理解<span>1</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
 		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
 		
-			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -789,23 +780,23 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

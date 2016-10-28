@@ -111,6 +111,131 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-10-10 </div>
+			<div class="article-title"><a href="/2016/10/10/ssh/" >ssh</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-C</p>
+<p>  压缩数据</p>
+</li>
+<li><p>-N</p>
+<p>  不执行命令，只在端口转发时特别有用</p>
+</li>
+<li><p>-v</p>
+<p>显示详细信息，便于追踪调试</p>
+</li>
+<li><p>-F /path/to/configfile</p>
+<p>指定配置文件</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>服务端开启调试</p>
+<pre><code>sudo /usr/sbin/sshd -p 22 -d
+</code></pre></li>
+<li><p>客户端verbose</p>
+<pre><code>ssh -vT git@112.74.81.30 -p 22
+</code></pre></li>
+</ul>
+<ul>
+<li><p>生成ssh key</p>
+<pre><code>ssh-keygen -C &quot;wallace@beme 2016-06-30 15:43:00&quot;
+</code></pre></li>
+<li><p>ssh后，执行指定命令</p>
+<pre><code>ssh web -t &quot;cd $web_dir; bash&quot;
+</code></pre></li>
+<li><p>本地转发</p>
+<pre><code>ssh -CNL 6000:rm-wz9cp2458eedl74zs.mysql.rds.aliyuncs.com:3306 of-dev01
+</code></pre></li>
+<li><p>socket代理</p>
+<pre><code>ssh -D 0.0.0.0:1124 -C root@104.238.150.39
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/10/10/ssh/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-09-29 </div>
+			<div class="article-title"><a href="/2016/09/29/go-flag/" >go-flag</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>最好不要在<code>init</code>中调用<code>flag.Parse()</code>，因为这样会导致其他包定义的flag无效</p>
+</li>
+<li><p>多个不同的包，可以使用不同的flagset来处理</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/09/29/go-flag/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-09-29 </div>
+			<div class="article-title"><a href="/2016/09/29/fish/" >fish</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><ul>
+<li><p>-U or –universal</p>
+<p>所有shell实例共享，立马生效，重启后仍然有效</p>
+</li>
+</ul>
+<h1 id="Command-Substitutions"><a href="#Command-Substitutions" class="headerlink" title="Command Substitutions"></a>Command Substitutions</h1><p>用<code>( )</code>来执行子命令</p>
+<pre><code>set os (uname)
+</code></pre><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li><p>更新补全数据</p>
+<pre><code>fish_update_completions
+</code></pre></li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>设置变量，并执行命令</p>
+<p>env PORT=7000 <command></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://fishshell.com/docs/current/tutorial.html" target="_blank" rel="external">http://fishshell.com/docs/current/tutorial.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/29/fish/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-09-29 </div>
 			<div class="article-title"><a href="/2016/09/29/crond/" >crond</a></div>						
 		</h3>
@@ -375,111 +500,6 @@ chmod 666 /var/log/mysql/mysql.log
 	
 	</div>
   <a type="button" href="/2016/09/07/左值-右值/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-06 </div>
-			<div class="article-title"><a href="/2016/09/06/C++11-右值引用/" >C++11-右值引用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><ol>
-<li><p>实现移动语义(Move Sementics)，减少不必要的临时对象的创建、拷贝、销毁(内存管理费时)，极大地提升语言效率</p>
-</li>
-<li><p>完美转发(Perfect Forwarding)，可以简洁地定义泛型函数</p>
-</li>
-</ol>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>右值引用除了拥有左值引用的功能，还可以绑定到临时对象(<strong>rvalue</strong>)，而(non const)左值引用不可以！</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A&amp;  a_ref3 = A();  <span class="comment">// Error!</span></span><br><span class="line">A&amp;&amp; a_ref4 = A();  <span class="comment">// Ok</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>右值引用类型既可以被当作左值也可以被当作右值，判断的标准是，如果它有名字，那就是左值，否则就是右值。</p>
-<p>为了确保move之后，不会被再次引用到。所以，有名字的变量是左值。</p>
-</li>
-<li><p><code>std::move</code>可以将一个有名变量(左值)转换为右值引用</p>
-<p>该功能的意图是，该变量作为其他变量的值来源后，便不再使用该值，只用来被赋值或弃用。</p>
-<p>典型用途：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class T&gt;</span><br><span class="line">void swap(T&amp; a, T&amp; b)</span><br><span class="line">&#123;</span><br><span class="line">  T tmp(std::move(a)); // a用来作为tmp的值来源</span><br><span class="line">  a = std::move(b); // a被重新赋值</span><br><span class="line">  b = std::move(tmp); // tmp不再使用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>注</strong>：若该类型不支持移动操作，则仍执行对应的拷贝或赋值操作。</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.ibm.com/developerworks/cn/aix/library/1307_lisl_c11/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/aix/library/1307_lisl_c11/</a></li>
-<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2027.html" target="_blank" rel="external">A Brief Introduction to Rvalue References</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/06/C++11-右值引用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-05 </div>
-			<div class="article-title"><a href="/2016/09/05/慢速系统调用VS快速系统调用/" >慢速系统调用VS快速系统调用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>慢速或快速是从操作系统角度，来判断一个系统调用执行所需要的时间。</p>
-<p>这个时间并无固定标准(非实时操作系统)，而是取决于该调用执行的具体情况。</p>
-<p>若该调用等待事件(TCP连接建立)或其他执行体操作(相对OS来说，比较耗时，如磁盘IO)，则属于慢速系统调用。</p>
-<p>反之，则属于快速系统调用，如<code>getpid</code>，<code>gettimeofday</code>。</p>
-<h1 id="为什么需要这样划分？"><a href="#为什么需要这样划分？" class="headerlink" title="为什么需要这样划分？"></a>为什么需要这样划分？</h1><p>因为慢速系统调用，需依赖外部，则可以将其放入等待队列，无需调度。这样便提高了资源(CPU)利用率。</p>
-<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><ul>
-<li>快速系统调用，被信号中断后，会自动重启，应用层无感知，<br>而慢速系统调用(没有设置<code>O_NONBLOCK</code>)会出错返回(-1)，<code>errno=EINTR</code></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://unix.stackexchange.com/questions/14293/difference-between-slow-system-calls-and-fast-system-calls" target="_blank" rel="external">http://unix.stackexchange.com/questions/14293/difference-between-slow-system-calls-and-fast-system-calls</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/05/慢速系统调用VS快速系统调用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-02 </div>
-			<div class="article-title"><a href="/2016/09/02/gdb-指定源文件搜索/" >gdb-指定源文件搜索</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="通过set-substitute-path（优先使用）"><a href="#通过set-substitute-path（优先使用）" class="headerlink" title="通过set substitute-path（优先使用）"></a>通过<code>set substitute-path</code>（优先使用）</h1><pre><code>set substitute-path from to
-</code></pre><p>路径替换，适用于debug中的路径是绝对路径</p>
-<h1 id="通过directory命令"><a href="#通过directory命令" class="headerlink" title="通过directory命令"></a>通过<code>directory</code>命令</h1><pre><code>directory dirname ...
-</code></pre><p>适用于debug中的路径是相对路径</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Source-Path.html#Source-Path" target="_blank" rel="external">https://sourceware.org/gdb/current/onlinedocs/gdb/Source-Path.html#Source-Path</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/02/gdb-指定源文件搜索/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -788,45 +808,45 @@ chmod 666 /var/log/mysql/mysql.log
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
 		
-			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
 		
-			<li><a href="/tags/hash/">hash<span>1</span></a></li>
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
-		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
-		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
-		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
-		
-			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
-		
-			<li><a href="/tags/slab/">slab<span>1</span></a></li>
-		
-			<li><a href="/tags/tags/">tags<span>1</span></a></li>
-		
-			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
-		
-			<li><a href="/tags/log/">log<span>2</span></a></li>
-		
-			<li><a href="/tags/boost/">boost<span>4</span></a></li>
-		
-			<li><a href="/tags/fish-shell/">fish,shell<span>1</span></a></li>
-		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
-		
-			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
-		
-			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
 			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
 		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+		
+			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+		
+			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+		
+			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+		
+			<li><a href="/tags/binary/">binary<span>1</span></a></li>
+		
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+		
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
+		
+			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
+		
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
 			<li><a href="/tags/module/">module<span>3</span></a></li>
+		
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+		
+			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
+		
+			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+		
+			<li><a href="/tags/c/">c++<span>8</span></a></li>
+		
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -842,23 +862,23 @@ chmod 666 /var/log/mysql/mysql.log
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

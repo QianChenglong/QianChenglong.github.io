@@ -111,6 +111,92 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-02 </div>
+			<div class="article-title"><a href="/2015/03/02/windows-UNICODE和_UNICODE作用/" >windows-UNICODE和_UNICODE作用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="共性"><a href="#共性" class="headerlink" title="共性"></a>共性</h1><p>这两个宏都是为了控制API是使用UNICODE版还是ANSI版。</p>
+<ul>
+<li><p>若定义了，则相关的API为<code>*W</code>版本(UNICODE版)，如<code>GetWindowTextW</code></p>
+</li>
+<li><p>若未定义，则相关的API为<code>*A</code>版本(ANSI版)，如<code>GetWindowTextA</code></p>
+</li>
+</ul>
+<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ul>
+<li><p><code>UNICODE</code>宏影响windows API</p>
+</li>
+<li><p><code>_UNICODE</code>宏影响C运行库以及MFC，作用与<code>UNICODE</code></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blogs.msdn.com/b/oldnewthing/archive/2004/02/12/71851.aspx" target="_blank" rel="external">http://blogs.msdn.com/b/oldnewthing/archive/2004/02/12/71851.aspx</a></li>
+<li><a href="http://www.cnblogs.com/ini_always/archive/2011/05/20/2050517.html" target="_blank" rel="external">http://www.cnblogs.com/ini_always/archive/2011/05/20/2050517.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/02/windows-UNICODE和_UNICODE作用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-02 </div>
+			<div class="article-title"><a href="/2015/03/02/windows-WSA是什么意思/" >windows-WSA是什么意思</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<blockquote>
+<p>Windows Sockets API</p>
+</blockquote>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.acronymfinder.com/Windows-Sockets-API-(aka-Winsock-Application)-(WSA).html" target="_blank" rel="external">http://www.acronymfinder.com/Windows-Sockets-API-(aka-Winsock-Application)-(WSA).html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/02/windows-WSA是什么意思/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-28 </div>
+			<div class="article-title"><a href="/2015/02/28/C-locale作用/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		
+	
+	</div>
+  <a type="button" href="/2015/02/28/C-locale作用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-28 </div>
 			<div class="article-title"><a href="/2015/02/28/mbtowc/" >mbtowc</a></div>						
 		</h3>
@@ -352,129 +438,6 @@
 	
 	</div>
   <a type="button" href="/2015/02/27/VC命令行使用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-27 </div>
-			<div class="article-title"><a href="/2015/02/27/vim-unicode-BOM设置/" >vim-unicode-BOM设置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查询当前文件是否带有BOM标记</p>
-<pre><code>:set bomb?
-</code></pre></li>
-<li><p>添加BOM</p>
-<pre><code>:set bomb
-</code></pre></li>
-<li><p>去除BOM</p>
-<pre><code>:set nobomb
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cnblogs.com/ini_always/archive/2011/12/24/2300621.html" target="_blank" rel="external">http://www.cnblogs.com/ini_always/archive/2011/12/24/2300621.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/27/vim-unicode-BOM设置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-27 </div>
-			<div class="article-title"><a href="/2015/02/27/od/" >od</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-t TYPE</p>
-<p>指定输出格式，<br>TYPE由进制和多少字节组合决定，如x1，则以十六进制，每次输出1字节</p>
-<ul>
-<li>a named character</li>
-<li>c ASCII character or backslash escape</li>
-<li>d signed decimal</li>
-<li>f floating point</li>
-<li>o octal</li>
-<li>u unsigned decimal</li>
-<li>x hexadecimal</li>
-<li>C char</li>
-<li>S short</li>
-<li>I int</li>
-<li>L long</li>
-<li>For floating point (f):</li>
-<li>F float</li>
-<li>D double</li>
-<li>L long double</li>
-</ul>
-</li>
-<li><p>-w BYTES</p>
-<p>指定一行的宽度</p>
-</li>
-<li><p>-A, –address-radix=radix</p>
-<p>指定文件偏移量显示的基数(d,o,x)</p>
-</li>
-<li><p>-j, –skip-bytes=BYTE</p>
-<p>从BYTE（文件偏移量）开始显示</p>
-</li>
-<li><p>-c</p>
-<p>把元素的内容按照ASCII码解释成对应的字符</p>
-</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>十六进制，按字节输出，并输出对应的ASCII字符</p>
-<pre><code>od -t x1 -c foo
-</code></pre></li>
-<li><p>同时按几种方式输出</p>
-<pre><code>od -tx1 -tc foo
-</code></pre></li>
-<li><p>跳过指定字节</p>
-<pre><code>od -Ax -tx1 -tc -j 0x065c main |less
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/27/od/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-27 </div>
-			<div class="article-title"><a href="/2015/02/27/socket常用宏/" >socket常用宏</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 宏名            | 值         | winsock2               | linux                     |<br>|—————–+————+————————+—————————|<br>| AF_INET         | 2          | winsock2.h =&gt; ws2def.h | socket.h =&gt; bits/socket.h |<br>| INADDR_LOOPBACK | 0x7f000001 | winsock2.h =&gt; ws2def.h | netinet/in.h              |<br>| SOCKET_ERROR    | -1         | winsock2.h             | 无                        |</p>
-
-	
-	</div>
-  <a type="button" href="/2015/02/27/socket常用宏/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -783,45 +746,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
-			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
+			<li><a href="/tags/include/">include<span>2</span></a></li>
 		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
+			<li><a href="/tags/go/">go<span>40</span></a></li>
 		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
+			<li><a href="/tags/nging/">nging<span>1</span></a></li>
 		
-			<li><a href="/tags/time/">time<span>2</span></a></li>
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
 		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
+			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
+			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
 		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
-			<li><a href="/tags/du/">du<span>1</span></a></li>
+			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
 		
-			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
+			<li><a href="/tags/suse/">suse<span>1</span></a></li>
 		
-			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
+			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/文件/">文件<span>7</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -837,23 +800,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

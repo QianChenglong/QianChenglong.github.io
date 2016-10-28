@@ -111,6 +111,83 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-05-23 </div>
+			<div class="article-title"><a href="/2015/05/23/xshell字符乱码/" >xshell字符乱码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>【文件】=&gt; 【属性】=&gt; 【终端】=&gt;【编码】(Unicode-UTF-8)</p>
+
+	
+	</div>
+  <a type="button" href="/2015/05/23/xshell字符乱码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-22 </div>
+			<div class="article-title"><a href="/2015/05/22/sql-常用语句/" >sql-常用语句</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>修改列类型</p>
+<pre><code>ALTER TABLE &lt;table-name&gt; MODIFY COLUMN &lt;col-name&gt; &lt;new-datatype&gt;;
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/05/22/sql-常用语句/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-22 </div>
+			<div class="article-title"><a href="/2015/05/22/centos-关闭SELinux/" >centos-关闭SELinux</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>vi /etc/sysconfig/selinux</p>
+<pre><code>SELINUX=disabled
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://www.centos.org/docs/5/html/5.1/Deployment_Guide/sec-sel-enable-disable.html" target="_blank" rel="external">https://www.centos.org/docs/5/html/5.1/Deployment_Guide/sec-sel-enable-disable.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/05/22/centos-关闭SELinux/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-05-22 </div>
 			<div class="article-title"><a href="/2015/05/22/apache-常见错误/" >apache-常见错误</a></div>						
 		</h3>
@@ -331,109 +408,6 @@
 	
 	</div>
   <a type="button" href="/2015/04/15/redis-散列/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-15 </div>
-			<div class="article-title"><a href="/2015/04/15/redis-字符串/" >redis-字符串</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>字符串类型是redis中最基本的数据类型，其他数据类型只是组织字符串的方式不同</p>
-<ul>
-<li><p>列表类型是以列表形式组织字符串</p>
-</li>
-<li><p>集合类型是以集合形式组织字符串</p>
-</li>
-</ul>
-</li>
-<li><p>字符串可以<strong>透明存储</strong>任何形式的字符串，二进制数据，如邮箱地址，json，图片等</p>
-</li>
-</ul>
-<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p>| 操作     | 命令   |<br>|———-+——–|<br>| 赋值     | set    |<br>| 取值     | get    |<br>| 追加     | append |<br>| 获取长度 | strlen |</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>redis入门指南</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/15/redis-字符串/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-15 </div>
-			<div class="article-title"><a href="/2015/04/15/redis-多数据库/" >redis-多数据库</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>一个redis实例提供了多个用来存储数据的字典</p>
-</li>
-<li><p>某个数据库对外都是一个从<strong>0</strong>开始的递增数字命名，默认支持16个，可通过参数<code>databases</code>修改</p>
-</li>
-<li><p>客户端与redis连接后，默认选择<strong>0号</strong>数据库，可通过<code>SELECT</code>命令切换</p>
-</li>
-<li><p>不支持自定义数据库名称</p>
-</li>
-<li><p>不支持账户密码控制(意味着没有权限控制)</p>
-</li>
-<li><p>数据库之间并未完全隔离，如<code>FLUSHALL</code>命令可清空所有数据库内容</p>
-<p>所以，不同的应用应该使用不同的redis实例，而不是使用同一个redis实例不同数据库。</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>redis入门指南</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/15/redis-多数据库/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-14 </div>
-			<div class="article-title"><a href="/2015/04/14/node.js-异步IO原理/" >node.js-异步IO原理</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>实现<code>libuv</code>中间层，根据操作系统采用相应实现(win：IO完成端口，*nix：libev/libeio)</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.infoq.com/cn/articles/nodejs-asynchronous-io" target="_blank" rel="external">深入浅出Node.js（五）：初探Node.js的异步I/O实现</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/14/node.js-异步IO原理/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -742,45 +716,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+			<li><a href="/tags/resize/">resize<span>1</span></a></li>
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
+			<li><a href="/tags/app/">app<span>4</span></a></li>
 		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
+			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
-			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
+			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+		
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
 		
 			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
+			<li><a href="/tags/rfc/">rfc<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/10014/">10014<span>1</span></a></li>
 		
-			<li><a href="/tags/command/">command<span>9</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
 		
-			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
 		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
+			<li><a href="/tags/yum/">yum<span>1</span></a></li>
 		
-			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
 		
-			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
-		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>588</span></a></li>
@@ -796,23 +770,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
       </li>
     
       <li>
         <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-多重继承/" ><i class="fa fa-file-o"></i>C++-多重继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/17/C++-虚函数/" ><i class="fa fa-file-o"></i>C++-虚函数</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/15/slab/" ><i class="fa fa-file-o"></i>slab</a>
       </li>
     
   </ul>

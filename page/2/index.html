@@ -111,6 +111,109 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-10-15 </div>
+			<div class="article-title"><a href="/2016/10/15/STL容器比较/" >STL容器比较</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><p>采用连续的存储空间实现</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>占用内存少</p>
+</li>
+<li><p>支持下标访问，快速的随机访问能力</p>
+</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li><p>插入或删除中间数据效率低，且耗时不固定（对于一些场景来说，影响效率）</p>
+</li>
+<li><p>只支持尾部push，pop</p>
+</li>
+<li><p>当可用空间不足时，会重新分配空间(原来的2倍)，在C++11之前，会极大地影响效率，因为需要拷贝，再销毁原来元素，还会引起迭代器失效</p>
+</li>
+</ul>
+<h1 id="list"><a href="#list" class="headerlink" title="list"></a>list</h1><p>采用链表实现</p>
+<h2 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>插入或删除效率高，且耗时固定</p>
+</li>
+<li><p>可在两端进行push，pop</p>
+</li>
+</ul>
+<h2 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li><p>占用更多的内存</p>
+</li>
+<li><p>不支持随机访问</p>
+</li>
+</ul>
+<h1 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h1><p>提供栈概念</p>
+<h1 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h1><p>提供队列(FIFO)概念</p>
+<h1 id="dequeue"><a href="#dequeue" class="headerlink" title="dequeue"></a>dequeue</h1><p>提供双端队列概念</p>
+<h2 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>支持随机访问和at</p>
+</li>
+<li><p>可在两端进行push、pop</p>
+</li>
+</ul>
+<h1 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h1><p>提供优先级队列概念</p>
+<h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><p>提供集合概念（元素唯一），内部采用平衡二叉树实现，遍历时有序</p>
+<h1 id="unordered-set"><a href="#unordered-set" class="headerlink" title="unordered_set"></a>unordered_set</h1><p>无序的集合</p>
+<h1 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h1><p>可重复的集合</p>
+<h1 id="unordered-multiset"><a href="#unordered-multiset" class="headerlink" title="unordered_multiset"></a>unordered_multiset</h1><p>无序的，可重复的集合</p>
+<h1 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h1><p>提供元组概念（存储一组不同类型的值）</p>
+<h1 id="map"><a href="#map" class="headerlink" title="map"></a>map</h1><p>提供字典概念，内部采用红黑树实现，遍历时有序</p>
+<h1 id="multimap"><a href="#multimap" class="headerlink" title="multimap"></a>multimap</h1><p>key可重复的map</p>
+<h1 id="unordered-map"><a href="#unordered-map" class="headerlink" title="unordered_map"></a>unordered_map</h1><p>无序字典，又叫hashmap，内部采用hash实现，相比map，多占用内存(存放hash桶元素)，访问效率高</p>
+<h1 id="unordered-multimap"><a href="#unordered-multimap" class="headerlink" title="unordered_multimap"></a>unordered_multimap</h1><p>key可重复的hashmap</p>
+<h1 id="array"><a href="#array" class="headerlink" title="array"></a>array</h1><p>数组，存储固定大小的序列</p>
+<h1 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h1><ul>
+<li>相比C风格数组，提供了STL式API，越界检查</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/10/15/STL容器比较/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-10-15 </div>
+			<div class="article-title"><a href="/2016/10/15/markdown-resume/" >markdown-resume</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p><code>git clone https://github.com/there4/markdown-resume.git</code></p>
+</li>
+<li><p>安装依赖</p>
+<pre><code>sudo yum install php-mbstring wkhtmltopdf -y
+</code></pre></li>
+<li><p>测试</p>
+<pre><code>./bin/md2resume html examples/source/zhsample.md examples/output/
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/10/15/markdown-resume/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-10-10 </div>
 			<div class="article-title"><a href="/2016/10/10/ssh/" >ssh</a></div>						
 		</h3>
@@ -429,80 +532,6 @@ chmod 666 /var/log/mysql/mysql.log
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-12 </div>
-			<div class="article-title"><a href="/2016/09/12/C++11-final和override/" >C++11-final和override</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="final"><a href="#final" class="headerlink" title="final"></a>final</h1><ul>
-<li><p>修饰class，阻止该class再被继承</p>
-</li>
-<li><p>修饰virtual method，阻止该method再被重写</p>
-</li>
-</ul>
-<h1 id="override"><a href="#override" class="headerlink" title="override"></a>override</h1><ul>
-<li><p>修饰virtual method，说明该method是重写的</p>
-<p>能够更好地使用编译器检查出错误，以免定义出新method，而不是重写，从而导致非预期行为</p>
-</li>
-</ul>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这两个关键字，都是非必需，但是都很有用！可以让开发者更准确地表达，同时编译器可以在编译阶段就发现该错误！</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://en.cppreference.com/w/cpp/language/final" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/final</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/override" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/override</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/12/C++11-final和override/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-07 </div>
-			<div class="article-title"><a href="/2016/09/07/左值-右值/" >左值-右值</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>最早起源于<code>CPL</code>语言(1960s)。</p>
-<p>是<strong>表达式</strong>的二个属性(类型，值类别)之一!</p>
-<p>左值：可以寻址(<strong>L</strong>ocate)的对象，根据是否可修改属性，分为<strong>可修改左值</strong>，<strong>不可修改左值</strong></p>
-<p>右值：不是左值的对象（C/C++中，临时对象属于右值）</p>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>字符串常量是<strong>左值(不可修改的)</strong>！因为该数据存放在文本段，是有地址的！</p>
-</li>
-<li><p>在C中，<strong>prefix increment(++)/decrement(–), assignment(=), compound assignment(+=…), comma(,), ternary conditional(? :)</strong>是右值！而在C++中却是左值！！！</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c" target="_blank" rel="external">http://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c</a></li>
-<li><a href="http://en.cppreference.com/w/c/language/value_category" target="_blank" rel="external">http://en.cppreference.com/w/c/language/value_category</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/value_category" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/value_category</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/operator_other#Built-in_comma_operator" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/operator_other#Built-in_comma_operator</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/07/左值-右值/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -808,48 +837,48 @@ chmod 666 /var/log/mysql/mysql.log
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
 		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+			<li><a href="/tags/command/">command<span>9</span></a></li>
 		
-			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+			<li><a href="/tags/string/">string<span>8</span></a></li>
 		
-			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
 		
-			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+			<li><a href="/tags/char/">char<span>2</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/命令/">命令<span>5</span></a></li>
 		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+			<li><a href="/tags/alias/">alias<span>1</span></a></li>
 		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
+			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
 		
-			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
 		
-			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/module/">module<span>3</span></a></li>
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
 		
-			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
-			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
-			<li><a href="/tags/c/">c++<span>8</span></a></li>
+			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>588</span></a></li>
+		   <li><a href="/tags">...<span>591</span></a></li>
 		 
 		</ul>
 	</div>
@@ -862,6 +891,14 @@ chmod 666 /var/log/mysql/mysql.log
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
@@ -871,14 +908,6 @@ chmod 666 /var/log/mysql/mysql.log
     
       <li>
         <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
       </li>
     
   </ul>

@@ -111,6 +111,67 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-11-25 </div>
+			<div class="article-title"><a href="/2015/11/25/rfc-表示要求的动词/" >rfc-表示要求的动词</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://www.ietf.org/rfc/rfc2119.txt" target="_blank" rel="external">https://www.ietf.org/rfc/rfc2119.txt</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/25/rfc-表示要求的动词/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-25 </div>
+			<div class="article-title"><a href="/2015/11/25/http-content-type/" >http-content-type</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="application-json"><a href="#application-json" class="headerlink" title="application/json"></a>application/json</h1><ul>
+<li><p>数据必须是<code>Unicode</code>编码,默认编码方式为<code>UTF-8</code></p>
+</li>
+<li><p>因为<code>json</code>数据前2个字符总是<code>ASCII</code>字符(<code>{&quot;</code>,与<code>[空格]</code>的组合),所以可以推断出其编码方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 xx  UTF-32BE</span><br><span class="line">00 xx 00 xx  UTF-16BE</span><br><span class="line">xx 00 00 00  UTF-32LE</span><br><span class="line">xx 00 xx 00  UTF-16LE</span><br><span class="line">xx xx xx xx  UTF-8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若采用<code>UTF-16</code>或<code>UTF-32</code>,则需要设置<code>content-transfer-encoding</code>为<code>binary</code>??</p>
+</li>
+</ul>
+<p>参考:</p>
+<ol>
+<li><a href="http://www.ietf.org/rfc/rfc4627.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc4627.txt</a></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/9254891/what-does-content-type-application-json-charset-utf-8-really-mean" target="_blank" rel="external">http://stackoverflow.com/questions/9254891/what-does-content-type-application-json-charset-utf-8-really-mean</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/25/http-content-type/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-11-18 </div>
 			<div class="article-title"><a href="/2015/11/18/go/" >go</a></div>						
 		</h3>
@@ -404,87 +465,6 @@
 	
 	</div>
   <a type="button" href="/2015/11/16/nginx-允许跨域/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-10 </div>
-			<div class="article-title"><a href="/2015/11/10/go-interface/" >go-interface</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p><code>interface</code>是一组<code>method</code>的集合(而不是<code>function</code>, 因为<code>function</code>没有<code>reciver</code>)</p>
-</li>
-<li><p>若某个类型实现了<code>interface</code>内所有<code>method</code>,则该类型对象与该<code>interface</code>对象转换</p>
-</li>
-<li><p><code>interface</code>是一种语义上的抽象,该对象提供了某种<strong>语义抽象</strong>功能,而该功能的具体实现不同</p>
-<p>如<code>coder(编码器)</code>,存在编码,解码功能,但具体可能有<code>json</code>,<code>xml</code>等多种方式实现</p>
-</li>
-<li><p>赋值给<code>interface</code></p>
-<ul>
-<li><p>若为值,则该类型<code>method</code>的<code>reciver</code>也必须是值类型</p>
-</li>
-<li><p>若为指针值,则该类型<code>method</code>的<code>reciver</code>也必须是指针类型</p>
-</li>
-</ul>
-<p>因为<code>method</code>的<code>reciver</code>是否为指针,代表的语义功能可能完全不一样</p>
-<p><code>reciver</code>为指针类型,意味着在该<code>method</code>中,很可能会改变该对象自身(具体由实现决定)</p>
-<p>若一个<code>method</code>要求的是指针类型,而在给<code>interface</code>赋值时,只是传值的话,是无法改变该对象的!</p>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/02.6.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/02.6.md</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/10/go-interface/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-09 </div>
-			<div class="article-title"><a href="/2015/11/09/go-rpc/" >go-rpc</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p>注册一个类型,即提供一个服务(访问该类型相关的方法)</p>
-</li>
-<li><p>方法的原型约定</p>
-<ul>
-<li>the method’s type is exported.(只有导出的,在<code>rpc</code>包中才可访问)</li>
-<li>the method is exported.(只有导出的,在<code>rpc</code>包中才可访问)</li>
-<li>the method has two arguments, both exported (or builtin) types.(只有导出的或内建类型,在<code>rpc</code>包中才可访问)</li>
-<li>the method’s second argument is a pointer.(第二个为返回参数)</li>
-<li>the method has return type error.(go风格)</li>
-</ul>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/pkg/net/rpc/" target="_blank" rel="external">https://golang.org/pkg/net/rpc/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/09/go-rpc/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -793,48 +773,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
-		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
-		
-			<li><a href="/tags/元组/">元组<span>1</span></a></li>
-		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
-		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
-		
-			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
-		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
-		
-			<li><a href="/tags/base64/">base64<span>1</span></a></li>
-		
-			<li><a href="/tags/od/">od<span>1</span></a></li>
-		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
 		
 			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
 		
-			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
+			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
 		
-			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
+			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
 		
-			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+			<li><a href="/tags/git/">git<span>7</span></a></li>
 		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
+			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
 		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
+			<li><a href="/tags/apt/">apt<span>2</span></a></li>
 		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
+			<li><a href="/tags/STL/">STL<span>1</span></a></li>
+		
+			<li><a href="/tags/crond/">crond<span>1</span></a></li>
+		
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
+		
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+		
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+		
+			<li><a href="/tags/domain/">domain<span>3</span></a></li>
+		
+			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
+		
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+		
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+		
+			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>588</span></a></li>
+		   <li><a href="/tags">...<span>591</span></a></li>
 		 
 		</ul>
 	</div>
@@ -847,6 +827,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
@@ -856,14 +844,6 @@
     
       <li>
         <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
       </li>
     
   </ul>

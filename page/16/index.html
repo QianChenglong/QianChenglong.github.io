@@ -111,6 +111,91 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-22 </div>
+			<div class="article-title"><a href="/2015/10/22/go-struct/" >go-struct</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p>结构体指针用来实现类似C++的方法,通过指针才可以修改数据</p>
+<pre><code>func (data *Data)
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/22/go-struct/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-21 </div>
+			<div class="article-title"><a href="/2015/10/21/go-net-http/" >go-net-http</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="http的几个数据结构"><a href="#http的几个数据结构" class="headerlink" title="http的几个数据结构"></a>http的几个数据结构</h1><ul>
+<li><p>Request</p>
+<p>客户端发起的http请求,包含请求的URL(资源标识),方法,内容,cooike等</p>
+</li>
+<li><p>Response</p>
+<p>服务端发送的响应(HTTP头,辅助说明响应内容)</p>
+</li>
+<li><p>Conn</p>
+<p>客户端跟服务器的连接</p>
+</li>
+<li><p>Handler</p>
+<p>URL的处理逻辑</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Handler <span class="keyword">interface</span> &#123;</span><br><span class="line">    ServeHTTP(ResponseWriter, *Request)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><p><img src="../img/go-net-http-01.png" alt=""></p>
+<ol>
+<li><p>创建Listen Socket, 监听指定的端口, 等待客户端请求到来</p>
+</li>
+<li><p>Listen Socket接受客户端的请求, 得到Client Socket, 接下来通过Client Socket与客户端通信</p>
+</li>
+<li><p>处理客户端的请求, 首先从Client Socket读取HTTP请求的协议头, 如果是POST方法, 还可能要读取客户端提交的数据, 然后交给相应的handler处理请求, handler处理完毕准备好客户端需要的数据, 通过Client Socket写给客户端</p>
+</li>
+</ol>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><ol>
+<li><p>通过<code>http.HandleFunc(pattern string, handler func(ResponseWriter, *Request))</code>处理指定请求(根据URL路由)</p>
+</li>
+<li><p>通过<code>htpp.ListenAndServe(addr string, handler Handler)</code>注册处理器</p>
+<ul>
+<li><p><code>Handler</code>实现了<code>http.ServeHTTP(ResponseWriter, *Request)</code>接口</p>
+</li>
+<li><p>该接口根据URL,请求参数等来路由,比如jsonrpc中根据<code>method</code>来路由</p>
+</li>
+</ul>
+</li>
+<li><p>通过<code>http.Handle(pattern string, handler Handler)</code>注册处理器</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/21/go-net-http/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-21 </div>
 			<div class="article-title"><a href="/2015/10/21/mysql-limit/" >mysql-limit</a></div>						
 		</h3>
@@ -348,97 +433,6 @@
 	
 	</div>
   <a type="button" href="/2015/10/19/mysql-prepare-update部分更新/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-19 </div>
-			<div class="article-title"><a href="/2015/10/19/Exchange-ActiveSync/" >Exchange ActiveSync</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>是微软开发地一种同步协议</p>
-</li>
-<li><p>用来同步通讯录,日历,邮件</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/10/19/Exchange-ActiveSync/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-16 </div>
-			<div class="article-title"><a href="/2015/10/16/go-fmt/" >go-fmt</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="包内特征"><a href="#包内特征" class="headerlink" title="包内特征"></a>包内特征</h1><ul>
-<li><p>3种IO函数</p>
-<ul>
-<li><p>输出</p>
-<ol>
-<li><p><code>Print</code>用默认格式打印值,中间用空格分隔</p>
-</li>
-<li><p><code>Println</code>追加换行</p>
-</li>
-<li><p><code>Printf</code>自定义格式化</p>
-</li>
-</ol>
-</li>
-<li><p>输入</p>
-</li>
-</ul>
-</li>
-<li><p>IO源</p>
-<ol>
-<li><p>默认<code>stdin</code>, <code>stdout</code></p>
-</li>
-<li><p><code>S</code>族(<code>fmt.Sprint</code>, <code>fmt.Sprintln</code>, <code>fmt.Sprintf</code>),<code>string</code></p>
-</li>
-<li><p><code>F</code>族(<code>fmt.Fprint</code>, <code>fmt.Fprintln</code>, <code>fmt.Fprintf</code>),<code>io.Writer</code></p>
-</li>
-</ol>
-</li>
-</ul>
-<h1 id="格式化控制"><a href="#格式化控制" class="headerlink" title="格式化控制"></a>格式化控制</h1><ul>
-<li><p>%v  默认格式</p>
-</li>
-<li><p>%+v 打印结构体字段名</p>
-</li>
-<li><p>%T  类型</p>
-</li>
-<li><p>%q  转换为字符串字面值,将非打印字符转义(<code>\xXX</code>)</p>
-</li>
-<li><p>%q  转换为字符串字面值,将非打印字符转义(<code>\xXX</code>),将<code>utf-8</code>编码的字符转换为<code>\uXXYY</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/pkg/fmt/" target="_blank" rel="external">https://golang.org/pkg/fmt/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/16/go-fmt/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -747,48 +741,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
 		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
 		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+			<li><a href="/tags/app/">app<span>4</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/博客/">博客<span>1</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/左值/">左值<span>1</span></a></li>
+			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
-			<li><a href="/tags/参数/">参数<span>1</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
 		
-			<li><a href="/tags/macro/">macro<span>4</span></a></li>
+			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
 		
-			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/文件名/">文件名<span>5</span></a></li>
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
 		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
-			<li><a href="/tags/宏/">宏<span>4</span></a></li>
+			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>588</span></a></li>
+		   <li><a href="/tags">...<span>591</span></a></li>
 		 
 		</ul>
 	</div>
@@ -801,6 +795,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
@@ -810,14 +812,6 @@
     
       <li>
         <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
       </li>
     
   </ul>

@@ -112,6 +112,33 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-10 </div>
+			<div class="article-title"><a href="/2014/12/10/python-IDLE中文问题/" >python-IDLE中文问题</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>在IDLE中使用<code>u&#39;中文&#39;.encode(&#39;gbk&#39;)</code>报错</p>
+<p><img src="/img/python-IDLE中文问题_01.png" alt=""></p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>IDLE本身BUG</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.csdn.net/mayflowers/article/details/1568852" target="_blank" rel="external">http://blog.csdn.net/mayflowers/article/details/1568852</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/10/python-IDLE中文问题/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-10 </div>
 			<div class="article-title"><a href="/2014/12/10/win下编译libcurl/" >win下编译libcurl</a></div>						
 		</h3>
 	
@@ -152,6 +179,46 @@
 	
 	</div>
   <a type="button" href="/2014/12/10/win下编译libcurl/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-10 </div>
+			<div class="article-title"><a href="/2014/12/10/win下编译openssl/" >win下编译openssl</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
+<li>perl</li>
+<li>VC++</li>
+</ul>
+<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
+<li><p>生成<code>Makefile</code></p>
+<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
+ms\do_ms
+</code></pre></li>
+<li><p>编译</p>
+<pre><code>nmake -f ms\ntdll.mak
+</code></pre></li>
+<li><p>测试</p>
+<pre><code>nmake -f ms\ntdll.mak test
+</code></pre></li>
+<li><p>安装</p>
+<pre><code>nmake -f ms\ntdll.mak install
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/10/win下编译openssl/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -436,142 +503,6 @@
 	
 	</div>
   <a type="button" href="/2014/12/08/字符编码中的相关概念/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-08 </div>
-			<div class="article-title"><a href="/2014/12/08/python-编码/" >python-编码</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="unicode内部编码实现"><a href="#unicode内部编码实现" class="headerlink" title="unicode内部编码实现"></a>unicode内部编码实现</h1><ul>
-<li><p>python2 UCS2(编译默认，–enable-unicode=ucs2)</p>
-<pre><code>&gt;&gt;&gt; sys.maxunicode
-65535
-</code></pre></li>
-<li><p>python3 UCS4(编译默认，–enable-unicode=ucs4)</p>
-<pre><code>&gt;&gt;&gt; sys.maxunicode
-1114111
-</code></pre></li>
-</ul>
-<h1 id="相关数据类型"><a href="#相关数据类型" class="headerlink" title="相关数据类型"></a>相关数据类型</h1><h2 id="字节序列-bytes"><a href="#字节序列-bytes" class="headerlink" title="字节序列(bytes)"></a>字节序列(bytes)</h2><p>一串由0到255之间的数字组成的序列叫做bytes对象</p>
-<ul>
-<li><p>用来存储经过某种编码方式(如<code>UTF-8</code>)的<code>unicode</code>字符串</p>
-</li>
-<li><p>转换为字符串时,需要知道该<code>bytes</code>的编码</p>
-</li>
-</ul>
-<h2 id="字符串-string"><a href="#字符串-string" class="headerlink" title="字符串(string)"></a>字符串(string)</h2><ul>
-<li><p>字符是一种抽象</p>
-</li>
-<li><p>一个不可变(immutable)的Unicode编码的字符序列叫做string</p>
-</li>
-<li><p>存储对应的UNICODE编码值</p>
-</li>
-</ul>
-<h1 id="python源文件编码方式"><a href="#python源文件编码方式" class="headerlink" title="python源文件编码方式"></a>python源文件编码方式</h1><ul>
-<li><p>python2 默认编码为ASCII，若为其他编码，需要在文件头注释说明(<code>coding: XXX</code>)</p>
-</li>
-<li><p>python3 默认UTF-8</p>
-</li>
-</ul>
-<h1 id="编码转换-str-lt-gt-bytes"><a href="#编码转换-str-lt-gt-bytes" class="headerlink" title="编码转换(str &lt;=&gt; bytes)"></a>编码转换(str &lt;=&gt; bytes)</h1><h2 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h2><ul>
-<li><p>string =&gt; bytes</p>
-<pre><code>a_string = &apos;深入 Python&apos;
-by = a_string.encode(&apos;utf-8&apos;)
-len(by)
-by = a_string.encode(&apos;gb18030&apos;)
-len(by)
-</code></pre></li>
-<li><p>bytes =&gt; string</p>
-<pre><code>a_string = &apos;深入 Python&apos;
-by = a_string.encode(&apos;utf-8&apos;)
-by.decode(&apos;utf-8&apos;)
-</code></pre></li>
-</ul>
-<p>参考：</p>
-<ol>
-<li><a href="http://stackoverflow.com/questions/1446347/how-to-find-out-if-python-is-compiled-with-ucs-2-or-ucs-4" target="_blank" rel="external">http://stackoverflow.com/questions/1446347/how-to-find-out-if-python-is-compiled-with-ucs-2-or-ucs-4</a></li>
-</ol>
-<h2 id="获取系统编码参数"><a href="#获取系统编码参数" class="headerlink" title="获取系统编码参数"></a>获取系统编码参数</h2><p>系统的缺省编码(一般就是ascii)：sys.getdefaultencoding()</p>
-<p>系统当前的编码：locale.getdefaultlocale()</p>
-<p>系统代码中临时被更改的编码（通过locale.setlocale(locale.LC_ALL,“zh_CN.UTF-8″)）：locale.getlocale()</p>
-<p>文件系统的编码：sys.getfilesystemencoding()</p>
-<p>终端的输入编码：sys.stdin.encoding</p>
-<p>终端的输出编码：sys.stdout.encoding</p>
-<h2 id="文件编码与字符串编码"><a href="#文件编码与字符串编码" class="headerlink" title="文件编码与字符串编码"></a>文件编码与字符串编码</h2><p>字符床常量编码取决于文件编码</p>
-<ul>
-<li><p>默认编码为ASCII</p>
-</li>
-<li><p>文件头显式指定编码，需要文件本身编码与该声明编码一致</p>
-<pre><code># Coding: utf-8
-</code></pre></li>
-</ul>
-<p>定义<code>UNICODE</code>字符串，在字符床常量前加<code>u</code></p>
-<h2 id="判断字符串编码"><a href="#判断字符串编码" class="headerlink" title="判断字符串编码"></a>判断字符串编码</h2><ul>
-<li><p><code>type(str)</code></p>
-</li>
-<li><p><code>isinstance()</code></p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> <span class="string">'default encoding: '</span> , sys.getdefaultencoding()</span><br><span class="line"><span class="keyword">print</span> <span class="string">'stdout encoding: '</span> , sys.stdout.encoding</span><br><span class="line">s=<span class="string">'中文'</span></span><br><span class="line"><span class="keyword">if</span> isinstance(s, str):</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'s is a string object'</span></span><br><span class="line"><span class="keyword">elif</span> isinstance(s, unicode):</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'s is a unicode object'</span></span><br></pre></td></tr></table></figure>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="SyntaxError-Non-ASCII-character-39-xe4-39-in-file-XXX"><a href="#SyntaxError-Non-ASCII-character-39-xe4-39-in-file-XXX" class="headerlink" title="SyntaxError: Non-ASCII character &#39;\xe4&#39; in file XXX"></a><code>SyntaxError: Non-ASCII character &#39;\xe4&#39; in file XXX</code></h3><ul>
-<li>原因</li>
-</ul>
-<p>文件编码不是<code>ASCII</code>编码，但文件开头未指定文件编码</p>
-<ul>
-<li>解决</li>
-</ul>
-<p>在文件开头指定文件本身编码即可.(文件最好采用<code>utf-8</code>编码)</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="http://woodpecker.org.cn/diveintopython3/strings.html" target="_blank" rel="external">http://woodpecker.org.cn/diveintopython3/strings.html</a></li>
-<li><a href="https://docs.python.org/2/howto/unicode.html" target="_blank" rel="external">https://docs.python.org/2/howto/unicode.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/08/python-编码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-08 </div>
-			<div class="article-title"><a href="/2014/12/08/python-cgi常见错误/" >python-cgi常见错误</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="500-Internal-Server-Error"><a href="#500-Internal-Server-Error" class="headerlink" title="500 Internal Server Error"></a>500 Internal Server Error</h2><h3 id="CGI不能执行"><a href="#CGI不能执行" class="headerlink" title="CGI不能执行"></a>CGI不能执行</h3><ul>
-<li><p>语法有问题</p>
-</li>
-<li><p>依赖未解决</p>
-</li>
-</ul>
-<h3 id="输出不正确"><a href="#输出不正确" class="headerlink" title="输出不正确"></a>输出不正确</h3><ul>
-<li><p>输出内容不符合CGI规范</p>
-<p>常见问题是，输出头不合法</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/08/python-cgi常见错误/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -880,48 +811,48 @@ by.decode(&apos;utf-8&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
 		
-			<li><a href="/tags/左值/">左值<span>1</span></a></li>
+			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
-			<li><a href="/tags/final/">final<span>1</span></a></li>
+			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
 		
-			<li><a href="/tags/dll/">dll<span>1</span></a></li>
-		
-			<li><a href="/tags/主键/">主键<span>1</span></a></li>
-		
-			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
-		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
-		
-			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
-		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
-		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
-		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
-		
-			<li><a href="/tags/sal/">sal<span>1</span></a></li>
-		
-			<li><a href="/tags/元组/">元组<span>1</span></a></li>
-		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
-		
-			<li><a href="/tags/bind/">bind<span>2</span></a></li>
-		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
-		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
-		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
 		
 			<li><a href="/tags/宏/">宏<span>4</span></a></li>
 		
+			<li><a href="/tags/apt/">apt<span>2</span></a></li>
 		
-		   <li><a href="/tags">...<span>588</span></a></li>
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
+		
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+		
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+		
+			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+		
+			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
+		
+			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
+		
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+		
+			<li><a href="/tags/sudo/">sudo<span>4</span></a></li>
+		
+			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
+		
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+		
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
+		
+			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
+		
+			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>591</span></a></li>
 		 
 		</ul>
 	</div>
@@ -934,6 +865,14 @@ by.decode(&apos;utf-8&apos;)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
@@ -943,14 +882,6 @@ by.decode(&apos;utf-8&apos;)
     
       <li>
         <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
       </li>
     
   </ul>

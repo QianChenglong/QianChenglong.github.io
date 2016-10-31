@@ -112,6 +112,63 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-16 </div>
+			<div class="article-title"><a href="/2015/01/16/vim-输入二合字母/" >vim-输入二合字母</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="二合字母"><a href="#二合字母" class="headerlink" title="二合字母"></a>二合字母</h1><p>二合字母用来输入不能用普通键盘输入的字符。它们通常是可显示的非 ASCII 字符。</p>
+<h1 id="输入方法"><a href="#输入方法" class="headerlink" title="输入方法"></a>输入方法</h1><pre><code>&lt;Ctrl-k&gt;{char1}{char2}
+</code></pre><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>CR ^M</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><pre><code>:help digraph
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/01/16/vim-输入二合字母/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-16 </div>
+			<div class="article-title"><a href="/2015/01/16/vim-去除M/" >vim-去除^M</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>方法1</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s;&lt;Ctrl-V&gt;&lt;Ctrl-M&gt;;;g</span><br></pre></td></tr></table></figure>
+<ul>
+<li>方法2</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s;&lt;Ctrl-K&gt;CR;;g</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/811193/how-to-convert-the-m-linebreak-to-normal-linebreak-in-a-file-opened-in-vim" target="_blank" rel="external">http://stackoverflow.com/questions/811193/how-to-convert-the-m-linebreak-to-normal-linebreak-in-a-file-opened-in-vim</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/16/vim-去除M/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-16 </div>
 			<div class="article-title"><a href="/2015/01/16/修改网络邻居登录密码/" >修改网络邻居登录密码</a></div>						
 		</h3>
 	
@@ -347,59 +404,6 @@ sys.stdout.write(&apos;hello world&apos;)
 	
 	</div>
   <a type="button" href="/2015/01/15/awk-学习笔记/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-15 </div>
-			<div class="article-title"><a href="/2015/01/15/vim-查看脚本载入顺序/" >vim-查看脚本载入顺序</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">scriptnames</span></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/01/15/vim-查看脚本载入顺序/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-15 </div>
-			<div class="article-title"><a href="/2015/01/15/vim-查看最后设定/" >vim-查看最后设定</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="查看某个选项最后设置位置"><a href="#查看某个选项最后设置位置" class="headerlink" title="查看某个选项最后设置位置"></a>查看某个选项最后设置位置</h1><ul>
-<li><p>查看文件类型</p>
-<pre><code>:verbose set filetype
-</code></pre></li>
-</ul>
-<h1 id="查看某个映射最后定义位置"><a href="#查看某个映射最后定义位置" class="headerlink" title="查看某个映射最后定义位置"></a>查看某个映射最后定义位置</h1><ul>
-<li><p>查看vmap</p>
-<pre><code>:verbose vmap l&lt;CR&gt;
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/15/vim-查看最后设定/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -708,48 +712,48 @@ sys.stdout.write(&apos;hello world&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
 		
-			<li><a href="/tags/时间/">时间<span>3</span></a></li>
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
 		
-			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/static/">static<span>2</span></a></li>
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
-		
-			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
-		
-			<li><a href="/tags/registry/">registry<span>1</span></a></li>
-		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
-		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
-		
-			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
-		
-			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
-		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
-		
-			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
-		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
-		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
-		
-			<li><a href="/tags/bind/">bind<span>2</span></a></li>
-		
-			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
-		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
 		
 			<li><a href="/tags/glog/">glog<span>1</span></a></li>
 		
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
 		
-		   <li><a href="/tags">...<span>588</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
+		
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+		
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
+		
+			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+		
+			<li><a href="/tags/类/">类<span>1</span></a></li>
+		
+			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
+		
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+		
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+		
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+		
+			<li><a href="/tags/nging/">nging<span>1</span></a></li>
+		
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+		
+			<li><a href="/tags/STL/">STL<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>591</span></a></li>
 		 
 		</ul>
 	</div>
@@ -762,6 +766,14 @@ sys.stdout.write(&apos;hello world&apos;)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
@@ -771,14 +783,6 @@ sys.stdout.write(&apos;hello world&apos;)
     
       <li>
         <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
       </li>
     
   </ul>

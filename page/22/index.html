@@ -112,6 +112,83 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-08-17 </div>
+			<div class="article-title"><a href="/2015/08/17/mysql-mysql_use_result-VS-mysql_store_result/" >mysql-mysql_use_result-VS-mysql_store_result</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="mysql-use-result"><a href="#mysql-use-result" class="headerlink" title="mysql_use_result"></a>mysql_use_result</h1><p>保留了如何从服务器取结果集</p>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<li><p>客户端占用内存小</p>
+</li>
+<li></li>
+</ul>
+<h2 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h2><ul>
+<li><p>不能随机访问结果行</p>
+</li>
+<li><p>必须访问完,才能获取行数</p>
+</li>
+<li><p>客户端对结果处理必须得快,否则对服务端造成压力</p>
+</li>
+<li><p>必须从服务端获取所有结果,即使已经找到需要的行</p>
+</li>
+</ul>
+<h1 id="mysql-store-result"><a href="#mysql-store-result" class="headerlink" title="mysql_store_result"></a>mysql_store_result</h1><p>将sql执行结果全部获取到客户端</p>
+<h2 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h2><ul>
+<li><p>能直接获取结果行数</p>
+</li>
+<li><p>能随机访问结果行</p>
+</li>
+</ul>
+<h2 id="劣势-1"><a href="#劣势-1" class="headerlink" title="劣势"></a>劣势</h2><ul>
+<li>客户端占用内存大,可能内存溢出</li>
+</ul>
+<h1 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h1><ul>
+<li>都需要调用<code>mysql_free_result</code>释放内存</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>mysql-manual.23.8.6</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/08/17/mysql-mysql_use_result-VS-mysql_store_result/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-17 </div>
+			<div class="article-title"><a href="/2015/08/17/条件变量/" >条件变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="为什么需要条件变量"><a href="#为什么需要条件变量" class="headerlink" title="为什么需要条件变量"></a>为什么需要条件变量</h1><ul>
+<li><code>mutex</code>只能保证互斥地操作共享资源,不能及时通知其他线程某一条件已经满足</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/17/条件变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-17 </div>
 			<div class="article-title"><a href="/2015/08/17/虚假唤醒/" >虚假唤醒</a></div>						
 		</h3>
 	
@@ -341,57 +418,6 @@
 	
 	</div>
   <a type="button" href="/2015/08/10/actor模型/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-05 </div>
-			<div class="article-title"><a href="/2015/08/05/vim-十六进制编辑/" >vim-十六进制编辑</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>十六进制编辑</p>
-<pre><code>:%!xxd 
-</code></pre></li>
-<li><p>返回到文本编辑</p>
-<pre><code>:%!xxd -r
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/08/05/vim-十六进制编辑/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-05 </div>
-			<div class="article-title"><a href="/2015/08/05/vim-找出高亮定义位置/" >vim-找出高亮定义位置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>:verbose hi ProtoType
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/08/05/vim-找出高亮定义位置/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -700,48 +726,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
-		
-			<li><a href="/tags/sudo/">sudo<span>4</span></a></li>
-		
-			<li><a href="/tags/编程/">编程<span>6</span></a></li>
-		
-			<li><a href="/tags/虚函数/">虚函数<span>1</span></a></li>
-		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
-		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
-		
-			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>6</span></a></li>
-		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
-		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
-		
-			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
-		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
-		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
-		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
-		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
 		
 			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
 		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/库/">库<span>2</span></a></li>
+			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
 		
-			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
+		
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
+		
+			<li><a href="/tags/size/">size<span>1</span></a></li>
+		
+			<li><a href="/tags/go/">go<span>40</span></a></li>
+		
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+		
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+		
+			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+		
+			<li><a href="/tags/void/">void*<span>1</span></a></li>
+		
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
+		
+			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+		
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+		
+			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
+		
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
+		
+			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+		
+			<li><a href="/tags/链表/">链表<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>588</span></a></li>
+		   <li><a href="/tags">...<span>591</span></a></li>
 		 
 		</ul>
 	</div>
@@ -754,6 +780,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
@@ -763,14 +797,6 @@
     
       <li>
         <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
       </li>
     
   </ul>

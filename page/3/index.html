@@ -111,6 +111,80 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-09-12 </div>
+			<div class="article-title"><a href="/2016/09/12/C++11-final和override/" >C++11-final和override</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="final"><a href="#final" class="headerlink" title="final"></a>final</h1><ul>
+<li><p>修饰class，阻止该class再被继承</p>
+</li>
+<li><p>修饰virtual method，阻止该method再被重写</p>
+</li>
+</ul>
+<h1 id="override"><a href="#override" class="headerlink" title="override"></a>override</h1><ul>
+<li><p>修饰virtual method，说明该method是重写的</p>
+<p>能够更好地使用编译器检查出错误，以免定义出新method，而不是重写，从而导致非预期行为</p>
+</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这两个关键字，都是非必需，但是都很有用！可以让开发者更准确地表达，同时编译器可以在编译阶段就发现该错误！</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://en.cppreference.com/w/cpp/language/final" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/final</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/override" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/override</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/12/C++11-final和override/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-09-07 </div>
+			<div class="article-title"><a href="/2016/09/07/左值-右值/" >左值-右值</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>最早起源于<code>CPL</code>语言(1960s)。</p>
+<p>是<strong>表达式</strong>的二个属性(类型，值类别)之一!</p>
+<p>左值：可以寻址(<strong>L</strong>ocate)的对象，根据是否可修改属性，分为<strong>可修改左值</strong>，<strong>不可修改左值</strong></p>
+<p>右值：不是左值的对象（C/C++中，临时对象属于右值）</p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>字符串常量是<strong>左值(不可修改的)</strong>！因为该数据存放在文本段，是有地址的！</p>
+</li>
+<li><p>在C中，<strong>prefix increment(++)/decrement(–), assignment(=), compound assignment(+=…), comma(,), ternary conditional(? :)</strong>是右值！而在C++中却是左值！！！</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c" target="_blank" rel="external">http://eli.thegreenplace.net/2011/12/15/understanding-lvalues-and-rvalues-in-c-and-c</a></li>
+<li><a href="http://en.cppreference.com/w/c/language/value_category" target="_blank" rel="external">http://en.cppreference.com/w/c/language/value_category</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/value_category" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/value_category</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/operator_other#Built-in_comma_operator" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/operator_other#Built-in_comma_operator</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/07/左值-右值/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-09-06 </div>
 			<div class="article-title"><a href="/2016/09/06/C++11-右值引用/" >C++11-右值引用</a></div>						
 		</h3>
@@ -402,199 +476,6 @@ tcp    FIN-WAIT-2 0      0      ::ffff:127.0.0.1:3306               ::ffff:127.0
 	
 	</div>
   <a type="button" href="/2016/08/26/mysql-CR_SERVER_LOST/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-08-26 </div>
-			<div class="article-title"><a href="/2016/08/26/踩坑/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>2016-08-26 <code>stdarg.h</code></p>
-<p>在封装<code>redisCommand</code>中，传递<code>va_list</code>后，执行后，重试逻辑，再次传递<code>va_list</code>，内存崩溃。</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/08/26/踩坑/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-08-17 </div>
-			<div class="article-title"><a href="/2016/08/17/git/" >git</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h1><ul>
-<li><p>从一个现有仓储建立纯仓库</p>
-<pre><code>git clone --bare ssh://git@github.com:22/QianChenglong/home.git home.git
-</code></pre></li>
-<li><p>从.git目录复制<a href="https://git.wiki.kernel.org/index.php/GitFaq#How_do_I_make_existing_non-bare_repository_bare.3F" target="_blank" rel="external">https://git.wiki.kernel.org/index.php/GitFaq#How_do_I_make_existing_non-bare_repository_bare.3F</a></p>
-<pre><code>scp -rv .git dev2:~/git/Beme4wdServer.git
-cd Beme4wdServer.git/
-git config --bool core.bare true
-</code></pre></li>
-<li><p>修改远程URL</p>
-<pre><code>git remote set-url origin ssh://wallace@dev2:36000/~/git/home.git
-</code></pre></li>
-<li><p>查看远程信息</p>
-<pre><code>git remote -v
-git remote show origin
-</code></pre></li>
-<li><p>从远程仓库取数据，不合并分支</p>
-<pre><code>git fetch [remote-name]
-</code></pre></li>
-<li><p>push所有分支和tag，并跟踪</p>
-<pre><code>git push --all origin -u
-</code></pre></li>
-</ul>
-<h1 id="update-index"><a href="#update-index" class="headerlink" title="update-index"></a>update-index</h1><ul>
-<li><p>添加可执行权限</p>
-<pre><code>git update-index --chmod=+x config_server
-</code></pre></li>
-<li><p>标识已纳入版本的文件不必跟踪变化</p>
-<pre><code>git update-index --assume-unchanged &lt;files&gt;
-git update-index --no-assume-unchanged &lt;files&gt;(撤销)
-git ls-files -v(小写字母说明设置了该标志位)
-</code></pre></li>
-</ul>
-<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><ul>
-<li><p>查看所有分支</p>
-<pre><code>git branch
-</code></pre></li>
-<li><p>查看分支详情，最后一次commit</p>
-<pre><code>git branch -v
-</code></pre></li>
-<li><p>查看当前已经合并的分支</p>
-<pre><code>git branch --merged
-</code></pre></li>
-<li><p>查看当前没有合并的分支</p>
-<pre><code>git branch --no-merged
-</code></pre></li>
-<li><p>新建分支</p>
-<pre><code>git branch testing
-</code></pre></li>
-<li><p>切换分支</p>
-<pre><code>git checkout testing
-</code></pre></li>
-<li><p>新建分支并切换</p>
-<pre><code>git checkout -b issue53
-</code></pre></li>
-<li><p>删除分支</p>
-<pre><code>git branch -d hotfix
-</code></pre></li>
-<li><p>设置跟踪分支</p>
-<pre><code>git branch --set-upstream-to=origin/master master
-</code></pre></li>
-</ul>
-<h1 id="子模块"><a href="#子模块" class="headerlink" title="子模块"></a>子模块</h1><ul>
-<li><p>添加模块</p>
-<pre><code>git submodule add ssh://wallace@dev2.beme.com:36000/~/git/ssh.git .ssh
-</code></pre></li>
-<li><p>修改url</p>
-<pre><code>vim .gitmodule
-git submodule sync
-</code></pre></li>
-<li><p>初始化</p>
-<pre><code>git submodule init
-</code></pre></li>
-<li><p>更新</p>
-<pre><code>git submodule update
-</code></pre></li>
-</ul>
-<h1 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h1><ul>
-<li><p>取消未暂存的修改</p>
-<pre><code>git checkout -- &lt;file&gt;...
-</code></pre></li>
-</ul>
-<h1 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h1><p>功能：</p>
-<ul>
-<li><p>从HEAD拷贝到INDEX(重置暂存区)，若指定PATH(文件名)，则只操作指定文件(这种情况下，最好使用<code>git checkout -- &lt;paths&gt;</code>)</p>
-<pre><code>git reset
-</code></pre></li>
-<li><p>将HEAD指定到COMMIT</p>
-<pre><code>git reset [&lt;mode&gt;] &lt;commit&gt;
-</code></pre><ul>
-<li><p>–mixed [默认] INDEX同HEAD一起更新到<code>&lt;commit&gt;</code>，WORK不变</p>
-</li>
-<li><p>–soft INDEX，WORK保持不变,HEAD更新到<code>&lt;commit&gt;</code></p>
-</li>
-<li><p>–hard INDEX，WORK同HEAD一起更新到<code>&lt;commit&gt;</code></p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="revert"><a href="#revert" class="headerlink" title="revert"></a>revert</h1><p>恢复到指定commit，是复制指定commit并使HEAD指向它</p>
-<h1 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h1><ul>
-<li><p>重做上次提交，并使用上次提交信息</p>
-<pre><code>git commit --amend --no-edit
-</code></pre></li>
-</ul>
-<h1 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h1><ul>
-<li><p>从INDEX删除，但保留工作目录里面的</p>
-<pre><code>git rm --cached &lt;paths&gt;
-</code></pre></li>
-<li><p>强制删除已修改已暂存的文件(当前暂存区与上次提交的不一样)</p>
-<pre><code>git rm -f &lt;paths&gt;
-</code></pre></li>
-<li><p>从INDEX，WORK中删除</p>
-<pre><code>git rm &lt;paths&gt;
-</code></pre></li>
-</ul>
-<h1 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h1><ul>
-<li><p>查看当前版本与上一版本的差异</p>
-<pre><code>git diff HEAD~1 HEAD functions/fish_prompt.fish
-</code></pre></li>
-<li><p>查看暂存版本与工作目录中的差异</p>
-<pre><code>git diff
-</code></pre></li>
-<li><p>查看暂存与上一次提交的差异</p>
-<pre><code>git diff --cached
-</code></pre></li>
-<li><p>查看commit之间的差异</p>
-<pre><code>git diff &lt;commit1&gt; &lt;commit2&gt; &lt;path&gt;
-</code></pre></li>
-</ul>
-<h1 id="config"><a href="#config" class="headerlink" title="config"></a>config</h1><ul>
-<li><p>配置解包内存</p>
-<pre><code>git config --global pack.windowMemory 256m
-</code></pre></li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>同步home</p>
-<pre><code>git init
-git remote add origin ssh://wallace@112.74.81.30:36000/~/git/home.git
-git fetch
-git reset --hard origin/master
-</code></pre></li>
-<li><p>初始化并递归更新submodule</p>
-<pre><code>git submodule update --init --recursive
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/08/17/git/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -903,48 +784,48 @@ git reset --hard origin/master
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
 		
-			<li><a href="/tags/bind/">bind<span>2</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/memory-manage/">memory manage<span>1</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
-			<li><a href="/tags/build/">build<span>1</span></a></li>
-		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
-		
-			<li><a href="/tags/template/">template<span>2</span></a></li>
+			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
 		
 			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
 		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>2</span></a></li>
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/python3/">python3<span>2</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/systemd/">systemd<span>1</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
+			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
 		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
 		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
 		
-			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/final/">final<span>1</span></a></li>
+		
+			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
+		
+			<li><a href="/tags/resume/">resume<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>588</span></a></li>
+		   <li><a href="/tags">...<span>591</span></a></li>
 		 
 		</ul>
 	</div>
@@ -957,6 +838,14 @@ git reset --hard origin/master
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
@@ -966,14 +855,6 @@ git reset --hard origin/master
     
       <li>
         <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
       </li>
     
   </ul>

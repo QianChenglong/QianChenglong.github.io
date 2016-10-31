@@ -111,6 +111,72 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-11-02 </div>
+			<div class="article-title"><a href="/2015/11/02/mysql-中文编码/" >mysql-中文编码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li>存储使用<code>UTF-8</code>(中文占用3B,英文占用1B)</li>
+</ul>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>char(n)</code>或<code>vchar(n)</code>中<code>n</code>指的是字符容量,具体占用字节空间取决于编码集</p>
+</li>
+<li><p>字符</p>
+<ul>
+<li><p>一个汉字即一个字符</p>
+</li>
+<li><p>一个英文字母即一个字符</p>
+</li>
+</ul>
+</li>
+<li><p><code>char_length</code>   获取字符串的字符数目</p>
+</li>
+<li><p><code>length</code>    获取字节数(所占空间大小)</p>
+</li>
+</ul>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like 'character%';</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">| Variable_name            | Value                      |</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">| character_set_client     | utf8                       |</span><br><span class="line">| character_set_connection | utf8                       |</span><br><span class="line">| character_set_database   | utf8                       |</span><br><span class="line">| character_set_filesystem | binary                     |</span><br><span class="line">| character_set_results    | utf8                       |</span><br><span class="line">| character_set_server     | utf8                       |</span><br><span class="line">| character_set_system     | utf8                       |</span><br><span class="line">| character_sets_dir       | /usr/share/mysql/charsets/ |</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">mysql&gt; select char_length('a');</span><br><span class="line">+------------------+</span><br><span class="line">| char_length('a') |</span><br><span class="line">+------------------+</span><br><span class="line">|                1 |</span><br><span class="line">+------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select length('a');</span><br><span class="line">+-------------+</span><br><span class="line">| length('a') |</span><br><span class="line">+-------------+</span><br><span class="line">|           1 |</span><br><span class="line">+-------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select char_length('汉');</span><br><span class="line">+--------------------+</span><br><span class="line">| char_length('汉')  |</span><br><span class="line">+--------------------+</span><br><span class="line">|                  1 |</span><br><span class="line">+--------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select length('汉');</span><br><span class="line">+---------------+</span><br><span class="line">| length('汉')  |</span><br><span class="line">+---------------+</span><br><span class="line">|             3 |</span><br><span class="line">+---------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://dev.mysql.com/doc/refman/5.0/en/string-functions.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/string-functions.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/02/mysql-中文编码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-02 </div>
+			<div class="article-title"><a href="/2015/11/02/mysql-忽略客户端编码设定/" >mysql-忽略客户端编码设定</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip-character-set-client-handshake</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/11/02/mysql-忽略客户端编码设定/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-30 </div>
 			<div class="article-title"><a href="/2015/10/30/ubuntu-使用pptpd搭建vpn/" >ubuntu-使用pptpd搭建vpn</a></div>						
 		</h3>
@@ -401,91 +467,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 	
 	</div>
   <a type="button" href="/2015/10/27/go-new/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-22 </div>
-			<div class="article-title"><a href="/2015/10/22/go-struct/" >go-struct</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p>结构体指针用来实现类似C++的方法,通过指针才可以修改数据</p>
-<pre><code>func (data *Data)
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/22/go-struct/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-21 </div>
-			<div class="article-title"><a href="/2015/10/21/go-net-http/" >go-net-http</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="http的几个数据结构"><a href="#http的几个数据结构" class="headerlink" title="http的几个数据结构"></a>http的几个数据结构</h1><ul>
-<li><p>Request</p>
-<p>客户端发起的http请求,包含请求的URL(资源标识),方法,内容,cooike等</p>
-</li>
-<li><p>Response</p>
-<p>服务端发送的响应(HTTP头,辅助说明响应内容)</p>
-</li>
-<li><p>Conn</p>
-<p>客户端跟服务器的连接</p>
-</li>
-<li><p>Handler</p>
-<p>URL的处理逻辑</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Handler <span class="keyword">interface</span> &#123;</span><br><span class="line">    ServeHTTP(ResponseWriter, *Request)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><p><img src="../img/go-net-http-01.png" alt=""></p>
-<ol>
-<li><p>创建Listen Socket, 监听指定的端口, 等待客户端请求到来</p>
-</li>
-<li><p>Listen Socket接受客户端的请求, 得到Client Socket, 接下来通过Client Socket与客户端通信</p>
-</li>
-<li><p>处理客户端的请求, 首先从Client Socket读取HTTP请求的协议头, 如果是POST方法, 还可能要读取客户端提交的数据, 然后交给相应的handler处理请求, handler处理完毕准备好客户端需要的数据, 通过Client Socket写给客户端</p>
-</li>
-</ol>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><ol>
-<li><p>通过<code>http.HandleFunc(pattern string, handler func(ResponseWriter, *Request))</code>处理指定请求(根据URL路由)</p>
-</li>
-<li><p>通过<code>htpp.ListenAndServe(addr string, handler Handler)</code>注册处理器</p>
-<ul>
-<li><p><code>Handler</code>实现了<code>http.ServeHTTP(ResponseWriter, *Request)</code>接口</p>
-</li>
-<li><p>该接口根据URL,请求参数等来路由,比如jsonrpc中根据<code>method</code>来路由</p>
-</li>
-</ul>
-</li>
-<li><p>通过<code>http.Handle(pattern string, handler Handler)</code>注册处理器</p>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/21/go-net-http/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -794,48 +775,48 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+			<li><a href="/tags/library/">library<span>3</span></a></li>
 		
-			<li><a href="/tags/samba/">samba<span>3</span></a></li>
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
+		
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
+		
+			<li><a href="/tags/http/">http<span>11</span></a></li>
+		
+			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
+		
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+		
+			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+		
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+		
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
+		
+			<li><a href="/tags/net/">net<span>2</span></a></li>
+		
+			<li><a href="/tags/all/">all<span>1</span></a></li>
+		
+			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+		
+			<li><a href="/tags/resume/">resume<span>1</span></a></li>
+		
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+		
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+		
+			<li><a href="/tags/模块/">模块<span>2</span></a></li>
 		
 			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
+			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
 		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
-		
-			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
-		
-			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
-		
-			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
-		
-			<li><a href="/tags/hash/">hash<span>1</span></a></li>
-		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
-		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
-		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
-		
-			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
-		
-			<li><a href="/tags/log/">log<span>2</span></a></li>
-		
-			<li><a href="/tags/sudo/">sudo<span>4</span></a></li>
-		
-			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
-		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
-		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
-		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>588</span></a></li>
+		   <li><a href="/tags">...<span>591</span></a></li>
 		 
 		</ul>
 	</div>
@@ -848,6 +829,14 @@ pre-up iptables-restore &lt; /etc/iptables.rule
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
@@ -857,14 +846,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
     
       <li>
         <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
       </li>
     
   </ul>

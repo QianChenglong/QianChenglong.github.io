@@ -112,6 +112,67 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-29 </div>
+			<div class="article-title"><a href="/2015/01/29/运行python脚本出错-No such file or directory/" >运行python脚本出错-No such file or directory</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>文件格式为<code>DOS</code>格式，<code>#! /usr/bin/env python</code>后有<code>\r\n</code>，而<code>/usr/bin/env</code>的参数为<code>python\r</code>，<br>找不到即报改错；因为有<code>\r</code>在<code>python</code>输出后回到行首继续打印，则导致</p>
+<p><code>: No such file or directory</code></p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>文件格式改为<code>UNIX</code>格式</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://hgoldfish.com/blogs/article/31/" target="_blank" rel="external">http://hgoldfish.com/blogs/article/31/</a></li>
+<li><a href="http://stackoverflow.com/questions/12996065/no-such-file-or-directory" target="_blank" rel="external">http://stackoverflow.com/questions/12996065/no-such-file-or-directory</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/29/运行python脚本出错-No such file or directory/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-29 </div>
+			<div class="article-title"><a href="/2015/01/29/configure-make中的prefix-DESTDIR区别/" >configure-make中的prefix-DESTDIR区别</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="只使用-configure-prefix"><a href="#只使用-configure-prefix" class="headerlink" title="只使用./configure --prefix"></a>只使用<code>./configure --prefix</code></h1><p>当使用<code>make install</code>时，被安装到<code>prefix</code>为前缀的指定目录</p>
+<h1 id="使用-configure-prefix和make-install-DESTDIR"><a href="#使用-configure-prefix和make-install-DESTDIR" class="headerlink" title="使用./configure --prefix和make install DESTDIR"></a>使用<code>./configure --prefix</code>和<code>make install DESTDIR</code></h1><p>目标安装目录为<code>DESTDIR/prefix</code></p>
+<h1 id="只要使用了make-install-prefix-DIR"><a href="#只要使用了make-install-prefix-DIR" class="headerlink" title="只要使用了make install prefix=DIR"></a>只要使用了<code>make install prefix=DIR</code></h1><p>安装目录为<code>DIR</code></p>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a><strong>注意</strong></h1><ul>
+<li><p><code>./configure -prefix</code>必须是绝对路径</p>
+</li>
+<li><p><code>make install prefix</code>也要绝对路径，虽然可以是相对路径，但安装时，因为切换工作目录，导致安装目录错误！</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/11307465/destdir-and-prefix-of-make" target="_blank" rel="external">http://stackoverflow.com/questions/11307465/destdir-and-prefix-of-make</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/29/configure-make中的prefix-DESTDIR区别/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-29 </div>
 			<div class="article-title"><a href="/2015/01/29/nautilus-隐藏指定文件/" >nautilus-隐藏指定文件</a></div>						
 		</h3>
 	
@@ -394,70 +455,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/27/python-映射list/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-26 </div>
-			<div class="article-title"><a href="/2015/01/26/vim-xptemplate片段编写/" >vim-xptemplate片段编写</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>调用vim函数</li>
-</ul>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~<span class="built_in">expand</span>(<span class="string">"%:r"</span>)^</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>可视模式下wrap</p>
-<pre><code>XPT code wrap=cursor &quot; <figure class="highlight plain"><figcaption><span>code ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```~language^</span><br><span class="line">~cursor^</span><br></pre></td></tr></table></figure>
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/26/vim-xptemplate片段编写/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-26 </div>
-			<div class="article-title"><a href="/2015/01/26/vim-代码片段插件比较/" >vim-代码片段插件比较</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="xptemplate"><a href="#xptemplate" class="headerlink" title="xptemplate"></a><a href="https://github.com/drmingdrmer/xptemplate" target="_blank" rel="external">xptemplate</a></h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
-<li><p>支持菜单弹出显示</p>
-<p>当有多个片段时，弹出popup菜单显示</p>
-</li>
-<li><p>支持前缀唯一匹配</p>
-</li>
-</ul>
-<h1 id="UltiSnips"><a href="#UltiSnips" class="headerlink" title="UltiSnips"></a><a href="https://github.com/SirVer/ultisnips" target="_blank" rel="external">UltiSnips</a></h1><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li><p>不支持菜单弹出显示</p>
-</li>
-<li><p>不支持前缀唯一匹配</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/26/vim-代码片段插件比较/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -766,48 +763,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+		
+			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
 		
 			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
 		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/cron/">cron<span>1</span></a></li>
 		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
 		
-			<li><a href="/tags/time/">time<span>2</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/od/">od<span>1</span></a></li>
+			<li><a href="/tags/column/">column<span>1</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/rune/">rune<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/nging/">nging<span>1</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/python3/">python3<span>2</span></a></li>
 		
-			<li><a href="/tags/C/">C++<span>38</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
 		
-			<li><a href="/tags/flag/">flag<span>1</span></a></li>
+			<li><a href="/tags/date/">date<span>1</span></a></li>
 		
-			<li><a href="/tags/gcc/">gcc<span>5</span></a></li>
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
-			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
+			<li><a href="/tags/select/">select<span>1</span></a></li>
 		
-			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
+			<li><a href="/tags/alias/">alias<span>1</span></a></li>
 		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
-		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>588</span></a></li>
+		   <li><a href="/tags">...<span>591</span></a></li>
 		 
 		</ul>
 	</div>
@@ -820,6 +817,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
@@ -829,14 +834,6 @@
     
       <li>
         <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
       </li>
     
   </ul>

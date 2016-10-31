@@ -111,6 +111,74 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-05 </div>
+			<div class="article-title"><a href="/2015/06/05/mysql-触发器/" >mysql-触发器</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查看触发器</p>
+<pre><code>show triggers;
+</code></pre></li>
+<li><p>删除触发器</p>
+<pre><code>drop &lt;trigger-name&gt;;
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/05/mysql-触发器/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-05 </div>
+			<div class="article-title"><a href="/2015/06/05/mysql-远程连接/" >mysql-远程连接</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>centos7.0.1-64</p>
+</li>
+<li><p>5.5.41-MariaDB MariaDB Server</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>确保mysql配置文件<code>/etc/my.cnf</code>中没有bind本地地址</p>
+</li>
+<li><p>授权允许用户远程登录</p>
+<pre><code>grant all PRIVILEGES on 数据库名.表名 to 用户名@&apos;IP&apos; identified by &apos;密码&apos;;
+flush privileges;
+</code></pre></li>
+<li><p>放行mysql端口</p>
+<pre><code>firewall-cmd --permanent --add-port=3306/tcp
+firewall-cmd --reload
+</code></pre></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/05/mysql-远程连接/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-03 </div>
 			<div class="article-title"><a href="/2015/06/03/rsync常见错误/" >rsync常见错误</a></div>						
 		</h3>
@@ -345,55 +413,6 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
 	
 	</div>
   <a type="button" href="/2015/05/29/经验/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-27 </div>
-			<div class="article-title"><a href="/2015/05/27/APP后台API设计/" >APP后台设计</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="设计准则"><a href="#设计准则" class="headerlink" title="设计准则"></a>设计准则</h1><h2 id="API设计"><a href="#API设计" class="headerlink" title="API设计"></a>API设计</h2><ul>
-<li>重要页面尽量配合app</li>
-</ul>
-<h1 id="数据返回格式"><a href="#数据返回格式" class="headerlink" title="数据返回格式"></a>数据返回格式</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blog.csdn.net/newjueqi/article/details/44037011" target="_blank" rel="external">http://blog.csdn.net/newjueqi/article/details/44037011</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/05/27/APP后台API设计/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-25 </div>
-			<div class="article-title"><a href="/2015/05/25/linux-同步网络时间/" >linux-同步网络时间</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>ntpdate time.windows.com &amp;&amp; hwclock --systohc --localtime
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/05/25/linux-同步网络时间/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -702,48 +721,48 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+			<li><a href="/tags/curl/">curl<span>2</span></a></li>
 		
-			<li><a href="/tags/理解/">理解<span>1</span></a></li>
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
 		
-			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+			<li><a href="/tags/char/">char<span>2</span></a></li>
 		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+		
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+		
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+		
+			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+		
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
+		
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+		
+			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+		
+			<li><a href="/tags/rune/">rune<span>1</span></a></li>
 		
 			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
-		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
-		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
-		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
-		
-			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
-		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
-		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
-		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/安装/">安装<span>3</span></a></li>
 		
 			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
-			<li><a href="/tags/grep/">grep<span>1</span></a></li>
+			<li><a href="/tags/limit/">limit<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>588</span></a></li>
+		   <li><a href="/tags">...<span>591</span></a></li>
 		 
 		</ul>
 	</div>
@@ -756,6 +775,14 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
@@ -765,14 +792,6 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
     
       <li>
         <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
       </li>
     
   </ul>

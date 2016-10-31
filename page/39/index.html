@@ -111,6 +111,91 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-26 </div>
+			<div class="article-title"><a href="/2015/03/26/log4cpp/" >log4cpp</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>一个C++日志库，模仿Log4j(java日志库)</p>
+<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
+<li><p>可拓展的、多种记录日志方式，包括命令行、文件、回滚文件、内存、syslog服务器、<br>win事件日志、VS debuger等</p>
+</li>
+<li><p>可动态调整日志优先级</p>
+</li>
+<li><p>可动态加载配置文件</p>
+</li>
+<li><p>内存占用小，不到200KB</p>
+</li>
+<li><p>跨平台</p>
+</li>
+</ul>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>log4cpp主要有3大组件：category、appender、layout。</p>
+<ul>
+<li><p>layout</p>
+<p>用来控制输出日志消息的格式，每个appender关联一个layout</p>
+</li>
+<li><p>appender</p>
+<p>用来指定输出目的地</p>
+</li>
+<li><p>category</p>
+<p>一个日志工作体，具有日志级别属性，可以拥有多个appender(一条消息可以输出到多个目的地)</p>
+<p>category被组织成一棵树，子category创建时优先级缺省NOTSET，category缺省会继承父category的appender。<br>而如果不希望这种appender的继承关系，log4cpp允许使用additivity 标签，为false时新的appender取代category的appender列表。</p>
+</li>
+</ul>
+<h1 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h1><ol>
+<li><p>实例化一个layout对象，设置格式</p>
+</li>
+<li><p>实例化一个appender对象，设置layout</p>
+</li>
+<li><p>实例化一个category，添加appender</p>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://log4cpp.sourceforge.net/" target="_blank" rel="external">http://log4cpp.sourceforge.net/</a></li>
+<li><a href="http://www.ibm.com/developerworks/cn/linux/l-log4cpp/" target="_blank" rel="external">便利的开发工具-log4cpp快速使用指南</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/26/log4cpp/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-25 </div>
+			<div class="article-title"><a href="/2015/03/25/cmake-常用命令/" >cmake-常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>修改目标输出文件名</p>
+<pre><code>SET_TARGET_PROPERTIES(&lt;target_name&gt; PROPERTIES OUTPUT_NAME &lt;new_name&gt;)
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/25/cmake-常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-24 </div>
 			<div class="article-title"><a href="/2015/03/24/windows-获取当前进程文件名/" >windows-获取当前进程文件名</a></div>						
 		</h3>
@@ -458,57 +543,6 @@ APPEND raw
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-19 </div>
-			<div class="article-title"><a href="/2015/03/19/C优秀书籍列表/" >C优秀书籍列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>C语言接口与实现:创建可重用软件的技术</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/19/C优秀书籍列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-18 </div>
-			<div class="article-title"><a href="/2015/03/18/优秀个人博客/" >优秀个人博客</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="http://beej.us/" target="_blank" rel="external">http://beej.us/</a></p>
-</li>
-<li><p><a href="http://fleurer-lee.com/" target="_blank" rel="external">http://fleurer-lee.com/</a></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/18/优秀个人博客/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -814,48 +848,48 @@ APPEND raw
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/连接/">连接<span>1</span></a></li>
+			<li><a href="/tags/mrakdown/">mrakdown<span>1</span></a></li>
 		
-			<li><a href="/tags/log/">log<span>2</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
 		
-			<li><a href="/tags/variable/">variable<span>1</span></a></li>
+			<li><a href="/tags/memory-manage/">memory manage<span>1</span></a></li>
 		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
 		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
 		
-			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
-			<li><a href="/tags/主键/">主键<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/父类/">父类<span>2</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/包/">包<span>2</span></a></li>
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
 		
-			<li><a href="/tags/ip/">ip<span>2</span></a></li>
+			<li><a href="/tags/domain/">domain<span>3</span></a></li>
 		
-			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>588</span></a></li>
+		   <li><a href="/tags">...<span>591</span></a></li>
 		 
 		</ul>
 	</div>
@@ -868,6 +902,14 @@ APPEND raw
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
+      </li>
+    
+      <li>
+        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
+      </li>
+    
+      <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
@@ -877,14 +919,6 @@ APPEND raw
     
       <li>
         <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/26/编程经验/" ><i class="fa fa-file-o"></i>编程经验</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/24/C++11/" ><i class="fa fa-file-o"></i>C++11</a>
       </li>
     
   </ul>

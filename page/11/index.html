@@ -112,6 +112,35 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-03-09 </div>
+			<div class="article-title"><a href="/2016/03/09/poll/" >poll</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;poll.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">poll</span><span class="params">(<span class="keyword">struct</span> pollfd *fds, nfds_t nfds, <span class="keyword">int</span> timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> pollfd &#123;</span><br><span class="line">   <span class="keyword">int</span>   fd;         <span class="comment">/* file descriptor */</span></span><br><span class="line">   <span class="keyword">short</span> events;     <span class="comment">/* requested events */</span></span><br><span class="line">   <span class="keyword">short</span> revents;    <span class="comment">/* returned events */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用户层通过<code>pollfd</code>数组，来管理需要监控描述符IO事件，具体数量由用户控制</li>
+</ul>
+<h1 id="对比select"><a href="#对比select" class="headerlink" title="对比select"></a>对比select</h1><p>存储描述符和对应监听事件的数据结构不同</p>
+<ul>
+<li>描述符大小不受限制</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/09/poll/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-09 </div>
 			<div class="article-title"><a href="/2016/03/09/IO模型/" >IO模型</a></div>						
 		</h3>
 	
@@ -459,28 +488,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-25 </div>
-			<div class="article-title"><a href="/2016/02/25/c-基本类型size/" >c-基本类型size</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 类型    | 32位  | 64位  |<br>|———+——-+——-|<br>| char    | 1     | 1     |<br>| short   | 2     | 2     |<br>| int     | 4     | 4     |<br>| long    | 4     | <strong>8</strong> |<br>| float   | 4     | <strong>8</strong> |<br>| double  | <strong>8</strong> | 8     |<br>| pointer | 4     | <strong>8</strong> |</p>
-
-	
-	</div>
-  <a type="button" href="/2016/02/25/c-基本类型size/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -786,48 +793,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/poll/">poll<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
+		
+			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
+		
+			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+		
+			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+		
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+		
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+		
+			<li><a href="/tags/make/">make<span>2</span></a></li>
+		
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+		
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+		
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
 			<li><a href="/tags/alias/">alias<span>1</span></a></li>
 		
-			<li><a href="/tags/glog/">glog<span>1</span></a></li>
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+			<li><a href="/tags/log/">log<span>2</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
 		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
+			<li><a href="/tags/任播/">任播<span>1</span></a></li>
 		
-			<li><a href="/tags/素数/">素数<span>1</span></a></li>
-		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
-		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
-		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
-		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
-		
-			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
-		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
-		
-			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
-		
-			<li><a href="/tags/if/">if<span>1</span></a></li>
-		
-			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>591</span></a></li>
+		   <li><a href="/tags">...<span>592</span></a></li>
 		 
 		</ul>
 	</div>
@@ -838,6 +845,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
+      </li>
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
@@ -853,10 +864,6 @@
     
       <li>
         <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
       </li>
     
   </ul>

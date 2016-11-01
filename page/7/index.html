@@ -111,6 +111,35 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-04-26 </div>
+			<div class="article-title"><a href="/2016/04/26/daemon/" >daemon</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>关闭打开的文件描述符(0,1,2等，可通过<code>ls /proc/pid/fd</code>查看打开的文件描述符)</p>
+<p>若不关闭，虽然没有了控制终端，不会接受到相应控制信号，则仍能IO对应文件，如标准输出到启动时的终端，从终端读入！</p>
+<ul>
+<li>需要注意，默认为行缓冲！</li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/26/daemon/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-04-25 </div>
 			<div class="article-title"><a href="/2016/04/25/net/" >net</a></div>						
 		</h3>
@@ -397,54 +426,6 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 	
 	</div>
   <a type="button" href="/2016/04/14/TIME_WAIT/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-13 </div>
-			<div class="article-title"><a href="/2016/04/13/centos-安装记录/" >centos-安装记录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>安装VBoxGuestAdditions</p>
-</li>
-<li><p>配置sudo</p>
-<pre><code>visudo
-
-wallace ALL=(ALL)       NOPASSWD: ALL
-</code></pre></li>
-<li><p>安装epel(<a href="http://www.cyberciti.biz/faq/installing-rhel-epel-repo-on-centos-redhat-7-x/" target="_blank" rel="external">http://www.cyberciti.biz/faq/installing-rhel-epel-repo-on-centos-redhat-7-x/</a>)</p>
-<pre><code>yum install epel-release
-</code></pre></li>
-<li><p>添加组</p>
-<pre><code>yum install libuser
-lgroup -M wallace vboxsf
-</code></pre></li>
-<li><p>配置环境变量</p>
-<pre><code>vi /etc/profile
-</code></pre></li>
-<li><p>配置系统语言</p>
-<pre><code>echo LANG=en_US.UTF-8 &gt;/etc/locale.conf
-</code></pre></li>
-<li><p>配置启动时间</p>
-<pre><code>vi /boot/grub2/grub.cfg
-
-set timeout=1
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/13/centos-安装记录/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -753,48 +734,48 @@ set timeout=1
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/initializer-list/">initializer_list<span>1</span></a></li>
 		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
 		
-			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
 		
-			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
-		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
-		
-			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
-		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
-		
-			<li><a href="/tags/void/">void*<span>1</span></a></li>
+			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
 		
 			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/api/">api<span>1</span></a></li>
 		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
 		
-			<li><a href="/tags/base64/">base64<span>1</span></a></li>
+			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
 		
-			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>4</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
 		
-			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
 		
-			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+		
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
+		
+			<li><a href="/tags/install/">install<span>2</span></a></li>
+		
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+		
+			<li><a href="/tags/awk/">awk<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>591</span></a></li>
+		   <li><a href="/tags">...<span>592</span></a></li>
 		 
 		</ul>
 	</div>
@@ -805,6 +786,10 @@ set timeout=1
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
+      </li>
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
@@ -820,10 +805,6 @@ set timeout=1
     
       <li>
         <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
       </li>
     
   </ul>

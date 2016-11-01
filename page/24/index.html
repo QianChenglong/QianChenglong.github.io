@@ -111,6 +111,47 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-07-28 </div>
+			<div class="article-title"><a href="/2015/07/28/后台开发经验/" >后台开发经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>撤单回退资金,双重校验(传入的UID, 订单关联的UID)</p>
+</li>
+<li><p>增量拉取</p>
+<ul>
+<li><p>确定前端排序规则(排序键)</p>
+</li>
+<li><p>传入(排序键值, 拉取个数)</p>
+</li>
+</ul>
+</li>
+<li><p>错误处理</p>
+<ul>
+<li>请求参数严格校验(防止执行时导致内部错误)</li>
+<li>SQL错误结合接口意义,返回客户端错误提示</li>
+</ul>
+</li>
+<li><p>保持app原版本兼容时,相关数据表,追加版本号</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/28/后台开发经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-07-27 </div>
 			<div class="article-title"><a href="/2015/07/27/c-获取各种级别时间值/" >c-获取各种级别时间值</a></div>						
 		</h3>
@@ -369,40 +410,6 @@
 	
 	</div>
   <a type="button" href="/2015/07/22/linux-修改环境变量后及时生效/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-20 </div>
-			<div class="article-title"><a href="/2015/07/20/sql-数据更新/" >sql-数据更新</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><ul>
-<li><p>记录不存在,则插入</p>
-</li>
-<li><p>记录若存在,则更新指定值</p>
-</li>
-</ul>
-<h1 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h1><ul>
-<li>数据必须存在唯一性</li>
-</ul>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="1-INSERT-ON-DUPLICATE-KEY-UPDATE"><a href="#1-INSERT-ON-DUPLICATE-KEY-UPDATE" class="headerlink" title="1.INSERT ... ON DUPLICATE KEY UPDATE"></a>1.<code>INSERT ... ON DUPLICATE KEY UPDATE</code></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">table</span> (<span class="keyword">id</span>, <span class="keyword">name</span>, age) <span class="keyword">VALUES</span>(<span class="number">1</span>, <span class="string">"A"</span>, <span class="number">19</span>) <span class="keyword">ON</span> <span class="keyword">DUPLICATE</span> <span class="keyword">KEY</span></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">name</span>=<span class="keyword">VALUES</span>(<span class="keyword">name</span>), age=<span class="keyword">VALUES</span>(age)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/20/sql-数据更新/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -711,48 +718,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
 		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
+			<li><a href="/tags/编译/">编译<span>11</span></a></li>
 		
-			<li><a href="/tags/centos/">centos<span>12</span></a></li>
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
 		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
+			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
 		
-			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/json/">json<span>4</span></a></li>
 		
-			<li><a href="/tags/gcc/">gcc<span>5</span></a></li>
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
 		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>6</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
 		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
+			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
 		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
+			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
+			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/suse/">suse<span>1</span></a></li>
 		
-			<li><a href="/tags/USB/">USB<span>1</span></a></li>
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
 		
-			<li><a href="/tags/时间/">时间<span>3</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>591</span></a></li>
+		   <li><a href="/tags">...<span>592</span></a></li>
 		 
 		</ul>
 	</div>
@@ -763,6 +770,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
+      </li>
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
@@ -778,10 +789,6 @@
     
       <li>
         <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
       </li>
     
   </ul>

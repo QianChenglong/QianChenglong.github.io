@@ -112,6 +112,39 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-10-15 </div>
+			<div class="article-title"><a href="/2016/10/15/slab/" >slab</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>一种内存分配机制，基于对象(特定数据结构)管理内存，主要针对于经常分配并释放的对象，如进程描述符等。</p>
+<p>基于同种对象管理，当分配时，直接返回空闲的，释放时，直接收回，不返还给上级内存管理。</p>
+<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
+<li><p>分配和释放效率高</p>
+</li>
+<li><p>基于对象去管理内存，避免了内存碎片</p>
+</li>
+<li><p>支持通用对象的初始化，客户端使用免初始化，加快了效率</p>
+</li>
+<li><p>支持cache line，更好地发挥了硬件性能，提高了整体效率</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/10/15/slab/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-10-15 </div>
 			<div class="article-title"><a href="/2016/10/15/STL容器比较/" >STL容器比较</a></div>						
 		</h3>
 	
@@ -490,48 +523,6 @@ chmod 666 /var/log/mysql/mysql.log
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-14 </div>
-			<div class="article-title"><a href="/2016/09/14/C++-初始化/" >C++-初始化</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>变量定义指定了变量的类型和标识符，同时可以指定初始值。</p>
-<p>指定了初始值的对象称为是已初始化的。</p>
-<p>两种初始化方式：</p>
-<ol>
-<li><p>复制初始化，语法上用<code>=</code>表达，如<code>int i = 1;</code></p>
-</li>
-<li><p>直接初始化，语法上用<code>()</code>表达，如<code>int i(1);</code></p>
-<p>主要为了保持与C的兼容</p>
-</li>
-</ol>
-<h1 id="初始化与赋值的区别"><a href="#初始化与赋值的区别" class="headerlink" title="初始化与赋值的区别"></a>初始化与赋值的区别</h1><p>初始化是指创建变量，并设置初始值的过程，是在变量定义语句中完成的，对一个变量来说，只会发生一次！</p>
-<p>而赋值是在变量初始化之后，进行值改写的过程，可以多次操作！</p>
-<h1 id="复制初始化"><a href="#复制初始化" class="headerlink" title="复制初始化"></a>复制初始化</h1><p>相比直接初始化，不能使用<code>explicit</code>修饰的构造函数和类型转换函数</p>
-<p>复制初始化会先根据重载决定机制，调用相应的构造函数创建一个该类型临时对象，然后再调用复制构造函数来初始化该对象，最后临时对象析构函数被调用。</p>
-<p>但C++标准运行复制省略(copy elision)，GCC默认开启该功能，可通过(<code>-fno-elide-constructors</code>)来关闭该功能。</p>
-<p>如果复制构造函数有副作用时(执行次数影响了程序状态)，复制省略会影响程序正确性！</p>
-<h1 id="直接初始化"><a href="#直接初始化" class="headerlink" title="直接初始化"></a>直接初始化</h1><p>直接根据重载决定机制调用相应的构造函数，或相应的类型转换函数</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://en.cppreference.com/w/cpp/language/copy_elision" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/copy_elision</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Copy_elision" target="_blank" rel="external">https://en.wikipedia.org/wiki/Copy_elision</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/14/C++-初始化/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -837,48 +828,48 @@ chmod 666 /var/log/mysql/mysql.log
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
-		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
-		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
-		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
-		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
-		
-			<li><a href="/tags/参数/">参数<span>1</span></a></li>
-		
-			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
-		
-			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
-		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
-		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
-		
-			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
-		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
-		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
-		
-			<li><a href="/tags/apt/">apt<span>2</span></a></li>
-		
-			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
-		
-			<li><a href="/tags/static/">static<span>2</span></a></li>
-		
 			<li><a href="/tags/char/">char<span>2</span></a></li>
 		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
-			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/池/">池<span>1</span></a></li>
+		
+			<li><a href="/tags/int/">int<span>1</span></a></li>
+		
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
+		
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+		
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+		
+			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
+		
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+		
+			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+		
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
+		
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
+		
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+		
+			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+		
+			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+		
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
+		
+			<li><a href="/tags/slab/">slab<span>1</span></a></li>
+		
+			<li><a href="/tags/find/">find<span>3</span></a></li>
+		
+			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>591</span></a></li>
+		   <li><a href="/tags">...<span>592</span></a></li>
 		 
 		</ul>
 	</div>
@@ -889,6 +880,10 @@ chmod 666 /var/log/mysql/mysql.log
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
+      </li>
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
@@ -904,10 +899,6 @@ chmod 666 /var/log/mysql/mysql.log
     
       <li>
         <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/时间/" ><i class="fa fa-file-o"></i>时间</a>
       </li>
     
   </ul>

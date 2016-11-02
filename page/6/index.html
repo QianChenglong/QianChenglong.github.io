@@ -111,6 +111,34 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-05-08 </div>
+			<div class="article-title"><a href="/2016/05/08/C++11-lambda/" >C++11-lambda</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>lambda表达式</code>实质上，是一种快速定义<strong>函数对象</strong>的语法(编译器实现)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> cpp_bigger = [](int a, int b)&#123; return a &gt; b; &#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt;=&gt;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> _CompilerInventedName</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span> <span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> <span class="keyword">const</span> </span>&#123; return a &gt; b; &#125;</span><br><span class="line">&#125;;</span><br><span class="line">_CompilerInventedName cpp_bigger;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/05/08/C++11-lambda/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-05-07 </div>
 			<div class="article-title"><a href="/2016/05/07/C++-异常/" >C++-异常</a></div>						
 		</h3>
@@ -399,44 +427,6 @@
 	
 	</div>
   <a type="button" href="/2016/04/28/C++-内存区域/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-28 </div>
-			<div class="article-title"><a href="/2016/04/28/C++-静态数据成员/" >C++-静态数据成员</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> X</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">int</span> normalValue = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">0</span>;       <span class="comment">// declaration, with initializer</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> X::i;                 <span class="comment">// definition</span></span><br></pre></td></tr></table></figure>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>与全局变量存储在同一区域(全局/静态存储区，又叫做数据段)</p>
-</li>
-<li><p>在函数内用static修饰的变量，也是在<strong>全局/静态存储</strong>，只是访问的<strong>作用域</strong>被编译器限定</p>
-</li>
-<li><p>static数据成员只是加上了类名字限定了的全局变量！</p>
-</li>
-</ul>
-<h1 id="为什么需要在类实现文件中单独定义static类型数据成员？"><a href="#为什么需要在类实现文件中单独定义static类型数据成员？" class="headerlink" title="为什么需要在类实现文件中单独定义static类型数据成员？"></a>为什么需要在类实现文件中单独定义static类型数据成员？</h1><ul>
-<li>因为类定义在头文件中，而头文件可以在不同的object中引用，<br>这样该定义不唯一，链接器在链接时，会报重定义错误！</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/11300652/static-data-member-initialization" target="_blank" rel="external">http://stackoverflow.com/questions/11300652/static-data-member-initialization</a></li>
-<li><a href="http://programmers.stackexchange.com/questions/145299/why-the-static-data-members-have-to-be-defined-outside-the-class-separately-in-c" target="_blank" rel="external">http://programmers.stackexchange.com/questions/145299/why-the-static-data-members-have-to-be-defined-outside-the-class-separately-in-c</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/static" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/static</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/28/C++-静态数据成员/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -745,48 +735,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/虚拟网卡/">虚拟网卡<span>1</span></a></li>
+			<li><a href="/tags/file/">file<span>1</span></a></li>
 		
-			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
 		
-			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+			<li><a href="/tags/任播/">任播<span>1</span></a></li>
 		
-			<li><a href="/tags/连接/">连接<span>1</span></a></li>
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
 		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+			<li><a href="/tags/override/">override<span>2</span></a></li>
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
 		
-			<li><a href="/tags/django/">django<span>2</span></a></li>
+			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
+		
+			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+		
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+		
+			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+		
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+		
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
+		
+			<li><a href="/tags/c/">c<span>7</span></a></li>
 		
 			<li><a href="/tags/优先/">优先<span>1</span></a></li>
 		
-			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+			<li><a href="/tags/script/">script<span>1</span></a></li>
 		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
-		
-			<li><a href="/tags/C/">C++<span>40</span></a></li>
-		
-			<li><a href="/tags/push/">push<span>2</span></a></li>
-		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
-		
-			<li><a href="/tags/链表/">链表<span>1</span></a></li>
-		
-			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
-		
-			<li><a href="/tags/cron/">cron<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>592</span></a></li>
+		   <li><a href="/tags">...<span>593</span></a></li>
 		 
 		</ul>
 	</div>
@@ -797,6 +787,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
+      </li>
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
@@ -812,10 +806,6 @@
     
       <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
       </li>
     
   </ul>

@@ -143,7 +143,7 @@
 <pre><code>ssh web -t &quot;cd $web_dir; bash&quot;
 </code></pre></li>
 <li><p>本地转发</p>
-<pre><code>ssh -CNL 6000:rm-wz9cp2458eedl74zs.mysql.rds.aliyuncs.com:3306 of-dev01
+<pre><code>ssh -4vCNL 6000:rm-wz9cp2458eedl74zs.mysql.rds.aliyuncs.com:3306 of-dev01
 </code></pre></li>
 <li><p>socket代理</p>
 <pre><code>ssh -D 0.0.0.0:1124 -C root@104.238.150.39

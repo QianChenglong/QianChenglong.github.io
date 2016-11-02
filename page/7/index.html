@@ -111,6 +111,44 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-04-28 </div>
+			<div class="article-title"><a href="/2016/04/28/C++-静态数据成员/" >C++-静态数据成员</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> X</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">int</span> normalValue = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">0</span>;       <span class="comment">// declaration, with initializer</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> X::i;                 <span class="comment">// definition</span></span><br></pre></td></tr></table></figure>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>与全局变量存储在同一区域(全局/静态存储区，又叫做数据段)</p>
+</li>
+<li><p>在函数内用static修饰的变量，也是在<strong>全局/静态存储</strong>，只是访问的<strong>作用域</strong>被编译器限定</p>
+</li>
+<li><p>static数据成员只是加上了类名字限定了的全局变量！</p>
+</li>
+</ul>
+<h1 id="为什么需要在类实现文件中单独定义static类型数据成员？"><a href="#为什么需要在类实现文件中单独定义static类型数据成员？" class="headerlink" title="为什么需要在类实现文件中单独定义static类型数据成员？"></a>为什么需要在类实现文件中单独定义static类型数据成员？</h1><ul>
+<li>因为类定义在头文件中，而头文件可以在不同的object中引用，<br>这样该定义不唯一，链接器在链接时，会报重定义错误！</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/11300652/static-data-member-initialization" target="_blank" rel="external">http://stackoverflow.com/questions/11300652/static-data-member-initialization</a></li>
+<li><a href="http://programmers.stackexchange.com/questions/145299/why-the-static-data-members-have-to-be-defined-outside-the-class-separately-in-c" target="_blank" rel="external">http://programmers.stackexchange.com/questions/145299/why-the-static-data-members-have-to-be-defined-outside-the-class-separately-in-c</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/static" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/static</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/28/C++-静态数据成员/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-04-26 </div>
 			<div class="article-title"><a href="/2016/04/26/daemon/" >daemon</a></div>						
 		</h3>
@@ -122,6 +160,21 @@
 	
 	
 		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p><code>fork</code>，退出父进程</p>
+<p>确保后面<code>setsid</code>可以执行成功</p>
+</li>
+<li><p><code>setsid</code></p>
+<p>创建新的会话(session)，要求该进程不是进程组长(process group leader)。</p>
+<p>当创建了新的会话，便脱离了原有的控制终端(tty)</p>
+</li>
+<li><p>再次<code>fork</code>，退出父进程</p>
+<p>可以防止潜在要求打开控制终端，因为控制终端必须要进程组长才可以打开</p>
+</li>
+<li><p><code>chdir</code>, 修改当前工作目录</p>
+<p>不影响<code>umount</code></p>
+</li>
+<li><p><code>umask</code>, 设置默认的文件屏蔽字</p>
+</li>
 <li><p>关闭打开的文件描述符(0,1,2等，可通过<code>ls /proc/pid/fd</code>查看打开的文件描述符)</p>
 <p>若不关闭，虽然没有了控制终端，不会接受到相应控制信号，则仍能IO对应文件，如标准输出到启动时的终端，从终端读入！</p>
 <ul>
@@ -404,28 +457,6 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 	
 	</div>
   <a type="button" href="/2016/04/14/c++-bind/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-14 </div>
-			<div class="article-title"><a href="/2016/04/14/TIME_WAIT/" >TIME_WAIT</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="是什么"><a href="#是什么" class="headerlink" title="是什么?"></a>是什么?</h1><h1 id="为什么需要？"><a href="#为什么需要？" class="headerlink" title="为什么需要？"></a>为什么需要？</h1><h1 id="如何查看"><a href="#如何查看" class="headerlink" title="如何查看?"></a>如何查看?</h1><h1 id="如何优化？"><a href="#如何优化？" class="headerlink" title="如何优化？"></a>如何优化？</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.tcp_tw_reuse = 1</span><br><span class="line">#表示开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接，默认为0，表示关闭；</span><br><span class="line">net.ipv4.tcp_tw_recycle = 1</span><br><span class="line">#表示开启TCP连接中TIME-WAIT sockets的快速回收，默认为0，表示关闭；</span><br><span class="line">net.ipv4.tcp_fin_timeout</span><br><span class="line">#修改系統默认的 TIMEOUT 时间。</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2016/04/14/TIME_WAIT/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -734,48 +765,48 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/initializer-list/">initializer_list<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
+			<li><a href="/tags/任播/">任播<span>1</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
 		
-			<li><a href="/tags/参数/">参数<span>1</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+			<li><a href="/tags/column/">column<span>1</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
 		
-			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
 		
-			<li><a href="/tags/api/">api<span>1</span></a></li>
+			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
 		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/exception/">exception<span>1</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>4</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
 		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
+			<li><a href="/tags/散列/">散列<span>1</span></a></li>
 		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
-			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
 		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>592</span></a></li>
+		   <li><a href="/tags">...<span>593</span></a></li>
 		 
 		</ul>
 	</div>
@@ -786,6 +817,10 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
+      </li>
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
@@ -801,10 +836,6 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
     
       <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
       </li>
     
   </ul>

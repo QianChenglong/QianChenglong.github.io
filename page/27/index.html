@@ -112,6 +112,42 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-07-01 </div>
+			<div class="article-title"><a href="/2015/07/01/jsoncpp/" >jsoncpp</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="主要的类"><a href="#主要的类" class="headerlink" title="主要的类"></a>主要的类</h1><p>| 类名         | 作用                                                                                                                                           |<br>|————–+————————————————————————————————————————————————|<br>| Json::Value  | 可以表示里所有的类型                                                                                                                           |<br>| Json::Reader | 将json文件流或字符串解析到Json::Value, 主要函数有Parse                                                                                         |<br>| Json::Writer | 与Json::Reader相反，将Json::Value转化成字符串流，注意它的两个子类：Json::FastWriter和Json::StyleWriter，分别输出不带格式的json和带格式的json。 |</p>
+<h1 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h1><ul>
+<li><p>判断json中是否有指定成员</p>
+<pre><code>bool isMember(&quot;id&quot;)
+</code></pre></li>
+<li><p>取指定值，若不存在，则使用默认值</p>
+<pre><code>Value get(ArrayIndex index, const Value &amp;defaultValue)
+</code></pre><h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1></li>
+<li><p>文件需要是<code>UTF-8</code>不带BOM!</p>
+</li>
+<li><p>下标访问时，若该元素不存在，则返回值为<code>json::Value::nullValue</code></p>
+</li>
+<li><p><code>json::Value::nullValue</code>转换为空字符串<code>&quot;&quot;</code>(<code>\X00</code>)</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/01/jsoncpp/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-01 </div>
 			<div class="article-title"><a href="/2015/07/01/C++11-枚举类型转换/" >C++11-枚举类型转换</a></div>						
 		</h3>
 	
@@ -373,34 +409,6 @@ Server = http://repo.archlinux.fr/$arch
 	
 	</div>
   <a type="button" href="/2015/06/26/arch-安装yaourt/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-26 </div>
-			<div class="article-title"><a href="/2015/06/26/arch-将吃豆人放入pacman/" >arch-将吃豆人放入pacman</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p><code>vi /etc/pacman.conf</code></p>
-<pre><code># Misc options
-Color
-ILoveCandy
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/26/arch-将吃豆人放入pacman/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -709,48 +717,48 @@ ILoveCandy
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
+			<li><a href="/tags/理论/">理论<span>1</span></a></li>
 		
-			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
 		
-			<li><a href="/tags/js/">js<span>2</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
 		
-			<li><a href="/tags/text/">text<span>1</span></a></li>
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
 		
-			<li><a href="/tags/hash/">hash<span>1</span></a></li>
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
 		
-			<li><a href="/tags/散列/">散列<span>1</span></a></li>
+			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
 		
-			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
 		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
 		
-			<li><a href="/tags/build/">build<span>1</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+			<li><a href="/tags/C/">C<span>15</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
 		
-			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>592</span></a></li>
+		   <li><a href="/tags">...<span>593</span></a></li>
 		 
 		</ul>
 	</div>
@@ -761,6 +769,10 @@ ILoveCandy
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
+      </li>
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
@@ -776,10 +788,6 @@ ILoveCandy
     
       <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
       </li>
     
   </ul>

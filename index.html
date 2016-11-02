@@ -112,6 +112,59 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-11-01 </div>
+			<div class="article-title"><a href="/2016/11/01/systemd-service/" >systemd-service</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit] # 基本要素</span><br><span class="line">Description=A high performance web server and a reverse proxy server # 描述</span><br><span class="line">After=network.target # 依赖</span><br><span class="line"></span><br><span class="line">[Service] # 说明本文件描述的是daemon</span><br><span class="line">Type=forking</span><br><span class="line">PIDFile=/run/nginx.pid # 用来追踪主进程</span><br><span class="line">ExecStartPre=/usr/sbin/nginx -t -q -g &apos;daemon on; master_process on;&apos; # 启动前执行</span><br><span class="line">ExecStart=/usr/sbin/nginx -g &apos;daemon on; master_process on;&apos; # 启动</span><br><span class="line">ExecReload=/usr/sbin/nginx -g &apos;daemon on; master_process on;&apos; -s reload # 重新加载配置文件</span><br><span class="line">ExecStop=/usr/sbin/nginx -s quit # 停止命令</span><br><span class="line"></span><br><span class="line">[Install] # 当执行install命令时，用来说明指定target依赖本服务</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><ul>
+<li><p>Type</p>
+<p>用来说明本服务类型</p>
+<ul>
+<li><p>simple[默认] 不调用<code>fork</code></p>
+</li>
+<li><p>forking 该服务是传统型unix daemon，会调用<code>fork</code></p>
+</li>
+</ul>
+</li>
+<li><p>PIDFile</p>
+<p>指定PID文件绝对路径，当Type=forking时，必须设置此项，systemd通过该文件来追踪服务主进程，以便管理</p>
+</li>
+<li><p>Restart</p>
+<p>指定服务进程自动重启的条件。</p>
+<ul>
+<li>no:默认选项，服务不会被systemd自动重启。</li>
+<li>on-success:当服务进程成功退出后重启(exit code=0，signals SIGHUP, SIGINT, SIGTERM or SIGPIPE, and additionally, 或SuccessExitStatus=选项指定的退出信号)。</li>
+<li>on-failure:服务进程不正常退出时进行重启(exit code 为非0,或被信号中断)。</li>
+<li>on-abnormal:服务进程被信号中断时进行重启。</li>
+<li>no-watchdog:watchdog观测到服务进程过期后重启服务。</li>
+<li>no-abort:进程被未捕获的信号中断时将进行重启。</li>
+<li>always:服务在无论何种情况退出后或者超时时总是重启。</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://www.freedesktop.org/software/systemd/man/systemd.service.html" target="_blank" rel="external">https://www.freedesktop.org/software/systemd/man/systemd.service.html</a></li>
+<li><a href="http://fangpeishi.com/systemd_chapter2.html" target="_blank" rel="external">http://fangpeishi.com/systemd_chapter2.html</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/systemd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E7.BC.96.E5.86.99.E5.8D.95.E5.85.83.E6.96.87.E4.BB.B6" target="_blank" rel="external">https://wiki.archlinux.org/index.php/systemd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E7.BC.96.E5.86.99.E5.8D.95.E5.85.83.E6.96.87.E4.BB.B6</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/11/01/systemd-service/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-11-01 </div>
 			<div class="article-title"><a href="/2016/11/01/systemctl/" >systemctl</a></div>						
 		</h3>
 	
@@ -121,9 +174,36 @@
   <div class="row">
 	
 	
-		<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
+		<h1 id="配置文件目录"><a href="#配置文件目录" class="headerlink" title="配置文件目录"></a>配置文件目录</h1><ol>
+<li><p>/etc/systemd/system/</p>
+</li>
+<li><p>/usr/lib/systemd/system/</p>
+</li>
+</ol>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
 <li><p>重新载入服务(当修过过服务文件后)</p>
 <pre><code>systemctl daemon-reload
+</code></pre></li>
+<li><p>查看服务状态</p>
+<pre><code>systemctl status &lt;service&gt;
+</code></pre></li>
+<li><p>查看服务文件</p>
+<pre><code>systemctl cat &lt;service&gt;
+</code></pre></li>
+<li><p>启动服务</p>
+<pre><code>systemctl start &lt;service&gt;
+</code></pre></li>
+<li><p>停止服务</p>
+<pre><code>systemctl stop &lt;service&gt;
+</code></pre></li>
+<li><p>重启</p>
+<pre><code>systemctl restart &lt;service&gt;
+</code></pre></li>
+<li><p>开机启动</p>
+<pre><code>systemctl enable &lt;service&gt;
+</code></pre></li>
+<li><p>查看依赖</p>
+<pre><code>systemctl list-dependencies &lt;service&gt;
 </code></pre></li>
 </ul>
 
@@ -398,46 +478,6 @@ Defaults requiretty`=&gt;`Defaults !requiretty
 	
 	</div>
   <a type="button" href="/2016/10/17/C++-多重继承/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-10-17 </div>
-			<div class="article-title"><a href="/2016/10/17/C++-虚函数/" >C++-虚函数</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="虚函数表"><a href="#虚函数表" class="headerlink" title="虚函数表"></a>虚函数表</h1><p>一个指针数组，该指针指向相应的虚函数(non-static member function)</p>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><ol>
-<li><p>class(满足相应条件)有唯一一个虚函数表(vtbl)</p>
-</li>
-<li><p>每个class对象，内部含有一个隐藏数据成员(vptr)，指向该class的虚函数表</p>
-</li>
-<li><p>当调用虚函数时，根据该虚函数的索引（在class virtual中声明的顺序），通过vptr查vtbl，间接调用</p>
-<pre><code>pC1-&gt;f1() =&gt; *(pC1-&gt;vptr[i])(pC1);
-</code></pre></li>
-</ol>
-<h1 id="什么样的class有虚函数表？"><a href="#什么样的class有虚函数表？" class="headerlink" title="什么样的class有虚函数表？"></a>什么样的class有虚函数表？</h1><ol>
-<li><p>定义了虚函数</p>
-</li>
-<li><p>从有虚函数派生的类</p>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>More Effective C++ Item24</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/10/17/C++-虚函数/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -746,48 +786,48 @@ Defaults requiretty`=&gt;`Defaults !requiretty
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
 		
-			<li><a href="/tags/主键/">主键<span>1</span></a></li>
+			<li><a href="/tags/fish-shell/">fish,shell<span>1</span></a></li>
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
+		
+			<li><a href="/tags/go/">go<span>40</span></a></li>
+		
+			<li><a href="/tags/module/">module<span>3</span></a></li>
+		
+			<li><a href="/tags/宏/">宏<span>4</span></a></li>
+		
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
 			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+		
+			<li><a href="/tags/vim/">vim<span>24</span></a></li>
+		
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
+		
+			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+		
+			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
 		
 			<li><a href="/tags/异常/">异常<span>1</span></a></li>
 		
-			<li><a href="/tags/hash/">hash<span>1</span></a></li>
+			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
 		
-			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
+			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
-		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
-		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
-		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
-		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
-		
-			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
-		
-			<li><a href="/tags/时间/">时间<span>3</span></a></li>
-		
-			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
-		
-			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>592</span></a></li>
+		   <li><a href="/tags">...<span>593</span></a></li>
 		 
 		</ul>
 	</div>
@@ -798,6 +838,10 @@ Defaults requiretty`=&gt;`Defaults !requiretty
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
+      </li>
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
@@ -813,10 +857,6 @@ Defaults requiretty`=&gt;`Defaults !requiretty
     
       <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
       </li>
     
   </ul>

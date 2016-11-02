@@ -112,6 +112,33 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-29 </div>
+			<div class="article-title"><a href="/2015/01/29/sudo unable to resolve host ubuntu/" >sudo unable to resolve host ubuntu</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>通过更改<code>/etc/hostname</code>，修改了主机名，而<code>/etc/hosts</code>中没有更改</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>修改<code>/etc/hosts</code></p>
+<pre><code>127.0.0.1   当前主机名
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://ubuntuguide.net/fix-ubuntu-sudo-errorunable-to-resolve-host" target="_blank" rel="external">http://ubuntuguide.net/fix-ubuntu-sudo-errorunable-to-resolve-host</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/29/sudo unable to resolve host ubuntu/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-29 </div>
 			<div class="article-title"><a href="/2015/01/29/ubuntu-软件列表/" >ubuntu-软件列表</a></div>						
 		</h3>
 	
@@ -406,34 +433,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/28/tar/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-27 </div>
-			<div class="article-title"><a href="/2015/01/27/python-遍历目录/" >python-遍历目录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="os-walk"><a href="#os-walk" class="headerlink" title="os.walk"></a>os.walk</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(<span class="string">'.'</span>):</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">        <span class="keyword">print</span> file</span><br></pre></td></tr></table></figure>
-<h1 id="查找指定文件"><a href="#查找指定文件" class="headerlink" title="查找指定文件"></a>查找指定文件</h1><h2 id="glob-glob"><a href="#glob-glob" class="headerlink" title="glob.glob"></a>glob.glob</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> glob.glob(<span class="string">'*.txt'</span>):</span><br><span class="line">    print(file)</span><br></pre></td></tr></table></figure>
-<h2 id="fnmatch-fnmatch"><a href="#fnmatch-fnmatch" class="headerlink" title="fnmatch.fnmatch"></a>fnmatch.fnmatch</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fnmatch</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>):</span><br><span class="line">    <span class="keyword">if</span> fnmatch.fnmatch(file, <span class="string">'*.txt'</span>):</span><br><span class="line">        <span class="keyword">print</span> file</span><br></pre></td></tr></table></figure>
-<h2 id="re-match"><a href="#re-match" class="headerlink" title="re.match"></a>re.match</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> [f <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>) <span class="keyword">if</span> re.match(<span class="string">r'build-\(.*\)-.*'</span>, f)]:</span><br><span class="line">    print(<span class="string">'cleanning &#123;&#125; ...'</span>.format(d))</span><br><span class="line">    shutil.rmtree(d)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/2225564/get-a-filtered-list-of-files-in-a-directory" target="_blank" rel="external">http://stackoverflow.com/questions/2225564/get-a-filtered-list-of-files-in-a-directory</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/27/python-遍历目录/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -742,48 +741,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/resume/">resume<span>1</span></a></li>
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/exit/">exit<span>1</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
 		
-			<li><a href="/tags/poll/">poll<span>1</span></a></li>
+			<li><a href="/tags/http/">http<span>11</span></a></li>
 		
-			<li><a href="/tags/memory-manage/">memory manage<span>1</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/nullptr/">nullptr<span>1</span></a></li>
 		
-			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/override/">override<span>2</span></a></li>
+		
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
+		
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+		
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+		
+			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
 		
 			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
+			<li><a href="/tags/package/">package<span>4</span></a></li>
 		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
-		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
-		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
-		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
-		
-			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
+			<li><a href="/tags/systemd/">systemd<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>592</span></a></li>
+		   <li><a href="/tags">...<span>593</span></a></li>
 		 
 		</ul>
 	</div>
@@ -794,6 +793,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
+      </li>
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
@@ -809,10 +812,6 @@
     
       <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
       </li>
     
   </ul>

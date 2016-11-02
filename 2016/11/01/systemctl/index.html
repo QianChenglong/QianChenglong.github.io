@@ -113,9 +113,36 @@
 	<div class="mypage">		
 	  		
 
-	  <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
+	  <h1 id="配置文件目录"><a href="#配置文件目录" class="headerlink" title="配置文件目录"></a>配置文件目录</h1><ol>
+<li><p>/etc/systemd/system/</p>
+</li>
+<li><p>/usr/lib/systemd/system/</p>
+</li>
+</ol>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
 <li><p>重新载入服务(当修过过服务文件后)</p>
 <pre><code>systemctl daemon-reload
+</code></pre></li>
+<li><p>查看服务状态</p>
+<pre><code>systemctl status &lt;service&gt;
+</code></pre></li>
+<li><p>查看服务文件</p>
+<pre><code>systemctl cat &lt;service&gt;
+</code></pre></li>
+<li><p>启动服务</p>
+<pre><code>systemctl start &lt;service&gt;
+</code></pre></li>
+<li><p>停止服务</p>
+<pre><code>systemctl stop &lt;service&gt;
+</code></pre></li>
+<li><p>重启</p>
+<pre><code>systemctl restart &lt;service&gt;
+</code></pre></li>
+<li><p>开机启动</p>
+<pre><code>systemctl enable &lt;service&gt;
+</code></pre></li>
+<li><p>查看依赖</p>
+<pre><code>systemctl list-dependencies &lt;service&gt;
 </code></pre></li>
 </ul>
 	  
@@ -126,9 +153,9 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-		
-          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-        
+				
+    	<li class="prev"><a href="/2016/11/01/systemd-service/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
@@ -199,7 +226,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/systemd/">systemd<span>2</span></a></li> <li><a href="/tags/systemctl/">systemctl<span>1</span></a></li>
+  <li><a href="/tags/systemd/">systemd<span>3</span></a></li> <li><a href="/tags/systemctl/">systemctl<span>1</span></a></li>
     </ul>
 	</div>
 		

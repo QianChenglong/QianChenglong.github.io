@@ -112,6 +112,28 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-02 </div>
+			<div class="article-title"><a href="/2014/12/02/ssh常用操作/" >ssh常用操作</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="修改密钥对密码"><a href="#修改密钥对密码" class="headerlink" title="修改密钥对密码"></a>修改密钥对密码</h2><pre><code>ssh-keygen -p
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2014/12/02/ssh常用操作/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-02 </div>
 			<div class="article-title"><a href="/2014/12/02/yed使用技巧/" >yed使用技巧</a></div>						
 		</h3>
 	
@@ -205,6 +227,34 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/替换clover图标/" >替换clover图标</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
+</li>
+<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
+<p><img src="/img/替换clover图标_0.png" alt=""></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/替换clover图标/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
 			<div class="article-title"><a href="/2014/12/01/快速查看python帮助/" >快速查看python帮助</a></div>						
 		</h3>
 	
@@ -248,34 +298,6 @@ os.system(cmd)
 	
 	</div>
   <a type="button" href="/2014/12/01/快速查看python帮助/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/替换clover图标/" >替换clover图标</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
-</li>
-<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
-<p><img src="/img/替换clover图标_0.png" alt=""></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/替换clover图标/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -458,76 +480,6 @@ ssh-add ~/.ssh/id_rsa
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-09-19 </div>
-			<div class="article-title"><a href="/2014/09/19/hexo搭建个人博客/" >hexo搭建个人博客</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p><a href="http://hexo.io/docs/index.html" target="_blank" rel="external">官网文档</a></p>
-<h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><ul>
-<li>Node.js<a href="http://nodejs.org/download/" target="_blank" rel="external">官网下载</a></li>
-<li>npm<a href="http://nodejs.org/dist/npm/" target="_blank" rel="external">官网下载</a></li>
-<li>Git<a href="http://git-scm.com/" target="_blank" rel="external">官网下载</a></li>
-</ul>
-<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><pre><code>npm install -g hexo
-</code></pre><p><code>-g</code>表示安装到<code>nodejs\node_modules\</code>目录下</p>
-<h2 id="建立网站"><a href="#建立网站" class="headerlink" title="建立网站"></a>建立网站</h2><pre><code>hexo init &lt;folder&gt;
-cd &lt;folder&gt;
-npm install
-</code></pre><h2 id="创建Git仓库-备选项：gitcafe"><a href="#创建Git仓库-备选项：gitcafe" class="headerlink" title="创建Git仓库(备选项：gitcafe)"></a>创建Git仓库(备选项：gitcafe)</h2><h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><ul>
-<li><p>编辑<code>_config.yml</code></p>
-<pre><code>deploy:
-  type: github
-  repository: https://github.com/zippera/zippera.github.io.git
-  branch: master
-</code></pre></li>
-<li><p>hexo generate</p>
-</li>
-<li><p>hexo deploy</p>
-</li>
-</ul>
-<h2 id="导航栏添加”关于”"><a href="#导航栏添加”关于”" class="headerlink" title="导航栏添加”关于”"></a>导航栏添加”关于”</h2><ol>
-<li>hexo new page “about”</li>
-<li>到source/about/index.md编辑内容。</li>
-<li><p>在themes/light/_config.yml中，添加如下：</p>
-<pre><code>menu:
-  关于: /about
-</code></pre></li>
-</ol>
-<h2 id="安装第三方评论系统"><a href="#安装第三方评论系统" class="headerlink" title="安装第三方评论系统"></a>安装第三方评论系统</h2><p>去<a href="http://duoshuo.com/" target="_blank" rel="external">多说</a>注册，将ID添加到主题配置文件(_config.yml)</p>
-<pre><code>duoshuo_shortname: qianchenglong
-</code></pre><h2 id="添加Google-Analytics"><a href="#添加Google-Analytics" class="headerlink" title="添加Google Analytics"></a>添加Google Analytics</h2><p>去<a href="http://www.google.com/analytics" target="_blank" rel="external">Google Analytics</a>注册，配置，将ID添加到主题配置文件(_config.yml)</p>
-<pre><code>google_analytics: UA-54976309-1
-</code></pre><h2 id="Fix"><a href="#Fix" class="headerlink" title="Fix"></a>Fix</h2><h3 id="warning-LF-will-be-replaced-by-CRLF"><a href="#warning-LF-will-be-replaced-by-CRLF" class="headerlink" title="warning: LF will be replaced by CRLF"></a><code>warning: LF will be replaced by CRLF</code></h3><ul>
-<li><p>修改git配置文件</p>
-<pre><code>git config --global core.autocrlf false
-</code></pre></li>
-<li><p>删除<code>.deploy</code>和<code>public</code>目录</p>
-</li>
-<li><p>重新生成</p>
-<pre><code>hexo g
-hexo d
-</code></pre></li>
-</ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a href="http://zipperary.com/categories/hexo/" target="_blank" rel="external">http://zipperary.com/categories/hexo/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/09/19/hexo搭建个人博客/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -544,7 +496,7 @@ hexo d
         <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
 
 		
-          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+		   <li class="next"> <a href="/page/65/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
         
 	
 </ul>
@@ -833,48 +785,48 @@ hexo d
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
 		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
-			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
 		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
+			<li><a href="/tags/override/">override<span>2</span></a></li>
+		
+			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
 		
 			<li><a href="/tags/domain/">domain<span>3</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/string/">string<span>8</span></a></li>
 		
-			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
 		
-			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/usb/">usb<span>3</span></a></li>
 		
-			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/c/">c++<span>8</span></a></li>
 		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
-		
-			<li><a href="/tags/samba/">samba<span>3</span></a></li>
+			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>592</span></a></li>
+		   <li><a href="/tags">...<span>593</span></a></li>
 		 
 		</ul>
 	</div>
@@ -885,6 +837,10 @@ hexo d
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
+      </li>
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
@@ -900,10 +856,6 @@ hexo d
     
       <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
       </li>
     
   </ul>

@@ -111,6 +111,46 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-10-17 </div>
+			<div class="article-title"><a href="/2016/10/17/C++-虚函数/" >C++-虚函数</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="虚函数表"><a href="#虚函数表" class="headerlink" title="虚函数表"></a>虚函数表</h1><p>一个指针数组，该指针指向相应的虚函数(non-static member function)</p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><ol>
+<li><p>class(满足相应条件)有唯一一个虚函数表(vtbl)</p>
+</li>
+<li><p>每个class对象，内部含有一个隐藏数据成员(vptr)，指向该class的虚函数表</p>
+</li>
+<li><p>当调用虚函数时，根据该虚函数的索引（在class virtual中声明的顺序），通过vptr查vtbl，间接调用</p>
+<pre><code>pC1-&gt;f1() =&gt; *(pC1-&gt;vptr[i])(pC1);
+</code></pre></li>
+</ol>
+<h1 id="什么样的class有虚函数表？"><a href="#什么样的class有虚函数表？" class="headerlink" title="什么样的class有虚函数表？"></a>什么样的class有虚函数表？</h1><ol>
+<li><p>定义了虚函数</p>
+</li>
+<li><p>从有虚函数派生的类</p>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>More Effective C++ Item24</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/10/17/C++-虚函数/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-10-15 </div>
 			<div class="article-title"><a href="/2016/10/15/slab/" >slab</a></div>						
 		</h3>
@@ -287,7 +327,7 @@
 <pre><code>ssh web -t &quot;cd $web_dir; bash&quot;
 </code></pre></li>
 <li><p>本地转发</p>
-<pre><code>ssh -CNL 6000:rm-wz9cp2458eedl74zs.mysql.rds.aliyuncs.com:3306 of-dev01
+<pre><code>ssh -4vCNL 6000:rm-wz9cp2458eedl74zs.mysql.rds.aliyuncs.com:3306 of-dev01
 </code></pre></li>
 <li><p>socket代理</p>
 <pre><code>ssh -D 0.0.0.0:1124 -C root@104.238.150.39
@@ -473,53 +513,6 @@ chmod 666 /var/log/mysql/mysql.log
 	
 	</div>
   <a type="button" href="/2016/09/27/mysql-查看查询日志/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-18 </div>
-			<div class="article-title"><a href="/2016/09/18/C++-变量/" >C++-变量</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><ul>
-<li><p>数据类型</p>
-<p>所有可能值的抽象，一种类型支持一组特定的操作</p>
-</li>
-<li><p>内存大小</p>
-<p>存储该值所需要的存储空间大小</p>
-</li>
-<li><p>变量名(可选)</p>
-<p>对变量进行引用的标识符</p>
-</li>
-<li><p>值</p>
-<p>变量存储的内容</p>
-</li>
-<li><p>作用域</p>
-</li>
-<li><p>对齐</p>
-</li>
-<li><p>存储期</p>
-</li>
-<li><p>生命期(跟存储期相关或临时)</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://en.cppreference.com/w/cpp/language/storage_duration" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/storage_duration</a></li>
-<li><a href="http://en.cppreference.com/w/cpp/language/lifetime" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/lifetime</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/18/C++-变量/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -828,48 +821,48 @@ chmod 666 /var/log/mysql/mysql.log
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
-			<li><a href="/tags/bind/">bind<span>2</span></a></li>
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
 		
-			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
+			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
 		
-			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
+			<li><a href="/tags/json/">json<span>4</span></a></li>
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
-			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
+			<li><a href="/tags/crond/">crond<span>1</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/c99/">c99<span>1</span></a></li>
 		
-			<li><a href="/tags/arch/">arch<span>6</span></a></li>
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
+			<li><a href="/tags/素数/">素数<span>1</span></a></li>
 		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
-		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
-		
-			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
-		
-			<li><a href="/tags/slab/">slab<span>1</span></a></li>
+			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
 		
 			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+		
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+		
+			<li><a href="/tags/列表/">列表<span>7</span></a></li>
+		
+			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>592</span></a></li>
+		   <li><a href="/tags">...<span>593</span></a></li>
 		 
 		</ul>
 	</div>
@@ -880,6 +873,10 @@ chmod 666 /var/log/mysql/mysql.log
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
+      </li>
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
@@ -895,10 +892,6 @@ chmod 666 /var/log/mysql/mysql.log
     
       <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
       </li>
     
   </ul>

@@ -111,6 +111,31 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-05 </div>
+			<div class="article-title"><a href="/2015/01/05/本地透明代理的实现/" >本地透明代理的实现</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="转载自http-blog-csdn-net-someonea-article-details-5864946"><a href="#转载自http-blog-csdn-net-someonea-article-details-5864946" class="headerlink" title="转载自http://blog.csdn.net/someonea/article/details/5864946"></a>转载自<a href="http://blog.csdn.net/someonea/article/details/5864946" target="_blank" rel="external">http://blog.csdn.net/someonea/article/details/5864946</a></h2><p>Windows下实现本地透明代理可以通过一个过滤驱动和代理进程实现。<br> 过滤驱动Attach到“//Device//Tcp”和”//Device//Udp”,然后在Dispatch函数中修改<br> 连接的目的地址并保存原始目的地址和源地址。<br> 上层的代理进程在accept到连接时，向过滤驱动查询连接的原始目的地址，<br> 然后向原始目的地址发起连接。</p>
+<p> Linux下面使用netfilter(iptables)可以很容易的实现一个TCP透明代理，<br> 使用iptables的REDIRECT选项无需编写内核模块就可以把连接重定向到本地代理进程。<br> 然后代理进程accept到连接时通过SO_ORIGINAL_DST这个socket选项就可以得到原始目的地址，<br> 非常方便。<br> 不过这只是对TCP而言的，对应UDP而言，还是需要编写一个内核模块，自己做一些处理。<br> 对于UDP，可以用nf_register_hook注册一个Hook，然后保存socket目的地址。<br> 另外注册一个字符设备，在字符设备的IOCTL处理函数中把socket的原始目的地址发送给代理进程。<br> 这一点与Windows的过滤驱动很相似，过滤驱动一般也是注册一个控制设备，<br> 用户态程序通过控制设备与过滤驱动通信。</p>
+<p> Mac OS X中也有类似的机制（使用ipfw的fwd、divert选项），不过用的人较少。</p>
+<p> Mac OS X中可以注册Socket Filters手工过滤特定的连接。</p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/05/本地透明代理的实现/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-04 </div>
 			<div class="article-title"><a href="/2015/01/04/任播/" >任播</a></div>						
 		</h3>
@@ -403,43 +428,6 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 	
 	</div>
   <a type="button" href="/2014/12/25/python-subprocess隐藏命令行/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-24 </div>
-			<div class="article-title"><a href="/2014/12/24/python-格式字符串/" >python-格式字符串</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>因python不提供隐式类型转换，不支持类似<code>string + int</code>等操作，所以字符串的连接<br>需要使用其他的方法。</p>
-<h1 id="2-6之后推荐使用string-format"><a href="#2-6之后推荐使用string-format" class="headerlink" title="2.6之后推荐使用string.format()"></a>2.6之后推荐使用<code>string.format()</code></h1><h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><ul>
-<li><code>string</code>连接其他类型</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var = <span class="keyword">False</span></span><br><span class="line"><span class="string">'True Or &#123;&#125;!'</span>.format(var)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>命名参数</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">madlib = <span class="string">" I &#123;verb&#125; the &#123;object&#125; off the &#123;place&#125; "</span>.format(verb=<span class="string">"took"</span>, object=<span class="string">"cheese"</span>, place=<span class="string">"table"</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="不推荐使用"><a href="#不推荐使用" class="headerlink" title="不推荐使用%"></a>不推荐使用<code>%</code></h1><p>原因，参见<a href="https://www.python.org/dev/peps/pep-3101/" target="_blank" rel="external">PEP-3101</a></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://www.python.org/dev/peps/pep-3101/" target="_blank" rel="external">https://www.python.org/dev/peps/pep-3101/</a></li>
-<li><a href="https://docs.python.org/2.7/library/string.html#formatspec" target="_blank" rel="external">https://docs.python.org/2.7/library/string.html#formatspec</a></li>
-<li><a href="http://youngsterxyf.github.io/2013/01/26/python-string-format/" target="_blank" rel="external">http://youngsterxyf.github.io/2013/01/26/python-string-format/</a></li>
-<li><a href="http://www.pythonclub.org/python-basic/print" target="_blank" rel="external">http://www.pythonclub.org/python-basic/print</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/24/python-格式字符串/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -748,48 +736,48 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
+			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
 		
-			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
 		
-			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
+			<li><a href="/tags/C/">C++<span>40</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/yum/">yum<span>1</span></a></li>
 		
-			<li><a href="/tags/redis/">redis<span>6</span></a></li>
+			<li><a href="/tags/resize/">resize<span>1</span></a></li>
 		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
 		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
+			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+			<li><a href="/tags/apche/">apche<span>1</span></a></li>
 		
-			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
+			<li><a href="/tags/domain/">domain<span>3</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/extern/">extern<span>1</span></a></li>
 		
-			<li><a href="/tags/js/">js<span>2</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
+			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>3</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/str/">str<span>1</span></a></li>
 		
-			<li><a href="/tags/C-11/">C++11<span>10</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/text/">text<span>1</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>592</span></a></li>
+		   <li><a href="/tags">...<span>593</span></a></li>
 		 
 		</ul>
 	</div>
@@ -800,6 +788,10 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
+      </li>
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
@@ -815,10 +807,6 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
     
       <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
       </li>
     
   </ul>

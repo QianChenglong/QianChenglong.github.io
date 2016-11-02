@@ -112,6 +112,44 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-08 </div>
+			<div class="article-title"><a href="/2015/01/08/makefile-PHONY作用/" >makefile-.PHONY作用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>先看makefile核心规则</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">target: prerequisites</span><br><span class="line">    command</span><br></pre></td></tr></table></figure>
+<p>make解析执行makefile判断过程：</p>
+<ul>
+<li>若<code>target</code>不存在，则根据<code>prerequisites</code>，执行<code>commond</code></li>
+<li>若<code>target</code>已存在，则比较<code>target</code>和<code>prerequisites</code>修改时间<ul>
+<li><strong>若<code>prerequisites</code>不存在，则不执行<code>commond</code>!</strong></li>
+<li>若<code>prerequisites</code>比<code>target</code>新，则执行<code>commond</code>(说明在生成<code>target</code>后，对依赖文件进行了修改)</li>
+<li>若<code>prerequisites</code>没有<code>target</code>新，则不执行<code>commond</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="为什么需要伪目标"><a href="#为什么需要伪目标" class="headerlink" title="为什么需要伪目标"></a>为什么需要伪目标</h1><ul>
+<li>假设当前目录下已有<code>clean</code>文件，则根据make解析过程，不会执行后续<code>commond</code></li>
+</ul>
+<h1 id="什么是伪目标-PHONY"><a href="#什么是伪目标-PHONY" class="headerlink" title="什么是伪目标(.PHONY)"></a>什么是伪目标(<code>.PHONY</code>)</h1><p>伪目标相对于目标而言，其不会生成实体<strong>文件</strong></p>
+<h1 id="伪目标的作用"><a href="#伪目标的作用" class="headerlink" title="伪目标的作用"></a>伪目标的作用</h1><p>显式告诉make不要跟实体文件进行关联判断，以便执行相应的命令</p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/08/makefile-PHONY作用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-08 </div>
 			<div class="article-title"><a href="/2015/01/08/单元测试工具列表/" >单元测试工具列表</a></div>						
 		</h3>
 	
@@ -404,31 +442,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/06/位域与大小端/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-05 </div>
-			<div class="article-title"><a href="/2015/01/05/本地透明代理的实现/" >本地透明代理的实现</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="转载自http-blog-csdn-net-someonea-article-details-5864946"><a href="#转载自http-blog-csdn-net-someonea-article-details-5864946" class="headerlink" title="转载自http://blog.csdn.net/someonea/article/details/5864946"></a>转载自<a href="http://blog.csdn.net/someonea/article/details/5864946" target="_blank" rel="external">http://blog.csdn.net/someonea/article/details/5864946</a></h2><p>Windows下实现本地透明代理可以通过一个过滤驱动和代理进程实现。<br> 过滤驱动Attach到“//Device//Tcp”和”//Device//Udp”,然后在Dispatch函数中修改<br> 连接的目的地址并保存原始目的地址和源地址。<br> 上层的代理进程在accept到连接时，向过滤驱动查询连接的原始目的地址，<br> 然后向原始目的地址发起连接。</p>
-<p> Linux下面使用netfilter(iptables)可以很容易的实现一个TCP透明代理，<br> 使用iptables的REDIRECT选项无需编写内核模块就可以把连接重定向到本地代理进程。<br> 然后代理进程accept到连接时通过SO_ORIGINAL_DST这个socket选项就可以得到原始目的地址，<br> 非常方便。<br> 不过这只是对TCP而言的，对应UDP而言，还是需要编写一个内核模块，自己做一些处理。<br> 对于UDP，可以用nf_register_hook注册一个Hook，然后保存socket目的地址。<br> 另外注册一个字符设备，在字符设备的IOCTL处理函数中把socket的原始目的地址发送给代理进程。<br> 这一点与Windows的过滤驱动很相似，过滤驱动一般也是注册一个控制设备，<br> 用户态程序通过控制设备与过滤驱动通信。</p>
-<p> Mac OS X中也有类似的机制（使用ipfw的fwd、divert选项），不过用的人较少。</p>
-<p> Mac OS X中可以注册Socket Filters手工过滤特定的连接。</p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/05/本地透明代理的实现/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -737,48 +750,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
 		
-			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/void/">void*<span>1</span></a></li>
+			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
 		
-			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
-		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
-		
-			<li><a href="/tags/c/">c++<span>8</span></a></li>
-		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
+			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
 		
 			<li><a href="/tags/centos/">centos<span>12</span></a></li>
 		
-			<li><a href="/tags/linux/">linux<span>43</span></a></li>
+			<li><a href="/tags/usb/">usb<span>3</span></a></li>
 		
-			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+			<li><a href="/tags/c/">c<span>7</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
 		
-			<li><a href="/tags/js/">js<span>2</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
 		
-			<li><a href="/tags/nullptr/">nullptr<span>1</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
+		
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
+		
+			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+		
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>592</span></a></li>
+		   <li><a href="/tags">...<span>593</span></a></li>
 		 
 		</ul>
 	</div>
@@ -789,6 +802,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
+      </li>
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
@@ -804,10 +821,6 @@
     
       <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
       </li>
     
   </ul>

@@ -114,6 +114,21 @@
 	  		
 
 	  <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p><code>fork</code>，退出父进程</p>
+<p>确保后面<code>setsid</code>可以执行成功</p>
+</li>
+<li><p><code>setsid</code></p>
+<p>创建新的会话(session)，要求该进程不是进程组长(process group leader)。</p>
+<p>当创建了新的会话，便脱离了原有的控制终端(tty)</p>
+</li>
+<li><p>再次<code>fork</code>，退出父进程</p>
+<p>可以防止潜在要求打开控制终端，因为控制终端必须要进程组长才可以打开</p>
+</li>
+<li><p><code>chdir</code>, 修改当前工作目录</p>
+<p>不影响<code>umount</code></p>
+</li>
+<li><p><code>umask</code>, 设置默认的文件屏蔽字</p>
+</li>
 <li><p>关闭打开的文件描述符(0,1,2等，可通过<code>ls /proc/pid/fd</code>查看打开的文件描述符)</p>
 <p>若不关闭，虽然没有了控制终端，不会接受到相应控制信号，则仍能IO对应文件，如标准输出到启动时的终端，从终端读入！</p>
 <ul>

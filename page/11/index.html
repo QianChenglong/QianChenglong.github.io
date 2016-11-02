@@ -111,6 +111,64 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-10 </div>
+			<div class="article-title"><a href="/2016/03/10/线程/" >线程</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="出发点"><a href="#出发点" class="headerlink" title="出发点"></a>出发点</h1><ol>
+<li><p>提高资源利用率</p>
+</li>
+<li><p>提高系统吞吐量</p>
+</li>
+<li><p>降低编程复杂性</p>
+</li>
+</ol>
+<h1 id="使用线程的好处"><a href="#使用线程的好处" class="headerlink" title="使用线程的好处"></a>使用线程的好处</h1><ol>
+<li><p>单独的线程去处理某种事件，简化异步事件的代码，如服务端采用一对一的线程去处理IO事件</p>
+</li>
+<li><p>相比多进程，更加容易进行数据共享</p>
+</li>
+<li><p>将问题分解，改善程序的吞吐量。</p>
+<p>在单线程的情况下，任务是串行化执行的，根据任务本身地的特点，分解成多个步骤，并行</p>
+</li>
+<li><p>对于交互程序，改善响应时间</p>
+</li>
+<li><p>相对于多进程，开销更小</p>
+</li>
+</ol>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p>线程标识采用<code>pthread_t</code>，底层类型取决于实现，相等判断需要使用<code>pthread_equal</code></p>
+</li>
+<li><p>创建新线程后，与主线程的调用顺序依赖于OS的线程实现和调度算法</p>
+</li>
+<li><p>在pthread(NTPL)实现中，默认栈大小为8M，可通过如下方式查询：</p>
+<ul>
+<li><p>ulimit -s</p>
+</li>
+<li><p><code>getrlimit</code></p>
+</li>
+<li><p><code>pthread_attr_getstacksize</code></p>
+</li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/03/10/线程/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-09 </div>
 			<div class="article-title"><a href="/2016/03/09/poll/" >poll</a></div>						
 		</h3>
@@ -459,35 +517,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-02-25 </div>
-			<div class="article-title"><a href="/2016/02/25/c-结构体对齐/" >c-结构体对齐</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>自身对齐值(该数据类型的size)</p>
-</li>
-<li><p>该字段起始位置整除自身对齐值</p>
-</li>
-<li><p>结构体圆整(结构体的size整除<strong>最大</strong>内部字段的自身对齐值)</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/02/25/c-结构体对齐/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -793,48 +822,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
 		
-			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
+			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
 		
-			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
 		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
+			<li><a href="/tags/size/">size<span>1</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
 		
-			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
+			<li><a href="/tags/c/">c<span>7</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
 		
-			<li><a href="/tags/samba/">samba<span>3</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
-			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/log/">log<span>2</span></a></li>
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
+			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
 		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>592</span></a></li>
+		   <li><a href="/tags">...<span>593</span></a></li>
 		 
 		</ul>
 	</div>
@@ -845,6 +874,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
+      </li>
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
@@ -860,10 +893,6 @@
     
       <li>
         <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/virtualbox/" ><i class="fa fa-file-o"></i>virtualbox</a>
       </li>
     
   </ul>

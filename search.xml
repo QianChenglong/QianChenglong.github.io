@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title><![CDATA[C/C++中单个操作的时间估计]]></title>
+      <url>https://qianchenglong.github.io/2016/11/02/%E5%8D%95%E4%B8%AA%E6%93%8D%E4%BD%9C%E7%9A%84%E6%97%B6%E9%97%B4%E4%BC%B0%E8%AE%A1/</url>
+      <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">Bit Operations:</span><br><span class="line">i1&gt;&gt;<span class="number">1</span>		<span class="number">2.04</span></span><br><span class="line">i1&lt;&lt;<span class="number">1</span>		<span class="number">2.11</span></span><br><span class="line">i1&gt;&gt;<span class="number">3</span>		<span class="number">2.1</span></span><br><span class="line"></span><br><span class="line">Int Operations:</span><br><span class="line">i1++		<span class="number">2.43</span></span><br><span class="line">i1 = i2 + i3		<span class="number">2.09</span></span><br><span class="line">i1 = i2 - i3		<span class="number">2.13</span></span><br><span class="line">i1 = i2 * i3		<span class="number">2.11</span></span><br><span class="line">i1 = i2 / i3		<span class="number">3.3</span></span><br><span class="line">i1 = i2 % i3		<span class="number">3.33</span></span><br><span class="line"></span><br><span class="line">Float Operations:</span><br><span class="line">f1 = f2 + f3		<span class="number">2.1</span></span><br><span class="line">f1 = f2 - f3		<span class="number">2.13</span></span><br><span class="line">f1 = f2 * f3		<span class="number">2.1</span></span><br><span class="line">f1 = f2 / f3		<span class="number">2.36</span></span><br><span class="line"></span><br><span class="line">Double Operations:</span><br><span class="line">d1 = d2 + d3		<span class="number">2.12</span></span><br><span class="line">d1 = d2 - d3		<span class="number">2.09</span></span><br><span class="line">d1 = d2 * d3		<span class="number">2.14</span></span><br><span class="line">d1 = d2 / d3		<span class="number">4.75</span></span><br><span class="line"></span><br><span class="line">Numeric Conversions:</span><br><span class="line">i1=(int)f1		<span class="number">2.36</span></span><br><span class="line">i1=(int)d1		<span class="number">2.37</span></span><br><span class="line">f1=(float)i1		<span class="number">2.34</span></span><br><span class="line"></span><br><span class="line">Math Functions:</span><br><span class="line">i1 = rand()		<span class="number">9.02</span></span><br><span class="line">f1 = <span class="built_in">log</span>(f2)		<span class="number">17.51</span></span><br><span class="line">f1 = <span class="built_in">exp</span>(f2)		<span class="number">16.26</span></span><br><span class="line">f1 = <span class="built_in">sin</span>(f2)		<span class="number">16.06</span></span><br><span class="line">f1 = <span class="built_in">cos</span>(f2)		<span class="number">15.65</span></span><br><span class="line">f1 = <span class="built_in">sqrt</span>(f2)		<span class="number">5.3</span></span><br><span class="line"></span><br><span class="line">Fun Call:</span><br><span class="line">fun1()		<span class="number">2.13</span></span><br><span class="line">i1 = fun2()		<span class="number">2.16</span></span><br><span class="line">i1 = fun3(i1)		<span class="number">2.44</span></span><br><span class="line">i1 = fun4(i1, i2, i3)		<span class="number">2.8</span></span><br><span class="line"><span class="keyword">if</span> ( i1 == <span class="number">5</span>)		<span class="number">2.02</span></span><br><span class="line"><span class="keyword">if</span> ( i1 &gt; <span class="number">5</span>)		<span class="number">2.03</span></span><br><span class="line"><span class="keyword">if</span> ( i1 != <span class="number">5</span>)		<span class="number">2.03</span></span><br><span class="line"></span><br><span class="line">Malloc:</span><br><span class="line"><span class="built_in">free</span>(malloc(<span class="number">8</span>))		<span class="number">23.65</span></span><br><span class="line"></span><br><span class="line">String Functinos:</span><br><span class="line">i1 = <span class="built_in">strlen</span>(str1)		<span class="number">2.97</span></span><br><span class="line"><span class="built_in">strcpy</span>(str2, str1)		<span class="number">4.03</span></span><br><span class="line">i1 = <span class="built_in">strcmp</span>(str2, str1)		<span class="number">2.98</span></span><br><span class="line"></span><br><span class="line">String/Number Conversions:</span><br><span class="line">i1 = atoi(<span class="string">"12345"</span>)		<span class="number">17.61</span></span><br><span class="line"><span class="built_in">sscanf</span>(<span class="string">"12345"</span>, <span class="string">"%d"</span>, &amp;i1)		<span class="number">88.85</span></span><br><span class="line"><span class="built_in">sprintf</span>(s, <span class="string">"%d"</span>, i)		<span class="number">83.72</span></span><br><span class="line">f1 = atof(<span class="string">"123.45"</span>)		<span class="number">105.77</span></span><br><span class="line"><span class="built_in">sscanf</span>(<span class="string">"123.45"</span>, <span class="string">"%f"</span>, &amp;f1)		<span class="number">196.67</span></span><br><span class="line"><span class="built_in">sprintf</span>(s, <span class="string">"%6.2f"</span>, <span class="number">123.45</span>)		<span class="number">401.93</span></span><br><span class="line"></span><br><span class="line">Input/Ouput:</span><br><span class="line"><span class="built_in">fprintf</span>(fp, <span class="string">"%d\n"</span>, i1)		<span class="number">108.04</span></span><br><span class="line"></span><br><span class="line">Mutex Operations:</span><br><span class="line">pthread_mutex_lock(&amp;mutex_);pthread_mutex_unlock(&amp;mutex_)       <span class="number">3.99</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://mingxinglai.com/cn/2012/12/estimate-value-of-time-in-c/" target="_blank" rel="external">http://mingxinglai.com/cn/2012/12/estimate-value-of-time-in-c/</a></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[redis.conf]]></title>
+      <url>https://qianchenglong.github.io/2016/11/02/redis.conf/</url>
+      <content type="html"><![CDATA[<p>redis.conf 配置项说明如下：</p>
+<ol>
+<li>Redis默认不是以守护进程的方式运行，可以通过该配置项修改，使用yes启用守护进程<br> daemonize no</li>
+<li>当Redis以守护进程方式运行时，Redis默认会把pid写入/var/run/redis.pid文件，可以通过pidfile指定<br> pidfile /var/run/redis.pid</li>
+<li>指定Redis监听端口，默认端口为6379，作者在自己的一篇博文中解释了为什么选用6379作为默认端口，因为6379在手机按键上MERZ对应的号码，而MERZ取自意大利歌女Alessia Merz的名字<br> port 6379</li>
+<li>绑定的主机地址<br> bind 127.0.0.1<br>5.当 客户端闲置多长时间后关闭连接，如果指定为0，表示关闭该功能<br> timeout 300</li>
+<li>指定日志记录级别，Redis总共支持四个级别：debug、verbose、notice、warning，默认为verbose<br> loglevel verbose</li>
+<li>日志记录方式，默认为标准输出，如果配置Redis为守护进程方式运行，而这里又配置为日志记录方式为标准输出，则日志将会发送给/dev/null<br> logfile stdout</li>
+<li>设置数据库的数量，默认数据库为0，可以使用SELECT <dbid>命令在连接上指定数据库id<br> databases 16</dbid></li>
+<li><p>指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合<br> save <seconds> <changes><br> Redis默认配置文件中提供了三个条件：<br> save 900 1<br> save 300 10<br> save 60 10000<br> 分别表示900秒（15分钟）内有1个更改，300秒（5分钟）内有10个更改以及60秒内有10000个更改。</changes></seconds></p>
+</li>
+<li><p>指定存储至本地数据库时是否压缩数据，默认为yes，Redis采用LZF压缩，如果为了节省CPU时间，可以关闭该选项，但会导致数据库文件变的巨大<br>rdbcompression yes</p>
+</li>
+<li>指定本地数据库文件名，默认值为dump.rdb<br>dbfilename dump.rdb</li>
+<li>指定本地数据库存放目录<br>dir ./</li>
+<li>设置当本机为slav服务时，设置master服务的IP地址及端口，在Redis启动时，它会自动从master进行数据同步<br>slaveof <masterip> <masterport></masterport></masterip></li>
+<li>当master服务设置了密码保护时，slav服务连接master的密码<br>masterauth <master-password></master-password></li>
+<li>设置Redis连接密码，如果配置了连接密码，客户端在连接Redis时需要通过AUTH <password>命令提供密码，默认关闭<br>requirepass foobared</password></li>
+<li>设置同一时间最大客户端连接数，默认无限制，Redis可以同时打开的客户端连接数为Redis进程可以打开的最大文件描述符数，如果设置 maxclients 0，表示不作限制。当客户端连接数到达限制时，Redis会关闭新的连接并向客户端返回max number of clients reached错误信息<br>maxclients 128</li>
+<li>指定Redis最大内存限制，Redis在启动时会把数据加载到内存中，达到最大内存后，Redis会先尝试清除已到期或即将到期的Key，当此方法处理 后，仍然到达最大内存设置，将无法再进行写入操作，但仍然可以进行读取操作。Redis新的vm机制，会把Key存放内存，Value会存放在swap区<br>maxmemory <bytes></bytes></li>
+<li>指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能会在断电时导致一段时间内的数据丢失。因为 redis本身同步数据文件是按上面save条件来同步的，所以有的数据会在一段时间内只存在于内存中。默认为no<br>appendonly no</li>
+<li>指定更新日志文件名，默认为appendonly.aof<br> appendfilename appendonly.aof</li>
+<li><p>指定更新日志条件，共有3个可选值：<br>no：表示等操作系统进行数据缓存同步到磁盘（快）<br>always：表示每次更新操作后手动调用fsync()将数据写到磁盘（慢，安全）<br>everysec：表示每秒同步一次（折衷，默认值）<br>appendfsync everysec</p>
+</li>
+<li><p>指定是否启用虚拟内存机制，默认值为no，简单的介绍一下，VM机制将数据分页存放，由Redis将访问量较少的页即冷数据swap到磁盘上，访问多的页面由磁盘自动换出到内存中（在后面的文章我会仔细分析Redis的VM机制）<br> vm-enabled no</p>
+</li>
+<li>虚拟内存文件路径，默认值为/tmp/redis.swap，不可多个Redis实例共享<br> vm-swap-file /tmp/redis.swap</li>
+<li>将所有大于vm-max-memory的数据存入虚拟内存,无论vm-max-memory设置多小,所有索引数据都是内存存储的(Redis的索引数据 就是keys),也就是说,当vm-max-memory设置为0的时候,其实是所有value都存在于磁盘。默认值为0<br> vm-max-memory 0</li>
+<li>Redis swap文件分成了很多的page，一个对象可以保存在多个page上面，但一个page上不能被多个对象共享，vm-page-size是要根据存储的 数据大小来设定的，作者建议如果存储很多小对象，page大小最好设置为32或者64bytes；如果存储很大大对象，则可以使用更大的page，如果不 确定，就使用默认值<br> vm-page-size 32</li>
+<li>设置swap文件中的page数量，由于页表（一种表示页面空闲或使用的bitmap）是在放在内存中的，，在磁盘上每8个pages将消耗1byte的内存。<br> vm-pages 134217728</li>
+<li>设置访问swap文件的线程数,最好不要超过机器的核数,如果设置为0,那么所有对swap文件的操作都是串行的，可能会造成比较长时间的延迟。默认值为4<br> vm-max-threads 4</li>
+<li>设置在向客户端应答时，是否把较小的包合并为一个包发送，默认为开启<br>glueoutputbuf yes</li>
+<li>指定在超过一定的数量或者最大的元素超过某一临界值时，采用一种特殊的哈希算法<br>hash-max-zipmap-entries 64<br>hash-max-zipmap-value 512</li>
+<li>指定是否激活重置哈希，默认为开启（后面在介绍Redis的哈希算法时具体介绍）<br>activerehashing yes</li>
+<li>指定包含其它的配置文件，可以在同一主机上多个Redis实例之间使用同一份配置文件，而同时各个实例又拥有自己的特定配置文件<br>include /path/to/local.conf</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[systemd-service]]></title>
       <url>https://qianchenglong.github.io/2016/11/01/systemd-service/</url>
       <content type="html"><![CDATA[<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit] # 基本要素</span><br><span class="line">Description=A high performance web server and a reverse proxy server # 描述</span><br><span class="line">After=network.target # 依赖</span><br><span class="line"></span><br><span class="line">[Service] # 说明本文件描述的是daemon</span><br><span class="line">Type=forking</span><br><span class="line">PIDFile=/run/nginx.pid # 用来追踪主进程</span><br><span class="line">ExecStartPre=/usr/sbin/nginx -t -q -g &apos;daemon on; master_process on;&apos; # 启动前执行</span><br><span class="line">ExecStart=/usr/sbin/nginx -g &apos;daemon on; master_process on;&apos; # 启动</span><br><span class="line">ExecReload=/usr/sbin/nginx -g &apos;daemon on; master_process on;&apos; -s reload # 重新加载配置文件</span><br><span class="line">ExecStop=/usr/sbin/nginx -s quit # 停止命令</span><br><span class="line"></span><br><span class="line">[Install] # 当执行install命令时，用来说明指定target依赖本服务</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
@@ -1887,6 +1939,25 @@ set timeout=1
 <li><p>字符串数组(<code>#define REDIS_REPLY_ARRAY 2</code>), <code>str</code> =&gt; value, <code>element</code> =&gt; next</p>
 </li>
 </ul>
+<h1 id="备份与恢复"><a href="#备份与恢复" class="headerlink" title="备份与恢复"></a>备份与恢复</h1><ul>
+<li><p>SAVE</p>
+<p>同步保存数据到磁盘文件中</p>
+<pre><code>dbfilename dump.rdb
+dir /var/lib/redis/
+</code></pre></li>
+<li><p>BGSAVE</p>
+<p>异步保存</p>
+</li>
+<li><p>CONFIG get dir</p>
+<p>恢复数据(dir由<code>/etc/redis.conf</code>中定义)</p>
+</li>
+</ul>
+<h1 id="Server端处理客户端socket"><a href="#Server端处理客户端socket" class="headerlink" title="Server端处理客户端socket"></a>Server端处理客户端socket</h1><p>Redis 通过监听一个 TCP 端口或者 Unix socket 的方式来接收来自客户端的连接，当一个连接建立后，Redis 内部会进行以下一些操作：</p>
+<ol>
+<li>首先，客户端 socket 会被设置为非阻塞模式，因为 Redis 在网络事件处理上采用的是非阻塞多路复用模型。</li>
+<li>然后为这个 socket 设置 TCP_NODELAY 属性，禁用 Nagle 算法</li>
+<li>然后创建一个可读的文件事件用于监听这个客户端 socket 的数据发送</li>
+</ol>
 ]]></content>
     </entry>
     
@@ -6491,6 +6562,33 @@ mount /dev/cdrom /mnt/cdrom
     
     <entry>
       <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
+      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.shared_ptr/</url>
+      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li><p>提供一种强大的垃圾回收机制</p>
+</li>
+<li><p>copyable，可存放到容器中，可多次引用</p>
+</li>
+<li><p>当引用计数为0时，自动析构</p>
+</li>
+</ul>
+<h1 id="使用误区"><a href="#使用误区" class="headerlink" title="使用误区"></a>使用误区</h1><ul>
+<li><p>不能使用同一个对象指针来构造</p>
+<pre><code>A *a = new A(1);
+
+boost::shared_ptr&lt;A&gt; p1(a);
+boost::shared_ptr&lt;A&gt; p2(a);
+// 应该这样
+// boost::shared_ptr&lt;A&gt; p1(new A(1));
+// boost::shared_ptr&lt;A&gt; p2(p1);
+</code></pre></li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>非常强大，多多使用！</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/shared_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(new <span class="keyword">int</span>(id))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">delete</span> id_;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    A *a = new A(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p1(a);</span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p2(p1);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *(p1-&gt;id_) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
       <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.scroped_ptr/</url>
       <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
 <li>提供一种垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
@@ -6527,33 +6625,6 @@ auto_ptr&lt;int&gt;ap(p);
 <li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
 <li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
 </ol>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
-      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.shared_ptr/</url>
-      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li><p>提供一种强大的垃圾回收机制</p>
-</li>
-<li><p>copyable，可存放到容器中，可多次引用</p>
-</li>
-<li><p>当引用计数为0时，自动析构</p>
-</li>
-</ul>
-<h1 id="使用误区"><a href="#使用误区" class="headerlink" title="使用误区"></a>使用误区</h1><ul>
-<li><p>不能使用同一个对象指针来构造</p>
-<pre><code>A *a = new A(1);
-
-boost::shared_ptr&lt;A&gt; p1(a);
-boost::shared_ptr&lt;A&gt; p2(a);
-// 应该这样
-// boost::shared_ptr&lt;A&gt; p1(new A(1));
-// boost::shared_ptr&lt;A&gt; p2(p1);
-</code></pre></li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>非常强大，多多使用！</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/shared_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(new <span class="keyword">int</span>(id))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">delete</span> id_;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    A *a = new A(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p1(a);</span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p2(p1);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *(p1-&gt;id_) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -13963,19 +14034,6 @@ by.decode(&apos;utf-8&apos;)
     </entry>
     
     <entry>
-      <title><![CDATA[替换clover图标]]></title>
-      <url>https://qianchenglong.github.io/2014/12/01/%E6%9B%BF%E6%8D%A2clover%E5%9B%BE%E6%A0%87/</url>
-      <content type="html"><![CDATA[<ul>
-<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
-</li>
-<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
-<p><img src="/img/替换clover图标_0.png" alt=""></p>
-</li>
-</ul>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[快速查看python帮助]]></title>
       <url>https://qianchenglong.github.io/2014/12/01/%E5%BF%AB%E9%80%9F%E6%9F%A5%E7%9C%8Bpython%E5%B8%AE%E5%8A%A9/</url>
       <content type="html"><![CDATA[<h2 id="第一种：命令行使用"><a href="#第一种：命令行使用" class="headerlink" title="第一种：命令行使用"></a>第一种：命令行使用</h2><pre><code>python -m pydoc CONTENT
@@ -14008,6 +14066,19 @@ os.system(cmd)
 </li>
 </ul>
 <p>修改环境变量<code>PATHEXT</code>追加<code>.py</code>，这样直接使用<code>pydoc CONTENT</code>即可，不用每次都输入’.py’！</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[替换clover图标]]></title>
+      <url>https://qianchenglong.github.io/2014/12/01/%E6%9B%BF%E6%8D%A2clover%E5%9B%BE%E6%A0%87/</url>
+      <content type="html"><![CDATA[<ul>
+<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
+</li>
+<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
+<p><img src="/img/替换clover图标_0.png" alt=""></p>
+</li>
+</ul>
 ]]></content>
     </entry>
     

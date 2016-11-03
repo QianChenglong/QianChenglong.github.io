@@ -112,6 +112,139 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-09 </div>
+			<div class="article-title"><a href="/2015/03/09/doxygen常用修改选项/" >Doxygen常用修改选项</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>PROJECT_NAME</li>
+</ul>
+<p>项目名称</p>
+<ul>
+<li>PROJECT_NUMBER</li>
+</ul>
+<p>项目版本号</p>
+<ul>
+<li>OUTPUT_DIRECGTORY</li>
+</ul>
+<p>输出目录</p>
+<ul>
+<li>INPUT</li>
+</ul>
+<p>输入文件或目录，空格分隔</p>
+<ul>
+<li>RECURSIVE</li>
+</ul>
+<p>递归处理目录</p>
+<ul>
+<li><p>HAVE_DOT</p>
+</li>
+<li><p>CALL_GRAPH</p>
+</li>
+</ul>
+<p>调用图</p>
+
+	
+	</div>
+  <a type="button" href="/2015/03/09/doxygen常用修改选项/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-09 </div>
+			<div class="article-title"><a href="/2015/03/09/iptables/" >iptables-命令简记</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>多张表(filter, nat, mangle等)，最重要的是<code>filter</code>(<code>INPUT</code>, <code>FORWARD</code>, <code>OUTPUT</code>)用来制定本机规则</li>
+</ul>
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-n IP数字显示，避免DNS查询，加快查看速度</p>
+</li>
+<li><p>–line-numbers 显示规则编号</p>
+</li>
+<li><p>-L 列出规则</p>
+</li>
+<li><p>-D 删除规则</p>
+</li>
+<li><p>-A 追加到链尾</p>
+</li>
+<li><p>-I 加到链头</p>
+</li>
+</ul>
+<h1 id="查看类"><a href="#查看类" class="headerlink" title="查看类"></a>查看类</h1><ul>
+<li><p>查看规则(默认操作filter表)</p>
+<pre><code>iptables -L
+
+iptables-save -t filter
+</code></pre></li>
+</ul>
+<h1 id="删除类"><a href="#删除类" class="headerlink" title="删除类"></a>删除类</h1><ul>
+<li><p>删除指定链规则</p>
+<pre><code>iptables -D FORWARD 1(删除FORWARD链中的第一条规则)
+</code></pre></li>
+<li><p>清除所有已定义的规则</p>
+<pre><code>iptables -F
+</code></pre></li>
+<li><p>清除自定义规则</p>
+<pre><code>iptables -X
+</code></pre></li>
+<li><p>将所有的chain计数和流量统计归零</p>
+<pre><code>iptables -Z
+</code></pre></li>
+</ul>
+<h1 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h1><ul>
+<li><p>INPUT链，默认政策：DROP</p>
+<pre><code>iptables -P INPUT DROP
+</code></pre></li>
+<li><p>INPUT链，接口：本地环回(lo), ACCEPT</p>
+<pre><code>iptalbes -A INPUT -i lo -j ACCEPT
+</code></pre></li>
+<li><p>INPUT链，接口：以太网口(eth0)，源IP：192.168.1.67, ACCEPT</p>
+<pre><code>iptables -A INPUT -i eth0 -s 192.168.1.67 -j ACCEPT
+</code></pre></li>
+<li><p>INPUT链，接口：以太网口(eth0)，源IP段：192.168.1.0/24, ACCEPT</p>
+<pre><code>iptables -A INPUT -i eth0 -s 192.168.1.0/24 -j ACCEPT
+</code></pre></li>
+<li><p>INPUT链，源IP段：192.168.1.0/24, TCP, 目的端口:80, ACCEPT</p>
+<pre><code>iptables -A INPUT -s 192.168.1.0/24 -p tcp -dport 80 -j ACCEPT
+</code></pre></li>
+</ul>
+<h1 id="保存规则"><a href="#保存规则" class="headerlink" title="保存规则"></a>保存规则</h1><pre><code>iptables-save
+</code></pre><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>添加多个端口</p>
+<pre><code>iptables -A INPUT -p tcp --match multiport --dports 80,22,53 -j ACCEPT
+</code></pre></li>
+<li><p>添加端口区间</p>
+<pre><code>iptables -I INPUT -i eth1 -p tcp -m tcp --dport 6000:8000 -j ACCEPT
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/09/iptables/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-09 </div>
 			<div class="article-title"><a href="/2015/03/09/linux-禁用IPv6/" >linux-禁用IPv6</a></div>						
 		</h3>
 	
@@ -406,77 +539,6 @@ firewall-cmd --reload
 	
 	</div>
   <a type="button" href="/2015/03/06/VPN常见错误代码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-06 </div>
-			<div class="article-title"><a href="/2015/03/06/tcpdump/" >tcpdump</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="命令说明"><a href="#命令说明" class="headerlink" title="命令说明"></a>命令说明</h1><pre><code>tcpdump [option] &lt;expression&gt;
-</code></pre><h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-n</p>
-<p>不将IP转换为域名</p>
-</li>
-<li><p>-nn</p>
-<p>协议，IP，端口都保持数字形式，不转换为对应名字</p>
-</li>
-<li><p>-i interface</p>
-<p>指定接口</p>
-</li>
-<li><p>-A 使用ASCII解释数据包</p>
-</li>
-<li><p>-w file</p>
-<p>packet存储到文件(pcap格式)，可用wireshark来分析</p>
-</li>
-</ul>
-<h1 id="常用例子"><a href="#常用例子" class="headerlink" title="常用例子"></a>常用例子</h1><ul>
-<li><p>DNS</p>
-<pre><code>tcpdump port 53
-</code></pre></li>
-<li><p>ISAKMP</p>
-<pre><code>tcpdump port 500
-</code></pre></li>
-<li><p>HTTP</p>
-<pre><code>tcpdump -A tcp port 80
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/06/tcpdump/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-05 </div>
-			<div class="article-title"><a href="/2015/03/05/windows-执行reg文件不要提问/" >windows-执行reg文件不要提问</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p><code>regedit /s *.reg</code></p>
-
-	
-	</div>
-  <a type="button" href="/2015/03/05/windows-执行reg文件不要提问/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -785,48 +847,48 @@ firewall-cmd --reload
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/variable/">variable<span>1</span></a></li>
 		
-			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
 		
-			<li><a href="/tags/if/">if<span>1</span></a></li>
+			<li><a href="/tags/str/">str<span>1</span></a></li>
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/文件/">文件<span>7</span></a></li>
 		
-			<li><a href="/tags/多重继承/">多重继承<span>1</span></a></li>
+			<li><a href="/tags/C/">C<span>15</span></a></li>
 		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
+			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
 		
-			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/domain/">domain<span>3</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
 		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
-			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
 		
-			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
 		
-			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
 		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/串口/">串口<span>2</span></a></li>
+			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -839,6 +901,14 @@ firewall-cmd --reload
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -848,14 +918,6 @@ firewall-cmd --reload
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

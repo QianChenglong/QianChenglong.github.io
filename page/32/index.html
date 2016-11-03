@@ -112,6 +112,89 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-06-06 </div>
+			<div class="article-title"><a href="/2015/06/06/centos-搭建SVN服务器/" >centos-搭建SVN服务器</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="安装svn"><a href="#安装svn" class="headerlink" title="安装svn"></a>安装svn</h2><pre><code>yum install svn
+</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol>
+<li><p>建立svn目录</p>
+<pre><code>mkdir /data/svn
+</code></pre></li>
+<li><p>创建仓库</p>
+<pre><code>svnadmin create /data/svn/xianji-server
+</code></pre></li>
+<li><p>进入配置目录</p>
+<pre><code>cd /data/svn/conf
+</code></pre></li>
+<li><p>配置权限</p>
+<pre><code>vi authz
+
+[/]
+admin = rw
+</code></pre></li>
+<li><p>配置账号密码(添加admin用户，密码admin)</p>
+<pre><code>vi passwd
+
+[users]
+admin = admin
+</code></pre></li>
+<li><p>svn服务配置</p>
+<pre><code>vi svnserve.conf
+
+anon-access = read #匿名用户可读
+auth-access = write #授权用户可写
+password-db = passwd #使用哪个文件作为账号文件
+authz-db = authz #使用哪个文件作为权限文件
+realm = /var/svn/test # 认证空间名，版本库所在目录
+</code></pre></li>
+</ol>
+<h2 id="启动SVN版本库"><a href="#启动SVN版本库" class="headerlink" title="启动SVN版本库"></a>启动SVN版本库</h2><pre><code>svnserve -d -r /var/svn
+</code></pre><h2 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h2><pre><code>svn checkout svn://127.0.0.1/xianji-server
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/06/06/centos-搭建SVN服务器/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-06 </div>
+			<div class="article-title"><a href="/2015/06/06/启动盘制作工具/" >启动盘制作工具</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="http://unetbootin.sourceforge.net/" target="_blank" rel="external">UNetbootin</a></p>
+</li>
+<li><p>poweriso</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/06/启动盘制作工具/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-06 </div>
 			<div class="article-title"><a href="/2015/06/06/poweriso制作U盘启动/" >poweriso制作U盘启动</a></div>						
 		</h3>
 	
@@ -359,72 +442,6 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
 	
 	</div>
   <a type="button" href="/2015/05/31/宏-函数名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-30 </div>
-			<div class="article-title"><a href="/2015/05/30/centos-本地镜像源设置/" >centos-本地镜像源设置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>挂载镜像文件</p>
-<pre><code>mkdir /mnt/cdrom
-mount /dev/cdrom /mnt/cdrom
-</code></pre></li>
-<li><p>编辑repo文件</p>
-<pre><code>vim /etc/yum.repos.d/centos7-local.repo
-
-[local]
-name=local
-baseurl=file:///mnt/cdrom
-enabled=1
-gpgcheck=1
-gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/05/30/centos-本地镜像源设置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-30 </div>
-			<div class="article-title"><a href="/2015/05/30/centos-配置网络/" >centos-配置网络</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>安装numtui</p>
-<pre><code>yum install NetworkManager-tui
-</code></pre></li>
-<li><p>编辑</p>
-<pre><code>nmtui
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/05/30/centos-配置网络/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -733,48 +750,48 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
 		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
 		
-			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/右值/">右值<span>1</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/script/">script<span>1</span></a></li>
+			<li><a href="/tags/固件/">固件<span>1</span></a></li>
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+		
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+		
+			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+		
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+		
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
+		
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+		
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+		
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
 			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/crond/">crond<span>1</span></a></li>
 		
-			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/samba/">samba<span>3</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
-		
-			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
-		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
-		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
-		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
-		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
-		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
-		
-			<li><a href="/tags/string/">string<span>8</span></a></li>
+			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -787,6 +804,14 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -796,14 +821,6 @@ gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

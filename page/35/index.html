@@ -111,6 +111,63 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-04-14 </div>
+			<div class="article-title"><a href="/2015/04/14/进程和线程理解/" >进程和线程理解</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h1><ul>
+<li>目的都是为了提高对系统资源的利用率</li>
+</ul>
+<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ul>
+<li><p>进程是一个具有独立功能的程序关于某个数据集合的一次运行活动。<br>它可以申请和拥有系统资源，是一个动态的概念，是一个活动的实体。<br>它不只是程序的代码，还包括当前的活动，通过程序计数器的值和处理寄存器的内容来表示。</p>
+</li>
+<li><p>通常在一个进程中可以包含若干个线程，它们可以利用进程所拥有的资源。<br>在引入线程的操作系统中，通常都是把进程作为分配资源的基本单位，而把线程作为独立运行和独立调度的基本单位。<br>由于线程比进程更小，基本上不拥有系统资源，故对它的调度所付出的开销就会小得多，能更高效的提高系统内多个程序间并发执行的程度。</p>
+</li>
+</ul>
+<h1 id="自我理解"><a href="#自我理解" class="headerlink" title="自我理解"></a>自我理解</h1><ul>
+<li>每个进程是个独立的任务，完成特定的功能</li>
+<li>线程是为了协同工作，完成进程的功能</li>
+<li>进程具有层次关系，除主线程外，其他线程间属于对等关系</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/14/进程和线程理解/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-13 </div>
+			<div class="article-title"><a href="/2015/04/13/tex-特殊字符的输入/" >tex-特殊字符的输入</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 字符      | lex      |<br>|———–+———-|<br>| 波浪线(~) | <code>$\sim$</code> |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/04/13/tex-特殊字符的输入/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-04-13 </div>
 			<div class="article-title"><a href="/2015/04/13/tex-宏包列表/" >tex-宏包列表</a></div>						
 		</h3>
@@ -358,94 +415,6 @@ pacman-key --lsign-key 4209170B
 	
 	</div>
   <a type="button" href="/2015/04/08/markdown-分隔代码段/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-07 </div>
-			<div class="article-title"><a href="/2015/04/07/python-单元测试组织和命名惯例/" >python-单元测试组织和命名惯例</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 名称        | 作用                                         |<br>|————-+———————————————-|<br>| tests       | 目录，位于项目根目录下，用于存放单元测试文件 |<br>| test_XXX.py | 文件，用于测试某个模块的测试源码             |<br>| XXXTestCase | 类名，测试用例名                             |<br>| test_XXX    | 测试方法名                                   |</p>
-
-	
-	</div>
-  <a type="button" href="/2015/04/07/python-单元测试组织和命名惯例/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-03 </div>
-			<div class="article-title"><a href="/2015/04/03/ctags/" >ctags</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>可以指定多个文件或目录</p>
-<pre><code>ctags file1 dir1
-</code></pre></li>
-</ul>
-<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>–list-languages</p>
-<p>查看支持的语言</p>
-</li>
-<li><p>–list-kinds=python</p>
-<p>查看某种语言选项</p>
-</li>
-<li><p>–list-maps</p>
-<p>查看对应语言的拓展名映射规则</p>
-</li>
-<li><p>-R</p>
-<p>递归处理</p>
-</li>
-<li><p>–format=level</p>
-<p> 指定tag的输出格式，默认为2，level=2时，ex_cmd会追加<code>;&quot;</code>(通过注释与老vi保持兼容)</p>
-</li>
-<li><p>−−fields=[+|−]flags</p>
-<p>用来控制<code>extension_fileds</code>中要包含的内容</p>
-</li>
-<li><p>–options</p>
-<p>指定配置文件</p>
-</li>
-<li><p>–exclude</p>
-<p>指定多个时，需要分开指定。<code>--exclude=.git --exclude=node_modules --exclude=test</code></p>
-</li>
-<li><p>–extra=[+|−]flags</p>
-<ul>
-<li>q 生成额外的的修饰符tag(class::member)，以帮助定位类方法，但是会造成双倍大小！尽量不用。</li>
-</ul>
-</li>
-</ul>
-<h1 id="tag记录格式"><a href="#tag记录格式" class="headerlink" title="tag记录格式()"></a>tag记录格式(<http: ctags.sourceforge.net="" ctags.html#tag="" file="" format="">)</http:></h1><p><code>tag_name&lt;TAB&gt;file_name&lt;TAB&gt;ex_cmd;&quot;&lt;TAB&gt;extension_fields</code></p>
-<ul>
-<li><p><code>tag_name</code> 用来检索的key</p>
-</li>
-<li><p><code>file_name</code> tag所在的文件名</p>
-</li>
-<li><p><code>ex_cmd</code> vim用来定位的命令</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/04/03/ctags/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -754,48 +723,48 @@ pacman-key --lsign-key 4209170B
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
-			<li><a href="/tags/configure/">configure<span>1</span></a></li>
-		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
-		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
-		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
-		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
-		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
-		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
-		
-			<li><a href="/tags/service/">service<span>1</span></a></li>
-		
-			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
-		
-			<li><a href="/tags/django/">django<span>2</span></a></li>
-		
-			<li><a href="/tags/启动/">启动<span>1</span></a></li>
-		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
-		
-			<li><a href="/tags/exit/">exit<span>1</span></a></li>
-		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
-		
-			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
-		
-			<li><a href="/tags/多重继承/">多重继承<span>1</span></a></li>
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
 		
 			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/od/">od<span>1</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/api/">api<span>1</span></a></li>
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+		
+			<li><a href="/tags/素数/">素数<span>1</span></a></li>
+		
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
+		
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+		
+			<li><a href="/tags/slab/">slab<span>1</span></a></li>
+		
+			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
+		
+			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
+		
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
+		
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+		
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+		
+			<li><a href="/tags/global/">global<span>1</span></a></li>
+		
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+		
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+		
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
+		
+			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
+		
+			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -808,6 +777,14 @@ pacman-key --lsign-key 4209170B
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -817,14 +794,6 @@ pacman-key --lsign-key 4209170B
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

@@ -111,6 +111,94 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-04-07 </div>
+			<div class="article-title"><a href="/2015/04/07/python-单元测试组织和命名惯例/" >python-单元测试组织和命名惯例</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 名称        | 作用                                         |<br>|————-+———————————————-|<br>| tests       | 目录，位于项目根目录下，用于存放单元测试文件 |<br>| test_XXX.py | 文件，用于测试某个模块的测试源码             |<br>| XXXTestCase | 类名，测试用例名                             |<br>| test_XXX    | 测试方法名                                   |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/04/07/python-单元测试组织和命名惯例/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-03 </div>
+			<div class="article-title"><a href="/2015/04/03/ctags/" >ctags</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>可以指定多个文件或目录</p>
+<pre><code>ctags file1 dir1
+</code></pre></li>
+</ul>
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>–list-languages</p>
+<p>查看支持的语言</p>
+</li>
+<li><p>–list-kinds=python</p>
+<p>查看某种语言选项</p>
+</li>
+<li><p>–list-maps</p>
+<p>查看对应语言的拓展名映射规则</p>
+</li>
+<li><p>-R</p>
+<p>递归处理</p>
+</li>
+<li><p>–format=level</p>
+<p> 指定tag的输出格式，默认为2，level=2时，ex_cmd会追加<code>;&quot;</code>(通过注释与老vi保持兼容)</p>
+</li>
+<li><p>−−fields=[+|−]flags</p>
+<p>用来控制<code>extension_fileds</code>中要包含的内容</p>
+</li>
+<li><p>–options</p>
+<p>指定配置文件</p>
+</li>
+<li><p>–exclude</p>
+<p>指定多个时，需要分开指定。<code>--exclude=.git --exclude=node_modules --exclude=test</code></p>
+</li>
+<li><p>–extra=[+|−]flags</p>
+<ul>
+<li>q 生成额外的的修饰符tag(class::member)，以帮助定位类方法，但是会造成双倍大小！尽量不用。</li>
+</ul>
+</li>
+</ul>
+<h1 id="tag记录格式"><a href="#tag记录格式" class="headerlink" title="tag记录格式()"></a>tag记录格式(<http: ctags.sourceforge.net="" ctags.html#tag="" file="" format="">)</http:></h1><p><code>tag_name&lt;TAB&gt;file_name&lt;TAB&gt;ex_cmd;&quot;&lt;TAB&gt;extension_fields</code></p>
+<ul>
+<li><p><code>tag_name</code> 用来检索的key</p>
+</li>
+<li><p><code>file_name</code> tag所在的文件名</p>
+</li>
+<li><p><code>ex_cmd</code> vim用来定位的命令</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/03/ctags/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-04-03 </div>
 			<div class="article-title"><a href="/2015/04/03/python-访问父类方法/" >python-访问父类方法</a></div>						
 		</h3>
@@ -410,79 +498,6 @@
 	
 	</div>
   <a type="button" href="/2015/04/02/python-类/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-02 </div>
-			<div class="article-title"><a href="/2015/04/02/python-内建变量/" >python-内建变量</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><code>__name__</code> 模块名，主模块为<code>__main__</code></p>
-</li>
-<li><p><code>__doc__</code> 文档字符串</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/04/02/python-内建变量/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-02 </div>
-			<div class="article-title"><a href="/2015/04/02/AdBlock Plus规则语法/" >AdBlock Plus规则语法</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>规则</p>
-<pre><code>正则表达式
-</code></pre></li>
-<li><p>定义例外规则</p>
-<pre><code>@@|规则
-</code></pre></li>
-</ul>
-<h1 id="元素隐藏"><a href="#元素隐藏" class="headerlink" title="元素隐藏"></a>元素隐藏</h1><p>不支持通配符，可在前面加上域名以达到只在某域名下工作</p>
-<ul>
-<li><p>根据标签类名</p>
-<pre><code>##div.textad
-</code></pre></li>
-<li><p>根据标签ID</p>
-<pre><code>##div#sponsorad
-</code></pre></li>
-<li><p>根据标签名</p>
-<pre><code>##textad
-</code></pre></li>
-</ul>
-<h1 id="属性选择符"><a href="#属性选择符" class="headerlink" title="属性选择符"></a>属性选择符</h1><p>通过标签的属性来选择标签以屏蔽，例如<code>##table[width=&quot;80%&quot;]</code></p>
-<p>可使用正则来匹配属性名</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://adblockplus.org/zh_CN/filters" target="_blank" rel="external">https://adblockplus.org/zh_CN/filters</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/02/AdBlock Plus规则语法/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -791,48 +806,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+		
+			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+		
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
+		
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
+		
+			<li><a href="/tags/vim/">vim<span>24</span></a></li>
+		
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+		
+			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
+		
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+		
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+		
+			<li><a href="/tags/war/">war<span>1</span></a></li>
+		
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+		
+			<li><a href="/tags/du/">du<span>1</span></a></li>
+		
+			<li><a href="/tags/module/">module<span>3</span></a></li>
+		
+			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+		
+			<li><a href="/tags/error/">error<span>3</span></a></li>
+		
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
+		
+			<li><a href="/tags/empty/">empty<span>1</span></a></li>
+		
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
 		
 			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
 		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
-		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
-		
-			<li><a href="/tags/vps/">vps<span>1</span></a></li>
-		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
-		
-			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
-		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
-		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
-		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
-		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
-		
-			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
-		
-			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
-		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
-		
-			<li><a href="/tags/STL/">STL<span>1</span></a></li>
-		
-			<li><a href="/tags/extern/">extern<span>1</span></a></li>
-		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
-		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
-		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
-		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -845,6 +860,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -854,14 +877,6 @@
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

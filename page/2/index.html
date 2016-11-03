@@ -111,6 +111,75 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-10-24 </div>
+			<div class="article-title"><a href="/2016/10/24/C++11/" >C++11</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="核心语言运行期强化"><a href="#核心语言运行期强化" class="headerlink" title="核心语言运行期强化"></a>核心语言运行期强化</h1><ul>
+<li>右值引用及MOVE语义，避免临时对象拷贝析构，极大地提升了语言执行效率，支持完美转发，简洁地定义模板</li>
+</ul>
+<h1 id="核心语言使用性加强"><a href="#核心语言使用性加强" class="headerlink" title="核心语言使用性加强"></a>核心语言使用性加强</h1><h1 id="增加的标准库"><a href="#增加的标准库" class="headerlink" title="增加的标准库"></a>增加的标准库</h1><ul>
+<li><p><code>&lt;memory&gt;</code> 强大的智能指针</p>
+</li>
+<li><p><code>&lt;regex&gt;</code> 对正则的支持</p>
+</li>
+<li><p><code>&lt;thread&gt;</code> 多线程支持</p>
+</li>
+<li><p><code>&lt;unordermap&gt;</code> hashmap支持</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://zh.wikipedia.org/wiki/C%2B%2B11#C.2B.2B.E6.A0.B8.E5.BF.83.E8.AA.9E.E8.A8.80.E7.9A.84.E6.93.B4.E5.85.85" target="_blank" rel="external">https://zh.wikipedia.org/wiki/C%2B%2B11#C.2B.2B.E6.A0.B8.E5.BF.83.E8.AA.9E.E8.A8.80.E7.9A.84.E6.93.B4.E5.85.85</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/10/24/C++11/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-10-17 </div>
+			<div class="article-title"><a href="/2016/10/17/C++-多重继承/" >C++-多重继承</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li>当一个类有多个父类时，每个父类在内存中依次排列，然后该类自己的成员。</li>
+<li>每一个父类的镜像中，都包含有独立的虚函数表</li>
+<li>当把子类的指针Upcast的时候，两种Upcast的方式得到的结果分别指向各自的父类镜像</li>
+<li>当两个父类重载的虚函数不同时，会使用Thunk机制，也就是说，虚函数表中的函数指针并不指向实际的虚函数，而是指向一小段代码。在这一小段代码中，会修改This指针（ECX寄存器），使之指向合适的父类镜像，然后再跳转到实际的虚函数体。</li>
+<li>当不使用虚继承时，共同基类的成员对象，在子类中会有独立两分（从两个父类各自继承了一份）。</li>
+<li>当使用虚继承时，共同基类的成员对象也会在虚函数表中记录，访问它必须先查找虚函数表。</li>
+</ol>
+<h1 id="为什么不建议使用多重继承？"><a href="#为什么不建议使用多重继承？" class="headerlink" title="为什么不建议使用多重继承？"></a>为什么不建议使用多重继承？</h1><ol>
+<li>可能会引入菱形继承，而为了解决这种问题，有需要引入虚拟继承，而虚拟继承实现复杂，占用更多的内存，且效率低</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/10/17/C++-多重继承/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-10-17 </div>
 			<div class="article-title"><a href="/2016/10/17/C++-虚函数/" >C++-虚函数</a></div>						
 		</h3>
@@ -450,72 +519,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-27 </div>
-			<div class="article-title"><a href="/2016/09/27/vim-gocode/" >vim-gocode</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>安装</p>
-<pre><code>mklink /d E:\Soft\Vim\setting\.vim\bundle\gocode E:\Soft\go\gopath\src\github.com\nsf\gocode\vim
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/27/vim-gocode/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-27 </div>
-			<div class="article-title"><a href="/2016/09/27/mysql-查看查询日志/" >mysql-查看查询日志</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>修改配置文件</p>
-<pre><code>sudo vim /etc/my.cnf
-
-general_log=1
-general_log_file=/var/log/mysql/mysql.log
-</code></pre></li>
-<li><p>创建相应文件</p>
-<pre><code>mkdir -p /var/log/mysql/
-touch /var/log/mysql/mysql.log
-chmod 666 /var/log/mysql/mysql.log
-</code></pre></li>
-<li><p>重启mysql</p>
-<pre><code>sudo systemctl restart mysqld
-</code></pre></li>
-<li><p>查看</p>
-<pre><code>tail -F /var/log/mysql/mysql.log
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/27/mysql-查看查询日志/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -821,48 +824,48 @@ chmod 666 /var/log/mysql/mysql.log
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+			<li><a href="/tags/resize/">resize<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-			<li><a href="/tags/json/">json<span>4</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
-			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/crond/">crond<span>1</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+			<li><a href="/tags/连接/">连接<span>1</span></a></li>
 		
-			<li><a href="/tags/c99/">c99<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
 		
-			<li><a href="/tags/素数/">素数<span>1</span></a></li>
+			<li><a href="/tags/nging/">nging<span>1</span></a></li>
 		
-			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
 		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/find/">find<span>3</span></a></li>
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
 		
-			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
+			<li><a href="/tags/主键/">主键<span>1</span></a></li>
 		
-			<li><a href="/tags/目录/">目录<span>3</span></a></li>
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
 		
-			<li><a href="/tags/列表/">列表<span>7</span></a></li>
+			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
 		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+			<li><a href="/tags/C/">C<span>15</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -875,6 +878,14 @@ chmod 666 /var/log/mysql/mysql.log
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -884,14 +895,6 @@ chmod 666 /var/log/mysql/mysql.log
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

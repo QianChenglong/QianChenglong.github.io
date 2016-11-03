@@ -112,6 +112,66 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-17 </div>
+			<div class="article-title"><a href="/2015/03/17/doxygen-配置使用/" >doxygen-配置使用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h1><ul>
+<li>graphviz(dot)</li>
+</ul>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="使用向导工具-推荐"><a href="#使用向导工具-推荐" class="headerlink" title="使用向导工具(推荐)"></a>使用向导工具(推荐)</h2><pre><code>doxywizard
+</code></pre><h2 id="手动修改配置文件"><a href="#手动修改配置文件" class="headerlink" title="手动修改配置文件"></a>手动修改配置文件</h2><ul>
+<li><p>生成配置文件模板</p>
+<pre><code>doxygen -g
+</code></pre></li>
+<li><p>修改配置文件<code>Doxyfile</code></p>
+</li>
+<li><p>生成doxygen</p>
+<p>doxygen</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/17/doxygen-配置使用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-17 </div>
+			<div class="article-title"><a href="/2015/03/17/各种闪存卡/" >各种闪存卡</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="SD"><a href="#SD" class="headerlink" title="SD"></a>SD</h1><p>数码相机</p>
+<p><img src="/img/各种闪存卡_01.png" alt=""></p>
+<h1 id="TF-TransFlash-MicroSD"><a href="#TF-TransFlash-MicroSD" class="headerlink" title="TF(TransFlash, MicroSD)"></a>TF(TransFlash, MicroSD)</h1><p>手机</p>
+<p><img src="/img/各种闪存卡_02.png" alt=""></p>
+
+	
+	</div>
+  <a type="button" href="/2015/03/17/各种闪存卡/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-17 </div>
 			<div class="article-title"><a href="/2015/03/17/USB各种接口/" >USB各种接口</a></div>						
 		</h3>
 	
@@ -354,139 +414,6 @@
 	
 	</div>
   <a type="button" href="/2015/03/09/doxygen使用流程简记/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-09 </div>
-			<div class="article-title"><a href="/2015/03/09/doxygen常用修改选项/" >Doxygen常用修改选项</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>PROJECT_NAME</li>
-</ul>
-<p>项目名称</p>
-<ul>
-<li>PROJECT_NUMBER</li>
-</ul>
-<p>项目版本号</p>
-<ul>
-<li>OUTPUT_DIRECGTORY</li>
-</ul>
-<p>输出目录</p>
-<ul>
-<li>INPUT</li>
-</ul>
-<p>输入文件或目录，空格分隔</p>
-<ul>
-<li>RECURSIVE</li>
-</ul>
-<p>递归处理目录</p>
-<ul>
-<li><p>HAVE_DOT</p>
-</li>
-<li><p>CALL_GRAPH</p>
-</li>
-</ul>
-<p>调用图</p>
-
-	
-	</div>
-  <a type="button" href="/2015/03/09/doxygen常用修改选项/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-09 </div>
-			<div class="article-title"><a href="/2015/03/09/iptables/" >iptables-命令简记</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li>多张表(filter, nat, mangle等)，最重要的是<code>filter</code>(<code>INPUT</code>, <code>FORWARD</code>, <code>OUTPUT</code>)用来制定本机规则</li>
-</ul>
-<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-n IP数字显示，避免DNS查询，加快查看速度</p>
-</li>
-<li><p>–line-numbers 显示规则编号</p>
-</li>
-<li><p>-L 列出规则</p>
-</li>
-<li><p>-D 删除规则</p>
-</li>
-<li><p>-A 追加到链尾</p>
-</li>
-<li><p>-I 加到链头</p>
-</li>
-</ul>
-<h1 id="查看类"><a href="#查看类" class="headerlink" title="查看类"></a>查看类</h1><ul>
-<li><p>查看规则(默认操作filter表)</p>
-<pre><code>iptables -L
-
-iptables-save -t filter
-</code></pre></li>
-</ul>
-<h1 id="删除类"><a href="#删除类" class="headerlink" title="删除类"></a>删除类</h1><ul>
-<li><p>删除指定链规则</p>
-<pre><code>iptables -D FORWARD 1(删除FORWARD链中的第一条规则)
-</code></pre></li>
-<li><p>清除所有已定义的规则</p>
-<pre><code>iptables -F
-</code></pre></li>
-<li><p>清除自定义规则</p>
-<pre><code>iptables -X
-</code></pre></li>
-<li><p>将所有的chain计数和流量统计归零</p>
-<pre><code>iptables -Z
-</code></pre></li>
-</ul>
-<h1 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h1><ul>
-<li><p>INPUT链，默认政策：DROP</p>
-<pre><code>iptables -P INPUT DROP
-</code></pre></li>
-<li><p>INPUT链，接口：本地环回(lo), ACCEPT</p>
-<pre><code>iptalbes -A INPUT -i lo -j ACCEPT
-</code></pre></li>
-<li><p>INPUT链，接口：以太网口(eth0)，源IP：192.168.1.67, ACCEPT</p>
-<pre><code>iptables -A INPUT -i eth0 -s 192.168.1.67 -j ACCEPT
-</code></pre></li>
-<li><p>INPUT链，接口：以太网口(eth0)，源IP段：192.168.1.0/24, ACCEPT</p>
-<pre><code>iptables -A INPUT -i eth0 -s 192.168.1.0/24 -j ACCEPT
-</code></pre></li>
-<li><p>INPUT链，源IP段：192.168.1.0/24, TCP, 目的端口:80, ACCEPT</p>
-<pre><code>iptables -A INPUT -s 192.168.1.0/24 -p tcp -dport 80 -j ACCEPT
-</code></pre></li>
-</ul>
-<h1 id="保存规则"><a href="#保存规则" class="headerlink" title="保存规则"></a>保存规则</h1><pre><code>iptables-save
-</code></pre><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>添加多个端口</p>
-<pre><code>iptables -A INPUT -p tcp --match multiport --dports 80,22,53 -j ACCEPT
-</code></pre></li>
-<li><p>添加端口区间</p>
-<pre><code>iptables -I INPUT -i eth1 -p tcp -m tcp --dport 6000:8000 -j ACCEPT
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/09/iptables/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -795,48 +722,48 @@ iptables-save -t filter
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
+			<li><a href="/tags/sql/">sql<span>7</span></a></li>
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
 		
-			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
 		
-			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/main/">__main__<span>1</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
+			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
 		
-			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
+			<li><a href="/tags/mrakdown/">mrakdown<span>1</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/nging/">nging<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
+			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
 		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
 		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+			<li><a href="/tags/char/">char<span>2</span></a></li>
 		
-			<li><a href="/tags/cron/">cron<span>1</span></a></li>
+			<li><a href="/tags/散列/">散列<span>1</span></a></li>
 		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
+			<li><a href="/tags/apt/">apt<span>2</span></a></li>
 		
-			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
+			<li><a href="/tags/资源/">资源<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -849,6 +776,14 @@ iptables-save -t filter
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -858,14 +793,6 @@ iptables-save -t filter
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

@@ -111,6 +111,61 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-06 </div>
+			<div class="article-title"><a href="/2015/01/06/虚拟网卡资料/" >虚拟网卡资料</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><a href="http://wushank.blog.51cto.com/3489095/1306849" target="_blank" rel="external">linux下TUN/TAP虚拟网卡的使用</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-tuntap/" target="_blank" rel="external">虚拟网卡 TUN/TAP 驱动程序设计原理</a></li>
+<li><a href="http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7" target="_blank" rel="external">http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/TUN%E4%B8%8ETAP" target="_blank" rel="external">wiki-TUN与TAP</a></li>
+<li><a href="http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has" target="_blank" rel="external">http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/06/虚拟网卡资料/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-06 </div>
+			<div class="article-title"><a href="/2015/01/06/位域与大小端/" >位域与大小端</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="小端"><a href="#小端" class="headerlink" title="小端"></a>小端</h1><p>先定义的位域占用字节低位</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> a:<span class="number">4</span>;</span><br><span class="line">    <span class="keyword">uint8_t</span> b:<span class="number">4</span>;</span><br><span class="line">&#125; Bit;</span><br></pre></td></tr></table></figure>
+<p>内存中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxxx xxxx</span><br><span class="line">b    a</span><br></pre></td></tr></table></figure>
+<p>测试：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> a:<span class="number">4</span>;    <span class="comment">/**&lt; 低4位 */</span></span><br><span class="line">    <span class="keyword">uint8_t</span> b:<span class="number">4</span>;    <span class="comment">/**&lt; 高4位 */</span></span><br><span class="line">&#125; Bit;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    Bit.a = <span class="number">0x0</span>;</span><br><span class="line">    Bit.b = <span class="number">0xf</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Bit:%#x\n"</span>, Bit);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"address:%x\n"</span>, (char*)&amp;Bit);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bit:0xf0</span><br><span class="line">address:4063f0</span><br></pre></td></tr></table></figure></p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/06/位域与大小端/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-05 </div>
 			<div class="article-title"><a href="/2015/01/05/本地透明代理的实现/" >本地透明代理的实现</a></div>						
 		</h3>
@@ -381,53 +436,6 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 	
 	</div>
   <a type="button" href="/2014/12/26/python-安装setuptools/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-26 </div>
-			<div class="article-title"><a href="/2014/12/26/python-使用py2exe打包/" >python-使用py2exe打包</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="没有带上自己的包"><a href="#没有带上自己的包" class="headerlink" title="没有带上自己的包"></a>没有带上自己的包</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(PACKAGE_DIR)</span><br><span class="line"></span><br><span class="line">options = &#123;<span class="string">'py2exe'</span>: &#123;</span><br><span class="line">    <span class="string">'packages'</span>: [<span class="string">'PACKAGE_NAME'</span>]</span><br><span class="line">    &#125;&#125;</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2014/12/26/python-使用py2exe打包/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-25 </div>
-			<div class="article-title"><a href="/2014/12/25/python-subprocess隐藏命令行/" >python-subprocess隐藏命令行</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line">startupinfo = subprocess.STARTUPINFO()</span><br><span class="line">startupinfo.dwFlags = subprocess.CREATE_NEW_CONSOLE | subprocess.STARTF_USESHOWWINDOW</span><br><span class="line">startupinfo.wShowWindow = subprocess.SW_HIDE</span><br><span class="line">subprocess.Popen([<span class="string">"ping"</span>, <span class="string">"-c 1"</span>, ip], stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startupinfo)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://code.activestate.com/recipes/578300-python-subprocess-hide-console-on-windows/" target="_blank" rel="external">http://code.activestate.com/recipes/578300-python-subprocess-hide-console-on-windows/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/25/python-subprocess隐藏命令行/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -736,48 +744,48 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
+			<li><a href="/tags/TF/">TF<span>1</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/打包/">打包<span>1</span></a></li>
 		
-			<li><a href="/tags/C/">C++<span>40</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
 		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
 		
-			<li><a href="/tags/resize/">resize<span>1</span></a></li>
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
 		
-			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+			<li><a href="/tags/ssh/">ssh<span>7</span></a></li>
 		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
 		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
-			<li><a href="/tags/domain/">domain<span>3</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
+			<li><a href="/tags/install/">install<span>2</span></a></li>
 		
-			<li><a href="/tags/extern/">extern<span>1</span></a></li>
+			<li><a href="/tags/hash/">hash<span>1</span></a></li>
 		
-			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
 		
-			<li><a href="/tags/using/">using<span>1</span></a></li>
+			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
 		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
+			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
 		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -790,6 +798,14 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -799,14 +815,6 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

@@ -112,6 +112,84 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-03 </div>
+			<div class="article-title"><a href="/2015/02/03/ubuntu-包管理/" >ubuntu-包管理</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h1><ul>
+<li><p>只下载不安装(二进制包)</p>
+<pre><code>apt-get download PACKAGE
+</code></pre></li>
+<li><p>下载源代码</p>
+<pre><code>apt-get source PACKAGE
+</code></pre></li>
+</ul>
+<h1 id="apt-cache"><a href="#apt-cache" class="headerlink" title="apt-cache"></a>apt-cache</h1><ul>
+<li><p>查询包依赖(该包依赖哪些包)</p>
+<pre><code>apt-cache depends PACKAGE
+</code></pre></li>
+<li><p>查询反向依赖(哪些包依赖该包)</p>
+<pre><code>apt-cache rdepends PACKAGE
+</code></pre></li>
+<li><p>查询包信息(基本信息，依赖信息)</p>
+<pre><code>apt-cache showpkg PACKAGE
+apt-cache show PACKAGE
+</code></pre></li>
+<li><p>查看包版本</p>
+<pre><code>apt-cache policy PACKAGE
+</code></pre></li>
+<li><p>搜索包</p>
+<pre><code>apt-cache search PATTERN
+</code></pre></li>
+</ul>
+<h1 id="apt-file-需要安装"><a href="#apt-file-需要安装" class="headerlink" title="apt-file(需要安装)"></a>apt-file(需要安装)</h1><ul>
+<li><p>列出包文件列表</p>
+<pre><code>apt-file list PACKAGE
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/03/ubuntu-包管理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-03 </div>
+			<div class="article-title"><a href="/2015/02/03/USB串口线是什么/" >USB串口线是什么</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="正式名称"><a href="#正式名称" class="headerlink" title="正式名称"></a>正式名称</h1><p>RS232-USB接口转换器</p>
+<p><img src="/img/USB串口线是什么-01.jpg" alt=""></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.baike.com/wiki/PL2303" target="_blank" rel="external">http://www.baike.com/wiki/PL2303</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/03/USB串口线是什么/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-03 </div>
 			<div class="article-title"><a href="/2015/02/03/sudo免密码/" >sudo免密码</a></div>						
 		</h3>
 	
@@ -336,55 +414,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/30/windows-计划任务隐藏控制台/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-29 </div>
-			<div class="article-title"><a href="/2015/01/29/python-unittest跳过指定测试/" >python-unittest跳过指定测试</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://docs.python.org/2/library/unittest.html#skipping-tests-and-expected-failures" target="_blank" rel="external">https://docs.python.org/2/library/unittest.html#skipping-tests-and-expected-failures</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/29/python-unittest跳过指定测试/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-29 </div>
-			<div class="article-title"><a href="/2015/01/29/cmake-打印Include路径列表/" >cmake-打印Include路径列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get_property</span>(dirs DIRECTORY <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span> PROPERTY <span class="keyword">INCLUDE_DIRECTORIES</span>)</span><br><span class="line"><span class="keyword">foreach</span>(dir <span class="variable">$&#123;dirs&#125;</span>)</span><br><span class="line">  <span class="keyword">message</span>(STATUS <span class="string">"dir='$&#123;dir&#125;'"</span>)</span><br><span class="line"><span class="keyword">endforeach</span>()</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/6902149/listing-include-directories-in-cmake" target="_blank" rel="external">http://stackoverflow.com/questions/6902149/listing-include-directories-in-cmake</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/29/cmake-打印Include路径列表/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -693,48 +722,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
 			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
 		
-			<li><a href="/tags/js/">js<span>2</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+			<li><a href="/tags/initializer-list/">initializer_list<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+			<li><a href="/tags/git/">git<span>7</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/date/">date<span>1</span></a></li>
 		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+			<li><a href="/tags/STL/">STL<span>1</span></a></li>
 		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/template/">template<span>2</span></a></li>
+			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
-			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/链表/">链表<span>1</span></a></li>
+			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
 		
-			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
+			<li><a href="/tags/select/">select<span>1</span></a></li>
 		
-			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
-			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
 		
-			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -747,6 +776,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -756,14 +793,6 @@
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

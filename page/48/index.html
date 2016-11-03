@@ -112,6 +112,63 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-05 </div>
+			<div class="article-title"><a href="/2015/02/05/getaddrinfo/" >getaddrinfo</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getaddrinfo</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *node, <span class="keyword">const</span> <span class="keyword">char</span> *service,</span><br><span class="line">                       <span class="keyword">const</span> <span class="keyword">struct</span> addrinfo *hints,</span><br><span class="line">                       <span class="keyword">struct</span> addrinfo **res)</span></span>;</span><br></pre></td></tr></table></figure>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li>转换主机名到IP地址(IPv4，IPv6)</li>
+<li>转换服务到端口</li>
+<li>不要用来查询本机IP，其只返回<code>127.0.0.1</code></li>
+</ul>
+<h1 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h1><ul>
+<li>使用<code>hints</code>来控制输出参数</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/freeaddrinfo.html" target="_blank" rel="external">http://pubs.opengroup.org/onlinepubs/9699919799/functions/freeaddrinfo.html</a></li>
+<li><a href="http://man7.org/linux/man-pages/man3/getaddrinfo.3.html" target="_blank" rel="external">http://man7.org/linux/man-pages/man3/getaddrinfo.3.html</a></li>
+<li><a href="http://beej-zhtw.netdpi.net/05-system-call-or-bust/5-1-getaddrinfo-start" target="_blank" rel="external">http://beej-zhtw.netdpi.net/05-system-call-or-bust/5-1-getaddrinfo-start</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/05/getaddrinfo/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-05 </div>
+			<div class="article-title"><a href="/2015/02/05/跟踪应用程序执行的系统调用/" >跟踪应用程序执行的系统调用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>strace program
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/02/05/跟踪应用程序执行的系统调用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-05 </div>
 			<div class="article-title"><a href="/2015/02/05/检查linux是否支持netlink/" >检查linux是否支持netlink</a></div>						
 		</h3>
 	
@@ -447,84 +504,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/ubuntu-包管理/" >ubuntu-包管理</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h1><ul>
-<li><p>只下载不安装(二进制包)</p>
-<pre><code>apt-get download PACKAGE
-</code></pre></li>
-<li><p>下载源代码</p>
-<pre><code>apt-get source PACKAGE
-</code></pre></li>
-</ul>
-<h1 id="apt-cache"><a href="#apt-cache" class="headerlink" title="apt-cache"></a>apt-cache</h1><ul>
-<li><p>查询包依赖(该包依赖哪些包)</p>
-<pre><code>apt-cache depends PACKAGE
-</code></pre></li>
-<li><p>查询反向依赖(哪些包依赖该包)</p>
-<pre><code>apt-cache rdepends PACKAGE
-</code></pre></li>
-<li><p>查询包信息(基本信息，依赖信息)</p>
-<pre><code>apt-cache showpkg PACKAGE
-apt-cache show PACKAGE
-</code></pre></li>
-<li><p>查看包版本</p>
-<pre><code>apt-cache policy PACKAGE
-</code></pre></li>
-<li><p>搜索包</p>
-<pre><code>apt-cache search PATTERN
-</code></pre></li>
-</ul>
-<h1 id="apt-file-需要安装"><a href="#apt-file-需要安装" class="headerlink" title="apt-file(需要安装)"></a>apt-file(需要安装)</h1><ul>
-<li><p>列出包文件列表</p>
-<pre><code>apt-file list PACKAGE
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/03/ubuntu-包管理/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/USB串口线是什么/" >USB串口线是什么</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="正式名称"><a href="#正式名称" class="headerlink" title="正式名称"></a>正式名称</h1><p>RS232-USB接口转换器</p>
-<p><img src="/img/USB串口线是什么-01.jpg" alt=""></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.baike.com/wiki/PL2303" target="_blank" rel="external">http://www.baike.com/wiki/PL2303</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/03/USB串口线是什么/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -830,48 +809,48 @@ apt-cache show PACKAGE
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/虚函数/">虚函数<span>1</span></a></li>
+			<li><a href="/tags/function/">function<span>1</span></a></li>
 		
-			<li><a href="/tags/命令/">命令<span>5</span></a></li>
+			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
 		
-			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
+			<li><a href="/tags/链表/">链表<span>1</span></a></li>
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
-			<li><a href="/tags/script/">script<span>1</span></a></li>
+			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
 		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
+			<li><a href="/tags/列表/">列表<span>7</span></a></li>
 		
-			<li><a href="/tags/json/">json<span>4</span></a></li>
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
 		
-			<li><a href="/tags/main/">__main__<span>1</span></a></li>
+			<li><a href="/tags/c-c-性能测试/">c,c++,性能测试<span>1</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
-			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
 		
-			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
+			<li><a href="/tags/父类/">父类<span>2</span></a></li>
 		
-			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -884,6 +863,14 @@ apt-cache show PACKAGE
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -893,14 +880,6 @@ apt-cache show PACKAGE
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

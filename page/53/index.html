@@ -112,6 +112,54 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-22 </div>
+			<div class="article-title"><a href="/2015/01/22/gtest-xml彩色显示/" >gtest-xml彩色显示</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p><a href="https://github.com/QianChenglong/gtest-xml-patch" target="_blank" rel="external">https://github.com/QianChenglong/gtest-xml-patch</a></p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/22/gtest-xml彩色显示/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-22 </div>
+			<div class="article-title"><a href="/2015/01/22/chrome-xml加载本地文件/" >chrome-xml加载本地文件</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>chrome为了安全，默认不允许加载本地文件</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>添加启动参数<code>--allow-file-access-from-files</code></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/3828898/can-chrome-be-made-to-perform-an-xsl-transform-on-a-local-file" target="_blank" rel="external">http://stackoverflow.com/questions/3828898/can-chrome-be-made-to-perform-an-xsl-transform-on-a-local-file</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/22/chrome-xml加载本地文件/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-22 </div>
 			<div class="article-title"><a href="/2015/01/22/git-创建一个仓库/" >git-创建一个仓库</a></div>						
 		</h3>
 	
@@ -332,56 +380,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/21/编程经典语句/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-20 </div>
-			<div class="article-title"><a href="/2015/01/20/cmake-if/" >cmake-if</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h1><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="variable">$&#123;name&#125;</span> <span class="keyword">STREQUAL</span> <span class="string">"."</span>)</span><br><span class="line">    <span class="keyword">include_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">    <span class="keyword">link_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/lib)</span><br><span class="line">    <span class="keyword">return</span>()</span><br><span class="line"><span class="keyword">endif</span>()</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cmake.org/cmake/help/v3.0/command/if.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/if.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/20/cmake-if/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-20 </div>
-			<div class="article-title"><a href="/2015/01/20/cmake-函数中遍历ARGN/" >cmake-函数中遍历ARGN</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>(use_library)</span><br><span class="line">    <span class="keyword">foreach</span>(name <span class="variable">$&#123;ARGN&#125;</span>)</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$&#123;name&#125;</span> <span class="keyword">STREQUAL</span> <span class="string">"."</span>)</span><br><span class="line">            <span class="keyword">include_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">            <span class="keyword">link_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/lib)</span><br><span class="line">        <span class="keyword">else</span>()</span><br><span class="line">            <span class="keyword">message</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="number">3</span>rdparty/<span class="variable">$&#123;name&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">            <span class="keyword">include_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="number">3</span>rdparty/<span class="variable">$&#123;name&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">            <span class="keyword">link_directories</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="number">3</span>rdparty/<span class="variable">$&#123;name&#125;</span>/lib)</span><br><span class="line">        <span class="keyword">endif</span>()</span><br><span class="line">    <span class="keyword">endforeach</span>()</span><br><span class="line"><span class="keyword">endfunction</span>()</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.cmake.org/cmake/help/v3.0/command/foreach.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/foreach.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/20/cmake-函数中遍历ARGN/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -690,48 +688,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
 		
-			<li><a href="/tags/systemd/">systemd<span>3</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
 		
-			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
+			<li><a href="/tags/cron/">cron<span>1</span></a></li>
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
 		
-			<li><a href="/tags/resume/">resume<span>1</span></a></li>
+			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/git/">git<span>7</span></a></li>
 		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
 		
-			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
 		
-			<li><a href="/tags/nging/">nging<span>1</span></a></li>
+			<li><a href="/tags/go/">go<span>40</span></a></li>
 		
-			<li><a href="/tags/选项/">选项<span>3</span></a></li>
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
 		
-			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/学习笔记/">学习笔记<span>1</span></a></li>
+			<li><a href="/tags/事务/">事务<span>1</span></a></li>
 		
-			<li><a href="/tags/if/">if<span>1</span></a></li>
+			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
 		
-			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+			<li><a href="/tags/interface/">interface<span>1</span></a></li>
 		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/all/">all<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -744,6 +742,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -753,14 +759,6 @@
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

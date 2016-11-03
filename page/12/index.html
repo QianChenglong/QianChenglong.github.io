@@ -111,6 +111,162 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-02-27 </div>
+			<div class="article-title"><a href="/2016/02/27/c++-类型转换/" >c++-类型转换</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>表达式合法性和语义由操作数类型决定</p>
+</li>
+<li><p>如果两个类型之间可以转换，则称这两类型相关</p>
+</li>
+<li><p>C++类型转换目标是尽可能防止精度丢失</p>
+</li>
+</ul>
+<h1 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>方便开发人员的使用，避免各种显式地转换</p>
+</li>
+<li><p>提供自然的语义，像内置类型一样，<code>int(1) + double(1.1)</code></p>
+</li>
+<li><p>无需额外重载，来支持多种操作符运算，重载数量与运算符线性相关！</p>
+</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>不利于掌控，有些隐式转换不是想要的，出现错误时，很难定位</li>
+</ul>
+<h2 id="发生场景"><a href="#发生场景" class="headerlink" title="发生场景"></a>发生场景</h2><p>当某个变量需要T2类型值，而该表达式值为T1类型，此时编译器会执行隐式类型转换。</p>
+<p>具体场景：</p>
+<ol>
+<li><p>当该表达式作为某个操作符(<code>=</code>, <code>+</code>…)的操作数，与期望类型T2不符</p>
+</li>
+<li><p>当该表达式作为函数调用实参，与形参类型T2不符</p>
+</li>
+<li><p>当作为函数返回语句时，与返回类型T2不符</p>
+</li>
+<li><p>当该表达式作为switch语句(T2为intergal)</p>
+</li>
+<li><p>当该表达式作为条件表达式(if, while, for, !, &amp;&amp;, ||)(T2为bool)</p>
+</li>
+</ol>
+<h2 id="实现方式（自定义类型）"><a href="#实现方式（自定义类型）" class="headerlink" title="实现方式（自定义类型）"></a>实现方式（自定义类型）</h2><h1 id="T2-gt-T1"><a href="#T2-gt-T1" class="headerlink" title="T2=&gt;T1"></a>T2=&gt;T1</h1><p>单参数构造函数(<strong>converting constructor</strong>)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T1(T2 t2);</span><br><span class="line">T1(T2 t2, <span class="keyword">int</span> i=<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="T1-gt-T2"><a href="#T1-gt-T2" class="headerlink" title="T1=&gt;T2"></a>T1=&gt;T2</h1><p>类型转换操作符函数(<strong>Conversion Operator</strong>)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">operator</span> T2&amp;();</span><br><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">T2</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></table></figure>
+<p>#　禁止隐式类型转换</p>
+<p>通过<code>explicit</code>关键字修饰函数，说明该函数不能被用来隐式转换，只能进行显式转换！</p>
+<h2 id="要点-1"><a href="#要点-1" class="headerlink" title="要点"></a>要点</h2><ul>
+<li>条件表达式中有<code>singed</code>和’unsigned’时，<code>singed</code>会转化为<code>unsinged</code>(对应类型的模运算值，如1B的-1转换为255)</li>
+</ul>
+<h1 id="显式类型转换-C-风格转换"><a href="#显式类型转换-C-风格转换" class="headerlink" title="显式类型转换(C++风格转换)"></a>显式类型转换(C++风格转换)</h1><p>优点：</p>
+<ol>
+<li><p>意图更加明确，编译器可以提供更准确地检查，尽可能早地发现错误</p>
+</li>
+<li><p>利于代码阅读和工具检索</p>
+</li>
+</ol>
+<h2 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a><code>static_cast</code></h2><ul>
+<li><p>编译期内</p>
+</li>
+<li><p>使用隐式类型转换或用户自定义转换</p>
+</li>
+<li><p>安全性较高，编译器进行类型检查</p>
+</li>
+</ul>
+<p>用途：</p>
+<ul>
+<li><p>相关类型的转换，如整型到枚举，浮点到整型</p>
+</li>
+<li><p>显式转换，即使造成精度丢失，编译器也不会警告</p>
+</li>
+<li><p>与<code>void*</code>的双向转换</p>
+</li>
+</ul>
+<h2 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a><code>reinterpret_cast</code></h2><ul>
+<li><p>编译期内</p>
+</li>
+<li><p>不做任何检查的转换，保证再次转换回来时，值不变(前提是转换的类型有足够的空间存储原有值)</p>
+</li>
+<li><p>危险性最高，完全靠程序员掌握</p>
+</li>
+<li><p>不生成任何CPU指令，对编译器而言，直接把该值作为指定类型(变量的属性)操作</p>
+</li>
+</ul>
+<p>用途：</p>
+<ul>
+<li>主要用于不相关类型间转换，如整型到指针，不同指针类型间</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">char</span> *pch = <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">char</span> *&gt;(&amp;i); <span class="comment">// static_cast无法完成</span></span><br></pre></td></tr></table></figure>
+<h2 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a><code>const_cast</code></h2><p>添加或移除<code>const</code>，<code>volatile</code>修饰</p>
+<ul>
+<li>不生成任何CPU指令，对编译器而言，本身这个修饰只是一种存取权限控制</li>
+</ul>
+<h2 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a><code>dynamic_cast</code></h2><ul>
+<li><p>运行期内转换</p>
+</li>
+<li><p>提供类型安全检查，可以知道转换是否成功</p>
+</li>
+<li><p>最耗时</p>
+</li>
+</ul>
+<p>用途：</p>
+<p>在同一个继承体系(<strong>带有虚函数表的</strong>)中进行类型转换</p>
+<ul>
+<li><p>子类向基类的向上转型(Up Cast)</p>
+</li>
+<li><p>基类向子类的向下转型(Down Cast)</p>
+</li>
+<li><p>横向转型(Cross Cast)</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>C++ Primer 5.12</li>
+<li>C++程序设计语言 6.2.7</li>
+<li><a href="http://en.cppreference.com/w/cpp/language/implicit_conversion" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/implicit_conversion</a></li>
+<li><a href="http://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used?rq=1</a></li>
+<li><a href="http://en.cppreference.com/w/cpp/language/reinterpret_cast" target="_blank" rel="external">http://en.cppreference.com/w/cpp/language/reinterpret_cast</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/02/27/c++-类型转换/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-02-27 </div>
+			<div class="article-title"><a href="/2016/02/27/boost-bind/" >boost-bind</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><code>_1,_2...</code>代表的是原函数的第n个参数</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; j &lt;&lt; <span class="string">" "</span> &lt;&lt; k &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::function&lt;<span class="keyword">void</span> (<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> k)&gt; f1 = boost::bind(f, _3, _1, _2); <span class="comment">// f1(k, i ,j)</span></span><br><span class="line">    f1(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// 3 1 2</span></span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2016/02/27/boost-bind/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-02-25 </div>
 			<div class="article-title"><a href="/2016/02/25/c-结构体对齐/" >c-结构体对齐</a></div>						
 		</h3>
@@ -351,66 +507,6 @@
 	
 	</div>
   <a type="button" href="/2016/02/18/tcp/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-01-18 </div>
-			<div class="article-title"><a href="/2016/01/18/电影网站/" >电影网站</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="http://www.dytt8.net/" target="_blank" rel="external">电影天堂</a></p>
-</li>
-<li><p><a href="http://www.bttiantang.com/" target="_blank" rel="external">bit天堂</a></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/01/18/电影网站/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-01-15 </div>
-			<div class="article-title"><a href="/2016/01/15/linux-最大打开文件数/" >linux-最大打开文件数</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>linux下，默认最大打开文件数为1024(<code>ulimit -n</code>)</p>
-</li>
-<li><p>一个进程打开，默认占用3个文件描述符(0,1,2分别对应标准输入，标准输出，标准出错)</p>
-</li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ul>
-<li><p>默认情况下，单进程最大打开文件数为<strong>1021</strong>个([3,1023])</p>
-</li>
-<li><p>单进程，最大连接数为<strong>1021</strong>个</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/01/15/linux-最大打开文件数/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -719,48 +815,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
 		
-			<li><a href="/tags/python-编码规范/">python 编码规范<span>1</span></a></li>
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+			<li><a href="/tags/tcpdump/">tcpdump<span>1</span></a></li>
 		
-			<li><a href="/tags/串口/">串口<span>2</span></a></li>
+			<li><a href="/tags/go/">go<span>40</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
 		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+			<li><a href="/tags/hash/">hash<span>1</span></a></li>
 		
-			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
+			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/tags/连接/">连接<span>1</span></a></li>
+			<li><a href="/tags/启动/">启动<span>1</span></a></li>
 		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/stat/">stat<span>1</span></a></li>
+			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
 		
-			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
 		
-			<li><a href="/tags/text/">text<span>1</span></a></li>
+			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
 		
-			<li><a href="/tags/打包/">打包<span>1</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
+			<li><a href="/tags/read/">read<span>1</span></a></li>
 		
-			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
+			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
 		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -773,6 +869,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -782,14 +886,6 @@
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

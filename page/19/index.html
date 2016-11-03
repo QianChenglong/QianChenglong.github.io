@@ -111,6 +111,71 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-24 </div>
+			<div class="article-title"><a href="/2015/09/24/go-error/" >go-error</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p><code>error</code>是一个预定义的<code>interface</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> error <span class="keyword">interface</span> &#123;</span><br><span class="line">    Error() <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最常用的一个实现是<code>errors</code>中的<code>errorString</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">errors.New(<span class="string">"error message"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>fmt</code>包中,通过反射得知是<code>error</code>类型时,则调用<code>error() string</code>方法</p>
+</li>
+<li><p>在<code>fmt</code>包中,提供了<code>Errorf(format string, a ...interface{}) error</code>来方便错误信息输出</p>
+</li>
+<li><p>在精细化的情况下(调用者需要知道错误(该错误是重新定义的的,包含其他信息)的详细信息,不只是错误字符串),<br>这时可以通过<strong>类型断言</strong>来单独处理指定错误</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> err := dec.Decode(&amp;val); err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> serr, ok := err.(*json.SyntaxError); ok &#123;</span><br><span class="line">        line, col := findLine(f, serr.Offset)</span><br><span class="line">        <span class="keyword">return</span> fmt.Errorf(<span class="string">"%s:%d:%d: %v"</span>, f.Name(), line, col, err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">_, err := my.DB.Exec(sql)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> driverErr, ok := err.(*mysql.MySQLError); ok &#123; <span class="comment">// Now the error number is accessible directly</span></span><br><span class="line">            <span class="keyword">if</span> driverErr.Number == <span class="number">1062</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> errDuplicate</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &amp;json2.Error&#123;Code: <span class="number">100</span>, Message: <span class="string">"a"</span>&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.golang.org/error-handling-and-go" target="_blank" rel="external">http://blog.golang.org/error-handling-and-go</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/24/go-error/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-23 </div>
+			<div class="article-title"><a href="/2015/09/23/go-http中获取客户端IP/" >go-http中获取客户端IP</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.Request.RemoteAddr</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/27234861/correct-way-of-getting-clients-ip-addresses-from-http-request-golang" target="_blank" rel="external">http://stackoverflow.com/questions/27234861/correct-way-of-getting-clients-ip-addresses-from-http-request-golang</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/23/go-http中获取客户端IP/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-23 </div>
 			<div class="article-title"><a href="/2015/09/23/go-string操作/" >go-string操作</a></div>						
 		</h3>
@@ -340,63 +405,6 @@ ImportPath       = string_lit .
 	
 	</div>
   <a type="button" href="/2015/09/18/go-redis/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-18 </div>
-			<div class="article-title"><a href="/2015/09/18/go-package/" >go-package</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>包内的首字母大写为可导出符号,在其他包中使用</p>
-</li>
-<li><p><code>_ import *</code>表示导入该包,但不直接使用该包内的可导出符号(如使用<code>go-sql-driver/mysql</code>)</p>
-</li>
-<li><p>导入包时,go会自动执行包内的<code>init()</code></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/18/go-package/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-18 </div>
-			<div class="article-title"><a href="/2015/09/18/go-mysql/" >go-mysql</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><code>nil</code> &lt;=&gt; <code>NULL</code></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://go-database-sql.org/index.html" target="_blank" rel="external">go-database-sql</a></li>
-<li><a href="https://golang.org/pkg/database/sql" target="_blank" rel="external">https://golang.org/pkg/database/sql</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/18/go-mysql/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -705,48 +713,48 @@ ImportPath       = string_lit .
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
 		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
-			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+			<li><a href="/tags/右值/">右值<span>1</span></a></li>
 		
-			<li><a href="/tags/事务/">事务<span>1</span></a></li>
-		
-			<li><a href="/tags/STL/">STL<span>1</span></a></li>
-		
-			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
-		
-			<li><a href="/tags/库/">库<span>2</span></a></li>
+			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
 			<li><a href="/tags/import/">import<span>3</span></a></li>
 		
-			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
+			<li><a href="/tags/C/">C<span>15</span></a></li>
 		
-			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
 		
-			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
 		
-			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
+			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
 		
-			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
+			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
 		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
 		
-			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
 		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/str/">str<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+		
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+		
+			<li><a href="/tags/date/">date<span>1</span></a></li>
+		
+			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -759,6 +767,14 @@ ImportPath       = string_lit .
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -768,14 +784,6 @@ ImportPath       = string_lit .
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

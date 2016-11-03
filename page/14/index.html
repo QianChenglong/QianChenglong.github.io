@@ -112,6 +112,68 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-11-16 </div>
+			<div class="article-title"><a href="/2015/11/16/http-OPTIONS/" >http-OPTIONS</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><ul>
+<li>获取URL支持的HTTP请求方法</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/11/16/http-OPTIONS/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-16 </div>
+			<div class="article-title"><a href="/2015/11/16/http-head/" >http-head</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>HEAD方法跟GET方法相同，只不过服务器响应时不会返回消息体。<br>一个HEAD请求的响应中，HTTP头中包含的元信息应该和一个GET请求的响应消息相同。</p>
+<p>一个HEAD请求的响应可被缓存，也就是说，响应中的信息可能用来更新之前缓存的实体。如果当前实体跟缓存实体的阈值不同（可通过Content-Length、Content-MD5、ETag或Last-Modified的变化来表明），那么这个缓存就被视为过期了</p>
+<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul>
+<li><p>简单,快速,耗用资源少</p>
+</li>
+<li><p>响应可被缓存</p>
+</li>
+</ul>
+<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><ul>
+<li><p>测试超链接的有效性、可用性和最近的修改</p>
+</li>
+<li><p>用来获取资源的<strong>元数据</strong></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="external">wiki-超文本传输协议</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/16/http-head/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-16 </div>
 			<div class="article-title"><a href="/2015/11/16/ajax/" >ajax</a></div>						
 		</h3>
 	
@@ -374,96 +436,6 @@
 	
 	</div>
   <a type="button" href="/2015/11/02/go-string/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-02 </div>
-			<div class="article-title"><a href="/2015/11/02/大小端/" >大小端</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>字节序是一个处理器架构特性。</p>
-<p>对于多字节数据，存在一个数据的字节安排问题(大小端)。</p>
-<p>大小端取决与CPU架构，X86:小端，KEIL-C51:大端</p>
-<h1 id="记忆方式"><a href="#记忆方式" class="headerlink" title="记忆方式"></a>记忆方式</h1><ul>
-<li>大端 &lt;=&gt; 字符串顺序</li>
-</ul>
-<h1 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h1><p>例：0x11223344(4B)在内存中存放时</p>
-<h2 id="大端："><a href="#大端：" class="headerlink" title="大端："></a>大端：</h2><p>数据的高位字节放在内存低地址，也就是说数据由高位字节向低位字节在内存中存放，<br>类似于字符串的存放，按照从左向右的顺序存放.</p>
-<pre><code>内存：0  1  2  3
-      11 22 33 44
-</code></pre><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
-<li>直接在内存中观察方便</li>
-</ol>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
-<li><p>不符合逻辑</p>
-</li>
-<li><p>不利于编码，解码</p>
-</li>
-</ol>
-<h2 id="小端："><a href="#小端：" class="headerlink" title="小端："></a>小端：</h2><p>数据的高位字节放在内存高地址，也就是数据从低位字节向高位字节在内存中存放</p>
-<pre><code>内存：0  1  2  3
-      44 33 22 11
-</code></pre><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ol>
-<li>这种存放方式比较符合逻辑</li>
-<li>利于读入时的解码(转换成对应数据类型的值)，如int i = 0x11223344，按ANSI<br>存放在文件中，再次读入时，需要根据ASCII码把对应的值转换成int型，容易处理，因为先<br>读入的是低位字节</li>
-</ol>
-<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ol>
-<li>直接在内存中观察时，不方便</li>
-</ol>
-<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><ol>
-<li>以上数字都是十六进制形式；</li>
-<li>假设变量地址为0</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/02/大小端/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-02 </div>
-			<div class="article-title"><a href="/2015/11/02/编码-utf-8/" >编码-utf-8</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="规律"><a href="#规律" class="headerlink" title="规律"></a>规律</h1><ul>
-<li><p>对于UTF-8编码中的任意字节B，如果B的第一位为0，则B为ASCII码，并且B独立的表示一个字符；</p>
-</li>
-<li><p>如果B的第一位为1，第二位为0，则B为一个非ASCII字符（该字符由多个字节表示）中的一个字节，并且不是字符的第一个字节编码；</p>
-</li>
-<li><p>如果B的前两位为1，第三位为0，则B为一个非ASCII字符（该字符由多个字节表示）中的第一个字节，并且该字符由两个字节表示；</p>
-</li>
-<li><p>如果B的前三位为1，第四位为0，则B为一个非ASCII字符（该字符由多个字节表示）中的第一个字节，并且该字符由三个字节表示；</p>
-</li>
-<li><p>如果B的前四位为1，第五位为0，则B为一个非ASCII字符（该字符由多个字节表示）中的第一个字节，并且该字符由四个字节表示；</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://zh.wikipedia.org/wiki/UTF-8" target="_blank" rel="external">https://zh.wikipedia.org/wiki/UTF-8</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/02/编码-utf-8/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -772,48 +744,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
+		
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+		
+			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+		
+			<li><a href="/tags/rune/">rune<span>1</span></a></li>
+		
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
 		
 			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
+			<li><a href="/tags/byte/">byte<span>1</span></a></li>
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
 		
-			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
+			<li><a href="/tags/git/">git<span>7</span></a></li>
 		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/yum/">yum<span>1</span></a></li>
 		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
 		
-			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
 		
-			<li><a href="/tags/ip/">ip<span>2</span></a></li>
-		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
-		
-			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
-		
-			<li><a href="/tags/同步/">同步<span>2</span></a></li>
-		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -826,6 +798,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -835,14 +815,6 @@
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

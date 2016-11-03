@@ -112,6 +112,82 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-05-08 </div>
+			<div class="article-title"><a href="/2016/05/08/程序设计-鸭子类型/" >程序设计-鸭子类型</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>“一个走起来像鸭子，游起来像鸭子，叫起来也像鸭子，那么就可认为它是一只鸭子！”</p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>鸭子类型是一种动态类型风格</p>
+</li>
+<li><p>一个对象有效的语义(方法或属性)，不是由继承自特定的类或实现特定的接口，而是由它本身所具有的<strong>方法和属性的集合</strong>来决定</p>
+</li>
+<li><p>在一个具体的上下文中(函数)，只关心该对象是否具有相应的语义(方法或属性)，而不关心其真实类型</p>
+</li>
+<li><p>属于一种多态，且不需要继承，灵活性更强！</p>
+</li>
+<li><p>若该对象在鸭子测试中(函数使用该对象的方法或属性)，不能通过，则抛出异常(<strong>类型错误</strong>)</p>
+</li>
+<li><p>通过良好的文档，清晰的代码，完备的测试，来保证类型类型正常工作</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Duck</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">quack</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Quaaaaaack!"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">feathers</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"The duck has white and gray feathers."</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">quack</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"The person imitates a duck."</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">feathers</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"The person takes a feather from the ground and shows it."</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"John Smith"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">in_the_forest</span><span class="params">(duck)</span>:</span></span><br><span class="line">    duck.quack()</span><br><span class="line">    duck.feathers()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">game</span><span class="params">()</span>:</span></span><br><span class="line">    donald = Duck()</span><br><span class="line">    john = Person()</span><br><span class="line">    in_the_forest(donald)</span><br><span class="line">    in_the_forest(john)</span><br><span class="line"></span><br><span class="line">game()</span><br></pre></td></tr></table></figure>
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">struct</span> Caller &#123;</span><br><span class="line">  <span class="keyword">const</span> T callee_;</span><br><span class="line">  Caller(<span class="keyword">const</span> T callee) : callee_(callee) &#123;&#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123; callee_.call(); &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Foo &#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Foo"</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Bar &#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Bar"</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Caller&lt;Foo&gt; foo&#123;Foo()&#125;;</span><br><span class="line">  Caller&lt;Bar&gt; bar&#123;Bar()&#125;;</span><br><span class="line">  foo.go();</span><br><span class="line">  bar.go();</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">  return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://en.wikipedia.org/wiki/Duck_test" target="_blank" rel="external">https://en.wikipedia.org/wiki/Duck_test</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Duck_typing" target="_blank" rel="external">https://en.wikipedia.org/wiki/Duck_typing</a></li>
+<li><a href="http://nullprogram.com/blog/2014/04/01/" target="_blank" rel="external">http://nullprogram.com/blog/2014/04/01/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/05/08/程序设计-鸭子类型/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-08 </div>
+			<div class="article-title"><a href="/2016/05/08/C++-template/" >C++-template</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h1><ul>
+<li><p>减少重复代码编写</p>
+</li>
+<li><p>接口统一</p>
+</li>
+</ul>
+<h1 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h1><ul>
+<li><p>因为编译器实例化，需要template实现，而实现包含了所有必须的头文件，这样增加了编译时间</p>
+</li>
+<li><p>实例化错误不宜阅读和定位解决</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/05/08/C++-template/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-08 </div>
 			<div class="article-title"><a href="/2016/05/08/C++11-lambda/" >C++11-lambda</a></div>						
 		</h3>
 	
@@ -364,69 +440,6 @@
 	
 	</div>
   <a type="button" href="/2016/05/02/mysql-NULL/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-28 </div>
-			<div class="article-title"><a href="/2016/04/28/设计模式-单例模式/" >设计模式-单例模式</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
-<li><p>相比全局变量</p>
-<ul>
-<li><p>将构造函数私有，可以防止定义多个实例！</p>
-</li>
-<li><p>可以实现为uncopyable，禁止复制或赋值！</p>
-</li>
-</ul>
-</li>
-<li><p>更加的OO，使用起来便利，无须手动创建和释放！</p>
-<ul>
-<li>利用C++的确定性析构特点，可以确保程序退出时，执行析构函数，释放相应资源！</li>
-</ul>
-</li>
-<li><p>可以确保在使用该对象时，该对象已被初始化，而nonlocal-static却不能保证（参考 Effective C++ Item-4 P30）</p>
-<p>因为C++标准没有定义，也无法定义不同模块中nonlocal-static对象的初始化顺序</p>
-</li>
-<li><p>程序启动更快，只有在首次使用的时候才会创建</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/28/设计模式-单例模式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-28 </div>
-			<div class="article-title"><a href="/2016/04/28/C++-内存区域/" >C++-内存区域</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="数据段"><a href="#数据段" class="headerlink" title="数据段"></a>数据段</h1><p>BSS段通常是指用来存放程序中未初始化的全局变量和静态变量的一块内存区域。特点是可读写的，在程序执行之前BSS段会自动清0。<br>可执行程序包括BSS段、数据段、代码段（也称文本段）。<br>BSS（Block Started by Symbol）通常是指用来存放程序中未初始化的全局变量和静态变量的一块内存区域。特点是:可读写的，在程序执行之前BSS段会自动清0。所以，未初始的全局变量在程序执行之前已经成0了。<br>数据段包括初始化的数据和未初始化的数据（BSS）两部分[1]  。BSS段存放的是未初始化的全局变量和静态变量。<br>UNIX下可使用size命令查看可执行文件的段大小信息。如size a.out。</p>
-
-	
-	</div>
-  <a type="button" href="/2016/04/28/C++-内存区域/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -735,48 +748,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/limit/">limit<span>2</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
 		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>10</span></a></li>
 		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
+			<li><a href="/tags/ssh/">ssh<span>7</span></a></li>
 		
-			<li><a href="/tags/override/">override<span>2</span></a></li>
+			<li><a href="/tags/install/">install<span>2</span></a></li>
 		
-			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
 		
-			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
-			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+			<li><a href="/tags/exception/">exception<span>1</span></a></li>
 		
-			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
 		
-			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
+			<li><a href="/tags/glog/">glog<span>1</span></a></li>
 		
-			<li><a href="/tags/c/">c<span>7</span></a></li>
+			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
 		
-			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
 		
-			<li><a href="/tags/script/">script<span>1</span></a></li>
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -789,6 +802,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -798,14 +819,6 @@
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

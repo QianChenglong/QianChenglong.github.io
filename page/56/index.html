@@ -112,6 +112,63 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-08 </div>
+			<div class="article-title"><a href="/2015/01/08/pragma-once/" >pragma-once</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p><code>#pragma once</code>是一条非标准的预处理指令，用来防止同一文件被多次包含，同<code>include guard</code>作用一样。<br>绝大多数编译器都提供支持。</p>
+<p>具有的优点：</p>
+<ul>
+<li>代码更少，不用<code>include</code>那么麻烦</li>
+<li>更有效，更安全，由预处理器去维护判断是否已经包含过，而<code>include</code>需要程序员定义不同的宏名来保证，<br>若宏名冲突，则导致编译失败</li>
+<li>效率更高，预处理器针对其做了特殊的优化</li>
+<li><strong>复制，修改代码更容易，当把一个头文件复制到另一个项目中，或改名时，不用按着命令规范去修改</strong></li>
+</ul>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>当同一个文件，在项目内有符号链接或硬链接时，可能导致无法工作。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://en.wikipedia.org/wiki/Pragma_once" target="_blank" rel="external">https://en.wikipedia.org/wiki/Pragma_once</a></li>
+<li><a href="http://stackoverflow.com/questions/1143936/pragma-once-vs-include-guards" target="_blank" rel="external">http://stackoverflow.com/questions/1143936/pragma-once-vs-include-guards</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/08/pragma-once/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-08 </div>
+			<div class="article-title"><a href="/2015/01/08/makefile-目标all作用/" >makefile-目标all作用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>make在执行makefile中，若没有显式指定目标，默认执行第一个找到的目标。</p>
+<p>而一般情况下，一个项目都会生成多个目标(如多个lib，dll，exe)等，所以<br>需要<code>all</code>这个伪目标来生成多个目标。</p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/08/makefile-目标all作用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-08 </div>
 			<div class="article-title"><a href="/2015/01/08/makefile-PHONY作用/" >makefile-.PHONY作用</a></div>						
 		</h3>
 	
@@ -387,61 +444,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/07/软件设计原则资料/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-06 </div>
-			<div class="article-title"><a href="/2015/01/06/虚拟网卡资料/" >虚拟网卡资料</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><a href="http://wushank.blog.51cto.com/3489095/1306849" target="_blank" rel="external">linux下TUN/TAP虚拟网卡的使用</a></li>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-tuntap/" target="_blank" rel="external">虚拟网卡 TUN/TAP 驱动程序设计原理</a></li>
-<li><a href="http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7" target="_blank" rel="external">http://superuser.com/questions/339465/creating-a-virtual-nic-on-windows-7</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/TUN%E4%B8%8ETAP" target="_blank" rel="external">wiki-TUN与TAP</a></li>
-<li><a href="http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has" target="_blank" rel="external">http://serverfault.com/questions/279390/any-way-to-make-a-virtual-bridged-network-adapter-in-windows-like-vmware-has</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/06/虚拟网卡资料/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-06 </div>
-			<div class="article-title"><a href="/2015/01/06/位域与大小端/" >位域与大小端</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="小端"><a href="#小端" class="headerlink" title="小端"></a>小端</h1><p>先定义的位域占用字节低位</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> a:<span class="number">4</span>;</span><br><span class="line">    <span class="keyword">uint8_t</span> b:<span class="number">4</span>;</span><br><span class="line">&#125; Bit;</span><br></pre></td></tr></table></figure>
-<p>内存中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxxx xxxx</span><br><span class="line">b    a</span><br></pre></td></tr></table></figure>
-<p>测试：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">uint8_t</span> a:<span class="number">4</span>;    <span class="comment">/**&lt; 低4位 */</span></span><br><span class="line">    <span class="keyword">uint8_t</span> b:<span class="number">4</span>;    <span class="comment">/**&lt; 高4位 */</span></span><br><span class="line">&#125; Bit;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    Bit.a = <span class="number">0x0</span>;</span><br><span class="line">    Bit.b = <span class="number">0xf</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Bit:%#x\n"</span>, Bit);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"address:%x\n"</span>, (char*)&amp;Bit);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bit:0xf0</span><br><span class="line">address:4063f0</span><br></pre></td></tr></table></figure></p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/06/位域与大小端/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -750,48 +752,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
 		
-			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/static/">static<span>2</span></a></li>
 		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/centos/">centos<span>12</span></a></li>
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
+			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
+		
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
+		
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+		
+			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
+		
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+		
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+		
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
 			<li><a href="/tags/c/">c<span>7</span></a></li>
 		
-			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/scp/">scp<span>1</span></a></li>
 		
-			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>10</span></a></li>
 		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
-		
-			<li><a href="/tags/delete/">delete<span>2</span></a></li>
-		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
-		
-			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
-		
-			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
-		
-			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
-		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -804,6 +806,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -813,14 +823,6 @@
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

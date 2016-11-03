@@ -112,6 +112,55 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-29 </div>
+			<div class="article-title"><a href="/2015/01/29/python-unittest跳过指定测试/" >python-unittest跳过指定测试</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/2/library/unittest.html#skipping-tests-and-expected-failures" target="_blank" rel="external">https://docs.python.org/2/library/unittest.html#skipping-tests-and-expected-failures</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/29/python-unittest跳过指定测试/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-29 </div>
+			<div class="article-title"><a href="/2015/01/29/cmake-打印Include路径列表/" >cmake-打印Include路径列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get_property</span>(dirs DIRECTORY <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span> PROPERTY <span class="keyword">INCLUDE_DIRECTORIES</span>)</span><br><span class="line"><span class="keyword">foreach</span>(dir <span class="variable">$&#123;dirs&#125;</span>)</span><br><span class="line">  <span class="keyword">message</span>(STATUS <span class="string">"dir='$&#123;dir&#125;'"</span>)</span><br><span class="line"><span class="keyword">endforeach</span>()</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/6902149/listing-include-directories-in-cmake" target="_blank" rel="external">http://stackoverflow.com/questions/6902149/listing-include-directories-in-cmake</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/29/cmake-打印Include路径列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-29 </div>
 			<div class="article-title"><a href="/2015/01/29/sudo unable to resolve host ubuntu/" >sudo unable to resolve host ubuntu</a></div>						
 		</h3>
 	
@@ -351,88 +400,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/28/ubuntu-查看文件所属/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-28 </div>
-			<div class="article-title"><a href="/2015/01/28/linux-添加域名映射/" >linux-添加域名映射</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>sudo echo &quot;192.192.192.243 svn.meichuan.com&quot; &gt;&gt;/etc/hosts
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/01/28/linux-添加域名映射/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-28 </div>
-			<div class="article-title"><a href="/2015/01/28/tar/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><h3 id="功能字符"><a href="#功能字符" class="headerlink" title="功能字符"></a>功能字符</h3><p>必须指定1个，可以指定多个，多个可以连在一起，前面的’-‘不是必需的</p>
-<p>-A<br>    追加tar文件到一个archive</p>
-<p>-r<br>    追加files到archive</p>
-<p>-c<br>    创建新的archive</p>
-<p>-x<br>    解包并解压</p>
-<p>-t<br>    查看包内容</p>
-<p>###选项</p>
-<p>-a<br>    根据包名字后缀自动选择相应的压缩程序</p>
-<p>-f archive</p>
-<pre><code>指定包名字，打包就是目的包名字，解包就是要解包的包名字
-</code></pre><p>-C dir<br>    解包到指定目录</p>
-<p>-p<br>    保留文件权限，属性信息</p>
-<p>-P<br>    不拿掉绝对路径前面的’/‘</p>
-<p>-h, –dereference</p>
-<pre><code>follow symlinks; archive and dump the files they point to
-</code></pre><h3 id="压缩选项"><a href="#压缩选项" class="headerlink" title="压缩选项"></a>压缩选项</h3><p>-z<br>    gzip</p>
-<p>-j<br>    bzip2</p>
-<p>-J<br>    xz</p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ul>
-<li><p>解压，解包</p>
-<pre><code>tar xf *.tar.gz
-</code></pre></li>
-<li><p>将当前目录打包，压缩</p>
-<pre><code>tar vczf tar.tar.gz .
-</code></pre></li>
-<li><p>解开包中某一个文件</p>
-<ul>
-<li><p>先查看文件</p>
-<pre><code>tar tf tar.tar.gz | grep tar
-</code></pre></li>
-<li><p>再解压指定文件</p>
-<pre><code>tar vxzf tar.tar.gz .tar实例.swp
-</code></pre></li>
-</ul>
-</li>
-<li><p>给当前目录下，某个文件夹打包压缩</p>
-<pre><code>tar vczf src.tar.gz src
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/01/28/tar/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -741,48 +708,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+		
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
+		
+			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+		
+			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
+		
+			<li><a href="/tags/socket/">socket<span>6</span></a></li>
+		
+			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+		
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
+		
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+		
+			<li><a href="/tags/C/">C<span>15</span></a></li>
+		
+			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
+		
+			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
+		
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
 			<li><a href="/tags/exit/">exit<span>1</span></a></li>
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
 		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
+			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
 		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>4</span></a></li>
 		
-			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
+			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
 		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/nullptr/">nullptr<span>1</span></a></li>
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
-		
-			<li><a href="/tags/override/">override<span>2</span></a></li>
-		
-			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
-		
-			<li><a href="/tags/优先/">优先<span>1</span></a></li>
-		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
-		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
-		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
-		
-			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
-		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
-		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
-		
-			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
-		
-			<li><a href="/tags/systemd/">systemd<span>3</span></a></li>
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -795,6 +762,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -804,14 +779,6 @@
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

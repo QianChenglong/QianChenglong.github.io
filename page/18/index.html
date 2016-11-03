@@ -111,6 +111,82 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-13 </div>
+			<div class="article-title"><a href="/2015/10/13/go-gorilla-rpc/" >go-gorilla-rpc</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h1><ol>
+<li>外部接口</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s := rpc.NewServer() <span class="comment">// 定义一个rpc server</span></span><br><span class="line"></span><br><span class="line">s.RegisterCodec(json2.NewCustomCodec(&amp;rpc.CompressionSelector&#123;&#125;), <span class="string">"application/json"</span>)</span><br><span class="line"><span class="comment">// 定义一个codec(用来响应请求)</span></span><br><span class="line"><span class="comment">// 为rpc注册(当收到的http,`Content-Type`为`application/json`时,调用该codec响应处理)</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://github.com/gorilla/rpc" target="_blank" rel="external">https://github.com/gorilla/rpc</a></li>
+<li><a href="http://www.gorillatoolkit.org/pkg/rpc" target="_blank" rel="external">http://www.gorillatoolkit.org/pkg/rpc</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/13/go-gorilla-rpc/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-13 </div>
+			<div class="article-title"><a href="/2015/10/13/go-json/" >go-json</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>编码解码是相对于<code>json</code>字符串(<code>utf-8</code>编码的slice)来讲的</p>
+<ul>
+<li><p>编码=&gt;将<code>go</code>数据类型值转换为<code>json</code>字符串</p>
+</li>
+<li><p>解码=&gt;将<code>json</code>字符串转换为<code>go</code>中数据类型值</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h1><ul>
+<li><p><code>Marshal(v interface{}) ([]byte, error)</code></p>
+<p>编码</p>
+</li>
+<li><p><code>Unmarshal(data []byte, v interface{}) error</code></p>
+<p>解码</p>
+</li>
+<li><p><code>NewDecoder(r io.Reader) *Decoder</code> <code>(dec *Decoder) Decode(v interface{}) error</code></p>
+<p>从实现了<code>io.Reader</code>接口中的对象读取<code>json</code>字符串来解码</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.2.md" target="_blank" rel="external">build-web-application-with-golang 7.2 JSON处理</a></li>
+<li><a href="https://golang.org/pkg/encoding/json/" target="_blank" rel="external">https://golang.org/pkg/encoding/json/</a></li>
+<li><a href="https://godoc.org/github.com/bitly/go-simplejson" target="_blank" rel="external">https://godoc.org/github.com/bitly/go-simplejson</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/13/go-json/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-10 </div>
 			<div class="article-title"><a href="/2015/10/10/mysql-alias/" >mysql-alias</a></div>						
 		</h3>
@@ -453,71 +529,6 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-24 </div>
-			<div class="article-title"><a href="/2015/09/24/go-error/" >go-error</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p><code>error</code>是一个预定义的<code>interface</code></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> error <span class="keyword">interface</span> &#123;</span><br><span class="line">    Error() <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>最常用的一个实现是<code>errors</code>中的<code>errorString</code></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">errors.New(<span class="string">"error message"</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>fmt</code>包中,通过反射得知是<code>error</code>类型时,则调用<code>error() string</code>方法</p>
-</li>
-<li><p>在<code>fmt</code>包中,提供了<code>Errorf(format string, a ...interface{}) error</code>来方便错误信息输出</p>
-</li>
-<li><p>在精细化的情况下(调用者需要知道错误(该错误是重新定义的的,包含其他信息)的详细信息,不只是错误字符串),<br>这时可以通过<strong>类型断言</strong>来单独处理指定错误</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> err := dec.Decode(&amp;val); err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> serr, ok := err.(*json.SyntaxError); ok &#123;</span><br><span class="line">        line, col := findLine(f, serr.Offset)</span><br><span class="line">        <span class="keyword">return</span> fmt.Errorf(<span class="string">"%s:%d:%d: %v"</span>, f.Name(), line, col, err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">_, err := my.DB.Exec(sql)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> driverErr, ok := err.(*mysql.MySQLError); ok &#123; <span class="comment">// Now the error number is accessible directly</span></span><br><span class="line">            <span class="keyword">if</span> driverErr.Number == <span class="number">1062</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> errDuplicate</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &amp;json2.Error&#123;Code: <span class="number">100</span>, Message: <span class="string">"a"</span>&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://blog.golang.org/error-handling-and-go" target="_blank" rel="external">http://blog.golang.org/error-handling-and-go</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/24/go-error/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-23 </div>
-			<div class="article-title"><a href="/2015/09/23/go-http中获取客户端IP/" >go-http中获取客户端IP</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.Request.RemoteAddr</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/27234861/correct-way-of-getting-clients-ip-addresses-from-http-request-golang" target="_blank" rel="external">http://stackoverflow.com/questions/27234861/correct-way-of-getting-clients-ip-addresses-from-http-request-golang</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/23/go-http中获取客户端IP/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -823,48 +834,48 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+		
+			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+		
 			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
 		
-			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
 		
-			<li><a href="/tags/连接/">连接<span>1</span></a></li>
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/slab/">slab<span>1</span></a></li>
 		
-			<li><a href="/tags/date/">date<span>1</span></a></li>
-		
-			<li><a href="/tags/ssh/">ssh<span>7</span></a></li>
-		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
-		
-			<li><a href="/tags/教程/">教程<span>1</span></a></li>
-		
-			<li><a href="/tags/散列/">散列<span>1</span></a></li>
-		
-			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
-		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
-		
-			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
-		
-			<li><a href="/tags/du/">du<span>1</span></a></li>
-		
-			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
+			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
 		
 			<li><a href="/tags/素数/">素数<span>1</span></a></li>
 		
+			<li><a href="/tags/安装/">安装<span>3</span></a></li>
 		
-		   <li><a href="/tags">...<span>593</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
+		
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
+		
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
+		
+			<li><a href="/tags/类/">类<span>1</span></a></li>
+		
+			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
+		
+			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>594</span></a></li>
 		 
 		</ul>
 	</div>
@@ -877,6 +888,14 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
       </li>
     
@@ -886,14 +905,6 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
     
       <li>
         <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++11-initializer_list/" ><i class="fa fa-file-o"></i>C++11-initializer_list</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/27/sudo/" ><i class="fa fa-file-o"></i>sudo</a>
       </li>
     
   </ul>

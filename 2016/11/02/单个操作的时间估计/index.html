@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C/C++中单个操作的时间估计 | 心若天府</title>
+  <meta name="author" content="钱成龙">
+  
+  <meta name="description" content="笔记，经验总结，资料">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="C/C++中单个操作的时间估计"/>
+  <meta property="og:site_name" content="心若天府"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="心若天府" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">心若天府</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> C/C++中单个操作的时间估计</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">Bit Operations:</span><br><span class="line">i1&gt;&gt;<span class="number">1</span>		<span class="number">2.04</span></span><br><span class="line">i1&lt;&lt;<span class="number">1</span>		<span class="number">2.11</span></span><br><span class="line">i1&gt;&gt;<span class="number">3</span>		<span class="number">2.1</span></span><br><span class="line"></span><br><span class="line">Int Operations:</span><br><span class="line">i1++		<span class="number">2.43</span></span><br><span class="line">i1 = i2 + i3		<span class="number">2.09</span></span><br><span class="line">i1 = i2 - i3		<span class="number">2.13</span></span><br><span class="line">i1 = i2 * i3		<span class="number">2.11</span></span><br><span class="line">i1 = i2 / i3		<span class="number">3.3</span></span><br><span class="line">i1 = i2 % i3		<span class="number">3.33</span></span><br><span class="line"></span><br><span class="line">Float Operations:</span><br><span class="line">f1 = f2 + f3		<span class="number">2.1</span></span><br><span class="line">f1 = f2 - f3		<span class="number">2.13</span></span><br><span class="line">f1 = f2 * f3		<span class="number">2.1</span></span><br><span class="line">f1 = f2 / f3		<span class="number">2.36</span></span><br><span class="line"></span><br><span class="line">Double Operations:</span><br><span class="line">d1 = d2 + d3		<span class="number">2.12</span></span><br><span class="line">d1 = d2 - d3		<span class="number">2.09</span></span><br><span class="line">d1 = d2 * d3		<span class="number">2.14</span></span><br><span class="line">d1 = d2 / d3		<span class="number">4.75</span></span><br><span class="line"></span><br><span class="line">Numeric Conversions:</span><br><span class="line">i1=(int)f1		<span class="number">2.36</span></span><br><span class="line">i1=(int)d1		<span class="number">2.37</span></span><br><span class="line">f1=(float)i1		<span class="number">2.34</span></span><br><span class="line"></span><br><span class="line">Math Functions:</span><br><span class="line">i1 = rand()		<span class="number">9.02</span></span><br><span class="line">f1 = <span class="built_in">log</span>(f2)		<span class="number">17.51</span></span><br><span class="line">f1 = <span class="built_in">exp</span>(f2)		<span class="number">16.26</span></span><br><span class="line">f1 = <span class="built_in">sin</span>(f2)		<span class="number">16.06</span></span><br><span class="line">f1 = <span class="built_in">cos</span>(f2)		<span class="number">15.65</span></span><br><span class="line">f1 = <span class="built_in">sqrt</span>(f2)		<span class="number">5.3</span></span><br><span class="line"></span><br><span class="line">Fun Call:</span><br><span class="line">fun1()		<span class="number">2.13</span></span><br><span class="line">i1 = fun2()		<span class="number">2.16</span></span><br><span class="line">i1 = fun3(i1)		<span class="number">2.44</span></span><br><span class="line">i1 = fun4(i1, i2, i3)		<span class="number">2.8</span></span><br><span class="line"><span class="keyword">if</span> ( i1 == <span class="number">5</span>)		<span class="number">2.02</span></span><br><span class="line"><span class="keyword">if</span> ( i1 &gt; <span class="number">5</span>)		<span class="number">2.03</span></span><br><span class="line"><span class="keyword">if</span> ( i1 != <span class="number">5</span>)		<span class="number">2.03</span></span><br><span class="line"></span><br><span class="line">Malloc:</span><br><span class="line"><span class="built_in">free</span>(malloc(<span class="number">8</span>))		<span class="number">23.65</span></span><br><span class="line"></span><br><span class="line">String Functinos:</span><br><span class="line">i1 = <span class="built_in">strlen</span>(str1)		<span class="number">2.97</span></span><br><span class="line"><span class="built_in">strcpy</span>(str2, str1)		<span class="number">4.03</span></span><br><span class="line">i1 = <span class="built_in">strcmp</span>(str2, str1)		<span class="number">2.98</span></span><br><span class="line"></span><br><span class="line">String/Number Conversions:</span><br><span class="line">i1 = atoi(<span class="string">"12345"</span>)		<span class="number">17.61</span></span><br><span class="line"><span class="built_in">sscanf</span>(<span class="string">"12345"</span>, <span class="string">"%d"</span>, &amp;i1)		<span class="number">88.85</span></span><br><span class="line"><span class="built_in">sprintf</span>(s, <span class="string">"%d"</span>, i)		<span class="number">83.72</span></span><br><span class="line">f1 = atof(<span class="string">"123.45"</span>)		<span class="number">105.77</span></span><br><span class="line"><span class="built_in">sscanf</span>(<span class="string">"123.45"</span>, <span class="string">"%f"</span>, &amp;f1)		<span class="number">196.67</span></span><br><span class="line"><span class="built_in">sprintf</span>(s, <span class="string">"%6.2f"</span>, <span class="number">123.45</span>)		<span class="number">401.93</span></span><br><span class="line"></span><br><span class="line">Input/Ouput:</span><br><span class="line"><span class="built_in">fprintf</span>(fp, <span class="string">"%d\n"</span>, i1)		<span class="number">108.04</span></span><br><span class="line"></span><br><span class="line">Mutex Operations:</span><br><span class="line">pthread_mutex_lock(&amp;mutex_);pthread_mutex_unlock(&amp;mutex_)       <span class="number">3.99</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://mingxinglai.com/cn/2012/12/estimate-value-of-time-in-c/" target="_blank" rel="external">http://mingxinglai.com/cn/2012/12/estimate-value-of-time-in-c/</a></li>
+</ol>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2016/11/02/redis.conf/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2016/11/02/单个操作的时间估计/" data-title="C/C++中单个操作的时间估计" data-url="https://qianchenglong.github.io/2016/11/02/单个操作的时间估计/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-11-02 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/c-c-性能测试/">c,c++,性能测试<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'qianchenglong' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 钱成龙
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "http://localhost:4000/" + "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+</body>
+   </html>

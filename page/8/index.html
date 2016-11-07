@@ -111,6 +111,55 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-04-22 </div>
+			<div class="article-title"><a href="/2016/04/22/windows-md5/" >windows-md5</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>certutil -hashfile SLES-11-SP2-DVD-x86_64-GM-DVD1.iso MD5</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://superuser.com/questions/245775/is-there-a-built-in-checksum-utility-on-windows-7" target="_blank" rel="external">http://superuser.com/questions/245775/is-there-a-built-in-checksum-utility-on-windows-7</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/22/windows-md5/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-20 </div>
+			<div class="article-title"><a href="/2016/04/20/服务器优化/" >服务器优化</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="tcp"><a href="#tcp" class="headerlink" title="tcp"></a>tcp</h1><ul>
+<li>根据协议特点，设置<strong>套接字接受缓冲区低水位标志(<code>SO_RCVLOWAT</code>，默认值为1)</strong>为对应的协议头大小</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/04/20/服务器优化/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-04-18 </div>
 			<div class="article-title"><a href="/2016/04/18/mysql-c-connector/" >mysql-c-connector</a></div>						
 		</h3>
@@ -453,107 +502,6 @@ set timeout=1
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-05 </div>
-			<div class="article-title"><a href="/2016/04/05/redis/" >redis</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="配置-etc-redis-conf"><a href="#配置-etc-redis-conf" class="headerlink" title="配置(/etc/redis.conf)"></a>配置(/etc/redis.conf)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass foobared # 设置密码</span><br></pre></td></tr></table></figure>
-<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><ul>
-<li><p>启动redis</p>
-<pre><code>redis-server /etc/redis.conf
-</code></pre></li>
-<li><p>根据pattern删除key</p>
-<pre><code>redis-cli KEYS &quot;prefix:*&quot; | xargs redis-cli DEL
-</code></pre></li>
-</ul>
-<h1 id="命令返回值"><a href="#命令返回值" class="headerlink" title="命令返回值"></a>命令返回值</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> redisReply &#123;</span><br><span class="line">    <span class="keyword">int</span> type; <span class="comment">/* REDIS_REPLY_* */</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> integer; <span class="comment">/* The integer when type is REDIS_REPLY_INTEGER */</span></span><br><span class="line">    <span class="keyword">int</span> len; <span class="comment">/* Length of string */</span></span><br><span class="line">    <span class="keyword">char</span> *str; <span class="comment">/* Used for both REDIS_REPLY_ERROR and REDIS_REPLY_STRING */</span></span><br><span class="line">    <span class="keyword">size_t</span> elements; <span class="comment">/* number of elements, for REDIS_REPLY_ARRAY */</span></span><br><span class="line">    <span class="keyword">struct</span> redisReply **element; <span class="comment">/* elements vector for REDIS_REPLY_ARRAY */</span></span><br><span class="line">&#125; redisReply;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>状态(<code>#define REDIS_REPLY_STATUS 5</code>),  <code>str</code>=&gt; value</p>
-<ul>
-<li><p><code>SET</code> =&gt; “OK”</p>
-</li>
-<li><p><code>PING</code> =&gt; “PONG”</p>
-</li>
-</ul>
-</li>
-<li><p>错误(<code>#define REDIS_REPLY_ERROR 6</code>), <code>str</code> =&gt; value</p>
-</li>
-<li><p>整数(<code>#define REDIS_REPLY_INTEGER 3</code>), <code>integer</code> =&gt; value</p>
-<p>一些整数操作命令，如<code>INCR</code>返回增加后的键值</p>
-</li>
-<li><p>字符串(<code>#define REDIS_REPLY_STRING 1</code>), <code>str</code> =&gt; value</p>
-<p>当请求一个字符串类型键的键值时，若每个键不存在，则返回特殊值<code>nil(#define REDIS_REPLY_NIL 4)</code></p>
-</li>
-<li><p>字符串数组(<code>#define REDIS_REPLY_ARRAY 2</code>), <code>str</code> =&gt; value, <code>element</code> =&gt; next</p>
-</li>
-</ul>
-<h1 id="备份与恢复"><a href="#备份与恢复" class="headerlink" title="备份与恢复"></a>备份与恢复</h1><ul>
-<li><p>SAVE</p>
-<p>同步保存数据到磁盘文件中</p>
-<pre><code>dbfilename dump.rdb
-dir /var/lib/redis/
-</code></pre></li>
-<li><p>BGSAVE</p>
-<p>异步保存</p>
-</li>
-<li><p>CONFIG get dir</p>
-<p>恢复数据(dir由<code>/etc/redis.conf</code>中定义)</p>
-</li>
-</ul>
-<h1 id="Server端处理客户端socket"><a href="#Server端处理客户端socket" class="headerlink" title="Server端处理客户端socket"></a>Server端处理客户端socket</h1><p>Redis 通过监听一个 TCP 端口或者 Unix socket 的方式来接收来自客户端的连接，当一个连接建立后，Redis 内部会进行以下一些操作：</p>
-<ol>
-<li>首先，客户端 socket 会被设置为非阻塞模式，因为 Redis 在网络事件处理上采用的是非阻塞多路复用模型。</li>
-<li>然后为这个 socket 设置 TCP_NODELAY 属性，禁用 Nagle 算法</li>
-<li>然后创建一个可读的文件事件用于监听这个客户端 socket 的数据发送</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/05/redis/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-05 </div>
-			<div class="article-title"><a href="/2016/04/05/序列化/" >序列化</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>将某种结构化(如<code>struct</code>)的数据转化为字节流</p>
-<h1 id="为什么需要序列化"><a href="#为什么需要序列化" class="headerlink" title="为什么需要序列化"></a>为什么需要序列化</h1><ul>
-<li><p>网络传输(如tcp是字节流)</p>
-</li>
-<li><p>跨系统(不是利用程序语言本身提供的机制)存储(如存储到redis)</p>
-<ul>
-<li>比如c++中的<code>string</code>、<code>struct</code>等，redis中无法直接保存，需要序列化后存储，然后再利用该数据，恢复相应结构</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/05/序列化/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -859,48 +807,48 @@ dir /var/lib/redis/
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/arch/">arch<span>6</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/任播/">任播<span>1</span></a></li>
 		
-			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
+			<li><a href="/tags/cp/">cp<span>1</span></a></li>
 		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+		
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+		
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+		
+			<li><a href="/tags/nullptr/">nullptr<span>1</span></a></li>
+		
+			<li><a href="/tags/override/">override<span>2</span></a></li>
+		
+			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+		
+			<li><a href="/tags/redis/">redis<span>7</span></a></li>
+		
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+		
+			<li><a href="/tags/时间/">时间<span>3</span></a></li>
+		
+			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+		
+			<li><a href="/tags/include/">include<span>2</span></a></li>
 		
 			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
 		
-			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
+			<li><a href="/tags/curl/">curl<span>2</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
-		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
-		
-			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
-		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
-		
-			<li><a href="/tags/bind/">bind<span>2</span></a></li>
-		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
-		
-			<li><a href="/tags/string/">string<span>8</span></a></li>
-		
-			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
-		
-			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
-		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
-		
-			<li><a href="/tags/宏/">宏<span>4</span></a></li>
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -913,6 +861,14 @@ dir /var/lib/redis/
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -922,14 +878,6 @@ dir /var/lib/redis/
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

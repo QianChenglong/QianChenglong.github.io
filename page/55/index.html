@@ -112,6 +112,65 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-16 </div>
+			<div class="article-title"><a href="/2015/01/16/autohotkey-字符串/" >autohotkey-字符串</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="字符串是否为空"><a href="#字符串是否为空" class="headerlink" title="字符串是否为空"></a>字符串是否为空</h1><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (var = <span class="string">""</span>)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h1><ul>
+<li>表达式方法</li>
+</ul>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Var := <span class="string">"The color is "</span> . FoundColor</span><br></pre></td></tr></table></figure>
+<ul>
+<li>传统方法</li>
+</ul>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Var = The color is <span class="variable">%FoundColor%</span></span><br></pre></td></tr></table></figure>
+<p>参考：</p>
+<ol>
+<li><a href="http://www.autohotkey.com/docs/Variables.htm#Operators" target="_blank" rel="external">http://www.autohotkey.com/docs/Variables.htm#Operators</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/16/autohotkey-字符串/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-16 </div>
+			<div class="article-title"><a href="/2015/01/16/python-字符串/" >python-字符串</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="将其他数据类型转换为string"><a href="#将其他数据类型转换为string" class="headerlink" title="将其他数据类型转换为string"></a>将其他数据类型转换为string</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(data)</span><br></pre></td></tr></table></figure>
+<h1 id="重复字符串指定次数"><a href="#重复字符串指定次数" class="headerlink" title="重复字符串指定次数"></a>重复字符串指定次数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">‘abc<span class="string">' * 128</span></span><br></pre></td></tr></table></figure>
+<h1 id="字符串前缀匹配"><a href="#字符串前缀匹配" class="headerlink" title="字符串前缀匹配"></a>字符串前缀匹配</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.beginswith(str)</span><br></pre></td></tr></table></figure>
+<h1 id="字符串后缀匹配"><a href="#字符串后缀匹配" class="headerlink" title="字符串后缀匹配"></a>字符串后缀匹配</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.endswith(str)</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/01/16/python-字符串/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-16 </div>
 			<div class="article-title"><a href="/2015/01/16/python-打印不追加换行/" >python-打印不追加换行</a></div>						
 		</h3>
 	
@@ -328,68 +387,6 @@ sys.stdout.write(&apos;hello world&apos;)
 	
 	</div>
   <a type="button" href="/2015/01/15/windows-in-out-in-C/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-14 </div>
-			<div class="article-title"><a href="/2015/01/14/wireshark-开启tcp-ip校验码检查/" >wireshark-开启tcp-ip校验码检查</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Edit] =&gt; [Perference] =&gt; [Protocols] =&gt; [IPv4] =&gt; [Validate the IPv4 checksum if possible]</span><br><span class="line">                                      =&gt; [TCP] =&gt; [Validate the IPv4 checksum if possible]</span><br></pre></td></tr></table></figure>
-<p>如图：</p>
-<p><img src="/img/wireshark-开启tcp-ip校验码检查_1.png" alt=""></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://wiki.wireshark.org/TCP_Checksum_Verification" target="_blank" rel="external">http://wiki.wireshark.org/TCP_Checksum_Verification</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/14/wireshark-开启tcp-ip校验码检查/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-09 </div>
-			<div class="article-title"><a href="/2015/01/09/库的错误处理/" >库的错误处理</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>编写库，常见的错误处理方式：</p>
-<ul>
-<li><p>返回一个错误代码，提供一个函数将其转换为字符串</p>
-</li>
-<li><p>返回一个错误数据结构，该结构包括错误代码和描述信息</p>
-</li>
-<li><p>提供一个函数去获取错误代码，并提供一个函数转换为字符串</p>
-</li>
-<li><p>提供一个接口让调用者注册错误处理函数，当发生错误时，进行回调</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/4201856/error-handling-strategies-in-a-shared-library-c" target="_blank" rel="external">http://stackoverflow.com/questions/4201856/error-handling-strategies-in-a-shared-library-c</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/09/库的错误处理/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -698,48 +695,48 @@ sys.stdout.write(&apos;hello world&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/编译/">编译<span>11</span></a></li>
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
 		
-			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/json/">json<span>4</span></a></li>
 		
-			<li><a href="/tags/Sphinx/">Sphinx<span>1</span></a></li>
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
 		
-			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
+			<li><a href="/tags/debug/">debug<span>3</span></a></li>
 		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
 		
-			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
+			<li><a href="/tags/suse/">suse<span>1</span></a></li>
 		
-			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
+			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
 		
-			<li><a href="/tags/c-c-性能测试/">c,c++,性能测试<span>1</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
 		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
 		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/C/">C++<span>40</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -752,6 +749,14 @@ sys.stdout.write(&apos;hello world&apos;)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -761,14 +766,6 @@ sys.stdout.write(&apos;hello world&apos;)
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

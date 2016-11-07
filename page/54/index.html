@@ -112,6 +112,61 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-21 </div>
+			<div class="article-title"><a href="/2015/01/21/cmake-定义全局变量/" >cmake-定义全局变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(UTEST_LIBRARIES <span class="variable">$&#123;ARGN&#125;</span> CACHE INTERNAL <span class="string">"UTEST_LIBRARIES"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/10031953/how-to-set-the-global-variable-in-a-function-for-cmake" target="_blank" rel="external">http://stackoverflow.com/questions/10031953/how-to-set-the-global-variable-in-a-function-for-cmake</a></li>
+<li><a href="http://www.cmake.org/cmake/help/v3.0/command/set.html" target="_blank" rel="external">http://www.cmake.org/cmake/help/v3.0/command/set.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/21/cmake-定义全局变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-21 </div>
+			<div class="article-title"><a href="/2015/01/21/提高程序健壮性的几种办法/" >提高程序健壮性的几种办法</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="局部变量初始化"><a href="#局部变量初始化" class="headerlink" title="局部变量初始化"></a>局部变量初始化</h1><p>防止造成野指针，字符串越界，数组越界，非法访问等。</p>
+<h1 id="检查函数传入参数"><a href="#检查函数传入参数" class="headerlink" title="检查函数传入参数"></a>检查函数传入参数</h1><p>将错误的，不合法的输入阻止在最开始处</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li>C中常用<code>assert</code>进行处理</li>
+</ul>
+<h1 id="检查函数的返回值，以便对函数出错进行处理"><a href="#检查函数的返回值，以便对函数出错进行处理" class="headerlink" title="检查函数的返回值，以便对函数出错进行处理"></a>检查函数的返回值，以便对函数出错进行处理</h1><h1 id="释放指针后，指针置NULL"><a href="#释放指针后，指针置NULL" class="headerlink" title="释放指针后，指针置NULL"></a>释放指针后，指针置NULL</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.codeproject.com/Articles/216077/Making-Your-Cplusplus-Code-Robust" target="_blank" rel="external">http://www.codeproject.com/Articles/216077/Making-Your-Cplusplus-Code-Robust</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/21/提高程序健壮性的几种办法/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-21 </div>
 			<div class="article-title"><a href="/2015/01/21/编程经典语句/" >编程经典语句</a></div>						
 		</h3>
 	
@@ -327,65 +382,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/16/修改网络邻居登录密码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-16 </div>
-			<div class="article-title"><a href="/2015/01/16/autohotkey-字符串/" >autohotkey-字符串</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="字符串是否为空"><a href="#字符串是否为空" class="headerlink" title="字符串是否为空"></a>字符串是否为空</h1><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (var = <span class="string">""</span>)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h1><ul>
-<li>表达式方法</li>
-</ul>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Var := <span class="string">"The color is "</span> . FoundColor</span><br></pre></td></tr></table></figure>
-<ul>
-<li>传统方法</li>
-</ul>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Var = The color is <span class="variable">%FoundColor%</span></span><br></pre></td></tr></table></figure>
-<p>参考：</p>
-<ol>
-<li><a href="http://www.autohotkey.com/docs/Variables.htm#Operators" target="_blank" rel="external">http://www.autohotkey.com/docs/Variables.htm#Operators</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/16/autohotkey-字符串/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-16 </div>
-			<div class="article-title"><a href="/2015/01/16/python-字符串/" >python-字符串</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="将其他数据类型转换为string"><a href="#将其他数据类型转换为string" class="headerlink" title="将其他数据类型转换为string"></a>将其他数据类型转换为string</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(data)</span><br></pre></td></tr></table></figure>
-<h1 id="重复字符串指定次数"><a href="#重复字符串指定次数" class="headerlink" title="重复字符串指定次数"></a>重复字符串指定次数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">‘abc<span class="string">' * 128</span></span><br></pre></td></tr></table></figure>
-<h1 id="字符串前缀匹配"><a href="#字符串前缀匹配" class="headerlink" title="字符串前缀匹配"></a>字符串前缀匹配</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.beginswith(str)</span><br></pre></td></tr></table></figure>
-<h1 id="字符串后缀匹配"><a href="#字符串后缀匹配" class="headerlink" title="字符串后缀匹配"></a>字符串后缀匹配</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.endswith(str)</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/01/16/python-字符串/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -694,48 +690,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/flag/">flag<span>1</span></a></li>
+			<li><a href="/tags/base64/">base64<span>1</span></a></li>
 		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
 		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
 		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
+			<li><a href="/tags/ls/">ls<span>1</span></a></li>
 		
-			<li><a href="/tags/void/">void*<span>1</span></a></li>
+			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/vim/">vim<span>24</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/模块/">模块<span>2</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
 		
-			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
+			<li><a href="/tags/char/">char<span>2</span></a></li>
 		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
+			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/启动/">启动<span>1</span></a></li>
 		
-			<li><a href="/tags/final/">final<span>1</span></a></li>
+			<li><a href="/tags/rune/">rune<span>1</span></a></li>
 		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+			<li><a href="/tags/池/">池<span>1</span></a></li>
 		
-			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
+			<li><a href="/tags/build/">build<span>1</span></a></li>
 		
-			<li><a href="/tags/configure/">configure<span>1</span></a></li>
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -748,6 +744,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -757,14 +761,6 @@
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

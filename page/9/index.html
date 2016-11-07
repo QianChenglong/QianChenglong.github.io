@@ -111,6 +111,107 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-04-05 </div>
+			<div class="article-title"><a href="/2016/04/05/redis/" >redis</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="配置-etc-redis-conf"><a href="#配置-etc-redis-conf" class="headerlink" title="配置(/etc/redis.conf)"></a>配置(/etc/redis.conf)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass foobared # 设置密码</span><br></pre></td></tr></table></figure>
+<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><ul>
+<li><p>启动redis</p>
+<pre><code>redis-server /etc/redis.conf
+</code></pre></li>
+<li><p>根据pattern删除key</p>
+<pre><code>redis-cli KEYS &quot;prefix:*&quot; | xargs redis-cli DEL
+</code></pre></li>
+</ul>
+<h1 id="命令返回值"><a href="#命令返回值" class="headerlink" title="命令返回值"></a>命令返回值</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> redisReply &#123;</span><br><span class="line">    <span class="keyword">int</span> type; <span class="comment">/* REDIS_REPLY_* */</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> integer; <span class="comment">/* The integer when type is REDIS_REPLY_INTEGER */</span></span><br><span class="line">    <span class="keyword">int</span> len; <span class="comment">/* Length of string */</span></span><br><span class="line">    <span class="keyword">char</span> *str; <span class="comment">/* Used for both REDIS_REPLY_ERROR and REDIS_REPLY_STRING */</span></span><br><span class="line">    <span class="keyword">size_t</span> elements; <span class="comment">/* number of elements, for REDIS_REPLY_ARRAY */</span></span><br><span class="line">    <span class="keyword">struct</span> redisReply **element; <span class="comment">/* elements vector for REDIS_REPLY_ARRAY */</span></span><br><span class="line">&#125; redisReply;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>状态(<code>#define REDIS_REPLY_STATUS 5</code>),  <code>str</code>=&gt; value</p>
+<ul>
+<li><p><code>SET</code> =&gt; “OK”</p>
+</li>
+<li><p><code>PING</code> =&gt; “PONG”</p>
+</li>
+</ul>
+</li>
+<li><p>错误(<code>#define REDIS_REPLY_ERROR 6</code>), <code>str</code> =&gt; value</p>
+</li>
+<li><p>整数(<code>#define REDIS_REPLY_INTEGER 3</code>), <code>integer</code> =&gt; value</p>
+<p>一些整数操作命令，如<code>INCR</code>返回增加后的键值</p>
+</li>
+<li><p>字符串(<code>#define REDIS_REPLY_STRING 1</code>), <code>str</code> =&gt; value</p>
+<p>当请求一个字符串类型键的键值时，若每个键不存在，则返回特殊值<code>nil(#define REDIS_REPLY_NIL 4)</code></p>
+</li>
+<li><p>字符串数组(<code>#define REDIS_REPLY_ARRAY 2</code>), <code>str</code> =&gt; value, <code>element</code> =&gt; next</p>
+</li>
+</ul>
+<h1 id="备份与恢复"><a href="#备份与恢复" class="headerlink" title="备份与恢复"></a>备份与恢复</h1><ul>
+<li><p>SAVE</p>
+<p>同步保存数据到磁盘文件中</p>
+<pre><code>dbfilename dump.rdb
+dir /var/lib/redis/
+</code></pre></li>
+<li><p>BGSAVE</p>
+<p>异步保存</p>
+</li>
+<li><p>CONFIG get dir</p>
+<p>恢复数据(dir由<code>/etc/redis.conf</code>中定义)</p>
+</li>
+</ul>
+<h1 id="Server端处理客户端socket"><a href="#Server端处理客户端socket" class="headerlink" title="Server端处理客户端socket"></a>Server端处理客户端socket</h1><p>Redis 通过监听一个 TCP 端口或者 Unix socket 的方式来接收来自客户端的连接，当一个连接建立后，Redis 内部会进行以下一些操作：</p>
+<ol>
+<li>首先，客户端 socket 会被设置为非阻塞模式，因为 Redis 在网络事件处理上采用的是非阻塞多路复用模型。</li>
+<li>然后为这个 socket 设置 TCP_NODELAY 属性，禁用 Nagle 算法</li>
+<li>然后创建一个可读的文件事件用于监听这个客户端 socket 的数据发送</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/05/redis/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-05 </div>
+			<div class="article-title"><a href="/2016/04/05/序列化/" >序列化</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>将某种结构化(如<code>struct</code>)的数据转化为字节流</p>
+<h1 id="为什么需要序列化"><a href="#为什么需要序列化" class="headerlink" title="为什么需要序列化"></a>为什么需要序列化</h1><ul>
+<li><p>网络传输(如tcp是字节流)</p>
+</li>
+<li><p>跨系统(不是利用程序语言本身提供的机制)存储(如存储到redis)</p>
+<ul>
+<li>比如c++中的<code>string</code>、<code>struct</code>等，redis中无法直接保存，需要序列化后存储，然后再利用该数据，恢复相应结构</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/04/05/序列化/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-31 </div>
 			<div class="article-title"><a href="/2016/03/31/libuser/" >libuser</a></div>						
 		</h3>
@@ -142,6 +243,9 @@
 <h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
 <li><p>添加用户到组</p>
 <pre><code>lgroupmod -M wallace -- vboxsf
+</code></pre></li>
+<li><p>修改HOME</p>
+<pre><code>sudo lusermod -d /vmdata/home/wallace/ wallace
 </code></pre></li>
 </ol>
 
@@ -374,72 +478,6 @@
 	
 	</div>
   <a type="button" href="/2016/03/28/ssh-keygen/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-24 </div>
-			<div class="article-title"><a href="/2016/03/24/fuser/" >fuser</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>根据端口杀死进程</p>
-<pre><code>fuser 8080/tcp
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/03/24/fuser/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-23 </div>
-			<div class="article-title"><a href="/2016/03/23/glog/" >glog</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>默认输出到<code>/tmp/&lt;program name&gt;.&lt;hostname&gt;.&lt;user name&gt;.log.&lt;severity level&gt;.&lt;date&gt;.&lt;time&gt;.&lt;pid&gt;</code></p>
-</li>
-<li><p>FATAL和CHECK失败，会打印堆栈(默认打印到stderr)，然后exit(1)</p>
-</li>
-</ul>
-<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>minloglevel=NUM</p>
-<pre><code>指定最小级别
-</code></pre></li>
-</ul>
-<h1 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h1><ul>
-<li><p>重定向到标准出错</p>
-<pre><code>GLOG_logtostderr=1 ./your_application
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://google-glog.googlecode.com/svn/trunk/doc/glog.html" target="_blank" rel="external">https://google-glog.googlecode.com/svn/trunk/doc/glog.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/03/23/glog/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -748,48 +786,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/主键/">主键<span>1</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
-		
-			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
-		
-			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
-		
-			<li><a href="/tags/log/">log<span>2</span></a></li>
-		
-			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
-		
-			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+			<li><a href="/tags/global/">global<span>1</span></a></li>
 		
 			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/登录/">登录<span>2</span></a></li>
+			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
 		
-			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
+			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
 		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
+			<li><a href="/tags/C4819/">C4819<span>1</span></a></li>
 		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
+			<li><a href="/tags/variable/">variable<span>1</span></a></li>
 		
-			<li><a href="/tags/python/">python<span>69</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
+			<li><a href="/tags/build/">build<span>1</span></a></li>
+		
+			<li><a href="/tags/search/">search<span>1</span></a></li>
+		
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+		
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+		
+			<li><a href="/tags/网络设备/">网络设备<span>1</span></a></li>
+		
+			<li><a href="/tags/虚函数/">虚函数<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -802,6 +840,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -811,14 +857,6 @@
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

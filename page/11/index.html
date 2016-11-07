@@ -112,6 +112,72 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-03-11 </div>
+			<div class="article-title"><a href="/2016/03/11/tcp-read/" >tcp-read</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>ssize_t read(int fildes, void *buf, size_t nbyte);
+</code></pre><h1 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h1><ul>
+<li><blockquote>
+<p>0，成功读取了n字节</p>
+</blockquote>
+</li>
+<li><p>=0，对方断开了连接</p>
+</li>
+<li><p>&lt;0，发生了错误</p>
+<ul>
+<li>EINTR   被中断，没有读取到数据</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/11/tcp-read/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-11 </div>
+			<div class="article-title"><a href="/2016/03/11/TCP连接释放/" >TCP连接释放</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p><img src="../img/TCP连接释放.png" alt=""></p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>tcp是双向的，所以主动断开方，只是关闭了单向发送，仍可以接收数据，所以需要4次通信才能完成完全关闭</li>
+</ul>
+<h1 id="为什么需要主动关闭方需要等待2MSL，有个TIME-WAIT状态？"><a href="#为什么需要主动关闭方需要等待2MSL，有个TIME-WAIT状态？" class="headerlink" title="为什么需要主动关闭方需要等待2MSL，有个TIME_WAIT状态？"></a>为什么需要主动关闭方需要等待2MSL，有个<code>TIME_WAIT</code>状态？</h1><ol>
+<li><p>确保A(主动关闭方)发送的最后一个ACK报文(针对B发过来的断开连接请求的响应)可以被B收到</p>
+</li>
+<li><p>确保整个通信链路中的<strong>已失效的连接请求报文</strong>已经被处理，保证后续新的TCP连接逻辑正常</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/03/11/TCP连接释放/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-11 </div>
 			<div class="article-title"><a href="/2016/03/11/获取errno宏定义/" >获取errno宏定义</a></div>						
 		</h3>
 	
@@ -372,52 +438,6 @@
 	
 	</div>
   <a type="button" href="/2016/03/08/reactor/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-08 </div>
-			<div class="article-title"><a href="/2016/03/08/IO复用/" >IO复用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>所谓的IO复用意思是指复用<strong>一个线程</strong>来处理多个对象的IO</p>
-
-	
-	</div>
-  <a type="button" href="/2016/03/08/IO复用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-08 </div>
-			<div class="article-title"><a href="/2016/03/08/nginx/" >nginx</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li>nginx 的进程由用户设置，单个worker进程就可以处理用户所有的事件，epoll_wait 返回大量事件(A,B,C,D,E)时，服务器会顺序执行的所有的事件，事件A没有处理完，E是不能执行的，也不用同时分配内存，这样就避免内存井喷的现象，当事件处理粒度大的时候，性能就出现瓶颈了</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/03/08/nginx/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -726,48 +746,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
+			<li><a href="/tags/go/">go<span>40</span></a></li>
 		
-			<li><a href="/tags/string/">string<span>8</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
 		
-			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
 		
-			<li><a href="/tags/override/">override<span>2</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/mrakdown/">mrakdown<span>1</span></a></li>
 		
-			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/使用/">使用<span>1</span></a></li>
 		
-			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
 		
-			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>10</span></a></li>
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
 		
-			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
+			<li><a href="/tags/类/">类<span>1</span></a></li>
 		
-			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
 		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
+			<li><a href="/tags/char/">char<span>2</span></a></li>
 		
-			<li><a href="/tags/systemctl/">systemctl<span>1</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -780,6 +800,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -789,14 +817,6 @@
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

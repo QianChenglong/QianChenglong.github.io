@@ -112,6 +112,81 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-11 </div>
+			<div class="article-title"><a href="/2014/12/11/编译wingetopt/" >编译wingetopt</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>VS2010</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li><p>下载<a href="https://github.com/QianChenglong/wingetopt" target="_blank" rel="external">QianChenglong/wingetopt</a></p>
+</li>
+<li><p>新建<code>build</code>，并进入</p>
+</li>
+<li><p>生成<code>Makefile</code></p>
+<ul>
+<li><p>debug</p>
+<pre><code>cmake -G &quot;NMake Makefiles&quot; -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=./wingetopt ..
+</code></pre></li>
+<li><p>release</p>
+<pre><code>cmake -G &quot;NMake Makefiles&quot; -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./wingetopt ..
+</code></pre></li>
+</ul>
+</li>
+<li><p>编译</p>
+<pre><code>nmake
+</code></pre></li>
+<li><p>安装</p>
+<pre><code>nmake install
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/11/编译wingetopt/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-11 </div>
+			<div class="article-title"><a href="/2014/12/11/禁止企业QQ提示手机安装应用/" >禁止企业QQ提示手机安装应用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>先退出企业QQ</p>
+</li>
+<li><p>删除<code>%APPDATA%/tencent/QQEIM/Misc/com.tencent.wireless</code></p>
+</li>
+<li><p>新建文件，命名为<code>com.tencent.wireless</code></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/11/禁止企业QQ提示手机安装应用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-11 </div>
 			<div class="article-title"><a href="/2014/12/11/MinGW-w64各版本地址/" >MinGW-w64各版本地址</a></div>						
 		</h3>
 	
@@ -366,74 +441,6 @@ ms\do_ms
 	
 	</div>
   <a type="button" href="/2014/12/10/win下编译openssl/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-09 </div>
-			<div class="article-title"><a href="/2014/12/09/svn撤销删除/" >svn撤销删除</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>通过<code>svn delete</code>删除的文件或目录</p>
-<pre><code>svn revert DeletedDir --recursive
-</code></pre></li>
-<li><p>手动删除或<code>rmdir</code></p>
-<pre><code>svn update DeletedDir
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1></li>
-</ul>
-<ol>
-<li><a href="http://stackoverflow.com/questions/1786687/svn-undo-delete-before-commit" target="_blank" rel="external">http://stackoverflow.com/questions/1786687/svn-undo-delete-before-commit</a></li>
-<li><a href="http://svnbook.red-bean.com/nightly/en/svn.ref.svn.c.revert.html" target="_blank" rel="external">http://svnbook.red-bean.com/nightly/en/svn.ref.svn.c.revert.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/09/svn撤销删除/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-09 </div>
-			<div class="article-title"><a href="/2014/12/09/解决tortoisesvn和dropbox图标冲突/" >解决tortoisesvn和dropbox图标冲突</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>冲突导致SVN项目内文件图标无法显示</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ul>
-<li><p>下载修改工具<a href="http://www.nirsoft.net/utils/shexview.html" target="_blank" rel="external">http://www.nirsoft.net/utils/shexview.html</a></p>
-</li>
-<li><p>禁用<code>dropbox</code>图标覆盖</p>
-<p><img src="/img/解决tortoisesvn和dropbox图标冲突_01.png" alt=""></p>
-</li>
-<li><p>重启<code>explorer.exe</code>或注销或重启即可</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://superuser.com/questions/809529/which-dropbox-icon-is-for-which-icon-overlay-identifier-name" target="_blank" rel="external">http://superuser.com/questions/809529/which-dropbox-icon-is-for-which-icon-overlay-identifier-name</a></li>
-<li><a href="http://www.oliverpearmain.com/blog/dropbox-and-tortoise-svnsubversion-icon-overlays-in-harmony/" target="_blank" rel="external">http://www.oliverpearmain.com/blog/dropbox-and-tortoise-svnsubversion-icon-overlays-in-harmony/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/09/解决tortoisesvn和dropbox图标冲突/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -742,48 +749,48 @@ ms\do_ms
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
 		
-			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
+			<li><a href="/tags/c/">c++<span>8</span></a></li>
 		
-			<li><a href="/tags/library/">library<span>3</span></a></li>
+			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
 		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/虚函数/">虚函数<span>1</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/hash/">hash<span>1</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
 		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+			<li><a href="/tags/http/">http<span>11</span></a></li>
 		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+			<li><a href="/tags/service/">service<span>1</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/事务/">事务<span>1</span></a></li>
 		
-			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
-		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
-		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
 		
 			<li><a href="/tags/右值/">右值<span>1</span></a></li>
 		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
 		
-			<li><a href="/tags/systemctl/">systemctl<span>1</span></a></li>
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
+		
+			<li><a href="/tags/cp/">cp<span>1</span></a></li>
+		
+			<li><a href="/tags/exception/">exception<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -796,6 +803,14 @@ ms\do_ms
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -805,14 +820,6 @@ ms\do_ms
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

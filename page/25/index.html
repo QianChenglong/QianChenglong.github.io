@@ -112,6 +112,62 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-07-23 </div>
+			<div class="article-title"><a href="/2015/07/23/linux-进程后台运行/" >linux-进程后台运行</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>nohub</p>
+<p>nohup ping www.google.com &amp;</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/23/linux-进程后台运行/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-23 </div>
+			<div class="article-title"><a href="/2015/07/23/boost-lexical_cast/" >boost-lexical_cast</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>不能转换空字符串!(需要捕获异常)</p>
+<pre><code>try {
+    boost::lexical_cast&lt;int&gt;(&quot;&quot;);
+} catch (boost::bad_lexical_cast &amp;e) {
+    ;
+}
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/23/boost-lexical_cast/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-23 </div>
 			<div class="article-title"><a href="/2015/07/23/bash-获得脚本文件所在目录/" >bash-获得脚本文件所在目录</a></div>						
 		</h3>
 	
@@ -350,70 +406,6 @@ select inet_aton(&apos;192.168.1.1&apos;) &lt;= inet_aton(&apos;192.168.0.255&ap
 	
 	</div>
   <a type="button" href="/2015/07/15/mysql-IP类型/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-14 </div>
-			<div class="article-title"><a href="/2015/07/14/数字签名/" >数字签名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p>| 名词           | 解释             |<br>|—————-+——————|<br>| 受信任的发送方 | 拥有密钥的发送方 |</p>
-<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><ul>
-<li>发送方</li>
-</ul>
-<p>原文 =&gt; HASH =&gt; 加密(RSA) =&gt; 签名</p>
-<ul>
-<li>接收方</li>
-</ul>
-<p>除sign外的数据 =&gt; HASH ==? 发送过来的sign =&gt; 解密(RSA)</p>
-<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><ul>
-<li><p>保证数据是从指定源发送的</p>
-<p>因为受信任的发送方才有密钥，只有该密钥加密的数据才能正确地被接收方解密</p>
-</li>
-<li><p>防止数据在途中被第三方修改，保证了数据的完整性</p>
-<p>因为签名是基于全文HASH后得到的，任何修改原文操作，在没有密钥的情况下，无法重新签名，<br>也就意味着该数据无效！</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/14/数字签名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-13 </div>
-			<div class="article-title"><a href="/2015/07/13/cmake-常用变量/" >cmake-常用变量</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><code>CMAKE_INSTALL_RPATH_USE_LINK_PATH</code></p>
-<pre><code>使用`make install`安装时，不去除RPATH
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/13/cmake-常用变量/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -722,48 +714,48 @@ select inet_aton(&apos;192.168.1.1&apos;) &lt;= inet_aton(&apos;192.168.0.255&ap
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/centos/">centos<span>12</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
-			<li><a href="/tags/du/">du<span>1</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/crond/">crond<span>1</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
 		
-			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
+			<li><a href="/tags/flag/">flag<span>1</span></a></li>
 		
-			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+			<li><a href="/tags/build/">build<span>1</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/类/">类<span>1</span></a></li>
 		
-			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
 		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
 		
-			<li><a href="/tags/打包/">打包<span>1</span></a></li>
+			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
 		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
 		
-			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+			<li><a href="/tags/api/">api<span>1</span></a></li>
 		
-			<li><a href="/tags/散列/">散列<span>1</span></a></li>
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
 		
-			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
+			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/软件/">软件<span>3</span></a></li>
 		
-			<li><a href="/tags/template/">template<span>2</span></a></li>
+			<li><a href="/tags/import/">import<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -776,6 +768,14 @@ select inet_aton(&apos;192.168.1.1&apos;) &lt;= inet_aton(&apos;192.168.0.255&ap
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -785,14 +785,6 @@ select inet_aton(&apos;192.168.1.1&apos;) &lt;= inet_aton(&apos;192.168.0.255&ap
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

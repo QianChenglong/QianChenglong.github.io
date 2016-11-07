@@ -111,6 +111,68 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-10-27 </div>
+			<div class="article-title"><a href="/2016/10/27/virtualbox/" >virtualbox</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>关闭guest自动与host校时</p>
+<pre><code>sudo systemctl status vboxadd-service
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/10/27/virtualbox/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-10-27 </div>
+			<div class="article-title"><a href="/2016/10/27/时间/" >时间</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h1><p>代码中需要时区相关信息时，通过<code>tzset</code>来初始化相关全局变量，然后读取</p>
+<p><code>tzset</code>原理</p>
+<ol>
+<li><p>优先读取<code>TZ</code>环境变量值</p>
+</li>
+<li><p>若找不到，则使用系统相关的数据文件tzfile(5)</p>
+<p>一般都是通过<code>/etc/localtime</code>符号链接过去的一个文件，如：<code>lrwxrwxrwx. 1 root root 35 Apr 13  2016 /etc/localtime -&gt; ../usr/share/zoneinfo/Asia/Shanghai</code></p>
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><p>man tzset</p>
+</li>
+<li><p>man tzfile</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/10/27/时间/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-10-26 </div>
 			<div class="article-title"><a href="/2016/10/26/编程经验/" >编程经验</a></div>						
 		</h3>
@@ -438,74 +500,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-29 </div>
-			<div class="article-title"><a href="/2016/09/29/go-flag/" >go-flag</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>最好不要在<code>init</code>中调用<code>flag.Parse()</code>，因为这样会导致其他包定义的flag无效</p>
-</li>
-<li><p>多个不同的包，可以使用不同的flagset来处理</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/09/29/go-flag/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-29 </div>
-			<div class="article-title"><a href="/2016/09/29/fish/" >fish</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><ul>
-<li><p>-U or –universal</p>
-<p>所有shell实例共享，立马生效，重启后仍然有效</p>
-</li>
-</ul>
-<h1 id="Command-Substitutions"><a href="#Command-Substitutions" class="headerlink" title="Command Substitutions"></a>Command Substitutions</h1><p>用<code>( )</code>来执行子命令</p>
-<pre><code>set os (uname)
-</code></pre><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
-<li><p>更新补全数据</p>
-<pre><code>fish_update_completions
-</code></pre></li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>设置变量，并执行命令</p>
-<p>env PORT=7000 <command></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://fishshell.com/docs/current/tutorial.html" target="_blank" rel="external">http://fishshell.com/docs/current/tutorial.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/29/fish/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -811,48 +805,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/错误/">错误<span>2</span></a></li>
-		
-			<li><a href="/tags/resize/">resize<span>1</span></a></li>
-		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
-		
-			<li><a href="/tags/socket/">socket<span>6</span></a></li>
-		
-			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
-		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
-		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
-		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
-		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
-		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
-		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
-		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
-		
-			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
-		
-			<li><a href="/tags/c/">c<span>7</span></a></li>
-		
-			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
-		
-			<li><a href="/tags/command/">command<span>9</span></a></li>
-		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
-		
-			<li><a href="/tags/systemctl/">systemctl<span>1</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
 			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+		
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+		
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+		
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+		
+			<li><a href="/tags/django/">django<span>2</span></a></li>
+		
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+		
+			<li><a href="/tags/资源/">资源<span>2</span></a></li>
+		
+			<li><a href="/tags/char/">char<span>2</span></a></li>
+		
+			<li><a href="/tags/js/">js<span>2</span></a></li>
+		
+			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+		
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+		
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
+		
+			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+		
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+		
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
+		
+			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+		
+			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+		
+			<li><a href="/tags/cond/">cond<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -865,6 +859,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -874,14 +876,6 @@
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

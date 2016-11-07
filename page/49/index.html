@@ -112,6 +112,112 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-03 </div>
+			<div class="article-title"><a href="/2015/02/03/grep/" >grep</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>-C num</p>
+<p>指定上下文行数</p>
+</li>
+<li><p>-B NUM, –before-context=NUM</p>
+<p>指定上文行数</p>
+</li>
+<li><p>-A NUM, –after-context=NUM</p>
+<p>指定下文行数</p>
+</li>
+<li><p>-m NUM, –max-count=NUM</p>
+<p>指定最大匹配数量</p>
+</li>
+<li><p>-n, –line-number</p>
+<p>显示行号</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/03/grep/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-03 </div>
+			<div class="article-title"><a href="/2015/02/03/linux-socket寻址/" >linux-socket寻址</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>ubuntu-14.04</p>
+</li>
+<li><p>glic-2.19</p>
+</li>
+<li><p>工作目录：<code>/usr/include</code></p>
+</li>
+</ul>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="struct-sockaddr"><a href="#struct-sockaddr" class="headerlink" title="struct sockaddr"></a><code>struct sockaddr</code></h2><p><code>socket</code>API接口，无关具体地址族，协议。</p>
+<h3 id="定义位置"><a href="#定义位置" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>x86_64-linux-gnu/sys/socket.h</code> =&gt; <code>x86_64-linux-gnu/bits/socket.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Structure describing a generic socket address.  */</span></span><br><span class="line"><span class="keyword">struct</span> sockaddr</span><br><span class="line">  &#123;</span><br><span class="line">    __SOCKADDR_COMMON (sa_);    <span class="comment">/* Common data: address family and length.  */</span></span><br><span class="line">    <span class="keyword">char</span> sa_data[<span class="number">14</span>];       <span class="comment">/* Address data.  */</span></span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<ul>
+<li><code>=&gt;</code>表示包含</li>
+</ul>
+<h2 id="strcut-sockaddr-in"><a href="#strcut-sockaddr-in" class="headerlink" title="strcut sockaddr_in"></a><code>strcut sockaddr_in</code></h2><p>具体类型数据结构，用来操作地址族，IP，端口。</p>
+<h3 id="定义位置-1"><a href="#定义位置-1" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>netinet/in.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Structure describing an Internet socket address.  */</span></span><br><span class="line"><span class="keyword">struct</span> sockaddr_in</span><br><span class="line">  &#123;</span><br><span class="line">    __SOCKADDR_COMMON (sin_);</span><br><span class="line">    <span class="keyword">in_port_t</span> sin_port;         <span class="comment">/* Port number.  */</span></span><br><span class="line">    <span class="keyword">struct</span> in_addr sin_addr;        <span class="comment">/* Internet address.  */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Pad to size of `struct sockaddr'.  */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> sin_zero[<span class="keyword">sizeof</span> (<span class="keyword">struct</span> sockaddr) -</span><br><span class="line">               __SOCKADDR_COMMON_SIZE -</span><br><span class="line">               <span class="keyword">sizeof</span> (<span class="keyword">in_port_t</span>) -</span><br><span class="line">               <span class="keyword">sizeof</span> (<span class="keyword">struct</span> in_addr)];</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="struct-in-addr"><a href="#struct-in-addr" class="headerlink" title="struct in_addr"></a><code>struct in_addr</code></h2><p>定义IP</p>
+<h3 id="定义位置-2"><a href="#定义位置-2" class="headerlink" title="定义位置"></a>定义位置</h3><p><code>netinet/in.h</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Internet address.  */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">uint32_t</span> <span class="keyword">in_addr_t</span>;</span><br><span class="line"><span class="keyword">struct</span> in_addr</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">in_addr_t</span> s_addr;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h1><p><code>in_addr</code> =&gt; <code>sockaddr_in</code> =&gt; <code>sockaddr</code></p>
+<p><strong>Note</strong>:</p>
+<ul>
+<li><code>=&gt;</code>表示构成</li>
+</ul>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="socket地址结构传递方向"><a href="#socket地址结构传递方向" class="headerlink" title="socket地址结构传递方向"></a>socket地址结构传递方向</h2><ul>
+<li><p>从进程到内核</p>
+<p>需要传入参数(套接字地址大小，告诉内核需要复制多少字节)</p>
+<ul>
+<li>bind</li>
+<li>connect</li>
+<li>sendto</li>
+<li>sendmsg</li>
+</ul>
+</li>
+<li><p>从内核到进程</p>
+<p>需要传入传出参数(套接字地址大小，告诉内核需要复制多少字节，以及反馈进程，返回的地址结构大小)</p>
+<ul>
+<li>accept</li>
+<li>recvfrom</li>
+<li>recvmsg</li>
+<li>getpeername</li>
+<li>getsockname</li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/03/linux-socket寻址/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-03 </div>
 			<div class="article-title"><a href="/2015/02/03/gcc获取include路径列表/" >gcc获取include路径列表</a></div>						
 		</h3>
 	
@@ -355,66 +461,6 @@ apt-cache show PACKAGE
 	
 	</div>
   <a type="button" href="/2015/02/02/windows-免密码自动登录/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-02 </div>
-			<div class="article-title"><a href="/2015/02/02/数学-关系的理解/" >数学-关系的理解</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="关系是什么？"><a href="#关系是什么？" class="headerlink" title="关系是什么？"></a>关系是什么？</h1><ul>
-<li><p>数学上，关系实质是<strong>集合</strong>，元素是有序元组。</p>
-</li>
-<li><p>自然语言描述时，关系描述的是符合某种语义结构的，如<code>2整除4</code>语义结构为<code>A整除B</code>。</p>
-</li>
-</ul>
-<h1 id="关系用来干什么？"><a href="#关系用来干什么？" class="headerlink" title="关系用来干什么？"></a>关系用来干什么？</h1><ul>
-<li><p>关系是用来描述对象之间的联系。</p>
-</li>
-<li><p>从更高的抽象程度研究对象，发现共同性质，再运用之(具象 =&gt; 抽象 =&gt; 具象)</p>
-</li>
-</ul>
-<h1 id="某某之间具有某种关系实质是什么？"><a href="#某某之间具有某种关系实质是什么？" class="headerlink" title="某某之间具有某种关系实质是什么？"></a>某某之间具有某种关系实质是什么？</h1><p>集合上的属于关系(元素和集合的关系)</p>
-<ol>
-<li><a href="http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E5%85%B3%E7%B3%BB" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E5%85%B3%E7%B3%BB</a></li>
-<li><a href="http://zh.wikipedia.org/wiki/%E5%85%B3%E7%B3%BB_(%E6%95%B0%E5%AD%A6)" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E5%85%B3%E7%B3%BB_(%E6%95%B0%E5%AD%A6)</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/02/数学-关系的理解/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-30 </div>
-			<div class="article-title"><a href="/2015/01/30/git-自动push/" >git-自动push</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p><a href="https://github.com/QianChenglong/auto-git-push" target="_blank" rel="external">https://github.com/QianChenglong/auto-git-push</a></p>
-
-	
-	</div>
-  <a type="button" href="/2015/01/30/git-自动push/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -723,48 +769,48 @@ apt-cache show PACKAGE
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+		
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+		
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+		
+			<li><a href="/tags/include/">include<span>2</span></a></li>
+		
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+		
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+		
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+		
+			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
+		
+			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+		
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
+		
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+		
+			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+		
 			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/autohotkey/">autohotkey<span>2</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
 		
-			<li><a href="/tags/extern/">extern<span>1</span></a></li>
+			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/c99/">c99<span>1</span></a></li>
 		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
 		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
 		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
-		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
-		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
-		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
-		
-			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
-		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
-		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
-		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>7</span></a></li>
-		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
-		
-			<li><a href="/tags/启动/">启动<span>1</span></a></li>
-		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
-		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -777,6 +823,14 @@ apt-cache show PACKAGE
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -786,14 +840,6 @@ apt-cache show PACKAGE
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

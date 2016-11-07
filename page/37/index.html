@@ -112,6 +112,58 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-04-02 </div>
+			<div class="article-title"><a href="/2015/04/02/python-pydoc/" >python-pydoc</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
+<li>不但可以查看系统本身的文档，还可以查看拓展包，当前目录下的源码文档</li>
+</ul>
+<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><h2 id="交互式命令行"><a href="#交互式命令行" class="headerlink" title="交互式命令行"></a>交互式命令行</h2><p>在进入命令行之前，自动导入<code>help()</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pydoc <span class="keyword">import</span> help</span><br></pre></td></tr></table></figure>
+<h2 id="使用http服务器方式"><a href="#使用http服务器方式" class="headerlink" title="使用http服务器方式"></a>使用http服务器方式</h2><p>默认包含当前路径源码文档</p>
+<pre><code>pydoc.py -p 8000
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/04/02/python-pydoc/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-02 </div>
+			<div class="article-title"><a href="/2015/04/02/python-为什么是len()而不是方法或属性/" >python-为什么是len()而不是方法或属性</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://lucumr.pocoo.org/2011/7/9/python-and-pola/" target="_blank" rel="external">Python and the Principle of Least Astonishment</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/02/python-为什么是len()而不是方法或属性/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-02 </div>
 			<div class="article-title"><a href="/2015/04/02/python-类/" >python-类</a></div>						
 		</h3>
 	
@@ -390,78 +442,6 @@ os.makedirs(os.path.dirname(f[1]), exist_ok=True)
 	
 	</div>
   <a type="button" href="/2015/04/01/CGI环境变量列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-31 </div>
-			<div class="article-title"><a href="/2015/03/31/python-from import VS import/" >python-from import VS import</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="from-A-B-C-import-D"><a href="#from-A-B-C-import-D" class="headerlink" title="from A.B.C import D"></a>from A.B.C import D</h1><ul>
-<li><p>C之前的名字必须是包名</p>
-</li>
-<li><p>C必须是模块名</p>
-<p>不能是已定义的名字(变量，函数，类)，如果这样的话，D没有意义</p>
-</li>
-<li><p>D名字导入进来，可以直接使用<code>D.name</code>访问</p>
-</li>
-</ul>
-<h1 id="import-A-B"><a href="#import-A-B" class="headerlink" title="import A.B"></a>import A.B</h1><ul>
-<li><p>最后部分可以是包名，模块名，已定义名字</p>
-</li>
-<li><p>需要使用<code>A.B.name</code>访问</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://docs.python.org/2/tutorial/modules.html#packages" target="_blank" rel="external">https://docs.python.org/2/tutorial/modules.html#packages</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/31/python-from import VS import/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-31 </div>
-			<div class="article-title"><a href="/2015/03/31/python-包/" >python-包</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>包是一种模块命名空间的组织方法，使用<code>package.module</code>方式来访问模块，用来避免模块名冲突</p>
-</li>
-<li><p>python语法上，包是带有<code>__init__.py</code>的目录</p>
-</li>
-<li><p>使用<code>from package import item</code>导入</p>
-<p><code>item</code>可以是已定义的名字，子模块或子包</p>
-</li>
-</ul>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://docs.python.org/2/tutorial/modules.html#packages" target="_blank" rel="external">https://docs.python.org/2/tutorial/modules.html#packages</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/31/python-包/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -770,48 +750,48 @@ os.makedirs(os.path.dirname(f[1]), exist_ok=True)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
+			<li><a href="/tags/hash/">hash<span>1</span></a></li>
 		
-			<li><a href="/tags/参数/">参数<span>1</span></a></li>
+			<li><a href="/tags/function/">function<span>1</span></a></li>
+		
+			<li><a href="/tags/左值/">左值<span>1</span></a></li>
+		
+			<li><a href="/tags/variable/">variable<span>1</span></a></li>
+		
+			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
+		
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+		
+			<li><a href="/tags/time/">time<span>2</span></a></li>
+		
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+		
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
 		
 			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/glog/">glog<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
 		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
 		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
 		
-			<li><a href="/tags/grep/">grep<span>1</span></a></li>
+			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
 		
-			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
-		
-			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
-		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
-		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
-		
-			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
-		
-			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
-		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
-		
-			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
+			<li><a href="/tags/编译/">编译<span>11</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -824,6 +804,14 @@ os.makedirs(os.path.dirname(f[1]), exist_ok=True)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -833,14 +821,6 @@ os.makedirs(os.path.dirname(f[1]), exist_ok=True)
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

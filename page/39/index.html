@@ -112,6 +112,55 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-27 </div>
+			<div class="article-title"><a href="/2015/03/27/网络设备登录信息列表/" >网络设备登录信息列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 设备名               | IP            | 账号  | 密码  |<br>|———————-+—————+——-+——-|<br>| H3C Switch S2610-PWR | 192.168.0.234 | admin | admin |<br>| TL AC1000            | 192.168.1.253 | admin | admin |</p>
+
+	
+	</div>
+  <a type="button" href="/2015/03/27/网络设备登录信息列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-27 </div>
+			<div class="article-title"><a href="/2015/03/27/TP-LINK-AC1000配置/" >TP-LINK-AC1000配置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="登录AC"><a href="#登录AC" class="headerlink" title="登录AC"></a>登录AC</h1><ul>
+<li><p>AC默认IP(192.168.1.253:24)</p>
+</li>
+<li><p>PC设置静态同网段IP(网关不用设置，因为属于同网段，无需网关转发)</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/27/TP-LINK-AC1000配置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-27 </div>
 			<div class="article-title"><a href="/2015/03/27/vim-格式化json/" >vim-格式化json</a></div>						
 		</h3>
 	
@@ -410,107 +459,6 @@
 	
 	</div>
   <a type="button" href="/2015/03/24/windows-获取当前进程文件名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-23 </div>
-			<div class="article-title"><a href="/2015/03/23/syslinux-memdisk/" >syslinux-memdisk</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>启动一些软盘镜像，硬盘镜像，ISO镜像。</p>
-<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>memdisk作为<code>kernel</code>，而那些镜像文件作为初始化文件系统(initrd)</p>
-<p>镜像文件(zip或gzip格式)作为<code>INITRD</code>命令的参数传递</p>
-<ul>
-<li><p>命令行方式</p>
-<p>memdisk initrd=hdt.img</p>
-</li>
-<li><p>配置文件方式</p>
-<pre><code># Boot Hardware Detection Tool from floppy image
-LABEL hdt_floppy
-LINUX memdisk
-INITRD hdt.img
-
-# Boot Hardware Detection Tool from iso image (with &apos;iso&apos; parameter)
-LABEL hdt_iso
-LINUX memdisk
-INITRD hdt.iso
-APPEND iso
-
-# Boot DOS from floppy image (with &apos;raw&apos; parameter)
-LABEL dos_floppy_with_raw
-LINUX memdisk
-INITRD dosboot.img
-APPEND raw
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/23/syslinux-memdisk/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-20 </div>
-			<div class="article-title"><a href="/2015/03/20/syslinux/" >syslinux</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="syslinux安装"><a href="#syslinux安装" class="headerlink" title="syslinux安装"></a>syslinux安装</h1><ul>
-<li><p>安装时，会将<code>ldlinux.c32</code>,<code>ldlinux.sys</code>拷贝到安装目录，默认为<code>boot/syslinux/</code>，<br>可以使用<code>--directory  -d  Directory for installation target</code>指定</p>
-<p>syslinux安装的分区上的PBR会根据安装目录查找<code>ldlinux.c32</code>，并将该目录作为根目录</p>
-</li>
-</ul>
-<h1 id="syslinux引导过程"><a href="#syslinux引导过程" class="headerlink" title="syslinux引导过程"></a>syslinux引导过程</h1><ul>
-<li><p>MBR加载活动分区PBR</p>
-</li>
-<li><p>PBR根据安装时指定的安装目录，查找<code>ldlinux.c32</code>，若找不到，则到根目录查找</p>
-</li>
-<li><p>查找读取<code>syslinux.cfg</code></p>
-</li>
-<li><p>进入菜单交互</p>
-</li>
-</ul>
-<h1 id="syslinux文件说明"><a href="#syslinux文件说明" class="headerlink" title="syslinux文件说明"></a>syslinux文件说明</h1><p>| 文件名       | 功能                        | 依赖                     |<br>|————–+—————————–+————————–|<br>| ldlinux.c32  | 查找、解析syslinux.cfg      |                          |<br>| libutil.c32  | 功能库                      |                          |<br>| libcom32.c32 | 核心功能库                  |                          |<br>| vesamenu.c32 | 菜单功能                    | libutil.c32,libcom32.c32 |<br>| splash.jpg   | 图片背景                    |                          |<br>| syslinux.cfg | 启动配置文件                |                          |<br>| chain.c32    | 链式加载                    |                          |<br>| memdisk      | <code>memdisk</code>命令，虚拟内存磁盘 |                          |<br>| hdt.c32      | 硬件检测工具                | libmenu.c32,libgpl.c32   |<br>| linux.c32    | <code>linux</code>命令                 |                          |</p>
-<h1 id="note"><a href="#note" class="headerlink" title="note"></a>note</h1><ul>
-<li><p>启动ISO镜像</p>
-<p>因为image都是通过虚拟设备(虚拟软盘，虚拟光驱)，由BIOS 13号中断来访问的，<br>所以当操作系统加载完设备驱动时，它将自己去访问设备，不再通过BIOS去访问，<br>这时虚拟设备将失效，报错<code>INT 13h access: Not all images will complete the boot process!</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.syslinux.org/wiki/index.php/Syslinux_5_Changelog" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/Syslinux_5_Changelog</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/Library_modules" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/Library_modules</a></li>
-<li><a href="http://linux.die.net/man/1/syslinux" target="_blank" rel="external">http://linux.die.net/man/1/syslinux</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/SYSLINUX" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/SYSLINUX</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/Boot_an_Iso_image" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/Boot_an_Iso_image</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK#INT_13h_access:_Not_all_images_will_complete_the_boot_process.21" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK#INT_13h_access:_Not_all_images_will_complete_the_boot_process.21</a></li>
-<li><a href="http://www.syslinux.org/wiki/index.php/MEMDISK" target="_blank" rel="external">http://www.syslinux.org/wiki/index.php/MEMDISK</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/20/syslinux/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -819,48 +767,48 @@ APPEND raw
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/trigger/">trigger<span>1</span></a></li>
+			<li><a href="/tags/主键/">主键<span>1</span></a></li>
 		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/js/">js<span>2</span></a></li>
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/语句/">语句<span>1</span></a></li>
 		
-			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
+			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
 		
-			<li><a href="/tags/多重继承/">多重继承<span>1</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
-			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
 		
-			<li><a href="/tags/python/">python<span>69</span></a></li>
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/debug/">debug<span>3</span></a></li>
 		
-			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
+			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
 		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
 		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/build/">build<span>1</span></a></li>
+			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
 		
-			<li><a href="/tags/vim/">vim<span>24</span></a></li>
+			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
 		
-			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
+			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
 		
-			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
+			<li><a href="/tags/类/">类<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -873,6 +821,14 @@ APPEND raw
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -882,14 +838,6 @@ APPEND raw
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

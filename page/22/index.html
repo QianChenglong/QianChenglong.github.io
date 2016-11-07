@@ -111,6 +111,108 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-02 </div>
+			<div class="article-title"><a href="/2015/09/02/go-使用gdb调试/" >go-使用gdb调试</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>编译</p>
+<pre><code>go build -gcflags &quot;-N -l&quot; test.go
+</code></pre></li>
+<li><p>调试</p>
+<pre><code>gdb test
+</code></pre></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://golang.org/doc/gdb" target="_blank" rel="external">http://golang.org/doc/gdb</a></li>
+<li><a href="http://blog.kenshinx.me/blog/go-gdb/" target="_blank" rel="external">mac下用gdb调试Go程序</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/09/02/go-使用gdb调试/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-01 </div>
+			<div class="article-title"><a href="/2015/09/01/ps/" >ps</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li><p>破折号开头的为UNIX风格</p>
+</li>
+<li><p>不带破折号开头的为BSD风格</p>
+</li>
+<li><p>gnu long option，双破折号开头</p>
+</li>
+</ul>
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>-e</p>
+<p>同<code>-A</code>完全一样，选择所有进程</p>
+</li>
+<li><p>-f</p>
+<p>输出所有信息</p>
+</li>
+<li><p>-j</p>
+<p>jobs格式，输出<code>PGID   SID  C STIME</code></p>
+</li>
+<li><p>-o format(<code>/STANDARD FORMAT SPECIFIERS</code>)</p>
+<p>指定输出格式(列)</p>
+<ul>
+<li><p>pid</p>
+</li>
+<li><p>lstart 长格式启动时间</p>
+</li>
+<li><p>cmd 启动命令</p>
+</li>
+<li><p>wchan 内核阻塞</p>
+</li>
+</ul>
+</li>
+<li><p>L   Show threads, possibly with LWP and NLWP columns.</p>
+</li>
+</ul>
+<p><strong>OUTPUT MODIFIERS</strong></p>
+<ul>
+<li><p>–forest</p>
+<p>进程树</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>查看当前用户进程</p>
+<pre><code>ps -f
+</code></pre></li>
+<li><p>指定进程启动的时间</p>
+<pre><code>ps -eo pid,lstart,cmd|grep user_manage
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/01/ps/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-01 </div>
 			<div class="article-title"><a href="/2015/09/01/linux-环境变量/" >linux-环境变量</a></div>						
 		</h3>
@@ -366,68 +468,6 @@ KEYMAP=us
 	
 	</div>
   <a type="button" href="/2015/08/17/虚假唤醒/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-15 </div>
-			<div class="article-title"><a href="/2015/08/15/pthread-主线程等待线程组结束/" >pthread-主线程等待线程组结束</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; THREAD_NUM; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (pthread_create(&amp;tid[i], NULL, counter, (void *)&amp;i) != <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"pthread_create error"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; THREAD_NUM; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (pthread_join(tid[i], NULL) != <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"pthread_join error"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/11624545/how-to-make-main-thread-wait-for-all-child-threads-finish" target="_blank" rel="external">http://stackoverflow.com/questions/11624545/how-to-make-main-thread-wait-for-all-child-threads-finish</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/08/15/pthread-主线程等待线程组结束/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-15 </div>
-			<div class="article-title"><a href="/2015/08/15/多线程同步/" >多线程同步</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h1><ol>
-<li><p>子线程升序打印线程编号(主线程传进去的)</p>
-</li>
-<li><p>子线程升序打印全局变量</p>
-</li>
-</ol>
-<h1 id="未同步前"><a href="#未同步前" class="headerlink" title="未同步前"></a>未同步前</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> THREAD_NUM 10   <span class="comment">// 线程个数</span></span></span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;  <span class="comment">// 共享资源</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">counter</span><span class="params">(<span class="keyword">void</span> *arg)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num = *(int *)(arg);</span><br><span class="line"></span><br><span class="line">    sleep(<span class="number">1</span>);   <span class="comment">// 处理其他无需同步的操作</span></span><br><span class="line">    count++;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"线程编号: "</span> &lt;&lt; num &lt;&lt; <span class="string">":"</span> &lt;&lt; count &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return (void*)<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">pthread_t</span> tid[THREAD_NUM];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; THREAD_NUM; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (pthread_create(&amp;tid[i], NULL, counter, (void *)&amp;i) != <span class="number">0</span>) &#123;</span><br><span class="line">            perror(<span class="string">"pthread_create error"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sleep(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="../img/多线程同步-01.png" alt=""></p>
-<h2 id="原因及解决"><a href="#原因及解决" class="headerlink" title="原因及解决"></a>原因及解决</h2><ul>
-<li><p>创建子线程后,线程调度顺序不可预测(可能主线程先运行,也可能子线程先运行)</p>
-<p>解决: 同步主线程和子线程的运行顺序,使子线程运行后,主线程在运行</p>
-</li>
-<li><p>子线程对共享资源操作未同步</p>
-<p>解决: 对共享资源采取同步手段(互斥锁)</p>
-</li>
-</ul>
-<h1 id="同步后"><a href="#同步后" class="headerlink" title="同步后"></a>同步后</h1><h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2>
-	
-	</div>
-  <a type="button" href="/2015/08/15/多线程同步/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -736,48 +776,48 @@ KEYMAP=us
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
+			<li><a href="/tags/文件/">文件<span>7</span></a></li>
 		
-			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
-		
-			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
-		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
-		
-			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
-		
-			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
-		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
-		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
-		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
-		
-			<li><a href="/tags/博客/">博客<span>1</span></a></li>
+			<li><a href="/tags/make/">make<span>2</span></a></li>
 		
 			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
+			<li><a href="/tags/T/">_T<span>1</span></a></li>
 		
-			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
+			<li><a href="/tags/列表/">列表<span>7</span></a></li>
 		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>7</span></a></li>
 		
-			<li><a href="/tags/APP/">APP<span>1</span></a></li>
+			<li><a href="/tags/len/">len()<span>1</span></a></li>
 		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
 		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
+			<li><a href="/tags/PHONY/">.PHONY<span>1</span></a></li>
 		
-			<li><a href="/tags/warning/">warning<span>2</span></a></li>
+			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
 		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
 		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
+			<li><a href="/tags/size/">size<span>1</span></a></li>
+		
+			<li><a href="/tags/if/">if<span>1</span></a></li>
+		
+			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
+		
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+		
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
+		
+			<li><a href="/tags/systemd/">systemd<span>3</span></a></li>
+		
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
+		
+			<li><a href="/tags/char/">char<span>2</span></a></li>
+		
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -790,6 +830,14 @@ KEYMAP=us
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -799,14 +847,6 @@ KEYMAP=us
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

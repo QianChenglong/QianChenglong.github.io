@@ -112,6 +112,68 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-08-15 </div>
+			<div class="article-title"><a href="/2015/08/15/pthread-主线程等待线程组结束/" >pthread-主线程等待线程组结束</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; THREAD_NUM; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (pthread_create(&amp;tid[i], NULL, counter, (void *)&amp;i) != <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"pthread_create error"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; THREAD_NUM; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (pthread_join(tid[i], NULL) != <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">"pthread_join error"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/11624545/how-to-make-main-thread-wait-for-all-child-threads-finish" target="_blank" rel="external">http://stackoverflow.com/questions/11624545/how-to-make-main-thread-wait-for-all-child-threads-finish</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/08/15/pthread-主线程等待线程组结束/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-15 </div>
+			<div class="article-title"><a href="/2015/08/15/多线程同步/" >多线程同步</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h1><ol>
+<li><p>子线程升序打印线程编号(主线程传进去的)</p>
+</li>
+<li><p>子线程升序打印全局变量</p>
+</li>
+</ol>
+<h1 id="未同步前"><a href="#未同步前" class="headerlink" title="未同步前"></a>未同步前</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> THREAD_NUM 10   <span class="comment">// 线程个数</span></span></span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;  <span class="comment">// 共享资源</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">counter</span><span class="params">(<span class="keyword">void</span> *arg)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num = *(int *)(arg);</span><br><span class="line"></span><br><span class="line">    sleep(<span class="number">1</span>);   <span class="comment">// 处理其他无需同步的操作</span></span><br><span class="line">    count++;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"线程编号: "</span> &lt;&lt; num &lt;&lt; <span class="string">":"</span> &lt;&lt; count &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return (void*)<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">pthread_t</span> tid[THREAD_NUM];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; THREAD_NUM; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (pthread_create(&amp;tid[i], NULL, counter, (void *)&amp;i) != <span class="number">0</span>) &#123;</span><br><span class="line">            perror(<span class="string">"pthread_create error"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sleep(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="../img/多线程同步-01.png" alt=""></p>
+<h2 id="原因及解决"><a href="#原因及解决" class="headerlink" title="原因及解决"></a>原因及解决</h2><ul>
+<li><p>创建子线程后,线程调度顺序不可预测(可能主线程先运行,也可能子线程先运行)</p>
+<p>解决: 同步主线程和子线程的运行顺序,使子线程运行后,主线程在运行</p>
+</li>
+<li><p>子线程对共享资源操作未同步</p>
+<p>解决: 对共享资源采取同步手段(互斥锁)</p>
+</li>
+</ul>
+<h1 id="同步后"><a href="#同步后" class="headerlink" title="同步后"></a>同步后</h1><h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2>
+	
+	</div>
+  <a type="button" href="/2015/08/15/多线程同步/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-15 </div>
 			<div class="article-title"><a href="/2015/08/15/systemd-coredump/" >systemd-coredump</a></div>						
 		</h3>
 	
@@ -333,71 +395,6 @@
 	
 	</div>
   <a type="button" href="/2015/08/05/mod_fcgid配置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-05 </div>
-			<div class="article-title"><a href="/2015/08/05/lsof/" >lsof</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查看哪个进程打开了指定端口</p>
-<pre><code>lsof -i :8000
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/08/05/lsof/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-05 </div>
-			<div class="article-title"><a href="/2015/08/05/netstat/" >netstat</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>-t  查看tcp</p>
-</li>
-<li><p>-x  查看unix域套接字</p>
-</li>
-<li><p>-l  只查看listen端口</p>
-</li>
-<li><p>-n  端口数字显示，不解释其所代表服务，以便加快速度</p>
-</li>
-<li><p>-p  查看所属进程</p>
-</li>
-</ul>
-<h1 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h1><p>Recv-Q：表示收到的数据已经在本地接收缓冲，但是还有多少没有被进程取走<br>Send-Q：对方没有收到的数据或者说没有Ack的，还在发送缓冲区</p>
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
-<li><p>查看tcp监听端口</p>
-<pre><code>netstat -tln
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/08/05/netstat/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -706,48 +703,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/多重继承/">多重继承<span>1</span></a></li>
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/固件/">固件<span>1</span></a></li>
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
 		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
-			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
+			<li><a href="/tags/操作/">操作<span>1</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>4</span></a></li>
 		
-			<li><a href="/tags/理解/">理解<span>1</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/errno/">errno<span>1</span></a></li>
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
+		
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
+		
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+		
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+		
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
 			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
-			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
+			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
-		
-			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
-		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
-		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
+			<li><a href="/tags/登录/">登录<span>2</span></a></li>
 		
 			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
 		
-			<li><a href="/tags/编译/">编译<span>11</span></a></li>
 		
-		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -760,6 +757,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -769,14 +774,6 @@
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

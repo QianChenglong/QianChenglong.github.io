@@ -112,6 +112,131 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-06-24 </div>
+			<div class="article-title"><a href="/2015/06/24/arch-VirtualBox共享文件夹配置/" >VirtualBox共享文件夹配置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>ArchLinux</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>安装模块</p>
+<pre><code>pacman -S virtualbox-guest-modules
+</code></pre></li>
+<li><p>手动载入模块</p>
+<pre><code>modprobe -a vboxsf
+</code></pre><p>若提示<code>Module not found</code>，则执行：</p>
+<pre><code>depmod $(uname -r)
+</code></pre></li>
+<li><p>开机自动载入模块</p>
+<pre><code>echo vboxsf &gt;/etc/modules-load.d/virtualbox.conf
+</code></pre></li>
+<li><p>创建挂载点</p>
+<pre><code>mkdir /data
+</code></pre></li>
+<li><p>在虚拟机控制中，加入共享文件夹</p>
+<pre><code>E_DRIVE
+</code></pre></li>
+<li><p>挂载</p>
+<ul>
+<li><p>手动挂载</p>
+<pre><code>mount -t vboxsf E_DRIVE /data
+</code></pre></li>
+<li><p>自动挂载</p>
+<pre><code>/etc/fstab
+
+E_DRIVE /data vboxsf
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ul>
+<li><p>挂载失败</p>
+<p>错误提示：</p>
+<pre><code>[cpp] view plaincopy
+mount: wrong fs type, bad option, bad superblock on E_DRIVE,
+       missing codepage or helper program, or other error
+       (for several filesystems (e.g. nfs, cifs) you might
+       need a /sbin/mount.&lt;type&gt; helper program)
+       In some cases useful info is found in syslog - try
+       dmesg | tail or so
+</code></pre><p>解决过程：</p>
+<ol>
+<li><p>dmesg | tail</p>
+<p>   sf_read_super_aux err=-22</p>
+</li>
+<li><p>查看vboxsf链接</p>
+<pre><code>vincent@vincent-VirtualBox:/mnt$ ls -al /sbin/mount.vboxsf
+lrwxrwxrwx 1 root root 40 Jun 19 09:38 /sbin/mount.vboxsf -&gt; /usr/lib/VBoxGuestAdditions/mount.vboxsf
+</code></pre></li>
+<li><p>发现链接不对，重新链接</p>
+<pre><code>ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions/mount.vboxsf /sbin/mount.vboxsf
+</code></pre></li>
+</ol>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://wiki.archlinux.org/index.php/VirtualBox#Installation_steps_for_Arch_Linux_guests" target="_blank" rel="external">https://wiki.archlinux.org/index.php/VirtualBox#Installation_steps_for_Arch_Linux_guests</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/24/arch-VirtualBox共享文件夹配置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-24 </div>
+			<div class="article-title"><a href="/2015/06/24/django-manage常用命令/" >django-manage常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查看某个命令帮助</p>
+<pre><code>./manage.py help command
+</code></pre></li>
+<li><p>生成migrate操作</p>
+<pre><code>python manage.py makemigrations
+</code></pre></li>
+<li><p>执行migrate操作</p>
+<pre><code>./manage.py migrate
+</code></pre></li>
+<li><p>生成多个数据库(1次migrate执行一个数据库)</p>
+<pre><code>./manage.py migrate
+./manage.py migrate --database=stock_app
+</code></pre></li>
+<li><p>创建用户</p>
+<pre><code>./manage.py createsuperuser
+</code></pre></li>
+<li><p>修改用户密码</p>
+<pre><code>./manager.py changepasswd USERNAME
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/24/django-manage常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-24 </div>
 			<div class="article-title"><a href="/2015/06/24/django-中文化/" >djanggo-中文化</a></div>						
 		</h3>
 	
@@ -495,93 +620,6 @@ netctl enbale my_network
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-18 </div>
-			<div class="article-title"><a href="/2015/06/18/stat/" >stat</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>查看文件信息</p>
-<h1 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h1><ul>
-<li><p>-c  –format=FORMAT</p>
-<ul>
-<li><p>%n 文件名</p>
-</li>
-<li><p>%y 修改时间，易读格式</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>指定显示文件修改时间长度</p>
-<pre><code>find . -mtime -1|xargs stat -c&quot;%n %.19y&quot;|column -t
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/06/18/stat/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-18 </div>
-			<div class="article-title"><a href="/2015/06/18/du/" >du</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>用来查看目录项磁盘使用情况。</p>
-<h1 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h1><ul>
-<li><p>-a</p>
-<p>也输出文件，不只是目录</p>
-</li>
-<li><p>-h</p>
-<p>容易理解的格式输出</p>
-</li>
-<li><p>-s, –summarize</p>
-<p>等价于–max-depth=0，只输出本目录</p>
-</li>
-<li><p>–max-depth=N</p>
-<p>最大深度，与find一样</p>
-</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>只查看该文件或目录</p>
-<pre><code>du -hs
-</code></pre></li>
-<li><p>查看目录的各目录项，不递归下去</p>
-<pre><code>du -ah --max-depth=1
-</code></pre></li>
-<li><p>查看目录下*.c文件并排序输出到文件</p>
-<pre><code>du --max-depth 1 -ah | grep &apos;.*\.c&apos; | sort -h &gt; study
-</code></pre></li>
-<li><p>功能：方便的查看文件内存使用情况</p>
-<pre><code>du -ah --max-depth=1 | sort -hr
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/06/18/du/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -887,48 +925,48 @@ netctl enbale my_network
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
-			<li><a href="/tags/mrakdown/">mrakdown<span>1</span></a></li>
+			<li><a href="/tags/systemctl/">systemctl<span>1</span></a></li>
 		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
+			<li><a href="/tags/串口/">串口<span>2</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/time/">time<span>2</span></a></li>
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/列表/">列表<span>7</span></a></li>
 		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/socket/">socket<span>6</span></a></li>
 		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
-			<li><a href="/tags/池/">池<span>1</span></a></li>
+			<li><a href="/tags/vim/">vim<span>24</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
-			<li><a href="/tags/main/">__main__<span>1</span></a></li>
+			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/apk/">apk<span>1</span></a></li>
 		
-			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+			<li><a href="/tags/ssh/">ssh<span>7</span></a></li>
 		
-			<li><a href="/tags/global/">global<span>1</span></a></li>
+			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
 		
-			<li><a href="/tags/SVN/">SVN<span>1</span></a></li>
+			<li><a href="/tags/script/">script<span>1</span></a></li>
 		
-			<li><a href="/tags/选项/">选项<span>3</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/glog/">glog<span>1</span></a></li>
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -941,6 +979,14 @@ netctl enbale my_network
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -950,14 +996,6 @@ netctl enbale my_network
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

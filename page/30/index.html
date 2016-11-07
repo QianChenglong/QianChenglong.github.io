@@ -112,6 +112,93 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-06-18 </div>
+			<div class="article-title"><a href="/2015/06/18/stat/" >stat</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>查看文件信息</p>
+<h1 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h1><ul>
+<li><p>-c  –format=FORMAT</p>
+<ul>
+<li><p>%n 文件名</p>
+</li>
+<li><p>%y 修改时间，易读格式</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>指定显示文件修改时间长度</p>
+<pre><code>find . -mtime -1|xargs stat -c&quot;%n %.19y&quot;|column -t
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/18/stat/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-18 </div>
+			<div class="article-title"><a href="/2015/06/18/du/" >du</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>用来查看目录项磁盘使用情况。</p>
+<h1 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h1><ul>
+<li><p>-a</p>
+<p>也输出文件，不只是目录</p>
+</li>
+<li><p>-h</p>
+<p>容易理解的格式输出</p>
+</li>
+<li><p>-s, –summarize</p>
+<p>等价于–max-depth=0，只输出本目录</p>
+</li>
+<li><p>–max-depth=N</p>
+<p>最大深度，与find一样</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>只查看该文件或目录</p>
+<pre><code>du -hs
+</code></pre></li>
+<li><p>查看目录的各目录项，不递归下去</p>
+<pre><code>du -ah --max-depth=1
+</code></pre></li>
+<li><p>查看目录下*.c文件并排序输出到文件</p>
+<pre><code>du --max-depth 1 -ah | grep &apos;.*\.c&apos; | sort -h &gt; study
+</code></pre></li>
+<li><p>功能：方便的查看文件内存使用情况</p>
+<pre><code>du -ah --max-depth=1 | sort -hr
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/18/du/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-18 </div>
 			<div class="article-title"><a href="/2015/06/18/sort/" >sort</a></div>						
 		</h3>
 	
@@ -335,35 +422,6 @@ auto_ptr&lt;int&gt;ap(p);
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-06-16 </div>
-			<div class="article-title"><a href="/2015/06/16/C++-智能指针之boost.scroped_ptr/" >C++-智能指针之boost.scroped_ptr</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li>提供一种垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
-</ul>
-<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
-<li>noncopyable，意味着不能存放到容器，或多次引用</li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>当不需要传递所有权时，可使用</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/scoped_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(id)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::scoped_ptr&lt;A&gt; i(new A(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i-&gt;id_ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/06/16/C++-智能指针之boost.scroped_ptr/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-16 </div>
 			<div class="article-title"><a href="/2015/06/16/C++-智能指针之boost.shared_ptr/" >C++-智能指针之boost.scroped_ptr</a></div>						
 		</h3>
 	
@@ -406,6 +464,35 @@ boost::shared_ptr&lt;A&gt; p2(a);
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-06-16 </div>
+			<div class="article-title"><a href="/2015/06/16/C++-智能指针之boost.scroped_ptr/" >C++-智能指针之boost.scroped_ptr</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li>提供一种垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
+</ul>
+<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
+<li>noncopyable，意味着不能存放到容器，或多次引用</li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>当不需要传递所有权时，可使用</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/scoped_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(id)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::scoped_ptr&lt;A&gt; i(new A(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i-&gt;id_ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/06/16/C++-智能指针之boost.scroped_ptr/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-16 </div>
 			<div class="article-title"><a href="/2015/06/16/查看boost版本号/" >查看boost版本号</a></div>						
 		</h3>
 	
@@ -420,74 +507,6 @@ boost::shared_ptr&lt;A&gt; p2(a);
 	
 	</div>
   <a type="button" href="/2015/06/16/查看boost版本号/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-15 </div>
-			<div class="article-title"><a href="/2015/06/15/apache-建立虚拟站点/" >apache-建立虚拟站点</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li>ubuntu-14.04</li>
-<li>apache-2.4.7</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://wiki.ubuntu.org.cn/Apache%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%8C%87%E5%8D%97" target="_blank" rel="external">http://wiki.ubuntu.org.cn/Apache%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%8C%87%E5%8D%97</a></li>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/15/apache-建立虚拟站点/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-15 </div>
-			<div class="article-title"><a href="/2015/06/15/mysql-安装/" >mysql-安装</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="ubuntu-ubuntu-14-04-mysql-5-5"><a href="#ubuntu-ubuntu-14-04-mysql-5-5" class="headerlink" title="ubuntu(ubuntu-14.04, mysql-5.5)"></a>ubuntu(ubuntu-14.04, mysql-5.5)</h1><ul>
-<li><p>[删除原有]</p>
-<p>sudo apt-get remove –purge mysql-server-5.5 mysql-client-5.5<br>sudo apt-get purge mysql-common<br>sudo apt-get autoremove<br>sudo apt-get clean</p>
-</li>
-<li><p>安装</p>
-<pre><code>apt-get install mysql-server-5.5 mysql-client-5.5
-</code></pre></li>
-</ul>
-<h1 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h1><pre><code>sudo yum install mariadb-server
-
-sudo systemctl start mariadb
-</code></pre><h1 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h1><ol>
-<li><p><code>mysql ERROR: 1050  Table &#39;plugin&#39; already exists</code></p>
-<p>没有卸载干净，执行上面清理命令</p>
-<p>参考：</p>
-<pre><code>1.  &lt;http://askubuntu.com/questions/86939/error-while-installing-mysql-server-5-1&gt;
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/15/mysql-安装/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -796,48 +815,48 @@ sudo systemctl start mariadb
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
 		
-			<li><a href="/tags/module/">module<span>3</span></a></li>
+			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
 		
-			<li><a href="/tags/js/">js<span>2</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
+			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
 		
-			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
+			<li><a href="/tags/empty/">empty<span>1</span></a></li>
 		
-			<li><a href="/tags/build/">build<span>1</span></a></li>
+			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
 		
-			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
-			<li><a href="/tags/线程/">线程<span>3</span></a></li>
+			<li><a href="/tags/json/">json<span>4</span></a></li>
 		
-			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
 		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+			<li><a href="/tags/redis/">redis<span>7</span></a></li>
 		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/errno/">errno<span>1</span></a></li>
 		
-			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
-			<li><a href="/tags/ls/">ls<span>1</span></a></li>
+			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/固件/">固件<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
 		
-			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
+			<li><a href="/tags/nullptr/">nullptr<span>1</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -850,6 +869,14 @@ sudo systemctl start mariadb
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -859,14 +886,6 @@ sudo systemctl start mariadb
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

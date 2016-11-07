@@ -112,6 +112,62 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-07-08 </div>
+			<div class="article-title"><a href="/2015/07/08/windows-运行指定python版本/" >windows-运行指定python版本</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>python2</p>
+<pre><code>py -2 *.py
+</code></pre></li>
+<li><p>python3</p>
+<pre><code>py -3 *.py
+</code></pre><p>py –help</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/3809314/how-to-install-both-python-2-x-and-python-3-x-in-windows-7" target="_blank" rel="external">http://stackoverflow.com/questions/3809314/how-to-install-both-python-2-x-and-python-3-x-in-windows-7</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/08/windows-运行指定python版本/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-08 </div>
+			<div class="article-title"><a href="/2015/07/08/vim-后台执行外部程序/" >vim-后台执行外部程序</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>call system(&apos;cmd&apos;)
+</code></pre><p>a</p>
+
+	
+	</div>
+  <a type="button" href="/2015/07/08/vim-后台执行外部程序/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-08 </div>
 			<div class="article-title"><a href="/2015/07/08/Crypto++使用/" >Crypto++使用</a></div>						
 		</h3>
 	
@@ -319,72 +375,6 @@
 	
 	</div>
   <a type="button" href="/2015/06/26/cmake-项目中使用protobbuf/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-26 </div>
-			<div class="article-title"><a href="/2015/06/26/C++11-字符串与数字转换/" >C++11-字符串与数字转换</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="数字-gt-字符串"><a href="#数字-gt-字符串" class="headerlink" title="数字 =&gt; 字符串"></a>数字 =&gt; 字符串</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">int</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">long</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">unsigned</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">unsigned</span> <span class="keyword">long</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">float</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">double</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">to_string</span> <span class="params">(<span class="keyword">long</span> <span class="keyword">double</span> val)</span></span>;</span><br></pre></td></tr></table></figure>
-<h1 id="字符串-gt-数字"><a href="#字符串-gt-数字" class="headerlink" title="字符串 =&gt; 数字"></a>字符串 =&gt; 数字</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">stoi</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, size_t *idx = <span class="number">0</span>, <span class="keyword">int</span> base = <span class="number">10</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">stol</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, size_t *idx = <span class="number">0</span>, <span class="keyword">int</span> base = <span class="number">10</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="title">stoul</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, size_t *idx = <span class="number">0</span>, <span class="keyword">int</span> base = <span class="number">10</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">stoll</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, size_t *idx = <span class="number">0</span>, <span class="keyword">int</span> base = <span class="number">10</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">stoull</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, size_t *idx = <span class="number">0</span>, <span class="keyword">int</span> base = <span class="number">10</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">stof</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, size_t *idx = <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">stod</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, size_t *idx = <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">double</span> <span class="title">stold</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, size_t *idx = <span class="number">0</span>)</span></span>;</span><br></pre></td></tr></table></figure>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ul>
-<li><p>优先使用<code>boost::lexical_cast</code></p>
-<ul>
-<li><p>效率更高</p>
-</li>
-<li><p>接口统一，代码优雅</p>
-</li>
-<li><p>locale敏感</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/23582089/is-boostlexical-cast-redundant-with-c11-stoi-stof-and-family" target="_blank" rel="external">http://stackoverflow.com/questions/23582089/is-boostlexical-cast-redundant-with-c11-stoi-stof-and-family</a></li>
-<li><a href="http://www.boost.org/doc/libs/1_55_0/doc/html/boost_lexical_cast/performance.html#boost_lexical_cast.performance.tests_description" target="_blank" rel="external">http://www.boost.org/doc/libs/1_55_0/doc/html/boost_lexical_cast/performance.html#boost_lexical_cast.performance.tests_description</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/26/C++11-字符串与数字转换/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-26 </div>
-			<div class="article-title"><a href="/2015/06/26/mysql-数据类型/" >mysql-数据类型</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="binary"><a href="#binary" class="headerlink" title="binary"></a>binary</h1><ul>
-<li><p>用来存储字节字符串，不像char类型，存储对应的字符编码值</p>
-</li>
-<li><p>可以指定存储长度</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/06/26/mysql-数据类型/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -693,48 +683,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/crond/">crond<span>1</span></a></li>
 		
-			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
+			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
 		
-			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
+			<li><a href="/tags/c99/">c99<span>1</span></a></li>
 		
-			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
 		
-			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
 		
-			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
 		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/slab/">slab<span>1</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
-			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
+			<li><a href="/tags/主键/">主键<span>1</span></a></li>
 		
-			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
+			<li><a href="/tags/database/">database<span>3</span></a></li>
 		
-			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
+			<li><a href="/tags/all/">all<span>1</span></a></li>
 		
-			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
 		
-			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
 		
-			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
 		
-			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+			<li><a href="/tags/库/">库<span>2</span></a></li>
 		
-			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
+			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/enum/">enum<span>1</span></a></li>
 		
-			<li><a href="/tags/override/">override<span>2</span></a></li>
+			<li><a href="/tags/systemctl/">systemctl<span>1</span></a></li>
 		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+			<li><a href="/tags/ioctl/">ioctl<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
+			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -747,6 +737,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -756,14 +754,6 @@
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

@@ -111,6 +111,81 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-02-21 </div>
+			<div class="article-title"><a href="/2016/02/21/linux-查看mtu/" >linux-查看mtu</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>cat /sys/class/net/enp0s3/mtu</p>
+</li>
+<li><p>netstat -i</p>
+</li>
+<li><p>ip address show</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/02/21/linux-查看mtu/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-02-18 </div>
+			<div class="article-title"><a href="/2016/02/18/链表/" >链表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
+<li><p>动态存储分配</p>
+</li>
+<li><p>数据更新效率高，O(1)</p>
+</li>
+</ul>
+<h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><ul>
+<li><p>浪费了部分空间用来存储指针域</p>
+</li>
+<li><p>查询效率低，O(n)</p>
+</li>
+</ul>
+<h1 id="增加一个头节点"><a href="#增加一个头节点" class="headerlink" title="增加一个头节点"></a>增加一个头节点</h1><p>空节点，不存储数据</p>
+<ul>
+<li>优化链代码效率，避免了链表是否为空的判断</li>
+</ul>
+<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
+<li><p>判断链表是否为空</p>
+<p>头节点到链域为空，则链表为空</p>
+</li>
+<li><p>定位到尾节点</p>
+<p>尾节点的特点是链域为空。</p>
+<p>所以挨个遍历，当当前节点到链域为空时，说明当前节点为尾节点</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/02/18/链表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-02-18 </div>
 			<div class="article-title"><a href="/2016/02/18/tcp/" >tcp</a></div>						
 		</h3>
@@ -392,89 +467,6 @@
 	
 	</div>
   <a type="button" href="/2015/11/18/go/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-17 </div>
-			<div class="article-title"><a href="/2015/11/17/nginx-CORS/" >nginx-CORS</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">     if ($request_method = &apos;OPTIONS&apos;) &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        #</span><br><span class="line">        # Om nom nom cookies</span><br><span class="line">        #</span><br><span class="line">        add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;;</span><br><span class="line">        #</span><br><span class="line">        # Custom headers and headers various browsers *should* be OK with but aren&apos;t</span><br><span class="line">        #</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&apos;;</span><br><span class="line">        #</span><br><span class="line">        # Tell client that this pre-flight info is valid for 20 days</span><br><span class="line">        #</span><br><span class="line">        add_header &apos;Access-Control-Max-Age&apos; 1728000;</span><br><span class="line">        add_header &apos;Content-Type&apos; &apos;text/plain charset=UTF-8&apos;;</span><br><span class="line">        add_header &apos;Content-Length&apos; 0;</span><br><span class="line">        return 204;</span><br><span class="line">     &#125;</span><br><span class="line">     if ($request_method = &apos;POST&apos;) &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&apos;;</span><br><span class="line">     &#125;</span><br><span class="line">     if ($request_method = &apos;GET&apos;) &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Credentials&apos; &apos;true&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type&apos;;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://enable-cors.org/server_nginx.html" target="_blank" rel="external">http://enable-cors.org/server_nginx.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/17/nginx-CORS/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-17 </div>
-			<div class="article-title"><a href="/2015/11/17/跨域共享/" >跨域共享</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="预检"><a href="#预检" class="headerlink" title="预检"></a>预检</h1><ol>
-<li><p>Origin HTTP请求头</p>
-<ul>
-<li>任何涉及CORS的请求都必须携带</li>
-</ul>
-</li>
-<li><p>Access-Control-Request-Method HTTP请求头</p>
-<ul>
-<li>真实请求的方法</li>
-</ul>
-</li>
-<li><p>Access-Contrl-Request-Headers HTTP请求头</p>
-<ul>
-<li>真实请求的自定义header列表</li>
-</ul>
-</li>
-<li><p>Access-Control-Allow-Origin HTTP响应头</p>
-<ul>
-<li>允许进行CORS的来源域</li>
-</ul>
-</li>
-<li><p>Access-Control-Allow-Method HTTP响应头</p>
-<ul>
-<li>允许进行CORS的请求方法列表(响应预检请求)</li>
-</ul>
-</li>
-<li><p>Access-Control-Allow-Headers HTTP响应头</p>
-<ul>
-<li>允许进行CORS的请求头列表(响应预检请求)</li>
-</ul>
-</li>
-<li><p>Access-Control-Max-Age HTTP响应头</p>
-<ul>
-<li>用在响应预检请求上,表示本次预检响应的有效时间.<br>在此时间内,浏览器都可以根据此次协商结果决定是否有必要直接发送真实请求，而无需再次发送预检请求</li>
-</ul>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/17/跨域共享/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -783,48 +775,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
-		
-			<li><a href="/tags/django/">django<span>2</span></a></li>
-		
-			<li><a href="/tags/systemctl/">systemctl<span>1</span></a></li>
-		
-			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
-		
-			<li><a href="/tags/global/">global<span>1</span></a></li>
-		
-			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
-		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
-		
 			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/c99/">c99<span>1</span></a></li>
 		
-			<li><a href="/tags/glog/">glog<span>1</span></a></li>
+			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+			<li><a href="/tags/c-c-性能测试/">c,c++,性能测试<span>1</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
 		
-			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
 		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
 		
-			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
+			<li><a href="/tags/xptemplate/">xptemplate<span>1</span></a></li>
 		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+			<li><a href="/tags/final/">final<span>1</span></a></li>
 		
-			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
+		
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
+		
+			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+		
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
+		
+			<li><a href="/tags/素数/">素数<span>1</span></a></li>
+		
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+		
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
+		
+			<li><a href="/tags/StringPiece/">StringPiece<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -837,6 +829,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -846,14 +846,6 @@
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

@@ -111,6 +111,91 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-04-09 </div>
+			<div class="article-title"><a href="/2015/04/09/arch下安装pandoc/" >arch下安装pandoc</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>添加仓库</p>
+<pre><code>gvim /etc/pacman.conf
+
+[haskell-core]
+Server = http://repo-hs.archlinuxcn.org/$arch
+</code></pre></li>
+<li><p>添加认证</p>
+<pre><code>pacman-key -r 4209170B
+pacman-key --lsign-key 4209170B
+</code></pre></li>
+<li><p>更新仓库</p>
+<pre><code>pacman -Syy
+</code></pre></li>
+<li><p>安装pandoc</p>
+<pre><code>pacman -S haskell-pandoc
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/04/09/arch下安装pandoc/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-09 </div>
+			<div class="article-title"><a href="/2015/04/09/pandoc-将markdown输出pdf/" >pandoc-将markdown输出pdf</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>win7</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
+<li><p><a href="https://github.com/jgm/pandoc/releases" target="_blank" rel="external">pandoc</a></p>
+</li>
+<li><p><a href="http://miktex.org/" target="_blank" rel="external">MiKTex</a></p>
+<p><a href="https://www.ctan.org/tex-archive/systems/win32/miktex/setup" target="_blank" rel="external">下载</a></p>
+</li>
+<li><p>将<code>pandoc.exe</code>所在目录(<code>C:\Users\USERNAME\AppData\Local\Pandoc</code>)添加到<code>PATH</code></p>
+</li>
+<li><p>查看当前系统字体</p>
+<pre><code>fc-list &gt; C:\fonts.txt
+</code></pre></li>
+<li><p>运行<code>miktex-update_admin.exe</code>更新</p>
+</li>
+<li><p>生成</p>
+<pre><code>pandoc 简历.md -o 1.pdf --latex-engine=xelatex -V mainfont=SimSun
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://johnmacfarlane.net/pandoc/faqs.html" target="_blank" rel="external">http://johnmacfarlane.net/pandoc/faqs.html</a></li>
+<li><a href="http://zhouyichu.com/misc/Pandoc.html" target="_blank" rel="external">神器Pandoc的安装与使用</a></li>
+<li><a href="http://sourceforge.net/p/miktex/bugs/2328/" target="_blank" rel="external">http://sourceforge.net/p/miktex/bugs/2328/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/09/pandoc-将markdown输出pdf/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-04-08 </div>
 			<div class="article-title"><a href="/2015/04/08/markdown-分隔代码段/" >markdown-分隔代码段</a></div>						
 		</h3>
@@ -435,58 +520,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-02 </div>
-			<div class="article-title"><a href="/2015/04/02/python-pydoc/" >python-pydoc</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
-<li>不但可以查看系统本身的文档，还可以查看拓展包，当前目录下的源码文档</li>
-</ul>
-<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><h2 id="交互式命令行"><a href="#交互式命令行" class="headerlink" title="交互式命令行"></a>交互式命令行</h2><p>在进入命令行之前，自动导入<code>help()</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pydoc <span class="keyword">import</span> help</span><br></pre></td></tr></table></figure>
-<h2 id="使用http服务器方式"><a href="#使用http服务器方式" class="headerlink" title="使用http服务器方式"></a>使用http服务器方式</h2><p>默认包含当前路径源码文档</p>
-<pre><code>pydoc.py -p 8000
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/04/02/python-pydoc/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-02 </div>
-			<div class="article-title"><a href="/2015/04/02/python-为什么是len()而不是方法或属性/" >python-为什么是len()而不是方法或属性</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://lucumr.pocoo.org/2011/7/9/python-and-pola/" target="_blank" rel="external">Python and the Principle of Least Astonishment</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/02/python-为什么是len()而不是方法或属性/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -792,48 +825,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+			<li><a href="/tags/net/">net<span>2</span></a></li>
 		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
+			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
 		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
 		
-			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
+			<li><a href="/tags/c/">c++<span>8</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
-			<li><a href="/tags/grep/">grep<span>1</span></a></li>
+			<li><a href="/tags/json/">json<span>4</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
 		
-			<li><a href="/tags/column/">column<span>1</span></a></li>
+			<li><a href="/tags/串口/">串口<span>2</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/systemctl/">systemctl<span>1</span></a></li>
 		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+			<li><a href="/tags/nullptr/">nullptr<span>1</span></a></li>
 		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
 		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
 		
-			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
+			<li><a href="/tags/override/">override<span>2</span></a></li>
 		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
+			<li><a href="/tags/module/">module<span>3</span></a></li>
 		
-			<li><a href="/tags/exception/">exception<span>1</span></a></li>
+			<li><a href="/tags/curses/">curses<span>2</span></a></li>
 		
-			<li><a href="/tags/yed/">yed<span>1</span></a></li>
+			<li><a href="/tags/char/">char*<span>1</span></a></li>
 		
-			<li><a href="/tags/variable/">variable<span>1</span></a></li>
+			<li><a href="/tags/iptables/">iptables<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -846,6 +879,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -855,14 +896,6 @@
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

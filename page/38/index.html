@@ -112,6 +112,78 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-31 </div>
+			<div class="article-title"><a href="/2015/03/31/python-from import VS import/" >python-from import VS import</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="from-A-B-C-import-D"><a href="#from-A-B-C-import-D" class="headerlink" title="from A.B.C import D"></a>from A.B.C import D</h1><ul>
+<li><p>C之前的名字必须是包名</p>
+</li>
+<li><p>C必须是模块名</p>
+<p>不能是已定义的名字(变量，函数，类)，如果这样的话，D没有意义</p>
+</li>
+<li><p>D名字导入进来，可以直接使用<code>D.name</code>访问</p>
+</li>
+</ul>
+<h1 id="import-A-B"><a href="#import-A-B" class="headerlink" title="import A.B"></a>import A.B</h1><ul>
+<li><p>最后部分可以是包名，模块名，已定义名字</p>
+</li>
+<li><p>需要使用<code>A.B.name</code>访问</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/2/tutorial/modules.html#packages" target="_blank" rel="external">https://docs.python.org/2/tutorial/modules.html#packages</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/31/python-from import VS import/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-31 </div>
+			<div class="article-title"><a href="/2015/03/31/python-包/" >python-包</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>包是一种模块命名空间的组织方法，使用<code>package.module</code>方式来访问模块，用来避免模块名冲突</p>
+</li>
+<li><p>python语法上，包是带有<code>__init__.py</code>的目录</p>
+</li>
+<li><p>使用<code>from package import item</code>导入</p>
+<p><code>item</code>可以是已定义的名字，子模块或子包</p>
+</li>
+</ul>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://docs.python.org/2/tutorial/modules.html#packages" target="_blank" rel="external">https://docs.python.org/2/tutorial/modules.html#packages</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/31/python-包/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-31 </div>
 			<div class="article-title"><a href="/2015/03/31/python-模块/" >python-模块</a></div>						
 		</h3>
 	
@@ -369,55 +441,6 @@ func
 	
 	</div>
   <a type="button" href="/2015/03/30/hexo-google站长工具验证/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-27 </div>
-			<div class="article-title"><a href="/2015/03/27/网络设备登录信息列表/" >网络设备登录信息列表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>| 设备名               | IP            | 账号  | 密码  |<br>|———————-+—————+——-+——-|<br>| H3C Switch S2610-PWR | 192.168.0.234 | admin | admin |<br>| TL AC1000            | 192.168.1.253 | admin | admin |</p>
-
-	
-	</div>
-  <a type="button" href="/2015/03/27/网络设备登录信息列表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-27 </div>
-			<div class="article-title"><a href="/2015/03/27/TP-LINK-AC1000配置/" >TP-LINK-AC1000配置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="登录AC"><a href="#登录AC" class="headerlink" title="登录AC"></a>登录AC</h1><ul>
-<li><p>AC默认IP(192.168.1.253:24)</p>
-</li>
-<li><p>PC设置静态同网段IP(网关不用设置，因为属于同网段，无需网关转发)</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/27/TP-LINK-AC1000配置/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -726,48 +749,48 @@ func
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/cron/">cron<span>1</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+			<li><a href="/tags/C/">C<span>15</span></a></li>
 		
-			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
+			<li><a href="/tags/flag/">flag<span>1</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/sshk-keygen/">sshk-keygen<span>1</span></a></li>
 		
-			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
-			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
+			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
 		
-			<li><a href="/tags/C-11/">C++11<span>10</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+		
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+		
+			<li><a href="/tags/c/">c<span>7</span></a></li>
+		
+			<li><a href="/tags/模块/">模块<span>2</span></a></li>
+		
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
+		
+			<li><a href="/tags/登录/">登录<span>2</span></a></li>
 		
 			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
 		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
+			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
 		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
 		
-			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
-		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
-		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
-		
-			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
-		
-			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
-		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/左值/">左值<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>595</span></a></li>
+		   <li><a href="/tags">...<span>597</span></a></li>
 		 
 		</ul>
 	</div>
@@ -780,6 +803,14 @@ func
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
       </li>
     
@@ -789,14 +820,6 @@ func
     
       <li>
         <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemd-service/" ><i class="fa fa-file-o"></i>systemd-service</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
       </li>
     
   </ul>

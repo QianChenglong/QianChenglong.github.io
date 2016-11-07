@@ -111,6 +111,32 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-09-02 </div>
+			<div class="article-title"><a href="/2016/09/02/gcc-生成可以宏调试信息/" >gcc-生成可以宏调试信息</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Author: QianChenglong &lt;qian_cheng_long@163.com&gt;</span></span><br><span class="line"><span class="comment">// Create: 2016-09-01 17:51:59</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STR <span class="string">"Hello world!\n"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; STR;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">gcc main.cpp -ggdb3</span><br><span class="line">gdb a.out</span><br><span class="line">(gdb) list</span><br><span class="line">1   // Author: QianChenglong &lt;qian_cheng_long@163.com&gt;</span><br><span class="line">2   // Create: 2016-09-01 17:51:59</span><br><span class="line">3   </span><br><span class="line">4   <span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line">5   </span><br><span class="line">6   <span class="comment">#define STR "Hello world!\n"</span></span><br><span class="line">7   </span><br><span class="line">8   int main(int argc, char* argv[])</span><br><span class="line">9   &#123;</span><br><span class="line">10      std::cout &lt;&lt; STR;</span><br><span class="line">(gdb) <span class="built_in">print</span> STR</span><br><span class="line"><span class="variable">$1</span> = <span class="string">"Hello world!\n"</span></span><br><span class="line">(gdb) macro expand STR</span><br><span class="line">expands to: <span class="string">"Hello world!\n"</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://gcc.gnu.org/onlinedocs/gcc-6.2.0/gcc/Debugging-Options.html#Debugging-Options" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/gcc-6.2.0/gcc/Debugging-Options.html#Debugging-Options</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/09/02/gcc-生成可以宏调试信息/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-09-01 </div>
 			<div class="article-title"><a href="/2016/09/01/判断库是否带有调试信息/" >source\_posts\判断库是否带有调试信息</a></div>						
 		</h3>
@@ -559,42 +585,6 @@ git reset --hard origin/master
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-30 </div>
-			<div class="article-title"><a href="/2016/05/30/C++-sring-resize-reserve/" >C++-sring-resize-reserve</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ul>
-<li><p><code>resize</code>是调整string的size(length)，操作后，[0, n)都可访问</p>
-<ul>
-<li><p>若大于原有长度，则填充对应字符，默认<code>\0</code></p>
-</li>
-<li><p>若小于原有长度，则截断</p>
-</li>
-</ul>
-</li>
-<li><p><code>reserve</code>是预留空间，以便快速插入，操作后，元素仍保持原样</p>
-<ul>
-<li>当大于原有容量(capacity)，则引起重新分配过程</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/05/30/C++-sring-resize-reserve/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -900,48 +890,48 @@ git reset --hard origin/master
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/T/">_T<span>1</span></a></li>
+			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
 		
-			<li><a href="/tags/理论/">理论<span>1</span></a></li>
+			<li><a href="/tags/模块/">模块<span>2</span></a></li>
 		
-			<li><a href="/tags/xml/">xml<span>3</span></a></li>
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+			<li><a href="/tags/列表/">列表<span>7</span></a></li>
 		
-			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
-		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
 			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
 		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
 		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
+			<li><a href="/tags/连接/">连接<span>1</span></a></li>
 		
-			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
-			<li><a href="/tags/C/">C<span>15</span></a></li>
+			<li><a href="/tags/head/">head<span>1</span></a></li>
 		
-			<li><a href="/tags/base64/">base64<span>1</span></a></li>
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
+			<li><a href="/tags/固件/">固件<span>1</span></a></li>
 		
-			<li><a href="/tags/T/">__T<span>1</span></a></li>
+			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql/">mysql<span>35</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+		
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>594</span></a></li>
+		   <li><a href="/tags">...<span>595</span></a></li>
 		 
 		</ul>
 	</div>
@@ -952,6 +942,10 @@ git reset --hard origin/master
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
+      </li>
     
       <li>
         <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
@@ -967,10 +961,6 @@ git reset --hard origin/master
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
       </li>
     
   </ul>

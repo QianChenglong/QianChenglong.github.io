@@ -111,6 +111,28 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-07-23 </div>
+			<div class="article-title"><a href="/2015/07/23/bash-获得脚本文件所在目录/" >bash-获得脚本文件所在目录</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirname <span class="variable">$0</span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/07/23/bash-获得脚本文件所在目录/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-07-22 </div>
 			<div class="article-title"><a href="/2015/07/22/windows-修改环境变量后立即生效/" >windows-修改环境变量后立即生效</a></div>						
 		</h3>
@@ -392,72 +414,6 @@ select inet_aton(&apos;192.168.1.1&apos;) &lt;= inet_aton(&apos;192.168.0.255&ap
 	
 	</div>
   <a type="button" href="/2015/07/13/cmake-常用变量/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-11 </div>
-			<div class="article-title"><a href="/2015/07/11/编译apache/" >编译apache</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h1><ul>
-<li><p>pcre</p>
-</li>
-<li><p>apr</p>
-</li>
-<li><p>apr-util</p>
-</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="编译安装pcre"><a href="#编译安装pcre" class="headerlink" title="编译安装pcre"></a>编译安装pcre</h2><pre><code>wget http://sourceforge.net/projects/pcre/files/pcre/8.37/pcre-8.37.tar.bz2
-tar xvf pcre-8.37.tar.bz2
-cd pcre-8.37
-./configure --prefix=/opt/pcre-8.37
-make
-make install
-</code></pre><h2 id="编译安装apache"><a href="#编译安装apache" class="headerlink" title="编译安装apache"></a>编译安装apache</h2><pre><code>wget http://mirrors.hust.edu.cn/apache//httpd/httpd-2.4.12.tar.bz2
-wget http://apache.fayea.com//apr/apr-1.5.2.tar.bz2
-wget http://apache.fayea.com//apr/apr-util-1.5.4.tar.bz2
-tar xvf httpd-2.4.12.tar.bz2
-tar xvf apr-1.5.2.tar.bz2 -C httpd-2.4.12/srclib
-tar xvf apr-util-1.5.4.tar.bz2 -C httpd-2.4.12/srclib
-mv httpd-2.4.12/srclib/apr-1.5.2 httpd-2.4.12/srclib/apr
-mv httpd-2.4.12/srclib/apr-util-1.5.4 httpd-2.4.12/srclib/apr-util
-cd httpd-2.4.12
-./configure --prefix=/opt/httpd-2.4.12 --with-pcre=/opt/pcre-8.37
-make
-make install
-</code></pre><p>参考：</p>
-<ol>
-<li><a href="http://httpd.apache.org/docs/2.4/install.html" target="_blank" rel="external">http://httpd.apache.org/docs/2.4/install.html</a></li>
-</ol>
-<h2 id="编译安装mod-fcgid-官网"><a href="#编译安装mod-fcgid-官网" class="headerlink" title="编译安装mod_fcgid(官网)"></a>编译安装mod_fcgid(<a href="http://httpd.apache.org/download.cgi#mod_fcgid" target="_blank" rel="external">官网</a>)</h2><pre><code>wget http://mirrors.cnnic.cn/apache/httpd/mod_fcgid/mod_fcgid-2.3.9.tar.bz2
-tar xvf mod_fcgid-2.3.9.tar.bz2
-cd mod_fcgid-2.3.9
-APXS=/opt/httpd-2.4.12/bin/apxs ./configure.apxs
-make
-make install
-</code></pre><p>参考：</p>
-<ol>
-<li>README-FCGID</li>
-</ol>
-<h2 id="编译安装mod-wsgi-官网"><a href="#编译安装mod-wsgi-官网" class="headerlink" title="编译安装mod_wsgi(官网)"></a>编译安装mod_wsgi(<a href="https://code.google.com/p/modwsgi/" target="_blank" rel="external">官网</a>)</h2><pre><code>git clone https://github.com/GrahamDumpleton/mod_wsgi.git
-cd mod_wsgi/
-./configure --with-apxs=/opt/httpd-2.4.12/bin/apxs --with-python=/usr/bin/python3
-make
-make install
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/07/11/编译apache/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -766,48 +722,48 @@ make install
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/使用/">使用<span>1</span></a></li>
+			<li><a href="/tags/centos/">centos<span>12</span></a></li>
 		
-			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
 		
-			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
+			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
 		
-			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
+			<li><a href="/tags/crond/">crond<span>1</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+		
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
 			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/打包/">打包<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+			<li><a href="/tags/散列/">散列<span>1</span></a></li>
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/date/">date<span>1</span></a></li>
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
-			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
 		
-			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
-		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
+			<li><a href="/tags/template/">template<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>594</span></a></li>
+		   <li><a href="/tags">...<span>595</span></a></li>
 		 
 		</ul>
 	</div>
@@ -818,6 +774,10 @@ make install
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
+      </li>
     
       <li>
         <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
@@ -833,10 +793,6 @@ make install
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
       </li>
     
   </ul>

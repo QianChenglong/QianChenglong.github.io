@@ -111,6 +111,41 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-01 </div>
+			<div class="article-title"><a href="/2015/09/01/linux-环境变量/" >linux-环境变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="相关配置文件加载顺序"><a href="#相关配置文件加载顺序" class="headerlink" title="相关配置文件加载顺序"></a>相关配置文件加载顺序</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/enviroment =&gt; /etc/profile =&gt; /etc/bash.bashrc =&gt; /etc/profile =&gt; /etc/profile.d/*.sh</span><br><span class="line">=&gt; ~/.profile(~/.bash_profile, ~/.bash_login) =&gt; ~/.bashrc =&gt; ~/.bash_aliases =&gt; /etc/bash_completion</span><br></pre></td></tr></table></figure>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li><p>/etc/enviroment</p>
+<p>在系统一些核心组件加载完成后最先调用,系统级别的公共环境变量</p>
+</li>
+</ul>
+<ul>
+<li><p>/etc/profile</p>
+<p>在login shell时读取, 相当于是应用级的公共环境变量</p>
+</li>
+<li><p>~/.profile</p>
+<p>在shell被打开时, 次于/etc/profile执行, 相当于是应用级的用户环境变量</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/01/linux-环境变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-08-26 </div>
 			<div class="article-title"><a href="/2015/08/26/gcc-调试编译/" >gcc-调试编译</a></div>						
 		</h3>
@@ -393,35 +428,6 @@ KEYMAP=us
 	
 	</div>
   <a type="button" href="/2015/08/15/多线程同步/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-15 </div>
-			<div class="article-title"><a href="/2015/08/15/systemd-coredump/" >systemd-coredump</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查看core文件</p>
-<pre><code>coredumpctl list
-</code></pre></li>
-<li><p>导出core文件</p>
-<pre><code>coredumpctl -o core dump PID
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/08/15/systemd-coredump/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -730,48 +736,48 @@ KEYMAP=us
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
 		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
 		
-			<li><a href="/tags/右值/">右值<span>1</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/sudo/">sudo<span>4</span></a></li>
+			<li><a href="/tags/wprintf/">wprintf<span>1</span></a></li>
 		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/T/">__T<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
-			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/samba/">samba<span>3</span></a></li>
+			<li><a href="/tags/博客/">博客<span>1</span></a></li>
 		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
 		
-			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
+			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/10014/">10014<span>1</span></a></li>
 		
-			<li><a href="/tags/select/">select<span>1</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>40</span></a></li>
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
 		
-			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
 		
-			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
+			<li><a href="/tags/include/">include<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>594</span></a></li>
+		   <li><a href="/tags">...<span>595</span></a></li>
 		 
 		</ul>
 	</div>
@@ -782,6 +788,10 @@ KEYMAP=us
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
+      </li>
     
       <li>
         <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
@@ -797,10 +807,6 @@ KEYMAP=us
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
       </li>
     
   </ul>

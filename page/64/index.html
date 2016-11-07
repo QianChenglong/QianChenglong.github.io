@@ -112,6 +112,37 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-03 </div>
+			<div class="article-title"><a href="/2014/12/03/python文件重命名/" >python文件重命名</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
+<li><p><code>shutil.move()</code></p>
+</li>
+<li><p><code>os.rename()</code></p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://docs.python.org/2/library/shutil.html#shutil.move" target="_blank" rel="external">https://docs.python.org/2/library/shutil.html#shutil.move</a></li>
+<li><a href="https://docs.python.org/2/library/os.html#os.rename" target="_blank" rel="external">https://docs.python.org/2/library/os.html#os.rename</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/03/python文件重命名/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-03 </div>
 			<div class="article-title"><a href="/2014/12/03/python-cgi读取表单数据/" >python-cgi读取表单数据</a></div>						
 		</h3>
 	
@@ -284,6 +315,34 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/替换clover图标/" >替换clover图标</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
+</li>
+<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
+<p><img src="/img/替换clover图标_0.png" alt=""></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/替换clover图标/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
 			<div class="article-title"><a href="/2014/12/01/快速查看python帮助/" >快速查看python帮助</a></div>						
 		</h3>
 	
@@ -335,34 +394,6 @@ os.system(cmd)
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/替换clover图标/" >替换clover图标</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>使用<code>ResHacker</code>打开<code>clover.dll</code></p>
-</li>
-<li><p>【操作】=&gt;【替换图标】=&gt; 【选择要替换的图标】=&gt;101</p>
-<p><img src="/img/替换clover图标_0.png" alt=""></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/替换clover图标/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
 			<div class="article-title"><a href="/2014/12/01/windows下git生成SSH公钥/" >windows下git生成SSH公钥</a></div>						
 		</h3>
 	
@@ -403,66 +434,6 @@ ssh-add ~/.ssh/id_rsa
 	
 	</div>
   <a type="button" href="/2014/12/01/windows下git生成SSH公钥/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-01 </div>
-			<div class="article-title"><a href="/2014/12/01/MinGW编译wxWidget/" >MinGW编译wxWidget</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>WXWIN：源代码根目录</li>
-</ul>
-<ol>
-<li><p>解压源码</p>
-</li>
-<li><p>进入到<code>%WXWIN%\build\msw</code></p>
-</li>
-<li><p>清理项目</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release clean
-</code></pre></li>
-<li><p>编译</p>
-</li>
-</ol>
-<ul>
-<li><p>动态库，发行版</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release
-</code></pre></li>
-<li><p>动态库，调试版</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=debug
-</code></pre></li>
-<li><p>静态库，发行版</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=release
-</code></pre></li>
-<li><p>静态库，调试版</p>
-<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=debug
-</code></pre><p>  <strong>注</strong>:</p>
-<ol>
-<li><p>可以添加-j N(N指当前CPU核心数)，加快编译速度</p>
-</li>
-<li><p>每种版本可以根据需要编译</p>
-</li>
-<li><p>动态库对应的目录(%WXWIN%\lib\gcc_dll)，静态库对应的目录(%WXWIN%\lib\gcc_lib)</p>
-</li>
-<li><p>Debug版的库名称会有<code>d</code>后缀，UNICODE版的库名称会有<code>u</code>后缀</p>
-</li>
-</ol>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/01/MinGW编译wxWidget/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -771,48 +742,48 @@ ssh-add ~/.ssh/id_rsa
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
 		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>4</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
 		
-			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
+			<li><a href="/tags/od/">od<span>1</span></a></li>
 		
-			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
+			<li><a href="/tags/端口/">端口<span>1</span></a></li>
 		
-			<li><a href="/tags/undo/">undo<span>1</span></a></li>
-		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
-		
-			<li><a href="/tags/glog/">glog<span>1</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
 			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
 		
-			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/直接初始化/">直接初始化<span>1</span></a></li>
+		
+			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+		
+			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>594</span></a></li>
+		   <li><a href="/tags">...<span>595</span></a></li>
 		 
 		</ul>
 	</div>
@@ -823,6 +794,10 @@ ssh-add ~/.ssh/id_rsa
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
+      </li>
     
       <li>
         <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
@@ -838,10 +813,6 @@ ssh-add ~/.ssh/id_rsa
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
       </li>
     
   </ul>

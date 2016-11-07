@@ -111,6 +111,41 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-02-18 </div>
+			<div class="article-title"><a href="/2016/02/18/tcp/" >tcp</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="首部"><a href="#首部" class="headerlink" title="首部"></a>首部</h1><ul>
+<li><p>PSH(push)</p>
+<p>置位后，数据立马发送，而不是填充到缓冲区等待发送</p>
+</li>
+<li><p>窗口值</p>
+<p>报文发送方的<strong>接收缓冲区</strong>大小(tcp是双工的)，允许对方发送的最大数据量</p>
+</li>
+</ul>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ol>
+<li><p>3次握手中，为什么客户端最后还需要确认一次？</p>
+<p>为了防止服务端响应了已失效的连接请求报文。</p>
+<p>假设没有再次确认，当客户端发出一次连接请求时，由于某种原因，该报文被滞留。<br>后续客户端又重新发送报文，与服务端建立了连接。<br>而此时服务端收到了之前的连接请求报文，又建立了连接，此时便导致错误。</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/02/18/tcp/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-01-18 </div>
 			<div class="article-title"><a href="/2016/01/18/电影网站/" >电影网站</a></div>						
 		</h3>
@@ -443,35 +478,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-16 </div>
-			<div class="article-title"><a href="/2015/11/16/js-跨域/" >js-跨域</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域?"></a>什么是跨域?</h1><p>在了解什么是跨域问题之前,先需要了解<strong>同源策略</strong></p>
-<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h3 id="什么是同源"><a href="#什么是同源" class="headerlink" title="什么是同源?"></a>什么是同源?</h3><p>同源是指<strong>协议</strong>,<strong>域名</strong>,<strong>端口</strong>完全一致</p>
-<h3 id="为什么需要同源策略"><a href="#为什么需要同源策略" class="headerlink" title="为什么需要同源策略?"></a>为什么需要同源策略?</h3><p>为了信息安全,最基本的原则即同源的东西是安全的,除此之外都是不安全的.</p>
-<p>示例:</p>
-<p>一个中间层(代理服务器,路由网关,运营商等),通过IFrame把登录网银的页面嵌套起立,<br>里面加入了一段恶意代码,将用户的数据发送到指定位置.</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.jianshu.com/p/4e17445d66e2" target="_blank" rel="external">同源策略——浏览器的安全卫士</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/16/js-跨域/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -777,48 +783,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
+			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
 		
-			<li><a href="/tags/resume/">resume<span>1</span></a></li>
+			<li><a href="/tags/django/">django<span>2</span></a></li>
 		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+			<li><a href="/tags/systemctl/">systemctl<span>1</span></a></li>
 		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
-		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
-		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
-		
-			<li><a href="/tags/部署/">部署<span>1</span></a></li>
-		
-			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
-		
-			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
 			<li><a href="/tags/global/">global<span>1</span></a></li>
 		
-			<li><a href="/tags/variable/">variable<span>1</span></a></li>
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
 		
-			<li><a href="/tags/void/">void*<span>1</span></a></li>
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+			<li><a href="/tags/glog/">glog<span>1</span></a></li>
 		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+		
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
 			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+		
+			<li><a href="/tags/类/">类<span>1</span></a></li>
+		
+			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
+		
+			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
+		
+			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>594</span></a></li>
+		   <li><a href="/tags">...<span>595</span></a></li>
 		 
 		</ul>
 	</div>
@@ -829,6 +835,10 @@
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
+      </li>
     
       <li>
         <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
@@ -844,10 +854,6 @@
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
       </li>
     
   </ul>

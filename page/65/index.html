@@ -112,6 +112,66 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/MinGW编译wxWidget/" >MinGW编译wxWidget</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>WXWIN：源代码根目录</li>
+</ul>
+<ol>
+<li><p>解压源码</p>
+</li>
+<li><p>进入到<code>%WXWIN%\build\msw</code></p>
+</li>
+<li><p>清理项目</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release clean
+</code></pre></li>
+<li><p>编译</p>
+</li>
+</ol>
+<ul>
+<li><p>动态库，发行版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=release
+</code></pre></li>
+<li><p>动态库，调试版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=1 UNICODE=1 BUILD=debug
+</code></pre></li>
+<li><p>静态库，发行版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=release
+</code></pre></li>
+<li><p>静态库，调试版</p>
+<pre><code>mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=debug
+</code></pre><p>  <strong>注</strong>:</p>
+<ol>
+<li><p>可以添加-j N(N指当前CPU核心数)，加快编译速度</p>
+</li>
+<li><p>每种版本可以根据需要编译</p>
+</li>
+<li><p>动态库对应的目录(%WXWIN%\lib\gcc_dll)，静态库对应的目录(%WXWIN%\lib\gcc_lib)</p>
+</li>
+<li><p>Debug版的库名称会有<code>d</code>后缀，UNICODE版的库名称会有<code>u</code>后缀</p>
+</li>
+</ol>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/MinGW编译wxWidget/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
 			<div class="article-title"><a href="/2014/12/01/hexo博客添加图片/" >hexo博客添加图片</a></div>						
 		</h3>
 	
@@ -553,48 +613,48 @@ hexo d
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
 		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/command/">command<span>9</span></a></li>
+			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
 		
-			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
 		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/api/">api<span>1</span></a></li>
 		
 			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
 		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
 		
-			<li><a href="/tags/redis/">redis<span>7</span></a></li>
+			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
 		
-			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
-			<li><a href="/tags/文件/">文件<span>7</span></a></li>
+			<li><a href="/tags/STL/">STL<span>1</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/时间/">时间<span>3</span></a></li>
 		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
 		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+			<li><a href="/tags/命令/">命令<span>5</span></a></li>
 		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+			<li><a href="/tags/库/">库<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>594</span></a></li>
+		   <li><a href="/tags">...<span>595</span></a></li>
 		 
 		</ul>
 	</div>
@@ -605,6 +665,10 @@ hexo d
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
+      </li>
     
       <li>
         <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
@@ -620,10 +684,6 @@ hexo d
     
       <li>
         <a href="/2016/11/01/systemctl/" ><i class="fa fa-file-o"></i>systemctl</a>
-      </li>
-    
-      <li>
-        <a href="/2016/10/28/C++-NULL和通用指针/" ><i class="fa fa-file-o"></i>C++-NULL</a>
       </li>
     
   </ul>

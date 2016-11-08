@@ -111,6 +111,115 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-05-07 </div>
+			<div class="article-title"><a href="/2016/05/07/C++-异常/" >C++-异常</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h1><ul>
+<li>抛出异常时，除了ErrorMsg之外，不带文件名，行号，<code>callstack</code>等信息，不利于定位问题和分析问题</li>
+</ul>
+<h1 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h1><ul>
+<li>相比错误代码，不需要每个调用都逐个比较，也不需要手动向上传递</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/05/07/C++-异常/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-07 </div>
+			<div class="article-title"><a href="/2016/05/07/C++11-override/" >C++11-override</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h1><ul>
+<li>显式说明该方法是重写虚函数，提供编译器更强的的检查，防止因为sinature不同，重新定义函数，而不是重写！</li>
+</ul>
+<h1 id="列子"><a href="#列子" class="headerlink" title="列子"></a>列子</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Parent &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">short</span>)</span> </span>&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"B::f"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Child : <span class="keyword">public</span> Parent &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span>)</span> override </span>&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"D::f"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2016/05/07/C++11-override/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-07 </div>
+			<div class="article-title"><a href="/2016/05/07/C++-泛型编程/" >C++-泛型编程</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>模板类在实例化时，必须显式指定类型，而模板函数可以不用(隐式推断)</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/05/07/C++-泛型编程/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-05-07 </div>
+			<div class="article-title"><a href="/2016/05/07/C++11-using/" >C++11-using</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h1><ol>
+<li>相比<code>typedef</code>可读性更强</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> PrintFunc = <span class="keyword">void</span>(*)(std::string);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Print</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> s)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    PrintFunc f = Print;</span><br><span class="line"></span><br><span class="line">    f(<span class="string">"Hello world"</span>);</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>可以支持<code>template</code></li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">using</span> deleted_unique_ptr = <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;T, <span class="built_in">std</span>::function&lt;<span class="keyword">void</span>(T *)&gt;&gt;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    deleted_unique_ptr&lt;FILE&gt; file(fopen(<span class="string">"test"</span>, <span class="string">"w"</span>),</span><br><span class="line">    [](FILE * f) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        fclose(f);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">fputs</span>(<span class="string">"Hello world"</span>, file.get());</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/10747810/what-is-the-difference-between-typedef-and-using-in-c11" target="_blank" rel="external">http://stackoverflow.com/questions/10747810/what-is-the-difference-between-typedef-and-using-in-c11</a></li>
+<li><a href="http://stackoverflow.com/questions/19053351/how-do-i-use-a-custom-deleter-with-a-stdunique-ptr-member" target="_blank" rel="external">http://stackoverflow.com/questions/19053351/how-do-i-use-a-custom-deleter-with-a-stdunique-ptr-member</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/05/07/C++11-using/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-05-06 </div>
 			<div class="article-title"><a href="/2016/05/06/mysql-int(n)/" >mysql-int(n)</a></div>						
 		</h3>
@@ -331,143 +440,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-26 </div>
-			<div class="article-title"><a href="/2016/04/26/daemon/" >daemon</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
-<li><p><code>fork</code>，退出父进程</p>
-<p>确保后面<code>setsid</code>可以执行成功</p>
-</li>
-<li><p><code>setsid</code></p>
-<p>创建新的会话(session)，要求该进程不是进程组长(process group leader)。</p>
-<p>当创建了新的会话，便脱离了原有的控制终端(tty)</p>
-</li>
-<li><p>再次<code>fork</code>，退出父进程</p>
-<p>可以防止潜在要求打开控制终端，因为控制终端必须要进程组长才可以打开</p>
-</li>
-<li><p><code>chdir</code>, 修改当前工作目录</p>
-<p>不影响<code>umount</code></p>
-</li>
-<li><p><code>umask</code>, 设置默认的文件屏蔽字</p>
-</li>
-<li><p>关闭打开的文件描述符(0,1,2等，可通过<code>ls /proc/pid/fd</code>查看打开的文件描述符)</p>
-<p>若不关闭，虽然没有了控制终端，不会接受到相应控制信号，则仍能IO对应文件，如标准输出到启动时的终端，从终端读入！</p>
-<ul>
-<li>需要注意，默认为行缓冲！</li>
-</ul>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/26/daemon/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-25 </div>
-			<div class="article-title"><a href="/2016/04/25/net/" >net</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="use-samba"><a href="#use-samba" class="headerlink" title="use(samba)"></a>use(samba)</h1><ul>
-<li><p>查看帮助</p>
-<pre><code>net help use
-</code></pre></li>
-<li><p>建立连接</p>
-<pre><code>net use * /user:username \\computername\sharename password
-net use * /user:pm \\192.168.1.2\pm pm0422
-</code></pre></li>
-<li><p>映射连接</p>
-<pre><code>net use * /user:pm \\192.168.1.2\pm pm0422
-</code></pre></li>
-<li><p>删除连接</p>
-<pre><code>net use \\computername\sharename /delete
-</code></pre></li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://technet.microsoft.com/en-us/library/bb490717.aspx" target="_blank" rel="external">https://technet.microsoft.com/en-us/library/bb490717.aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/25/net/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-22 </div>
-			<div class="article-title"><a href="/2016/04/22/suse/" >suse</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>添加软件源</p>
-<pre><code>zypper ar -f &lt;URL&gt; &lt;alias&gt;
-zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/repo/oss/ rep
-</code></pre></li>
-<li><p>关闭防火墙</p>
-<pre><code>/sbin/rcSuSEfirewall2 stop
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/22/suse/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-22 </div>
-			<div class="article-title"><a href="/2016/04/22/mysql-开发经验/" >mysql-开发经验</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>程序中，SQL语句尽量用’`’括起来，避免关键字冲突</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/22/mysql-开发经验/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -550,7 +522,7 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -662,7 +634,7 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -773,48 +745,48 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
-		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
-		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
-		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
-		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
-		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
-		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
-		
-			<li><a href="/tags/vps/">vps<span>1</span></a></li>
-		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
-		
-			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
-		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+			<li><a href="/tags/素数/">素数<span>1</span></a></li>
 		
 			<li><a href="/tags/列表/">列表<span>7</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
 		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+			<li><a href="/tags/str/">str<span>1</span></a></li>
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+			<li><a href="/tags/truncate/">truncate<span>1</span></a></li>
 		
-			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
 		
-			<li><a href="/tags/apt/">apt<span>2</span></a></li>
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+			<li><a href="/tags/undo/">undo<span>1</span></a></li>
+		
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+		
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+		
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+		
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
+		
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
+		
+			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+		
+			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+		
+			<li><a href="/tags/memory-manage/">memory manage<span>1</span></a></li>
+		
+			<li><a href="/tags/固件/">固件<span>1</span></a></li>
+		
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -827,23 +799,23 @@ zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/rep
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

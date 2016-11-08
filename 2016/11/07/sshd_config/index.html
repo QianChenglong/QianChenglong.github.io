@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ssh常用操作 | 心若天府</title>
+  <title>sshd_config | 心若天府</title>
   <meta name="author" content="钱成龙">
   
   <meta name="description" content="笔记，经验总结，资料">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="ssh常用操作"/>
+  <meta property="og:title" content="sshd_config"/>
   <meta property="og:site_name" content="心若天府"/>
 
   
@@ -93,7 +93,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> ssh常用操作</h1>
+			<h1 class="title title-inverse "> sshd_config</h1>
 		</div>		
 	
 
@@ -113,8 +113,12 @@
 	<div class="mypage">		
 	  		
 
-	  <h2 id="修改密钥对密码"><a href="#修改密钥对密码" class="headerlink" title="修改密钥对密码"></a>修改密钥对密码</h2><pre><code>ssh-keygen -p
-</code></pre>	  
+	  <h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>打开调试日志</p>
+<pre><code>LogLevel DEBU
+</code></pre></li>
+</ul>
+	  
 	</div>
 
 	<div>
@@ -122,14 +126,14 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2014/12/03/python操作x-www-form-urlencoded数据/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2014/12/02/yed使用技巧/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2016/11/07/journalctl/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -168,7 +172,7 @@
   <h2 class="title">留言</h2>
 
   
-  	 <div class="ds-thread" data-thread-key="2014/12/02/ssh常用操作/" data-title="ssh常用操作" data-url="https://qianchenglong.github.io/2014/12/02/ssh常用操作/"></div>  
+  	 <div class="ds-thread" data-thread-key="2016/11/07/sshd_config/" data-title="sshd_config" data-url="https://qianchenglong.github.io/2016/11/07/sshd_config/"></div>  
   
 </section>
 
@@ -182,23 +186,12 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2014-12-02 
+	2016-11-07 
 	</div>
 	
 
 	<!-- categories -->
     
-	<div class="meta-widget">
-	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
-    <ul id="categorys" class="tag_box list-unstyled collapse in">
-          
-  <li>
-    <li><a href="/categories/ssh/">ssh<span>3</span></a></li>
-  </li>
-
-    </ul>
-	</div>
-	
 
 	<!-- tags -->
 	
@@ -206,7 +199,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/ssh/">ssh<span>7</span></a></li>
+  <li><a href="/tags/ssh/">ssh<span>7</span></a></li> <li><a href="/tags/sshd-config/">sshd_config<span>1</span></a></li>
     </ul>
 	</div>
 		

@@ -111,6 +111,140 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-01-08 </div>
+			<div class="article-title"><a href="/2015/01/08/C运行库链接问题/" >C运行库链接问题</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>在同一个项目中，各组件需要保持一致的C运行库链接方式(动态或静态)，包括使用的第三方库(第三方库的C库链接方式)<br>应与项目C库链接方式一致！</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.csdn.net/redline2005/article/details/6313703" target="_blank" rel="external">http://blog.csdn.net/redline2005/article/details/6313703</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/abx4dbyh(v=vs.100).aspx" target="_blank" rel="external">http://msdn.microsoft.com/zh-cn/library/abx4dbyh(v=vs.100).aspx</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/08/C运行库链接问题/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/编译安装google-C-test-framework/" >编译安装google-C++-test-framework</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>VS2010</li>
+<li>cmake-3.1.0</li>
+<li>gtest-1.7.0</li>
+</ul>
+<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><ul>
+<li><p>下载<a href="https://code.google.com/p/googletest/" target="_blank" rel="external">官网</a>，解压</p>
+</li>
+<li><p>新建<code>build</code>目录，并进入</p>
+</li>
+<li><p>生成<code>Makefile</code></p>
+<ul>
+<li><p>静态库(默认C++运行库为静态链接)</p>
+<pre><code>cmake -G &quot;NMake Makefiles&quot; ..
+</code></pre></li>
+<li><p>静态库，C++运行库采用动态链接</p>
+<pre><code>cmake -G &quot;NMake Makefiles&quot; -Dgtest_force_shared_crt=ON ..
+</code></pre></li>
+<li><p>动态库(默认C++运行库为动态链接)</p>
+<pre><code>cmake -G &quot;NMake Makefiles&quot;  -DBUILD_SHARED_LIBS=ON ..
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<p>注：</p>
+<pre><code>-   编译示例，`-Dgtest_build_samples=ON`
+</code></pre><ul>
+<li><p>编译</p>
+<pre><code>nmake
+</code></pre></li>
+</ul>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li>gtest本身的C++运行时库需要和项目保持一致，不然会出现类似<code>msvcprtd.lib(MSVCP100D.dll) : error LNK2005: already defined in gtestd.lib(gtest.obj)</code>！</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stanlearnswindows.blogspot.jp/2010/06/msvcprtdlibmsvcp100ddll-error-lnk2005.html" target="_blank" rel="external">http://stanlearnswindows.blogspot.jp/2010/06/msvcprtdlibmsvcp100ddll-error-lnk2005.html</a></li>
+<li><a href="http://www.cnblogs.com/ShaneZhang/p/3480502.html" target="_blank" rel="external">http://www.cnblogs.com/ShaneZhang/p/3480502.html</a></li>
+<li><a href="http://msdn.microsoft.com/zh-cn/library/abx4dbyh(v=vs.100).aspx" target="_blank" rel="external">http://msdn.microsoft.com/zh-cn/library/abx4dbyh(v=vs.100).aspx</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/编译安装google-C-test-framework/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-07 </div>
+			<div class="article-title"><a href="/2015/01/07/C-函数返回值与错误处理/" >C-函数返回值与错误处理</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>除了极少数函数调用不会出错(如<code>getpid()</code>，参考[APUE-8.2])，绝大多数函数都可能发生调用失败。在调用失败时，<br>就涉及到如何通知调用者，以便调用者进行相对应的错误处理。</p>
+<h1 id="错误处理策略"><a href="#错误处理策略" class="headerlink" title="错误处理策略"></a>错误处理策略</h1><ul>
+<li>作为调用者希望函数的返回结果就是我们期待的值，但这样报告错误又不方便</li>
+<li>若用函数返回值来判断函数的成功或失败，获取期待结果又不方便</li>
+</ul>
+<p>所以在C中，往往都采用了折衷的方式，<strong>通过使用一个与所有成功结果都不相同的值作为函数失败时的返回值</strong>，常见方式有：</p>
+<ul>
+<li><p>失败时返回值</p>
+<ul>
+<li>返回<code>NULL</code>指针，如<code>fopen</code></li>
+<li>返回<code>-1</code></li>
+<li>返回<code>非0</code></li>
+<li>某些专用宏，如<code>EOF</code>，<code>SOCKET_ERROR</code></li>
+</ul>
+</li>
+<li><p>成功时返回值</p>
+<ul>
+<li>返回非空指针</li>
+<li>返回<code>0</code></li>
+<li>某些专用宏，如<code>SOCKET_SUCCESS</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>UNIX环境高级编程.W.Richard Stevens / Stephen A.Rago.译者: 尤晋元 / 张亚英 / 戚正伟.ISBN: 9787115147318</li>
+<li>The Standard C Library Paperback. July 11, 1992. P.J. Plauger.ISBN-13: 978-0131315099</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/01/07/C-函数返回值与错误处理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-01-07 </div>
 			<div class="article-title"><a href="/2015/01/07/封装个人代码/" >封装个人代码</a></div>						
 		</h3>
@@ -306,98 +440,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-04 </div>
-			<div class="article-title"><a href="/2015/01/04/dns中递归查询与迭代查询的区别/" >dns中递归查询与迭代查询的区别</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>递归查询:</li>
-</ul>
-<p>一般客户机和服务器之间属递归查询，即当客户机向DNS服务器发出请求后,若DNS服务器本身不能解析,则会向另外的DNS服务器发出查询请求，得到结果后转交给客户机；</p>
-<ul>
-<li>迭代查询(反复查询):</li>
-</ul>
-<p>一般DNS服务器之间属迭代查询，如：若DNS2不能响应DNS1的请求，则它会将DNS3的IP给DNS2，以便其再向DNS3发出请求；</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://zhidao.baidu.com/link?url=zZcn6vwAvt3f_391aq8kqR-rohsN-WYq5mDst_bUkzxYpEJZyuH-3ggW5BibrDPcrNpbWMqH8nMrACtahNhmZq" target="_blank" rel="external">http://zhidao.baidu.com/link?url=zZcn6vwAvt3f_391aq8kqR-rohsN-WYq5mDst_bUkzxYpEJZyuH-3ggW5BibrDPcrNpbWMqH8nMrACtahNhmZq</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/01/04/dns中递归查询与迭代查询的区别/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-04 </div>
-			<div class="article-title"><a href="/2015/01/04/修改文件默认打开方式/" >修改文件默认打开方式</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="系统命令方式（优先级低于用户设置，即存储于注册表中的）"><a href="#系统命令方式（优先级低于用户设置，即存储于注册表中的）" class="headerlink" title="系统命令方式（优先级低于用户设置，即存储于注册表中的）"></a>系统命令方式（优先级低于用户设置，即存储于注册表中的）</h1><ol>
-<li><p>assoc改变指定拓展名对应的文件类型</p>
-<pre><code>assoc .apk=AndroidPackage
-&lt;=&gt;
-reg add HKEY_CLASSES_ROOT\.apk /d &quot;AndroidPackage&quot; /f
-</code></pre></li>
-<li><p>ftype来指定文件执行命令，%1代表该文件，%*代表参数</p>
-<pre><code>ftype txtfile=&quot;e:\OS\Android\Exeperience\apk-install.bat&quot; %1 %*
-&lt;=&gt;
-reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\OS\Android\Exeperience\apk-install.bat\&quot; %%1 %%*&quot; /f
-</code></pre></li>
-</ol>
-<h1 id="修改用户设置"><a href="#修改用户设置" class="headerlink" title="修改用户设置"></a>修改用户设置</h1><pre><code>[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.txt\UserChoice]
-&quot;Rrogid&quot;=&quot;\&quot;C:\\Program Files (x86)\\Vim\\vim73\\gvim.exe\&quot; \&quot;%1\&quot; \&quot;%*\&quot;&quot;
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/01/04/修改文件默认打开方式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-31 </div>
-			<div class="article-title"><a href="/2014/12/31/GetTickCount/" >GetTickCount</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="精度"><a href="#精度" class="headerlink" title="精度"></a>精度</h2><p>这个函数并非实时发送，而是由系统每18ms发送一次，因此其最小精度为18ms。当需要有小于18ms的精度计算时，应使用StopWatch方法进行。</p>
-<ul>
-<li>连续触发200次，实测下来，最小间隔在15ms。</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/31/GetTickCount/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -480,7 +522,7 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -592,7 +634,7 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -703,48 +745,48 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
 		
-			<li><a href="/tags/build/">build<span>1</span></a></li>
+			<li><a href="/tags/sort/">sort<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
 		
-			<li><a href="/tags/科学上网/">科学上网<span>1</span></a></li>
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
 		
-			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/import/">import<span>3</span></a></li>
 		
-			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
+			<li><a href="/tags/file/">file<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/strace/">strace<span>1</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/cron/">cron<span>1</span></a></li>
 		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
 		
-			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
 		
-			<li><a href="/tags/c/">c<span>7</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
 		
-			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/rune/">rune<span>1</span></a></li>
 		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
+			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -757,23 +799,23 @@ reg add HKEY_CLASSES_ROOT\AndroidPackage\Shell\Open\Command /d &quot;\&quot;e:\O
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

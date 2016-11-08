@@ -111,6 +111,217 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2014-12-18 </div>
+			<div class="article-title"><a href="/2014/12/18/SVN-工作副本怎样跟踪版本库/" >SVN-工作副本怎样跟踪版本库</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>对于工作副本的每一个文件，Subversion 在管理目录 .svn/ 记录两项关键的信息:</p>
+<ul>
+<li><p>工作文件的基准版本(叫做文件的工作版本)</p>
+</li>
+<li><p>一个本地副本最后更新的时间戳。</p>
+</li>
+</ul>
+<p>给定这些信息，通过与版本库通讯，Subversion 可以告诉我们工作文件是处与如下四种状态的那一种:</p>
+<ul>
+<li><p>未修改且是当前的</p>
+<p>文件在工作目录里没有修改，在工作版本之后没有修改提交到版本库。svn commit 操作不做任何事情，svn update 不做任何事情。</p>
+</li>
+<li><p>本地已修改且是当前的</p>
+<p>工作副本已经修改，从基准版本之后没有修改提交到版本库。本地修改没有提交，因此 commit 会成功的提交，update 不做任何事情。</p>
+</li>
+<li><p>本地未修改且过时</p>
+<p>这个文件在工作副本没有修改，但在版本库中已经修改了。这个文件应当更新到最新公共版本。commit 不做任何事情，update 将会更新工作副本到最新的版本。</p>
+</li>
+<li><p>本地已修改且过时</p>
+<p>这个文件在工作副本和版本库中都被修改了。提交 该文件将会因为 过时 而失败。该文件应该先更新; 更新 命令将会尝试合并公共更改和本机更改。如果 Subversion 不能顺利的自动完成合并，则需要用户解决冲突。</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://tortoisesvn.net/docs/nightly/TortoiseSVN_zh_CN/tsvn-basics-svn.html" target="_blank" rel="external">http://tortoisesvn.net/docs/nightly/TortoiseSVN_zh_CN/tsvn-basics-svn.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/18/SVN-工作副本怎样跟踪版本库/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-16 </div>
+			<div class="article-title"><a href="/2014/12/16/C++编码规范/" >C++编码规范</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="目录组织"><a href="#目录组织" class="headerlink" title="目录组织"></a>目录组织</h1><ul>
+<li><p>[3rdparty] 第三方包</p>
+</li>
+<li><p>[bin] 动态库或可执行文件生成目录</p>
+</li>
+<li><p>[cmake] cmake辅助</p>
+</li>
+<li><p>[doc] 文档</p>
+</li>
+<li><p>[include] 对外接口声明</p>
+<ul>
+<li><p>[库名称]</p>
+<ul>
+<li>[include]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>[lib] 静态库生成目录</p>
+</li>
+<li><p>[src] 内部声明(<em>.h)，实现文件(</em>.c, *.cpp)</p>
+</li>
+<li><p>[test] 测试</p>
+</li>
+</ul>
+<p>参考：</p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/2360734/whats-a-good-directory-structure-for-larger-c-projects-using-makefile?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/2360734/whats-a-good-directory-structure-for-larger-c-projects-using-makefile?lq=1</a></li>
+<li><a href="http://stackoverflow.com/questions/13967296/why-place-headers-in-a-separate-directory?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/13967296/why-place-headers-in-a-separate-directory?lq=1</a></li>
+<li><a href="http://stackoverflow.com/questions/1383174/source-file-organisation?lq=1" target="_blank" rel="external">http://stackoverflow.com/questions/1383174/source-file-organisation?lq=1</a></li>
+<li><a href="http://stackoverflow.com/questions/1398445/directory-structure-for-a-c-library" target="_blank" rel="external">http://stackoverflow.com/questions/1398445/directory-structure-for-a-c-library</a></li>
+</ol>
+<h1 id="文件空行"><a href="#文件空行" class="headerlink" title="文件空行"></a>文件空行</h1><ul>
+<li><p><code>#pragma once</code>后空2行</p>
+</li>
+<li><p><code>#include</code>模块间空1行</p>
+</li>
+<li><p><code>#include</code>后空2行</p>
+</li>
+<li><p>函数定义间空1行</p>
+</li>
+</ul>
+<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><ul>
+<li><p>使用<code>#pragma once</code></p>
+</li>
+<li><p>凡是能使用前向声明的，尽量使用，减少外部依赖！</p>
+<ul>
+<li>若该文件是作为外部引用入口，则需确保使用者不用再include其他文件，除非故意划分子模块使用！</li>
+</ul>
+</li>
+</ul>
+<h2 id="头文件包含顺序"><a href="#头文件包含顺序" class="headerlink" title="头文件包含顺序"></a>头文件包含顺序</h2><p>各部分最好按字母序排列</p>
+<ul>
+<li><p>实现文件对应的头文件</p>
+<p>可以尽早发现该模块头文件中缺少的必须的头文件，使模块完全独立，不依赖于其他模块导入的头文件，减少了编译时间！</p>
+</li>
+<li><p>本模块下其他的头文件</p>
+</li>
+<li><p>C++库</p>
+</li>
+<li>C库</li>
+<li><p>系统库</p>
+<p>确保该实现不依赖其他模块导入的头文件！</p>
+</li>
+<li><p>第三方库(根据使用广泛度，不同库换行)</p>
+</li>
+<li><p>本项目的其他模块头文件</p>
+</li>
+</ul>
+<p><strong>Note:</strong></p>
+<ul>
+<li>若一些头文件依赖特定宏，则宏定义于头文件前</li>
+<li>若头文件之间存在顺序问题，则可以不遵循</li>
+</ul>
+<p><strong>参考</strong>:</p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/614302/c-header-order" target="_blank" rel="external">http://stackoverflow.com/questions/614302/c-header-order</a></li>
+<li><a href="http://stackoverflow.com/questions/2762568/c-c-include-file-order-best-practices" target="_blank" rel="external">http://stackoverflow.com/questions/2762568/c-c-include-file-order-best-practices</a></li>
+</ol>
+<hr>
+<h1 id="命名约定"><a href="#命名约定" class="headerlink" title="命名约定"></a>命名约定</h1><h2 id="文件命名"><a href="#文件命名" class="headerlink" title="文件命名"></a>文件命名</h2><ul>
+<li>若是类文件，则与类名保持一致</li>
+<li>若是C函数，则采用下划线分隔，因为本身C中就是用下划线分隔，不一致的话，在源码中如果涉及到该文件名，则可能需要转换规则<br>如单元测试中，对<code>inet-helper.h</code>进行测试，则测试套件名需要转换。</li>
+</ul>
+<h2 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h2><h3 id="普通变量"><a href="#普通变量" class="headerlink" title="普通变量"></a>普通变量</h3><p>下划线分隔</p>
+<h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><p>下划线分割，添加后缀’_’</p>
+<h2 id="常量命名"><a href="#常量命名" class="headerlink" title="常量命名"></a>常量命名</h2><p>前缀<code>k</code>，骆驼命名，如<code>kDaysInWeek</code></p>
+<h2 id="函数命名"><a href="#函数命名" class="headerlink" title="函数命名"></a>函数命名</h2><h3 id="普通函数"><a href="#普通函数" class="headerlink" title="普通函数"></a>普通函数</h3><p>函数名以小写骆驼命名，如<code>isEmpty()</code></p>
+<h3 id="存取函数"><a href="#存取函数" class="headerlink" title="存取函数"></a>存取函数</h3><p>下划线分隔，如<code>get_num()</code></p>
+<h2 id="宏命名"><a href="#宏命名" class="headerlink" title="宏命名"></a>宏命名</h2><p>大写，下划线分隔</p>
+<hr>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><h2 id="类组织"><a href="#类组织" class="headerlink" title="类组织"></a>类组织</h2><ul>
+<li><p><code>public</code>，成员函数</p>
+</li>
+<li><p><code>public</code>，静态函数</p>
+</li>
+<li><p><code>private</code>，宏定义</p>
+</li>
+<li><p><code>private</code>，类型定义</p>
+</li>
+<li><p><code>private</code>，内部成员函数</p>
+</li>
+<li><p><code>private</code>，静态数据成员定义</p>
+</li>
+<li><p><code>private</code>，数据成员定义</p>
+</li>
+</ul>
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://google-styleguide.googlecode.com/svn/trunk/cppguide.html" target="_blank" rel="external">http://google-styleguide.googlecode.com/svn/trunk/cppguide.html</a></li>
+<li><a href="http://www.c-xx.com/ccc/ccc.php" target="_blank" rel="external">http://www.c-xx.com/ccc/ccc.php</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Underscore" target="_blank" rel="external">https://en.wikipedia.org/wiki/Underscore</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Naming_convention_(programming)" target="_blank" rel="external">https://en.wikipedia.org/wiki/Naming_convention_(programming)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hyphen" target="_blank" rel="external">https://en.wikipedia.org/wiki/Hyphen</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/16/C++编码规范/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-15 </div>
+			<div class="article-title"><a href="/2014/12/15/VC可变宏参数/" >VC可变宏参数</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MACRO(s, ...) printf(s, ##__VA_ARGS__)</span></span><br></pre></td></tr></table></figure>
+<p><strong>注：</strong></p>
+<ul>
+<li><code>##</code>防止没有参数</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://msdn.microsoft.com/en-us/library/ms177415.aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/ms177415.aspx</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/15/VC可变宏参数/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2014-12-15 </div>
 			<div class="article-title"><a href="/2014/12/15/win-api判断目录是否存在/" >win-api判断目录是否存在</a></div>						
 		</h3>
@@ -302,98 +513,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-11 </div>
-			<div class="article-title"><a href="/2014/12/11/C++第三方库/" >C++第三方库</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="http://sourceforge.net/projects/log4cpp" target="_blank" rel="external">log4cpp</a></p>
-</li>
-<li><p><a href="https://github.com/open-source-parsers/jsoncpp" target="_blank" rel="external">jsoncpp</a></p>
-</li>
-<li><p><a href="http://www.boost.org" target="_blank" rel="external">boost</a></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://coolshell.info/c/c++/2014/12/13/c-open-project.html" target="_blank" rel="external">http://coolshell.info/c/c++/2014/12/13/c-open-project.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/11/C++第三方库/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-11 </div>
-			<div class="article-title"><a href="/2014/12/11/cmake编译常用选项/" >cmake编译常用选项</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="指定编译版本"><a href="#指定编译版本" class="headerlink" title="指定编译版本"></a>指定编译版本</h1><ul>
-<li><p>常用</p>
-<p>-DCMAKE_BUILD_TYPE=Debug | Release</p>
-</li>
-<li><p><a href="http://www.cmake.org/cmake/help/v3.0/variable/CMAKE_BUILD_TYPE.html" target="_blank" rel="external">手册</a></p>
-</li>
-</ul>
-<h1 id="指定安装目录前缀"><a href="#指定安装目录前缀" class="headerlink" title="指定安装目录前缀"></a>指定安装目录前缀</h1><ul>
-<li><p>常用</p>
-<p>-DCMAKE_INSTALL_PREFIX=./ProjectName</p>
-</li>
-<li><p><a href="http://www.cmake.org/cmake/help/v3.0/variable/CMAKE_INSTALL_PREFIX.html" target="_blank" rel="external">手册</a></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/11/cmake编译常用选项/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-11 </div>
-			<div class="article-title"><a href="/2014/12/11/windows-80端口被占用/" >windows-80端口被占用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="SQL-Server"><a href="#SQL-Server" class="headerlink" title="SQL Server"></a>SQL Server</h1><pre><code>![](/img/windows-80端口被占用_01.jpg)
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.2cto.com/os/201204/126942.html" target="_blank" rel="external">http://www.2cto.com/os/201204/126942.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/11/windows-80端口被占用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -476,7 +595,7 @@
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -588,7 +707,7 @@
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -699,48 +818,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
 		
-			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
+			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
 		
-			<li><a href="/tags/md5/">md5<span>3</span></a></li>
+			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/编译/">编译<span>11</span></a></li>
+			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
 		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
+		
+			<li><a href="/tags/IP/">IP<span>4</span></a></li>
+		
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+		
+			<li><a href="/tags/类/">类<span>1</span></a></li>
+		
+			<li><a href="/tags/form/">form<span>1</span></a></li>
+		
+			<li><a href="/tags/C/">C<span>15</span></a></li>
+		
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+		
+			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
+		
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
+		
+			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
+		
+			<li><a href="/tags/跨域/">跨域<span>2</span></a></li>
 		
 			<li><a href="/tags/错误/">错误<span>2</span></a></li>
 		
-			<li><a href="/tags/struct-tag/">struct tag<span>1</span></a></li>
 		
-			<li><a href="/tags/systemctl/">systemctl<span>1</span></a></li>
-		
-			<li><a href="/tags/经验/">经验<span>1</span></a></li>
-		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
-		
-			<li><a href="/tags/dropbox/">dropbox<span>1</span></a></li>
-		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
-		
-			<li><a href="/tags/vps/">vps<span>1</span></a></li>
-		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
-		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
-		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
-		
-		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -753,23 +872,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

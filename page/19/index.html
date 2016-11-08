@@ -111,6 +111,152 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-10 </div>
+			<div class="article-title"><a href="/2015/10/10/数据库-命名规范/" >数据库-命名规范</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="表名采用小写下划线"><a href="#表名采用小写下划线" class="headerlink" title="表名采用小写下划线"></a>表名采用小写下划线</h1><p>如<code>auth_user</code></p>
+<h1 id="列名采用小写下划线"><a href="#列名采用小写下划线" class="headerlink" title="列名采用小写下划线"></a>列名采用小写下划线</h1><p>如<code>is_superuser</code></p>
+<h1 id="关于id主键"><a href="#关于id主键" class="headerlink" title="关于id主键"></a>关于<code>id</code>主键</h1><ol>
+<li><p><code>表名_id</code>(优先采用)</p>
+<ul>
+<li><p>输出目标列时,不用alias,对前端人员来说,附带一个表名,会使数据库可读性更强</p>
+<pre><code>select user_id from user
+</code></pre></li>
+<li><p>在多表查询,关联条件时,比较清晰</p>
+<pre><code>select order.user_id, name, order_id from user, order where order.user_id = user.user_id
+</code></pre></li>
+</ul>
+</li>
+<li><p><code>id</code></p>
+<ul>
+<li><p>若需要引用某个表的<code>id</code>列,该列名还需要附带表名</p>
+<pre><code>select user_id from order;
+</code></pre></li>
+<li><p>输出目标列时,每个都需要alias,非常麻烦!</p>
+<pre><code>select user.id as user_id, order.id as order_id from user, order where user.id = order.user_id
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<p>参考:</p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/3933803/database-design-primary-key-naming-conventions?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/3933803/database-design-primary-key-naming-conventions?rq=1</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/10/数据库-命名规范/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-09 </div>
+			<div class="article-title"><a href="/2015/10/09/mysql-decimal/" >mysql-decimal</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li><p><code>decimal</code>是使用字符存储数字的,所以不存在精度丢失问题</p>
+</li>
+<li><p><code>decimal(M, N)</code></p>
+<ul>
+<li><p>M说明存储数位长度(包括小数部分, 又叫精度, precision),取值范围1~65</p>
+</li>
+<li><p>N说明小数位数(scale, 标度),取值范围0~30,必须不大于M</p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://dev.mysql.com/doc/refman/5.1/en/precision-math-decimal-characteristics.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.1/en/precision-math-decimal-characteristics.html</a></li>
+<li><a href="http://stackoverflow.com/questions/2377174/how-do-i-interpret-precision-and-scale-of-a-number-in-a-database" target="_blank" rel="external">http://stackoverflow.com/questions/2377174/how-do-i-interpret-precision-and-scale-of-a-number-in-a-database</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/09/mysql-decimal/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-30 </div>
+			<div class="article-title"><a href="/2015/09/30/app-后台经验/" >app-后台经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><ol>
+<li><p>业务逻辑实现难易程度,拓展性等跟<strong>表结构设计</strong>相关</p>
+</li>
+<li><p>API优雅跟<strong>SQL语句的熟练,精妙程度</strong>相关</p>
+</li>
+<li><p>不要为了一点性能或存储空间而增加程序或逻辑的复杂度</p>
+<p>如用<code>int</code>来存储小数, 存储和读取都需要转换,还需要知道精度,增加复杂度,<strong>得不偿失</strong></p>
+</li>
+</ol>
+<h1 id="语言设计"><a href="#语言设计" class="headerlink" title="语言设计"></a>语言设计</h1><ul>
+<li>定义重要类型的别名，如<code>typedef uint32_t uid_t</code></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/30/app-后台经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-09-30 </div>
+			<div class="article-title"><a href="/2015/09/30/sql/" >sql</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><ul>
+<li><p>当需要部分更新时,不要使用多表关联更新</p>
+<p>因为可能部分关联失败,导致需要更新的数据没有更新</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> product a, <span class="keyword">order</span> b <span class="keyword">set</span> ... <span class="keyword">where</span> a.product_id = b.product_id</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/09/30/sql/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-28 </div>
 			<div class="article-title"><a href="/2015/09/28/mysql-数据库备份恢复/" >mysql-数据库备份恢复</a></div>						
 		</h3>
@@ -346,137 +492,6 @@ mysql -uroot -pxianji -hsz003-db -P3309 stock_app &lt;stock_app.t_banner_100
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-23 </div>
-			<div class="article-title"><a href="/2015/09/23/app-认证/" >app开发-认证</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://ruby-china.org/topics/24571" target="_blank" rel="external">手机 App 如何保持会话</a></li>
-<li><a href="http://anjianshi.net/post/yan-jiu-bi-ji/auth_store" target="_blank" rel="external">登录信息存储的最佳实践</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/23/app-认证/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-23 </div>
-			<div class="article-title"><a href="/2015/09/23/go-int与string转换/" >go-int与string转换</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="int-gt-string"><a href="#int-gt-string" class="headerlink" title="int =&gt; string"></a>int =&gt; string</h1><p>第一种: strconv.Itoa(10)</p>
-<p>第二种: fmt.Sprintf(“%d”, 10)</p>
-<p>第三种: fmt.Sprint(10)</p>
-
-	
-	</div>
-  <a type="button" href="/2015/09/23/go-int与string转换/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-23 </div>
-			<div class="article-title"><a href="/2015/09/23/go-import/" >go-import</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="正则文法"><a href="#正则文法" class="headerlink" title="正则文法"></a>正则文法</h1><pre><code>ImportDecl       = &quot;import&quot; ( ImportSpec | &quot;(&quot; { ImportSpec &quot;;&quot; } &quot;)&quot; ) .
-ImportSpec       = [ &quot;.&quot; | PackageName ] ImportPath .
-ImportPath       = string_lit .
-</code></pre><h1 id="导入路径-ImportPath"><a href="#导入路径-ImportPath" class="headerlink" title="导入路径(ImportPath)"></a>导入路径(ImportPath)</h1><ul>
-<li>相对路径</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"./test"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>绝对路径(<code>gopath</code>)</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
-<h1 id="包名-PackageName"><a href="#包名-PackageName" class="headerlink" title="包名(PackageName)"></a>包名(PackageName)</h1><ul>
-<li><code>.</code></li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> . <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
-<p>这样导入后,在使用的时候无须包名</p>
-<ul>
-<li><code>_</code></li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="string">"github.com/go-sql-driver/mysql"</span></span><br></pre></td></tr></table></figure>
-<p>不直接使用该包内的导出标识符</p>
-<ul>
-<li><code>别名</code></li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> f <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
-<p>通过别名访问(“f.Println”)</p>
-<ul>
-<li>默认形式</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/ref/spec#Import_declarations" target="_blank" rel="external">https://golang.org/ref/spec#Import_declarations</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/09/23/go-import/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-22 </div>
-			<div class="article-title"><a href="/2015/09/22/产品部署/" >产品部署目录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="部署目录结构"><a href="#部署目录结构" class="headerlink" title="部署目录结构"></a>部署目录结构</h1><p>部署目录 := 起始目录/项目名称/版本号/构建类型</p>
-<p>构建类型 := 开发 | 测试 | 生产</p>
-<p>开发 := debug</p>
-<p>测试 := test</p>
-<p>生产 := release</p>
-<h2 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;PROJECT_NAME&#125;</span>/<span class="variable">$&#123;PROJECT_VERSION&#125;</span>/<span class="variable">$&#123;CMAKE_BUILD_TYPE&#125;</span></span><br></pre></td></tr></table></figure>
-<p>cmake</p>
-
-	
-	</div>
-  <a type="button" href="/2015/09/22/产品部署/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -559,7 +574,7 @@ ImportPath       = string_lit .
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -671,7 +686,7 @@ ImportPath       = string_lit .
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -782,48 +797,48 @@ ImportPath       = string_lit .
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
+			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
 		
-			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
 		
-			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
-		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
-		
-			<li><a href="/tags/文件操作/">文件操作<span>1</span></a></li>
-		
-			<li><a href="/tags/sal/">sal<span>1</span></a></li>
-		
-			<li><a href="/tags/override/">override<span>2</span></a></li>
+			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
 		
 			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/编程/">编程<span>6</span></a></li>
+			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
 		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
+			<li><a href="/tags/CGI/">CGI<span>1</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/windows/">windows<span>43</span></a></li>
 		
-			<li><a href="/tags/database/">database<span>3</span></a></li>
+			<li><a href="/tags/cron/">cron<span>1</span></a></li>
 		
-			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
+			<li><a href="/tags/网站/">网站<span>2</span></a></li>
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/备份/">备份<span>1</span></a></li>
 		
-			<li><a href="/tags/hash/">hash<span>1</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/mod-fcgid/">mod_fcgid<span>2</span></a></li>
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
 		
-			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
 		
-			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
+			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
+			<li><a href="/tags/make/">make<span>2</span></a></li>
+		
+			<li><a href="/tags/find/">find<span>3</span></a></li>
+		
+			<li><a href="/tags/extern/">extern<span>1</span></a></li>
+		
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+		
+			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -836,23 +851,23 @@ ImportPath       = string_lit .
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

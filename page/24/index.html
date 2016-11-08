@@ -111,6 +111,124 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-08-10 </div>
+			<div class="article-title"><a href="/2015/08/10/actor模型/" >actor模型</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>当一个参与者接收到一则消息，它可以做出一些决策、创建更多的参与者、发送更多的消息、决定要如何回答接下来的消息。</p>
+</li>
+<li><p>actor是一个计算实体，当其收到消息时，可以并发执行如下操作：</p>
+<ol>
+<li><p>发送有限数量的消息给其他actor</p>
+</li>
+<li><p>创建有限数量的新actor</p>
+</li>
+<li><p>指定收到下一消息时的行为</p>
+</li>
+</ol>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/10/actor模型/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-05 </div>
+			<div class="article-title"><a href="/2015/08/05/vim-十六进制编辑/" >vim-十六进制编辑</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>十六进制编辑</p>
+<pre><code>:%!xxd 
+</code></pre></li>
+<li><p>返回到文本编辑</p>
+<pre><code>:%!xxd -r
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/05/vim-十六进制编辑/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-05 </div>
+			<div class="article-title"><a href="/2015/08/05/vim-找出高亮定义位置/" >vim-找出高亮定义位置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>:verbose hi ProtoType
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/08/05/vim-找出高亮定义位置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-05 </div>
+			<div class="article-title"><a href="/2015/08/05/mod_fcgid配置/" >apache-fastcgi配置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>可执行</p>
+<pre><code>Options +ExecCGI
+</code></pre></li>
+<li><p>该目录下所有文件作为fastcgi程序执行</p>
+<pre><code>SetHandler fcgid-script
+</code></pre></li>
+<li><p>指定文件拓展名作为fastcgi程序执行</p>
+<pre><code>AddHandler fastcgi-script fcg fcgi fpl
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/05/mod_fcgid配置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-08-05 </div>
 			<div class="article-title"><a href="/2015/08/05/lsof/" >lsof</a></div>						
 		</h3>
@@ -392,144 +510,6 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-28 </div>
-			<div class="article-title"><a href="/2015/07/28/后台开发经验/" >后台开发经验</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>撤单回退资金,双重校验(传入的UID, 订单关联的UID)</p>
-</li>
-<li><p>增量拉取</p>
-<ul>
-<li><p>确定前端排序规则(排序键)</p>
-</li>
-<li><p>传入(排序键值, 拉取个数)</p>
-</li>
-</ul>
-</li>
-<li><p>错误处理</p>
-<ul>
-<li>请求参数严格校验(防止执行时导致内部错误)</li>
-<li>SQL错误结合接口意义,返回客户端错误提示</li>
-</ul>
-</li>
-<li><p>保持app原版本兼容时,相关数据表,追加版本号</p>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/28/后台开发经验/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-27 </div>
-			<div class="article-title"><a href="/2015/07/27/c-获取各种级别时间值/" >c-获取各种级别时间值</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>秒级别</p>
-<pre><code>time()
-</code></pre></li>
-<li><p>微秒</p>
-<pre><code>gettimeofday()
-</code></pre></li>
-</ul>
-<ul>
-<li><p>纳秒</p>
-<pre><code>clock_gettime()
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/27/c-获取各种级别时间值/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-24 </div>
-			<div class="article-title"><a href="/2015/07/24/python-日期加减操作/" >python-日期加减操作</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">datetime.date.today() + datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line">today = datetime.date.today() + datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line">period = int(today.strftime(<span class="string">"%Y%m%d"</span>))</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/1506901/cleanest-and-most-pythonic-way-to-get-tomorrows-date" target="_blank" rel="external">http://stackoverflow.com/questions/1506901/cleanest-and-most-pythonic-way-to-get-tomorrows-date</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/24/python-日期加减操作/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-24 </div>
-			<div class="article-title"><a href="/2015/07/24/git-常用命令/" >git-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>–git-dir 指定<code>.git</code>目录</p>
-</li>
-<li><p>–work-dir 指定工作目录</p>
-</li>
-</ul>
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
-<li><p>丢弃未缓存的修改</p>
-<pre><code>git checkout -- order.cpp
-</code></pre></li>
-<li><p>默认推送所有分支和tag</p>
-<pre><code>git push --all origin -u
-</code></pre></li>
-<li><p>迁出到指定目录</p>
-<pre><code>git --work-tree=../v0.03 checkout v0.03 .
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/24/git-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -612,7 +592,7 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -724,7 +704,7 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -835,48 +815,48 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
 		
-			<li><a href="/tags/setuptools/">setuptools<span>1</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
 		
-			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
+			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/虚函数/">虚函数<span>1</span></a></li>
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
-			<li><a href="/tags/apche/">apche<span>1</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 		
-			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
+			<li><a href="/tags/delete/">delete<span>2</span></a></li>
 		
-			<li><a href="/tags/素数/">素数<span>1</span></a></li>
+			<li><a href="/tags/xml/">xml<span>3</span></a></li>
 		
-			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
+			<li><a href="/tags/cppcheck/">cppcheck<span>1</span></a></li>
 		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
+			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
 		
-			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
+			<li><a href="/tags/slice/">slice<span>1</span></a></li>
 		
-			<li><a href="/tags/启动/">启动<span>1</span></a></li>
+			<li><a href="/tags/debug/">debug<span>3</span></a></li>
 		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/产品/">产品<span>1</span></a></li>
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -889,23 +869,23 @@ b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

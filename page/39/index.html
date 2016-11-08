@@ -111,6 +111,86 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-30 </div>
+			<div class="article-title"><a href="/2015/03/30/error code VS exception/" >error code VS exception</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="错误代码"><a href="#错误代码" class="headerlink" title="错误代码"></a>错误代码</h1><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li><p>错误处理麻烦</p>
+<p>函数调用后，需要检查其错误代码，并对相应错误进行处理(错误处理策略复杂)，<br>需要写很多”不相干”代码，包含很多<code>if-else</code>，代码丑陋，很难周密性检查，需要花很多精力处理。</p>
+</li>
+</ul>
+<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1>
+	
+	</div>
+  <a type="button" href="/2015/03/30/error code VS exception/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-30 </div>
+			<div class="article-title"><a href="/2015/03/30/C++-第三方库列表/" >C++-第三方库列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p><a href="http://gflags.github.io/gflags/" target="_blank" rel="external">gflags</a></p>
+<p>命令行参数处理</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/30/C++-第三方库列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-30 </div>
+			<div class="article-title"><a href="/2015/03/30/hexo-google站长工具验证/" >hexo-google站长工具验证</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="HTML标记方法"><a href="#HTML标记方法" class="headerlink" title="HTML标记方法"></a><code>HTML标记</code>方法</h1><ul>
+<li>选择备用方法</li>
+</ul>
+<p><img src="/img/hexo-google站长工具验证-01.png" alt=""></p>
+<ul>
+<li>将代码复制到对应主题的<code>head.ejs</code></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/30/hexo-google站长工具验证/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-27 </div>
 			<div class="article-title"><a href="/2015/03/27/网络设备登录信息列表/" >网络设备登录信息列表</a></div>						
 		</h3>
@@ -353,115 +433,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-26 </div>
-			<div class="article-title"><a href="/2015/03/26/log4cpp/" >log4cpp</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>一个C++日志库，模仿Log4j(java日志库)</p>
-<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
-<li><p>可拓展的、多种记录日志方式，包括命令行、文件、回滚文件、内存、syslog服务器、<br>win事件日志、VS debuger等</p>
-</li>
-<li><p>可动态调整日志优先级</p>
-</li>
-<li><p>可动态加载配置文件</p>
-</li>
-<li><p>内存占用小，不到200KB</p>
-</li>
-<li><p>跨平台</p>
-</li>
-</ul>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>log4cpp主要有3大组件：category、appender、layout。</p>
-<ul>
-<li><p>layout</p>
-<p>用来控制输出日志消息的格式，每个appender关联一个layout</p>
-</li>
-<li><p>appender</p>
-<p>用来指定输出目的地</p>
-</li>
-<li><p>category</p>
-<p>一个日志工作体，具有日志级别属性，可以拥有多个appender(一条消息可以输出到多个目的地)</p>
-<p>category被组织成一棵树，子category创建时优先级缺省NOTSET，category缺省会继承父category的appender。<br>而如果不希望这种appender的继承关系，log4cpp允许使用additivity 标签，为false时新的appender取代category的appender列表。</p>
-</li>
-</ul>
-<h1 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h1><ol>
-<li><p>实例化一个layout对象，设置格式</p>
-</li>
-<li><p>实例化一个appender对象，设置layout</p>
-</li>
-<li><p>实例化一个category，添加appender</p>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://log4cpp.sourceforge.net/" target="_blank" rel="external">http://log4cpp.sourceforge.net/</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/linux/l-log4cpp/" target="_blank" rel="external">便利的开发工具-log4cpp快速使用指南</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/26/log4cpp/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-25 </div>
-			<div class="article-title"><a href="/2015/03/25/cmake-常用命令/" >cmake-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>修改目标输出文件名</p>
-<pre><code>SET_TARGET_PROPERTIES(&lt;target_name&gt; PROPERTIES OUTPUT_NAME &lt;new_name&gt;)
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/25/cmake-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-24 </div>
-			<div class="article-title"><a href="/2015/03/24/windows-获取当前进程文件名/" >windows-获取当前进程文件名</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a><a href="https://github.com/QianChenglong/lily-windows/tree/master/%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%BF%9B%E7%A8%8B%E6%96%87%E4%BB%B6%E5%90%8D" target="_blank" rel="external">源码地址</a></h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms683197(v=vs.85).aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/windows/desktop/ms683197(v=vs.85).aspx</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/24/windows-获取当前进程文件名/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -544,7 +515,7 @@
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -656,7 +627,7 @@
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -767,48 +738,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/主键/">主键<span>1</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
 		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
 		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/limit/">limit<span>2</span></a></li>
 		
-			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/USB/">USB<span>1</span></a></li>
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
 		
-			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
+			<li><a href="/tags/python3/">python3<span>2</span></a></li>
 		
-			<li><a href="/tags/war/">war<span>1</span></a></li>
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
 		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+			<li><a href="/tags/固件/">固件<span>1</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/10014/">10014<span>1</span></a></li>
 		
-			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
+			<li><a href="/tags/控制台/">控制台<span>1</span></a></li>
 		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
 		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
+			<li><a href="/tags/选项/">选项<span>3</span></a></li>
 		
-			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
 		
-			<li><a href="/tags/封装/">封装<span>1</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
 		
-			<li><a href="/tags/名人堂/">名人堂<span>1</span></a></li>
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
 		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+			<li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
 		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -821,23 +792,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

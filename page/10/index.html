@@ -111,6 +111,124 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-03-28 </div>
+			<div class="article-title"><a href="/2016/03/28/go-gzip/" >go-gzip</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><a href="http://my.oschina.net/u/1431106/blog/204512" target="_blank" rel="external">http://my.oschina.net/u/1431106/blog/204512</a></li>
+<li><a href="http://stackoverflow.com/questions/16890648/how-can-i-use-golangs-compress-gzip-package-to-gzip-a-file" target="_blank" rel="external">http://stackoverflow.com/questions/16890648/how-can-i-use-golangs-compress-gzip-package-to-gzip-a-file</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/03/28/go-gzip/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-28 </div>
+			<div class="article-title"><a href="/2016/03/28/go-rsa/" >go-rsa</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.studygolang.com/2013/01/go%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86%E4%B9%8Brsa/" target="_blank" rel="external">http://blog.studygolang.com/2013/01/go%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86%E4%B9%8Brsa/</a></li>
+<li><a href="http://stackoverflow.com/questions/14404757/how-to-encrypt-and-decrypt-plain-text-with-a-rsa-keys-in-go" target="_blank" rel="external">http://stackoverflow.com/questions/14404757/how-to-encrypt-and-decrypt-plain-text-with-a-rsa-keys-in-go</a></li>
+<li><a href="http://golangtc.com/t/54c0c8ff421aa95374000091" target="_blank" rel="external">http://golangtc.com/t/54c0c8ff421aa95374000091</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/03/28/go-rsa/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-28 </div>
+			<div class="article-title"><a href="/2016/03/28/openssl/" >openssl</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
+<li><p>生成RSA私钥</p>
+<pre><code>openssl genrsa -out private.pem 1024
+</code></pre></li>
+<li><p>根据私钥生成公钥</p>
+<pre><code>openssl rsa -in private.pem -pubout -out public.pem
+</code></pre></li>
+<li><p>直接明文查看</p>
+<pre><code>openssl rsa -in private.pem -text -noout
+</code></pre></li>
+<li><p>以ASN.1查看</p>
+<pre><code>openssl asn1parse -in private.pem -noout
+</code></pre></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[I] /tmp openssl asn1parse -in private.pem </span><br><span class="line">    0:d=0  hl=4 l= 606 cons: SEQUENCE</span><br><span class="line">    4:d=1  hl=2 l=   1 prim: INTEGER           :00</span><br><span class="line">    7:d=1  hl=3 l= 129 prim: INTEGER [N]       :AD1B7BF5AE71D005A859BC0DD73FD5B18636B0022C22621A8BF8E422E1C2D31F1CC68321C3B5092E96A471BA343E2639F2B354A438DB10C978968E58FD637E4C5D91182B1B4628946D7E6DA3665172B9808C27FFEDB6EB371A55A5B724DCC8A1E8A5C8E88F34042A4D8D9FF17803683F52BBAAEE0922B8A3D6FC1A428FFB91B9</span><br><span class="line">  139:d=1  hl=2 l=   3 prim: INTEGER [E]       :010001</span><br><span class="line">  144:d=1  hl=3 l= 128 prim: INTEGER [D]       :7D64C8517A30C56023C804B9FDEF26AB76AE4CA6F6335DDF1EFF86BA61D10FBF9CC78B9BBCB979D23E9B162AACC74C4773B045A2C3F0A3E35D2FAA237A4144ED791951CCA5F89360E6163641CAC8ED769483644B6320D2C1569960C535DD50A765C5523E12BD44241AB23A217134EFA6DDE30DBF8C8BACF6A0D86F117F1DADA5</span><br><span class="line">  275:d=1  hl=2 l=  65 prim: INTEGER           :DC514054FFE713A66213D7638E0EE9D23E69672CF35D14E9DBFBF8C4A888E1096A18BBDCEC6B11831FB3E11823BC271931C83E97DB58E71384FC33DC584F1FCB</span><br><span class="line">  342:d=1  hl=2 l=  65 prim: INTEGER           :C924D2576E99412C4F4AA946352E24EDA76DEA5BD114A8282AFE1BB7B2BAF1484046291B293D9DB7F3662849202164EC923CDDBBAB95940E083EDA5BADF11C0B</span><br><span class="line">  409:d=1  hl=2 l=  65 prim: INTEGER           :85C6C85B546F895CF41CBC227535D500966905FF235E97BE5097353CA46148D3A09A9827D35E47E9E8AC1EB7BBAB19CA9091D87FF8EE88912FA4BC10C58675F5</span><br><span class="line">  476:d=1  hl=2 l=  65 prim: INTEGER           :A37CFE4A7A66AE86695C7201D2AFD2EC27AE3B52ADBA7083558E7CD0EEC0EBE4A1F964E7E2B9663C61E5A2D0ED00B79B61B17F384EDAA12056AB5FA82CD550C9</span><br><span class="line">  543:d=1  hl=2 l=  65 prim: INTEGER           :B6E4F2280035C65B6D154BAB44E09877A61D069392B2A63C4F808F7D749CFD7FAEBE450B6E596761F5974885D9F43340FB272C1F57F168366E8F3AABDEAD6413</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>获取N</p>
+<pre><code>openssl rsa -in private.pem -modulus -noout
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/28/openssl/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-28 </div>
+			<div class="article-title"><a href="/2016/03/28/ssh-keygen/" >ssh-keygen</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>将pub格式转换为pem格式</p>
+<pre><code>ssh-keygen -f id_rsa.pub -e -m pem &gt;id_rsa.pub.pem
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/28/ssh-keygen/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-03-24 </div>
 			<div class="article-title"><a href="/2016/03/24/fuser/" >fuser</a></div>						
 		</h3>
@@ -417,185 +535,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-19 </div>
-			<div class="article-title"><a href="/2016/03/19/rpm/" >rpm</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查询包信息</p>
-<pre><code>rpm -q glibc
-</code></pre></li>
-<li><p>列出包文件</p>
-<pre><code>rpm -ql glibc
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/03/19/rpm/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-19 </div>
-			<div class="article-title"><a href="/2016/03/19/yum/" >yum</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查询文件所属</p>
-<pre><code>yum provides /usr/include/sys/types.h
-</code></pre></li>
-<li><p>下载包</p>
-<pre><code>yum -y install yum-utils
-yumdownloader httpd
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/03/19/yum/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-18 </div>
-			<div class="article-title"><a href="/2016/03/18/protobuf/" >protobuf</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
-<li>二进制编码，格式紧凑，编解码快，省流量</li>
-</ul>
-<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><pre><code>protoc [OPTION] PROTO_FILES
-</code></pre><h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><ul>
-<li><p>输出c++代码</p>
-<pre><code>protoc --cpp_out=. base.proto
-</code></pre></li>
-</ul>
-<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><ul>
-<li><p>基本类型(<code>uint32</code>、<code>string</code>等)提供了<code>set_</code>方法</p>
-</li>
-<li><p>singular(<code>单数</code>) message字段(自定义消息)，提供<code>mutalbe_</code>方法设置值，没有<code>set_</code>方法</p>
-</li>
-<li><p>repeated字段</p>
-<ul>
-<li><code>_size</code>查询数量</li>
-<li>下标访问(获取，修改)</li>
-<li><code>add_</code>添加(返回指针来修改数据)</li>
-</ul>
-</li>
-</ul>
-<h1 id="编码风格-https-developers-google-com-protocol-buffers-docs-style"><a href="#编码风格-https-developers-google-com-protocol-buffers-docs-style" class="headerlink" title="编码风格(https://developers.google.com/protocol-buffers/docs/style)"></a>编码风格(<a href="https://developers.google.com/protocol-buffers/docs/style" target="_blank" rel="external">https://developers.google.com/protocol-buffers/docs/style</a>)</h1><ul>
-<li><p>消息类型</p>
-<p>CamelCase(with an initial capital)</p>
-</li>
-<li><p>字段</p>
-<p>underscore_separated_names</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">message SongServerRequest &#123;</span><br><span class="line">  required string song_name = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">C++:</span><br><span class="line">  const string&amp; song_name() &#123; ... &#125;</span><br><span class="line">  void set_song_name(const string&amp; x) &#123; ... &#125;</span><br><span class="line"></span><br><span class="line">Java:</span><br><span class="line">  public String getSongName() &#123; ... &#125;</span><br><span class="line">  public Builder setSongName(String v) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>枚举</p>
-<p>Use CamelCase (with an initial capital) for enum type names and CAPITALS_WITH_UNDERSCORES for value names</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum Foo &#123;</span><br><span class="line">  FIRST_VALUE = 1;</span><br><span class="line">  SECOND_VALUE = 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>service</p>
-<p>CamelCase (with an initial capital) for both the service name and any RPC method names</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service FooService &#123;</span><br><span class="line">  rpc GetSomething(FooRequest) returns (FooResponse);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2016/03/18/protobuf/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-15 </div>
-			<div class="article-title"><a href="/2016/03/15/epoll/" >epoll</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">epoll_wait</span><span class="params">(<span class="keyword">int</span> epfd, <span class="keyword">struct</span> epoll_event *events, <span class="keyword">int</span> maxevents, <span class="keyword">int</span> timeout)</span></span>;</span><br></pre></td></tr></table></figure>
-<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><ul>
-<li><blockquote>
-<p>0 返回IO就绪的文件描述符总数；</p>
-</blockquote>
-</li>
-<li><p>==0 超时返回</p>
-</li>
-<li><p>&lt;0(-1) 出错(需要注意，该调用为慢速系统调用，当被信号中断时，返回EINTR)</p>
-</li>
-</ul>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>调用epoll_create时，内核除了帮我们在epoll文件系统里建了个file结点，在内核cache里建了个红黑树用于存储以后epoll_ctl传来的fd外，还会再建立一个list链表，用于存储准备就绪的事件，当epoll_wait调用时，仅仅观察这个list链表里有没有数据即可。有数据就返回，没有数据就sleep，等到timeout时间到后即使链表没数据也返回。所以，epoll_wait非常高效。而且，通常情况下即使我们要监控百万计的fd，大多一次也只返回很少量的准备就绪fd而已，所以，epoll_wait仅需要从内核态copy少量的fd到用户态而已。那么，这个准备就绪list链表是怎么维护的呢？当我们执行epoll_ctl时，除了把fd放到epoll文件系统里file对象对应的红黑树上之外，还会给内核中断处理程序注册一个回调函数，告诉内核，如果这个fd的中断到了，就把它放到准备就绪list链表里。所以，当一个fd（例如socket）上有数据到了，内核在把设备（例如网卡）上的数据copy到内核中后就来把fd（socket）插入到准备就绪list链表里了</p>
-<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><ol>
-<li><p>执行<code>epoll_create</code>时，创建了红黑树和就绪list链表。</p>
-</li>
-<li><p>执行<code>epoll_ctl</code>时，如果增加fd（socket），则检查在红黑树中是否存在，存在立即返回，不存在则添加到红黑树上，然后向内核注册回调函数，用于当中断事件来临时向准备就绪list链表中插入数据。</p>
-</li>
-<li><p>执行<code>epoll_wait</code>时立刻返回准备就绪链表里的数据</p>
-</li>
-</ol>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p><code>epoll_event</code>中的<code>epoll_data_t</code>用来存储用户自定义数据</p>
-<p>当与其绑定的<code>fd</code>上发生指定的事件时，<code>epoll_wait</code>返回该<code>event</code>，用户可以拿到该数据</p>
-</li>
-</ul>
-<h1 id="为什么高效（相对select，poll-？"><a href="#为什么高效（相对select，poll-？" class="headerlink" title="为什么高效（相对select，poll)？"></a>为什么高效（相对<code>select</code>，<code>poll</code>)？</h1><ul>
-<li><p>无需每次调用，都将套接字集合从应用层拷贝到内核层。</p>
-<p>epoll采用红黑树来管理描述符，<code>epoll_ctl</code>执行管理操作</p>
-</li>
-<li><p>当有IO事件返回时，epoll无需遍历整个描述符集合(O(m)，m为IO就绪的数量)，而select/poll则是O(n)，大大的减少了轮询操作</p>
-<p>epoll返回event的集合(该event结构包含用户数据)，应用层只需根据原有数据来分发事件</p>
-</li>
-<li><p>内核采用slab算法管理epoll相关数据结构，加速了相关操作时间</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/03/15/epoll/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -678,7 +617,7 @@ yumdownloader httpd
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -790,7 +729,7 @@ yumdownloader httpd
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -901,48 +840,48 @@ yumdownloader httpd
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/编译/">编译<span>11</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
 		
-			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
-			<li><a href="/tags/乱码/">乱码<span>1</span></a></li>
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/journalctl/">journalctl<span>1</span></a></li>
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
 		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
 		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
 		
-			<li><a href="/tags/dns/">dns<span>1</span></a></li>
+			<li><a href="/tags/ping/">ping<span>2</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
 		
-			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
+			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
 		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/sql/">sql<span>7</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
-			<li><a href="/tags/static/">static<span>2</span></a></li>
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
 		
-			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
+			<li><a href="/tags/宏/">宏<span>4</span></a></li>
 		
-			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+			<li><a href="/tags/lexiacal-cast/">lexiacal_cast<span>1</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/TF/">TF<span>1</span></a></li>
 		
-			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -955,23 +894,23 @@ yumdownloader httpd
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

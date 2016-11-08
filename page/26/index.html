@@ -111,6 +111,140 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-07-20 </div>
+			<div class="article-title"><a href="/2015/07/20/sql-数据更新/" >sql-数据更新</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><ul>
+<li><p>记录不存在,则插入</p>
+</li>
+<li><p>记录若存在,则更新指定值</p>
+</li>
+</ul>
+<h1 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h1><ul>
+<li>数据必须存在唯一性</li>
+</ul>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="1-INSERT-ON-DUPLICATE-KEY-UPDATE"><a href="#1-INSERT-ON-DUPLICATE-KEY-UPDATE" class="headerlink" title="1.INSERT ... ON DUPLICATE KEY UPDATE"></a>1.<code>INSERT ... ON DUPLICATE KEY UPDATE</code></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">table</span> (<span class="keyword">id</span>, <span class="keyword">name</span>, age) <span class="keyword">VALUES</span>(<span class="number">1</span>, <span class="string">"A"</span>, <span class="number">19</span>) <span class="keyword">ON</span> <span class="keyword">DUPLICATE</span> <span class="keyword">KEY</span></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">name</span>=<span class="keyword">VALUES</span>(<span class="keyword">name</span>), age=<span class="keyword">VALUES</span>(age)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/20/sql-数据更新/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-16 </div>
+			<div class="article-title"><a href="/2015/07/16/mysql-字符串/" >mysql-字符串</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h1><ul>
+<li><p><code>char(N)</code>, <code>varchar(N)</code>,N指的是<strong>特定字符集下的</strong>字符长度</p>
+<ul>
+<li>latin1下,char(1)占1字节</li>
+<li>utf-8下,char(1)占1~4字节,汉字一般占3字节</li>
+</ul>
+</li>
+</ul>
+<h1 id="长度判断"><a href="#长度判断" class="headerlink" title="长度判断"></a>长度判断</h1><ul>
+<li><p><code>length()</code> 获取字符串占用多少字节</p>
+</li>
+<li><p><code>char_length()</code> 获取字符串长度(特定字符集下的字符个数)</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/16/mysql-字符串/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-15 </div>
+			<div class="article-title"><a href="/2015/07/15/sql-经验/" >sql-经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>除非查询所有字段，否则避免使用select *</p>
+<ul>
+<li>增加IO，增加查询时间</li>
+<li>增加网络传输，浪费用户流量</li>
+<li>增加不安全性，客户端看见了所有字段</li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/15/sql-经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-15 </div>
+			<div class="article-title"><a href="/2015/07/15/mysql-IP类型/" >mysql-IP类型.md</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>int</p>
+</li>
+<li><p>字符串转int</p>
+<pre><code>select inet_aton(&apos;192.168.0.1&apos;);
+</code></pre></li>
+<li><p>int转字符串</p>
+<pre><code>select inet_ntoa(&apos;3232235521&apos;);
+</code></pre></li>
+<li><p>判断IP段</p>
+<pre><code>select inet_aton(&apos;192.168.0.0&apos;) &lt;= inet_aton(&apos;192.168.0.1&apos;);
+select inet_aton(&apos;192.168.1.1&apos;) &lt;= inet_aton(&apos;192.168.0.255&apos;);
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/15/mysql-IP类型/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-07-14 </div>
 			<div class="article-title"><a href="/2015/07/14/数字签名/" >数字签名</a></div>						
 		</h3>
@@ -358,134 +492,6 @@ make install
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-09 </div>
-			<div class="article-title"><a href="/2015/07/09/mysql-事务/" >mysql-事务</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>当连接设置为自动提交时，所有修改语句永久生效，不可回滚！</p>
-</li>
-<li><p>当事务未提交时，数据只对当前连接可见！</p>
-</li>
-<li><p>mysql默认自动提交</p>
-</li>
-</ul>
-<pre><code>SELECT @@autocommit;
-</code></pre><ul>
-<li><p>设置为手动提交</p>
-<pre><code>SET autocommit=0;
-</code></pre></li>
-<li><p>手动提交</p>
-<pre><code>commit;
-</code></pre></li>
-<li><p>回滚</p>
-<pre><code>rollback;
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://zetcode.com/databases/mysqltutorial/transactions/#autocommit" target="_blank" rel="external">http://zetcode.com/databases/mysqltutorial/transactions/#autocommit</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/09/mysql-事务/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-09 </div>
-			<div class="article-title"><a href="/2015/07/09/sudo赋权/" >sudo赋权</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>usermod -a -G sudo mzs0207
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/07/09/sudo赋权/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-08 </div>
-			<div class="article-title"><a href="/2015/07/08/nodejs-调试/" >nodejs-调试</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>安装</p>
-<pre><code>npm install -g node-inspector
-</code></pre></li>
-<li><p>运行</p>
-<pre><code>node-inspector
-</code></pre></li>
-<li><p>打开调试页面</p>
-<pre><code>http://127.0.0.1:8080/?ws=127.0.0.1:8080&amp;port=5858
-</code></pre></li>
-<li><p>调试程序</p>
-<pre><code>node --debug *.js
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/08/nodejs-调试/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-08 </div>
-			<div class="article-title"><a href="/2015/07/08/python-执行注释头/" >python-执行注释头</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>在python文件开头指定python版本，windows下也可用(<strong>文件关联使用py.exe打开</strong>)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#! /usr/bin/env python2</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.zhihu.com/question/22846291" target="_blank" rel="external">http://www.zhihu.com/question/22846291</a></li>
-<li><a href="https://docs.python.org/3/using/windows.html#python-launcher-for-windows" target="_blank" rel="external">https://docs.python.org/3/using/windows.html#python-launcher-for-windows</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/08/python-执行注释头/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -568,7 +574,7 @@ make install
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -680,7 +686,7 @@ make install
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -791,48 +797,48 @@ make install
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
 		
-			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
+			<li><a href="/tags/错误/">错误<span>2</span></a></li>
 		
-			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
+			<li><a href="/tags/C/">C++<span>40</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/gcc/">gcc<span>5</span></a></li>
 		
-			<li><a href="/tags/size/">size<span>1</span></a></li>
+			<li><a href="/tags/macro/">macro<span>4</span></a></li>
 		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
+			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
 		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
 		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/理解/">理解<span>1</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
-			<li><a href="/tags/fastcgi/">fastcgi<span>3</span></a></li>
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/后台/">后台<span>6</span></a></li>
+			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
 		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
+			<li><a href="/tags/删除/">删除<span>1</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
 		
-			<li><a href="/tags/clover/">clover<span>1</span></a></li>
+			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
 		
-			<li><a href="/tags/date/">date<span>1</span></a></li>
+			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/T/">__T<span>1</span></a></li>
 		
-			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
+			<li><a href="/tags/编码规范/">编码规范<span>2</span></a></li>
 		
-			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
+			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -845,23 +851,23 @@ make install
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

@@ -111,6 +111,143 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-04-26 </div>
+			<div class="article-title"><a href="/2016/04/26/daemon/" >daemon</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p><code>fork</code>，退出父进程</p>
+<p>确保后面<code>setsid</code>可以执行成功</p>
+</li>
+<li><p><code>setsid</code></p>
+<p>创建新的会话(session)，要求该进程不是进程组长(process group leader)。</p>
+<p>当创建了新的会话，便脱离了原有的控制终端(tty)</p>
+</li>
+<li><p>再次<code>fork</code>，退出父进程</p>
+<p>可以防止潜在要求打开控制终端，因为控制终端必须要进程组长才可以打开</p>
+</li>
+<li><p><code>chdir</code>, 修改当前工作目录</p>
+<p>不影响<code>umount</code></p>
+</li>
+<li><p><code>umask</code>, 设置默认的文件屏蔽字</p>
+</li>
+<li><p>关闭打开的文件描述符(0,1,2等，可通过<code>ls /proc/pid/fd</code>查看打开的文件描述符)</p>
+<p>若不关闭，虽然没有了控制终端，不会接受到相应控制信号，则仍能IO对应文件，如标准输出到启动时的终端，从终端读入！</p>
+<ul>
+<li>需要注意，默认为行缓冲！</li>
+</ul>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/26/daemon/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-25 </div>
+			<div class="article-title"><a href="/2016/04/25/net/" >net</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="use-samba"><a href="#use-samba" class="headerlink" title="use(samba)"></a>use(samba)</h1><ul>
+<li><p>查看帮助</p>
+<pre><code>net help use
+</code></pre></li>
+<li><p>建立连接</p>
+<pre><code>net use * /user:username \\computername\sharename password
+net use * /user:pm \\192.168.1.2\pm pm0422
+</code></pre></li>
+<li><p>映射连接</p>
+<pre><code>net use * /user:pm \\192.168.1.2\pm pm0422
+</code></pre></li>
+<li><p>删除连接</p>
+<pre><code>net use \\computername\sharename /delete
+</code></pre></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://technet.microsoft.com/en-us/library/bb490717.aspx" target="_blank" rel="external">https://technet.microsoft.com/en-us/library/bb490717.aspx</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/25/net/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-22 </div>
+			<div class="article-title"><a href="/2016/04/22/suse/" >suse</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>添加软件源</p>
+<pre><code>zypper ar -f &lt;URL&gt; &lt;alias&gt;
+zypper ar -f http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/11.2/repo/oss/ rep
+</code></pre></li>
+<li><p>关闭防火墙</p>
+<pre><code>/sbin/rcSuSEfirewall2 stop
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/04/22/suse/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-22 </div>
+			<div class="article-title"><a href="/2016/04/22/mysql-开发经验/" >mysql-开发经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>程序中，SQL语句尽量用’`’括起来，避免关键字冲突</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/04/22/mysql-开发经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-04-22 </div>
 			<div class="article-title"><a href="/2016/04/22/windows-md5/" >windows-md5</a></div>						
 		</h3>
@@ -307,201 +444,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-13 </div>
-			<div class="article-title"><a href="/2016/04/13/centos-安装记录/" >centos-安装记录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>安装VBoxGuestAdditions</p>
-</li>
-<li><p>配置sudo</p>
-<pre><code>visudo
-
-wallace ALL=(ALL)       NOPASSWD: ALL
-</code></pre></li>
-<li><p>安装epel(<a href="http://www.cyberciti.biz/faq/installing-rhel-epel-repo-on-centos-redhat-7-x/" target="_blank" rel="external">http://www.cyberciti.biz/faq/installing-rhel-epel-repo-on-centos-redhat-7-x/</a>)</p>
-<pre><code>yum install epel-release
-</code></pre></li>
-<li><p>添加组</p>
-<pre><code>yum install libuser
-lgroup -M wallace vboxsf
-</code></pre></li>
-<li><p>配置环境变量</p>
-<pre><code>vi /etc/profile
-</code></pre></li>
-<li><p>配置系统语言</p>
-<pre><code>echo LANG=en_US.UTF-8 &gt;/etc/locale.conf
-</code></pre></li>
-<li><p>配置启动时间</p>
-<pre><code>vi /boot/grub2/grub.cfg
-
-set timeout=1
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/13/centos-安装记录/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-12 </div>
-			<div class="article-title"><a href="/2016/04/12/死锁/" >死锁</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="产生的必要条件"><a href="#产生的必要条件" class="headerlink" title="产生的必要条件"></a>产生的必要条件</h1><ul>
-<li>互斥</li>
-<li>请求与保持</li>
-<li>不被剥夺</li>
-<li><p>循环等待</p>
-<p>一直等待请求额外互斥资源</p>
-</li>
-</ul>
-<h1 id="可能发生的场景"><a href="#可能发生的场景" class="headerlink" title="可能发生的场景"></a>可能发生的场景</h1><ul>
-<li><p>在函数嵌套调用中，多次请求同一资源</p>
-</li>
-<li><p>不同线程中，以不同的顺序请求多个资源，而其中某个资源不足</p>
-</li>
-</ul>
-<h1 id="调试与诊断方法"><a href="#调试与诊断方法" class="headerlink" title="调试与诊断方法"></a>调试与诊断方法</h1><ol>
-<li><p><code>ps</code>查看进程PID，状态，阻塞原因</p>
-</li>
-<li><p><code>gdb attach</code>到目标进程</p>
-</li>
-<li><p>保存现场，防止后续调试破环</p>
-<pre><code>generate-core-file
-</code></pre></li>
-<li><p>查看所有线程的调用栈</p>
-<pre><code>thread apply all bt
-</code></pre></li>
-<li><p>切换到相应线程</p>
-<pre><code>thread NUM
-</code></pre></li>
-<li><p>查看相应互斥量，持有情况(<code>pthread_mutex_t.__owner</code>)</p>
-<pre><code>print MUTEX
-</code></pre></li>
-</ol>
-<h1 id="预防"><a href="#预防" class="headerlink" title="预防"></a>预防</h1><ul>
-<li>打破产生死锁的4个必要条件中的任何一个</li>
-</ul>
-<ul>
-<li><p>利用RAII手段，确保stack mutex离开作用域时被解锁(<code>MutexGuard, std::lock_guard</code>)</p>
-<ul>
-<li><p>异常结束(throw)</p>
-</li>
-<li><p>分支跳出(break, continue, return)</p>
-</li>
-<li><p>意外退出点(exit)</p>
-</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/12/死锁/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-08 </div>
-			<div class="article-title"><a href="/2016/04/08/cpp/" >cpp</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-dCHARS</p>
-<p><code>CHARS</code>前面不能有空格</p>
-<ul>
-<li><p>M</p>
-<p>处理<code>#define</code>指令</p>
-</li>
-<li><p>D(常用)</p>
-<p>Like M except in two respects: it does not include the predefined macros, and it outputs both the #define directives and the result of preprocessing.<br>Both kinds of output go to the standard output file.</p>
-</li>
-<li><p>I</p>
-<p>Output #include directives in addition to the result of preprocessing.</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://gcc.gnu.org/onlinedocs/cpp/Preprocessor-Output.html" target="_blank" rel="external">cpp输出格式</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/08/cpp/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-07 </div>
-			<div class="article-title"><a href="/2016/04/07/mysql-char-vs-varchar/" >mysql-char-vs-varchar</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><h2 id="占用空间"><a href="#占用空间" class="headerlink" title="占用空间"></a>占用空间</h2><ul>
-<li><p>char(M)占用空间固定，M[0,255]个字符，具体占用字节与编码相关</p>
-</li>
-<li><p>varchar(M[0,65535])占用空间不固定，因为首部占用1或2B来记录长度M+1(<code>M&lt;256</code>)，占用M+2(<code>255&lt;M&lt;65536</code>)</p>
-</li>
-</ul>
-<h2 id="关于空格"><a href="#关于空格" class="headerlink" title="关于空格"></a>关于空格</h2><ul>
-<li><p>在存储字符串到char中时，会填充空格至相应长度</p>
-</li>
-<li><p>取出char类型值时，若<code>sql_mode</code>没有设置<code>PAD_CHAR_TO_FULL_LENGTH</code>，则会去除尾部空格</p>
-<p>所以导致插入带空格的字符串，取出时却不带有空格！</p>
-</li>
-<li><p>varchar会存储空格和保留空格，不会转换！</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://dev.mysql.com/doc/refman/5.6/en/char.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.6/en/char.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/04/07/mysql-char-vs-varchar/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -584,7 +526,7 @@ set timeout=1
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -696,7 +638,7 @@ set timeout=1
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -807,48 +749,48 @@ set timeout=1
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
-			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+			<li><a href="/tags/literal/">literal<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
-			<li><a href="/tags/cp/">cp<span>1</span></a></li>
-		
-			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
-		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
-		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
-		
-			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
-		
-			<li><a href="/tags/nullptr/">nullptr<span>1</span></a></li>
-		
-			<li><a href="/tags/override/">override<span>2</span></a></li>
-		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>7</span></a></li>
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
 		
 			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
 		
-			<li><a href="/tags/时间/">时间<span>3</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
+		
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+		
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+		
+			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
+		
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+		
+			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+		
+			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+		
+			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
+		
+			<li><a href="/tags/STL/">STL<span>1</span></a></li>
+		
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+		
+			<li><a href="/tags/帮助/">帮助<span>1</span></a></li>
 		
 			<li><a href="/tags/include/">include<span>2</span></a></li>
 		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
+			<li><a href="/tags/fish-shell/">fish,shell<span>1</span></a></li>
 		
-			<li><a href="/tags/curl/">curl<span>2</span></a></li>
-		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
-		
-			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -861,23 +803,23 @@ set timeout=1
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

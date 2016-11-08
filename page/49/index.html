@@ -111,6 +111,160 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-02-05 </div>
+			<div class="article-title"><a href="/2015/02/05/gcc选项简记/" >gcc选项简记</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>-D name=definition</p>
+<p>指定预处理宏定义，相当于#define name definition</p>
+</li>
+<li><p>-std=XXX</p>
+<ul>
+<li>c99</li>
+<li>c++11</li>
+</ul>
+</li>
+<li><p>-M</p>
+<p>输出依赖关系，隐含-E，也就是不编译，只是查看依赖关系，依赖关系包含系统头文件</p>
+</li>
+<li><p>-MM</p>
+<p>输出依赖关系，只是用户的，不包含库文件</p>
+</li>
+<li><p>-MF file</p>
+<p>依赖关系的结果输出到指定文件中，必须指定-M或-MM</p>
+</li>
+<li><p>-MD</p>
+<p>相当于-MM -MF <em>.d ，<br>输出依赖关系，不隐含-E，也就是同时生成依赖文件(</em>.d)，还编译,依赖关系中包含<br>系统头文件</p>
+</li>
+<li><p>-MMD</p>
+<p>相当于-MD，生成的*.d中不包含系统头文件</p>
+</li>
+<li><p>-MT file</p>
+<p>使用file中的依赖关系编译，也就是配合-MMD或-MD或-MF来使用，使用他们生成的依赖<br>关系自动编译</p>
+</li>
+<li><p>-MP</p>
+<p>连头文件也输出对应的依赖关系，可能为伪目标，防止删除了头文件，而没有更新<br>makefile导致编译错误</p>
+</li>
+<li><p>-Ldir</p>
+<p>添加dir到目录列表，目录列表用来搜索链接库</p>
+</li>
+<li><p>-llibrary</p>
+<p>指定链接库，优先寻找共享库(liblibrary.so,liblibrary.a)，该选项最好放到最后，<br>防止后面需要链接的，详见gcc(1)</p>
+</li>
+<li><p>-static</p>
+<p>指定链接静态库</p>
+</li>
+<li><p>-fPIC</p>
+<p>生成位置无关代码(position independent code)</p>
+</li>
+<li><p>-shared</p>
+<p>生成共享库，需要-fPIC</p>
+</li>
+<li><p>-Idir</p>
+<p>添加目录到搜索头文件列表，添加的优先搜索</p>
+</li>
+<li><p>-Wl,</p>
+<p>向链接器传递选项，’,’隔开选项</p>
+</li>
+<li><p>-Wa,</p>
+<p>向汇编器传递选项，’,’隔开选项</p>
+</li>
+<li><p>-Wp,</p>
+<p>向预处理器传递选项，’,’隔开选项</p>
+</li>
+<li><p>-O</p>
+<p>不开启优化</p>
+</li>
+</ul>
+<h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h1><ul>
+<li><p>-ggdb3</p>
+<p>生成gdb的调试信息，带宏相关</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/05/gcc选项简记/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-04 </div>
+			<div class="article-title"><a href="/2015/02/04/linux优秀书籍列表/" >linux优秀书籍列表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>The Linux Kernel Module Programming Guide</p>
+<p>Linux内核模块编程</p>
+<ul>
+<li><a href="http://www.tldp.org/LDP/lkmpg/2.6/html/index.html" target="_blank" rel="external">在线阅读</a></li>
+<li><a href="http://www.tldp.org/LDP/lkmpg/2.6/lkmpg.pdf" target="_blank" rel="external">pdf下载</a></li>
+</ul>
+</li>
+<li><p>Introduction to Linux</p>
+<ul>
+<li><a href="http://tldp.org/LDP/intro-linux/html/" target="_blank" rel="external">在线阅读</a></li>
+</ul>
+</li>
+<li><p>Guide to IP Layer Network Administration with Linux</p>
+<ul>
+<li><a href="http://linux-ip.net/html/" target="_blank" rel="external">在线阅读</a></li>
+<li><a href="http://linux-ip.net/" target="_blank" rel="external">下载</a></li>
+</ul>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/04/linux优秀书籍列表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-04 </div>
+			<div class="article-title"><a href="/2015/02/04/BSD-tcp-ip头文件组织/" >BSD-tcp-ip头文件组织</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 头文件           | 作用                                             |<br>|——————+————————————————–|<br>| <code>&lt;sys/socket.h&gt;</code> | 核心socket API和数据结构                         |<br>| <code>&lt;netinet/in.h&gt;</code> | IPv4，IPv6等相关协议族地址结构定义，常用端口定义 |<br>| <code>&lt;arpa/inet.h&gt;</code>  | IP地址操作                                       |<br>| <code>&lt;netdb.h&gt;</code>      | 网络数据库查询，如主机名，服务等                 |</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://en.wikipedia.org/wiki/Berkeley_sockets#Header_files" target="_blank" rel="external">http://en.wikipedia.org/wiki/Berkeley_sockets#Header_files</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/04/BSD-tcp-ip头文件组织/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-03 </div>
 			<div class="article-title"><a href="/2015/02/03/grep/" >grep</a></div>						
 		</h3>
@@ -371,99 +525,6 @@ apt-cache show PACKAGE
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-03 </div>
-			<div class="article-title"><a href="/2015/02/03/为什么工业控制中用串口不用usb口/" >为什么工业控制中用串口不用usb口</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<blockquote>
-<p>USB传输距离短，超过3米就衰减大了，且传输的是数字信号。<br>串口传输距离一般25米，超过25米衰减变大，但可以通过加中继设备增加传输距离，传输的是模拟信号。 适用于功能的遥控，遥信，采集信号等。</p>
-</blockquote>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://zhidao.baidu.com/link?url=GRHZYimPe-X2pEfWudaDVL969TEaIO11-5yi3yybyWqOpT9NpvOLVoG8Xj_WQOs5nKJLjrKw_bVx2mYuXe0PuK" target="_blank" rel="external">http://zhidao.baidu.com/link?url=GRHZYimPe-X2pEfWudaDVL969TEaIO11-5yi3yybyWqOpT9NpvOLVoG8Xj_WQOs5nKJLjrKw_bVx2mYuXe0PuK</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/03/为什么工业控制中用串口不用usb口/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-02 </div>
-			<div class="article-title"><a href="/2015/02/02/ubuntu-自动登录/" >ubuntu-自动登录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="UI方式"><a href="#UI方式" class="headerlink" title="UI方式"></a>UI方式</h1><ul>
-<li><p>【system setting】 =&gt; 【user accounts】</p>
-<p><img src="/img/ubuntu-自动登录-01.png" alt=""></p>
-</li>
-</ul>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><ul>
-<li><p>打开</p>
-<pre><code>sudo gedit /etc/lightdm/lightdm.conf
-</code></pre></li>
-<li><p>添加</p>
-<pre><code>autologin-user=username
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://wiki.ubuntu.com/LightDM" target="_blank" rel="external">https://wiki.ubuntu.com/LightDM</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/02/ubuntu-自动登录/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-02 </div>
-			<div class="article-title"><a href="/2015/02/02/windows-免密码自动登录/" >windows-免密码自动登录</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><code>Win + r</code>打开运行对话框</p>
-<pre><code>control userpasswords2
-</code></pre></li>
-<li><p>去掉勾【要使用本机，用户必须要输入账户名和密码】</p>
-<p><img src="/img/windows-免密码自动登录-01.png" alt=""></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/02/windows-免密码自动登录/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -546,7 +607,7 @@ apt-cache show PACKAGE
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -658,7 +719,7 @@ apt-cache show PACKAGE
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -769,48 +830,48 @@ apt-cache show PACKAGE
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
 		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+			<li><a href="/tags/dns/">dns<span>1</span></a></li>
 		
-			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
+			<li><a href="/tags/域名/">域名<span>1</span></a></li>
 		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+			<li><a href="/tags/时间/">时间<span>3</span></a></li>
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/T/">__T<span>1</span></a></li>
 		
-			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
 		
-			<li><a href="/tags/gocode/">gocode<span>1</span></a></li>
+			<li><a href="/tags/理论/">理论<span>1</span></a></li>
 		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
-			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
-			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
 		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
 		
-			<li><a href="/tags/c99/">c99<span>1</span></a></li>
+			<li><a href="/tags/column/">column<span>1</span></a></li>
 		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/sockaddr-in/">sockaddr_in<span>1</span></a></li>
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/aes/">aes<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -823,23 +884,23 @@ apt-cache show PACKAGE
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

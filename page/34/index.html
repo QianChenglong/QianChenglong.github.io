@@ -111,6 +111,104 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-05-29 </div>
+			<div class="article-title"><a href="/2015/05/29/经验/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>没有更好的办法之前，先用笨办法解决问题</p>
+</li>
+<li><p>区分代码版本</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/05/29/经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-27 </div>
+			<div class="article-title"><a href="/2015/05/27/APP后台API设计/" >APP后台设计</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="设计准则"><a href="#设计准则" class="headerlink" title="设计准则"></a>设计准则</h1><h2 id="API设计"><a href="#API设计" class="headerlink" title="API设计"></a>API设计</h2><ul>
+<li>重要页面尽量配合app</li>
+</ul>
+<h1 id="数据返回格式"><a href="#数据返回格式" class="headerlink" title="数据返回格式"></a>数据返回格式</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.csdn.net/newjueqi/article/details/44037011" target="_blank" rel="external">http://blog.csdn.net/newjueqi/article/details/44037011</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/05/27/APP后台API设计/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-25 </div>
+			<div class="article-title"><a href="/2015/05/25/linux-同步网络时间/" >linux-同步网络时间</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>ntpdate time.windows.com &amp;&amp; hwclock --systohc --localtime
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/05/25/linux-同步网络时间/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-05-23 </div>
+			<div class="article-title"><a href="/2015/05/23/xshell字符乱码/" >xshell字符乱码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>【文件】=&gt; 【属性】=&gt; 【终端】=&gt;【编码】(Unicode-UTF-8)</p>
+
+	
+	</div>
+  <a type="button" href="/2015/05/23/xshell字符乱码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-05-22 </div>
 			<div class="article-title"><a href="/2015/05/22/sql-常用语句/" >sql-常用语句</a></div>						
 		</h3>
@@ -130,35 +228,6 @@
 	
 	</div>
   <a type="button" href="/2015/05/22/sql-常用语句/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-05-22 </div>
-			<div class="article-title"><a href="/2015/05/22/centos-关闭SELinux/" >centos-关闭SELinux</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>vi /etc/sysconfig/selinux</p>
-<pre><code>SELINUX=disabled
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://www.centos.org/docs/5/html/5.1/Deployment_Guide/sec-sel-enable-disable.html" target="_blank" rel="external">https://www.centos.org/docs/5/html/5.1/Deployment_Guide/sec-sel-enable-disable.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/05/22/centos-关闭SELinux/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -312,120 +381,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-17 </div>
-			<div class="article-title"><a href="/2015/04/17/注册表/" >注册表</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h1><p>注册表采用树结构</p>
-<ul>
-<li><p>键</p>
-<ul>
-<li>树节点，值项的依赖</li>
-<li>一个键可以有多个值项</li>
-<li>每个键都有一个默认值项，值名称为空</li>
-</ul>
-</li>
-<li><p>值项</p>
-<ul>
-<li>用来存储具体的数据</li>
-<li>值项由名称，数据类型，数据组成</li>
-<li>每个键都有一个默认值</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://zh.wikipedia.org/wiki/%E6%B3%A8%E5%86%8C%E8%A1%A8" target="_blank" rel="external">wiki-注册表</a></li>
-<li><a href="https://msdn.microsoft.com/zh-cn/library/cc776231(v=ws.10" target="_blank" rel="external">msdn-注册表</a>.aspx)</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/17/注册表/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-15 </div>
-			<div class="article-title"><a href="/2015/04/15/redis-散列/" >redis-散列</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>hash的键值是字典类型，存储的是字段(field)和字段值的映射，字段值只能是字符串，意味着不能嵌套！</p>
-</li>
-<li><p>hash适合存储对象</p>
-<ul>
-<li>使用对象类别和ID构成键名(关系数据库中的表名和ID)</li>
-<li>使用字段表示对象的属性(关系数据名中的列名)</li>
-<li>字段值即属性值(关系数据库中的值)</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>redis入门指南</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/15/redis-散列/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-15 </div>
-			<div class="article-title"><a href="/2015/04/15/redis-字符串/" >redis-字符串</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>字符串类型是redis中最基本的数据类型，其他数据类型只是组织字符串的方式不同</p>
-<ul>
-<li><p>列表类型是以列表形式组织字符串</p>
-</li>
-<li><p>集合类型是以集合形式组织字符串</p>
-</li>
-</ul>
-</li>
-<li><p>字符串可以<strong>透明存储</strong>任何形式的字符串，二进制数据，如邮箱地址，json，图片等</p>
-</li>
-</ul>
-<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p>| 操作     | 命令   |<br>|———-+——–|<br>| 赋值     | set    |<br>| 取值     | get    |<br>| 追加     | append |<br>| 获取长度 | strlen |</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li>redis入门指南</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/15/redis-字符串/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -508,7 +463,7 @@
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -620,7 +575,7 @@
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -731,48 +686,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+			<li><a href="/tags/import/">import<span>3</span></a></li>
 		
-			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
 		
-			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/USB/">USB<span>1</span></a></li>
 		
-			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/任播/">任播<span>1</span></a></li>
+			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
 		
-			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+			<li><a href="/tags/du/">du<span>1</span></a></li>
 		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+			<li><a href="/tags/accept/">accept<span>1</span></a></li>
 		
-			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
 		
-			<li><a href="/tags/c/">c++<span>8</span></a></li>
+			<li><a href="/tags/c99/">c99<span>1</span></a></li>
 		
-			<li><a href="/tags/error/">error<span>3</span></a></li>
+			<li><a href="/tags/install/">install<span>2</span></a></li>
 		
-			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
+			<li><a href="/tags/经验/">经验<span>1</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/yum/">yum<span>1</span></a></li>
 		
-			<li><a href="/tags/form/">form<span>1</span></a></li>
+			<li><a href="/tags/usb/">usb<span>3</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -785,23 +740,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

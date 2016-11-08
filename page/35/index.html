@@ -111,6 +111,120 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-04-17 </div>
+			<div class="article-title"><a href="/2015/04/17/注册表/" >注册表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h1><p>注册表采用树结构</p>
+<ul>
+<li><p>键</p>
+<ul>
+<li>树节点，值项的依赖</li>
+<li>一个键可以有多个值项</li>
+<li>每个键都有一个默认值项，值名称为空</li>
+</ul>
+</li>
+<li><p>值项</p>
+<ul>
+<li>用来存储具体的数据</li>
+<li>值项由名称，数据类型，数据组成</li>
+<li>每个键都有一个默认值</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zh.wikipedia.org/wiki/%E6%B3%A8%E5%86%8C%E8%A1%A8" target="_blank" rel="external">wiki-注册表</a></li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/cc776231(v=ws.10" target="_blank" rel="external">msdn-注册表</a>.aspx)</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/17/注册表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-15 </div>
+			<div class="article-title"><a href="/2015/04/15/redis-散列/" >redis-散列</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>hash的键值是字典类型，存储的是字段(field)和字段值的映射，字段值只能是字符串，意味着不能嵌套！</p>
+</li>
+<li><p>hash适合存储对象</p>
+<ul>
+<li>使用对象类别和ID构成键名(关系数据库中的表名和ID)</li>
+<li>使用字段表示对象的属性(关系数据名中的列名)</li>
+<li>字段值即属性值(关系数据库中的值)</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>redis入门指南</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/15/redis-散列/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-15 </div>
+			<div class="article-title"><a href="/2015/04/15/redis-字符串/" >redis-字符串</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>字符串类型是redis中最基本的数据类型，其他数据类型只是组织字符串的方式不同</p>
+<ul>
+<li><p>列表类型是以列表形式组织字符串</p>
+</li>
+<li><p>集合类型是以集合形式组织字符串</p>
+</li>
+</ul>
+</li>
+<li><p>字符串可以<strong>透明存储</strong>任何形式的字符串，二进制数据，如邮箱地址，json，图片等</p>
+</li>
+</ul>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p>| 操作     | 命令   |<br>|———-+——–|<br>| 赋值     | set    |<br>| 取值     | get    |<br>| 追加     | append |<br>| 获取长度 | strlen |</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>redis入门指南</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/04/15/redis-字符串/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-04-15 </div>
 			<div class="article-title"><a href="/2015/04/15/redis-多数据库/" >redis-多数据库</a></div>						
 		</h3>
@@ -324,102 +438,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-10 </div>
-			<div class="article-title"><a href="/2015/04/10/tex-设置pdf元数据/" >tex-设置pdf元数据</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;hypersetup&#125;</span><br><span class="line">\hypersetup&#123;pdfauthor=&#123;Author&#125;,</span><br><span class="line">            pdftitle=&#123;Your Title&#125;,</span><br><span class="line">            pdfsubject=&#123;Whatever&#125;,</span><br><span class="line">            pdfkeywords=&#123;one, two&#125;,</span><br><span class="line">            pdfproducer=&#123;LaTeX&#125;,</span><br><span class="line">            pdfcreator=&#123;pdfLaTeX&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.zhihu.com/question/20786104" target="_blank" rel="external">http://www.zhihu.com/question/20786104</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/10/tex-设置pdf元数据/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-10 </div>
-			<div class="article-title"><a href="/2015/04/10/检查pdf文字字体信息/" >检查pdf文字字体信息</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>使用<code>pdf-xchange-viewer</code></p>
-</li>
-<li><p>选中想要检查的文字</p>
-</li>
-<li><p>右键<code>文本属性</code></p>
-</li>
-<li><p>点击<code>格式化</code>标签页</p>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://superuser.com/questions/117443/how-to-know-which-fonts-are-used-in-selected-part-of-a-pdf-document" target="_blank" rel="external">http://superuser.com/questions/117443/how-to-know-which-fonts-are-used-in-selected-part-of-a-pdf-document</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/10/检查pdf文字字体信息/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-04-09 </div>
-			<div class="article-title"><a href="/2015/04/09/python-argparse/" >python-argparse</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>示例：</p>
-<pre><code>ls -l test
-</code></pre><ul>
-<li><p>位置参数(Positional Arguments)</p>
-<p>位置参数的作用取决于它的位置和程序(如<code>cp SRC DST</code>)</p>
-<p>在示例中，<code>test</code>为位置参数</p>
-</li>
-<li><p>可选参数(Optional Arguments)，又叫作选项(option)，开关(switch)</p>
-<p>一般都使用<code>-</code>和<code>--</code>来标识</p>
-<p>在示例中，<code>l</code>为可选参数</p>
-</li>
-</ul>
-<h1 id="使用可选参数"><a href="#使用可选参数" class="headerlink" title="使用可选参数"></a>使用<code>可选参数</code></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(<span class="string">"--verbosity"</span>, help=<span class="string">"increase output verbosity"</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"><span class="keyword">if</span> args.verbosity:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"verbosity turned on"</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://docs.python.org/2/howto/argparse.html" target="_blank" rel="external">https://docs.python.org/2/howto/argparse.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/04/09/python-argparse/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -502,7 +520,7 @@
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -614,7 +632,7 @@
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -725,48 +743,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
+			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
 		
-			<li><a href="/tags/encode/">encode<span>2</span></a></li>
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
-			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
 		
-			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
 		
-			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
 		
-			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
+			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
 		
-			<li><a href="/tags/产品/">产品<span>1</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
 		
-			<li><a href="/tags/net/">net<span>2</span></a></li>
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
-			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
+			<li><a href="/tags/msysgit/">msysgit<span>1</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/go/">go<span>40</span></a></li>
 		
-			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/chron/">chron<span>1</span></a></li>
 		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+			<li><a href="/tags/void/">void*<span>1</span></a></li>
 		
-			<li><a href="/tags/date/">date<span>1</span></a></li>
+			<li><a href="/tags/column/">column<span>1</span></a></li>
 		
-			<li><a href="/tags/选项/">选项<span>3</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
+			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/nging/">nging<span>1</span></a></li>
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -779,23 +797,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

@@ -111,6 +111,303 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-08-26 </div>
+			<div class="article-title"><a href="/2016/08/26/mysql-CR_SERVER_LOST/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="产生原因之一"><a href="#产生原因之一" class="headerlink" title="产生原因之一"></a>产生原因之一</h1><p>该连接超过空闲等待时间(<code>wait_timeout</code>，默认8小时)，服务端主动关闭该连接，此时客户端再执行query，则mysql client返回该错误。</p>
+<h1 id="研究"><a href="#研究" class="headerlink" title="研究"></a>研究</h1><ol>
+<li><p>设置mysql <code>wait_timeout</code>为5s，方便复现</p>
+<pre><code>set global wait_timeout=5;
+</code></pre></li>
+<li><p>客户端首先建立好连接</p>
+<pre><code>18:07:19.831124 IP localhost.46740 &gt; localhost.mysql: Flags [S], seq 424450064, win 43690, options [mss 65495,sackOK,TS val 357860862 ecr 0,nop,wscale 7], length 0
+18:07:19.831158 IP localhost.mysql &gt; localhost.46740: Flags [S.], seq 2970334829, ack 424450065, win 43690, options [mss 65495,sackOK,TS val 357860862 ecr 357860862,nop,wscale 7], length 0
+18:07:19.831179 IP localhost.46740 &gt; localhost.mysql: Flags [.], ack 1, win 342, options [nop,nop,TS val 357860862 ecr 357860862], length 0
+...
+</code></pre></li>
+<li><p>5s后，发现服务端主动断开连接(关闭了)，服务端关闭了写通道</p>
+<pre><code>18:07:24.902120 IP localhost.mysql &gt; localhost.46740: Flags [F.], seq 233, ack 704, win 350, options [nop,nop,TS val 357865933 ecr 357860968], length 0
+18:07:24.943661 IP localhost.46740 &gt; localhost.mysql: Flags [.], ack 234, win 342, options [nop,nop,TS val 357865974 ecr 357865933], length 0
+
+[I] wallace@centos:/m/s/W/p/B/p/b/B/judge_server&gt; ss -aon|grep 3306
+tcp    CLOSE-WAIT 1      0      127.0.0.1:46739              127.0.0.1:3306                timer:(keepalive,120min,0)
+tcp    LISTEN     0      80       :::3306                 :::*                  
+tcp    FIN-WAIT-2 0      0      ::ffff:127.0.0.1:3306               ::ffff:127.0.0.1:46739               timer:(timewait,56sec,0)
+
+观看连接状态，发现服务端socket状态已变为`FIN-WAIT-2`，60s后超时关闭，服务端socket关闭连接后；
+此后客户端进入了半连接状态，若客户端继续发送数据，则会收到`RST`，客户端读返回-1，errno=ECONNRESET，
+`mysql connector c`会将该错误作为`CR_SERVER_LOST`
+</code></pre></li>
+<li><p>客户端发送数据</p>
+</li>
+</ol>
+<pre><code>18:13:23.289923 IP localhost.46740 &gt; localhost.mysql: Flags [P.], seq 704:737, ack 234, win 342, options [nop,nop,TS val 358224321 ecr 357865933], length 33
+18:13:23.289935 IP localhost.mysql &gt; localhost.46740: Flags [R], seq 2970335063, win 0, length 0
+</code></pre><ol>
+<li><p>gdb源码跟踪(<code>mysql-connector-c-6.1.5-src</code>)</p>
+<p><code>sql-common/client.c:957</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ulong</span><br><span class="line"><span class="title">cli_safe_read_with_ok</span><span class="params">(MYSQL *mysql, my_bool read_ok)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  NET *net= &amp;mysql-&gt;net;</span><br><span class="line">  ulong len=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  MYSQL_TRACE(READ_PACKET, mysql, ());</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (net-&gt;vio != <span class="number">0</span>)</span><br><span class="line">    len=my_net_read(net); <span class="comment">// &lt;= 此调用失败</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (len == packet_error || len == <span class="number">0</span>) <span class="comment">// len == packet_error 成立</span></span><br><span class="line">  &#123;</span><br><span class="line">    DBUG_PRINT(<span class="string">"error"</span>,(<span class="string">"Wrong connection or packet. fd: %s  len: %lu"</span>,</span><br><span class="line">            vio_description(net-&gt;vio),len));</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> MYSQL_SERVER</span></span><br><span class="line">    <span class="keyword">if</span> (net-&gt;vio &amp;&amp; (net-&gt;last_errno == ER_NET_READ_INTERRUPTED))</span><br><span class="line">      return (packet_error);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/*MYSQL_SERVER*/</span></span></span><br><span class="line">    end_server(mysql);</span><br><span class="line">    set_mysql_error(mysql, net-&gt;last_errno == ER_NET_PACKET_TOO_LARGE ?</span><br><span class="line">                    CR_NET_PACKET_TOO_LARGE: CR_SERVER_LOST, unknown_sqlstate); <span class="comment">// 设置错误代码为：CR_SERVER_LOST</span></span><br><span class="line">    return (packet_error);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<pre><code>Breakpoint 3, cli_safe_read_with_ok (mysql=0xb99e80, read_ok=0 &apos;\000&apos;) at /media/sf_E_DRIVE/Soft/mysql-connector/mysql-connector-c-6.1.5-src/sql-common/client.c:976
+976     set_mysql_error(mysql, net-&gt;last_errno == ER_NET_PACKET_TOO_LARGE ?
+(gdb) bt
+#0  cli_safe_read_with_ok (mysql=0xb99e80, read_ok=0 &apos;\000&apos;) at /media/sf_E_DRIVE/Soft/mysql-connector/mysql-connector-c-6.1.5-src/sql-common/client.c:976
+#1  0x00000000004183da in cli_safe_read (mysql=0xb99e80) at /media/sf_E_DRIVE/Soft/mysql-connector/mysql-connector-c-6.1.5-src/sql-common/client.c:1047
+#2  0x0000000000421f0b in cli_read_query_result (mysql=0xb99e80) at /media/sf_E_DRIVE/Soft/mysql-connector/mysql-connector-c-6.1.5-src/sql-common/client.c:4711
+#3  0x000000000042275c in mysql_real_query (mysql=0xb99e80, query=0x59c2db &quot;SELECT age, name FROM test.a&quot;, length=28)
+    at /media/sf_E_DRIVE/Soft/mysql-connector/mysql-connector-c-6.1.5-src/sql-common/client.c:4802
+#4  0x000000000040ad7b in mysql::Connection::Query (this=0xba01d0, sql=...) at Beme4wdServer/lily/mysql/connection.cpp:89
+</code></pre></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://dev.mysql.com/doc/refman/5.6/en/mysql-real-query.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.6/en/mysql-real-query.html</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.6/en/gone-away.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.6/en/gone-away.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/08/26/mysql-CR_SERVER_LOST/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-08-26 </div>
+			<div class="article-title"><a href="/2016/08/26/踩坑/" ></a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>2016-08-26 <code>stdarg.h</code></p>
+<p>在封装<code>redisCommand</code>中，传递<code>va_list</code>后，执行后，重试逻辑，再次传递<code>va_list</code>，内存崩溃。</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/08/26/踩坑/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-08-17 </div>
+			<div class="article-title"><a href="/2016/08/17/git/" >git</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h1><ul>
+<li><p>从一个现有仓储建立纯仓库</p>
+<pre><code>git clone --bare ssh://git@github.com:22/QianChenglong/home.git home.git
+</code></pre></li>
+<li><p>从.git目录复制<a href="https://git.wiki.kernel.org/index.php/GitFaq#How_do_I_make_existing_non-bare_repository_bare.3F" target="_blank" rel="external">https://git.wiki.kernel.org/index.php/GitFaq#How_do_I_make_existing_non-bare_repository_bare.3F</a></p>
+<pre><code>scp -rv .git dev2:~/git/Beme4wdServer.git
+cd Beme4wdServer.git/
+git config --bool core.bare true
+</code></pre></li>
+<li><p>从本地目录</p>
+<pre><code>git clone file:///path/to/repo.git/
+</code></pre></li>
+<li><p>修改远程URL</p>
+<pre><code>git remote set-url origin ssh://wallace@dev2:36000/~/git/home.git
+</code></pre></li>
+<li><p>查看远程信息</p>
+<pre><code>git remote -v
+git remote show origin
+</code></pre></li>
+<li><p>从远程仓库取数据，不合并分支</p>
+<pre><code>git fetch [remote-name]
+</code></pre></li>
+<li><p>push所有分支和tag，并跟踪</p>
+<pre><code>git push --all origin -u
+</code></pre></li>
+</ul>
+<h1 id="update-index"><a href="#update-index" class="headerlink" title="update-index"></a>update-index</h1><ul>
+<li><p>添加可执行权限</p>
+<pre><code>git update-index --chmod=+x config_server
+</code></pre></li>
+<li><p>标识已纳入版本的文件不必跟踪变化</p>
+<pre><code>git update-index --assume-unchanged &lt;files&gt;
+git update-index --no-assume-unchanged &lt;files&gt;(撤销)
+git ls-files -v(小写字母说明设置了该标志位)
+</code></pre></li>
+</ul>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><ul>
+<li><p>查看所有分支</p>
+<pre><code>git branch
+</code></pre></li>
+<li><p>查看分支详情，最后一次commit</p>
+<pre><code>git branch -v
+</code></pre></li>
+<li><p>查看当前已经合并的分支</p>
+<pre><code>git branch --merged
+</code></pre></li>
+<li><p>查看当前没有合并的分支</p>
+<pre><code>git branch --no-merged
+</code></pre></li>
+<li><p>新建分支</p>
+<pre><code>git branch testing
+</code></pre></li>
+<li><p>切换分支</p>
+<pre><code>git checkout testing
+</code></pre></li>
+<li><p>新建分支并切换</p>
+<pre><code>git checkout -b issue53
+</code></pre></li>
+<li><p>删除分支</p>
+<pre><code>git branch -d hotfix
+</code></pre></li>
+<li><p>设置跟踪分支</p>
+<pre><code>git branch --set-upstream-to=origin/master master
+</code></pre></li>
+</ul>
+<h1 id="子模块"><a href="#子模块" class="headerlink" title="子模块"></a>子模块</h1><ul>
+<li><p>添加模块</p>
+<pre><code>git submodule add ssh://wallace@dev2.beme.com:36000/~/git/ssh.git .ssh
+</code></pre></li>
+<li><p>修改url</p>
+<pre><code>vim .gitmodule
+git submodule sync
+</code></pre></li>
+<li><p>初始化</p>
+<pre><code>git submodule init
+</code></pre></li>
+<li><p>更新</p>
+<pre><code>git submodule update
+</code></pre></li>
+</ul>
+<h1 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h1><ul>
+<li><p>取消未暂存的修改</p>
+<pre><code>git checkout -- &lt;file&gt;...
+</code></pre></li>
+</ul>
+<h1 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h1><p>功能：</p>
+<ul>
+<li><p>从HEAD拷贝到INDEX(重置暂存区)，若指定PATH(文件名)，则只操作指定文件(这种情况下，最好使用<code>git checkout -- &lt;paths&gt;</code>)</p>
+<pre><code>git reset
+</code></pre></li>
+<li><p>将HEAD指定到COMMIT</p>
+<pre><code>git reset [&lt;mode&gt;] &lt;commit&gt;
+</code></pre><ul>
+<li><p>–mixed [默认] INDEX同HEAD一起更新到<code>&lt;commit&gt;</code>，WORK不变</p>
+</li>
+<li><p>–soft INDEX，WORK保持不变,HEAD更新到<code>&lt;commit&gt;</code></p>
+</li>
+<li><p>–hard INDEX，WORK同HEAD一起更新到<code>&lt;commit&gt;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="revert"><a href="#revert" class="headerlink" title="revert"></a>revert</h1><p>恢复到指定commit，是复制指定commit并使HEAD指向它</p>
+<h1 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h1><ul>
+<li><p>重做上次提交，并使用上次提交信息</p>
+<pre><code>git commit --amend --no-edit
+</code></pre></li>
+</ul>
+<h1 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h1><ul>
+<li><p>从INDEX删除，但保留工作目录里面的</p>
+<pre><code>git rm --cached &lt;paths&gt;
+</code></pre></li>
+<li><p>强制删除已修改已暂存的文件(当前暂存区与上次提交的不一样)</p>
+<pre><code>git rm -f &lt;paths&gt;
+</code></pre></li>
+<li><p>从INDEX，WORK中删除</p>
+<pre><code>git rm &lt;paths&gt;
+</code></pre></li>
+</ul>
+<h1 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h1><ul>
+<li><p>查看当前版本与上一版本的差异</p>
+<pre><code>git diff HEAD~1 HEAD functions/fish_prompt.fish
+</code></pre></li>
+<li><p>查看暂存版本与工作目录中的差异</p>
+<pre><code>git diff
+</code></pre></li>
+<li><p>查看暂存与上一次提交的差异</p>
+<pre><code>git diff --cached
+</code></pre></li>
+<li><p>查看commit之间的差异</p>
+<pre><code>git diff &lt;commit1&gt; &lt;commit2&gt; &lt;path&gt;
+</code></pre></li>
+</ul>
+<h1 id="config"><a href="#config" class="headerlink" title="config"></a>config</h1><ul>
+<li><p>配置解包内存</p>
+<pre><code>git config --global pack.windowMemory 256m
+</code></pre></li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>同步home</p>
+<pre><code>git init
+git remote add origin ssh://wallace@112.74.81.30:36000/~/git/home.git
+git fetch
+git reset --hard origin/master
+</code></pre></li>
+<li><p>初始化并递归更新submodule</p>
+<pre><code>git submodule update --init --recursive
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/08/17/git/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-06-02 </div>
+			<div class="article-title"><a href="/2016/06/02/firewalld/" >firewalld</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>停止防火墙</p>
+<p>systemctl stop firewalld.service</p>
+</li>
+<li><p>禁用防火墙</p>
+<p>systemctl disable firewalld.service</p>
+</li>
+<li><p>放行端口</p>
+<p>firewall-cmd –permanent –add-port=80/tcp<br>firewall-cmd –reload</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/06/02/firewalld/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-05-31 </div>
 			<div class="article-title"><a href="/2016/05/31/linux-时间片/" >linux-时间片</a></div>						
 		</h3>
@@ -317,233 +614,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-28 </div>
-			<div class="article-title"><a href="/2016/05/28/C++-文件打开模式-binary-VS-text/" >C++-文件打开模式-binary-VS-text</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
-<li><p>在windows下，新建文件，默认文件格式为<code>dos</code></p>
-</li>
-<li><p>在Linux下，新建文件，默认文件格式为<code>unix</code></p>
-</li>
-</ul>
-<h1 id="text"><a href="#text" class="headerlink" title="text"></a>text</h1><ul>
-<li><p>在windows平台下</p>
-<ul>
-<li><p>输出时，<code>\n(0x0d)</code>=&gt;<code>\r\n(0x0d 0x0a)</code></p>
-</li>
-<li><p>输入时，<code>\r\n(0x0d 0x0a)</code>=&gt;<code>\n(0x0d)</code></p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="function">ofstream <span class="title">ins</span><span class="params">(<span class="string">"test.txt"</span>)</span></span>; <span class="comment">// 默认`text`</span></span><br><span class="line"></span><br><span class="line">    ins &lt;&lt; <span class="string">"a\n"</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>linux</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[I] /m/s/T/file od -Ax -t x1 test.txt </span><br><span class="line">000000 61 0a</span><br><span class="line">000002</span><br><span class="line">[I] /m/s/T/file file test.txt</span><br><span class="line">test.txt: ASCII text</span><br></pre></td></tr></table></figure>
-<ul>
-<li>windows</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[I] /m/s/T/file od -Ax -t x1 test.txt </span><br><span class="line">000000 61 0d 0a</span><br><span class="line">000003</span><br><span class="line">[I] /m/s/T/file file test.txt</span><br><span class="line">test.txt: ASCII text, with CRLF line terminators</span><br></pre></td></tr></table></figure>
-<h1 id="binary"><a href="#binary" class="headerlink" title="binary"></a>binary</h1><ul>
-<li>不对文件内容做任何转换</li>
-</ul>
-<h2 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="function">ofstream <span class="title">ins</span><span class="params">(<span class="string">"test.txt"</span>, <span class="built_in">std</span>::ios_base::binary)</span></span>;</span><br><span class="line"></span><br><span class="line">    ins &lt;&lt; <span class="string">"a\n"</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>linux</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[I] /m/s/T/file od -Ax -t x1 test.txt </span><br><span class="line">000000 61 0a</span><br><span class="line">000002</span><br><span class="line">[I] /m/s/T/file file test.txt</span><br><span class="line">test.txt: ASCII text</span><br></pre></td></tr></table></figure>
-<ul>
-<li>windows</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[I] /m/s/T/file od -Ax -t x1 test.txt </span><br><span class="line">000000 61 0a</span><br><span class="line">000003</span><br><span class="line">[I] /m/s/T/file file test.txt</span><br><span class="line">test.txt: ASCII text</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2016/05/28/C++-文件打开模式-binary-VS-text/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-28 </div>
-			<div class="article-title"><a href="/2016/05/28/C++函数参数类型/" >C++函数参数类型</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><ul>
-<li><p>效率</p>
-</li>
-<li><p>可读性</p>
-</li>
-</ul>
-<h1 id="基本类型-int-char-…"><a href="#基本类型-int-char-…" class="headerlink" title="基本类型(int, char, …)"></a>基本类型(<code>int</code>, <code>char</code>, …)</h1><ul>
-<li><p>传入，则<code>pass by value</code></p>
-</li>
-<li><p>传入传出，则<code>pass by pointer</code></p>
-</li>
-</ul>
-<h1 id="非基本类型"><a href="#非基本类型" class="headerlink" title="非基本类型"></a>非基本类型</h1><h2 id="使用指针"><a href="#使用指针" class="headerlink" title="使用指针"></a>使用指针</h2><ul>
-<li><p>传出或传入传出参数，可以显式地知道该值会发生变化</p>
-</li>
-<li><p>当参数可以接受<code>NULL</code>值时(若只作为传入，最好加上<code>const</code>)</p>
-</li>
-<li><p>当返回一个新对象(<code>new</code>)的引用时，意味着，调用者需要释放该对象</p>
-</li>
-<li><p>当作为类数据成员时</p>
-</li>
-</ul>
-<h2 id="使用引用"><a href="#使用引用" class="headerlink" title="使用引用"></a>使用引用</h2><ul>
-<li>传入参数不可以为<code>NULL</code></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/270408/is-it-better-in-c-to-pass-by-value-or-pass-by-constant-reference" target="_blank" rel="external">http://stackoverflow.com/questions/270408/is-it-better-in-c-to-pass-by-value-or-pass-by-constant-reference</a></li>
-<li><a href="http://stackoverflow.com/questions/7058339/when-to-use-references-vs-pointers" target="_blank" rel="external">http://stackoverflow.com/questions/7058339/when-to-use-references-vs-pointers</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/05/28/C++函数参数类型/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-22 </div>
-			<div class="article-title"><a href="/2016/05/22/rsa/" >rsa</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p>RSA是一种块加密，一个具体的RSA算法对应一个N(模数)</p>
-<p>块加密：</p>
-<ul>
-<li><p>密钥长度为工作长度</p>
-</li>
-<li><p>明文不足，则需填充(一般都有几种填充方式)</p>
-</li>
-<li><p>密文长度同密钥长度一致</p>
-</li>
-</ul>
-</li>
-<li><p>N(模数)的二进制位数，称之为RSA长度(对应openssl函数,<code>RSA_size(rsa)</code>)，常用1024(128B)，2048(256B)</p>
-</li>
-<li><p>openssl genrsa 采用<a href="https://tools.ietf.org/html/rfc5208" target="_blank" rel="external">PKCS#8</a>，使用<a href="https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail" target="_blank" rel="external">PEM</a>格式存储</p>
-</li>
-<li><p>公钥(N, E)</p>
-</li>
-<li><p>私钥(N, D)</p>
-</li>
-<li><p>RSA(1024)的D：3, 65537(0x10001)，当N值大于65537时，默认用65537!</p>
-</li>
-</ol>
-<h1 id="RSA-ASN-1定义"><a href="#RSA-ASN-1定义" class="headerlink" title="RSA ASN.1定义"></a>RSA ASN.1定义</h1><h1 id="加密和签名"><a href="#加密和签名" class="headerlink" title="加密和签名"></a>加密和签名</h1><ol>
-<li><p>加密：公钥用来加密，私钥解密，保证信息被唯一持有私钥的接收(（仅你可读但别人不可读，任何人都可写）)</p>
-</li>
-<li><p>签名：私钥用来加密，公钥解密，保证信息是由唯一持有私钥的发送（仅你可写但别人不可写，任何人都可读）</p>
-</li>
-</ol>
-<h1 id="填充模式"><a href="#填充模式" class="headerlink" title="填充模式"></a>填充模式</h1><ol>
-<li><p><code>RSA_PKCS1_PADDING</code> (最常用的模式)</p>
-</li>
-<li><p><code>RSA_PKCS1_OAEP_PADDING</code></p>
-</li>
-<li><p><code>RSA_NO_PADDING</code></p>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html" target="_blank" rel="external">RSA算法原理–阮一峰</a></li>
-<li><a href="https://en.wikipedia.org/wiki/65537_(number)" target="_blank" rel="external">https://en.wikipedia.org/wiki/65537_(number)</a></li>
-<li><a href="https://www.openssl.org/docs/manmaster/crypto/RSA_public_encrypt.html" target="_blank" rel="external">https://www.openssl.org/docs/manmaster/crypto/RSA_public_encrypt.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/05/22/rsa/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-15 </div>
-			<div class="article-title"><a href="/2016/05/15/图片存储/" >图片存储</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li>客户端采用BASE64编码图片</li>
-</ul>
-<h1 id="方案1"><a href="#方案1" class="headerlink" title="方案1"></a>方案1</h1><p>服务端直接存储到数据库，客户端查询回去自行解码</p>
-<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
-<li><p>服务器端实现简单</p>
-</li>
-<li><p>服务器端不需要依赖具体编码方式</p>
-</li>
-</ul>
-<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li>相比二进制存储，多占用了33.3%空间</li>
-</ul>
-<h1 id="方案2"><a href="#方案2" class="headerlink" title="方案2"></a>方案2</h1><p>服务器解码后，存储二进制到数据库，客户端请求时再编码返回给客户端</p>
-<h2 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h2><ul>
-<li>节省空间</li>
-</ul>
-<h2 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li><p>服务端多做工作，而且浪费时间</p>
-</li>
-<li><p>依赖客户端编码方式，可能会修改代码</p>
-</li>
-</ul>
-<h1 id="方案3"><a href="#方案3" class="headerlink" title="方案3"></a>方案3</h1><p>服务器解码后，以文件形式存储到目录，客户端直接GET对应资源</p>
-<h2 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h2><ul>
-<li><p>无需存储到数据库</p>
-</li>
-<li><p>客户端实现简单</p>
-</li>
-</ul>
-<h2 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li>不安全，头像可能被直接访问到！</li>
-<li>数据迁移麻烦，万一路径地址改变，资料丢失等</li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>采用方案1.</p>
-
-	
-	</div>
-  <a type="button" href="/2016/05/15/图片存储/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -626,7 +696,7 @@
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -738,7 +808,7 @@
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -849,48 +919,48 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/ip/">ip<span>2</span></a></li>
+			<li><a href="/tags/binary/">binary<span>1</span></a></li>
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
+			<li><a href="/tags/getopt/">getopt<span>1</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/模块/">模块<span>2</span></a></li>
+			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
 		
-			<li><a href="/tags/slab/">slab<span>1</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
 		
-			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>10</span></a></li>
 		
-			<li><a href="/tags/列表/">列表<span>7</span></a></li>
+			<li><a href="/tags/boost/">boost<span>4</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
 		
-			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
+			<li><a href="/tags/json/">json<span>4</span></a></li>
 		
-			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
+			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
 		
-			<li><a href="/tags/T/">_T<span>1</span></a></li>
+			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
 		
-			<li><a href="/tags/validate/">validate<span>1</span></a></li>
+			<li><a href="/tags/memcached/">memcached<span>1</span></a></li>
 		
-			<li><a href="/tags/apt/">apt<span>2</span></a></li>
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
 		
-			<li><a href="/tags/编译/">编译<span>11</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/base64/">base64<span>1</span></a></li>
+			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+			<li><a href="/tags/yed/">yed<span>1</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -903,23 +973,23 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

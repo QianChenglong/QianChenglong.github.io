@@ -111,6 +111,236 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-10 </div>
+			<div class="article-title"><a href="/2015/06/10/mysql-主从数据库配置/" >mysql-主从数据库配置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>ubuntu-14.04</p>
+</li>
+<li><p>mysql-5.5</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
+<li><p>修改主数据库配置</p>
+<pre><code>vi /etc/my.cnf.d/server.cnf
+
+[mysqld]
+server-id=1
+binlog-do-db=&lt;database-name&gt;
+relay-log=/var/lib/mysql/mysql-relay-bin
+relay-log-index=/var/lib/mysql/mysql-relay-bin.index
+log-error=/var/lib/mysql/mysql.err
+master-info-file=/var/lib/mysql/mysql-master.info
+relay-log-info-file=/var/lib/mysql/mysql-relay-log.info
+log-bin=/var/lib/mysql/mysql-bin
+</code></pre></li>
+<li><p>重启mysql</p>
+<pre><code>systemctl restart mariadb
+</code></pre></li>
+<li><p>给从库复制权限</p>
+<pre><code>grant replication slave on *.* to &apos;slave&apos;@&apos;%&apos; identified by &apos;slave&apos;;
+</code></pre></li>
+<li><p>锁表，以便备份</p>
+<pre><code>FLUSH TABLES WITH READ LOCK;
+</code></pre></li>
+<li><p>记录下当前主库日志状态，以便从库同步</p>
+<pre><code>SHOW MASTER STATUS;
+</code></pre></li>
+<li><p>导出要同步的数据库</p>
+<pre><code>mysqldump -uroot -p --master-data &lt;database-name&gt;;
+</code></pre></li>
+<li><p>解锁表</p>
+<pre><code>UNLOCK TABLES;
+</code></pre></li>
+</ul>
+<h2 id="从服务器配置"><a href="#从服务器配置" class="headerlink" title="从服务器配置"></a>从服务器配置</h2><ul>
+<li><p>修改配置</p>
+<pre><code>vi /etc/my.cnf.d/server.cnf
+
+[mysqld]
+server-id=2
+replicate-do-db=test2
+relay-log=/var/lib/mysql/mysql-relay-bin
+relay-log-index=/var/lib/mysql/mysql-relay-bin.index
+log-error=/var/lib/mysql/mysql.err
+master-info-file=/var/lib/mysql/mysql-master.info
+relay-log-info-file=/var/lib/mysql/mysql-relay-log.info
+log-bin=/var/lib/mysql/mysql-bin
+</code></pre></li>
+<li><p>修改权限控制</p>
+<pre><code>vi /etc/apparmor.d/usr.sbin.mysqld
+</code></pre></li>
+<li><p>连接master</p>
+<pre><code>mysql -uroot -p
+stop slave;
+CHANGE MASTER TO MASTER_HOST=&apos;172.18.1.192&apos;, MASTER_USER=&apos;slave&apos;, MASTER_PASSWORD=&apos;slave&apos;, MASTER_LOG_FILE=&apos;mysql-bin.000001&apos;, MASTER_LOG_POS=822;
+start slave;
+show slave status\G
+</code></pre></li>
+</ul>
+<h1 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h1><ul>
+<li><p><code>mysql Last_IO_Errno: 1045</code></p>
+<p>账号密码认证方面错误。</p>
+<p>可以现在master上尝试登陆，看是否成功。</p>
+</li>
+</ul>
+<h1 id="其他常用命令"><a href="#其他常用命令" class="headerlink" title="其他常用命令"></a>其他常用命令</h1><ul>
+<li><p>重新设置slave</p>
+<pre><code>RESET SLAVE;
+</code></pre></li>
+<li><p>查看进程状态</p>
+<pre><code>SHOW PROCESSLIST \G;
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://dev.mysql.com/doc/refman/5.1/en/replication-howto.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.1/en/replication-howto.html</a></li>
+<li><a href="https://lesca.me/archives/mysql-master-slave-replication-on-centos-7.html" target="_blank" rel="external">https://lesca.me/archives/mysql-master-slave-replication-on-centos-7.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/10/mysql-主从数据库配置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-09 </div>
+			<div class="article-title"><a href="/2015/06/09/输出重定向/" >输出重定向</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>追加模式，标准输出和标准出错</p>
+<pre><code>&gt;&gt; filename 2&gt;&amp;1
+</code></pre></li>
+<li><p>标准输出，和出错全丢弃</p>
+<pre><code>&gt;/dev/null 2&gt;&amp;1
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/09/输出重定向/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-09 </div>
+			<div class="article-title"><a href="/2015/06/09/cron配置/" >cron配置</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li>ubuntu-14-10-64-server</li>
+</ul>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><ul>
+<li><p>用户配置文件</p>
+<pre><code>/var/spool/cron/root
+</code></pre></li>
+<li><p>系统全局配置</p>
+<pre><code>/etc/crontab
+/etc/cron.*
+</code></pre></li>
+</ul>
+<h1 id="配置通过SMTP发送邮件"><a href="#配置通过SMTP发送邮件" class="headerlink" title="配置通过SMTP发送邮件"></a>配置通过SMTP发送邮件</h1><ul>
+<li><p>先卸载postfix</p>
+<pre><code>apt-get purge postfix
+apt-get purge mailutils
+apt-get auto-remove
+</code></pre></li>
+<li><p>安装msmtp</p>
+<pre><code>apt-get install msmtp
+apt-get install msmtp-mta
+</code></pre></li>
+<li><p>编辑配置文件</p>
+<pre><code>defaults
+logfile /var/log/msmtp.log
+syslog on
+aliases /etc/aliases
+
+account default
+host smtp.exmail.qq.com
+from qiancl@gupiaoxianji.com
+user qiancl@gupiaoxianji.com
+password ******
+auth on
+tls on
+tls_certcheck off
+</code></pre></li>
+<li><p>测试是否成功</p>
+<pre><code>echo -e &quot;Subject: Test Mail\r\n\r\nThis is a test mail&quot; |msmtp --debug -t qiancl@gupiaoxianji.com
+</code></pre></li>
+<li><p>让cron使用smtp发送</p>
+<pre><code>crontab -e
+
+MAILTO=qiancl@gupiaoxianji.com
+</code></pre></li>
+</ul>
+<h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h1><ul>
+<li><p>每分钟执行，查看执行是否成功</p>
+<pre><code>* * * * * CMD
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/09/cron配置/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-08 </div>
+			<div class="article-title"><a href="/2015/06/08/mysql使用memcached缓存/" >mysql使用memcached缓存</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>授权memcached访问权限</p>
+<pre><code>grant select on stock_app.* to memcache@&quot;%&quot; identified by &quot;12345&quot;;
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/08/mysql使用memcached缓存/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-08 </div>
 			<div class="article-title"><a href="/2015/06/08/C++编程经验/" >C++编程经验</a></div>						
 		</h3>
@@ -397,136 +627,6 @@ realm = /var/svn/test # 认证空间名，版本库所在目录
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-05 </div>
-			<div class="article-title"><a href="/2015/06/05/现代C++编程/" ></a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="使用override强制说明该函数为重写版本"><a href="#使用override强制说明该函数为重写版本" class="headerlink" title="使用override强制说明该函数为重写版本"></a>使用<code>override</code>强制说明该函数为重写版本</h1><ul>
-<li><p>增强可读性</p>
-</li>
-<li><p>确保该函数是重写父类的虚函数，避免拼写错误，类型不匹配，导致没有形成多态！</p>
-</li>
-<li><p>可以更加清楚地表明该函数的用途，假设子类函数与父类函数完全一样，没有<code>override</code><br>辅助说明，则使用者很可能误用！</p>
-</li>
-<li><p>定义和派生抽象类的利器，可在编译时发现诸如：修改了基类中某虚方法的参数列表后，忘记在其派生类中做出相应修改等各类相关错误。</p>
-</li>
-</ul>
-<h1 id="改进的大于号解析"><a href="#改进的大于号解析" class="headerlink" title="改进的大于号解析"></a>改进的大于号解析</h1><p>定义模板实例时，不再需要小心地在多个连续的大于号之间添加空格了。<br>优点</p>
-<p>不必再担心模板定义中的“&gt;&gt;”被解析为右移操作。</p>
-
-	
-	</div>
-  <a type="button" href="/2015/06/05/现代C++编程/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-05 </div>
-			<div class="article-title"><a href="/2015/06/05/mysql-触发器/" >mysql-触发器</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查看触发器</p>
-<pre><code>show triggers;
-</code></pre></li>
-<li><p>删除触发器</p>
-<pre><code>drop &lt;trigger-name&gt;;
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/06/05/mysql-触发器/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-05 </div>
-			<div class="article-title"><a href="/2015/06/05/mysql-远程连接/" >mysql-远程连接</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li><p>centos7.0.1-64</p>
-</li>
-<li><p>5.5.41-MariaDB MariaDB Server</p>
-</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
-<li><p>确保mysql配置文件<code>/etc/my.cnf</code>中没有bind本地地址</p>
-</li>
-<li><p>授权允许用户远程登录</p>
-<pre><code>grant all PRIVILEGES on 数据库名.表名 to 用户名@&apos;IP&apos; identified by &apos;密码&apos;;
-flush privileges;
-</code></pre></li>
-<li><p>放行mysql端口</p>
-<pre><code>firewall-cmd --permanent --add-port=3306/tcp
-firewall-cmd --reload
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/05/mysql-远程连接/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-03 </div>
-			<div class="article-title"><a href="/2015/06/03/rsync常见错误/" >rsync常见错误</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li></li>
-</ol>
-<p>错误信息</p>
-<pre><code>@ERROR: chroot failed
-rsync error: error starting client-server protocol (code 5) at main.c(1635) [Receiver=3.1.1]
-</code></pre><p>原因：</p>
-<pre><code>rsyncd.conf中的path路径所设的那个目录并不存在所致.
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/06/03/rsync常见错误/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -609,7 +709,7 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -721,7 +821,7 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -832,48 +932,48 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
-			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
+			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
 		
-			<li><a href="/tags/cond/">cond<span>1</span></a></li>
+			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/hex/">hex<span>1</span></a></li>
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
 		
-			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
 		
-			<li><a href="/tags/strace/">strace<span>1</span></a></li>
+			<li><a href="/tags/samba/">samba<span>3</span></a></li>
+		
+			<li><a href="/tags/部署/">部署<span>1</span></a></li>
+		
+			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+		
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+		
+			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+		
+			<li><a href="/tags/library/">library<span>3</span></a></li>
 		
 			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
 		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+			<li><a href="/tags/服务端/">服务端<span>1</span></a></li>
 		
-			<li><a href="/tags/多重继承/">多重继承<span>1</span></a></li>
+			<li><a href="/tags/管道/">管道<span>1</span></a></li>
 		
-			<li><a href="/tags/tab/">tab<span>1</span></a></li>
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
 		
-			<li><a href="/tags/using/">using<span>1</span></a></li>
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
 		
-			<li><a href="/tags/顺序/">顺序<span>2</span></a></li>
+			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
 		
-			<li><a href="/tags/左值/">左值<span>1</span></a></li>
-		
-			<li><a href="/tags/x-www-form-urlencoded/">x-www-form-urlencoded<span>1</span></a></li>
-		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
-		
-			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
-		
-			<li><a href="/tags/事务/">事务<span>1</span></a></li>
-		
-			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
+			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -886,23 +986,23 @@ rsync error: error starting client-server protocol (code 5) at main.c(1635) [Rec
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

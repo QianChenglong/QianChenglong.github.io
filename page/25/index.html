@@ -111,6 +111,144 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-07-28 </div>
+			<div class="article-title"><a href="/2015/07/28/后台开发经验/" >后台开发经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>撤单回退资金,双重校验(传入的UID, 订单关联的UID)</p>
+</li>
+<li><p>增量拉取</p>
+<ul>
+<li><p>确定前端排序规则(排序键)</p>
+</li>
+<li><p>传入(排序键值, 拉取个数)</p>
+</li>
+</ul>
+</li>
+<li><p>错误处理</p>
+<ul>
+<li>请求参数严格校验(防止执行时导致内部错误)</li>
+<li>SQL错误结合接口意义,返回客户端错误提示</li>
+</ul>
+</li>
+<li><p>保持app原版本兼容时,相关数据表,追加版本号</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/28/后台开发经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-27 </div>
+			<div class="article-title"><a href="/2015/07/27/c-获取各种级别时间值/" >c-获取各种级别时间值</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>秒级别</p>
+<pre><code>time()
+</code></pre></li>
+<li><p>微秒</p>
+<pre><code>gettimeofday()
+</code></pre></li>
+</ul>
+<ul>
+<li><p>纳秒</p>
+<pre><code>clock_gettime()
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/27/c-获取各种级别时间值/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-24 </div>
+			<div class="article-title"><a href="/2015/07/24/python-日期加减操作/" >python-日期加减操作</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">datetime.date.today() + datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line">today = datetime.date.today() + datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line">period = int(today.strftime(<span class="string">"%Y%m%d"</span>))</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/1506901/cleanest-and-most-pythonic-way-to-get-tomorrows-date" target="_blank" rel="external">http://stackoverflow.com/questions/1506901/cleanest-and-most-pythonic-way-to-get-tomorrows-date</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/07/24/python-日期加减操作/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-07-24 </div>
+			<div class="article-title"><a href="/2015/07/24/git-常用命令/" >git-常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
+<li><p>–git-dir 指定<code>.git</code>目录</p>
+</li>
+<li><p>–work-dir 指定工作目录</p>
+</li>
+</ul>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
+<li><p>丢弃未缓存的修改</p>
+<pre><code>git checkout -- order.cpp
+</code></pre></li>
+<li><p>默认推送所有分支和tag</p>
+<pre><code>git push --all origin -u
+</code></pre></li>
+<li><p>迁出到指定目录</p>
+<pre><code>git --work-tree=../v0.03 checkout v0.03 .
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/07/24/git-常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-07-23 </div>
 			<div class="article-title"><a href="/2015/07/23/linux-进程后台运行/" >linux-进程后台运行</a></div>						
 		</h3>
@@ -275,140 +413,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-20 </div>
-			<div class="article-title"><a href="/2015/07/20/sql-数据更新/" >sql-数据更新</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><ul>
-<li><p>记录不存在,则插入</p>
-</li>
-<li><p>记录若存在,则更新指定值</p>
-</li>
-</ul>
-<h1 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h1><ul>
-<li>数据必须存在唯一性</li>
-</ul>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="1-INSERT-ON-DUPLICATE-KEY-UPDATE"><a href="#1-INSERT-ON-DUPLICATE-KEY-UPDATE" class="headerlink" title="1.INSERT ... ON DUPLICATE KEY UPDATE"></a>1.<code>INSERT ... ON DUPLICATE KEY UPDATE</code></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">table</span> (<span class="keyword">id</span>, <span class="keyword">name</span>, age) <span class="keyword">VALUES</span>(<span class="number">1</span>, <span class="string">"A"</span>, <span class="number">19</span>) <span class="keyword">ON</span> <span class="keyword">DUPLICATE</span> <span class="keyword">KEY</span></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">name</span>=<span class="keyword">VALUES</span>(<span class="keyword">name</span>), age=<span class="keyword">VALUES</span>(age)</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/insert-on-duplicate.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/20/sql-数据更新/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-16 </div>
-			<div class="article-title"><a href="/2015/07/16/mysql-字符串/" >mysql-字符串</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h1><ul>
-<li><p><code>char(N)</code>, <code>varchar(N)</code>,N指的是<strong>特定字符集下的</strong>字符长度</p>
-<ul>
-<li>latin1下,char(1)占1字节</li>
-<li>utf-8下,char(1)占1~4字节,汉字一般占3字节</li>
-</ul>
-</li>
-</ul>
-<h1 id="长度判断"><a href="#长度判断" class="headerlink" title="长度判断"></a>长度判断</h1><ul>
-<li><p><code>length()</code> 获取字符串占用多少字节</p>
-</li>
-<li><p><code>char_length()</code> 获取字符串长度(特定字符集下的字符个数)</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/16/mysql-字符串/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-15 </div>
-			<div class="article-title"><a href="/2015/07/15/sql-经验/" >sql-经验</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>除非查询所有字段，否则避免使用select *</p>
-<ul>
-<li>增加IO，增加查询时间</li>
-<li>增加网络传输，浪费用户流量</li>
-<li>增加不安全性，客户端看见了所有字段</li>
-</ul>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/07/15/sql-经验/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-15 </div>
-			<div class="article-title"><a href="/2015/07/15/mysql-IP类型/" >mysql-IP类型.md</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>int</p>
-</li>
-<li><p>字符串转int</p>
-<pre><code>select inet_aton(&apos;192.168.0.1&apos;);
-</code></pre></li>
-<li><p>int转字符串</p>
-<pre><code>select inet_ntoa(&apos;3232235521&apos;);
-</code></pre></li>
-<li><p>判断IP段</p>
-<pre><code>select inet_aton(&apos;192.168.0.0&apos;) &lt;= inet_aton(&apos;192.168.0.1&apos;);
-select inet_aton(&apos;192.168.1.1&apos;) &lt;= inet_aton(&apos;192.168.0.255&apos;);
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/07/15/mysql-IP类型/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -491,7 +495,7 @@ select inet_aton(&apos;192.168.1.1&apos;) &lt;= inet_aton(&apos;192.168.0.255&ap
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -603,7 +607,7 @@ select inet_aton(&apos;192.168.1.1&apos;) &lt;= inet_aton(&apos;192.168.0.255&ap
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -714,48 +718,48 @@ select inet_aton(&apos;192.168.1.1&apos;) &lt;= inet_aton(&apos;192.168.0.255&ap
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/时间片/">时间片<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>7</span></a></li>
 		
-			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
+			<li><a href="/tags/list/">list<span>1</span></a></li>
 		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
+			<li><a href="/tags/text/">text<span>1</span></a></li>
 		
-			<li><a href="/tags/shared-ptr/">shared_ptr<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
+			<li><a href="/tags/网络/">网络<span>9</span></a></li>
 		
-			<li><a href="/tags/flag/">flag<span>1</span></a></li>
+			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
 		
-			<li><a href="/tags/build/">build<span>1</span></a></li>
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
 		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
+			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+			<li><a href="/tags/run/">run<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
+			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
 		
-			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/api/">api<span>1</span></a></li>
+			<li><a href="/tags/make/">make<span>2</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/编程/">编程<span>6</span></a></li>
 		
-			<li><a href="/tags/TortoiseSVN/">TortoiseSVN<span>1</span></a></li>
+			<li><a href="/tags/散列/">散列<span>1</span></a></li>
 		
-			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
+			<li><a href="/tags/转换/">转换<span>1</span></a></li>
 		
-			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+			<li><a href="/tags/鸭子类型/">鸭子类型<span>1</span></a></li>
 		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
+			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
 		
-			<li><a href="/tags/import/">import<span>3</span></a></li>
+			<li><a href="/tags/SELiunx/">SELiunx<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -768,23 +772,23 @@ select inet_aton(&apos;192.168.1.1&apos;) &lt;= inet_aton(&apos;192.168.0.255&ap
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

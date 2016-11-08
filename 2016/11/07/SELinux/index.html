@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>centos-关闭SELinux | 心若天府</title>
+  <title>SELinux | 心若天府</title>
   <meta name="author" content="钱成龙">
   
   <meta name="description" content="笔记，经验总结，资料">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="centos-关闭SELinux"/>
+  <meta property="og:title" content="SELinux"/>
   <meta property="og:site_name" content="心若天府"/>
 
   
@@ -93,7 +93,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> centos-关闭SELinux</h1>
+			<h1 class="title title-inverse "> SELinux</h1>
 		</div>		
 	
 
@@ -113,13 +113,23 @@
 	<div class="mypage">		
 	  		
 
-	  <ul>
+	  <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
+<li><p>查询当前级别</p>
+<pre><code>getenforce
+</code></pre></li>
+<li><p>设置当前级别</p>
+<pre><code>setenforce
+</code></pre></li>
+</ul>
+<h1 id="禁用SELinux"><a href="#禁用SELinux" class="headerlink" title="禁用SELinux"></a>禁用SELinux</h1><ul>
 <li><p>vi /etc/sysconfig/selinux</p>
 <pre><code>SELINUX=disabled
 </code></pre></li>
 </ul>
+<h1 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h1><p>默认使用<code>auditd</code>来记录日志，记录到<code>/var/log/audit/audit.log</code>，若该服务未启动，则记录到<code>/var/log/messages</code></p>
+<p>安装<code>sudo yum install setroubleshoot -y</code>，通过<code>sealert -a /var/log/audit/audit.log &gt;selinux.log</code>，可以更好地查看日志！</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://www.centos.org/docs/5/html/5.1/Deployment_Guide/sec-sel-enable-disable.html" target="_blank" rel="external">https://www.centos.org/docs/5/html/5.1/Deployment_Guide/sec-sel-enable-disable.html</a></li>
+<li><a href="https://wiki.centos.org/zh/HowTos/SELinux" target="_blank" rel="external">https://wiki.centos.org/zh/HowTos/SELinux</a></li>
 </ol>
 	  
 	</div>
@@ -130,13 +140,13 @@
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2015/05/22/sql-常用语句/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2016/11/07/journalctl/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2015/05/22/apache-常见错误/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2016/11/07/chcon/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -175,7 +185,7 @@
   <h2 class="title">留言</h2>
 
   
-  	 <div class="ds-thread" data-thread-key="2015/05/22/centos-关闭SELinux/" data-title="centos-关闭SELinux" data-url="https://qianchenglong.github.io/2015/05/22/centos-关闭SELinux/"></div>  
+  	 <div class="ds-thread" data-thread-key="2016/11/07/SELinux/" data-title="SELinux" data-url="https://qianchenglong.github.io/2016/11/07/SELinux/"></div>  
   
 </section>
 
@@ -189,23 +199,12 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2015-05-22 
+	2016-11-07 
 	</div>
 	
 
 	<!-- categories -->
     
-	<div class="meta-widget">
-	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
-    <ul id="categorys" class="tag_box list-unstyled collapse in">
-          
-  <li>
-    <li><a href="/categories/centos/">centos<span>8</span></a></li>
-  </li>
-
-    </ul>
-	</div>
-	
 
 	<!-- tags -->
 	
@@ -213,7 +212,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/centos/">centos<span>12</span></a></li> <li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
+  <li><a href="/tags/SELinux/">SELinux<span>1</span></a></li>
     </ul>
 	</div>
 		

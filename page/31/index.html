@@ -111,6 +111,141 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-16 </div>
+			<div class="article-title"><a href="/2015/06/16/C++-智能指针之boost.scroped_ptr/" >C++-智能指针之boost.scroped_ptr</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li>提供一种垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
+</ul>
+<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
+<li>noncopyable，意味着不能存放到容器，或多次引用</li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>当不需要传递所有权时，可使用</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/scoped_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(id)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    boost::scoped_ptr&lt;A&gt; i(new A(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i-&gt;id_ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/06/16/C++-智能指针之boost.scroped_ptr/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-16 </div>
+			<div class="article-title"><a href="/2015/06/16/C++-智能指针之auto_ptr/" >C++-智能指针之auto_ptr</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li>提供一种简单的垃圾回收机制，当变量(<code>new</code>分配的)离开其作用域，自动执行<code>delete</code></li>
+</ul>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>基于RAII(资源申请即初始化)，利用C++确定性析构，保证变量当离开作用域时，自动执行析构函数来释放内存</p>
+<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
+<li><p>不能将同一个对象存储到多个<code>auto_ptr</code>，会导致多次析构，从而崩溃</p>
+<pre><code>A *p = new A();
+std::auto_ptr&lt;A&gt; a(p);
+std::auto_ptr&lt;A&gt; b(p);
+</code></pre></li>
+<li><p>不能管理数据对象，因为<code>~auto_ptr</code>是<code>delete</code>而不是<code>delete []</code></p>
+<pre><code>int *p=new int[10];
+auto_ptr&lt;int&gt;ap(p);
+</code></pre></li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>C++11已经抛弃它，boost也有更好的替代品，决不使用！</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">auto_ptr</span>&lt;A&gt; a(new A());</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
+<li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/16/C++-智能指针之auto_ptr/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-16 </div>
+			<div class="article-title"><a href="/2015/06/16/C++-智能指针之boost.shared_ptr/" >C++-智能指针之boost.scroped_ptr</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li><p>提供一种强大的垃圾回收机制</p>
+</li>
+<li><p>copyable，可存放到容器中，可多次引用</p>
+</li>
+<li><p>当引用计数为0时，自动析构</p>
+</li>
+</ul>
+<h1 id="使用误区"><a href="#使用误区" class="headerlink" title="使用误区"></a>使用误区</h1><ul>
+<li><p>不能使用同一个对象指针来构造</p>
+<pre><code>A *a = new A(1);
+
+boost::shared_ptr&lt;A&gt; p1(a);
+boost::shared_ptr&lt;A&gt; p2(a);
+// 应该这样
+// boost::shared_ptr&lt;A&gt; p1(new A(1));
+// boost::shared_ptr&lt;A&gt; p2(p1);
+</code></pre></li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>非常强大，多多使用！</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/shared_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(new <span class="keyword">int</span>(id))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">delete</span> id_;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    A *a = new A(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p1(a);</span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p2(p1);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *(p1-&gt;id_) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2015/06/16/C++-智能指针之boost.shared_ptr/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-16 </div>
+			<div class="article-title"><a href="/2015/06/16/查看boost版本号/" >查看boost版本号</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<pre><code>vi /usr/include/boost/version.hpp
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2015/06/16/查看boost版本号/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-15 </div>
 			<div class="article-title"><a href="/2015/06/15/apache-建立虚拟站点/" >apache-建立虚拟站点</a></div>						
 		</h3>
@@ -321,236 +456,6 @@ systemctl enable mariadb
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-10 </div>
-			<div class="article-title"><a href="/2015/06/10/mysql-主从数据库配置/" >mysql-主从数据库配置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li><p>ubuntu-14.04</p>
-</li>
-<li><p>mysql-5.5</p>
-</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
-<li><p>修改主数据库配置</p>
-<pre><code>vi /etc/my.cnf.d/server.cnf
-
-[mysqld]
-server-id=1
-binlog-do-db=&lt;database-name&gt;
-relay-log=/var/lib/mysql/mysql-relay-bin
-relay-log-index=/var/lib/mysql/mysql-relay-bin.index
-log-error=/var/lib/mysql/mysql.err
-master-info-file=/var/lib/mysql/mysql-master.info
-relay-log-info-file=/var/lib/mysql/mysql-relay-log.info
-log-bin=/var/lib/mysql/mysql-bin
-</code></pre></li>
-<li><p>重启mysql</p>
-<pre><code>systemctl restart mariadb
-</code></pre></li>
-<li><p>给从库复制权限</p>
-<pre><code>grant replication slave on *.* to &apos;slave&apos;@&apos;%&apos; identified by &apos;slave&apos;;
-</code></pre></li>
-<li><p>锁表，以便备份</p>
-<pre><code>FLUSH TABLES WITH READ LOCK;
-</code></pre></li>
-<li><p>记录下当前主库日志状态，以便从库同步</p>
-<pre><code>SHOW MASTER STATUS;
-</code></pre></li>
-<li><p>导出要同步的数据库</p>
-<pre><code>mysqldump -uroot -p --master-data &lt;database-name&gt;;
-</code></pre></li>
-<li><p>解锁表</p>
-<pre><code>UNLOCK TABLES;
-</code></pre></li>
-</ul>
-<h2 id="从服务器配置"><a href="#从服务器配置" class="headerlink" title="从服务器配置"></a>从服务器配置</h2><ul>
-<li><p>修改配置</p>
-<pre><code>vi /etc/my.cnf.d/server.cnf
-
-[mysqld]
-server-id=2
-replicate-do-db=test2
-relay-log=/var/lib/mysql/mysql-relay-bin
-relay-log-index=/var/lib/mysql/mysql-relay-bin.index
-log-error=/var/lib/mysql/mysql.err
-master-info-file=/var/lib/mysql/mysql-master.info
-relay-log-info-file=/var/lib/mysql/mysql-relay-log.info
-log-bin=/var/lib/mysql/mysql-bin
-</code></pre></li>
-<li><p>修改权限控制</p>
-<pre><code>vi /etc/apparmor.d/usr.sbin.mysqld
-</code></pre></li>
-<li><p>连接master</p>
-<pre><code>mysql -uroot -p
-stop slave;
-CHANGE MASTER TO MASTER_HOST=&apos;172.18.1.192&apos;, MASTER_USER=&apos;slave&apos;, MASTER_PASSWORD=&apos;slave&apos;, MASTER_LOG_FILE=&apos;mysql-bin.000001&apos;, MASTER_LOG_POS=822;
-start slave;
-show slave status\G
-</code></pre></li>
-</ul>
-<h1 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h1><ul>
-<li><p><code>mysql Last_IO_Errno: 1045</code></p>
-<p>账号密码认证方面错误。</p>
-<p>可以现在master上尝试登陆，看是否成功。</p>
-</li>
-</ul>
-<h1 id="其他常用命令"><a href="#其他常用命令" class="headerlink" title="其他常用命令"></a>其他常用命令</h1><ul>
-<li><p>重新设置slave</p>
-<pre><code>RESET SLAVE;
-</code></pre></li>
-<li><p>查看进程状态</p>
-<pre><code>SHOW PROCESSLIST \G;
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.1/en/replication-howto.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.1/en/replication-howto.html</a></li>
-<li><a href="https://lesca.me/archives/mysql-master-slave-replication-on-centos-7.html" target="_blank" rel="external">https://lesca.me/archives/mysql-master-slave-replication-on-centos-7.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/10/mysql-主从数据库配置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-09 </div>
-			<div class="article-title"><a href="/2015/06/09/输出重定向/" >输出重定向</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>追加模式，标准输出和标准出错</p>
-<pre><code>&gt;&gt; filename 2&gt;&amp;1
-</code></pre></li>
-<li><p>标准输出，和出错全丢弃</p>
-<pre><code>&gt;/dev/null 2&gt;&amp;1
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/06/09/输出重定向/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-09 </div>
-			<div class="article-title"><a href="/2015/06/09/cron配置/" >cron配置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li>ubuntu-14-10-64-server</li>
-</ul>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><ul>
-<li><p>用户配置文件</p>
-<pre><code>/var/spool/cron/root
-</code></pre></li>
-<li><p>系统全局配置</p>
-<pre><code>/etc/crontab
-/etc/cron.*
-</code></pre></li>
-</ul>
-<h1 id="配置通过SMTP发送邮件"><a href="#配置通过SMTP发送邮件" class="headerlink" title="配置通过SMTP发送邮件"></a>配置通过SMTP发送邮件</h1><ul>
-<li><p>先卸载postfix</p>
-<pre><code>apt-get purge postfix
-apt-get purge mailutils
-apt-get auto-remove
-</code></pre></li>
-<li><p>安装msmtp</p>
-<pre><code>apt-get install msmtp
-apt-get install msmtp-mta
-</code></pre></li>
-<li><p>编辑配置文件</p>
-<pre><code>defaults
-logfile /var/log/msmtp.log
-syslog on
-aliases /etc/aliases
-
-account default
-host smtp.exmail.qq.com
-from qiancl@gupiaoxianji.com
-user qiancl@gupiaoxianji.com
-password ******
-auth on
-tls on
-tls_certcheck off
-</code></pre></li>
-<li><p>测试是否成功</p>
-<pre><code>echo -e &quot;Subject: Test Mail\r\n\r\nThis is a test mail&quot; |msmtp --debug -t qiancl@gupiaoxianji.com
-</code></pre></li>
-<li><p>让cron使用smtp发送</p>
-<pre><code>crontab -e
-
-MAILTO=qiancl@gupiaoxianji.com
-</code></pre></li>
-</ul>
-<h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h1><ul>
-<li><p>每分钟执行，查看执行是否成功</p>
-<pre><code>* * * * * CMD
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/06/09/cron配置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-08 </div>
-			<div class="article-title"><a href="/2015/06/08/mysql使用memcached缓存/" >mysql使用memcached缓存</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>授权memcached访问权限</p>
-<pre><code>grant select on stock_app.* to memcache@&quot;%&quot; identified by &quot;12345&quot;;
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/06/08/mysql使用memcached缓存/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -633,7 +538,7 @@ MAILTO=qiancl@gupiaoxianji.com
 		
 			<li><a href="/categories/boost/">boost<span>2</span></a></li>
 		
-			<li><a href="/categories/centos/">centos<span>8</span></a></li>
+			<li><a href="/categories/centos/">centos<span>7</span></a></li>
 		
 			<li><a href="/categories/cgi/">cgi<span>1</span></a></li>
 		
@@ -745,7 +650,7 @@ MAILTO=qiancl@gupiaoxianji.com
 		
 			<li><a href="/categories/sql/">sql<span>2</span></a></li>
 		
-			<li><a href="/categories/ssh/">ssh<span>3</span></a></li>
+			<li><a href="/categories/ssh/">ssh<span>2</span></a></li>
 		
 			<li><a href="/categories/sshd/">sshd<span>1</span></a></li>
 		
@@ -856,48 +761,48 @@ MAILTO=qiancl@gupiaoxianji.com
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
+			<li><a href="/tags/initializer-list/">initializer_list<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql/">mysql<span>35</span></a></li>
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
 		
-			<li><a href="/tags/domain/">domain<span>3</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
-			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+			<li><a href="/tags/link/">link<span>2</span></a></li>
 		
-			<li><a href="/tags/list/">list<span>1</span></a></li>
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
 		
-			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
 		
-			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
+			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+			<li><a href="/tags/hash/">hash<span>1</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
-			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+			<li><a href="/tags/snippet/">snippet<span>1</span></a></li>
 		
-			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
+			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/app/">app<span>4</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/链表/">链表<span>1</span></a></li>
 		
-			<li><a href="/tags/slice/">slice<span>1</span></a></li>
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>597</span></a></li>
+		   <li><a href="/tags">...<span>601</span></a></li>
 		 
 		</ul>
 	</div>
@@ -910,23 +815,23 @@ MAILTO=qiancl@gupiaoxianji.com
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/mount/" ><i class="fa fa-file-o"></i>mount</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/04/ls/" ><i class="fa fa-file-o"></i>ls</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/单个操作的时间估计/" ><i class="fa fa-file-o"></i>C/C++中单个操作的时间估计</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/02/redis.conf/" ><i class="fa fa-file-o"></i>redis.conf</a>
       </li>
     
   </ul>

@@ -112,6 +112,46 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-28 </div>
+			<div class="article-title"><a href="/2015/02/28/ANSI编码/" >ANSI编码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="ANSI编码是什么？"><a href="#ANSI编码是什么？" class="headerlink" title="ANSI编码是什么？"></a>ANSI编码是什么？</h1><p>ANSI编码并不是一种编码！而是<strong>美国国家标准学会(American National Standards Institute)</strong>关于制作的ANSI C中关于区域字符编码的标准。</p>
+<p>所以各地不同的编码方式统称为<strong>ANSI编码</strong></p>
+<p>在简体中文windows系统下，利用记事本等软件默认保存为<code>ANSI编码</code>，对应的代码页为<code>cp936</code>(GBK)。</p>
+<p>ANSI编码采用1~4字节进行编码，是一种变长编码方案，又叫做多字节字符集(MBCS)。</p>
+<h1 id="ANSI编码的缺陷"><a href="#ANSI编码的缺陷" class="headerlink" title="ANSI编码的缺陷"></a>ANSI编码的缺陷</h1><p>ANSI编码都是各区域针对本地的编码方式，是在兼容ASCII编码的基础上拓充而来的，如GB2312，BIG5等。<br>因为各地编码存在冲突，所以无法做到互通。</p>
+<h1 id="ANSI编码怎么实现的？"><a href="#ANSI编码怎么实现的？" class="headerlink" title="ANSI编码怎么实现的？"></a>ANSI编码怎么实现的？</h1><ul>
+<li><p>原ASCII编码字符保持不变，仍然为占用1个字节。</p>
+</li>
+<li><p>对其他字符，采用多字节编码，第一字节(前导字节)具有一定特征来表明后续字节一起来表示一个字符，</p>
+<p>如在GBK编码中，前导字节范围为0x81-0xFE。</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zh.wikipedia.org/wiki/%E4%BB%A3%E7%A0%81%E9%A1%B5#Windows.EF.BC.88ANSI.EF.BC.89.E4.BB.A3.E7.A2.BC.E9.A0.81" target="_blank" rel="external">维基-Windows(ANSI)代码页</a></li>
+<li><a href="http://en.wikipedia.org/wiki/American_National_Standards_Institute" target="_blank" rel="external">http://en.wikipedia.org/wiki/American_National_Standards_Institute</a></li>
+<li><a href="http://www.guokr.com/blog/763017/" target="_blank" rel="external">遇到乱码不怕不怕啦——计算机字符编码详尽讲解</a></li>
+<li><a href="http://baike.baidu.com/view/1273097.htm" target="_blank" rel="external">百度百科-ANSI编码</a></li>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/vstudio/5z097dxa(v=vs.110" target="_blank" rel="external">msdn-支持多字节字符集</a>.aspx)</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/28/ANSI编码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-28 </div>
 			<div class="article-title"><a href="/2015/02/28/windows编程常用宏定义/" >windows编程常用宏定义</a></div>						
 		</h3>
 	
@@ -414,34 +454,6 @@
 	
 	</div>
   <a type="button" href="/2015/02/13/find-教程/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-12 </div>
-			<div class="article-title"><a href="/2015/02/12/find-常用命令/" >find-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="批量重命名"><a href="#批量重命名" class="headerlink" title="批量重命名"></a>批量重命名</h1><pre><code>find . -name &apos;*命令理解&apos; -exec rename -v &apos;s/命令理解/-comprehension/&apos; {} \;
-</code></pre><h1 id="删除vs2010的无用文件"><a href="#删除vs2010的无用文件" class="headerlink" title="删除vs2010的无用文件"></a>删除vs2010的无用文件</h1><pre><code>find . -regextype  posix-extended -regex &quot;.*Debug|.*\.sdf&quot; -exec rm -rf {} \;
-</code></pre><h1 id="批量添加-txt拓展名"><a href="#批量添加-txt拓展名" class="headerlink" title="批量添加.txt拓展名"></a>批量添加.txt拓展名</h1><pre><code>find . -type f -regextype posix-extended -regex &quot;\\.*[^.]*$&quot; -exec mv -v {} {}.txt \;
-</code></pre><h1 id="找出最近修改过的文件"><a href="#找出最近修改过的文件" class="headerlink" title="找出最近修改过的文件"></a>找出最近修改过的文件</h1><pre><code>find . -mtime -4 | grep &apos;循环&apos;
-</code></pre><h1 id="批量删除文件"><a href="#批量删除文件" class="headerlink" title="批量删除文件"></a>批量删除文件</h1><pre><code>find . -name &lt;expr&gt; -exec rm -v {} \;
-</code></pre><h1 id="批量删除-git目录"><a href="#批量删除-git目录" class="headerlink" title="批量删除.git目录"></a>批量删除.git目录</h1><pre><code>find . -name &quot;.git&quot; -type d  -print0 | xargs -0 rm -vrf
-</code></pre><h1 id="多目录查找"><a href="#多目录查找" class="headerlink" title="多目录查找"></a>多目录查找</h1><pre><code>find src lib -name &quot;*.[ch]&quot;
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/02/12/find-常用命令/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -750,45 +762,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
+			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
 		
-			<li><a href="/tags/yed/">yed<span>1</span></a></li>
+			<li><a href="/tags/编译/">编译<span>11</span></a></li>
 		
-			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
 		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+			<li><a href="/tags/od/">od<span>1</span></a></li>
 		
-			<li><a href="/tags/操作/">操作<span>1</span></a></li>
+			<li><a href="/tags/override/">override<span>2</span></a></li>
 		
 			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
 		
-			<li><a href="/tags/语句/">语句<span>1</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
-			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+			<li><a href="/tags/macro/">macro<span>4</span></a></li>
 		
-			<li><a href="/tags/package/">package<span>4</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
 		
-			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
+			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
 		
-			<li><a href="/tags/c/">c<span>7</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
-			<li><a href="/tags/位域/">位域<span>1</span></a></li>
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/make/">make<span>2</span></a></li>
 		
-			<li><a href="/tags/pstree/">pstree<span>1</span></a></li>
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
 		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
+			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
 		
-			<li><a href="/tags/cp/">cp<span>1</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/环境变量/">环境变量<span>4</span></a></li>
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
 		
-			<li><a href="/tags/hash/">hash<span>1</span></a></li>
+			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>601</span></a></li>
@@ -804,6 +816,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
       </li>
     
@@ -817,10 +833,6 @@
     
       <li>
         <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
       </li>
     
   </ul>

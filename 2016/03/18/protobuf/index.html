@@ -113,8 +113,11 @@
 	<div class="mypage">		
 	  		
 
-	  <h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
-<li>二进制编码，格式紧凑，编解码快，省流量</li>
+	  <h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><ul>
+<li><p>二进制编码，格式紧凑，编解码快，占用内存小</p>
+</li>
+<li><p>可读性非常差，不利于调试</p>
+</li>
 </ul>
 <h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><pre><code>protoc [OPTION] PROTO_FILES
 </code></pre><h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><ul>
@@ -156,6 +159,22 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service FooService &#123;</span><br><span class="line">  rpc GetSomething(FooRequest) returns (FooResponse);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="编码原理-https-developers-google-com-protocol-buffers-docs-encoding"><a href="#编码原理-https-developers-google-com-protocol-buffers-docs-encoding" class="headerlink" title="编码原理(https://developers.google.com/protocol-buffers/docs/encoding)"></a>编码原理(<a href="https://developers.google.com/protocol-buffers/docs/encoding" target="_blank" rel="external">https://developers.google.com/protocol-buffers/docs/encoding</a>)</h1><h2 id="消息结构"><a href="#消息结构" class="headerlink" title="消息结构"></a>消息结构</h2><p><img src="../image/protobuf-1.png" alt=""></p>
+<h2 id="Varint"><a href="#Varint" class="headerlink" title="Varint"></a>Varint</h2><p>采用类似于UTF-8编码方式，来编码整型数，该数为<code>uint64</code>类型，负数采用补码，所以占用<strong>8B</strong>，对应需要<strong>10B(<code>ceil((8 * 8) / 7)</code>)</strong>。</p>
+<ul>
+<li><p>每个字节用<strong>7bits</strong>来编码数字</p>
+</li>
+<li><p>单字节的最高位(Most Significant Bit)，来表示是否还有后续字节(1表示有，0表示没有)。</p>
+</li>
+<li><p>多字节数采用<strong>小端字节序</strong></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 =&gt; 0000 0001</span><br><span class="line">150(1001 0110) =&gt; 10010110 00000001</span><br><span class="line">300(0000 0001 0010 1100) =&gt; 1010 1100 0000 0010</span><br></pre></td></tr></table></figure>
+<p>源码(<code>encode.go</code>)：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> maxVarintBytes = <span class="number">10</span> <span class="comment">// maximum length of a varint</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// EncodeVarint returns the varint encoding of x.</span></span><br><span class="line"><span class="comment">// This is the format for the</span></span><br><span class="line"><span class="comment">// int32, int64, uint32, uint64, bool, and enum</span></span><br><span class="line"><span class="comment">// protocol buffer types.</span></span><br><span class="line"><span class="comment">// Not used by the package itself, but helpful to clients</span></span><br><span class="line"><span class="comment">// wishing to use the same encoding.</span></span><br><span class="line"><span class="keyword">func</span> EncodeVarint(x <span class="keyword">uint64</span>) []<span class="keyword">byte</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf [maxVarintBytes]<span class="keyword">byte</span></span><br><span class="line">    <span class="keyword">var</span> n <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> n = <span class="number">0</span>; x &gt; <span class="number">127</span>; n++ &#123;</span><br><span class="line">        buf[n] = <span class="number">0x80</span> | <span class="keyword">uint8</span>(x&amp;<span class="number">0x7F</span>)</span><br><span class="line">        x &gt;&gt;= <span class="number">7</span></span><br><span class="line">    &#125;</span><br><span class="line">    buf[n] = <span class="keyword">uint8</span>(x)</span><br><span class="line">    n++</span><br><span class="line">    <span class="keyword">return</span> buf[<span class="number">0</span>:n]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/</a></li>
+</ol>
 	  
 	</div>
 

@@ -112,6 +112,31 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-01-21 </div>
+			<div class="article-title"><a href="/2015/01/21/chrome-查看资源加载顺序/" >chrome-查看资源加载顺序</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><code>F12</code>打开控制台</li>
+</ul>
+<p><img src="/img/chrome-查看资源加载顺序-01.png" alt=""></p>
+
+	
+	</div>
+  <a type="button" href="/2015/01/21/chrome-查看资源加载顺序/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-21 </div>
 			<div class="article-title"><a href="/2015/01/21/python-sleep/" >python-sleep</a></div>						
 		</h3>
 	
@@ -343,32 +368,6 @@
 	
 	</div>
   <a type="button" href="/2015/01/20/winsock-error-10014/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-01-20 </div>
-			<div class="article-title"><a href="/2015/01/20/jsoncpp-使用/" >jsoncpp-使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;json/json.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h1 id="生成json数据对象"><a href="#生成json数据对象" class="headerlink" title="生成json数据对象"></a>生成json数据对象</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Json::Value send_data;</span><br><span class="line"></span><br><span class="line">send_data[<span class="string">"msgType"</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// json对象</span></span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"ipAddress"</span>] = <span class="string">"192.168.1.1"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// json数组</span></span><br><span class="line">send_data[<span class="string">"name"</span>].append(<span class="string">"li"</span>);</span><br><span class="line">send_data[<span class="string">"name"</span>].append(<span class="string">"zhang"</span>);</span><br></pre></td></tr></table></figure>
-<h1 id="json对象转为字符串"><a href="#json对象转为字符串" class="headerlink" title="json对象转为字符串"></a>json对象转为字符串</h1><h2 id="转为格式化过的字符串"><a href="#转为格式化过的字符串" class="headerlink" title="转为格式化过的字符串"></a>转为格式化过的字符串</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> str = send_data.toStyledString();</span><br></pre></td></tr></table></figure>
-<h2 id="转为非格式化字符串"><a href="#转为非格式化字符串" class="headerlink" title="转为非格式化字符串"></a>转为非格式化字符串</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Json::FastWriter fast_writer;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> str = fast_writer.write(send_data);</span><br></pre></td></tr></table></figure>
-<h1 id="读取json数据"><a href="#读取json数据" class="headerlink" title="读取json数据"></a>读取json数据</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Json::Value send_data;</span><br><span class="line">send_data[<span class="string">"msgType"</span>] = <span class="number">1</span>;</span><br><span class="line">send_data[<span class="string">"msgCode"</span>] = <span class="number">10000</span>;</span><br><span class="line">send_data[<span class="string">"errCode"</span>] = <span class="number">0</span>;</span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"ipAddress"</span>] = <span class="string">"192.168.1.1"</span>;</span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"macAddress"</span>] = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">send_data[<span class="string">"msgType"</span>].asInt();</span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"ipAddress"</span>].asString();</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/01/20/jsoncpp-使用/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -677,45 +676,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
+			<li><a href="/tags/svn/">svn<span>3</span></a></li>
 		
-			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/apache/">apache<span>6</span></a></li>
+			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
 		
-			<li><a href="/tags/command/">command<span>9</span></a></li>
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
 		
-			<li><a href="/tags/左值/">左值<span>1</span></a></li>
+			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
 		
-			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
+			<li><a href="/tags/nging/">nging<span>1</span></a></li>
 		
-			<li><a href="/tags/reactor/">reactor<span>1</span></a></li>
+			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
 		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
+			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
 		
-			<li><a href="/tags/IO/">IO<span>6</span></a></li>
+			<li><a href="/tags/目录/">目录<span>3</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/error-code/">error code<span>1</span></a></li>
+			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
 		
-			<li><a href="/tags/端口模式/">端口模式<span>1</span></a></li>
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
 		
-			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+			<li><a href="/tags/打印/">打印<span>1</span></a></li>
 		
-			<li><a href="/tags/cron/">cron<span>1</span></a></li>
+			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
 		
-			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
+			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
 		
-			<li><a href="/tags/MinGW-w64/">MinGW-w64<span>1</span></a></li>
+			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
 		
-			<li><a href="/tags/内建变量/">内建变量<span>1</span></a></li>
+			<li><a href="/tags/warning/">warning<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>601</span></a></li>
@@ -731,6 +730,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
       </li>
     
@@ -744,10 +747,6 @@
     
       <li>
         <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
       </li>
     
   </ul>

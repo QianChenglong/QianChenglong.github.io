@@ -112,6 +112,36 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/http-chunked/" >http-chunked</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>在不指定<code>Content-Length</code>的情况下,来传输数据,常用来配合<code>gzip</code>使用,边压缩边传输</p>
+</li>
+<li><p>用一系列分块来传输。每个分块包含十六进制的长度值和数据，长度值独占一行，长度不包括它结尾的 CRLF（\r\n），<br>也不包括分块数据结尾的 CRLF。最后一个分块长度值必须为 0，对应的分块数据没有内容，表示实体结束</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%88%86%E5%9D%97%E4%BC%A0%E8%BE%93%E7%BC%96%E7%A0%81" target="_blank" rel="external">wiki-chunked</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/10/19/http-chunked/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
 			<div class="article-title"><a href="/2015/10/19/mysql-prepare-update部分更新/" >mysql-prepare-update部分更新</a></div>						
 		</h3>
 	
@@ -466,58 +496,6 @@ PATH+=%GOPATH%\bin
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-10 </div>
-			<div class="article-title"><a href="/2015/10/10/mysql-alias/" >mysql-alias</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>对目标列使用,</p>
-<ul>
-<li>输出列名可读性更强</li>
-</ul>
-</li>
-<li><p>对表名使用</p>
-<ul>
-<li><p>简写表名</p>
-</li>
-<li><p>同名表关联</p>
-</li>
-</ul>
-</li>
-<li><p>在select的目标输出列中(<code>select_expr</code>)</p>
-<ul>
-<li><p>别名可以在<code>GROUP BY</code>,<code>ORDER BY</code>,<code>HAVING</code>中使用</p>
-</li>
-<li><p>标准SQl不允许在<code>WHERE</code>中使用</p>
-<p>因为<code>WHERE</code>是执行的,而<code>SELECT</code>目标列是基于<code>WHERE</code>结果的,<br>所以<code>WHERE</code>中不能使用还没产生的别名!</p>
-</li>
-</ul>
-</li>
-<li><p><code>AS</code>可以省略</p>
-<pre><code>select id userid from user;
-select a.id from user a;
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://dev.mysql.com/doc/refman/5.0/en/problems-with-alias.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.0/en/problems-with-alias.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/10/mysql-alias/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -823,45 +801,45 @@ select a.id from user a;
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
-			<li><a href="/tags/curses/">curses<span>2</span></a></li>
+			<li><a href="/tags/service/">service<span>1</span></a></li>
 		
-			<li><a href="/tags/mount/">mount<span>1</span></a></li>
+			<li><a href="/tags/decode/">decode<span>1</span></a></li>
 		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
-			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+			<li><a href="/tags/STL/">STL<span>1</span></a></li>
 		
-			<li><a href="/tags/博客/">博客<span>1</span></a></li>
+			<li><a href="/tags/apche/">apche<span>1</span></a></li>
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/domain/">domain<span>3</span></a></li>
 		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
+			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
 		
-			<li><a href="/tags/资料/">资料<span>2</span></a></li>
+			<li><a href="/tags/new/">new<span>1</span></a></li>
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/c99/">c99<span>1</span></a></li>
 		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
+			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/chron/">chron<span>1</span></a></li>
+			<li><a href="/tags/unicode/">unicode<span>3</span></a></li>
 		
-			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
+			<li><a href="/tags/左值/">左值<span>1</span></a></li>
+		
+			<li><a href="/tags/wingetopt/">wingetopt<span>1</span></a></li>
+		
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
+		
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
 		
 			<li><a href="/tags/search/">search<span>1</span></a></li>
 		
-			<li><a href="/tags/initializer-list/">initializer_list<span>1</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
-		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
-		
-			<li><a href="/tags/系统调用/">系统调用<span>1</span></a></li>
-		
-			<li><a href="/tags/IP/">IP<span>4</span></a></li>
+			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>601</span></a></li>
@@ -877,6 +855,10 @@ select a.id from user a;
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
       </li>
     
@@ -890,10 +872,6 @@ select a.id from user a;
     
       <li>
         <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
       </li>
     
   </ul>

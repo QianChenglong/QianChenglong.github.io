@@ -112,6 +112,36 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-03-19 </div>
+			<div class="article-title"><a href="/2016/03/19/linux头文件组织/" >linux头文件组织</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>通过<code>yum provides FILENAME</code>来查找所属包</p>
+<ul>
+<li><p>glibc-headers(使用C开发库，必须安装的包)</p>
+<p><code>/usr/include/sys</code>，<code>/usr/include/bits</code></p>
+</li>
+<li><p>kernel-headers(被glibc使用)</p>
+<p><code>/usr/include/linux</code>，<code>/usr/include/asm</code></p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/03/19/linux头文件组织/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-19 </div>
 			<div class="article-title"><a href="/2016/03/19/rpm/" >rpm</a></div>						
 		</h3>
 	
@@ -180,8 +210,11 @@ yumdownloader httpd
   <div class="row">
 	
 	
-		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
-<li>二进制编码，格式紧凑，编解码快，省流量</li>
+		<h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><ul>
+<li><p>二进制编码，格式紧凑，编解码快，占用内存小</p>
+</li>
+<li><p>可读性非常差，不利于调试</p>
+</li>
 </ul>
 <h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><pre><code>protoc [OPTION] PROTO_FILES
 </code></pre><h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><ul>
@@ -223,6 +256,22 @@ yumdownloader httpd
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service FooService &#123;</span><br><span class="line">  rpc GetSomething(FooRequest) returns (FooResponse);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="编码原理-https-developers-google-com-protocol-buffers-docs-encoding"><a href="#编码原理-https-developers-google-com-protocol-buffers-docs-encoding" class="headerlink" title="编码原理(https://developers.google.com/protocol-buffers/docs/encoding)"></a>编码原理(<a href="https://developers.google.com/protocol-buffers/docs/encoding" target="_blank" rel="external">https://developers.google.com/protocol-buffers/docs/encoding</a>)</h1><h2 id="消息结构"><a href="#消息结构" class="headerlink" title="消息结构"></a>消息结构</h2><p><img src="../image/protobuf-1.png" alt=""></p>
+<h2 id="Varint"><a href="#Varint" class="headerlink" title="Varint"></a>Varint</h2><p>采用类似于UTF-8编码方式，来编码整型数，该数为<code>uint64</code>类型，负数采用补码，所以占用<strong>8B</strong>，对应需要<strong>10B(<code>ceil((8 * 8) / 7)</code>)</strong>。</p>
+<ul>
+<li><p>每个字节用<strong>7bits</strong>来编码数字</p>
+</li>
+<li><p>单字节的最高位(Most Significant Bit)，来表示是否还有后续字节(1表示有，0表示没有)。</p>
+</li>
+<li><p>多字节数采用<strong>小端字节序</strong></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 =&gt; 0000 0001</span><br><span class="line">150(1001 0110) =&gt; 10010110 00000001</span><br><span class="line">300(0000 0001 0010 1100) =&gt; 1010 1100 0000 0010</span><br></pre></td></tr></table></figure>
+<p>源码(<code>encode.go</code>)：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> maxVarintBytes = <span class="number">10</span> <span class="comment">// maximum length of a varint</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// EncodeVarint returns the varint encoding of x.</span></span><br><span class="line"><span class="comment">// This is the format for the</span></span><br><span class="line"><span class="comment">// int32, int64, uint32, uint64, bool, and enum</span></span><br><span class="line"><span class="comment">// protocol buffer types.</span></span><br><span class="line"><span class="comment">// Not used by the package itself, but helpful to clients</span></span><br><span class="line"><span class="comment">// wishing to use the same encoding.</span></span><br><span class="line"><span class="keyword">func</span> EncodeVarint(x <span class="keyword">uint64</span>) []<span class="keyword">byte</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf [maxVarintBytes]<span class="keyword">byte</span></span><br><span class="line">    <span class="keyword">var</span> n <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> n = <span class="number">0</span>; x &gt; <span class="number">127</span>; n++ &#123;</span><br><span class="line">        buf[n] = <span class="number">0x80</span> | <span class="keyword">uint8</span>(x&amp;<span class="number">0x7F</span>)</span><br><span class="line">        x &gt;&gt;= <span class="number">7</span></span><br><span class="line">    &#125;</span><br><span class="line">    buf[n] = <span class="keyword">uint8</span>(x)</span><br><span class="line">    n++</span><br><span class="line">    <span class="keyword">return</span> buf[<span class="number">0</span>:n]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/</a></li>
+</ol>
 
 	
 	</div>
@@ -431,64 +480,6 @@ yumdownloader httpd
 	
 	</div>
   <a type="button" href="/2016/03/10/修改limit/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-10 </div>
-			<div class="article-title"><a href="/2016/03/10/线程/" >线程</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="出发点"><a href="#出发点" class="headerlink" title="出发点"></a>出发点</h1><ol>
-<li><p>提高资源利用率</p>
-</li>
-<li><p>提高系统吞吐量</p>
-</li>
-<li><p>降低编程复杂性</p>
-</li>
-</ol>
-<h1 id="使用线程的好处"><a href="#使用线程的好处" class="headerlink" title="使用线程的好处"></a>使用线程的好处</h1><ol>
-<li><p>单独的线程去处理某种事件，简化异步事件的代码，如服务端采用一对一的线程去处理IO事件</p>
-</li>
-<li><p>相比多进程，更加容易进行数据共享</p>
-</li>
-<li><p>将问题分解，改善程序的吞吐量。</p>
-<p>在单线程的情况下，任务是串行化执行的，根据任务本身地的特点，分解成多个步骤，并行</p>
-</li>
-<li><p>对于交互程序，改善响应时间</p>
-</li>
-<li><p>相对于多进程，开销更小</p>
-</li>
-</ol>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p>线程标识采用<code>pthread_t</code>，底层类型取决于实现，相等判断需要使用<code>pthread_equal</code></p>
-</li>
-<li><p>创建新线程后，与主线程的调用顺序依赖于OS的线程实现和调度算法</p>
-</li>
-<li><p>在pthread(NTPL)实现中，默认栈大小为8M，可通过如下方式查询：</p>
-<ul>
-<li><p>ulimit -s</p>
-</li>
-<li><p><code>getrlimit</code></p>
-</li>
-<li><p><code>pthread_attr_getstacksize</code></p>
-</li>
-</ul>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/03/10/线程/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -797,45 +788,45 @@ yumdownloader httpd
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
+			<li><a href="/tags/hex/">hex<span>1</span></a></li>
 		
-			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
+			<li><a href="/tags/网站统计/">网站统计<span>1</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+			<li><a href="/tags/rfc/">rfc<span>2</span></a></li>
 		
-			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
+			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
 		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
+			<li><a href="/tags/override/">override<span>2</span></a></li>
 		
-			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
+			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
 		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/unittest/">unittest<span>1</span></a></li>
+			<li><a href="/tags/winsock/">winsock<span>1</span></a></li>
 		
-			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
+			<li><a href="/tags/SELiunx/">SELiunx<span>1</span></a></li>
 		
-			<li><a href="/tags/app/">app<span>4</span></a></li>
+			<li><a href="/tags/from-import/">from import<span>1</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+			<li><a href="/tags/多重继承/">多重继承<span>1</span></a></li>
 		
-			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
+			<li><a href="/tags/epoll/">epoll<span>1</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/部署/">部署<span>1</span></a></li>
 		
-			<li><a href="/tags/rpc/">rpc<span>3</span></a></li>
+			<li><a href="/tags/command/">command<span>9</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>601</span></a></li>
@@ -851,6 +842,10 @@ yumdownloader httpd
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
       </li>
     
@@ -864,10 +859,6 @@ yumdownloader httpd
     
       <li>
         <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
       </li>
     
   </ul>

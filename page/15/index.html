@@ -112,6 +112,36 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-11-16 </div>
+			<div class="article-title"><a href="/2015/11/16/ajax/" >ajax</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="什么是ajax"><a href="#什么是ajax" class="headerlink" title="什么是ajax?"></a>什么是ajax?</h1><p>全称”Asynchronous Javascript And XML”(异步JavaScript和XML)</p>
+<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>在不用重新载入整个网页的前提下(刷新),获取数据,更新网页内容</p>
+<h1 id="应用案例"><a href="#应用案例" class="headerlink" title="应用案例"></a>应用案例</h1><p>该技术在1998年前后得到了应用。允许客户端脚本发送HTTP请求（XMLHTTP）的第一个组件由Outlook Web Access小组写成。该组件原属于微软Exchange Server，并且迅速地成为了Internet Explorer 4.0的一部分。部分观察家认为，Outlook Web Access是第一个应用了Ajax技术的成功的商业应用程序，并成为包括Oddpost的网络邮件产品在内的许多产品的领头羊。但是，2005年初，许多事件使得Ajax被大众所接受。Google在它著名的交互应用程序中使用了异步通讯，如Google、Google地图、Google搜索建议、Gmail等。Ajax这个词由《Ajax: A New Approach to Web Applications》一文所创，该文的迅速流传提高了人们使用该项技术的意识。另外，对Mozilla/Gecko的支持使得该技术走向成熟，变得更为易用。</p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>核心是<code>XMLHttpRequest</code>对象</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.w3school.com.cn/xml/xml_http.asp" target="_blank" rel="external">XMLHttpRequest 对象</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/16/ajax/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-16 </div>
 			<div class="article-title"><a href="/2015/11/16/nginx-允许跨域/" >nginx-允许跨域</a></div>						
 		</h3>
 	
@@ -437,43 +467,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-02 </div>
-			<div class="article-title"><a href="/2015/11/02/mysql-变量/" >mysql-系统变量</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="用户变量"><a href="#用户变量" class="headerlink" title="用户变量"></a>用户变量</h1><p>用户变量是会话期的(作用域，生命期)</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SET @t1=1, @t2=2, @t3:=4;</span><br><span class="line">mysql&gt; SELECT @t1, @t2, @t3, @t4 := @t1+@t2+@t3;</span><br><span class="line">+------+------+------+--------------------+</span><br><span class="line">| @t1  | @t2  | @t3  | @t4 := @t1+@t2+@t3 |</span><br><span class="line">+------+------+------+--------------------+</span><br><span class="line">|    1 |    2 |    4 |                  7 |</span><br><span class="line">+------+------+------+--------------------+</span><br></pre></td></tr></table></figure>
-<h1 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h1><ul>
-<li><p>查询系统变量</p>
-<pre><code>select @@character_set_server;
-</code></pre></li>
-<li><p>通过<code>show</code></p>
-<pre><code>show variables like &apos;max_allowed_packet&apos;;
-</code></pre></li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://dev.mysql.com/doc/refman/5.7/en/user-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/user-variables.html</a></li>
-<li><a href="http://dev.mysql.com/doc/refman/5.7/en/set-variable.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/set-variable.html</a></li>
-<li><a href="http://dev.mysql.com/doc/refman/5.7/en/show-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/show-variables.html</a></li>
-<li><a href="http://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/02/mysql-变量/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -779,45 +772,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
-		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
-		
-			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
-		
-			<li><a href="/tags/异步/">异步<span>2</span></a></li>
-		
-			<li><a href="/tags/du/">du<span>1</span></a></li>
-		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
-		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
-		
-			<li><a href="/tags/路由表/">路由表<span>1</span></a></li>
-		
-			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
-		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
-		
-			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
-		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
-		
-			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
-		
-			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
-		
 			<li><a href="/tags/redis/">redis<span>7</span></a></li>
 		
-			<li><a href="/tags/tex/">tex<span>4</span></a></li>
+			<li><a href="/tags/tags/">tags<span>1</span></a></li>
 		
-			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
+			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
 		
-			<li><a href="/tags/enum/">enum<span>1</span></a></li>
+			<li><a href="/tags/python/">python<span>69</span></a></li>
 		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
+			<li><a href="/tags/返回值/">返回值<span>1</span></a></li>
 		
-			<li><a href="/tags/ISO-8859/">ISO-8859<span>1</span></a></li>
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
+		
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
+		
+			<li><a href="/tags/桥接/">桥接<span>1</span></a></li>
+		
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+		
+			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
+		
+			<li><a href="/tags/文件/">文件<span>7</span></a></li>
+		
+			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+		
+			<li><a href="/tags/理解/">理解<span>1</span></a></li>
+		
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
+		
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
+		
+			<li><a href="/tags/slab/">slab<span>1</span></a></li>
+		
+			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+		
+			<li><a href="/tags/GetTickCount/">GetTickCount<span>1</span></a></li>
+		
+			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
+		
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>601</span></a></li>
@@ -833,6 +826,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
       </li>
     
@@ -846,10 +843,6 @@
     
       <li>
         <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
       </li>
     
   </ul>

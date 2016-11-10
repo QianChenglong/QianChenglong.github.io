@@ -112,6 +112,43 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-11-02 </div>
+			<div class="article-title"><a href="/2015/11/02/mysql-变量/" >mysql-系统变量</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="用户变量"><a href="#用户变量" class="headerlink" title="用户变量"></a>用户变量</h1><p>用户变量是会话期的(作用域，生命期)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SET @t1=1, @t2=2, @t3:=4;</span><br><span class="line">mysql&gt; SELECT @t1, @t2, @t3, @t4 := @t1+@t2+@t3;</span><br><span class="line">+------+------+------+--------------------+</span><br><span class="line">| @t1  | @t2  | @t3  | @t4 := @t1+@t2+@t3 |</span><br><span class="line">+------+------+------+--------------------+</span><br><span class="line">|    1 |    2 |    4 |                  7 |</span><br><span class="line">+------+------+------+--------------------+</span><br></pre></td></tr></table></figure>
+<h1 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h1><ul>
+<li><p>查询系统变量</p>
+<pre><code>select @@character_set_server;
+</code></pre></li>
+<li><p>通过<code>show</code></p>
+<pre><code>show variables like &apos;max_allowed_packet&apos;;
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/user-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/user-variables.html</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/set-variable.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/set-variable.html</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/show-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/show-variables.html</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/11/02/mysql-变量/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-11-02 </div>
 			<div class="article-title"><a href="/2015/11/02/go-dsn/" >go-dsn</a></div>						
 		</h3>
 	
@@ -427,45 +464,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-28 </div>
-			<div class="article-title"><a href="/2015/10/28/go-内存分配/" >go-内存分配</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li><p>在go中,变量定义时,存储到stack还是heap上,由编译器确定</p>
-<ul>
-<li>若该变量在离开该作用域,仍被其他引用访问到(通过指针),则存储到heap</li>
-</ul>
-</li>
-</ol>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> f() *<span class="keyword">string</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"Hello world"</span></span><br><span class="line">    <span class="keyword">return</span> &amp;s</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">func</span> main() &#123;</span><br><span class="line">    r := f()</span><br><span class="line">    fmt.Printf(<span class="string">"%T %v %v\n"</span>, r, r, *r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>与C/C++不同,在go中,可以返回函数内定义的变量地址(因为存储到heap中)</li>
-</ol>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ol>
-<li>在go中,不用关心变量存储位置</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://golang.org/doc/faq#stack_or_heap" target="_blank" rel="external">https://golang.org/doc/faq#stack_or_heap</a></li>
-<li><a href="http://stackoverflow.com/questions/10866195/stack-vs-heap-allocation-of-structs-in-go-and-how-they-relate-to-garbage-collec?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/10866195/stack-vs-heap-allocation-of-structs-in-go-and-how-they-relate-to-garbage-collec?rq=1</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/10/28/go-内存分配/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -771,45 +769,45 @@ pre-up iptables-restore &lt; /etc/iptables.rule
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/wget/">wget<span>1</span></a></li>
+			<li><a href="/tags/binary/">binary<span>1</span></a></li>
 		
-			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
+			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
 		
-			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
+			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
 		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
+			<li><a href="/tags/if/">if<span>1</span></a></li>
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/TP-LINK/">TP-LINK<span>1</span></a></li>
 		
-			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
+			<li><a href="/tags/同步/">同步<span>2</span></a></li>
 		
-			<li><a href="/tags/crond/">crond<span>1</span></a></li>
+			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
+			<li><a href="/tags/template/">template<span>2</span></a></li>
 		
-			<li><a href="/tags/主模块/">主模块<span>1</span></a></li>
+			<li><a href="/tags/memcpy/">memcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/nging/">nging<span>1</span></a></li>
+			<li><a href="/tags/vpn/">vpn<span>1</span></a></li>
 		
-			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/bash/">bash<span>1</span></a></li>
 		
-			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
-			<li><a href="/tags/apt/">apt<span>2</span></a></li>
+			<li><a href="/tags/资源/">资源<span>2</span></a></li>
 		
-			<li><a href="/tags/包管理/">包管理<span>1</span></a></li>
+			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>601</span></a></li>
@@ -825,6 +823,10 @@ pre-up iptables-restore &lt; /etc/iptables.rule
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
       </li>
     
@@ -838,10 +840,6 @@ pre-up iptables-restore &lt; /etc/iptables.rule
     
       <li>
         <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
       </li>
     
   </ul>

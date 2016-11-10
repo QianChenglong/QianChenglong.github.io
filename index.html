@@ -111,6 +111,28 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-11-10 </div>
+			<div class="article-title"><a href="/2016/11/10/rfc/" >rfc</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| RFC序号      | 主题                      | 内容描述                                                                  |<br>|————–+—————————+—————————————————————————|<br>| <a href="https://tools.ietf.org/html/rfc793" target="_blank" rel="external">793</a>   | TCP标准                   | 最初的TCP标准定义，但不包括TCP相关操作细节                                |<br>| <a href="https://tools.ietf.org/html/rfc813" target="_blank" rel="external">813</a>   | TCP窗口与确认策略         | 讨论窗口确认机制，以及描述了在使用该机制有时遇到的问题及解决方法          |<br>| <a href="https://tools.ietf.org/html/rfc879" target="_blank" rel="external">879</a>   | TCP最大分段大小及相关主题 | 讨论MSS参数在控制TCP分组大小的重要性，以及该参数与IP分段大小的关系等      |<br>| <a href="https://tools.ietf.org/html/rfc896" target="_blank" rel="external">896</a>   | IP/TCP网络互联拥塞控制    | 探讨拥塞问题与TCP如何控制拥塞                                             |<br>| <a href="https://tools.ietf.org/html/rfc1122" target="_blank" rel="external">1122</a> | 网络主机要求——通讯层      | 讨论TCP如何在主机中实现的细节                                             |<br>| <a href="https://tools.ietf.org/html/rfc1146" target="_blank" rel="external">1146</a> | 可选的TCP校验和选项       | 针对TCP设备使用可选校验和方法进行规范                                     |<br>| <a href="https://tools.ietf.org/html/rfc1323" target="_blank" rel="external">1323</a> | 高性能下的TCP扩展         | 定义高速网络中TCP的扩展及新选项                                           |<br>| <a href="https://tools.ietf.org/html/rfc2018" target="_blank" rel="external">2018</a> | TCP选择确认               | TCP基础功能的增强，讨论TCP设备如何选择性的制定特定字段来重传              |<br>| [2525<a href="https://tools.ietf.org/html/rfc2525" target="_blank" rel="external">2525</a>  | 已知TCP的问题             | 描述当前已知的部分TCP问题                                                 |<br>| <a href="https://tools.ietf.org/html/rfc2581" target="_blank" rel="external">2581</a> | TCP拥塞控制               | 描述用于拥塞控制的四种机制：慢启动、拥塞防御、快重传和快恢复              |<br>| <a href="https://tools.ietf.org/html/rfc2988" target="_blank" rel="external">2988</a> | TCP重传计时器计算         | 讨论与TCP重传计时器设置相关话题，重传计时器控制报文在重传前应等待多长时间 |</p>
+
+	
+	</div>
+  <a type="button" href="/2016/11/10/rfc/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-11-07 </div>
 			<div class="article-title"><a href="/2016/11/07/sshd_config/" >sshd_config</a></div>						
 		</h3>
@@ -427,59 +449,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-11-01 </div>
-			<div class="article-title"><a href="/2016/11/01/systemd-service/" >systemd-service</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit] # 基本要素</span><br><span class="line">Description=A high performance web server and a reverse proxy server # 描述</span><br><span class="line">After=network.target # 依赖</span><br><span class="line"></span><br><span class="line">[Service] # 说明本文件描述的是daemon</span><br><span class="line">Type=forking</span><br><span class="line">PIDFile=/run/nginx.pid # 用来追踪主进程</span><br><span class="line">ExecStartPre=/usr/sbin/nginx -t -q -g &apos;daemon on; master_process on;&apos; # 启动前执行</span><br><span class="line">ExecStart=/usr/sbin/nginx -g &apos;daemon on; master_process on;&apos; # 启动</span><br><span class="line">ExecReload=/usr/sbin/nginx -g &apos;daemon on; master_process on;&apos; -s reload # 重新加载配置文件</span><br><span class="line">ExecStop=/usr/sbin/nginx -s quit # 停止命令</span><br><span class="line"></span><br><span class="line">[Install] # 当执行install命令时，用来说明指定target依赖本服务</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-<h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><ul>
-<li><p>Type</p>
-<p>用来说明本服务类型</p>
-<ul>
-<li><p>simple[默认] 不调用<code>fork</code></p>
-</li>
-<li><p>forking 该服务是传统型unix daemon，会调用<code>fork</code></p>
-</li>
-</ul>
-</li>
-<li><p>PIDFile</p>
-<p>指定PID文件绝对路径，当Type=forking时，必须设置此项，systemd通过该文件来追踪服务主进程，以便管理</p>
-</li>
-<li><p>Restart</p>
-<p>指定服务进程自动重启的条件。</p>
-<ul>
-<li>no:默认选项，服务不会被systemd自动重启。</li>
-<li>on-success:当服务进程成功退出后重启(exit code=0，signals SIGHUP, SIGINT, SIGTERM or SIGPIPE, and additionally, 或SuccessExitStatus=选项指定的退出信号)。</li>
-<li>on-failure:服务进程不正常退出时进行重启(exit code 为非0,或被信号中断)。</li>
-<li>on-abnormal:服务进程被信号中断时进行重启。</li>
-<li>no-watchdog:watchdog观测到服务进程过期后重启服务。</li>
-<li>no-abort:进程被未捕获的信号中断时将进行重启。</li>
-<li>always:服务在无论何种情况退出后或者超时时总是重启。</li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://www.freedesktop.org/software/systemd/man/systemd.service.html" target="_blank" rel="external">https://www.freedesktop.org/software/systemd/man/systemd.service.html</a></li>
-<li><a href="http://fangpeishi.com/systemd_chapter2.html" target="_blank" rel="external">http://fangpeishi.com/systemd_chapter2.html</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/systemd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E7.BC.96.E5.86.99.E5.8D.95.E5.85.83.E6.96.87.E4.BB.B6" target="_blank" rel="external">https://wiki.archlinux.org/index.php/systemd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E7.BC.96.E5.86.99.E5.8D.95.E5.85.83.E6.96.87.E4.BB.B6</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/11/01/systemd-service/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -785,45 +754,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
+			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
 		
-			<li><a href="/tags/import/">import<span>3</span></a></li>
+			<li><a href="/tags/array/">array<span>1</span></a></li>
 		
-			<li><a href="/tags/interface/">interface<span>1</span></a></li>
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
 		
-			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
+			<li><a href="/tags/搭建/">搭建<span>1</span></a></li>
 		
-			<li><a href="/tags/configure/">configure<span>1</span></a></li>
+			<li><a href="/tags/firewalld/">firewalld<span>1</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/argparse/">argparse<span>1</span></a></li>
 		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
 		
-			<li><a href="/tags/in-addr/">in_addr<span>1</span></a></li>
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
 		
-			<li><a href="/tags/参数/">参数<span>1</span></a></li>
+			<li><a href="/tags/单元测试/">单元测试<span>3</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
+			<li><a href="/tags/c-c-性能测试/">c,c++,性能测试<span>1</span></a></li>
 		
-			<li><a href="/tags/备份/">备份<span>1</span></a></li>
+			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
 		
-			<li><a href="/tags/read/">read<span>1</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>2</span></a></li>
 		
-			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
+			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
 		
-			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
+			<li><a href="/tags/右值/">右值<span>1</span></a></li>
 		
-			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
+			<li><a href="/tags/优先/">优先<span>1</span></a></li>
 		
-			<li><a href="/tags/function/">function<span>1</span></a></li>
+			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/test/">test<span>2</span></a></li>
+			<li><a href="/tags/打开方式/">打开方式<span>2</span></a></li>
 		
-			<li><a href="/tags/byte/">byte<span>1</span></a></li>
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
 		
-			<li><a href="/tags/gcc/">gcc<span>5</span></a></li>
+			<li><a href="/tags/RFC2119/">RFC2119<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>601</span></a></li>
@@ -839,6 +808,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
       </li>
     
@@ -852,10 +825,6 @@
     
       <li>
         <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/cp/" ><i class="fa fa-file-o"></i>cp</a>
       </li>
     
   </ul>

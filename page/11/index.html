@@ -269,6 +269,7 @@ yumdownloader httpd
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 =&gt; 0000 0001</span><br><span class="line">150(1001 0110) =&gt; 10010110 00000001</span><br><span class="line">300(0000 0001 0010 1100) =&gt; 1010 1100 0000 0010</span><br></pre></td></tr></table></figure>
 <p>源码(<code>encode.go</code>)：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> maxVarintBytes = <span class="number">10</span> <span class="comment">// maximum length of a varint</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// EncodeVarint returns the varint encoding of x.</span></span><br><span class="line"><span class="comment">// This is the format for the</span></span><br><span class="line"><span class="comment">// int32, int64, uint32, uint64, bool, and enum</span></span><br><span class="line"><span class="comment">// protocol buffer types.</span></span><br><span class="line"><span class="comment">// Not used by the package itself, but helpful to clients</span></span><br><span class="line"><span class="comment">// wishing to use the same encoding.</span></span><br><span class="line"><span class="keyword">func</span> EncodeVarint(x <span class="keyword">uint64</span>) []<span class="keyword">byte</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> buf [maxVarintBytes]<span class="keyword">byte</span></span><br><span class="line">    <span class="keyword">var</span> n <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> n = <span class="number">0</span>; x &gt; <span class="number">127</span>; n++ &#123;</span><br><span class="line">        buf[n] = <span class="number">0x80</span> | <span class="keyword">uint8</span>(x&amp;<span class="number">0x7F</span>)</span><br><span class="line">        x &gt;&gt;= <span class="number">7</span></span><br><span class="line">    &#125;</span><br><span class="line">    buf[n] = <span class="keyword">uint8</span>(x)</span><br><span class="line">    n++</span><br><span class="line">    <span class="keyword">return</span> buf[<span class="number">0</span>:n]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体有<code>key(tag+type)</code>，<code>length</code>，<code>value(int32, int64, uint32, uint64, sint32, sint64, bool, enum)</code>使用<code>varint</code>编码。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/</a></li>
 </ol>
@@ -788,45 +789,45 @@ yumdownloader httpd
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
 		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
 		
-			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
 		
-			<li><a href="/tags/软件/">软件<span>3</span></a></li>
+			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
 		
-			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
+			<li><a href="/tags/IP/">IP<span>4</span></a></li>
 		
-			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
+			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
 		
-			<li><a href="/tags/extern/">extern<span>1</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/linux/">linux<span>43</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
-			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
+			<li><a href="/tags/多重继承/">多重继承<span>1</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/T/">_T<span>1</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
 		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
+			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/网站/">网站<span>2</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
 		
-			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
+			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
 		
-			<li><a href="/tags/函数/">函数<span>2</span></a></li>
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
 		
-			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+			<li><a href="/tags/bind/">bind<span>2</span></a></li>
 		
-			<li><a href="/tags/http/">http<span>11</span></a></li>
+			<li><a href="/tags/设计原则/">设计原则<span>1</span></a></li>
 		
-			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+			<li><a href="/tags/webbrowser/">webbrowser<span>1</span></a></li>
 		
-			<li><a href="/tags/网络/">网络<span>9</span></a></li>
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>601</span></a></li>

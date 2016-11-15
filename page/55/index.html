@@ -111,32 +111,6 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2015-01-20 </div>
-			<div class="article-title"><a href="/2015/01/20/jsoncpp-使用/" >jsoncpp-使用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;json/json.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h1 id="生成json数据对象"><a href="#生成json数据对象" class="headerlink" title="生成json数据对象"></a>生成json数据对象</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Json::Value send_data;</span><br><span class="line"></span><br><span class="line">send_data[<span class="string">"msgType"</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// json对象</span></span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"ipAddress"</span>] = <span class="string">"192.168.1.1"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// json数组</span></span><br><span class="line">send_data[<span class="string">"name"</span>].append(<span class="string">"li"</span>);</span><br><span class="line">send_data[<span class="string">"name"</span>].append(<span class="string">"zhang"</span>);</span><br></pre></td></tr></table></figure>
-<h1 id="json对象转为字符串"><a href="#json对象转为字符串" class="headerlink" title="json对象转为字符串"></a>json对象转为字符串</h1><h2 id="转为格式化过的字符串"><a href="#转为格式化过的字符串" class="headerlink" title="转为格式化过的字符串"></a>转为格式化过的字符串</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> str = send_data.toStyledString();</span><br></pre></td></tr></table></figure>
-<h2 id="转为非格式化字符串"><a href="#转为非格式化字符串" class="headerlink" title="转为非格式化字符串"></a>转为非格式化字符串</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Json::FastWriter fast_writer;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> str = fast_writer.write(send_data);</span><br></pre></td></tr></table></figure>
-<h1 id="读取json数据"><a href="#读取json数据" class="headerlink" title="读取json数据"></a>读取json数据</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Json::Value send_data;</span><br><span class="line">send_data[<span class="string">"msgType"</span>] = <span class="number">1</span>;</span><br><span class="line">send_data[<span class="string">"msgCode"</span>] = <span class="number">10000</span>;</span><br><span class="line">send_data[<span class="string">"errCode"</span>] = <span class="number">0</span>;</span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"ipAddress"</span>] = <span class="string">"192.168.1.1"</span>;</span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"macAddress"</span>] = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">send_data[<span class="string">"msgType"</span>].asInt();</span><br><span class="line">send_data[<span class="string">"data"</span>][<span class="string">"ipAddress"</span>].asString();</span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/01/20/jsoncpp-使用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
 			<div class="date"> 2015-01-16 </div>
 			<div class="article-title"><a href="/2015/01/16/vim-输入二合字母/" >vim-输入二合字母</a></div>						
 		</h3>
@@ -412,6 +386,27 @@ sys.stdout.write(&apos;hello world&apos;)
 </div>
 
 		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-01-15 </div>
+			<div class="article-title"><a href="/2015/01/15/awk-学习笔记/" >awk-学习笔记</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		
+	
+	</div>
+  <a type="button" href="/2015/01/15/awk-学习笔记/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
 
 		</div>
 
@@ -510,7 +505,7 @@ sys.stdout.write(&apos;hello world&apos;)
 		
 			<li><a href="/categories/cron/">cron<span>1</span></a></li>
 		
-			<li><a href="/categories/cscope/">cscope<span>2</span></a></li>
+			<li><a href="/categories/cscope/">cscope<span>1</span></a></li>
 		
 			<li><a href="/categories/ctags/">ctags<span>1</span></a></li>
 		
@@ -717,45 +712,45 @@ sys.stdout.write(&apos;hello world&apos;)
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
+			<li><a href="/tags/flag/">flag<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
-		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
-		
-			<li><a href="/tags/第三方库/">第三方库<span>1</span></a></li>
-		
-			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
-		
-			<li><a href="/tags/简记/">简记<span>1</span></a></li>
-		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
-		
-			<li><a href="/tags/datetime/">datetime<span>1</span></a></li>
-		
-			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
-		
-			<li><a href="/tags/sshd-config/">sshd_config<span>1</span></a></li>
-		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
-		
-			<li><a href="/tags/T/">__T<span>1</span></a></li>
-		
-			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
+			<li><a href="/tags/base64/">base64<span>1</span></a></li>
 		
 			<li><a href="/tags/fish-shell/">fish,shell<span>1</span></a></li>
 		
-			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
+			<li><a href="/tags/计算机/">计算机<span>2</span></a></li>
 		
-			<li><a href="/tags/tcp/">tcp<span>6</span></a></li>
+			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
+		
+			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+		
+			<li><a href="/tags/error/">error<span>3</span></a></li>
+		
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
+		
+			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+		
+			<li><a href="/tags/socket/">socket<span>6</span></a></li>
+		
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
+		
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
+		
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
+		
+			<li><a href="/tags/centos/">centos<span>11</span></a></li>
+		
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
+		
+			<li><a href="/tags/gvim/">gvim<span>1</span></a></li>
+		
+			<li><a href="/tags/数学/">数学<span>1</span></a></li>
+		
+			<li><a href="/tags/lsof/">lsof<span>1</span></a></li>
 		
 			<li><a href="/tags/理解/">理解<span>1</span></a></li>
-		
-			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
-		
-			<li><a href="/tags/sort/">sort<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>601</span></a></li>

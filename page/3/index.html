@@ -112,6 +112,38 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-10-17 </div>
+			<div class="article-title"><a href="/2016/10/17/C++-多重继承/" >C++-多重继承</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li>当一个类有多个父类时，每个父类在内存中依次排列，然后该类自己的成员。</li>
+<li>每一个父类的镜像中，都包含有独立的虚函数表</li>
+<li>当把子类的指针Upcast的时候，两种Upcast的方式得到的结果分别指向各自的父类镜像</li>
+<li>当两个父类重载的虚函数不同时，会使用Thunk机制，也就是说，虚函数表中的函数指针并不指向实际的虚函数，而是指向一小段代码。在这一小段代码中，会修改This指针（ECX寄存器），使之指向合适的父类镜像，然后再跳转到实际的虚函数体。</li>
+<li>当不使用虚继承时，共同基类的成员对象，在子类中会有独立两分（从两个父类各自继承了一份）。</li>
+<li>当使用虚继承时，共同基类的成员对象也会在虚函数表中记录，访问它必须先查找虚函数表。</li>
+</ol>
+<h1 id="为什么不建议使用多重继承？"><a href="#为什么不建议使用多重继承？" class="headerlink" title="为什么不建议使用多重继承？"></a>为什么不建议使用多重继承？</h1><ol>
+<li>可能会引入菱形继承，而为了解决这种问题，有需要引入虚拟继承，而虚拟继承实现复杂，占用更多的内存，且效率低</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/10/17/C++-多重继承/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-10-17 </div>
 			<div class="article-title"><a href="/2016/10/17/C++-虚函数/" >C++-虚函数</a></div>						
 		</h3>
 	
@@ -479,46 +511,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-27 </div>
-			<div class="article-title"><a href="/2016/09/27/mysql-查看查询日志/" >mysql-查看查询日志</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ol>
-<li><p>修改配置文件</p>
-<pre><code>sudo vim /etc/my.cnf
-
-general_log=1
-general_log_file=/var/log/mysql/mysql.log
-</code></pre></li>
-<li><p>创建相应文件</p>
-<pre><code>mkdir -p /var/log/mysql/
-touch /var/log/mysql/mysql.log
-chmod 666 /var/log/mysql/mysql.log
-</code></pre></li>
-<li><p>重启mysql</p>
-<pre><code>sudo systemctl restart mysqld
-</code></pre></li>
-<li><p>查看</p>
-<pre><code>tail -F /var/log/mysql/mysql.log
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/27/mysql-查看查询日志/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -824,48 +816,48 @@ chmod 666 /var/log/mysql/mysql.log
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/类/">类<span>1</span></a></li>
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
 		
-			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/void/">void*<span>1</span></a></li>
+			<li><a href="/tags/函数/">函数<span>2</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/异步/">异步<span>2</span></a></li>
 		
-			<li><a href="/tags/include/">include<span>2</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/字符编码/">字符编码<span>3</span></a></li>
+			<li><a href="/tags/pdf/">pdf<span>4</span></a></li>
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
 		
-			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/ip/">ip<span>2</span></a></li>
+			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
 		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
+			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
 		
-			<li><a href="/tags/service/">service<span>1</span></a></li>
+			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
 		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+			<li><a href="/tags/yum/">yum<span>1</span></a></li>
 		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
+			<li><a href="/tags/if/">if<span>1</span></a></li>
 		
-			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
+			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
 		
-			<li><a href="/tags/read/">read<span>1</span></a></li>
+			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
 		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/10014/">10014<span>1</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/procps-ng/">procps-ng<span>1</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>2</span></a></li>
 		
-			<li><a href="/tags/warning/">warning<span>2</span></a></li>
+			<li><a href="/tags/AdBlock-Plus/">AdBlock Plus<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>601</span></a></li>
+		   <li><a href="/tags">...<span>602</span></a></li>
 		 
 		</ul>
 	</div>
@@ -876,6 +868,10 @@ chmod 666 /var/log/mysql/mysql.log
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/16/vim-map/" ><i class="fa fa-file-o"></i>vim-map</a>
+      </li>
     
       <li>
         <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
@@ -891,10 +887,6 @@ chmod 666 /var/log/mysql/mysql.log
     
       <li>
         <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
       </li>
     
   </ul>

@@ -112,6 +112,28 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2016-08-31 </div>
+			<div class="article-title"><a href="/2016/08/31/hash为什么最好使用素数来作为桶大小/" >hash为什么最好使用素数来作为桶大小</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>如何使用合数的的话？产生冲突的概率更大！如10=2*5（合数本身的性质）</p>
+
+	
+	</div>
+  <a type="button" href="/2016/08/31/hash为什么最好使用素数来作为桶大小/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-08-31 </div>
 			<div class="article-title"><a href="/2016/08/31/名人堂/" >名人堂</a></div>						
 		</h3>
 	
@@ -577,62 +599,6 @@ git reset --hard origin/master
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-05-28 </div>
-			<div class="article-title"><a href="/2016/05/28/C++-StringPiece/" >C++-StringPiece</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
-<li><p>很多时候，当传入一个字符串到函数时，往往只是读取字符串时</p>
-</li>
-<li><p>若使用<code>std::string</code>，当实参为<code>const char *</code>时，会<strong>分配内存并拷贝</strong>该字符串以生成一个<code>std::string</code></p>
-</li>
-<li><p>当一个函数接受一个<code>const std::string</code>，而在该函数内部，又需要传递该值到另一个函数，则又需要重新生成一个<code>std::string</code></p>
-</li>
-</ul>
-<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><ul>
-<li><p>当某个接口参数是接受字符串类型时，为了减少不必要的开销</p>
-</li>
-<li><p>该类型可以接受<code>const char *</code>，<code>std::string</code>，减少冗余代码编写</p>
-</li>
-</ul>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p><code>StringPiece(google), StringRef(llvm), string_ref(boost)</code>，本质名，<code>non-owning reference to a string</code></p>
-</li>
-<li><p>通过隐式转换，方便地从<code>const char*, std::string</code>转换到此类型</p>
-</li>
-<li><p>该类通过保存字符串指针和长度，来避免不必要的复制</p>
-</li>
-<li><p>只支持非修改操作</p>
-</li>
-<li><p>开销很低，只需要<code>sizeof(const char*) + sizeof(size_t)</code>字节</p>
-</li>
-<li><p>支持所有的类容器操作</p>
-</li>
-<li><p>因为<code>StringPiece</code>不拥有数据，所以确保在<code>StringPiece</code>生命期内，该数据可用</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3442.html" target="_blank" rel="external">N3442: string_ref: a non-owning reference to a string.</a></li>
-<li><a href="http://www.boost.org/doc/libs/1_60_0/libs/utility/doc/html/string_ref.html" target="_blank" rel="external">http://www.boost.org/doc/libs/1_60_0/libs/utility/doc/html/string_ref.html</a></li>
-<li><a href="http://stackoverflow.com/questions/2172726/are-there-any-reasons-why-the-stringpiece-stringref-idiom-is-not-more-popular" target="_blank" rel="external">http://stackoverflow.com/questions/2172726/are-there-any-reasons-why-the-stringpiece-stringref-idiom-is-not-more-popular</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/05/28/C++-StringPiece/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -938,48 +904,48 @@ git reset --hard origin/master
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/binary/">binary<span>1</span></a></li>
 		
-			<li><a href="/tags/template/">template<span>2</span></a></li>
+			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
 		
-			<li><a href="/tags/protobuf/">protobuf<span>2</span></a></li>
+			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
 		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+			<li><a href="/tags/ImportError/">ImportError<span>1</span></a></li>
 		
-			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+			<li><a href="/tags/pragme-once/">pragme once<span>1</span></a></li>
+		
+			<li><a href="/tags/闪存/">闪存<span>1</span></a></li>
+		
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+		
+			<li><a href="/tags/chron/">chron<span>1</span></a></li>
+		
+			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+		
+			<li><a href="/tags/登录/">登录<span>2</span></a></li>
+		
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
+		
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
+		
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+		
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
+		
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
 			<li><a href="/tags/VC，命令行/">VC，命令行<span>1</span></a></li>
 		
-			<li><a href="/tags/override/">override<span>2</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/pip/">pip<span>2</span></a></li>
-		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
-		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
-		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
-		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
-		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
-		
-			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
-		
-			<li><a href="/tags/cgi/">cgi<span>4</span></a></li>
-		
-			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
-		
-			<li><a href="/tags/registry/">registry<span>1</span></a></li>
-		
-			<li><a href="/tags/auto-ptr/">auto_ptr<span>3</span></a></li>
+			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>601</span></a></li>
+		   <li><a href="/tags">...<span>602</span></a></li>
 		 
 		</ul>
 	</div>
@@ -990,6 +956,10 @@ git reset --hard origin/master
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/11/16/vim-map/" ><i class="fa fa-file-o"></i>vim-map</a>
+      </li>
     
       <li>
         <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
@@ -1005,10 +975,6 @@ git reset --hard origin/master
     
       <li>
         <a href="/2016/11/07/SELinux/" ><i class="fa fa-file-o"></i>SELinux</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/chcon/" ><i class="fa fa-file-o"></i>chcon</a>
       </li>
     
   </ul>

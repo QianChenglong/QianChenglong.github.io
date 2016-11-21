@@ -111,31 +111,6 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2014-12-05 </div>
-			<div class="article-title"><a href="/2014/12/05/python获取IP对应的MAC/" >python获取IP对应的MAC</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_mac_from_ip</span><span class="params">(ip)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">    Return the mac from ip in windows.</span><br><span class="line">    """</span></span><br><span class="line">    <span class="keyword">from</span> subprocess <span class="keyword">import</span> Popen, PIPE</span><br><span class="line">    <span class="keyword">import</span> re</span><br><span class="line">    Popen([<span class="string">"ping"</span>, <span class="string">"-c 1"</span>, ip], stdout=PIPE, stderr=PIPE)</span><br><span class="line">    pid = Popen([<span class="string">"arp"</span>, <span class="string">"-a"</span>, ip], stdout=PIPE, stderr=PIPE)</span><br><span class="line">    s = pid.communicate()[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">if</span> s <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        <span class="keyword">raise</span> IOError(<span class="string">"can't get mac from ip(%s)!"</span> % ip)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        mac = re.search(<span class="string">r"(([a-f\d]&#123;1,2&#125;\-)&#123;5&#125;[a-f\d]&#123;1,2&#125;)"</span>, s).groups()[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">except</span> AttributeError:</span><br><span class="line">        <span class="keyword">raise</span> IOError(<span class="string">"can't find mac from ip(%s)!"</span> % ip)</span><br><span class="line">    <span class="keyword">return</span> mac</span><br><span class="line"></span><br><span class="line">print(get_mac_from_ip(<span class="string">'100.100.102.300'</span>))</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="http://snipplr.com/view/70832/" target="_blank" rel="external">http://snipplr.com/view/70832/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/05/python获取IP对应的MAC/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
 			<div class="date"> 2014-12-04 </div>
 			<div class="article-title"><a href="/2014/12/04/优秀软件列表/" >优秀软件列表</a></div>						
 		</h3>
@@ -547,6 +522,35 @@
 </div>
 
 		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-01 </div>
+			<div class="article-title"><a href="/2014/12/01/ssh常见问题/" >ssh常见问题</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>Could not open a connection to your authentication agent.</p>
+<p>eval “$(ssh-agent)”</p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://unix.stackexchange.com/questions/48863/ssh-add-complains-could-not-open-a-connection-to-your-authentication-agent" target="_blank" rel="external">http://unix.stackexchange.com/questions/48863/ssh-add-complains-could-not-open-a-connection-to-your-authentication-agent</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/01/ssh常见问题/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
 
 		</div>
 
@@ -852,45 +856,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/getaddrinfo/">getaddrinfo<span>2</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/memory-manage/">memory manage<span>1</span></a></li>
+			<li><a href="/tags/build/">build<span>1</span></a></li>
 		
-			<li><a href="/tags/strcpy/">strcpy<span>1</span></a></li>
+			<li><a href="/tags/构造函数/">构造函数<span>1</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/linux/">linux<span>43</span></a></li>
 		
-			<li><a href="/tags/link/">link<span>2</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>1</span></a></li>
 		
-			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/windows/">windows<span>43</span></a></li>
+			<li><a href="/tags/部署/">部署<span>1</span></a></li>
 		
-			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/warnning/">warnning<span>1</span></a></li>
 		
-			<li><a href="/tags/thinkpad/">thinkpad<span>1</span></a></li>
+			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
 		
-			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
+			<li><a href="/tags/个人代码/">个人代码<span>1</span></a></li>
 		
-			<li><a href="/tags/make/">make<span>2</span></a></li>
+			<li><a href="/tags/jsonrpc/">jsonrpc<span>3</span></a></li>
 		
-			<li><a href="/tags/override/">override<span>2</span></a></li>
+			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
 		
-			<li><a href="/tags/左值/">左值<span>1</span></a></li>
+			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
 		
-			<li><a href="/tags/API/">API<span>2</span></a></li>
+			<li><a href="/tags/validate/">validate<span>1</span></a></li>
 		
-			<li><a href="/tags/十六进制/">十六进制<span>2</span></a></li>
+			<li><a href="/tags/file/">file<span>1</span></a></li>
 		
-			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
+			<li><a href="/tags/时间/">时间<span>3</span></a></li>
 		
-			<li><a href="/tags/相对路径/">相对路径<span>1</span></a></li>
+			<li><a href="/tags/sshd-config/">sshd_config<span>1</span></a></li>
 		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
+			<li><a href="/tags/app/">app<span>4</span></a></li>
 		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
+			<li><a href="/tags/主键/">主键<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>602</span></a></li>

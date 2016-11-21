@@ -112,33 +112,6 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-05 </div>
-			<div class="article-title"><a href="/2015/02/05/getaddrinfo开启c99后无法编译/" >getaddrinfo开启c99后无法编译</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>开启了<code>c99</code>后，gcc采用严格标准c(<code>__STRICT_ANSI</code>)，而<code>getaddrinfo</code>是POSIX定义的，<br>所以无法使用，具体可查看<code>/usr/include/netdb.h</code>，<code>/usr/include/features.h</code></p>
-<p><strong>摘取:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">The `-ansi&apos; switch to the GNU C compiler, and standards conformance</span><br><span class="line">options such as `-std=c99&apos;, define __STRICT_ANSI__.  If none of</span><br><span class="line">these are defined, or if _DEFAULT_SOURCE is defined, the default is</span><br><span class="line">to have _SVID_SOURCE, _BSD_SOURCE, and _POSIX_SOURCE set to one and</span><br><span class="line">_POSIX_C_SOURCE set to 200809L.  If more than one of these are</span><br><span class="line">defined, they accumulate.  For example __STRICT_ANSI__,</span><br><span class="line">_POSIX_SOURCE and _POSIX_C_SOURCE together give you ISO C, 1003.1,</span><br><span class="line">and 1003.2, but nothing else.</span><br></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://groups.google.com/d/msg/gnu.gcc.help/a88eE4Ga73o/P3vji9iM5pwJ" target="_blank" rel="external">https://groups.google.com/d/msg/gnu.gcc.help/a88eE4Ga73o/P3vji9iM5pwJ</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/05/getaddrinfo开启c99后无法编译/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-05 </div>
 			<div class="article-title"><a href="/2015/02/05/gcc选项简记/" >gcc选项简记</a></div>						
 		</h3>
 	
@@ -318,6 +291,14 @@
 <li><p>-n, –line-number</p>
 <p>显示行号</p>
 </li>
+<li><p>-o, –only-matching</p>
+<p>只输出匹配的内容(默认输出匹配内容所在的整行)</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>grep指定日期的文件</p>
+<pre><code>find . -newermt 2016-11-19 ! -newermt 2016-11-20|xargs grep -i AH7GJ5SFCQ
+</code></pre></li>
 </ul>
 
 	
@@ -524,6 +505,31 @@ apt-cache show PACKAGE
 	
 	</div>
   <a type="button" href="/2015/02/03/sudo免密码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-03 </div>
+			<div class="article-title"><a href="/2015/02/03/USB接口线颜色定义/" >USB接口线颜色定义</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>| 功能        | 颜色 |<br>|————-+——|<br>| VCC         | 红   |<br>| GND         | 黑   |<br>| DATA+(SEND) | 绿   |<br>| DATA-(RECV) | 白   |</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://en.wikipedia.org/wiki/USB" target="_blank" rel="external">http://en.wikipedia.org/wiki/USB</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/03/USB接口线颜色定义/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -832,45 +838,45 @@ apt-cache show PACKAGE
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/编译/">编译<span>11</span></a></li>
+			<li><a href="/tags/idle/">idle<span>1</span></a></li>
 		
-			<li><a href="/tags/search/">search<span>1</span></a></li>
+			<li><a href="/tags/if/">if<span>1</span></a></li>
 		
-			<li><a href="/tags/爬虫/">爬虫<span>1</span></a></li>
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
 		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
+			<li><a href="/tags/error/">error<span>3</span></a></li>
 		
-			<li><a href="/tags/ping/">ping<span>2</span></a></li>
+			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/find/">find<span>3</span></a></li>
 		
-			<li><a href="/tags/syntastic/">syntastic<span>1</span></a></li>
+			<li><a href="/tags/update/">update<span>1</span></a></li>
 		
-			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
+			<li><a href="/tags/coredump/">coredump<span>2</span></a></li>
 		
-			<li><a href="/tags/sal/">sal<span>1</span></a></li>
+			<li><a href="/tags/mysql-store-result/">mysql_store_result<span>1</span></a></li>
 		
-			<li><a href="/tags/ps/">ps<span>1</span></a></li>
+			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
 		
-			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
+			<li><a href="/tags/virtualbox/">virtualbox<span>6</span></a></li>
 		
-			<li><a href="/tags/域名/">域名<span>1</span></a></li>
+			<li><a href="/tags/计划任务/">计划任务<span>1</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
 		
-			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
 		
-			<li><a href="/tags/线程/">线程<span>3</span></a></li>
+			<li><a href="/tags/关系/">关系<span>1</span></a></li>
 		
-			<li><a href="/tags/电影/">电影<span>1</span></a></li>
+			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
 		
-			<li><a href="/tags/vps/">vps<span>1</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
-			<li><a href="/tags/api/">api<span>1</span></a></li>
+			<li><a href="/tags/pip/">pip<span>2</span></a></li>
 		
-			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
+			<li><a href="/tags/右值引用/">右值引用<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>602</span></a></li>

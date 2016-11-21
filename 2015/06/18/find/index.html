@@ -134,6 +134,9 @@
 <li><p>多个模式匹配(运算符优先级！)</p>
 <pre><code>find . -type f \( -name &quot;*.cpp&quot; -o -name &quot;*.h&quot; \) -exec ls &apos;{}&apos; \;
 </code></pre></li>
+<li><p>查找指定日期的</p>
+<pre><code>find . -newermt 2016-11-19 ! -newermt 2016-11-20
+</code></pre></li>
 </ul>
 	  
 	</div>

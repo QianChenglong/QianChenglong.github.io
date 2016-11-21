@@ -111,34 +111,6 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2015-08-14 </div>
-			<div class="article-title"><a href="/2015/08/14/pthread/" >pthread</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>线程共享进程所有资源(文本段,数据段,堆,文件描述符等)</p>
-</li>
-<li><p>线程句柄<code>pthread_t</code>是一个结构,跟具体实现相关,不能直接拿来比较,需要使用<code>pthread_equal</code></p>
-</li>
-</ul>
-<h1 id="重要API"><a href="#重要API" class="headerlink" title="重要API"></a>重要API</h1><p>| 名称           | 功能                                                                               |<br>|—————-+————————————————————————————|<br>| pthread_create | 创建线程                                                                           |<br>| pthread_self   | 获取线程ID                                                                         |<br>| pthread_join   | 阻塞等待指定线程退出,获取其退出状态                                                |<br>| pthread_exit   | 线程主动退出                                                                       |<br>| pthread_cancel | 请求取消同一线程中的其他线程                                                       |<br>| pthread_detach | 使该进程处于分离状态(线程一旦终止,资源立马回收,不可调用pthread_join获取其退出状态) |</p>
-
-	
-	</div>
-  <a type="button" href="/2015/08/14/pthread/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
 			<div class="date"> 2015-08-11 </div>
 			<div class="article-title"><a href="/2015/08/11/virtualbox-在win下服务启动/" >virtualbox-在win下服务启动</a></div>						
 		</h3>
@@ -406,6 +378,128 @@
 	
 	</div>
   <a type="button" href="/2015/08/05/linux-管道/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-04 </div>
+			<div class="article-title"><a href="/2015/08/04/gdb/" >gdb</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h1><ul>
+<li><p>自定义初始化设置</p>
+<pre><code>~/.gdbinit
+</code></pre></li>
+<li><p>载入配置文件</p>
+<pre><code>source ~/.gdbinit
+</code></pre></li>
+</ul>
+<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><ul>
+<li><p>通过文件名</p>
+<pre><code>gdb &lt;program&gt;
+</code></pre></li>
+<li><p>使用core调试</p>
+<pre><code>gdb -c &lt;core-file-name&gt; &lt;program&gt;
+</code></pre></li>
+<li><p>attach到指定进程</p>
+<pre><code>gdb -p &lt;pid&gt;
+gdb attach &lt;pid&gt;
+</code></pre></li>
+</ul>
+<h1 id="多线程调试"><a href="#多线程调试" class="headerlink" title="多线程调试"></a>多线程调试</h1><ul>
+<li><p>查看当前所有线程</p>
+<pre><code>info threads
+</code></pre></li>
+<li><p>查看所有线程调用栈</p>
+<pre><code>thread apply all bt
+</code></pre></li>
+<li><p>调试指定线程</p>
+<pre><code>thread &lt;thread-num&gt;
+</code></pre></li>
+<li><p>锁定线程(阻止线程切换)</p>
+<pre><code>set scheduler-locking on
+</code></pre></li>
+</ul>
+<h1 id="控制类"><a href="#控制类" class="headerlink" title="控制类"></a>控制类</h1><ul>
+<li><p>运行到指定行</p>
+<pre><code>until $line-number
+</code></pre></li>
+</ul>
+<h1 id="断点"><a href="#断点" class="headerlink" title="断点"></a>断点</h1><ul>
+<li><p>在指定文件指定行</p>
+<pre><code>break filename:linenum
+</code></pre></li>
+<li><p>删除断点</p>
+<pre><code>clear linenum
+</code></pre></li>
+</ul>
+<h1 id="栈切换"><a href="#栈切换" class="headerlink" title="栈切换"></a>栈切换</h1><ul>
+<li><p>根据编号切换</p>
+<pre><code>frame n
+</code></pre></li>
+<li><p>向上</p>
+<pre><code>up &lt;num&gt;
+</code></pre></li>
+</ul>
+<h1 id="查询类"><a href="#查询类" class="headerlink" title="查询类"></a>查询类</h1><ul>
+<li><p>打印调用栈</p>
+<pre><code>bt
+where
+</code></pre></li>
+<li><p>打印当前帧(查询当前执行语句位置)</p>
+<pre><code>frame
+</code></pre></li>
+<li><p>打印当前行</p>
+<pre><code>list *$pc
+</code></pre></li>
+<li><p>x(examine)</p>
+<p>x /[nfu] ADDRESS(<strong>若ADDRESS是一个变量，则认为变量值为要查看的地址</strong>)<br>n用来指定重复的次数，就是指定显示格式和size确定的一个单位多少次<br>#n默认为1</p>
+<p>f用来指定显示的格式，同print一样</p>
+<pre><code>Format letters
+o(octal), x(hex), d(decimal), u(unsigned decimal), t(binary),
+f(float), a(address), i(instruction), c(char) and s(string)
+</code></pre><p>u(unit)，指定一个单位的长度</p>
+<pre><code>Size letters
+b(byte), h(halfword, 2B), w(word, 4B), g(giant, 8 bytes)
+</code></pre><p>x/3uh 0x54320</p>
+<pre><code>从0x54320开始，以(h)2B为单位，(u)无符号十进制输出，显示3uh个这样的单
+位，总共显示2 × 3 = 6B的内存
+</code></pre><p>x /10s *argv    查看环境变量</p>
+</li>
+</ul>
+<h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><ul>
+<li><p>set args ARG-list</p>
+<p>设置程序的命令行参数，依次传给argv[1],…<br>#需要在文件载入之后，程序开始执行之前</p>
+</li>
+<li><p>set print pretty</p>
+<p>可爱的打印出结构体</p>
+</li>
+<li><p>set print elements 0</p>
+<p>完全打印元素，不管有多少(查看该选项值，<code>show print elements</code>)</p>
+</li>
+</ul>
+<h1 id="gdb打印STLhttps-sourceware-org-gdb-wiki-STLSupport"><a href="#gdb打印STLhttps-sourceware-org-gdb-wiki-STLSupport" class="headerlink" title="gdb打印STLhttps://sourceware.org/gdb/wiki/STLSupport"></a>gdb打印STL<a href="https://sourceware.org/gdb/wiki/STLSupport" target="_blank" rel="external">https://sourceware.org/gdb/wiki/STLSupport</a></h1><h1 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h1><ul>
+<li>查看宏定义以及位置</li>
+</ul>
+<pre><code>info macro &lt;macro&gt;
+</code></pre><ul>
+<li><p>展开宏</p>
+<pre><code>macro expand &lt;macro&gt;
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/08/04/gdb/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -714,45 +808,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/base64/">base64<span>1</span></a></li>
+			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
 		
-			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
+			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
 		
-			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
 		
-			<li><a href="/tags/STL/">STL<span>1</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/串口/">串口<span>2</span></a></li>
+			<li><a href="/tags/arch/">arch<span>6</span></a></li>
 		
-			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
+			<li><a href="/tags/ANSI/">ANSI<span>1</span></a></li>
 		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+			<li><a href="/tags/登录密码/">登录密码<span>1</span></a></li>
+		
+			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+		
+			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
+		
+			<li><a href="/tags/封装/">封装<span>1</span></a></li>
+		
+			<li><a href="/tags/dsn/">dsn<span>1</span></a></li>
+		
+			<li><a href="/tags/vps/">vps<span>1</span></a></li>
+		
+			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
+		
+			<li><a href="/tags/简记/">简记<span>1</span></a></li>
+		
+			<li><a href="/tags/modeline/">modeline<span>1</span></a></li>
+		
+			<li><a href="/tags/chunked/">chunked<span>1</span></a></li>
 		
 			<li><a href="/tags/printf/">printf<span>1</span></a></li>
 		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
+			<li><a href="/tags/tab/">tab<span>1</span></a></li>
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
-		
-			<li><a href="/tags/mysql/">mysql<span>35</span></a></li>
-		
-			<li><a href="/tags/文件/">文件<span>7</span></a></li>
-		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
-		
-			<li><a href="/tags/hexo/">hexo<span>5</span></a></li>
-		
-			<li><a href="/tags/宏/">宏<span>4</span></a></li>
-		
-			<li><a href="/tags/BOM/">BOM<span>1</span></a></li>
-		
-			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
-		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
-		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>602</span></a></li>

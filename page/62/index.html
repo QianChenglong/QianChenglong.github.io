@@ -112,39 +112,6 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-10 </div>
-			<div class="article-title"><a href="/2014/12/10/python-字符串常量编码/" >python-字符串常量编码</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h1><ul>
-<li><p>str</p>
-<p>‘string’</p>
-</li>
-</ul>
-<p>该字符串常量编码取决于源文件编码</p>
-<ul>
-<li><p>unicode object</p>
-<p>u’string’</p>
-</li>
-</ul>
-<p>构造的对象为<code>unicode object</code>，若需转换为其他编码，无需<code>decode</code>操作</p>
-
-	
-	</div>
-  <a type="button" href="/2014/12/10/python-字符串常量编码/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-10 </div>
 			<div class="article-title"><a href="/2014/12/10/python-IDLE中文问题/" >python-IDLE中文问题</a></div>						
 		</h3>
 	
@@ -164,46 +131,6 @@
 	
 	</div>
   <a type="button" href="/2014/12/10/python-IDLE中文问题/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-10 </div>
-			<div class="article-title"><a href="/2014/12/10/win下编译openssl/" >win下编译openssl</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
-<li>perl</li>
-<li>VC++</li>
-</ul>
-<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
-<li><p>生成<code>Makefile</code></p>
-<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
-ms\do_ms
-</code></pre></li>
-<li><p>编译</p>
-<pre><code>nmake -f ms\ntdll.mak
-</code></pre></li>
-<li><p>测试</p>
-<pre><code>nmake -f ms\ntdll.mak test
-</code></pre></li>
-<li><p>安装</p>
-<pre><code>nmake -f ms\ntdll.mak install
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/10/win下编译openssl/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -252,6 +179,46 @@ ms\do_ms
 	
 	</div>
   <a type="button" href="/2014/12/10/win下编译libcurl/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-10 </div>
+			<div class="article-title"><a href="/2014/12/10/win下编译openssl/" >win下编译openssl</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
+<li>perl</li>
+<li>VC++</li>
+</ul>
+<h2 id="编译-详细过程参考INSTALL-W32"><a href="#编译-详细过程参考INSTALL-W32" class="headerlink" title="编译(详细过程参考INSTALL.W32)"></a>编译(详细过程参考<code>INSTALL.W32</code>)</h2><ul>
+<li><p>生成<code>Makefile</code></p>
+<pre><code>perl Configure VC-WIN32 no-asm --prefix=c:/some/openssl/dir
+ms\do_ms
+</code></pre></li>
+<li><p>编译</p>
+<pre><code>nmake -f ms\ntdll.mak
+</code></pre></li>
+<li><p>测试</p>
+<pre><code>nmake -f ms\ntdll.mak test
+</code></pre></li>
+<li><p>安装</p>
+<pre><code>nmake -f ms\ntdll.mak install
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2014/12/10/win下编译openssl/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -481,6 +448,61 @@ ms\do_ms
 	
 	</div>
   <a type="button" href="/2014/12/08/python-str类型和unicode类型/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-08 </div>
+			<div class="article-title"><a href="/2014/12/08/字符编码中的相关概念/" >字符编码中的相关概念</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h1><p>将字符集中的字符用另一集合中的对象来表示，以便存储或传输。</p>
+<p>从数学角度上说，就是一种映射，更准确地说，是一种单射函数，具有唯一确定性，但不存在多个字符映射为同一个码元！</p>
+<p>常见的编码方式有，ASCII，摩尔斯电码等。</p>
+<hr>
+<p><em>参考：</em></p>
+<ol>
+<li><a href="http://zh.wikipedia.org/wiki/%E5%87%BD%E6%95%B0" target="_blank" rel="external">维基-函数</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/%E6%98%A0%E5%B0%84" target="_blank" rel="external">维基-映射</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81" target="_blank" rel="external">维基-字符编码</a></li>
+</ol>
+<h1 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h1><p>一个基本信息单位，如字母，数字，标点符号，控制字符等。</p>
+<hr>
+<p><em>参考：</em></p>
+<ol>
+<li><a href="http://zh.wikipedia.org/wiki/%E5%AD%97%E7%AC%A6" target="_blank" rel="external">维基-字符</a></li>
+</ol>
+<h1 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h1><p>字符的集合</p>
+<h1 id="代码页"><a href="#代码页" class="headerlink" title="代码页"></a>代码页</h1><p>字符编码的别名</p>
+<hr>
+<p><em>参考：</em></p>
+<ol>
+<li><a href="http://en.wikipedia.org/wiki/Code_page" target="_blank" rel="external">http://en.wikipedia.org/wiki/Code_page</a></li>
+</ol>
+<h1 id="码位"><a href="#码位" class="headerlink" title="码位"></a>码位</h1><p>字符在编码表中的值，一般为非负整数。</p>
+<p><strong>注：</strong></p>
+<ul>
+<li>并不直接对应在计算机中的表达，如一个字符在unicode字符集中的码位，具体怎么表示，取决于编码方式(UTF-8，UTF-16…)</li>
+</ul>
+<h1 id="码元"><a href="#码元" class="headerlink" title="码元"></a>码元</h1><p>已编码的字符集中占用最小的比特数，如UTF-8为8，UTF-16为16。</p>
+<h1 id="字形"><a href="#字形" class="headerlink" title="字形"></a>字形</h1><p>一个可以辨认的抽象的图形符号，它不依赖于任何特定的设计，即<strong>字符的构成形式</strong></p>
+<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://zh.wikipedia.org/wiki/%E5%AD%97%E5%BD%A2" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E5%AD%97%E5%BD%A2</a></li>
+<li><a href="https://docs.python.org/2/howto/unicode.html" target="_blank" rel="external">https://docs.python.org/2/howto/unicode.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/08/字符编码中的相关概念/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -789,45 +811,45 @@ ms\do_ms
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/exit/">exit<span>1</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
+			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
 		
-			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
+			<li><a href="/tags/poll/">poll<span>1</span></a></li>
 		
-			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
+			<li><a href="/tags/产品/">产品<span>1</span></a></li>
 		
-			<li><a href="/tags/apt/">apt<span>2</span></a></li>
+			<li><a href="/tags/winsock2-h/">winsock2.h<span>1</span></a></li>
 		
-			<li><a href="/tags/CORS/">CORS<span>1</span></a></li>
+			<li><a href="/tags/库/">库<span>2</span></a></li>
 		
-			<li><a href="/tags/dll/">dll<span>1</span></a></li>
+			<li><a href="/tags/多重继承/">多重继承<span>1</span></a></li>
 		
-			<li><a href="/tags/link/">link<span>2</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/VC/">VC<span>3</span></a></li>
+			<li><a href="/tags/form/">form<span>1</span></a></li>
 		
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/google/">google<span>1</span></a></li>
 		
-			<li><a href="/tags/系统变量/">系统变量<span>1</span></a></li>
+			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
 		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
+			<li><a href="/tags/密码/">密码<span>1</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/empty/">empty<span>1</span></a></li>
 		
-			<li><a href="/tags/C-11/">C++11<span>10</span></a></li>
+			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
 		
-			<li><a href="/tags/元组/">元组<span>1</span></a></li>
+			<li><a href="/tags/错误代码/">错误代码<span>1</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/参数/">参数<span>1</span></a></li>
 		
-			<li><a href="/tags/gzip/">gzip<span>2</span></a></li>
+			<li><a href="/tags/ip/">ip<span>2</span></a></li>
 		
-			<li><a href="/tags/调试/">调试<span>2</span></a></li>
+			<li><a href="/tags/md5/">md5<span>3</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/跨域共享/">跨域共享<span>1</span></a></li>
 		
-			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
+			<li><a href="/tags/war/">war<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>602</span></a></li>

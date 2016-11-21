@@ -112,50 +112,6 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-03-09 </div>
-			<div class="article-title"><a href="/2015/03/09/linux-禁用IPv6/" >linux-禁用IPv6</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="通过procps"><a href="#通过procps" class="headerlink" title="通过procps"></a>通过<code>procps</code></h1><ul>
-<li><p>修改<code>/etc/sysctl.conf</code></p>
-<pre><code>net.ipv6.conf.all.disable_ipv6 = 1
-</code></pre></li>
-<li><p>重新读取</p>
-<pre><code>sysctl -wp
-</code></pre></li>
-</ul>
-<h1 id="通过boot-loader"><a href="#通过boot-loader" class="headerlink" title="通过boot loader"></a>通过boot loader</h1><ul>
-<li><p>修改配置文件</p>
-<ul>
-<li><p>syslinux</p>
-<pre><code>/boot/syslinux/syslinux.cfg
-</code></pre></li>
-<li><p>grub</p>
-<pre><code>/boot/grub/grub.cfg
-</code></pre></li>
-</ul>
-</li>
-<li><p>在内核启动参数添加</p>
-<pre><code>ipv6.disable=1
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/03/09/linux-禁用IPv6/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-09 </div>
 			<div class="article-title"><a href="/2015/03/09/msysgit-windows下ssh配置/" >msysgit-windows下ssh配置</a></div>						
 		</h3>
 	
@@ -364,7 +320,7 @@ firewall-cmd --reload
 <p>/usr/local/bin/ssserver -c /etc/shadowsocks.json</p>
 </li>
 <li><p>daemon</p>
-<p>/usr/local/bin/ssserver -c /etc/shadowsocks.json -d start</p>
+<p>/usr/local/bin/ssserver –pid-file /var/run/shadowsocks.pid –log-file /var/log/shadowsocks.log -c /etc/shadowsocks.json -d start</p>
 </li>
 </ul>
 </li>
@@ -477,6 +433,74 @@ firewall-cmd --reload
 	
 	</div>
   <a type="button" href="/2015/03/05/windows-执行reg文件不要提问/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-05 </div>
+			<div class="article-title"><a href="/2015/03/05/windows安装方式/" >windows安装方式</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="使用NT6-HDD-Installer安装"><a href="#使用NT6-HDD-Installer安装" class="headerlink" title="使用NT6-HDD-Installer安装"></a>使用<code>NT6-HDD-Installer</code>安装</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>参考其帮助信息</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>本地硬盘安装，速度快，花费时间少</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>需要已有系统</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="http://www.itopdog.cn/utilities-operating-systems/windows/windows7-setup.html" target="_blank" rel="external">http://www.itopdog.cn/utilities-operating-systems/windows/windows7-setup.html</a></li>
+</ol>
+<h1 id="使用win-man"><a href="#使用win-man" class="headerlink" title="使用win$man"></a>使用<code>win$man</code></h1><h2 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li>运行<code>win$man</code></li>
+<li>安装</li>
+</ul>
+<h1 id="使用Win6Ins-v1-2-0-62"><a href="#使用Win6Ins-v1-2-0-62" class="headerlink" title="使用Win6Ins_v1.2.0.62"></a>使用<code>Win6Ins_v1.2.0.62</code></h1><h1 id="刻到U盘中"><a href="#刻到U盘中" class="headerlink" title="刻到U盘中"></a>刻到U盘中</h1><h2 id="步骤-2"><a href="#步骤-2" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li>使用<code>UltraISO</code>打开镜像文件</li>
+<li>[启动] =&gt; [写入硬盘镜像]</li>
+<li>重启选择U盘启动</li>
+</ul>
+<h2 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>保证性好</li>
+</ul>
+<h2 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>写入速度慢，win7大概需要<strong>15</strong>分钟</li>
+</ul>
+<h1 id="使用PE中的安装器软件"><a href="#使用PE中的安装器软件" class="headerlink" title="使用PE中的安装器软件"></a>使用PE中的安装器软件</h1><h2 id="步骤-3"><a href="#步骤-3" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li>U盘制作为PE启动盘</li>
+<li>复制镜像文件到U盘或非系统分区中</li>
+<li>重启从U盘运行PE系统</li>
+<li>运行安装器</li>
+</ul>
+<h2 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>不需要主机已安装系统</li>
+</ul>
+<h2 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>部分系统安装失败</li>
+</ul>
+<h1 id="解压运行setup-exe安装"><a href="#解压运行setup-exe安装" class="headerlink" title="解压运行setup.exe安装"></a>解压运行<code>setup.exe</code>安装</h1><h2 id="步骤-4"><a href="#步骤-4" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li>解压镜像文件到非系统分区</li>
+<li>运行<code>setup.exe</code></li>
+</ul>
+<h2 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>操作快</li>
+</ul>
+<h2 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>依赖现有系统，且32位不能安装64位系统</li>
+</ul>
+<h1 id="刻录到光盘中安装-基本不采用"><a href="#刻录到光盘中安装-基本不采用" class="headerlink" title="刻录到光盘中安装(基本不采用)"></a>刻录到光盘中安装(基本不采用)</h1>
+	
+	</div>
+  <a type="button" href="/2015/03/05/windows安装方式/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -785,45 +809,45 @@ firewall-cmd --reload
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/struct/">struct<span>1</span></a></li>
-		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
-		
-			<li><a href="/tags/SELiunx/">SELiunx<span>1</span></a></li>
-		
-			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
-		
-			<li><a href="/tags/固件/">固件<span>1</span></a></li>
-		
-			<li><a href="/tags/suse/">suse<span>1</span></a></li>
-		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
-		
-			<li><a href="/tags/dhcp/">dhcp<span>1</span></a></li>
-		
-			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
-		
-			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
-		
 			<li><a href="/tags/WSA/">WSA<span>1</span></a></li>
 		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+			<li><a href="/tags/cscope/">cscope<span>1</span></a></li>
 		
-			<li><a href="/tags/网卡/">网卡<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/all/">all<span>1</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/二合字母/">二合字母<span>1</span></a></li>
+			<li><a href="/tags/wget/">wget<span>1</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>7</span></a></li>
+			<li><a href="/tags/mysql-use-result/">mysql_use_result<span>1</span></a></li>
 		
-			<li><a href="/tags/gorilla/">gorilla<span>1</span></a></li>
+			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
 		
-			<li><a href="/tags/database/">database<span>3</span></a></li>
+			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
 		
-			<li><a href="/tags/转换/">转换<span>1</span></a></li>
+			<li><a href="/tags/bash/">bash<span>1</span></a></li>
 		
-			<li><a href="/tags/cp/">cp<span>1</span></a></li>
+			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+		
+			<li><a href="/tags/nodejs/">nodejs<span>1</span></a></li>
+		
+			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+		
+			<li><a href="/tags/array/">array<span>1</span></a></li>
+		
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+		
+			<li><a href="/tags/脚本/">脚本<span>2</span></a></li>
+		
+			<li><a href="/tags/char/">char<span>2</span></a></li>
+		
+			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
+		
+			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+		
+			<li><a href="/tags/mount/">mount<span>1</span></a></li>
+		
+			<li><a href="/tags/博客/">博客<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>602</span></a></li>

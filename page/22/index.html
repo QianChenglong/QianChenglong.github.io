@@ -112,32 +112,6 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-09-10 </div>
-			<div class="article-title"><a href="/2015/09/10/curl/" >curl</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>发送jsonrpc</p>
-<pre><code>curl -X POST -H &quot;Content-Type: application/json&quot; -d &apos;{&quot;method&quot;:&quot;HelloService.Say&quot;,&quot;params&quot;:[{&quot;Who&quot;:&quot;Test&quot;}], &quot;id&quot;:&quot;54321&quot;, &quot;jsonrpc&quot;: &quot;2.0&quot;}&apos; http://:6061/rpc
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/09/10/curl/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-10 </div>
 			<div class="article-title"><a href="/2015/09/10/http-常见错误代码分析/" >http-常见错误代码分析</a></div>						
 		</h3>
 	
@@ -437,6 +411,52 @@
 	
 	</div>
   <a type="button" href="/2015/08/26/gcc-调试编译/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-26 </div>
+			<div class="article-title"><a href="/2015/08/26/gcc-链接库顺序/" >gcc-链接库顺序</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>在gcc编译时,链接库的指定顺序会影响编译行为!</p>
+<p>gcc手册说明:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-l library</span><br><span class="line">       Search the library named library when linking.  (The second alternative with the library as a separate argument is only for POSIX compliance and is not</span><br><span class="line">       recommended.)</span><br><span class="line"></span><br><span class="line">       It makes a difference where in the command you write this option; the linker searches and processes libraries and object files in the order they are</span><br><span class="line">       specified.  Thus, foo.o -lz bar.o searches library z after file foo.o but before bar.o.  If bar.o refers to functions in z, those functions may not be</span><br><span class="line">       loaded.</span><br><span class="line"></span><br><span class="line">       The linker searches a standard list of directories for the library, which is actually a file named liblibrary.a.  The linker then uses this file as if</span><br><span class="line">       it had been specified precisely by name.</span><br><span class="line"></span><br><span class="line">       The directories searched include several standard system directories plus any that you specify with -L.</span><br><span class="line"></span><br><span class="line">       Normally the files found this way are library files---archive files whose members are object files.  The linker handles an archive file by scanning</span><br><span class="line">       through it for members which define symbols that have so far been referenced but not defined.  But if the file that is found is an ordinary object file,</span><br><span class="line">       it is linked in the usual fashion.  The only difference between using an -l option and specifying a file name is that -l surrounds library with lib and</span><br><span class="line">       .a and searches several directories.</span><br></pre></td></tr></table></figure>
+<p>理解:</p>
+<p>假设C依赖库A,B,库B依赖于库A,则链接的时候要写为:</p>
+<p>   gcc -o C -lB -lA</p>
+<p>若写成:</p>
+<p>   gcc -o C -lA -lB</p>
+<h1 id="链接时-符号寻找过程"><a href="#链接时-符号寻找过程" class="headerlink" title="链接时,符号寻找过程"></a>链接时,符号寻找过程</h1><ol>
+<li><p>根据库路径列表,依次找到需要链接的库</p>
+<ul>
+<li>若一个库在该路径列表中存在多个,则使用第一个找到的</li>
+</ul>
+</li>
+<li><p>从左向右,依次找寻符号定义</p>
+<ul>
+<li><code>gcc -o C -lB -lA</code>,符号搜寻过程是C=&gt;B, B=&gt;A</li>
+</ul>
+</li>
+</ol>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论!"></a>结论!</h1><p>在项目开发过层中尽量让lib是垂直关系,避免循环依赖,越是底层的库,越是往后面写</p>
+<pre><code>g++ ...  obj($?) -l(上层逻辑lib) -l(中间封装lib) -l(基础lib) -l(系统lib) -o $@
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.cnblogs.com/OCaml/archive/2012/06/18/2554086.html" target="_blank" rel="external">折腾gcc/g++链接时.o文件及库的顺序问题</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/08/26/gcc-链接库顺序/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -745,45 +765,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
+			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
 		
-			<li><a href="/tags/死锁/">死锁<span>1</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
+			<li><a href="/tags/byte/">byte<span>1</span></a></li>
 		
-			<li><a href="/tags/IPv6/">IPv6<span>1</span></a></li>
+			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
 		
-			<li><a href="/tags/fmt/">fmt<span>1</span></a></li>
+			<li><a href="/tags/彩色打印/">彩色打印<span>1</span></a></li>
 		
-			<li><a href="/tags/免密码/">免密码<span>1</span></a></li>
+			<li><a href="/tags/if/">if<span>1</span></a></li>
 		
-			<li><a href="/tags/认证/">认证<span>1</span></a></li>
+			<li><a href="/tags/注册表/">注册表<span>2</span></a></li>
 		
-			<li><a href="/tags/hosts/">hosts<span>1</span></a></li>
+			<li><a href="/tags/IP/">IP<span>4</span></a></li>
 		
-			<li><a href="/tags/time/">time<span>2</span></a></li>
+			<li><a href="/tags/apche/">apche<span>1</span></a></li>
 		
-			<li><a href="/tags/sshd/">sshd<span>1</span></a></li>
+			<li><a href="/tags/MBR/">MBR<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/mbtowc/">mbtowc<span>1</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/Latin-1/">Latin-1<span>1</span></a></li>
+			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
 		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
 		
-			<li><a href="/tags/编码/">编码<span>6</span></a></li>
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
+			<li><a href="/tags/yum/">yum<span>1</span></a></li>
 		
-			<li><a href="/tags/checksum/">checksum<span>1</span></a></li>
+			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
 		
-			<li><a href="/tags/编译器/">编译器<span>1</span></a></li>
+			<li><a href="/tags/backtrace/">backtrace()<span>1</span></a></li>
 		
-			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
+			<li><a href="/tags/netlink/">netlink<span>1</span></a></li>
 		
-			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
+			<li><a href="/tags/移动语义/">移动语义<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>602</span></a></li>

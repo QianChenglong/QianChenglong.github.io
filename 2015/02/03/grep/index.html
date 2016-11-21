@@ -129,6 +129,14 @@
 <li><p>-n, –line-number</p>
 <p>显示行号</p>
 </li>
+<li><p>-o, –only-matching</p>
+<p>只输出匹配的内容(默认输出匹配内容所在的整行)</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>grep指定日期的文件</p>
+<pre><code>find . -newermt 2016-11-19 ! -newermt 2016-11-20|xargs grep -i AH7GJ5SFCQ
+</code></pre></li>
 </ul>
 	  
 	</div>

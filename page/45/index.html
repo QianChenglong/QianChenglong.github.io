@@ -114,6 +114,103 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-02-28 </div>
+			<div class="article-title"><a href="/2015/02/28/wprintf和printf问题/" >wprintf和printf问题</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>两个函数若不经过处理，混合使用将导致另一方的输出无法显示。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>因为每个标准IO流都具有一个<strong>面向</strong>属性(面向单字节，面向宽字节)，不能混合！</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://stackoverflow.com/questions/8681623/printf-and-wprintf-in-single-c-code" target="_blank" rel="external">http://stackoverflow.com/questions/8681623/printf-and-wprintf-in-single-c-code</a></li>
+<li><a href="http://www.gnu.org/savannah-checkouts/gnu/libc/manual/html_node/Streams-and-I18N.html" target="_blank" rel="external">http://www.gnu.org/savannah-checkouts/gnu/libc/manual/html_node/Streams-and-I18N.html</a></li>
+<li><a href="http://pubs.opengroup.org/onlinepubs/009696699/functions/xsh_chap02_05.html" target="_blank" rel="external">http://pubs.opengroup.org/onlinepubs/009696699/functions/xsh_chap02_05.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/28/wprintf和printf问题/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-28 </div>
+			<div class="article-title"><a href="/2015/02/28/编译器与字符编码/" >编译器与字符编码</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h1><h2 id="源码字符集-the-source-character-set"><a href="#源码字符集-the-source-character-set" class="headerlink" title="源码字符集(the source character set)"></a>源码字符集(the source character set)</h2><p>源码文件是使用何种编码保存的</p>
+<h2 id="执行字符集-the-execution-character-set"><a href="#执行字符集-the-execution-character-set" class="headerlink" title="执行字符集(the execution character set)"></a>执行字符集(the execution character set)</h2><p>可执行程序内保存的是何种编码(程序执行时内存中字符串编码)</p>
+<h1 id="问题产生的背景"><a href="#问题产生的背景" class="headerlink" title="问题产生的背景"></a>问题产生的背景</h1><p>C或C++中没有对源码字符集，执行字符集做规定，导致不同的编译器标准不统一</p>
+<ul>
+<li><p>GCC</p>
+<ul>
+<li><p>源码字符集和执行字符集默认都为UTF-8</p>
+</li>
+<li><p>且都可以手动指定(-finput-charset, -fexec-charset)</p>
+</li>
+</ul>
+</li>
+<li><p>MSVC</p>
+<ul>
+<li><p>源码字符集，有BOM么，有则按BOM解释，无则使用本地Locale字符集(随系统设置而变</p>
+</li>
+<li><p>执行字符集，使用本地Locale字符集(随系统设置而变)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="wchar"><a href="#wchar" class="headerlink" title="wchar"></a>wchar</h1><p><code>wchar</code>采用unicode编码，具体编码方案与OS相关</p>
+<ul>
+<li>linux</li>
+</ul>
+<p>采用UTF-32LE存储</p>
+<ul>
+<li>windows</li>
+</ul>
+<p>采用UTF-16LE存储</p>
+<h2 id="与编译器相关"><a href="#与编译器相关" class="headerlink" title="与编译器相关"></a>与编译器相关</h2><ul>
+<li><p>对单字节字符串(<code>char*</code>)，编译器什么也不做，原样复制</p>
+</li>
+<li><p>对宽字节字符串(<code>wchar_t*</code>)，编译器需要转换</p>
+<ul>
+<li><p>GCC</p>
+<p>根据源文件编码，将其转换为内部编码(UTF-32LE)</p>
+</li>
+<li><p>MSVC</p>
+<p>源文件需为UTF-8或ANSI编码，将其转换为内部编码(UTF-16LE)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://blog.csdn.net/dbzhang800/article/details/7540905" target="_blank" rel="external">http://blog.csdn.net/dbzhang800/article/details/7540905</a></li>
+<li><a href="http://jeffreyloo.blog.163.com/blog/static/121761670201061721939955/" target="_blank" rel="external">C/C++ 编译后的二进制程序中字符串的保存方式</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/28/编译器与字符编码/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-28 </div>
 			<div class="article-title"><a href="/2015/02/28/Latin-1/" >Latin-1</a></div>						
 		</h3>
 	
@@ -368,94 +465,6 @@
 	
 	</div>
   <a type="button" href="/2015/02/13/python-list转string/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-13 </div>
-			<div class="article-title"><a href="/2015/02/13/windows-常用命令/" >windows-常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>查看文件属性</p>
-<pre><code>attrib
-</code></pre></li>
-<li><p>计划任务</p>
-<pre><code>taskschd.msc
-</code></pre></li>
-<li><p>设备管理器</p>
-<pre><code>devmgmt.msc
-</code></pre></li>
-<li><p>查看系统信息</p>
-<pre><code>msinfo32
-</code></pre></li>
-<li><p>查看dll导出符号表</p>
-<pre><code>dumpbin /exports filename
-</code></pre></li>
-<li><p>导出注册表项</p>
-<pre><code>regedit /e test.reg HKEY_CURRENT_USER\Environment
-</code></pre></li>
-<li><p>事件查看器</p>
-<pre><code>eventvwr
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/13/windows-常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-13 </div>
-			<div class="article-title"><a href="/2015/02/13/find-教程/" >find-教程</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h1><pre><code>find [where-to-find] [filter] [action]
-</code></pre><p>所有参数都是可选的。</p>
-<ul>
-<li><code>where-to-find</code>，默认当前路径<code>.</code></li>
-<li><code>filter</code>，默认为空，即不过滤</li>
-<li><code>action</code>，默认<code>-print</code>，向标准输出打印，换行符分隔</li>
-</ul>
-<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
-<li><p>打印绝对路径</p>
-<ul>
-<li><p>windows</p>
-<pre><code>find &quot;%cd%&quot;
-</code></pre></li>
-<li><p>linux</p>
-<pre><code>find &quot;$PWD&quot;
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://content.hccfl.edu/pollock/Unix/FindCmd.htm" target="_blank" rel="external">http://content.hccfl.edu/pollock/Unix/FindCmd.htm</a></li>
-<li><a href="http://linux.die.net/man/1/find" target="_blank" rel="external">http://linux.die.net/man/1/find</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/13/find-教程/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -764,45 +773,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/daemon/">daemon<span>1</span></a></li>
+			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/串口/">串口<span>2</span></a></li>
 		
-			<li><a href="/tags/图片存储/">图片存储<span>1</span></a></li>
+			<li><a href="/tags/位域/">位域<span>1</span></a></li>
 		
-			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
+			<li><a href="/tags/全局变量/">全局变量<span>1</span></a></li>
 		
-			<li><a href="/tags/删除/">删除<span>1</span></a></li>
+			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
 		
-			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
 		
-			<li><a href="/tags/samba/">samba<span>3</span></a></li>
+			<li><a href="/tags/cron/">cron<span>1</span></a></li>
 		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
+			<li><a href="/tags/pacman/">pacman<span>1</span></a></li>
 		
-			<li><a href="/tags/python3/">python3<span>2</span></a></li>
+			<li><a href="/tags/局部变量/">局部变量<span>1</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
 		
-			<li><a href="/tags/runtime/">runtime<span>1</span></a></li>
+			<li><a href="/tags/sleep/">sleep<span>1</span></a></li>
 		
-			<li><a href="/tags/内存管理/">内存管理<span>1</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
+			<li><a href="/tags/global/">global<span>1</span></a></li>
 		
-			<li><a href="/tags/相对导入/">相对导入<span>1</span></a></li>
+			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
 		
-			<li><a href="/tags/Crypto/">Crypto++<span>1</span></a></li>
+			<li><a href="/tags/编码/">编码<span>6</span></a></li>
 		
-			<li><a href="/tags/log4cpp/">log4cpp<span>2</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/软件列表/">软件列表<span>1</span></a></li>
+			<li><a href="/tags/滚动条/">滚动条<span>1</span></a></li>
 		
-			<li><a href="/tags/宏/">宏<span>4</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/编译/">编译<span>11</span></a></li>
+			<li><a href="/tags/mrakdown/">mrakdown<span>1</span></a></li>
 		
-			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
+			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>604</span></a></li>
@@ -818,6 +827,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/22/个人笔记/" ><i class="fa fa-file-o"></i>个人笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/22/pandoc/" ><i class="fa fa-file-o"></i>pandoc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/21/css-隐藏滚动条/" ><i class="fa fa-file-o"></i>css-隐藏滚动条</a>
       </li>
     
@@ -827,14 +844,6 @@
     
       <li>
         <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
       </li>
     
   </ul>

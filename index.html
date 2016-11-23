@@ -113,6 +113,67 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-11-22 </div>
+			<div class="article-title"><a href="/2016/11/22/个人笔记/" >个人笔记</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><p>vim调用<code>python-vim-instant-markdown</code>启动WebSocket Server</p>
+<p>访问页面<code>http://localhost:7000/</code> =&gt; <code>python-vim-instant-markdown::index.html</code>(WebSocket client)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim::&lt;C-p&gt; =&gt; :Instantmd =&gt; md_instant.py::sendall =&gt; pandoc =&gt; html =&gt; WS server PUSH</span><br></pre></td></tr></table></figure>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li><p>vim工作目录必须设置为源文件所在目录(通过<code>.git</code>保证)</p>
+<p>因为<code>pandoc::filters/image.py</code>会修改<code>image</code>的绝对路径为相对路径，这样本地可编译图片！</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/11/22/个人笔记/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-11-22 </div>
+			<div class="article-title"><a href="/2016/11/22/pandoc/" >pandoc</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="filter"><a href="#filter" class="headerlink" title="filter"></a><a href="http://pandoc.org/MANUAL.html#general-options" target="_blank" rel="external">filter</a></h1><ul>
+<li><p>可通过<code>--data-dir</code>来设置<code>filter</code>查找路径</p>
+</li>
+<li><p>路径必须使用<code>/</code>分隔符，否则会报错</p>
+<p><code>E:\Soft\pandoc\tool\filters\image.py: createProcess: invalid argument (Exec format error)</code></p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="http://pandoc.org/scripting.html" target="_blank" rel="external">example</a></li>
+<li><a href="https://github.com/jgm/pandoc/wiki/Pandoc-Filters" target="_blank" rel="external">list</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/11/22/pandoc/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-11-21 </div>
 			<div class="article-title"><a href="/2016/11/21/css-隐藏滚动条/" >css-隐藏滚动条</a></div>						
 		</h3>
@@ -357,66 +418,6 @@
 	
 	</div>
   <a type="button" href="/2016/11/07/cp/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-11-07 </div>
-			<div class="article-title"><a href="/2016/11/07/mount/" >mount</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>重新加载<code>/etc/fstab</code></p>
-<pre><code>mount -a
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/11/07/mount/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-11-04 </div>
-			<div class="article-title"><a href="/2016/11/04/ls/" >ls</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><ul>
-<li><p>-1</p>
-<p>一个一行</p>
-</li>
-</ul>
-<ul>
-<li><p>–file-type</p>
-<p>跟-F类似，但是普通文件不加<code>*</code></p>
-</li>
-<li><p>-Z, –context</p>
-<p>查看SELinux</p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/11/04/ls/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -725,45 +726,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/variable/">variable<span>1</span></a></li>
 		
-			<li><a href="/tags/hash/">hash<span>1</span></a></li>
+			<li><a href="/tags/unique-ptr/">unique_ptr<span>1</span></a></li>
 		
-			<li><a href="/tags/进程/">进程<span>1</span></a></li>
+			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
 		
-			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
 		
-			<li><a href="/tags/错误/">错误<span>2</span></a></li>
+			<li><a href="/tags/网站/">网站<span>2</span></a></li>
 		
-			<li><a href="/tags/objdump/">objdump<span>1</span></a></li>
+			<li><a href="/tags/stat/">stat<span>1</span></a></li>
 		
-			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
+			<li><a href="/tags/lambda/">lambda<span>1</span></a></li>
 		
-			<li><a href="/tags/SELiunx/">SELiunx<span>1</span></a></li>
+			<li><a href="/tags/git/">git<span>7</span></a></li>
 		
-			<li><a href="/tags/aes/">aes<span>1</span></a></li>
+			<li><a href="/tags/reflect/">reflect<span>1</span></a></li>
 		
-			<li><a href="/tags/scp/">scp<span>1</span></a></li>
+			<li><a href="/tags/timezone/">timezone<span>1</span></a></li>
 		
-			<li><a href="/tags/openssl/">openssl<span>2</span></a></li>
+			<li><a href="/tags/软件/">软件<span>3</span></a></li>
 		
-			<li><a href="/tags/prepare/">prepare<span>1</span></a></li>
+			<li><a href="/tags/debug/">debug<span>3</span></a></li>
 		
-			<li><a href="/tags/散列/">散列<span>1</span></a></li>
+			<li><a href="/tags/py2exe/">py2exe<span>1</span></a></li>
 		
-			<li><a href="/tags/run/">run<span>1</span></a></li>
+			<li><a href="/tags/ps/">ps<span>1</span></a></li>
 		
-			<li><a href="/tags/go/">go<span>39</span></a></li>
+			<li><a href="/tags/base64/">base64<span>1</span></a></li>
 		
-			<li><a href="/tags/tcp-ip/">tcp-ip<span>1</span></a></li>
+			<li><a href="/tags/UNICODE/">UNICODE<span>1</span></a></li>
 		
-			<li><a href="/tags/初始化/">初始化<span>1</span></a></li>
+			<li><a href="/tags/OPTIONS/">OPTIONS<span>1</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/alias/">alias<span>1</span></a></li>
 		
-			<li><a href="/tags/if/">if<span>1</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>604</span></a></li>
@@ -779,6 +780,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/22/个人笔记/" ><i class="fa fa-file-o"></i>个人笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/22/pandoc/" ><i class="fa fa-file-o"></i>pandoc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/21/css-隐藏滚动条/" ><i class="fa fa-file-o"></i>css-隐藏滚动条</a>
       </li>
     
@@ -788,14 +797,6 @@
     
       <li>
         <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
       </li>
     
   </ul>

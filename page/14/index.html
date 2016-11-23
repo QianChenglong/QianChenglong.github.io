@@ -113,6 +113,87 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-02-18 </div>
+			<div class="article-title"><a href="/2016/02/18/链表/" >链表</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ul>
+<li><p>动态存储分配</p>
+</li>
+<li><p>数据更新效率高，O(1)</p>
+</li>
+</ul>
+<h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><ul>
+<li><p>浪费了部分空间用来存储指针域</p>
+</li>
+<li><p>查询效率低，O(n)</p>
+</li>
+</ul>
+<h1 id="增加一个头节点"><a href="#增加一个头节点" class="headerlink" title="增加一个头节点"></a>增加一个头节点</h1><p>空节点，不存储数据</p>
+<ul>
+<li>优化链代码效率，避免了链表是否为空的判断</li>
+</ul>
+<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
+<li><p>判断链表是否为空</p>
+<p>头节点到链域为空，则链表为空</p>
+</li>
+<li><p>定位到尾节点</p>
+<p>尾节点的特点是链域为空。</p>
+<p>所以挨个遍历，当当前节点到链域为空时，说明当前节点为尾节点</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/02/18/链表/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-02-18 </div>
+			<div class="article-title"><a href="/2016/02/18/tcp/" >tcp</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="首部"><a href="#首部" class="headerlink" title="首部"></a>首部</h1><ul>
+<li><p>PSH(push)</p>
+<p>置位后，数据立马发送，而不是填充到缓冲区等待发送</p>
+</li>
+<li><p>窗口值</p>
+<p>报文发送方的<strong>接收缓冲区</strong>大小(tcp是双工的)，允许对方发送的最大数据量</p>
+</li>
+</ul>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ol>
+<li><p>3次握手中，为什么客户端最后还需要确认一次？</p>
+<p>为了防止服务端响应了已失效的连接请求报文。</p>
+<p>假设没有再次确认，当客户端发出一次连接请求时，由于某种原因，该报文被滞留。<br>后续客户端又重新发送报文，与服务端建立了连接。<br>而此时服务端收到了之前的连接请求报文，又建立了连接，此时便导致错误。</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/02/18/tcp/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-01-18 </div>
 			<div class="article-title"><a href="/2016/01/18/电影网站/" >电影网站</a></div>						
 		</h3>
@@ -384,93 +465,6 @@
 	
 	</div>
   <a type="button" href="/2015/11/17/nginx-CORS/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-17 </div>
-			<div class="article-title"><a href="/2015/11/17/跨域共享/" >跨域共享</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="预检"><a href="#预检" class="headerlink" title="预检"></a>预检</h1><ol>
-<li><p>Origin HTTP请求头</p>
-<ul>
-<li>任何涉及CORS的请求都必须携带</li>
-</ul>
-</li>
-<li><p>Access-Control-Request-Method HTTP请求头</p>
-<ul>
-<li>真实请求的方法</li>
-</ul>
-</li>
-<li><p>Access-Contrl-Request-Headers HTTP请求头</p>
-<ul>
-<li>真实请求的自定义header列表</li>
-</ul>
-</li>
-<li><p>Access-Control-Allow-Origin HTTP响应头</p>
-<ul>
-<li>允许进行CORS的来源域</li>
-</ul>
-</li>
-<li><p>Access-Control-Allow-Method HTTP响应头</p>
-<ul>
-<li>允许进行CORS的请求方法列表(响应预检请求)</li>
-</ul>
-</li>
-<li><p>Access-Control-Allow-Headers HTTP响应头</p>
-<ul>
-<li>允许进行CORS的请求头列表(响应预检请求)</li>
-</ul>
-</li>
-<li><p>Access-Control-Max-Age HTTP响应头</p>
-<ul>
-<li>用在响应预检请求上,表示本次预检响应的有效时间.<br>在此时间内,浏览器都可以根据此次协商结果决定是否有必要直接发送真实请求，而无需再次发送预检请求</li>
-</ul>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/17/跨域共享/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-16 </div>
-			<div class="article-title"><a href="/2015/11/16/js-跨域/" >js-跨域</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域?"></a>什么是跨域?</h1><p>在了解什么是跨域问题之前,先需要了解<strong>同源策略</strong></p>
-<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h3 id="什么是同源"><a href="#什么是同源" class="headerlink" title="什么是同源?"></a>什么是同源?</h3><p>同源是指<strong>协议</strong>,<strong>域名</strong>,<strong>端口</strong>完全一致</p>
-<h3 id="为什么需要同源策略"><a href="#为什么需要同源策略" class="headerlink" title="为什么需要同源策略?"></a>为什么需要同源策略?</h3><p>为了信息安全,最基本的原则即同源的东西是安全的,除此之外都是不安全的.</p>
-<p>示例:</p>
-<p>一个中间层(代理服务器,路由网关,运营商等),通过IFrame把登录网银的页面嵌套起立,<br>里面加入了一段恶意代码,将用户的数据发送到指定位置.</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://www.jianshu.com/p/4e17445d66e2" target="_blank" rel="external">同源策略——浏览器的安全卫士</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/11/16/js-跨域/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -779,45 +773,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/char/">char*<span>1</span></a></li>
+			<li><a href="/tags/宏/">宏<span>4</span></a></li>
 		
-			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
-			<li><a href="/tags/UNICODE/">_UNICODE<span>1</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
 		
-			<li><a href="/tags/cmake/">cmake<span>11</span></a></li>
+			<li><a href="/tags/电影/">电影<span>1</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/httpd/">httpd<span>1</span></a></li>
 		
-			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
+			<li><a href="/tags/cmd/">cmd<span>1</span></a></li>
 		
-			<li><a href="/tags/端口/">端口<span>1</span></a></li>
+			<li><a href="/tags/书籍/">书籍<span>2</span></a></li>
 		
-			<li><a href="/tags/复制初始化/">复制初始化<span>1</span></a></li>
+			<li><a href="/tags/元组/">元组<span>1</span></a></li>
 		
-			<li><a href="/tags/gtest/">gtest<span>4</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
+			<li><a href="/tags/gentoo/">gentoo<span>1</span></a></li>
 		
-			<li><a href="/tags/awk/">awk<span>1</span></a></li>
+			<li><a href="/tags/addr2line/">addr2line<span>1</span></a></li>
 		
-			<li><a href="/tags/多线程/">多线程<span>2</span></a></li>
+			<li><a href="/tags/test/">test<span>2</span></a></li>
 		
-			<li><a href="/tags/dictionary/">dictionary<span>1</span></a></li>
+			<li><a href="/tags/using/">using<span>1</span></a></li>
 		
-			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
+			<li><a href="/tags/global/">global<span>1</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
 		
-			<li><a href="/tags/string/">string<span>8</span></a></li>
+			<li><a href="/tags/strongswan/">strongswan<span>1</span></a></li>
 		
-			<li><a href="/tags/nautilus/">nautilus<span>2</span></a></li>
+			<li><a href="/tags/slab/">slab<span>1</span></a></li>
 		
-			<li><a href="/tags/网络邻居/">网络邻居<span>1</span></a></li>
+			<li><a href="/tags/markdown/">markdown<span>4</span></a></li>
 		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+			<li><a href="/tags/main/">__main__<span>1</span></a></li>
 		
-			<li><a href="/tags/accept/">accept<span>1</span></a></li>
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>604</span></a></li>
@@ -833,6 +827,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/22/个人笔记/" ><i class="fa fa-file-o"></i>个人笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/22/pandoc/" ><i class="fa fa-file-o"></i>pandoc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/21/css-隐藏滚动条/" ><i class="fa fa-file-o"></i>css-隐藏滚动条</a>
       </li>
     
@@ -842,14 +844,6 @@
     
       <li>
         <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
       </li>
     
   </ul>

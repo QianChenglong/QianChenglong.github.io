@@ -113,6 +113,116 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-06-18 </div>
+			<div class="article-title"><a href="/2015/06/18/sort/" >sort</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><p>sort将文件的每一行作为一个单位，相互比较，比较原则是从首字符向后，依次按ASCII码值进行比较，最后将他们按升序输出。</p>
+<h1 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h1><ul>
+<li><p>-b</p>
+<p>忽略前导空白</p>
+</li>
+<li><p>-d</p>
+<p>用来排序目录，只考虑空白符和字符？</p>
+</li>
+<li><p>-n</p>
+<p>根据字符串形式对应的数字排序</p>
+</li>
+<li><p>-h</p>
+<p>根据易读格式排序，也就是使用了B,K,M等</p>
+</li>
+<li><p>-r</p>
+<p>结果逆序输出</p>
+</li>
+<li><p>-s</p>
+<p>稳定排序</p>
+</li>
+<li><p>-u</p>
+<p>去除键重复的记录</p>
+</li>
+<li><p>-o FILENAME</p>
+<p>输出到指定文件，避免重定向到同一文件时造成的内容截断</p>
+</li>
+<li><p>-t, –field-separator=SEP</p>
+<p>使用指定分隔符来分割记录</p>
+</li>
+<li><p>-k, –key=KEYDEF</p>
+<p>指定排序键，可以多次指定</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
+<li><p>按第3字段的数字值排序输出</p>
+<pre><code>cat /etc/passwd|sort -t&apos;:&apos; -n -k3,3 |less
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/06/18/sort/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-06-17 </div>
+			<div class="article-title"><a href="/2015/06/17/centos-安装virtualbox增强功能/" >centos-安装virtualbox增强功能</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>CentOS-7.0.1</p>
+</li>
+<li><p>VirtualBox-4.3.28</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>更新内核</p>
+<p>yum update kernel<br>reboot</p>
+</li>
+<li><p>安装依赖</p>
+<pre><code>rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+yum install gcc kernel-devel kernel-headers dkms make bzip2 perl
+</code></pre></li>
+<li><p>在虚拟机控制器中，添加<code>VBoxGuestAdditions.iso</code></p>
+</li>
+<li><p>挂载光盘</p>
+<pre><code>mkdir /mnt/cdrom
+mount /dev/cdrom /mnt/cdrom
+</code></pre></li>
+<li><p>编译安装</p>
+<pre><code>cd /mnt/cdrom &amp;&amp; ./VBoxLinuxAdditions.run
+</code></pre></li>
+<li><p>重启生效</p>
+<pre><code>reboot
+</code></pre></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.if-not-true-then-false.com/2010/install-virtualbox-guest-additions-on-fedora-centos-red-hat-rhel/comment-page-7/" target="_blank" rel="external">http://www.if-not-true-then-false.com/2010/install-virtualbox-guest-additions-on-fedora-centos-red-hat-rhel/comment-page-7/</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/06/17/centos-安装virtualbox增强功能/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-06-17 </div>
 			<div class="article-title"><a href="/2015/06/17/grub2-修改配置/" >grub2-修改配置</a></div>						
 		</h3>
@@ -380,87 +490,6 @@ sudo systemctl start mariadb
 	
 	</div>
   <a type="button" href="/2015/06/15/mysql-安装/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-11 </div>
-			<div class="article-title"><a href="/2015/06/11/samba-常见问题/" >samba-常见问题</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="诊断流程"><a href="#诊断流程" class="headerlink" title="诊断流程"></a>诊断流程</h1><ol>
-<li><p>首先确定samba服务是否运行，smb和nmb两个进程。</p>
-</li>
-<li><p>看一下服务器samba配置文件/etc/samba/smb.conf的workgroup，它必须与Win的工作组一致，一般Win的工作组是WORKGROUP。</p>
-</li>
-<li><p>看配置文件里的interfaces是否正确，hosts allow的ip段是否覆盖Win的ip地址。</p>
-</li>
-<li><p>服务器上启用user安全级别时，是否添加了共享用户，是否允许共享用户浏览。</p>
-</li>
-<li><p>防火墙的规则设置是否正确。</p>
-</li>
-<li><p>SELinux是否阻止你访问samba共享的目录。</p>
-</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/11/samba-常见问题/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-06-11 </div>
-			<div class="article-title"><a href="/2015/06/11/sql-连接/" >sql-连接</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><ul>
-<li><p>SQL通过<strong>连接</strong>将多个表关联起来,是实现数据组合最重要的一环!</p>
-</li>
-<li><p>所以<strong>连接</strong>的本质是通过一些生成手段来获取目标集合,再通过对<strong>连接</strong>生成的集合(临时表)加以筛选,得到目标数据</p>
-</li>
-</ul>
-<h1 id="连接方式"><a href="#连接方式" class="headerlink" title="连接方式"></a>连接方式</h1><h2 id="内连接-INNER-JOIN"><a href="#内连接-INNER-JOIN" class="headerlink" title="内连接(INNER JOIN)"></a>内连接(INNER JOIN)</h2><p>只返回两个表中连接条件成立的行</p>
-<h2 id="外连接-OUTER-JOIN"><a href="#外连接-OUTER-JOIN" class="headerlink" title="外连接(OUTER JOIN)"></a>外连接(OUTER JOIN)</h2><p>外连接并不要求连接的两表的每一条记录在对方表中都一条匹配的记录.</p>
-<h3 id="全外连接-FULL-OUTER-JOIN"><a href="#全外连接-FULL-OUTER-JOIN" class="headerlink" title="全外连接(FULL OUTER JOIN)"></a>全外连接(FULL OUTER JOIN)</h3><p>保留2边都不匹配的数据</p>
-<h3 id="左连接-LEFT-OUTER-JOIN-sql中简写LEFT-JOIN"><a href="#左连接-LEFT-OUTER-JOIN-sql中简写LEFT-JOIN" class="headerlink" title="左连接(LEFT OUTER JOIN, sql中简写LEFT JOIN)"></a>左连接(LEFT OUTER JOIN, sql中简写<code>LEFT JOIN</code>)</h3><p>保留左边不匹配的数据</p>
-<h3 id="右外连接-RIGHT-OUTER-JOIN"><a href="#右外连接-RIGHT-OUTER-JOIN" class="headerlink" title="右外连接(RIGHT OUTER JOIN)"></a>右外连接(RIGHT OUTER JOIN)</h3><p>保留右边不匹配的数据</p>
-<h2 id="交叉连接-CROSS-JOIN"><a href="#交叉连接-CROSS-JOIN" class="headerlink" title="交叉连接(CROSS JOIN)"></a>交叉连接(CROSS JOIN)</h2><p>示例:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.*, b.* <span class="keyword">FROM</span> A, B <span class="keyword">WHERE</span> A.id = b.id</span><br></pre></td></tr></table></figure>
-<p>执行过程:</p>
-<ol>
-<li><p>将A与B做笛卡尔积运算,得到临时表C</p>
-</li>
-<li><p>再通过过滤条件<code>A.id = b.id</code>,得到结果集</p>
-</li>
-</ol>
-<h2 id="自连接-SELF-JOIN"><a href="#自连接-SELF-JOIN" class="headerlink" title="自连接(SELF JOIN)"></a>自连接(SELF JOIN)</h2><p>一种交叉连接的特例,和自身交叉</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://zh.wikipedia.org/wiki/%E8%BF%9E%E6%8E%A5_(SQL" target="_blank" rel="external">widi-连接</a>)</li>
-<li><a href="http://www.mysqltutorial.org/mysql-update-join/" target="_blank" rel="external">http://www.mysqltutorial.org/mysql-update-join/</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/06/11/sql-连接/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -769,45 +798,45 @@ sudo systemctl start mariadb
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/pointer/">pointer<span>1</span></a></li>
+			<li><a href="/tags/mtu/">mtu<span>1</span></a></li>
 		
-			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
+			<li><a href="/tags/资源/">资源<span>2</span></a></li>
 		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+			<li><a href="/tags/程序/">程序<span>1</span></a></li>
 		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
 		
-			<li><a href="/tags/字符串/">字符串<span>4</span></a></li>
+			<li><a href="/tags/makefile/">makefile<span>2</span></a></li>
 		
-			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
+			<li><a href="/tags/int/">int<span>1</span></a></li>
 		
-			<li><a href="/tags/alias/">alias<span>1</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
+			<li><a href="/tags/go/">go<span>39</span></a></li>
 		
-			<li><a href="/tags/str/">str<span>1</span></a></li>
+			<li><a href="/tags/select/">select<span>1</span></a></li>
 		
-			<li><a href="/tags/yaourt/">yaourt<span>1</span></a></li>
+			<li><a href="/tags/自动登录/">自动登录<span>1</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/systemd/">systemd<span>4</span></a></li>
 		
-			<li><a href="/tags/TF/">TF<span>1</span></a></li>
+			<li><a href="/tags/后台/">后台<span>6</span></a></li>
 		
-			<li><a href="/tags/head/">head<span>1</span></a></li>
+			<li><a href="/tags/软件工程/">软件工程<span>1</span></a></li>
 		
-			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+			<li><a href="/tags/sal/">sal<span>1</span></a></li>
 		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 		
-			<li><a href="/tags/TIME-WAIT/">TIME_WAIT<span>1</span></a></li>
+			<li><a href="/tags/gb2312/">gb2312<span>1</span></a></li>
 		
-			<li><a href="/tags/时间/">时间<span>3</span></a></li>
+			<li><a href="/tags/健壮性/">健壮性<span>1</span></a></li>
 		
-			<li><a href="/tags/binary/">binary<span>1</span></a></li>
+			<li><a href="/tags/byte/">byte<span>1</span></a></li>
 		
-			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
+			<li><a href="/tags/资料/">资料<span>2</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/decimal/">decimal<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>604</span></a></li>
@@ -823,6 +852,14 @@ sudo systemctl start mariadb
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/22/个人笔记/" ><i class="fa fa-file-o"></i>个人笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/22/pandoc/" ><i class="fa fa-file-o"></i>pandoc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/21/css-隐藏滚动条/" ><i class="fa fa-file-o"></i>css-隐藏滚动条</a>
       </li>
     
@@ -832,14 +869,6 @@ sudo systemctl start mariadb
     
       <li>
         <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
       </li>
     
   </ul>

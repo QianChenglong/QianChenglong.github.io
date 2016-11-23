@@ -114,6 +114,57 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2014-12-05 </div>
+			<div class="article-title"><a href="/2014/12/05/python添加模块搜索路径/" >python添加模块搜索路径</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append( &lt;path to dirFoo&gt; )</span><br><span class="line"><span class="keyword">import</span> Bar</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="http://stackoverflow.com/questions/279237/import-a-module-from-a-relative-path" target="_blank" rel="external">http://stackoverflow.com/questions/279237/import-a-module-from-a-relative-path</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/05/python添加模块搜索路径/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-05 </div>
+			<div class="article-title"><a href="/2014/12/05/python-字符串和字典转换/" >python-字符串和字典转换</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="字典-gt-字符串"><a href="#字典-gt-字符串" class="headerlink" title="字典 =&gt; 字符串"></a>字典 =&gt; 字符串</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'one'</span>:<span class="number">1</span>, <span class="string">'two'</span>:<span class="number">2</span>, <span class="string">'three'</span>: &#123;<span class="string">'three.1'</span>: <span class="number">3.1</span>, <span class="string">'three.2'</span>: <span class="number">3.2</span> &#125;&#125;</span><br><span class="line">str1 = str(dict1)</span><br><span class="line">print(str1)</span><br></pre></td></tr></table></figure>
+<h2 id="字符串-gt-字典"><a href="#字符串-gt-字典" class="headerlink" title="字符串 =&gt; 字典"></a>字符串 =&gt; 字典</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict1 = &#123;<span class="string">'one'</span>:<span class="number">1</span>, <span class="string">'two'</span>:<span class="number">2</span>, <span class="string">'three'</span>: &#123;<span class="string">'three.1'</span>: <span class="number">3.1</span>, <span class="string">'three.2'</span>: <span class="number">3.2</span> &#125;&#125;</span><br><span class="line">str1 = str(dict1)</span><br><span class="line"></span><br><span class="line">dict2 = eval(str1)</span><br><span class="line">print(dict2)</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="http://stackoverflow.com/questions/4547274/convert-a-python-dict-to-a-string-and-back" target="_blank" rel="external">http://stackoverflow.com/questions/4547274/convert-a-python-dict-to-a-string-and-back</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2014/12/05/python-字符串和字典转换/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2014-12-05 </div>
 			<div class="article-title"><a href="/2014/12/05/python获取IP对应的MAC/" >python获取IP对应的MAC</a></div>						
 		</h3>
 	
@@ -491,64 +542,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-03 </div>
-			<div class="article-title"><a href="/2014/12/03/python操作x-www-form-urlencoded数据/" >python解析x-www-form-urlencoded数据</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
-<li><code>urlencoded</code>转<code>string</code></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">query_string = <span class="string">'access_token=CB4C8F99D9B3E4AD376E7CF179CFA470&amp;expires_in=7776000&amp;refresh_token=4CCB49CAD66A9506F0621CE8E427F492'</span></span><br><span class="line">data = urlparse.parse_qs(query_string)</span><br><span class="line">access_token = data[<span class="string">'access_token'</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>dict</code>转<code>urlencoded</code></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;<span class="string">'criterias[]'</span>: [<span class="string">'member'</span>, <span class="string">'issue'</span>]&#125;</span><br><span class="line">urllib.urlencode(params, <span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://docs.python.org/2/library/urlparse.html" target="_blank" rel="external">https://docs.python.org/2/library/urlparse.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2014/12/03/python操作x-www-form-urlencoded数据/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2014-12-02 </div>
-			<div class="article-title"><a href="/2014/12/02/yed使用技巧/" >yed使用技巧</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>让【节点】自适应【标签】</p>
-<pre><code>Tool =&gt; Fit Node to Label
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2014/12/02/yed使用技巧/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -854,45 +847,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
+			<li><a href="/tags/列表/">列表<span>7</span></a></li>
 		
-			<li><a href="/tags/crond/">crond<span>1</span></a></li>
+			<li><a href="/tags/libuser/">libuser<span>1</span></a></li>
 		
-			<li><a href="/tags/SD/">SD<span>1</span></a></li>
+			<li><a href="/tags/遍历/">遍历<span>2</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>3</span></a></li>
+			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
 		
-			<li><a href="/tags/ctags/">ctags<span>2</span></a></li>
+			<li><a href="/tags/script/">script<span>1</span></a></li>
 		
-			<li><a href="/tags/subprocess/">subprocess<span>1</span></a></li>
+			<li><a href="/tags/date/">date<span>1</span></a></li>
 		
-			<li><a href="/tags/操作系统/">操作系统<span>1</span></a></li>
+			<li><a href="/tags/ISO-8859-1/">ISO-8859-1<span>1</span></a></li>
 		
-			<li><a href="/tags/idle/">idle<span>1</span></a></li>
+			<li><a href="/tags/透明代理/">透明代理<span>1</span></a></li>
 		
-			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
+			<li><a href="/tags/byte/">byte<span>1</span></a></li>
 		
-			<li><a href="/tags/打印/">打印<span>1</span></a></li>
+			<li><a href="/tags/cpp/">cpp<span>1</span></a></li>
 		
-			<li><a href="/tags/网络接口/">网络接口<span>1</span></a></li>
+			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
 		
-			<li><a href="/tags/命名规范/">命名规范<span>1</span></a></li>
+			<li><a href="/tags/VC/">VC<span>3</span></a></li>
 		
-			<li><a href="/tags/shadowsocks/">shadowsocks<span>2</span></a></li>
+			<li><a href="/tags/接口/">接口<span>1</span></a></li>
 		
-			<li><a href="/tags/关系/">关系<span>1</span></a></li>
+			<li><a href="/tags/apache/">apache<span>6</span></a></li>
 		
-			<li><a href="/tags/delete/">delete<span>2</span></a></li>
+			<li><a href="/tags/库/">库<span>2</span></a></li>
 		
-			<li><a href="/tags/T/">__T<span>1</span></a></li>
+			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
 		
-			<li><a href="/tags/doxygen/">doxygen<span>4</span></a></li>
+			<li><a href="/tags/libcurl/">libcurl<span>1</span></a></li>
 		
-			<li><a href="/tags/后台/">后台<span>6</span></a></li>
+			<li><a href="/tags/glibc/">glibc<span>1</span></a></li>
 		
-			<li><a href="/tags/windows-h/">windows.h<span>1</span></a></li>
+			<li><a href="/tags/net/">net<span>2</span></a></li>
 		
-			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
+			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>604</span></a></li>
@@ -908,6 +901,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/22/个人笔记/" ><i class="fa fa-file-o"></i>个人笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/22/pandoc/" ><i class="fa fa-file-o"></i>pandoc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/21/css-隐藏滚动条/" ><i class="fa fa-file-o"></i>css-隐藏滚动条</a>
       </li>
     
@@ -917,14 +918,6 @@
     
       <li>
         <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
       </li>
     
   </ul>

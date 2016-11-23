@@ -113,6 +113,65 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-03-31 </div>
+			<div class="article-title"><a href="/2015/03/31/windows-dhcp request IP研究/" >windows-dhcp request IP研究</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="从DHCP网络A切换至另一没有连接过的DHCP网络B"><a href="#从DHCP网络A切换至另一没有连接过的DHCP网络B" class="headerlink" title="从DHCP网络A切换至另一没有连接过的DHCP网络B"></a>从DHCP网络A切换至另一没有连接过的DHCP网络B</h1><ul>
+<li>dhcp client拿A网络分配的IP去request</li>
+</ul>
+<h1 id="从DHCP网络A切换至另一连接过的DHCP网络B"><a href="#从DHCP网络A切换至另一连接过的DHCP网络B" class="headerlink" title="从DHCP网络A切换至另一连接过的DHCP网络B"></a>从DHCP网络A切换至另一连接过的DHCP网络B</h1><ul>
+<li>dhcp client拿B网络分配过的IP去request</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/03/31/windows-dhcp request IP研究/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-31 </div>
+			<div class="article-title"><a href="/2015/03/31/Sphinx-安装使用/" >Sphinx-安装使用</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>安装</p>
+<pre><code>pip install Sphinx
+</code></pre></li>
+<li><p>使用向导生成配置文件</p>
+<pre><code>sphinx-quickstart
+</code></pre></li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://sphinx-doc.org/tutorial.html" target="_blank" rel="external">http://sphinx-doc.org/tutorial.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/03/31/Sphinx-安装使用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-03-30 </div>
 			<div class="article-title"><a href="/2015/03/30/python-cgi调试技巧/" >python-cgi调试技巧</a></div>						
 		</h3>
@@ -309,116 +368,6 @@
 	
 	</div>
   <a type="button" href="/2015/03/27/vim-格式化json/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-26 </div>
-			<div class="article-title"><a href="/2015/03/26/C-函数操作结果返回方式/" >C-函数操作结果返回方式</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="通过返回值"><a href="#通过返回值" class="headerlink" title="通过返回值"></a>通过返回值</h1><h2 id="直接值传递"><a href="#直接值传递" class="headerlink" title="直接值传递"></a>直接值传递</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>简单，快捷，不存在内存溢出</p>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li><p>不能返回错误代码</p>
-</li>
-<li><p>无法返回非内置数据类型</p>
-</li>
-</ul>
-<h3 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h3><ul>
-<li><p>返回简单的内置类型数据</p>
-</li>
-<li><p>出错少或错误不是很严重</p>
-</li>
-</ul>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code>size_t strlen(const char * str);
-</code></pre><h2 id="内部分配static类型数据，返回指针"><a href="#内部分配static类型数据，返回指针" class="headerlink" title="内部分配static类型数据，返回指针"></a>内部分配static类型数据，返回指针</h2><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
-<li><p>可返回非内置数据类型</p>
-</li>
-<li><p>调用方便，调用者无需手动分配内存</p>
-</li>
-</ul>
-<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li><p>不可重入</p>
-</li>
-<li><p>非线程安全</p>
-</li>
-</ul>
-<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><pre><code>char *inet_ntoa(struct in_addr);
-</code></pre><h1 id="通过参数"><a href="#通过参数" class="headerlink" title="通过参数"></a>通过参数</h1><h2 id="调用者分配内存，需要传入缓冲区大小"><a href="#调用者分配内存，需要传入缓冲区大小" class="headerlink" title="调用者分配内存，需要传入缓冲区大小"></a>调用者分配内存，需要传入缓冲区大小</h2><h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ul>
-<li><p>可返回非内置数据类型</p>
-</li>
-<li><p>可重入</p>
-</li>
-<li><p>线程安全</p>
-</li>
-<li><p>正确操作下，内存不会溢出(通过缓冲区大小参数)</p>
-</li>
-</ul>
-<h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>调用麻烦，需要手动分配内存</li>
-</ul>
-<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><pre><code>char* fgets(char *str, int num, FILE * stream);
-</code></pre><h2 id="调用者分配，不传入缓冲区大小-自己不采用，只是存在此种接口"><a href="#调用者分配，不传入缓冲区大小-自己不采用，只是存在此种接口" class="headerlink" title="调用者分配，不传入缓冲区大小(自己不采用，只是存在此种接口)"></a>调用者分配，不传入缓冲区大小(自己不采用，只是存在此种接口)</h2><h3 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h3><ul>
-<li><p>可返回非内置数据类型</p>
-</li>
-<li><p>可重入</p>
-</li>
-<li><p>线程安全</p>
-</li>
-</ul>
-<h3 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>存在缓冲区越界风险！</li>
-</ul>
-<h3 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h3><pre><code>char * gets ( char * str );
-</code></pre><h2 id="二次调用确定所需空间"><a href="#二次调用确定所需空间" class="headerlink" title="二次调用确定所需空间"></a>二次调用确定所需空间</h2><h3 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h3><ul>
-<li>可以返回调用者不能确定的内存空间的数据</li>
-</ul>
-<h3 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>二次调用，使用麻烦</li>
-</ul>
-<h3 id="实例-4"><a href="#实例-4" class="headerlink" title="实例"></a>实例</h3><pre><code>DWORD GetAdaptersInfo(_Out_    PIP_ADAPTER_INFO pAdapterInfo, _Inout_  PULONG pOutBufLen);
-</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="https://msdn.microsoft.com/zh-cn/library/windows/desktop/aa365917(v=vs.85" target="_blank" rel="external">GetAdaptersInfo</a>.aspx)</li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/03/26/C-函数操作结果返回方式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-03-26 </div>
-			<div class="article-title"><a href="/2015/03/26/extern C/" >extern &quot;C&quot;</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>当使用C++编译器对C++源码编译时，对C函数采用”C”语言方式编译和连接(函数导出名不变)</p>
-<h1 id="为什么需要extern-quot-C-quot"><a href="#为什么需要extern-quot-C-quot" class="headerlink" title="为什么需要extern &quot;C&quot;"></a>为什么需要<code>extern &quot;C&quot;</code></h1><p>因为C++支持函数重载，所以对函数名存在修饰操作。</p>
-<p>若一个函数为普通全局函数，制作为dll，其他C程序进行调用，当编译该程序采用C编译器，无法找到该符号，因为C编译器与C++编译器对函数名的修饰规则不一致！</p>
-<p>所以为了使C编译器能够使用这些函数，需要使用<code>extern &quot;C&quot;</code>声明。</p>
-<h1 id="惯用法"><a href="#惯用法" class="headerlink" title="惯用法"></a>惯用法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta"># <span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2015/03/26/extern C/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -727,45 +676,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/接口/">接口<span>1</span></a></li>
+			<li><a href="/tags/suse/">suse<span>1</span></a></li>
 		
-			<li><a href="/tags/Content-Encding/">Content-Encding<span>1</span></a></li>
+			<li><a href="/tags/openwrt/">openwrt<span>4</span></a></li>
 		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
+			<li><a href="/tags/宏包/">宏包<span>1</span></a></li>
 		
-			<li><a href="/tags/虚函数/">虚函数<span>1</span></a></li>
+			<li><a href="/tags/微博秀/">微博秀<span>1</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>1</span></a></li>
+			<li><a href="/tags/recvfrom/">recvfrom<span>1</span></a></li>
 		
-			<li><a href="/tags/printf/">printf<span>1</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
-			<li><a href="/tags/RAII/">RAII<span>1</span></a></li>
+			<li><a href="/tags/Visual-Studio/">Visual Studio<span>1</span></a></li>
 		
-			<li><a href="/tags/内存，-开销/">内存， 开销<span>1</span></a></li>
+			<li><a href="/tags/可变参数/">可变参数<span>1</span></a></li>
 		
-			<li><a href="/tags/公钥/">公钥<span>1</span></a></li>
+			<li><a href="/tags/global/">global<span>1</span></a></li>
 		
-			<li><a href="/tags/proactor/">proactor<span>1</span></a></li>
+			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
 		
-			<li><a href="/tags/new/">new<span>1</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/arch/">arch<span>6</span></a></li>
+			<li><a href="/tags/select/">select<span>1</span></a></li>
 		
-			<li><a href="/tags/resize/">resize<span>1</span></a></li>
+			<li><a href="/tags/muduo/">muduo<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
 		
-			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
+			<li><a href="/tags/包/">包<span>2</span></a></li>
 		
-			<li><a href="/tags/decode/">decode<span>1</span></a></li>
+			<li><a href="/tags/encode/">encode<span>2</span></a></li>
 		
-			<li><a href="/tags/目录组织/">目录组织<span>1</span></a></li>
+			<li><a href="/tags/拓展包/">拓展包<span>1</span></a></li>
 		
-			<li><a href="/tags/GCC/">GCC<span>1</span></a></li>
+			<li><a href="/tags/python3/">python3<span>2</span></a></li>
 		
-			<li><a href="/tags/wxWidget/">wxWidget<span>1</span></a></li>
+			<li><a href="/tags/线程/">线程<span>3</span></a></li>
 		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/tags/信息安全/">信息安全<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>604</span></a></li>
@@ -781,6 +730,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/22/个人笔记/" ><i class="fa fa-file-o"></i>个人笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/22/pandoc/" ><i class="fa fa-file-o"></i>pandoc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/21/css-隐藏滚动条/" ><i class="fa fa-file-o"></i>css-隐藏滚动条</a>
       </li>
     
@@ -790,14 +747,6 @@
     
       <li>
         <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
       </li>
     
   </ul>

@@ -113,6 +113,94 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-02-13 </div>
+			<div class="article-title"><a href="/2015/02/13/windows-常用命令/" >windows-常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>查看文件属性</p>
+<pre><code>attrib
+</code></pre></li>
+<li><p>计划任务</p>
+<pre><code>taskschd.msc
+</code></pre></li>
+<li><p>设备管理器</p>
+<pre><code>devmgmt.msc
+</code></pre></li>
+<li><p>查看系统信息</p>
+<pre><code>msinfo32
+</code></pre></li>
+<li><p>查看dll导出符号表</p>
+<pre><code>dumpbin /exports filename
+</code></pre></li>
+<li><p>导出注册表项</p>
+<pre><code>regedit /e test.reg HKEY_CURRENT_USER\Environment
+</code></pre></li>
+<li><p>事件查看器</p>
+<pre><code>eventvwr
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/13/windows-常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-13 </div>
+			<div class="article-title"><a href="/2015/02/13/find-教程/" >find-教程</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h1><pre><code>find [where-to-find] [filter] [action]
+</code></pre><p>所有参数都是可选的。</p>
+<ul>
+<li><code>where-to-find</code>，默认当前路径<code>.</code></li>
+<li><code>filter</code>，默认为空，即不过滤</li>
+<li><code>action</code>，默认<code>-print</code>，向标准输出打印，换行符分隔</li>
+</ul>
+<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><ul>
+<li><p>打印绝对路径</p>
+<ul>
+<li><p>windows</p>
+<pre><code>find &quot;%cd%&quot;
+</code></pre></li>
+<li><p>linux</p>
+<pre><code>find &quot;$PWD&quot;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://content.hccfl.edu/pollock/Unix/FindCmd.htm" target="_blank" rel="external">http://content.hccfl.edu/pollock/Unix/FindCmd.htm</a></li>
+<li><a href="http://linux.die.net/man/1/find" target="_blank" rel="external">http://linux.die.net/man/1/find</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/13/find-教程/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-12 </div>
 			<div class="article-title"><a href="/2015/02/12/find-常用命令/" >find-常用命令</a></div>						
 		</h3>
@@ -467,65 +555,6 @@ make install
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-11 </div>
-			<div class="article-title"><a href="/2015/02/11/ssh-实现/" >ssh-实现</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p><a href="https://matt.ucc.asn.au/dropbear/dropbear.html" target="_blank" rel="external">DropBear</a></p>
-</li>
-<li><p><a href="http://www.openssh.com/" target="_blank" rel="external">openssh</a></p>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2015/02/11/ssh-实现/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-11 </div>
-			<div class="article-title"><a href="/2015/02/11/openwrt-升级固件的几种方法/" >openwrt-升级固件的几种方法</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
-<li>固件名称：openwrt-*-upgrade.bin</li>
-</ul>
-<h1 id="通过web方式"><a href="#通过web方式" class="headerlink" title="通过web方式"></a>通过web方式</h1><ul>
-<li><p>主机IP设置为与路由器同一网段的，一般为192.168.1.0/24</p>
-</li>
-<li><p>打开浏览器，登录web管理页面，一般默认为192.168.1.1</p>
-</li>
-<li><p>选择固件升级即可</p>
-</li>
-</ul>
-<h1 id="通过ssh"><a href="#通过ssh" class="headerlink" title="通过ssh"></a>通过ssh</h1>
-	
-	</div>
-  <a type="button" href="/2015/02/11/openwrt-升级固件的几种方法/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -831,45 +860,45 @@ make install
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/netstat/">netstat<span>1</span></a></li>
 		
-			<li><a href="/tags/module/">module<span>3</span></a></li>
+			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
 		
-			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+			<li><a href="/tags/wireshark/">wireshark<span>3</span></a></li>
 		
-			<li><a href="/tags/array/">array<span>1</span></a></li>
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
 		
-			<li><a href="/tags/chrome/">chrome<span>2</span></a></li>
-		
-			<li><a href="/tags/程序名/">程序名<span>1</span></a></li>
-		
-			<li><a href="/tags/产品/">产品<span>1</span></a></li>
-		
-			<li><a href="/tags/google/">google<span>1</span></a></li>
-		
-			<li><a href="/tags/T/">__T<span>1</span></a></li>
-		
-			<li><a href="/tags/template/">template<span>2</span></a></li>
-		
-			<li><a href="/tags/empty/">empty<span>1</span></a></li>
-		
-			<li><a href="/tags/plugin/">plugin<span>1</span></a></li>
-		
-			<li><a href="/tags/syslinux/">syslinux<span>3</span></a></li>
-		
-			<li><a href="/tags/linux/">linux<span>43</span></a></li>
+			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
 		
 			<li><a href="/tags/UUID/">UUID<span>2</span></a></li>
 		
-			<li><a href="/tags/api/">api<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>4</span></a></li>
 		
-			<li><a href="/tags/poll/">poll<span>1</span></a></li>
+			<li><a href="/tags/unhex/">unhex<span>1</span></a></li>
 		
-			<li><a href="/tags/debug/">debug<span>3</span></a></li>
+			<li><a href="/tags/grep/">grep<span>1</span></a></li>
 		
-			<li><a href="/tags/query-string/">query-string<span>1</span></a></li>
+			<li><a href="/tags/gcc/">gcc<span>5</span></a></li>
 		
-			<li><a href="/tags/using/">using<span>1</span></a></li>
+			<li><a href="/tags/libnet-init/">libnet_init<span>1</span></a></li>
+		
+			<li><a href="/tags/重命名/">重命名<span>1</span></a></li>
+		
+			<li><a href="/tags/c-c-性能测试/">c,c++,性能测试<span>1</span></a></li>
+		
+			<li><a href="/tags/大小端/">大小端<span>2</span></a></li>
+		
+			<li><a href="/tags/tuple/">tuple<span>1</span></a></li>
+		
+			<li><a href="/tags/C/">C++<span>40</span></a></li>
+		
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
+		
+			<li><a href="/tags/TF/">TF<span>1</span></a></li>
+		
+			<li><a href="/tags/sockaddr/">sockaddr<span>1</span></a></li>
+		
+			<li><a href="/tags/u盘/">u盘<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>604</span></a></li>
@@ -885,6 +914,14 @@ make install
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/22/个人笔记/" ><i class="fa fa-file-o"></i>个人笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/22/pandoc/" ><i class="fa fa-file-o"></i>pandoc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/21/css-隐藏滚动条/" ><i class="fa fa-file-o"></i>css-隐藏滚动条</a>
       </li>
     
@@ -894,14 +931,6 @@ make install
     
       <li>
         <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
       </li>
     
   </ul>

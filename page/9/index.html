@@ -113,6 +113,57 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-04-20 </div>
+			<div class="article-title"><a href="/2016/04/20/服务器优化/" >服务器优化</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="tcp"><a href="#tcp" class="headerlink" title="tcp"></a>tcp</h1><ul>
+<li>根据协议特点，设置<strong>套接字接受缓冲区低水位标志(<code>SO_RCVLOWAT</code>，默认值为1)</strong>为对应的协议头大小</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/04/20/服务器优化/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-04-18 </div>
+			<div class="article-title"><a href="/2016/04/18/mysql-c-connector/" >mysql-c-connector</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li>C里空指针 =&gt; mysql<code>NULL</code>值</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://dev.mysql.com/doc/refman/5.7/en/mysql-fetch-row.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/mysql-fetch-row.html</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/04/18/mysql-c-connector/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-04-18 </div>
 			<div class="article-title"><a href="/2016/04/18/select/" >select</a></div>						
 		</h3>
@@ -498,84 +549,6 @@ dir /var/lib/redis/
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-04-05 </div>
-			<div class="article-title"><a href="/2016/04/05/序列化/" >序列化</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>将某种结构化(如<code>struct</code>)的数据转化为字节流</p>
-<h1 id="为什么需要序列化"><a href="#为什么需要序列化" class="headerlink" title="为什么需要序列化"></a>为什么需要序列化</h1><ul>
-<li><p>网络传输(如tcp是字节流)</p>
-</li>
-<li><p>跨系统(不是利用程序语言本身提供的机制)存储(如存储到redis)</p>
-<ul>
-<li>比如c++中的<code>string</code>、<code>struct</code>等，redis中无法直接保存，需要序列化后存储，然后再利用该数据，恢复相应结构</li>
-</ul>
-</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/04/05/序列化/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-03-31 </div>
-			<div class="article-title"><a href="/2016/03/31/libuser/" >libuser</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>用户，组信息管理工具</p>
-<ul>
-<li>/usr/bin/lchfn</li>
-<li>/usr/bin/lchsh</li>
-<li>/usr/sbin/lchage</li>
-<li>/usr/sbin/lgroupadd</li>
-<li>/usr/sbin/lgroupdel</li>
-<li>/usr/sbin/lgroupmod</li>
-<li><p>/usr/sbin/lid</p>
-<p>查看用户组信息，组成员信息</p>
-</li>
-<li><p>/usr/sbin/lnewusers</p>
-</li>
-<li>/usr/sbin/lpasswd</li>
-<li>/usr/sbin/luseradd</li>
-<li>/usr/sbin/luserdel</li>
-<li>/usr/sbin/lusermod</li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ol>
-<li><p>添加用户到组</p>
-<pre><code>lgroupmod -M wallace -- vboxsf
-</code></pre></li>
-<li><p>修改HOME</p>
-<pre><code>sudo lusermod -d /vmdata/home/wallace/ wallace
-</code></pre></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/03/31/libuser/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -881,45 +854,45 @@ dir /var/lib/redis/
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/MinGW/">MinGW<span>2</span></a></li>
+			<li><a href="/tags/IO/">IO<span>6</span></a></li>
 		
-			<li><a href="/tags/活动分区/">活动分区<span>1</span></a></li>
+			<li><a href="/tags/C-11/">C++11<span>10</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/序列化/">序列化<span>1</span></a></li>
 		
-			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
+			<li><a href="/tags/registry/">registry<span>1</span></a></li>
 		
-			<li><a href="/tags/优先/">优先<span>1</span></a></li>
+			<li><a href="/tags/函数名/">函数名<span>1</span></a></li>
 		
-			<li><a href="/tags/apk/">apk<span>1</span></a></li>
+			<li><a href="/tags/80端口/">80端口<span>1</span></a></li>
 		
-			<li><a href="/tags/复合语句/">复合语句<span>1</span></a></li>
+			<li><a href="/tags/VPN/">VPN<span>2</span></a></li>
 		
-			<li><a href="/tags/pthread/">pthread<span>5</span></a></li>
+			<li><a href="/tags/gbk/">gbk<span>1</span></a></li>
 		
-			<li><a href="/tags/后台开发/">后台开发<span>1</span></a></li>
+			<li><a href="/tags/ARGN/">ARGN<span>1</span></a></li>
 		
-			<li><a href="/tags/技巧/">技巧<span>1</span></a></li>
+			<li><a href="/tags/启动盘/">启动盘<span>1</span></a></li>
 		
-			<li><a href="/tags/module/">module<span>3</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
-			<li><a href="/tags/创建仓库/">创建仓库<span>1</span></a></li>
+			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
 		
-			<li><a href="/tags/AC1000/">AC1000<span>1</span></a></li>
+			<li><a href="/tags/binary/">binary<span>1</span></a></li>
 		
-			<li><a href="/tags/nginx/">nginx<span>4</span></a></li>
+			<li><a href="/tags/jsoncpp/">jsoncpp<span>3</span></a></li>
 		
-			<li><a href="/tags/date/">date<span>1</span></a></li>
+			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
 		
-			<li><a href="/tags/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/tags/SD/">SD<span>1</span></a></li>
 		
-			<li><a href="/tags/映射list/">映射list<span>1</span></a></li>
+			<li><a href="/tags/软件/">软件<span>3</span></a></li>
 		
-			<li><a href="/tags/管道/">管道<span>1</span></a></li>
+			<li><a href="/tags/sudo/">sudo<span>4</span></a></li>
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
+			<li><a href="/tags/结构体/">结构体<span>1</span></a></li>
 		
-			<li><a href="/tags/多数据库/">多数据库<span>1</span></a></li>
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>604</span></a></li>
@@ -935,6 +908,14 @@ dir /var/lib/redis/
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/22/个人笔记/" ><i class="fa fa-file-o"></i>个人笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/22/pandoc/" ><i class="fa fa-file-o"></i>pandoc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/21/css-隐藏滚动条/" ><i class="fa fa-file-o"></i>css-隐藏滚动条</a>
       </li>
     
@@ -944,14 +925,6 @@ dir /var/lib/redis/
     
       <li>
         <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
       </li>
     
   </ul>

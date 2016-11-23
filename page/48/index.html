@@ -113,6 +113,172 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/linux-常用命令/" >linux-常用命令</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h1><ul>
+<li><p>修改时区</p>
+<pre><code>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</code></pre></li>
+<li><p>查看时区</p>
+<pre><code>ll /etc/localtime
+date +%z:%Z
+</code></pre></li>
+<li><p>查看或设置用户限制</p>
+<pre><code>ulimit -a
+</code></pre></li>
+<li><p>查看系统配置参数</p>
+<pre><code>getconf -a
+</code></pre></li>
+</ul>
+<h1 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h1><ul>
+<li><p>查看磁盘使用情况</p>
+<pre><code>df
+</code></pre></li>
+<li><p>查看分区类型</p>
+<pre><code>df -T
+</code></pre></li>
+<li><p>查看分区UUID，label等</p>
+<pre><code>blkid
+</code></pre></li>
+<li><p>检查并自动修复磁盘错误</p>
+<pre><code>fsck -a /dev/sda1
+</code></pre></li>
+<li><p>重新读取fstab</p>
+<pre><code>mount -a
+</code></pre></li>
+</ul>
+<h1 id="压缩包"><a href="#压缩包" class="headerlink" title="压缩包"></a>压缩包</h1><ul>
+<li><p>解压tar包</p>
+<pre><code>tar xvf XXX.tar
+</code></pre></li>
+<li><p>解压tar.gz</p>
+<pre><code>tar xvzf XXX.tar.gz
+</code></pre></li>
+</ul>
+<h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><ul>
+<li><p>重命名文件、目录</p>
+<pre><code>mv SRC DST
+</code></pre></li>
+<li><p>查看目录使用情况</p>
+<pre><code>du
+</code></pre></li>
+<li><p>实时查看文件</p>
+<pre><code>tail -f filename
+</code></pre></li>
+<li><p>复制，若父目录不存在则创建</p>
+<pre><code>cp src/a.txt /data/ ==&gt; /data/src/a.txt
+</code></pre></li>
+</ul>
+<h1 id="账号"><a href="#账号" class="headerlink" title="账号"></a>账号</h1><ul>
+<li><p>添加用户</p>
+<pre><code>useradd -m &lt;username&gt;
+</code></pre></li>
+<li><p>设置密码</p>
+<pre><code>passwd &lt;username&gt;
+</code></pre></li>
+<li><p>查看用户基本信息</p>
+<pre><code>id USERNAME
+</code></pre></li>
+<li><p>查看用户所属组</p>
+<pre><code>groups USERNAME
+lid &lt;username&gt;
+</code></pre></li>
+<li><p>查看组成员</p>
+<pre><code>lid -g &lt;group-name&gt;
+</code></pre></li>
+<li><p>用户添加附加组</p>
+<pre><code>usermod -a -G GROUPNAME USERNAME
+</code></pre></li>
+<li><p>查看动态库加载</p>
+<pre><code>ldd ./dbgateway_svc 
+</code></pre></li>
+</ul>
+<h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><ul>
+<li><p>批量删除进程</p>
+<pre><code>pkill &lt;pattern&gt;
+</code></pre></li>
+<li><p>根据端口杀进程</p>
+<pre><code>fuser -k 12000/tcp
+</code></pre></li>
+<li><p>查看进程树</p>
+<pre><code>pstree -apls PID
+</code></pre></li>
+<li><p>查看进程打开的文件</p>
+<pre><code>lsof -p 18661
+</code></pre></li>
+</ul>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li><p>选择默认编辑器</p>
+<pre><code>select-editor
+</code></pre></li>
+<li><p>查看glibc版本</p>
+<pre><code>ldd --version
+</code></pre></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/linux-常用命令/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-02-09 </div>
+			<div class="article-title"><a href="/2015/02/09/virtualbox-拓展磁盘空间/" >virtualbox-拓展磁盘空间</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
+<li><p>宿主    win7-64</p>
+</li>
+<li><p>虚拟机  ubuntu-14.04</p>
+</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>进入<code>virtualbox</code>目录</p>
+</li>
+<li><p>调整大小</p>
+<pre><code>VBoxManage.exe modifyhd E:\Soft\VirtualBox\VMs\Ubuntu-14.04\Ubuntu-14.04.vdi --resize 20480
+</code></pre></li>
+<li><p>重新调整分区大小</p>
+<ul>
+<li><p>使用<code>GParted Live CD</code></p>
+</li>
+<li><p>使用<code>ubuntu Live CD</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://forums.virtualbox.org/viewtopic.php?f=35&amp;t=50661" target="_blank" rel="external">https://forums.virtualbox.org/viewtopic.php?f=35&amp;t=50661</a></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2015/02/09/virtualbox-拓展磁盘空间/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-02-07 </div>
 			<div class="article-title"><a href="/2015/02/07/ubuntu-编译openwrt/" >ubuntu-编译openwrt</a></div>						
 		</h3>
@@ -506,58 +672,6 @@ work Adapter
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-05 </div>
-			<div class="article-title"><a href="/2015/02/05/跟踪应用程序执行的系统调用/" >跟踪应用程序执行的系统调用</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<pre><code>strace program
-</code></pre>
-	
-	</div>
-  <a type="button" href="/2015/02/05/跟踪应用程序执行的系统调用/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-02-05 </div>
-			<div class="article-title"><a href="/2015/02/05/检查linux是否支持netlink/" >检查linux是否支持netlink</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<ul>
-<li><p>检查<code>/proc/net/netlink</code>是否存在</p>
-</li>
-<li><p><code>cat /proc/net/protocols</code>是否有<code>NETLINK</code></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://stackoverflow.com/questions/24284255/is-there-any-user-level-command-to-check-whether-a-kernel-image-is-supporting-ne" target="_blank" rel="external">http://stackoverflow.com/questions/24284255/is-there-any-user-level-command-to-check-whether-a-kernel-image-is-supporting-ne</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2015/02/05/检查linux是否支持netlink/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -863,45 +977,45 @@ work Adapter
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/粘贴板/">粘贴板<span>1</span></a></li>
+			<li><a href="/tags/为什么/">为什么<span>1</span></a></li>
 		
-			<li><a href="/tags/单例模式/">单例模式<span>1</span></a></li>
+			<li><a href="/tags/文件/">文件<span>7</span></a></li>
 		
-			<li><a href="/tags/limit/">limit<span>2</span></a></li>
+			<li><a href="/tags/resume/">resume<span>1</span></a></li>
 		
-			<li><a href="/tags/sql/">sql<span>7</span></a></li>
+			<li><a href="/tags/rsa/">rsa<span>2</span></a></li>
 		
-			<li><a href="/tags/rune/">rune<span>1</span></a></li>
+			<li><a href="/tags/左值/">左值<span>1</span></a></li>
 		
-			<li><a href="/tags/exchange/">exchange<span>1</span></a></li>
+			<li><a href="/tags/dll/">dll<span>1</span></a></li>
 		
-			<li><a href="/tags/literal/">literal<span>1</span></a></li>
+			<li><a href="/tags/boost-string-ref/">boost::string_ref<span>1</span></a></li>
 		
-			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
+			<li><a href="/tags/xshell/">xshell<span>1</span></a></li>
 		
-			<li><a href="/tags/best-practice/">best practice<span>1</span></a></li>
+			<li><a href="/tags/IP/">IP<span>4</span></a></li>
 		
-			<li><a href="/tags/网站/">网站<span>2</span></a></li>
+			<li><a href="/tags/过滤器/">过滤器<span>2</span></a></li>
 		
-			<li><a href="/tags/ubuntu/">ubuntu<span>11</span></a></li>
+			<li><a href="/tags/颜色/">颜色<span>1</span></a></li>
 		
-			<li><a href="/tags/proxifier/">proxifier<span>1</span></a></li>
+			<li><a href="/tags/js/">js<span>2</span></a></li>
 		
-			<li><a href="/tags/reserve/">reserve<span>1</span></a></li>
+			<li><a href="/tags/poweriso/">poweriso<span>1</span></a></li>
 		
-			<li><a href="/tags/yum/">yum<span>1</span></a></li>
+			<li><a href="/tags/fuser/">fuser<span>1</span></a></li>
 		
-			<li><a href="/tags/int/">int<span>1</span></a></li>
+			<li><a href="/tags/磁盘/">磁盘<span>1</span></a></li>
 		
-			<li><a href="/tags/svn/">svn<span>3</span></a></li>
+			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/tags/DSETDIR/">DSETDIR<span>1</span></a></li>
+			<li><a href="/tags/pydoc/">pydoc<span>1</span></a></li>
 		
-			<li><a href="/tags/mock-server/">mock-server<span>1</span></a></li>
+			<li><a href="/tags/vbs/">vbs<span>1</span></a></li>
 		
-			<li><a href="/tags/file/">file<span>1</span></a></li>
+			<li><a href="/tags/错误处理/">错误处理<span>3</span></a></li>
 		
-			<li><a href="/tags/IKEV2/">IKEV2<span>1</span></a></li>
+			<li><a href="/tags/grub2/">grub2<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>604</span></a></li>
@@ -917,6 +1031,14 @@ work Adapter
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/22/个人笔记/" ><i class="fa fa-file-o"></i>个人笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/22/pandoc/" ><i class="fa fa-file-o"></i>pandoc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/21/css-隐藏滚动条/" ><i class="fa fa-file-o"></i>css-隐藏滚动条</a>
       </li>
     
@@ -926,14 +1048,6 @@ work Adapter
     
       <li>
         <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
       </li>
     
   </ul>

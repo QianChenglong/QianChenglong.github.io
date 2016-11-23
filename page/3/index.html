@@ -113,6 +113,71 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2016-10-27 </div>
+			<div class="article-title"><a href="/2016/10/27/时间/" >时间</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h1><p>代码中需要时区相关信息时，通过<code>tzset</code>来初始化相关全局变量，然后读取</p>
+<p><code>tzset</code>原理</p>
+<ol>
+<li><p>优先读取<code>TZ</code>环境变量值</p>
+</li>
+<li><p>若找不到，则使用系统相关的数据文件tzfile(5)</p>
+<p>一般都是通过<code>/etc/localtime</code>符号链接过去的一个文件，如：<code>lrwxrwxrwx. 1 root root 35 Apr 13  2016 /etc/localtime -&gt; ../usr/share/zoneinfo/Asia/Shanghai</code></p>
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><p>man tzset</p>
+</li>
+<li><p>man tzfile</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/10/27/时间/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-10-26 </div>
+			<div class="article-title"><a href="/2016/10/26/编程经验/" >编程经验</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li><p>采用分治法，将大问题划分为多个小问题解决</p>
+</li>
+<li><p>采用辅助信息(字段)，来简化逻辑</p>
+</li>
+<li><p>多用单元测试(实例)，将问题点暴露出来，加深对问题的理解，从而解决</p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2016/10/26/编程经验/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2016-10-24 </div>
 			<div class="article-title"><a href="/2016/10/24/C++11/" >C++11</a></div>						
 		</h3>
@@ -441,89 +506,6 @@
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-29 </div>
-			<div class="article-title"><a href="/2016/09/29/fish/" >fish</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><ul>
-<li><p>-U or –universal</p>
-<p>所有shell实例共享，立马生效，重启后仍然有效</p>
-</li>
-</ul>
-<h1 id="Command-Substitutions"><a href="#Command-Substitutions" class="headerlink" title="Command Substitutions"></a>Command Substitutions</h1><p>用<code>( )</code>来执行子命令</p>
-<pre><code>set os (uname)
-</code></pre><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
-<li><p>更新补全数据</p>
-<pre><code>fish_update_completions
-</code></pre></li>
-</ul>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><ul>
-<li><p>设置变量，并执行命令</p>
-<p>env PORT=7000 <command></p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
-<li><a href="http://fishshell.com/docs/current/tutorial.html" target="_blank" rel="external">http://fishshell.com/docs/current/tutorial.html</a></li>
-</ol>
-
-	
-	</div>
-  <a type="button" href="/2016/09/29/fish/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2016-09-29 </div>
-			<div class="article-title"><a href="/2016/09/29/crond/" >crond</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="配置语法"><a href="#配置语法" class="headerlink" title="配置语法"></a>配置语法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Example of job definition:</span><br><span class="line"># .---------------- minute (0 - 59)</span><br><span class="line"># |  .------------- hour (0 - 23)</span><br><span class="line"># |  |  .---------- day of month (1 - 31)</span><br><span class="line"># |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...</span><br><span class="line"># |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7)</span><br><span class="line"># |  |  |  |  |</span><br><span class="line"># *  *  *  *  *   command to be executed</span><br></pre></td></tr></table></figure>
-<p>| 特殊字符 | 代表意义                                                                |<br>|———-+————————————————————————-|<br>| <code>*</code>      | 代表任何时刻都接受的意思!                                               |<br>| <code>,</code>      | 0 3,6 <em> </em> <em> command代表几个时段的意思。这个例子就是3:00和6:00           |<br>| <code>-</code>      | 代表一段时间范围内,与逗号一样，只不过是连续的几个点，是’，’的特殊情况   |<br>| `</em>/n`    | <em>/5 </em> <em> </em> <em> command那个n代表数字,亦即是每隔n单位间隔，该位要用’</em>‘先填补 |</p>
-<p>特殊时间控制：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@reboot &lt;COMMAND&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
-<li><p>周与日和月不能同时存在，因为两个点指向的天不一定是同一天，指定了周，日和月都要置成<em>，指定了月或日，周就要置成</em>；</p>
-</li>
-<li><p><code>%</code>需要转义，默认用来表示后续字符作为命令的标准输入！</p>
-<p><code>date --date=&#39;-1 day&#39; +&quot;\%Y-\%m-\%d&quot;</code></p>
-</li>
-<li><p>指定shell</p>
-<pre><code>SHELL=/bin/bash
-</code></pre></li>
-<li><p>命令中不能使用<code>sudo</code>，除非修改<code>/etc/sudoers</code>中配置<code>Defaults requiretty</code>=&gt;<code>Defaults !requiretty</code></p>
-</li>
-</ul>
-<h1 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h1><ul>
-<li><p>重定向标准输出和出错到文件</p>
-<pre><code>* * * * * &lt;COMMAND&gt; &gt;&gt;/tmp/crond.log 2&gt;&amp;1
-</code></pre></li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2016/09/29/crond/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -829,45 +811,45 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/程序设计/">程序设计<span>1</span></a></li>
+			<li><a href="/tags/varchar/">varchar<span>2</span></a></li>
 		
-			<li><a href="/tags/len/">len()<span>1</span></a></li>
+			<li><a href="/tags/DHCP/">DHCP<span>1</span></a></li>
 		
-			<li><a href="/tags/date/">date<span>1</span></a></li>
+			<li><a href="/tags/configure/">configure<span>1</span></a></li>
 		
-			<li><a href="/tags/memdisk/">memdisk<span>1</span></a></li>
+			<li><a href="/tags/隐藏/">隐藏<span>2</span></a></li>
 		
-			<li><a href="/tags/install/">install<span>2</span></a></li>
+			<li><a href="/tags/打印机/">打印机<span>1</span></a></li>
 		
-			<li><a href="/tags/路由器/">路由器<span>2</span></a></li>
+			<li><a href="/tags/zerofill/">zerofill<span>1</span></a></li>
 		
-			<li><a href="/tags/wmic/">wmic<span>1</span></a></li>
+			<li><a href="/tags/APP/">APP<span>1</span></a></li>
 		
-			<li><a href="/tags/MAC/">MAC<span>1</span></a></li>
+			<li><a href="/tags/tortoisesvn/">tortoisesvn<span>1</span></a></li>
 		
-			<li><a href="/tags/vps/">vps<span>1</span></a></li>
+			<li><a href="/tags/actor/">actor<span>1</span></a></li>
 		
-			<li><a href="/tags/keymap/">keymap<span>1</span></a></li>
+			<li><a href="/tags/rpm/">rpm<span>1</span></a></li>
 		
-			<li><a href="/tags/content-type/">content-type<span>1</span></a></li>
+			<li><a href="/tags/测试用例/">测试用例<span>1</span></a></li>
 		
-			<li><a href="/tags/数据库/">数据库<span>4</span></a></li>
+			<li><a href="/tags/gdb/">gdb<span>5</span></a></li>
 		
-			<li><a href="/tags/libnet/">libnet<span>1</span></a></li>
+			<li><a href="/tags/教程/">教程<span>1</span></a></li>
 		
-			<li><a href="/tags/rsync/">rsync<span>2</span></a></li>
+			<li><a href="/tags/css/">css<span>1</span></a></li>
 		
-			<li><a href="/tags/usb/">usb<span>3</span></a></li>
+			<li><a href="/tags/valgrind/">valgrind<span>1</span></a></li>
 		
-			<li><a href="/tags/macro/">macro<span>4</span></a></li>
+			<li><a href="/tags/clover/">clover<span>1</span></a></li>
 		
-			<li><a href="/tags/char/">char<span>2</span></a></li>
+			<li><a href="/tags/认证/">认证<span>1</span></a></li>
 		
-			<li><a href="/tags/crond/">crond<span>1</span></a></li>
+			<li><a href="/tags/GUID/">GUID<span>1</span></a></li>
 		
-			<li><a href="/tags/智能指针/">智能指针<span>1</span></a></li>
+			<li><a href="/tags/交换机/">交换机<span>2</span></a></li>
 		
-			<li><a href="/tags/int-n/">int(n)<span>1</span></a></li>
+			<li><a href="/tags/QQ/">QQ<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>604</span></a></li>
@@ -883,6 +865,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2016/11/22/个人笔记/" ><i class="fa fa-file-o"></i>个人笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/11/22/pandoc/" ><i class="fa fa-file-o"></i>pandoc</a>
+      </li>
+    
+      <li>
         <a href="/2016/11/21/css-隐藏滚动条/" ><i class="fa fa-file-o"></i>css-隐藏滚动条</a>
       </li>
     
@@ -892,14 +882,6 @@
     
       <li>
         <a href="/2016/11/10/rfc/" ><i class="fa fa-file-o"></i>rfc</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/sshd_config/" ><i class="fa fa-file-o"></i>sshd_config</a>
-      </li>
-    
-      <li>
-        <a href="/2016/11/07/journalctl/" ><i class="fa fa-file-o"></i>journalctl</a>
       </li>
     
   </ul>

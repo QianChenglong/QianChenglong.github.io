@@ -331,21 +331,25 @@
 </li>
 <li><p>在C中，NULL被定义成一个0值常量表达式或者该表达式被转型为<code>void*</code>，具体由实现决定<br>但语法上允许下面用法</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *pi1 = <span class="number">0</span>; <span class="comment">// ok</span></span><br><span class="line"><span class="keyword">int</span> *pi2 = (void*)<span class="number">0</span>; <span class="comment">// ok</span></span><br></pre></td></tr></table></figure>
-<p>而在C++中，C++11之前，NULL被定义成0，之后采用<code>nullptr</code>，不支持<code>(void*)0</code>！</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> NULL</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _WIN64</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL 0LL</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  <span class="comment">/* W64 */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL ((void *)0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *pi1 = <span class="number">0</span>; <span class="comment">// ok</span></span><br><span class="line"><span class="keyword">int</span> *pi2 = (void*)<span class="number">0</span>; <span class="comment">// error!</span></span><br><span class="line"><span class="keyword">int</span> *pi3 = <span class="number">1</span>; <span class="comment">// error!</span></span><br></pre></td></tr></table></figure>
+<p>在C++11之前，32位系统中，NULL被定义成0，64位被定义为0LL，这样在一定场景下会导致歧义！</p>
+<p>C++11之后采用<code>nullptr</code>，不支持<code>(void*)0</code>！</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> NULL</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _WIN64</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL 0 <span class="comment">// 32bit</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL 0LL <span class="comment">// 64bit</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  <span class="comment">/* W64 */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL ((void *)0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> *pi1 = <span class="number">0</span>; <span class="comment">// ok</span></span><br><span class="line"><span class="keyword">int</span> *pi2 = (void*)<span class="number">0</span>; <span class="comment">// error!</span></span><br><span class="line"><span class="keyword">int</span> *pi3 = <span class="number">1</span>; <span class="comment">// error!</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DoSomething</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DoSomething</span><span class="params">(<span class="keyword">char</span>* x)</span></span>;</span><br><span class="line">DoSomething(<span class="literal">NULL</span>); <span class="comment">// g++ 5.1.0: error: call of overloaded 'DoSomething(NULL)' is ambiguous</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>*&gt; v(<span class="number">10</span>);</span><br><span class="line"><span class="comment">// 模板根据NULL推断类型为long long int，而v对应的却是int*!</span></span><br><span class="line"><span class="built_in">std</span>::fill(v.begin(), v.end(), <span class="literal">NULL</span>); <span class="comment">// error: error: invalid conversion from 'long long int' to 'int*'</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="void"><a href="#void" class="headerlink" title="void*"></a>void*</h1><ul>
-<li><p>在C中，<code>void*</code>从或者向其他类型指针隐式转换，但在C++中，不允许<code>void*</code>隐式转换为其他类型指针！</p>
+<h1 id="void"><a href="#void" class="headerlink" title="void*"></a>void*</h1><p><strong>在C中，<code>void*</code>从或者向其他类型指针隐式转换，但在C++中，不允许<code>void*</code>隐式转换为其他类型指针！</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> *pv;</span><br><span class="line"><span class="keyword">int</span> *pi = pv; <span class="comment">// C中合法，C++中不合法</span></span><br><span class="line">pv = pi; <span class="comment">//</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> *pv;</span><br><span class="line"><span class="comment">// int *pi = pv; // error!</span></span><br><span class="line"><span class="keyword">int</span> *pi = <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">int</span>*&gt;(pv);</span><br><span class="line">pv = pi;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<h1 id="为什么C-中采用-define-NULL-0，而不支持-define-NULL-void-0-呢？"><a href="#为什么C-中采用-define-NULL-0，而不支持-define-NULL-void-0-呢？" class="headerlink" title="为什么C++中采用#define NULL 0，而不支持#define NULL ((void *)0)呢？"></a>为什么C++中采用<code>#define NULL 0</code>，而不支持<code>#define NULL ((void *)0)</code>呢？</h1><p>在C中，假设开发人员知道他们所做的事，允许<code>void*</code>隐式转换是为了方便程序开发。</p>
+<p>而在C++中，为了保证类型安全，不建议使用C中的强制类型转换，以及<code>void*</code>隐式转换(从语法层禁止！)<br>因为C++中，为了支持类，多态，类型之间任意转换，是很容易导致错误的！</p>
+<p>假设允许<code>void*</code>隐式转换：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> *pa = new A;</span><br><span class="line">B *pb = pa;</span><br></pre></td></tr></table></figure>
+<p>类似这样的代码不会发出任何警告，而这样的错误定位起来非常麻烦！</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="http://www.stroustrup.com/bs_faq2.html#void-ptr" target="_blank" rel="external">Why must I use a cast to convert from void*?</a></li>
 <li><a href="http://stackoverflow.com/questions/7016861/why-are-null-pointers-defined-differently-in-c-and-c" target="_blank" rel="external">http://stackoverflow.com/questions/7016861/why-are-null-pointers-defined-differently-in-c-and-c</a></li>
 <li><a href="http://en.cppreference.com/w/c/language/conversion#Pointer_conversions" target="_blank" rel="external">http://en.cppreference.com/w/c/language/conversion#Pointer_conversions</a></li>
 <li><a href="http://en.cppreference.com/w/cpp/types/NULL" target="_blank" rel="external">http://en.cppreference.com/w/cpp/types/NULL</a></li>
+<li><a href="http://softwareengineering.stackexchange.com/questions/275712/why-arent-void-s-implicitly-cast-in-c" target="_blank" rel="external">http://softwareengineering.stackexchange.com/questions/275712/why-arent-void-s-implicitly-cast-in-c</a></li>
 <li>C++ 4.10.1</li>
 </ol>
 ]]></content>
@@ -6787,33 +6791,6 @@ mount /dev/cdrom /mnt/cdrom
     </entry>
     
     <entry>
-      <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
-      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.shared_ptr/</url>
-      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
-<li><p>提供一种强大的垃圾回收机制</p>
-</li>
-<li><p>copyable，可存放到容器中，可多次引用</p>
-</li>
-<li><p>当引用计数为0时，自动析构</p>
-</li>
-</ul>
-<h1 id="使用误区"><a href="#使用误区" class="headerlink" title="使用误区"></a>使用误区</h1><ul>
-<li><p>不能使用同一个对象指针来构造</p>
-<pre><code>A *a = new A(1);
-
-boost::shared_ptr&lt;A&gt; p1(a);
-boost::shared_ptr&lt;A&gt; p2(a);
-// 应该这样
-// boost::shared_ptr&lt;A&gt; p1(new A(1));
-// boost::shared_ptr&lt;A&gt; p2(p1);
-</code></pre></li>
-</ul>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>非常强大，多多使用！</p>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/shared_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(new <span class="keyword">int</span>(id))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">delete</span> id_;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    A *a = new A(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p1(a);</span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p2(p1);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *(p1-&gt;id_) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[C++-智能指针之auto_ptr]]></title>
       <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bauto_ptr/</url>
       <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
@@ -6837,6 +6814,33 @@ auto_ptr&lt;int&gt;ap(p);
 <li><a href="http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr" target="_blank" rel="external">http://www.cplusplus.com/reference/memory/auto_ptr/?kw=auto_ptr</a></li>
 <li><a href="http://baike.baidu.com/view/3511189.htm" target="_blank" rel="external">http://baike.baidu.com/view/3511189.htm</a></li>
 </ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C++-智能指针之boost.scroped_ptr]]></title>
+      <url>https://qianchenglong.github.io/2015/06/16/C++-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E4%B9%8Bboost.shared_ptr/</url>
+      <content type="html"><![CDATA[<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><ul>
+<li><p>提供一种强大的垃圾回收机制</p>
+</li>
+<li><p>copyable，可存放到容器中，可多次引用</p>
+</li>
+<li><p>当引用计数为0时，自动析构</p>
+</li>
+</ul>
+<h1 id="使用误区"><a href="#使用误区" class="headerlink" title="使用误区"></a>使用误区</h1><ul>
+<li><p>不能使用同一个对象指针来构造</p>
+<pre><code>A *a = new A(1);
+
+boost::shared_ptr&lt;A&gt; p1(a);
+boost::shared_ptr&lt;A&gt; p2(a);
+// 应该这样
+// boost::shared_ptr&lt;A&gt; p1(new A(1));
+// boost::shared_ptr&lt;A&gt; p2(p1);
+</code></pre></li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>非常强大，多多使用！</p>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boost/shared_ptr.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A(<span class="keyword">int</span> id): id_(new <span class="keyword">int</span>(id))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~A()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">delete</span> id_;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *id_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>* argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    A *a = new A(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p1(a);</span><br><span class="line">    boost::<span class="built_in">shared_ptr</span>&lt;A&gt; p2(p1);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *(p1-&gt;id_) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
